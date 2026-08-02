@@ -62,14 +62,24 @@
       color: var(--coal2);
     }
     .essay-tablewrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--bend); margin: 16px 0 8px; }
-    .essay table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+    .essay table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 620px;
+      font-variant-numeric: tabular-nums;
+    }
     .essay th, .essay td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--rule); font-size: .92rem; white-space: nowrap; }
     .essay thead th { background: var(--coal); color: var(--cream); border-bottom: 0; font-weight: 700; }
     .essay tbody tr:hover { background: var(--wash); }
     .essay tbody tr:last-child td { border-bottom: 0; }
     .essay-note { font-size: .84rem; color: var(--quiet); }
     @media (max-width: 620px) {
-      .essay th, .essay td { white-space: normal; }
+      .essay-tablewrap {
+        margin-right: -8px;
+        scrollbar-color: var(--gilt) var(--wash);
+        scrollbar-width: thin;
+      }
+      .essay th, .essay td { white-space: nowrap; }
     }
   </style>
 </head>

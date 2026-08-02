@@ -3,13 +3,20 @@
 <head>
   <meta charset='UTF-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='theme-color' content='#7c1f2e'>
   <title>页码缺席 — ~SITE_NAME~</title>
   <meta name='robots' content='noindex'>
   <link rel='stylesheet' href='style.css'>
   <style>
+    .absent-well {
+      min-height: calc(100vh - 226px);
+      display: grid;
+      place-items: center;
+      padding: clamp(46px, 9vh, 96px) 24px;
+    }
     .absent {
+      width: min(100%, 460px);
       max-width: 460px;
-      margin: 15vh auto;
       padding: 50px 40px;
       text-align: center;
       background: var(--sheet);
@@ -25,13 +32,40 @@
     }
     .absent p { color: var(--quiet); }
     .absent .press-full { margin-top: 8px; }
+    @media (max-width: 620px) {
+      .absent-well { min-height: calc(100vh - 266px); padding-inline: 18px; }
+      .absent { padding: 42px 24px; }
+    }
   </style>
 </head>
 <body>
-  <div class='absent'>
-    <h1>404</h1>
-    <p>这一页缺席了——不存在或已移动。</p>
-    <p><a class='press press-full' href='index.html'>回观察台</a></p>
-  </div>
+  <header class='mast'>
+    <div class='mast-in'>
+      <a class='sig' href='index.html'>~BRAND_EN~</a>
+      <button type='button' class='mast-btn' id='mast-btn' aria-label='主导航' aria-expanded='false' aria-controls='mast-nav'>
+        <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
+      </button>
+      <nav class='mast-nav' id='mast-nav' aria-label='主导航'>
+        <a href='index.html'>观察</a>
+        <a href='article.html'>评述</a>
+        <a href='tool.html'>算一算</a>
+        <a href='legal.html'>披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='absent-well'>
+    <section class='absent' aria-labelledby='absent-title'>
+      <h1 id='absent-title'>404</h1>
+      <p>这一页缺席了——不存在或已移动。</p>
+      <p><a class='press press-full' href='index.html'>回观察台</a></p>
+    </section>
+  </main>
+
+  <footer class='foot'>
+    <p class='foot-line'>没有找到目标页面；请返回观察台继续查看评述、工具与披露。</p>
+  </footer>
+
+  <script src='boot.js'></script>
 </body>
 </html>
