@@ -66,7 +66,12 @@
 
 .prose-scroll { overflow-x: auto; margin: 14px 0 6px; border: 1px solid var(--hairline); border-radius: 11px; }
 
-.prose-shell table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+.prose-shell table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 620px;
+    font-variant-numeric: tabular-nums;
+}
 
 .prose-shell th, .prose-shell td {
     text-align: left;
@@ -169,7 +174,12 @@
 
 @media (max-width: 620px) {
     .prose-shell { padding: 26px 22px; }
-    .prose-shell th, .prose-shell td { white-space: normal; }
+    .prose-scroll {
+        margin-right: -8px;
+        scrollbar-color: var(--amber) var(--amber-wash);
+        scrollbar-width: thin;
+    }
+    .prose-shell th, .prose-shell td { white-space: nowrap; }
     .rig-panel { padding: 26px 22px; }
     .rig-duo { grid-template-columns: 1fr; }
 }

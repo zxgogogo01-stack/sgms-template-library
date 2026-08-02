@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1e2a52">
     <title>空格子 — %%SITE_NAME%%</title>
     <meta name="robots" content="noindex">
     <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/page.css">
     <style>
+        .void-well {
+            min-height: calc(100vh - 230px);
+            display: grid;
+            place-items: center;
+            padding: clamp(44px, 9vh, 96px) 24px;
+        }
         .void-dish {
+            width: min(100%, 460px);
             max-width: 460px;
-            margin: 15vh auto;
             padding: 52px 40px;
             text-align: center;
             background: var(--card);
@@ -25,13 +33,41 @@
             color: transparent;
         }
         .void-dish p { color: var(--dim); }
+        .void-dish .knap { justify-content: center; }
+        @media (max-width: 620px) {
+            .void-well { min-height: calc(100vh - 270px); padding-inline: 18px; }
+            .void-dish { padding: 42px 24px; }
+        }
     </style>
 </head>
 <body>
-    <div class="void-dish">
-        <h1>404</h1>
-        <p>这个格子是空的——页面不存在或已移动。</p>
-        <p><a class="knap knap-solid" href="index.html">回便当格首页</a></p>
-    </div>
+    <header class="crown">
+        <div class="crown-in">
+            <a class="wordmark" href="index.html">%%BRAND_EN%%<span class="wordmark-dot">.</span></a>
+            <button type="button" class="crown-fold" id="fold-btn" aria-label="主导航" aria-expanded="false" aria-controls="crown-nav">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </button>
+            <nav class="crown-nav" id="crown-nav" aria-label="主导航">
+                <a href="index.html">首页</a>
+                <a href="article.html">指南</a>
+                <a href="tool.html">工具</a>
+                <a href="legal.html">披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="void-well">
+        <section class="void-dish" aria-labelledby="void-title">
+            <h1 id="void-title">404</h1>
+            <p>这个格子是空的——页面不存在或已移动。</p>
+            <p><a class="knap knap-solid" href="index.html">回便当格首页</a></p>
+        </section>
+    </main>
+
+    <footer class="ledge">
+        <p class="ledge-line">没有找到目标页面；你可以返回首页继续浏览栏目、指南与工具。</p>
+    </footer>
+
+    <script src="site.js"></script>
 </body>
 </html>

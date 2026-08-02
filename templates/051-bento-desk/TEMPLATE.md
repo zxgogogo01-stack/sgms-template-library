@@ -21,7 +21,7 @@ index.html / article.html（指南样板：面包屑+目录条+斑马表+FAQ 结
 
 ## 占位符清单（`%%X%%` 语法）
 
-`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_DESC%%`、`%%SEO_TITLE%%`、`%%HERO_EYEBROW%%`、`%%HERO_TITLE%%`、`%%HERO_DESCRIPTION%%`、`%%HOME_FEATURED_LABEL%%`、`%%FOOTER_NOTE%%`、`%%LANG%%`
+`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_DESC%%`、`%%SEO_TITLE%%`、`%%HERO_EYEBROW%%`、`%%HERO_TITLE%%`、`%%HERO_DESCRIPTION%%`、`%%HOME_FEATURED_LABEL%%`、`%%FOOTER_NOTE%%`、`%%AFF_URL%%`、`%%CONTACT_EMAIL%%`、`%%LANG%%`
 
 ## 可调项
 
