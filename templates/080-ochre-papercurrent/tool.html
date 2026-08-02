@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang='{LANG}'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='theme-color' content='#f6f1e7'>
+  <title>费率折页速算 — {SITE_NAME}</title>
+  <meta name='description' content='一笔的费用折成 1/5/10/30 笔，像翻折页一样看成本累积。'>
+  <link rel='canonical' href='https://{SITE_DOMAIN}/tool.html'>
+  <meta property='og:type' content='website'>
+  <meta property='og:site_name' content='{SITE_NAME}'>
+  <meta property='og:title' content='费率折页速算 — {SITE_NAME}'>
+  <meta property='og:description' content='一笔的费用折成 1/5/10/30 笔，像翻折页一样看成本累积。'>
+  <meta property='og:url' content='https://{SITE_DOMAIN}/tool.html'>
+  <meta name='twitter:card' content='summary'>
+  <link rel='stylesheet' href='css/current.css'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "费率折页速算",
+    "url": "https://{SITE_DOMAIN}/tool.html"
+  }
+  </script>
+  <style>
+    .foldout { max-width: 540px; margin: 0 auto; padding: 50px 26px 84px; }
+    .foldout-card {
+      background: var(--sheetcream);
+      border-radius: var(--leafedge);
+      box-shadow: var(--pressfall-hi);
+      border-top: 3px double var(--umberink);
+      padding: 42px 46px;
+      font-family: var(--sans80);
+    }
+    .foldout-card h1 { font-family: var(--serif80); font-size: 1.5rem; }
+    .foldout-card > p { color: var(--fadedumber); margin: 6px 0 8px; }
+    .foldout-card label {
+      display: block;
+      margin: 16px 0 6px;
+      font-size: .86rem;
+      font-weight: 800;
+      color: var(--ochre80-deep);
+    }
+    .foldout-card input {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 16px;
+      border: 1.5px solid var(--paperline);
+      border-radius: var(--leafedge);
+      background: var(--warmleaf);
+      color: var(--umberink);
+      font: inherit;
+      font-family: var(--mono80);
+      font-variant-numeric: tabular-nums;
+      transition: border-color var(--turn80), box-shadow var(--turn80);
+    }
+    .foldout-card input:focus {
+      outline: none;
+      border-color: var(--ochre80);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--ochre80) 16%, transparent);
+    }
+    .foldout-card input[aria-invalid='true'] {
+      border-color: #b42318;
+      box-shadow: 0 0 0 4px color-mix(in srgb, #b42318 14%, transparent);
+    }
+    .foldout-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 52px;
+      border: 0;
+      border-radius: var(--leafedge);
+      background: var(--ochre80);
+      color: #fdf5ec;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      cursor: pointer;
+      box-shadow: 0 10px 24px color-mix(in srgb, var(--ochre80) 34%, transparent);
+      transition: transform var(--turn80), background var(--turn80);
+    }
+    .foldout-run:hover { transform: translateY(-2px); background: var(--ochre80-deep); }
+    .foldout-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 26px;
+      padding: 15px 19px;
+      border-radius: var(--leafedge);
+      background: var(--creamwash);
+      line-height: 1.85;
+      font-variant-numeric: tabular-nums;
+    }
+    .foldout-out b { color: var(--ochre80-deep); }
+    @media (max-width: 600px) {
+      .foldout-card { padding: 30px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class='topfold'>
+    <div class='topfold-in'>
+      <a class='topfold-brand' href='index.html'>{BRAND_EN}</a>
+      <button type='button' class='topfold-btn' id='topfold-btn' aria-label='主导航' aria-expanded='false' aria-controls='topfold-nav'>
+        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+      </button>
+      <nav class='topfold-nav' id='topfold-nav' aria-label='主导航'>
+        <a href='index.html'>本期</a>
+        <a href='article.html'>文章</a>
+        <a href='tool.html' aria-current='page'>费率折页</a>
+        <a href='legal.html'>披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='foldout'>
+    <form class='foldout-card' id='fd-form' novalidate>
+      <h1>费率折页速算</h1>
+      <p>一笔的费用不吓人，折成 30 笔就看清了。三个数展开折页。本地计算。</p>
+      <label for='fd-vol'>单笔金额</label>
+      <input type='number' id='fd-vol' step='any' min='0' placeholder='如 2000' aria-describedby='fd-out'>
+      <label for='fd-rate'>费率（%）</label>
+      <input type='number' id='fd-rate' step='any' min='0' max='100' placeholder='如 0.05' aria-describedby='fd-out'>
+      <label for='fd-cut'>返佣比例（%，可留空）</label>
+      <input type='number' id='fd-cut' step='any' min='0' max='100' placeholder='如 30' aria-describedby='fd-out'>
+      <button type='submit' class='foldout-run' id='fd-run'>展开折页</button>
+      <output class='foldout-out' id='fd-out' role='status' aria-live='polite'></output>
+    </form>
+  </main>
+
+  <footer class='backfold'>
+    <div class='backfold-in'>
+      <p class='backfold-fine'>结果仅供参考，实际以平台结算为准。</p>
+    </div>
+  </footer>
+
+  <script src='current.js'></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="__lang__">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0b0d">
+    <title>返佣到账日估算器 — __site_name__</title>
+    <meta name="description" content="选结算周期与达标日期，估算下次返佣到账日。">
+    <link rel="canonical" href="https://__site_domain__/tool.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="__site_name__">
+    <meta property="og:title" content="返佣到账日估算器 — __site_name__">
+    <meta property="og:description" content="选结算周期与达标日期，估算下次返佣到账日。">
+    <meta property="og:url" content="https://__site_domain__/tool.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="css/screen.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "返佣到账日估算器",
+        "url": "https://__site_domain__/tool.html"
+    }
+    </script>
+    <style>
+        .booth { max-width: 540px; margin: 0 auto; padding: 54px 26px 90px; }
+        .booth-card {
+            background: var(--boothx);
+            border: 1px solid var(--gaffer);
+            border-top: 4px solid var(--curtain);
+            padding: 42px 46px;
+        }
+        .booth-card h1 { font-family: var(--serif63); font-size: 1.55rem; }
+        .booth-card > p { color: var(--ushergrey); margin: 6px 0 8px; }
+        .booth-card label {
+            display: block;
+            margin: 17px 0 6px;
+            font-family: var(--mono63);
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            color: var(--ushergrey);
+        }
+        .booth-card select,
+        .booth-card input {
+            width: 100%;
+            min-height: 48px;
+            padding: 10px 16px;
+            border: 1px solid var(--gaffer);
+            background: var(--pitchx);
+            color: var(--ivoryx);
+            font: inherit;
+            font-family: var(--mono63);
+            font-variant-numeric: tabular-nums;
+            transition: border-color var(--fade63), box-shadow var(--fade63);
+        }
+        .booth-card select:focus,
+        .booth-card input:focus {
+            outline: none;
+            border-color: var(--curtain);
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--curtain) 22%, transparent);
+        }
+        .booth-card input[aria-invalid="true"] {
+            border-color: #ff756b;
+            box-shadow: 0 0 0 4px color-mix(in srgb, #ff756b 20%, transparent);
+        }
+        .booth-run {
+            margin-top: 26px;
+            width: 100%;
+            min-height: 52px;
+            border: 0;
+            background: var(--curtain);
+            color: #f7ece9;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: .14em;
+            cursor: pointer;
+            box-shadow: 0 10px 26px color-mix(in srgb, var(--curtain) 42%, transparent);
+            transition: transform var(--fade63), background var(--fade63);
+        }
+        .booth-run:hover { transform: translateY(-2px); background: var(--curtain-hot); }
+        .booth-out {
+            display: block;
+            margin-top: 18px;
+            min-height: 26px;
+            padding: 16px 20px;
+            background: var(--boothx2);
+            border-left: 4px solid var(--curtain);
+            line-height: 1.8;
+            font-variant-numeric: tabular-nums;
+        }
+        .booth-out b { color: var(--curtain-hot); }
+        @media (max-width: 600px) {
+            .booth-card { padding: 28px 22px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="lobby">
+        <div class="lobby-in">
+            <a class="lobby-sign" href="index.html">__brand_en__</a>
+            <button type="button" class="lobby-btn" id="lobby-btn" aria-label="主导航" aria-expanded="false" aria-controls="lobby-nav">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+            <nav class="lobby-nav" id="lobby-nav" aria-label="主导航">
+                <a href="index.html">放映厅</a>
+                <a href="article.html">场刊</a>
+                <a href="tool.html" aria-current="page">到账估算</a>
+                <a href="legal.html">披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="booth">
+        <form class="booth-card" id="pd-form" novalidate>
+            <h1>返佣到账日估算器</h1>
+            <p>选结算周期、填达标日期，估下次到账。本地计算，不上传。</p>
+            <label for="pd-cycle">结算周期</label>
+            <select id="pd-cycle">
+                <option value="daily">日结</option>
+                <option value="weekly">周结</option>
+                <option value="monthly">月结</option>
+            </select>
+            <label for="pd-date">达标日期</label>
+            <input type="date" id="pd-date" aria-describedby="pd-out">
+            <button type="submit" class="booth-run" id="pd-run">估算到账日</button>
+            <output class="booth-out" id="pd-out" role="status" aria-live="polite"></output>
+        </form>
+    </main>
+
+    <footer class="curtaincall">
+        <div class="curtaincall-in">
+            <p class="curtaincall-fine">结果仅供参考，各平台结算节奏不同，以官方规则为准。</p>
+        </div>
+    </footer>
+
+    <script src="show.js"></script>
+</body>
+</html>

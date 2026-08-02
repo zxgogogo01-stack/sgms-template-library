@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="[[LANG]]">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#e24834">
+<title>封面排版台 · [[SITE_NAME]]</title>
+<meta name="description" content="按主故事、刊名与封面线快速检查本期封面层级。">
+<link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
+<meta property="og:type" content="website"><meta property="og:title" content="封面排版台 · [[SITE_NAME]]"><meta property="og:description" content="按主故事、刊名与封面线快速检查本期封面层级。"><meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="public.css"><link rel="stylesheet" href="static/cover.css">
+</head>
+<body>
+<header class="coverbar"><div class="coverbar-in"><a class="coverbar-brand" href="index.html">[[BRAND_EN]]</a><button class="coverbar-btn" id="coverbar-btn" type="button" aria-label="主导航" aria-expanded="false" aria-controls="coverbar-nav">目录</button><nav class="coverbar-nav" id="coverbar-nav"><a href="index.html">本期封面</a><a href="article.html">封面故事</a><a href="tool.html" aria-current="page">排版台</a><a href="legal.html">版权页</a></nav></div></header>
+<main class="cover-page">
+<nav class="cover-crumb" aria-label="面包屑"><a href="index.html">封面</a><span>/</span><span>排版台</span></nav>
+<header class="cover-tool-head"><p>EDITORIAL DESK / 024</p><h1>封面排版台</h1><span>从主故事、刊名与封面线三个层级检查一期封面的信息重心。</span></header>
+<section class="cover-tool" aria-labelledby="tool-preview-title">
+<div class="cover-modes" role="tablist" aria-label="排版层级">
+<button class="cover-mode is-active" type="button" role="tab" aria-selected="true" data-cover-mode="story"><b>01</b><span>主故事</span></button>
+<button class="cover-mode" type="button" role="tab" aria-selected="false" data-cover-mode="name"><b>02</b><span>刊名</span></button>
+<button class="cover-mode" type="button" role="tab" aria-selected="false" data-cover-mode="lines"><b>03</b><span>封面线</span></button>
+</div>
+<div class="cover-tool-result">
+<div class="cover-mini" aria-hidden="true"><span class="cover-mini-name">[[BRAND_EN]]</span><i></i><strong>城市<br>发光</strong><b>|||| |||</b></div>
+<div class="cover-tool-copy"><p id="tool-kicker">PRIMARY STORY</p><h2 id="tool-preview-title">先让读者看到本期唯一的主角</h2><ul id="tool-items"><li>主标题保持两行以内</li><li>图像承担封面中央的最大面积</li><li>日期与阅读入口放在故事脚部</li></ul></div>
+</div>
+</section>
+<aside class="cover-note"><strong>排版原则</strong><p>封面不是内容清单。视觉重心只能有一个，其余信息用字号、位置与留白建立明确次序。</p></aside>
+</main>
+<footer class="coverfoot"><div class="coverfoot-in"><b>[[SITE_NAME]]</b><p>[[SITE_TAGLINE]]</p><small>© 2026 [[SITE_NAME]] · [[CONTACT_CHANNEL]]</small></div></footer>
+<script src="static/cover.js"></script>
+</body>
+</html>

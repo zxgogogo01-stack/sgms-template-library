@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="%%LANG%%">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#9a3b2f">
+  <title>%%SITE_NAME%% — %%SEO_TITLE%%</title>
+  <meta name="description" content="%%SITE_DESC%%">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="%%SITE_NAME%%">
+  <meta property="og:title" content="%%SITE_NAME%% — %%SEO_TITLE%%">
+  <meta property="og:description" content="%%SITE_DESC%%">
+  <meta property="og:url" content="https://%%SITE_DOMAIN%%/">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="css/public.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <header class="crown">
+    <div class="crown-in">
+      <a class="wordmark" href="index.html">%%BRAND_EN%%<span class="wordmark-dot">.</span></a>
+      <button type="button" class="crown-fold" id="fold-btn" aria-label="主导航" aria-expanded="false" aria-controls="crown-nav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <nav class="crown-nav" id="crown-nav" aria-label="主导航">
+        <a href="index.html" aria-current="page">首页</a>
+        <a href="article.html">指南</a>
+        <a href="tool.html">工具</a>
+        <a href="legal.html">披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="bento-wrap">
+    <div class="bento-grid">
+      <section class="bento-tile bento-hero">
+        <p class="bento-eyebrow">%%HERO_EYEBROW%%</p>
+        <h1 class="bento-h1">%%HERO_TITLE%%</h1>
+        <p class="bento-hero-sub">%%HERO_DESCRIPTION%%</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="article.html">开始阅读 <span class="arrow">→</span></a>
+          <a class="btn" href="legal.html">了解本站</a>
+        </div>
+      </section>
+
+      <a class="bento-tile bento-feature" href="article.html">
+        <span class="bento-kicker">%%HOME_FEATURED_LABEL%%</span>
+        <div class="bento-feature-foot">
+          <div class="bento-meta"><span class="bento-tag">费率与返佣</span><time datetime="2026-01-20">2026-01-20</time></div>
+          <h2 class="bento-feature-title">不同产品线的手续费与返佣口径对照</h2>
+          <p class="bento-feature-ex">先统一费率、交易额和结算周期，再比较返佣后的实际成本。</p>
+        </div>
+      </a>
+
+      <a class="bento-tile bento-cat" href="article.html">
+        <span class="bento-cat-head"><span class="bento-cat-name">新手入门</span><span class="bento-cat-desc">注册、认证与安全核验</span></span>
+        <span class="bento-cat-foot"><b class="bento-cat-num">08</b><span class="bento-arrow" aria-hidden="true">→</span></span>
+      </a>
+      <a class="bento-tile bento-cat" href="article.html">
+        <span class="bento-cat-head"><span class="bento-cat-name">费率与返佣</span><span class="bento-cat-desc">费率表、等级与结算规则</span></span>
+        <span class="bento-cat-foot"><b class="bento-cat-num">12</b><span class="bento-arrow" aria-hidden="true">→</span></span>
+      </a>
+      <a class="bento-tile bento-cat" href="article.html">
+        <span class="bento-cat-head"><span class="bento-cat-name">安全与防骗</span><span class="bento-cat-desc">域名核验、两步验证与提现保护</span></span>
+        <span class="bento-cat-foot"><b class="bento-cat-num">06</b><span class="bento-arrow" aria-hidden="true">→</span></span>
+      </a>
+
+      <a class="bento-tile bento-post" href="article.html">
+        <div class="bento-meta"><span class="bento-tag">费率与返佣</span><time datetime="2026-01-18">2026-01-18</time></div>
+        <h3 class="bento-post-title">返佣到账周期有哪些常见差异</h3>
+        <p class="bento-post-ex">对照日结、周结与月结规则，核验最小结算条件。</p>
+      </a>
+      <a class="bento-tile bento-post" href="article.html">
+        <div class="bento-meta"><span class="bento-tag">新手入门</span><time datetime="2026-01-15">2026-01-15</time></div>
+        <h3 class="bento-post-title">身份认证不通过时应该检查什么</h3>
+        <p class="bento-post-ex">从证件有效期、照片清晰度到地区资格逐项排查。</p>
+      </a>
+      <a class="bento-tile bento-post" href="article.html">
+        <div class="bento-meta"><span class="bento-tag">安全与防骗</span><time datetime="2026-01-12">2026-01-12</time></div>
+        <h3 class="bento-post-title">如何识别仿冒客服和钓鱼链接</h3>
+        <p class="bento-post-ex">不要分享验证码，所有敏感操作回到官方应用完成。</p>
+      </a>
+
+      <a class="bento-tile bento-link" href="tool.html">
+        <span class="bento-arrow" aria-hidden="true">↗</span>
+        <span class="bento-link-ico">算</span>
+        <span class="bento-link-body"><span class="bento-link-title">手续费对比器</span><span class="bento-link-ex">比较不同费率与返佣条件下的净成本</span></span>
+      </a>
+      <a class="bento-tile bento-link" href="tool.html">
+        <span class="bento-arrow" aria-hidden="true">↗</span>
+        <span class="bento-link-ico">验</span>
+        <span class="bento-link-body"><span class="bento-link-title">注册前核验清单</span><span class="bento-link-ex">确认域名、资格、费率和邀请码状态</span></span>
+      </a>
+    </div>
+  </main>
+
+  <footer class="ledge">
+    <div class="ledge-in">
+      <div class="ledge-col"><p class="wordmark ledge-mark">%%BRAND_EN%%<span class="wordmark-dot">.</span></p><p class="ledge-dim">%%FOOTER_NOTE%%</p></div>
+      <div class="ledge-col"><h4>栏目</h4><a href="article.html">新手入门</a><a href="article.html">费率与返佣</a><a href="article.html">安全与防骗</a></div>
+      <div class="ledge-col"><h4>工具</h4><a href="tool.html">手续费对比器</a></div>
+      <div class="ledge-col"><h4>说明</h4><a href="legal.html">披露与免责</a></div>
+    </div>
+    <p class="ledge-line">费率与返佣规则以对应平台官方页面和账户实际显示为准。</p>
+  </footer>
+  <script src="site.js"></script>
+</body>
+</html>

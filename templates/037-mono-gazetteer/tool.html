@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="__LANG__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>地名编目台｜__SITE_NAME__</title>
+  <meta name="description" content="在本地整理地名清单，按首字母分组、去重并排序。">
+  <link rel="canonical" href="https://__SITE_DOMAIN__/tool.html">
+  <meta property="og:title" content="地名编目台｜__SITE_NAME__">
+  <meta property="og:description" content="在本地整理地名清单，按首字母分组、去重并排序。">
+  <meta property="og:url" content="https://__SITE_DOMAIN__/tool.html">
+  <link rel="stylesheet" href="site.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"地名编目台","url":"https://__SITE_DOMAIN__/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
+</head>
+<body data-page="tool">
+  <a href="#main" data-skip>跳到主要内容</a>
+  <header>
+    <div data-masthead>
+      <a href="index.html" data-brand><span>GZ</span><b>__SITE_NAME__</b></a>
+      <nav aria-label="主导航"><a href="index.html">地名索引</a><a href="article.html">条目档案</a><a href="tool.html" aria-current="page">编目台</a><a href="legal.html">收录说明</a></nav>
+      <span data-coordinate><strong>LOCAL PROCESSING</strong>NO DATA UPLOAD</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <header data-inner-hero>
+      <div><p data-kicker>Catalog workbench · Local utility</p><h1>散落的地名，<br>整理成一卷索引。</h1><p data-lede>每行粘贴一个地名或英文转写，编目台会在本地去重、排序并按首字母分组；中文与其他非拉丁字母条目归入“#”。</p></div>
+      <aside data-fact-card><dl><dt>输入格式</dt><dd>每行一条</dd><dt>整理步骤</dt><dd>去重 / 排序 / 分组</dd><dt>空白行</dt><dd>自动忽略</dd><dt>数据上传</dt><dd>不会</dd></dl></aside>
+    </header>
+
+    <div data-workbench>
+      <section aria-labelledby="catalog-input-title"><p data-kicker>INPUT SHEET</p><div data-field-heading><label id="catalog-input-title" for="catalog-input">待编条目</label><span id="catalog-count">0 条</span></div><textarea id="catalog-input" aria-describedby="catalog-help catalog-feedback" placeholder="Aran Terrace&#10;Cenna Ford&#10;阿岚台"></textarea><p id="catalog-help" data-output-note>重复条目会被合并，大小写保留首次出现形式。</p><div data-actions><button type="button" id="group-catalog" data-primary-button>生成分组索引</button><button type="button" id="load-catalog-sample" data-secondary-button>载入样例</button><button type="button" id="clear-catalog" data-secondary-button>清空</button></div><p id="catalog-feedback" data-feedback aria-live="polite"></p></section>
+      <section id="catalog-result" tabindex="-1" aria-labelledby="catalog-result-title"><div data-output-head><div><p data-kicker>OUTPUT REGISTER</p><h2 id="catalog-result-title">分组结果</h2></div><output id="catalog-summary">等待编目</output></div><pre id="catalog-output" data-group-output aria-live="polite">将条目粘贴到左侧，生成后在此显示。</pre><div data-actions><button type="button" id="copy-catalog" data-secondary-button disabled>复制结果</button></div></section>
+    </div>
+  </main>
+
+  <footer><p>编目过程只在当前浏览器内完成 · 输入不会保存或上传。</p><nav aria-label="页脚导航"><a href="index.html">查看现有索引</a><a href="legal.html">收录规范</a><a href="mailto:__CONTACT_EMAIL__">反馈编目问题</a></nav></footer>
+  <script src="app.js"></script>
+</body>
+</html>

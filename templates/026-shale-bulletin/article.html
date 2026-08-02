@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="[[LANG]]">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>v3.8.0 权限审计与导出流程更新｜[[SITE_NAME]]</title>
+  <meta name="description" content="v3.8.0 权限审计、数据导出审批与追溯记录的完整变更说明。">
+  <link rel="canonical" href="https://[[SITE_DOMAIN]]/article.html">
+  <meta property="og:title" content="v3.8.0 权限审计与导出流程更新">
+  <meta property="og:description" content="变更范围、生效时间、迁移步骤与支持渠道。">
+  <meta property="og:url" content="https://[[SITE_DOMAIN]]/article.html">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"TechArticle","headline":"v3.8.0 权限审计与导出流程更新","datePublished":"2026-07-29","dateModified":"2026-07-31","author":{"@type":"Organization","name":"[[SITE_NAME]]"},"mainEntityOfPage":"https://[[SITE_DOMAIN]]/article.html"}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container masthead">
+        <a class="brand" href="index.html" aria-label="[[SITE_NAME]] 首页"><span class="brand-mark" aria-hidden="true">SB</span><span class="brand-copy"><span class="brand-name">[[SITE_NAME]]</span><span class="brand-desc">Release intelligence</span></span></a>
+        <nav class="site-nav" aria-label="主导航"><a href="index.html">公告</a><a href="article.html" aria-current="page">最新版本</a><a href="tool.html">版本比较</a><a href="legal.html">发布规范</a></nav>
+      </div>
+      <div class="top-signal"><div class="container signal-row"><span><i class="signal-dot" aria-hidden="true"></i>发布通道正常 · LAST CHECK 09:40 CST</span><span>当前稳定版 v3.8.0 · 公告时区 Asia/Shanghai</span></div></div>
+    </header>
+
+    <main id="main">
+      <header class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Release note / v3.8.0</p>
+          <h1>权限审计与<br>导出流程更新</h1>
+          <p>管理员现在可以生成可追溯的权限快照，并为敏感数据导出设置二次审批。以下内容说明影响对象、迁移动作与兼容范围。</p>
+          <div class="page-meta"><span>发布 2026.07.29</span><span>更新 2026.07.31</span><span>生效 2026.08.12 02:00 CST</span><span>阅读约 7 分钟</span></div>
+        </div>
+      </header>
+
+      <div class="article-wrap">
+        <div class="container article-grid">
+          <article class="prose">
+            <p>本次发布把“谁能访问什么、谁批准了什么”纳入同一条审计链。对日常成员无操作影响；拥有工作区管理、审计或数据导出权限的角色需要完成一次复核。</p>
+
+            <div class="fact-grid" aria-label="变更摘要">
+              <div class="fact"><span>影响等级</span><strong>重要 · 需管理员动作</strong></div>
+              <div class="fact"><span>影响对象</span><strong>组织与工作区管理员</strong></div>
+              <div class="fact"><span>兼容窗口</span><strong>至 2026.08.12</strong></div>
+            </div>
+
+            <div class="callout warning"><strong>管理员需在生效前完成角色复核</strong><p>若未调整，原“管理导出”角色将在生效时自动映射为“发起导出”，审批权仅保留给组织所有者。</p></div>
+
+            <h2 id="scope">一、影响范围</h2>
+            <p>变更覆盖组织级权限审计、工作区数据导出与管理员活动记录。已生成的导出文件不受影响，下载有效期仍按原规则计算。</p>
+            <ul>
+              <li><strong>组织所有者：</strong>获得审批队列、全局审计快照与策略设置入口。</li>
+              <li><strong>工作区管理员：</strong>可发起导出申请，但是否可自批由组织策略决定。</li>
+              <li><strong>审计员：</strong>可查看权限变更与审批记录，不能下载业务数据。</li>
+              <li><strong>普通成员：</strong>界面与现有权限均无变化。</li>
+            </ul>
+
+            <h2 id="changes">二、具体变化</h2>
+            <p>新流程将权限状态、导出理由与审批结论绑定到同一记录，并对关键节点生成不可编辑的时间戳。</p>
+            <table class="data-table">
+              <thead><tr><th>项目</th><th>此前</th><th>v3.8.0 起</th></tr></thead>
+              <tbody>
+                <tr><td>权限快照</td><td>仅查看当前状态</td><td>按日生成，可追溯 30 天</td></tr>
+                <tr><td>敏感导出</td><td>有权限即可下载</td><td>发起、审批、生成三段式</td></tr>
+                <tr><td>导出理由</td><td>选填文本</td><td>必填，保留在审计记录</td></tr>
+                <tr><td>审批超时</td><td>不适用</td><td>24 小时后自动失效</td></tr>
+                <tr><td>活动记录</td><td>记录发起人</td><td>记录发起、审批与下载人</td></tr>
+              </tbody>
+            </table>
+
+            <h2 id="migration">三、迁移清单</h2>
+            <ol>
+              <li>进入“组织设置 → 访问控制 → 导出策略”，查看系统生成的角色映射预览。</li>
+              <li>确认每个工作区至少有一名可处理审批的组织所有者。</li>
+              <li>将仍需直接下载权限的自动化账号改为专用服务角色，并限定目标工作区。</li>
+              <li>在测试工作区发起一次导出，验证通知、审批与下载记录是否完整。</li>
+              <li>将新流程同步给数据与合规负责人，更新内部操作手册。</li>
+            </ol>
+            <div class="callout"><strong>接口调用方无需立即改造</strong><p>现有导出接口在兼容期内继续返回任务编号。生效后，缺少审批记录的敏感导出将返回 <code>approval_required</code> 状态。</p></div>
+
+            <h2 id="rollback">四、回退与例外</h2>
+            <p>权限快照启用后不可关闭，但组织所有者可以在 30 天内恢复某一历史角色配置。恢复操作只影响权限，不会删除期间生成的审批与活动记录。</p>
+            <p>无人值守的合规归档可申请服务角色例外。例外必须限定数据范围、到期时间和调用来源，并会在审计首页持续提示。</p>
+
+            <h2 id="support">五、支持与订正</h2>
+            <p>如发现角色映射与实际职责不符，请附上组织编号、受影响角色和预期权限，发送至 <a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a>。涉及安全风险的问题请标注“安全”，我们会优先分流。</p>
+            <p>本文若发生实质性订正，将更新页面顶部时间并在公告首页保留订正记录；不会静默修改生效条件。</p>
+          </article>
+
+          <aside class="article-aside" aria-label="文章辅助导航">
+            <nav class="toc" aria-label="本文目录"><p class="rail-label">On this page</p><ol><li><a href="#scope">影响范围</a></li><li><a href="#changes">具体变化</a></li><li><a href="#migration">迁移清单</a></li><li><a href="#rollback">回退与例外</a></li><li><a href="#support">支持与订正</a></li></ol></nav>
+            <div class="aside-action"><p class="rail-label">Version check</p><h3>不确定当前版本？</h3><p>使用本地比较器判断两个版本的先后关系，支持预发布标识。</p><a href="tool.html">打开版本比较器 ↗</a></div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div class="container footer-grid"><p>© 2026 [[SITE_NAME]] · [[COMPLIANCE_NOTE]]</p><div class="footer-links"><a href="index.html">全部公告</a><a href="tool.html">版本比较</a><a href="legal.html">发布规范</a></div></div></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>免责声明 — {{SITE_NAME}}</title>
+  <meta name="description" content="{{SITE_NAME}} 的免责声明与站点说明。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/legal.html">
+  <meta property="og:title" content="免责声明 — {{SITE_NAME}}">
+  <meta property="og:description" content="{{SITE_NAME}} 的免责声明与站点说明。">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/legal.html">
+  <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" href="assets/layout.css">
+  <link rel="stylesheet" href="assets/parts.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "免责声明",
+    "url": "https://{{SITE_DOMAIN}}/legal.html"
+  }
+  </script>
+  <style>
+    .legal-sheet {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px 32px;
+      border-radius: 6px;
+    }
+    .legal-sheet h2 {
+      font-size: 1.1rem;
+      margin-top: 32px;
+    }
+    @media (prefers-color-scheme: dark) {
+      .legal-sheet { background: #1e262d; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-line">
+    <a class="top-line__brand" href="index.html" aria-label="返回首页">{{SITE_NAME}}</a>
+    <nav class="top-line__nav" aria-label="主导航">
+      <a class="top-line__link" href="index.html">费率总览</a>
+      <a class="top-line__link" href="article.html">文章</a>
+      <a class="top-line__link" href="tool.html">工具</a>
+      <a class="top-line__link" href="legal.html" aria-current="page">关于</a>
+    </nav>
+  </header>
+
+  <main class="page-well">
+    <div class="legal-sheet">
+      <h1>免责声明</h1>
+      <p class="legal-sheet__date">生效日期：{{EFFECTIVE_DATE}}</p>
+      <h2>信息性质</h2>
+      <p>本站（{{SITE_DOMAIN}}）提供的全部内容仅作信息整理与知识分享，不构成任何投资建议、要约或招揽。数字资产价格波动剧烈，请自行评估风险。</p>
+      <h2>数据来源</h2>
+      <p>站内引用的费率、规则等信息整理自公开页面，可能滞后或有误，一切以相关平台官方页面实时展示为准。</p>
+      <h2>第三方链接</h2>
+      <p>本站可能包含指向第三方的链接，我们无法保证其内容的准确性与安全性，访问相关链接产生的风险由用户自行承担。</p>
+      <h2>知识产权</h2>
+      <p>除另有说明外，本站原创内容不得未经授权转载。引用请注明出处。</p>
+      <h2>联系我们</h2>
+      <p>对本页内容有疑问，请联系：{{CONTACT_EMAIL}}</p>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <p class="site-foot__line">本站内容仅作信息整理，不构成任何投资建议。</p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

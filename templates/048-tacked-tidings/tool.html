@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="~LANG~">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>返佣金额试算｜~SITE_NAME~</title><meta name="description" content="按金额、比例与封顶条件估算返佣金额，并显示计算过程。">
+  <link rel="canonical" href="https://~SITE_DOMAIN~/tool.html"><link rel="stylesheet" href="static/style.css">
+  <script>(function(){var theme=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';try{theme=localStorage.getItem('td48-theme')||theme}catch(error){}document.documentElement.dataset.theme=theme}())</script>
+</head>
+<body data-page="tool">
+  <div class="utility"><span>FIELD DESK / 048</span><span>LOCAL CALCULATOR</span><span>NO DATA UPLOAD</span></div>
+  <header class="site-header"><div class="header-row frame"><a class="brand" href="index.html"><span>T/48</span><b>~SITE_NAME~</b><small>独立活动观察栏</small></a><button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-nav">目录</button><nav class="site-nav" id="site-nav" data-site-nav data-open="false" aria-label="主要导航"><a href="index.html">布告栏</a><a href="article.html">核对手册</a><a aria-current="page" href="tool.html">返佣试算</a><a href="legal.html">披露记录</a></nav><button class="theme-button" type="button" data-theme-button aria-label="切换明暗模式">夜间</button></div></header>
+  <main class="tool-shell frame">
+    <header class="tool-hero"><p class="eyebrow">REBATE CALCULATOR / LOCAL ONLY</p><h1>先把费率和上限，<br>写进同一张纸。</h1><p>输入活动金额、返佣比例与可选封顶值。结果只用于核对展示规则，不代表平台最终结算。</p></header>
+    <div class="calculator-board">
+      <form data-calc-form novalidate>
+        <div class="form-heading"><span>INPUT NOTE / 01</span><strong>试算条件</strong></div>
+        <label>活动金额 <span>必填</span><input id="calc-amount" name="amount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="例如 2500"></label>
+        <label>返佣比例（%） <span>0—100</span><input id="calc-rate" name="rate" type="number" min="0" max="100" step="0.01" inputmode="decimal" placeholder="例如 8"></label>
+        <label>封顶金额 <span>可选，0 表示不设上限</span><input id="calc-cap" name="cap" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
+        <div class="preset-row" aria-label="示例条件"><button type="button" data-calc-preset="1000,5,0">1,000 × 5%</button><button type="button" data-calc-preset="2500,8,150">2,500 × 8% / 封顶150</button></div>
+        <p class="form-message" data-calc-message role="alert" aria-live="polite"></p>
+        <div class="form-actions"><button class="primary-button" type="submit">计算预计返佣</button><button type="button" data-calc-reset>清空</button></div>
+      </form>
+      <section class="calc-result" aria-live="polite">
+        <div class="result-heading"><span>OUTPUT NOTE / 02</span><b data-calc-state>等待输入</b></div>
+        <div class="result-amount"><small>预计返佣</small><strong data-calc-result>—</strong></div>
+        <div class="formula" data-calc-formula>金额 × 比例，若设上限则取较小值。</div>
+        <dl><div><dt>未封顶结果</dt><dd data-calc-raw>—</dd></div><div><dt>封顶条件</dt><dd data-calc-limit>—</dd></div><div><dt>有效比例</dt><dd data-calc-effective>—</dd></div></dl>
+        <button type="button" data-copy-result disabled>复制试算结果</button><span class="copy-status" data-calc-copy role="status" aria-live="polite"></span>
+      </section>
+    </div>
+    <section class="tool-notes"><div><p class="eyebrow">READ BEFORE USE / 03</p><h2>数字只回答“怎么算”，<br>不回答“是否有资格”。</h2></div><ol><li><span>01</span>先在活动页确认适用地区、账户类型与有效期。</li><li><span>02</span>平台可能按净手续费、分级费率或其他口径结算。</li><li><span>03</span>实际结果以账户账单、活动规则与官方判定为准。</li></ol></section>
+  </main>
+  <footer class="site-footer"><div class="frame footer-grid"><div><a class="footer-brand" href="index.html">T/48 · ~SITE_NAME~</a><p>~SITE_DESC~</p></div><nav aria-label="页脚导航"><a href="index.html">布告栏</a><a href="article.html">核对手册</a><a href="tool.html">返佣试算</a><a href="legal.html">披露记录</a></nav><div><span>联系与更正</span><a href="mailto:~CONTACT_EMAIL~">~CONTACT_EMAIL~</a></div></div><div class="frame footer-bottom"><span>© 2026 ~SITE_NAME~</span><span>试算在本地完成，不上传输入数据</span></div></footer>
+  <script src="static/main.js"></script>
+</body>
+</html>

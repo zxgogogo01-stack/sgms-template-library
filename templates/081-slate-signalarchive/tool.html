@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="%%LANG%%">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#eef0f2">
+    <title>返佣模式对比器 — %%SITE_NAME%%</title>
+    <meta name="description" content="邀请返佣和自返模式各能拿多少，一次对比。">
+    <link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="%%SITE_NAME%%">
+    <meta property="og:title" content="返佣模式对比器 — %%SITE_NAME%%">
+    <meta property="og:description" content="邀请返佣和自返模式各能拿多少，一次对比。">
+    <meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="assets/archive.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "返佣模式对比器",
+        "url": "https://%%SITE_DOMAIN%%/tool.html"
+    }
+    </script>
+    <style>
+        /* 工具页补充样式 */
+        .comparedesk { max-width: 540px; margin: 0 auto; padding: 46px 24px 80px; }
+        .comparedesk-card {
+            background: var(--foliocard);
+            border: 1px solid var(--hairfold);
+            border-top: 4px solid var(--steelblue);
+            border-radius: calc(var(--foldR) + 4px);
+            box-shadow: var(--dropfall-hi);
+            padding: 40px 44px;
+        }
+        .comparedesk-card h1 { font-family: var(--serif81); font-size: 1.48rem; }
+        .comparedesk-card > p { color: var(--slatehint); margin: 6px 0 8px; }
+        .comparedesk-card label {
+            display: block;
+            margin: 16px 0 6px;
+            font-size: .86rem;
+            font-weight: 800;
+            color: var(--steelblue-deep);
+        }
+        .comparedesk-card input {
+            width: 100%;
+            min-height: 47px;
+            padding: 10px 15px;
+            border: 1.5px solid var(--hairfold);
+            border-radius: var(--foldR);
+            background: var(--coolstack);
+            color: var(--carbonink);
+            font: inherit;
+            font-family: var(--mono81);
+            font-variant-numeric: tabular-nums;
+            transition: border-color var(--shift81), box-shadow var(--shift81);
+        }
+        .comparedesk-card input:focus {
+            outline: none;
+            border-color: var(--steelblue);
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--steelblue) 16%, transparent);
+        }
+        .comparedesk-card input[aria-invalid="true"] {
+            border-color: #b42318;
+            box-shadow: 0 0 0 4px color-mix(in srgb, #b42318 14%, transparent);
+        }
+        .comparedesk-run {
+            margin-top: 26px;
+            width: 100%;
+            min-height: 52px;
+            border: 0;
+            border-radius: var(--foldR);
+            background: var(--steelblue);
+            color: #f2f6fa;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: .06em;
+            cursor: pointer;
+            box-shadow: 0 10px 24px color-mix(in srgb, var(--steelblue) 34%, transparent);
+            transition: transform var(--shift81), background var(--shift81);
+        }
+        .comparedesk-run:hover { transform: translateY(-2px); background: var(--steelblue-deep); }
+        .comparedesk-out {
+            display: block;
+            margin-top: 18px;
+            min-height: 26px;
+            padding: 15px 19px;
+            border-radius: var(--foldR);
+            background: var(--greywash);
+            line-height: 1.78;
+            font-variant-numeric: tabular-nums;
+        }
+        .comparedesk-out b { color: var(--steelblue-deep); }
+        @media (max-width: 600px) {
+            .comparedesk-card { padding: 26px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="archbar">
+        <div class="archbar-in">
+            <a class="archbar-brand" href="index.html">%%BRAND_EN%%</a>
+            <button type="button" class="archbar-btn" id="archbar-btn" aria-label="主导航" aria-expanded="false" aria-controls="archbar-nav">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+            <nav class="archbar-nav" id="archbar-nav" aria-label="主导航">
+                <a href="index.html">档案</a>
+                <a href="article.html">卷宗</a>
+                <a href="tool.html" aria-current="page">模式对比</a>
+                <a href="legal.html">披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="comparedesk">
+        <form class="comparedesk-card" id="cm-form" novalidate>
+            <h1>返佣模式对比器</h1>
+            <p>有的平台走邀请返佣，有的支持自返。同一笔手续费，两种模式各拿多少？本地计算。</p>
+            <label for="cm-fee">月手续费合计</label>
+            <input type="number" id="cm-fee" step="any" min="0" placeholder="如 120" aria-describedby="cm-out">
+            <label for="cm-invite">邀请返佣比例（%）</label>
+            <input type="number" id="cm-invite" step="any" min="0" max="100" placeholder="如 30" aria-describedby="cm-out">
+            <label for="cm-self">自返比例（%）</label>
+            <input type="number" id="cm-self" step="any" min="0" max="100" placeholder="如 20" aria-describedby="cm-out">
+            <button type="submit" class="comparedesk-run" id="cm-run">对比</button>
+            <output class="comparedesk-out" id="cm-out" role="status" aria-live="polite"></output>
+        </form>
+    </main>
+
+    <footer class="vaultend">
+        <div class="vaultend-in">
+            <p class="vaultend-fine">结果仅供参考，两种模式能否同享以平台规则为准。</p>
+        </div>
+    </footer>
+
+    <script src="assets/archive.js"></script>
+</body>
+</html>

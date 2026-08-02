@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='[[LANG]]'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>文件未找到 — [[SITE_NAME]]</title>
+  <meta name='robots' content='noindex'>
+  <link rel='stylesheet' href='static/os.css'>
+  <style>
+    .notfound64 { max-width: 480px; margin: 14vh auto; padding: 0 24px; }
+    .notfound64-win {
+      border-radius: var(--nub64);
+      background: var(--chassis-2);
+      border: 1.5px solid var(--bezel);
+      box-shadow: var(--drop64-hi);
+      overflow: hidden;
+    }
+    .notfound64-body { padding: 40px 38px; text-align: center; }
+    .notfound64-body h1 {
+      font-family: var(--mono64);
+      font-size: 2.9rem;
+      letter-spacing: .1em;
+      color: var(--keytone);
+    }
+    .notfound64-body p { color: var(--etch-dim); margin: 8px 0 22px; }
+  </style>
+</head>
+<body>
+  <div class='notfound64'>
+    <div class='notfound64-win'>
+      <div class='winbar'>
+        <span class='lamps' aria-hidden='true'><i class='lamp lamp-r'></i><i class='lamp lamp-y'></i><i class='lamp lamp-g'></i></span>
+        <span class='winbar-name'>错误 404</span>
+      </div>
+      <div class='notfound64-body'>
+        <h1>404</h1>
+        <p>文件未找到——可能已移动、重命名或删除。</p>
+        <a class='osbtn osbtn-go' href='index.html'>返回工作台</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="%%LANG%%">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>返佣后净手续费计算器 — %%SITE_NAME%%</title>
+  <meta name="description" content="根据交易额、手续费率和返佣比例估算净手续费。">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
+  <link rel="stylesheet" href="assets/public.css">
+  <link rel="stylesheet" href="assets/wall.css">
+</head>
+<body>
+  <header class="site-header wg-site-header wg-decision-wall-header">
+    <div class="wg-header-grid">
+      <div class="wg-header-brand"><a class="brand" href="index.html">%%BRAND_EN%%</a></div>
+      <button type="button" class="menu-toggle" aria-label="主导航" aria-expanded="false" aria-controls="site-nav">菜单</button>
+      <nav class="nav wg-main-nav" id="site-nav"><a href="index.html">首页</a><a href="article.html">指南</a><a href="tool.html" aria-current="page">工具</a><a href="legal.html">披露</a></nav>
+    </div>
+  </header>
+  <main class="template-shell">
+    <article class="article">
+      <header class="article-head"><p class="meta">静态前端工具</p><h1>返佣后净手续费计算器</h1><p class="lead">输入示例数据，结果仅用于比较成本口径。</p></header>
+      <form class="tool-card" id="tool-form" aria-labelledby="tool-title" novalidate>
+        <h2 id="tool-title">输入参数</h2>
+        <div class="tool-grid">
+          <label>交易额<input id="trade-volume" type="number" min="0" step="0.01" value="100000" aria-describedby="tool-result"></label>
+          <label>手续费率（%）<input id="fee-rate" type="number" min="0" step="0.001" value="0.1" aria-describedby="tool-result"></label>
+          <label>返佣比例（%）<input id="rebate-rate" type="number" min="0" max="100" step="0.1" value="20" aria-describedby="tool-result"></label>
+        </div>
+        <button class="tool-action" id="tool-run" type="submit">计算</button>
+        <div class="tool-result" id="tool-result" role="status" aria-live="polite">填写参数后点击“计算”。</div>
+      </form>
+    </article>
+  </main>
+  <footer class="site-footer wg-footer"><div class="wg-footer-row"><p>计算结果为演示值，以实际账单为准。</p><nav><a href="legal.html">披露与免责</a></nav></div></footer>
+  <script src="assets/wall.js"></script>
+</body>
+</html>

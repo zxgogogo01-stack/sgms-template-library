@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="{LANG}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eef4f3">
+  <title>披露与免责 — {SITE_NAME}</title>
+  <meta name="description" content="{SITE_NAME} 的利益披露与免责声明。">
+  <link rel="canonical" href="https://{SITE_DOMAIN}/legal.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{SITE_NAME}">
+  <meta property="og:title" content="披露与免责 — {SITE_NAME}">
+  <meta property="og:description" content="{SITE_NAME} 的利益披露与免责声明。">
+  <meta property="og:url" content="https://{SITE_DOMAIN}/legal.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="css/glue.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "披露与免责",
+    "url": "https://{SITE_DOMAIN}/legal.html"
+  }
+  </script>
+  <style>
+    .noticewall { max-width: 700px; margin: 0 auto; padding: 46px 24px 84px; }
+    .noticewall h1 { font-family: var(--serif0); font-size: 1.8rem; }
+    .noticewall-meta { margin: 8px 0 26px; font-family: var(--mono0); font-size: .84rem; color: var(--fadex); }
+    .notice {
+      position: relative;
+      background: var(--paperx);
+      border-radius: 4px;
+      box-shadow: var(--shadex);
+      padding: 24px 30px;
+      margin-bottom: 16px;
+    }
+    .notice:nth-child(odd) { transform: rotate(.35deg); }
+    .notice:nth-child(even) { transform: rotate(-.35deg); }
+    .notice::before {
+      content: "";
+      position: absolute;
+      top: -9px;
+      left: 26px;
+      width: 68px;
+      height: 18px;
+      border-radius: 2px;
+      transform: rotate(-2deg);
+    }
+    .notice:nth-child(odd)::before { background: color-mix(in srgb, var(--coral0) 50%, transparent); }
+    .notice:nth-child(even)::before { background: color-mix(in srgb, var(--teal0) 45%, transparent); }
+    .notice h2 { font-family: var(--serif0); font-size: 1.06rem; margin-bottom: 7px; color: var(--teal0-deep); }
+    .notice p { margin: 0; color: var(--fadex); }
+  </style>
+</head>
+<body>
+  <header class="awning">
+    <div class="awning-in">
+      <a class="decal" href="index.html">{BRAND_EN}</a>
+      <button type="button" class="awning-knob" id="awning-knob" aria-label="主导航" aria-expanded="false" aria-controls="awning-nav">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="awning-nav" id="awning-nav" aria-label="主导航">
+        <a href="index.html">剪贴墙</a>
+        <a href="article.html">文章</a>
+        <a href="tool.html">记账页</a>
+        <a href="legal.html" aria-current="page">披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="noticewall">
+    <h1>披露与免责</h1>
+    <p class="noticewall-meta">更新 2026-01-19</p>
+
+    <section class="notice">
+      <h2>利益披露</h2>
+      <p>本站（{SITE_DOMAIN}）展示交易平台邀请码。用码注册不会多付费用，还能享最高 20% 手续费减免*（* 实际比例以交易所页面显示为准，可能随政策调整）。</p>
+    </section>
+
+    <section class="notice">
+      <h2>内容口径</h2>
+      <p>每张卡片为公开信息整理，注明核对时间；平台规则随时调整，以官方页面实时显示为准。</p>
+    </section>
+
+    <section class="notice">
+      <h2>免责声明</h2>
+      <p>内容不构成投资建议；数字资产波动剧烈，请自行评估风险。</p>
+    </section>
+
+    <section class="notice">
+      <h2>更正与联系</h2>
+      <p>纠错请附条目与依据：{CONTACT_EMAIL}。查实即更正并注明时间。</p>
+    </section>
+  </main>
+
+  <footer class="baseboard">
+    <div class="baseboard-in">
+      <p class="baseboard-fine">内容以各平台官方页面为准；不构成投资建议。</p>
+    </div>
+  </footer>
+
+  <script src="glue.js"></script>
+</body>
+</html>

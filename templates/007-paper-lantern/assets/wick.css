@@ -1,0 +1,64 @@
+/* Paper Lantern — wick (base) */
+:root {
+  color-scheme: light;
+  --ink-950: #201713;
+  --ink-900: #2b211d;
+  --ink: #342923;
+  --red: #a9412d;
+  --red-deep: #7e2e22;
+  --gold: #c3944c;
+  --paper: #f3eddf;
+  --sheet: #fffaf0;
+  --sheet-deep: #e9dfcb;
+  --line: #d6c7ad;
+  --muted: #776b61;
+  --serif: "STSong", "Songti SC", "Noto Serif SC", Georgia, serif;
+  --sans: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  --mono: Consolas, "SFMono-Regular", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--paper);
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2 { margin: 0; font-family: var(--serif); line-height: 1.18; }
+p { margin: 0; }
+a { color: var(--red); text-underline-offset: 4px; }
+input, button { font: inherit; }
+button { touch-action: manipulation; }
+
+::selection { color: #fff; background: var(--red); }
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --paper: #171310;
+    --sheet: #251f1b;
+    --sheet-deep: #342b25;
+    --ink: #eee4d6;
+    --line: #4a3e35;
+    --muted: #b2a396;
+  }
+}

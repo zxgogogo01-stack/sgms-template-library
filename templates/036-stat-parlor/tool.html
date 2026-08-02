@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="__LANG__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>离散分析台｜__SITE_NAME__</title>
+  <meta name="description" content="在本地计算数列的极值、极差、均值、中位数与离散程度。">
+  <link rel="canonical" href="https://__SITE_DOMAIN__/tool.html">
+  <meta property="og:title" content="离散分析台｜__SITE_NAME__">
+  <meta property="og:description" content="在本地计算数列的极值、极差、均值、中位数与离散程度。">
+  <meta property="og:url" content="https://__SITE_DOMAIN__/tool.html">
+  <link rel="stylesheet" href="site.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"离散分析台","url":"https://__SITE_DOMAIN__/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
+</head>
+<body data-page="tool">
+  <a href="#main" data-skip>跳到主要内容</a>
+  <header>
+    <div data-masthead>
+      <a href="index.html" data-brand><span>SP</span><strong>__SITE_NAME__</strong></a>
+      <nav aria-label="主导航"><a href="index.html">陈列</a><a href="article.html">口径档案</a><a href="tool.html" aria-current="page">分析台</a><a href="legal.html">资料声明</a></nav>
+      <span data-session>仅在本地计算</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <header data-inner-hero>
+      <div><p data-eyebrow>Range room · Local utility</p><h1>让一串数，<br>坐下来谈谈。</h1><p data-lede>粘贴一组观察值，分析台会在本地整理极值、极差、均值、中位数与标准差。输入内容不会离开当前页面。</p></div>
+      <aside data-meta-card><dl><dt>支持格式</dt><dd>空格 / 逗号 / 换行</dd><dt>最少数量</dt><dd>2</dd><dt>计算方式</dt><dd>总体标准差</dd><dt>数据上传</dt><dd>不会</dd></dl></aside>
+    </header>
+
+    <div data-lab>
+      <section aria-labelledby="input-title">
+        <p data-eyebrow>Input tray</p>
+        <div data-field-head><label id="input-title" for="range-input">观察值</label><span id="input-count">0 个数</span></div>
+        <textarea id="range-input" aria-describedby="range-help range-feedback" placeholder="例如：18.4, 21.2, 19.8, 24.6, 20.1"></textarea>
+        <p id="range-help" data-lede>无效字符会被忽略；至少输入两个有限数字。</p>
+        <div data-actions><button type="button" id="calculate-range" data-primary-button>整理这组数字</button><button type="button" id="load-sample" data-quiet-button>载入样例</button><button type="button" id="clear-range" data-quiet-button>清空</button></div>
+        <p id="range-feedback" data-feedback aria-live="polite"></p>
+      </section>
+
+      <section id="range-result" data-result tabindex="-1" aria-labelledby="result-title">
+        <header><div><p data-eyebrow>Conversation notes</p><h2 id="result-title">分析摘要</h2></div><output id="result-count">等待入席</output></header>
+        <div data-result-grid>
+          <div><span>最低值</span><output id="result-min">—</output></div>
+          <div><span>最高值</span><output id="result-max">—</output></div>
+          <div><span>极差</span><output id="result-range">—</output></div>
+          <div><span>平均值</span><output id="result-mean">—</output></div>
+          <div><span>中位数</span><output id="result-median">—</output></div>
+          <div><span>标准差</span><output id="result-deviation">—</output></div>
+        </div>
+        <div data-distribution><span data-meta-label>相对离散程度</span><div aria-hidden="true"><i id="dispersion-bar"></i></div><p id="dispersion-note">计算后显示标准差与平均值的相对关系。</p></div>
+        <div data-actions><button type="button" id="copy-result" data-quiet-button disabled>复制摘要</button></div>
+      </section>
+    </div>
+  </main>
+
+  <footer><p>所有计算只在浏览器内完成 · 结果仅供快速复核。</p><nav aria-label="页脚导航"><a href="article.html">查阅计算口径</a><a href="index.html">返回陈列</a><a href="mailto:__CONTACT_EMAIL__">反馈工具问题</a></nav></footer>
+  <script src="app.js"></script>
+</body>
+</html>

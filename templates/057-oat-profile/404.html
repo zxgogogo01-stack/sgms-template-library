@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="~LANG~">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面不存在 — ~SITE_NAME~</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="card.css">
+    <style>
+        /* 404 补充样式 */
+        .lostcup { max-width: 420px; margin: 16vh auto; padding: 0 22px; text-align: center; }
+        .lostcup-card {
+            background: var(--milk);
+            border-radius: calc(var(--round7) + 6px);
+            box-shadow: var(--soft7-hi);
+            padding: 50px 38px;
+        }
+        .lostcup-face {
+            width: 84px;
+            height: 84px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: radial-gradient(circle at 32% 28%, var(--caramel), var(--roast-deep) 78%);
+            box-shadow: 0 0 0 5px var(--milk), 0 0 0 6.5px var(--crumb);
+        }
+        .lostcup-face b { font-family: var(--serif7); font-size: 1.9rem; color: #fdf6ec; }
+        .lostcup-card h1 { font-family: var(--serif7); font-size: 2.6rem; color: var(--roast); }
+        .lostcup-card p { color: var(--latte); margin: 6px 0 20px; }
+        .lostcup-back {
+            display: inline-block;
+            min-height: 46px;
+            line-height: 46px;
+            padding: 0 26px;
+            border-radius: 999px;
+            background: var(--roast);
+            color: #fdf6ec;
+            font-weight: 800;
+            transition: transform var(--ease7), background var(--ease7);
+        }
+        .lostcup-back:hover { transform: translateY(-2px); background: var(--roast-deep); }
+    </style>
+</head>
+<body>
+    <div class="lostcup">
+        <div class="lostcup-card">
+            <div class="lostcup-face" aria-hidden="true"><b>?</b></div>
+            <h1>404</h1>
+            <p>这一页不在名片上——可能已下架或换了位置。</p>
+            <a class="lostcup-back" href="index.html">回名片</a>
+        </div>
+    </div>
+</body>
+</html>

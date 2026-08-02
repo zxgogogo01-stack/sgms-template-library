@@ -1,0 +1,40 @@
+/* Quiet Quill — letterpress foundations */
+:root {
+  --qq-paper: #f6f1e8;
+  --qq-sheet: #fcf9f3;
+  --qq-ink: #25231f;
+  --qq-soft: #655f55;
+  --qq-faint: #938a7b;
+  --qq-line: #d6cdbd;
+  --qq-red: #a63d2f;
+  --qq-deep: #1f2928;
+  --qq-serif: "Iowan Old Style", "Baskerville", "Songti SC", "STSong", Georgia, serif;
+  --qq-sans: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+}
+html { box-sizing: border-box; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  margin: 0;
+  color: var(--qq-ink);
+  background:
+    linear-gradient(rgba(166,61,47,.022) 1px, transparent 1px) 0 0 / 100% 34px,
+    var(--qq-paper);
+  font-family: var(--qq-serif);
+  font-size: 18px;
+  line-height: 1.82;
+  overflow-x: hidden;
+}
+h1, h2 { margin: 0 0 12px; color: var(--qq-ink); font-weight: 500; line-height: 1.12; letter-spacing: -.025em; }
+p { margin: 0 0 18px; }
+a { color: inherit; text-decoration: none; }
+input, button, textarea { font: inherit; }
+button { cursor: pointer; }
+time { color: var(--qq-faint); font-family: var(--qq-sans); font-size: 10px; letter-spacing: .09em; }
+::selection { background: #e7c4b8; color: #4c211a; }
+:focus-visible { outline: 3px solid var(--qq-red); outline-offset: 4px; }
+@media (prefers-color-scheme: dark) {
+  :root { --qq-paper:#171917; --qq-sheet:#1d211e; --qq-ink:#e8e3d9; --qq-soft:#aea79b; --qq-faint:#847e74; --qq-line:#393c37; --qq-red:#dd7765; --qq-deep:#0f1413; }
+  body { background: linear-gradient(rgba(221,119,101,.025) 1px, transparent 1px) 0 0 / 100% 34px, var(--qq-paper); }
+  ::selection { background:#743b32; color:#fff; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } * { transition:none!important; } }

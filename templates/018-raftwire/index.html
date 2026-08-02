@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang='%LANG%'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>%SITE_NAME% — 实时资讯线</title>
+    <meta name='description' content='%SITE_DESC%'>
+    <link rel='canonical' href='https://%SITE_DOMAIN%/'>
+    <meta property='og:title' content='%SITE_NAME%'>
+    <meta property='og:description' content='%SITE_DESC%'>
+    <meta property='og:url' content='https://%SITE_DOMAIN%/'>
+    <link rel='stylesheet' href='css/style.css'>
+    <script type='application/ld+json'>
+    {"@context":"https://schema.org","@type":"WebSite","name":"%SITE_NAME%","url":"https://%SITE_DOMAIN%/","description":"%SITE_DESC%"}
+    </script>
+</head>
+<body>
+    <a class='skip-link' href='#main'>跳到快讯列表</a>
+    <div class='desk'>
+        <aside class='channel'>
+            <div>
+                <p class='channel-kicker'>RAFTWIRE / 018</p>
+                <a class='station' href='index.html' aria-label='返回今日快讯'>%SITE_NAME%</a>
+                <p class='station-sub'>INDEPENDENT SIGNAL DESK</p>
+                <nav class='channel-nav' aria-label='站点导航'>
+                    <a href='index.html' aria-current='page'>今日快讯 <span>LIVE</span></a>
+                    <a href='article.html'>往日归档 <span>ARC</span></a>
+                    <a href='tool.html'>时间工具 <span>UTC</span></a>
+                    <a href='legal.html'>编发说明 <span>DOC</span></a>
+                </nav>
+            </div>
+            <div class='channel-status'>
+                <div class='status-row'><span>频道状态</span><strong>ONLINE</strong></div>
+                <div class='signal-line' aria-hidden='true'><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <p class='channel-note'>LOCAL STATIC FEED<br>LAST CHECK 16:32 CST</p>
+            </div>
+        </aside>
+
+        <main class='feed' id='main'>
+            <header class='deskbar'>
+                <p>Daily wire · 2026.08.01</p>
+                <div class='live-mark'><i aria-hidden='true'></i><span>静态样例 · 本地运行</span></div>
+            </header>
+
+            <section class='wire-hero' aria-labelledby='hero-title'>
+                <div class='wire-hero__copy'>
+                    <p class='eyebrow'>Clarity over velocity</p>
+                    <h1 id='hero-title'>先确认事实，<br>再推送快讯。</h1>
+                    <p class='wire-hero__lede'>%SITE_TAGLINE% 这是为高频信息流设计的编辑台：每条快讯都有主题、状态、来源标记与核对时间，帮助读者快速判断“发生了什么”和“还缺什么”。</p>
+                    <div class='hero-meta'><span>24H FEED</span><span>SOURCE NOTES</span><span>CORRECTION LOG</span></div>
+                </div>
+                <div class='hero-clock' aria-label='样例更新时间'><span>DESK TIME / CST</span><strong>16:32:08</strong></div>
+            </section>
+
+            <div class='wire-stats' aria-label='今日快讯概览'>
+                <div><span>今日条目</span><strong>06</strong></div>
+                <div><span>已核对</span><strong>05</strong></div>
+                <div><span>跟进中</span><strong>01</strong></div>
+                <div><span>更正记录</span><strong>00</strong></div>
+            </div>
+
+            <section class='access-strip' aria-label='邀请码'>
+                <p class='label'>Access code</p>
+                <code id='wire-code'>%INVITE_CODE%</code>
+                <button type='button' id='wire-copy'>复制邀请码</button>
+                <small>%COMPLIANCE_NOTE%</small>
+                <span class='copy-state' id='copy-state' role='status' aria-live='polite'></span>
+            </section>
+
+            <section aria-labelledby='wire-title'>
+                <div class='wire-head'>
+                    <div><p class='eyebrow'>Current transmission</p><h2 id='wire-title'>今日资讯线</h2></div>
+                    <p>以下条目为结构演示，不对应真实事件。正式上线时请替换内容并保留来源与核对状态。</p>
+                </div>
+                <div class='filter-bar' aria-label='按主题筛选快讯'>
+                    <button type='button' data-filter='all' aria-pressed='true'>全部 06</button>
+                    <button type='button' data-filter='product' aria-pressed='false'>产品 02</button>
+                    <button type='button' data-filter='research' aria-pressed='false'>研究 02</button>
+                    <button type='button' data-filter='operations' aria-pressed='false'>运营 02</button>
+                </div>
+                <div class='wire-list' id='wire-list'>
+                    <article class='dispatch' data-topic='product'>
+                        <div class='dispatch-time'><time datetime='2026-08-01T16:22:00+08:00'>16:22</time><small>CST</small></div>
+                        <div class='dispatch-body'><div class='dispatch-tags'><span>产品</span><span>已核对</span></div><h3>演示控制台新增批量导出入口</h3><p>更新说明显示，导出入口已整合至任务列表；权限范围与文件格式仍以正式文档为准。</p></div>
+                        <div class='dispatch-source'><span>来源标记</span><strong>更新说明</strong><span>核对 16:29</span></div>
+                    </article>
+                    <article class='dispatch' data-topic='research'>
+                        <div class='dispatch-time'><time datetime='2026-08-01T14:48:00+08:00'>14:48</time><small>CST</small></div>
+                        <div class='dispatch-body'><div class='dispatch-tags'><span>研究</span><span>跟进中</span></div><h3>周度观察样本扩大，结论暂不变</h3><p>新加入的演示样本提升了覆盖度，但尚不足以改变当前判断；下一次复核将在完整窗口结束后进行。</p></div>
+                        <div class='dispatch-source'><span>来源标记</span><strong>研究摘要</strong><span>核对 15:10</span></div>
+                    </article>
+                    <article class='dispatch' data-topic='operations'>
+                        <div class='dispatch-time'><time datetime='2026-08-01T12:05:00+08:00'>12:05</time><small>CST</small></div>
+                        <div class='dispatch-body'><div class='dispatch-tags'><span>运营</span><span>已核对</span></div><h3>维护窗口完成，服务状态恢复正常</h3><p>演示状态页已结束维护标记，核心访问路径完成复查；如出现异常，将以新条目继续跟进。</p></div>
+                        <div class='dispatch-source'><span>来源标记</span><strong>状态页面</strong><span>核对 12:18</span></div>
+                    </article>
+                    <article class='dispatch' data-topic='product'>
+                        <div class='dispatch-time'><time datetime='2026-08-01T10:36:00+08:00'>10:36</time><small>CST</small></div>
+                        <div class='dispatch-body'><div class='dispatch-tags'><span>产品</span><span>已核对</span></div><h3>移动端筛选交互进入小范围测试</h3><p>测试重点包括单手操作、筛选状态反馈和弱网恢复；暂未给出公开上线日期。</p></div>
+                        <div class='dispatch-source'><span>来源标记</span><strong>测试记录</strong><span>核对 10:52</span></div>
+                    </article>
+                    <article class='dispatch' data-topic='research'>
+                        <div class='dispatch-time'><time datetime='2026-08-01T09:12:00+08:00'>09:12</time><small>CST</small></div>
+                        <div class='dispatch-body'><div class='dispatch-tags'><span>研究</span><span>已核对</span></div><h3>口径说明补充时间窗口与排除项</h3><p>新版说明明确样例数据的统计时区、观察窗口与不纳入项目，便于读者判断不同条目能否比较。</p></div>
+                        <div class='dispatch-source'><span>来源标记</span><strong>口径文档</strong><span>核对 09:28</span></div>
+                    </article>
+                    <article class='dispatch' data-topic='operations'>
+                        <div class='dispatch-time'><time datetime='2026-08-01T08:00:00+08:00'>08:00</time><small>CST</small></div>
+                        <div class='dispatch-body'><div class='dispatch-tags'><span>运营</span><span>已核对</span></div><h3>今日资讯线已开启，暂无更正记录</h3><p>编辑台将以独立条目追加进展；如前序内容有误，会保留原文并标记更正，不静默删除。</p></div>
+                        <div class='dispatch-source'><span>来源标记</span><strong>编辑台</strong><span>核对 08:00</span></div>
+                    </article>
+                </div>
+                <p class='filter-state' id='filter-state' role='status' aria-live='polite'>当前显示全部 6 条快讯。</p>
+            </section>
+
+            <section class='editor-note'>
+                <div><p class='eyebrow'>Editorial rule</p><h2>快，不应牺牲可追溯性。</h2><p>来源、发布时间、核对状态与后续更正共同构成一条完整记录。编发说明页列出了模板建议的处理原则。</p></div>
+                <a href='legal.html'>查看编发说明</a>
+            </section>
+
+            <footer class='desk-foot'>
+                <p>样例快讯仅作结构展示，不构成投资建议。</p>
+                <p><a href='article.html'>往日归档</a> · %CONTACT_EMAIL%</p>
+            </footer>
+        </main>
+    </div>
+    <script>
+        (function () {
+            'use strict';
+            var copyButton = document.getElementById('wire-copy');
+            var copyState = document.getElementById('copy-state');
+            var code = document.getElementById('wire-code');
+            function copied() { copyState.textContent = '已复制'; copyButton.textContent = '复制完成'; window.setTimeout(function () { copyButton.textContent = '复制邀请码'; }, 1600); }
+            function fallback() { var range = document.createRange(); range.selectNodeContents(code); var selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range); try { document.execCommand('copy'); copied(); } catch (error) { copyState.textContent = '请手动复制'; } }
+            copyButton.addEventListener('click', function () { var text = code.textContent.trim(); if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(copied, fallback); else fallback(); });
+
+            var filters = document.querySelectorAll('[data-filter]');
+            var dispatches = document.querySelectorAll('.dispatch[data-topic]');
+            var filterState = document.getElementById('filter-state');
+            for (var i = 0; i < filters.length; i += 1) {
+                filters[i].addEventListener('click', function () {
+                    var topic = this.getAttribute('data-filter'); var shown = 0;
+                    for (var j = 0; j < filters.length; j += 1) filters[j].setAttribute('aria-pressed', filters[j] === this ? 'true' : 'false');
+                    for (var k = 0; k < dispatches.length; k += 1) { var visible = topic === 'all' || dispatches[k].getAttribute('data-topic') === topic; dispatches[k].hidden = !visible; if (visible) shown += 1; }
+                    filterState.textContent = '当前显示 ' + shown + ' 条快讯。';
+                });
+            }
+        }());
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang='__lang__'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#2b3a55'>
+    <title>净费率计算 — __site_name__</title>
+    <meta name='description' content='名义费率乘以减免比例，得到实际净费率。'>
+    <link rel='canonical' href='https://__site_domain__/tool.html'>
+    <meta property='og:type' content='website'>
+    <meta property='og:site_name' content='__site_name__'>
+    <meta property='og:title' content='净费率计算 — __site_name__'>
+    <meta property='og:description' content='名义费率乘以减免比例，得到实际净费率。'>
+    <meta property='og:url' content='https://__site_domain__/tool.html'>
+    <meta name='twitter:card' content='summary'>
+    <link rel='stylesheet' href='assets/main.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "净费率计算",
+        "url": "https://__site_domain__/tool.html"
+    }
+    </script>
+    <style>
+        /* 计算页补充 */
+        .nf {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 46px 24px 80px;
+            text-align: center;
+        }
+        .nf-card {
+            background: var(--panel);
+            border: 1px solid var(--seam);
+            border-radius: var(--curve);
+            box-shadow: var(--haze-hi);
+            padding: 42px 44px;
+            text-align: left;
+        }
+        .nf-card h1 { font-size: 1.5rem; text-align: center; }
+        .nf-card > p { color: var(--hush); margin: 8px 0 14px; text-align: center; }
+        .nf-card label {
+            display: block;
+            margin: 16px 0 6px;
+            font-size: .88rem;
+            font-weight: 650;
+            color: var(--letter-2);
+        }
+        .nf-card input {
+            width: 100%;
+            min-height: 47px;
+            padding: 10px 15px;
+            border: 1.5px solid var(--seam);
+            border-radius: 999px;
+            background: var(--ivory);
+            color: var(--letter);
+            font: inherit;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+            transition: border-color var(--beat), box-shadow var(--beat);
+        }
+        .nf-card input:focus {
+            outline: none;
+            border-color: var(--apricot);
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--apricot) 20%, transparent);
+        }
+        .nf-card input[aria-invalid='true'] {
+            border-color: #b42318;
+            box-shadow: 0 0 0 4px color-mix(in srgb, #b42318 18%, transparent);
+        }
+        .nf-run {
+            margin-top: 26px;
+            width: 100%;
+            min-height: 50px;
+            border: 0;
+            border-radius: 999px;
+            background: var(--night);
+            color: #fff;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            cursor: pointer;
+            box-shadow: 0 10px 26px color-mix(in srgb, var(--night) 38%, transparent);
+            transition: transform var(--beat), background var(--beat);
+        }
+        .nf-run:hover { transform: translateY(-2px); background: var(--night-2); }
+        .nf-run:active { transform: translateY(0); }
+        .nf-out {
+            display: block;
+            margin-top: 18px;
+            min-height: 24px;
+            padding: 14px 20px;
+            border-radius: var(--curve);
+            background: var(--apricot-mist);
+            color: var(--letter-2);
+            font-variant-numeric: tabular-nums;
+        }
+        @media (max-width: 620px) {
+            .nf-card { padding: 28px 22px; }
+        }
+    </style>
+</head>
+<body>
+    <header class='spine-top'>
+        <a class='brandline' href='index.html'>__brand_en__</a>
+        <button type='button' class='spine-btn' id='spine-btn' aria-label='主导航' aria-expanded='false' aria-controls='spine-nav'>
+            <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
+        </button>
+        <nav class='spine-nav' id='spine-nav' aria-label='主导航'>
+            <a href='index.html'>答疑轴</a>
+            <a href='article.html'>长答</a>
+            <a href='tool.html' aria-current='page'>净费率</a>
+            <a href='legal.html'>披露</a>
+        </nav>
+    </header>
+
+    <main class='nf'>
+        <form class='nf-card' id='nf-form' novalidate>
+            <h1>净费率计算</h1>
+            <p>名义费率 ×（1 − 减免比例）＝你实际承担的净费率。本地计算。</p>
+            <label for='nf-rate'>名义费率（%）</label>
+            <input type='number' id='nf-rate' step='any' min='0' max='100' placeholder='如 0.1' aria-describedby='nf-out'>
+            <label for='nf-off'>减免比例（%）</label>
+            <input type='number' id='nf-off' step='any' min='0' max='100' placeholder='如 20' aria-describedby='nf-out'>
+            <button type='submit' class='nf-run' id='nf-go'>算净费率</button>
+            <output class='nf-out' id='nf-out' role='status' aria-live='polite'></output>
+        </form>
+    </main>
+
+    <footer class='spine-end'>
+        <p class='se-line'>结果仅供参考，实际以平台页面显示为准。</p>
+    </footer>
+
+    <script src='assets/wire.js'></script>
+</body>
+</html>

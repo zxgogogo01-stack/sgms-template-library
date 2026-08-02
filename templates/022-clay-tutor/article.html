@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="[[LANG]]">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>复利不是魔法，它只是重复的乘法 - [[SITE_NAME]]</title>
+    <meta name="description" content="用三期手算理解本金、每期费率、期数与复利结果之间的关系。">
+    <link rel="canonical" href="https://[[SITE_DOMAIN]]/article.html">
+    <meta property="og:title" content="复利不是魔法，它只是重复的乘法 - [[SITE_NAME]]">
+    <meta property="og:description" content="用三期手算理解本金、每期费率、期数与复利结果之间的关系。">
+    <meta property="og:url" content="https://[[SITE_DOMAIN]]/article.html">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"复利不是魔法，它只是重复的乘法","educationalLevel":"Beginner","timeRequired":"PT15M","provider":{"@type":"Organization","name":"[[SITE_NAME]]"}}</script>
+</head>
+<body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <div class="utility"><div class="shell utility-inner"><span>Module 01 · 建立复利直觉</span><span>预计 15 分钟 · 含 1 道自查题</span></div></div>
+    <header class="site-header"><div class="shell header-inner"><a class="brand" href="index.html">[[SITE_NAME]]<small>Clay tutor · foundations studio</small></a><nav class="primary-nav" aria-label="主要导航"><a href="index.html">课程总览</a><a href="article.html" aria-current="page">章节示例</a><a href="tool.html">复利实验室</a><a href="legal.html">阅读须知</a></nav></div></header>
+
+    <main id="main" class="shell page-main">
+        <header class="page-head"><div><p class="eyebrow">Module 01 / 建立直觉</p><h1>复利不是魔法，它只是重复的乘法。</h1><p>先不讨论真实市场，也不预测未来。本章只做一件事：把“上一期结果成为下一期起点”完整手算三遍。</p></div><aside class="page-meta" aria-label="章节信息"><dl><div><dt>难度</dt><dd>入门</dd></div><div><dt>预计用时</dt><dd>15 分钟</dd></div><div><dt>前置知识</dt><dd>百分比</dd></div><div><dt>练习</dt><dd>1 道自查题</dd></div></dl></aside></header>
+
+        <div class="lesson-layout">
+            <aside class="lesson-rail" aria-label="章节进度与提示"><section class="lesson-progress"><p class="eyebrow">In this lesson</p><h2>你会完成四步</h2><ol><li>认出三个变量</li><li>手算三期</li><li>区分单利与复利</li><li>完成自查</li></ol></section><section class="lesson-note"><p class="eyebrow">Learning tip</p><strong>先写过程，再看公式。</strong><p>如果只记住最终公式，很容易在费率单位和期数上出错。</p></section></aside>
+            <article class="lesson-body">
+                <div class="goal-box"><strong>本章目标：</strong>读完后，你能解释本金、每期费率和期数如何共同决定复利结果，并能手算前三期。</div>
+                <p>假设把 1,000 元作为起点，每一期都按 5% 增长。第一期的 5% 只作用于 1,000 元；到了第二期，起点已经变成 1,050 元。因此第二期增加的不是 50 元，而是 52.50 元。</p>
+                <h2>先认出三个变量</h2>
+                <p>复利试算至少需要三个输入：最初的金额、每一期采用的费率，以及一共重复多少期。只要其中一个单位含糊，结果就可能完全不同。</p>
+                <div class="definition-box"><strong>本金 P：</strong>最初的起点。<br><strong>每期费率 r：</strong>每一期重复使用的百分比，5% 写成小数是 0.05。<br><strong>期数 n：</strong>重复计算的次数，不一定等于自然年。</div>
+                <h2>把三期完整写出来</h2>
+                <p>每一期都把“上一期末的金额”乘以 1.05。这样写虽然比直接套公式慢，却能清楚看到复利发生在哪里。</p>
+                <table class="worked-table"><thead><tr><th scope="col">时点</th><th scope="col">计算过程</th><th scope="col">期末金额</th></tr></thead><tbody><tr><td>起点</td><td>初始本金</td><td>1,000.00</td></tr><tr><td>第 1 期</td><td>1,000 × 1.05</td><td>1,050.00</td></tr><tr><td>第 2 期</td><td>1,050 × 1.05</td><td>1,102.50</td></tr><tr><td>第 3 期</td><td>1,102.50 × 1.05</td><td>1,157.63</td></tr></tbody></table>
+                <p>第三期末结果保留两位小数为 1,157.63 元。这里没有新增投入，也没有扣除费用；5% 只是为了学习而设置的固定假设。</p>
+                <h2>公式只是重复过程的缩写</h2>
+                <div class="formula-card"><p class="eyebrow">Compound formula</p><div class="formula">期末金额 = P × (1 + r)<sup>n</sup></div><p>P 是本金，r 是小数形式的每期费率，n 是期数。对上面的例子来说，就是 1,000 × 1.05³。</p></div>
+                <p>公式不会自动替你判断费率是“每月”还是“每年”，也不会补上费用、税费和通胀。它只忠实执行你输入的假设。</p>
+                <div class="mistake-box"><p class="eyebrow">Common mistake / 常见误区</p><strong>把 5% 直接输入成 5。</strong><p>公式里的 r 必须使用小数 0.05；如果工具的输入框明确写着“%”，再输入数字 5。先看单位，再填数字。</p></div>
+
+                <section class="quiz" aria-labelledby="quiz-title"><p class="eyebrow">Quick check / 自查</p><h2 id="quiz-title">为什么第二期增加 52.50 元，而不是 50 元？</h2><div class="quiz-options"><button type="button" data-answer="a" aria-pressed="false">A. 因为第二期的费率自动提高了</button><button type="button" data-answer="b" aria-pressed="false">B. 因为第二期的起点已经包含第一期增长</button><button type="button" data-answer="c" aria-pressed="false">C. 因为每一期都额外投入了 2.50 元</button></div><p class="quiz-feedback" id="quiz-feedback" aria-live="polite">选择一个答案查看解释。</p></section>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer"><div class="shell footer-inner"><p>固定费率仅用于教学，不代表任何真实或未来收益。</p><nav class="footer-links" aria-label="页脚导航"><a href="index.html">课程总览</a><a href="tool.html">复利实验室</a><a href="legal.html">阅读须知</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
+
+    <script>
+        (function () {
+            var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-answer]'));
+            var feedback = document.getElementById('quiz-feedback');
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    buttons.forEach(function (item) { item.setAttribute('aria-pressed', item === button ? 'true' : 'false'); });
+                    if (button.getAttribute('data-answer') === 'b') feedback.textContent = '回答正确。第二期按 1,050 元计算，因此 5% 是 52.50 元。';
+                    else feedback.textContent = '再想一次：费率没有变化，也没有新增投入；变化的是下一期的计算起点。';
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

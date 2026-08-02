@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang='~LANG~'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='theme-color' content='#f7f8f7'>
+  <title>手续费蚕食度检查 — ~SITE_NAME~</title>
+  <meta name='description' content='用期间盈亏和手续费，看看费用吃掉了多少毛利。'>
+  <link rel='canonical' href='https://~SITE_DOMAIN~/tool.html'>
+  <meta property='og:type' content='website'>
+  <meta property='og:site_name' content='~SITE_NAME~'>
+  <meta property='og:title' content='手续费蚕食度检查 — ~SITE_NAME~'>
+  <meta property='og:description' content='用期间盈亏和手续费，看看费用吃掉了多少毛利。'>
+  <meta property='og:url' content='https://~SITE_DOMAIN~/tool.html'>
+  <meta name='twitter:card' content='summary'>
+  <link rel='stylesheet' href='orbit.css'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "手续费蚕食度检查",
+    "url": "https://~SITE_DOMAIN~/tool.html"
+  }
+  </script>
+  <style>
+    /* tool extras */
+    .gaugepod { max-width: 540px; margin: 0 auto; padding: 46px 24px 80px; }
+    .gaugepod-card {
+      background: var(--podwhite);
+      border-radius: calc(var(--pod82) + 6px);
+      box-shadow: var(--floatb-hi), 0 0 0 6px color-mix(in srgb, var(--ringteal) 8%, transparent);
+      padding: 40px 44px;
+    }
+    .gaugepod-card h1 { font-family: var(--serif82); font-size: 1.48rem; }
+    .gaugepod-card > p { color: var(--soft82); margin: 6px 0 8px; }
+    .gaugepod-card label {
+      display: block;
+      margin: 16px 0 6px;
+      font-size: .86rem;
+      font-weight: 800;
+      color: var(--ringteal-deep);
+    }
+    .gaugepod-card input {
+      width: 100%;
+      min-height: 47px;
+      padding: 10px 15px;
+      border: 1.5px solid var(--seam82);
+      border-radius: var(--pod82);
+      background: var(--mistfield);
+      color: var(--spaceink);
+      font: inherit;
+      font-family: var(--mono82);
+      font-variant-numeric: tabular-nums;
+      transition: border-color var(--drift82), box-shadow var(--drift82);
+    }
+    .gaugepod-card input:focus {
+      outline: none;
+      border-color: var(--ringteal);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--ringteal) 15%, transparent);
+    }
+    .gaugepod-card input[aria-invalid='true'] {
+      border-color: #b42318;
+      box-shadow: 0 0 0 4px color-mix(in srgb, #b42318 14%, transparent);
+    }
+    .gaugepod-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 52px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--ringteal);
+      color: #eef7f9;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      cursor: pointer;
+      box-shadow: 0 10px 24px color-mix(in srgb, var(--ringteal) 34%, transparent);
+      transition: transform var(--drift82), background var(--drift82);
+    }
+    .gaugepod-run:hover { transform: translateY(-2px); background: var(--ringteal-deep); }
+    .gaugepod-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 26px;
+      padding: 15px 19px;
+      border-radius: var(--pod82);
+      background: var(--wash82);
+      line-height: 1.78;
+      font-variant-numeric: tabular-nums;
+    }
+    .gaugepod-out b { color: var(--ringteal-deep); }
+    @media (max-width: 600px) {
+      .gaugepod-card { padding: 26px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class='orbitbar'>
+    <div class='orbitbar-in'>
+      <a class='orbitbar-brand' href='index.html'>~BRAND_EN~</a>
+      <button type='button' class='orbitbar-btn' id='orbitbar-btn' aria-label='主导航' aria-expanded='false' aria-controls='orbitbar-nav'>
+        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+      </button>
+      <nav class='orbitbar-nav' id='orbitbar-nav' aria-label='主导航'>
+        <a href='index.html'>轨道图</a>
+        <a href='article.html'>文章</a>
+        <a href='tool.html' aria-current='page'>蚕食度</a>
+        <a href='legal.html'>披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='gaugepod'>
+    <form class='gaugepod-card' id='er-form' novalidate>
+      <h1>手续费蚕食度检查</h1>
+      <p>复盘用：这段时间的手续费，到底吃掉了多少毛利？本地计算，不上传。</p>
+      <label for='er-pnl'>期间净盈亏（已扣费，可为负）</label>
+      <input type='number' id='er-pnl' step='any' placeholder='如 260 或 -80' aria-describedby='er-out'>
+      <label for='er-fee'>期间手续费合计</label>
+      <input type='number' id='er-fee' step='any' min='0' placeholder='如 95' aria-describedby='er-out'>
+      <button type='submit' class='gaugepod-run' id='er-run'>检查</button>
+      <output class='gaugepod-out' id='er-out' role='status' aria-live='polite'></output>
+    </form>
+  </main>
+
+  <footer class='gravityfoot'>
+    <div class='gravityfoot-in'>
+      <p class='gravityfoot-fine'>结果仅供复盘参考，不构成投资建议。</p>
+    </div>
+  </footer>
+
+  <script src='orbit.js'></script>
+</body>
+</html>

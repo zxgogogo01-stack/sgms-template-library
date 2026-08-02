@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="%%LANG%%">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1e2a52">
+    <title>手续费对比器 — %%SITE_NAME%%</title>
+    <meta name="description" content="同一笔成交额，两个平台各收多少手续费，差多少一眼看清。">
+    <link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="%%SITE_NAME%%">
+    <meta property="og:title" content="手续费对比器 — %%SITE_NAME%%">
+    <meta property="og:description" content="同一笔成交额，两个平台各收多少手续费，差多少一眼看清。">
+    <meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/page.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "手续费对比器",
+        "url": "https://%%SITE_DOMAIN%%/tool.html"
+    }
+    </script>
+</head>
+<body>
+    <header class="crown">
+        <div class="crown-in">
+            <a class="wordmark" href="index.html">%%BRAND_EN%%<span class="wordmark-dot">.</span></a>
+            <button type="button" class="crown-fold" id="fold-btn" aria-label="主导航" aria-expanded="false" aria-controls="crown-nav">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </button>
+            <nav class="crown-nav" id="crown-nav" aria-label="主导航">
+                <a href="index.html">首页</a>
+                <a href="article.html">指南</a>
+                <a href="tool.html" aria-current="page">工具</a>
+                <a href="legal.html">披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-well">
+        <nav class="crumb" aria-label="位置">
+            <a href="index.html">首页</a><span aria-hidden="true">/</span><b>手续费对比器</b>
+        </nav>
+
+        <form class="rig-panel" id="cmp-form" novalidate>
+            <h1>手续费对比器</h1>
+            <p>输入一笔成交额和两个平台的费率，看看各收多少、差多少。计算在浏览器本地完成。</p>
+            <label for="cmp-vol">成交额</label>
+            <input type="number" id="cmp-vol" step="any" min="0" placeholder="如 50000" aria-describedby="cmp-out">
+            <div class="rig-duo">
+                <div>
+                    <label for="cmp-a">平台 A 费率（%）</label>
+                    <input type="number" id="cmp-a" step="any" min="0" max="100" placeholder="如 0.1" aria-describedby="cmp-out">
+                </div>
+                <div>
+                    <label for="cmp-b">平台 B 费率（%）</label>
+                    <input type="number" id="cmp-b" step="any" min="0" max="100" placeholder="如 0.08" aria-describedby="cmp-out">
+                </div>
+            </div>
+            <button type="submit" class="rig-run" id="cmp-run">对比</button>
+            <output class="rig-out" id="cmp-out" role="status" aria-live="polite"></output>
+        </form>
+    </main>
+
+    <footer class="ledge">
+        <p class="ledge-line">结果按输入费率估算，实际以各平台结算为准；不构成投资建议。</p>
+    </footer>
+
+    <script src="site.js"></script>
+</body>
+</html>

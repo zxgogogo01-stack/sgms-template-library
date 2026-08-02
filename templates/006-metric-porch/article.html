@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>指标方法说明 — {{SITE_NAME}}</title>
+  <meta name="description" content="说明数据来源、计算窗口、缺失值处理与修订规则。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html">
+  <meta property="og:title" content="指标方法说明 — {{SITE_NAME}}">
+  <meta property="og:description" content="说明数据来源、计算窗口、缺失值处理与修订规则。">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
+  <link rel="stylesheet" href="assets/set.css">
+  <link rel="stylesheet" href="assets/plan.css">
+  <link rel="stylesheet" href="assets/face.css">
+  <link rel="stylesheet" href="assets/boutique.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "指标方法说明",
+    "dateModified": "2026-07-22",
+    "author": { "@type": "Organization", "name": "{{SITE_NAME}}" }
+  }
+  </script>
+</head>
+<body>
+  <header class="deck">
+    <span class="deck__title">{{SITE_NAME}}</span>
+    <nav class="deck__row" aria-label="主导航">
+      <a class="deck__pick" href="index.html">总览</a>
+      <a class="deck__pick" href="article.html" aria-current="page">方法说明</a>
+      <a class="deck__pick" href="tool.html">占比工具</a>
+      <a class="deck__pick" href="legal.html">看板声明</a>
+    </nav>
+  </header>
+
+  <main class="porch-floor">
+    <article class="memo">
+      <header class="memo__header">
+        <p class="memo__label">METHOD NOTE / 01</p>
+        <h1>指标方法说明</h1>
+        <p class="memo__intro">一个可信的数字必须同时回答四件事：来自哪里、如何计算、覆盖哪段时间，以及缺失时如何处理。</p>
+        <dl class="memo__meta">
+          <div><dt>版本</dt><dd>v1.4</dd></div>
+          <div><dt>最近修订</dt><dd>2026-07-22</dd></div>
+          <div><dt>时区</dt><dd>UTC</dd></div>
+          <div><dt>状态</dt><dd>演示口径</dd></div>
+        </dl>
+      </header>
+
+      <section class="memo__section">
+        <p class="memo__index">01 / SOURCE CHAIN</p>
+        <h2>来源链必须能回到原始页面</h2>
+        <p>只收录具有明确发布主体、可访问地址和最近复核日期的公开来源。聚合页可以帮助发现线索，但不能替代原始发布页成为最终证据。</p>
+        <div class="source-chain" aria-label="来源核对链条">
+          <div><span>发现</span><strong>找到候选来源</strong><small>记录发布主体</small></div>
+          <div><span>核验</span><strong>回到原始页面</strong><small>确认字段与日期</small></div>
+          <div><span>入库</span><strong>保留口径快照</strong><small>标记适用窗口</small></div>
+          <div><span>复核</span><strong>按计划重查</strong><small>更新状态与备注</small></div>
+        </div>
+      </section>
+
+      <section class="memo__section">
+        <p class="memo__index">02 / WINDOWS</p>
+        <h2>计算窗口先统一，再进行比较</h2>
+        <p>滚动窗口统一使用 UTC 边界；自然月、季度和年度指标单独标注。不同长度或不同截止时间的区间不会直接比较。</p>
+        <div class="window-grid">
+          <article><span>24H</span><strong>即时核验窗口</strong><p>用于访问状态和字段完整度。</p></article>
+          <article><span>7D</span><strong>来源活跃窗口</strong><p>用于确认来源仍持续更新。</p></article>
+          <article><span>30D</span><strong>变化观察窗口</strong><p>与上一等长窗口比较。</p></article>
+        </div>
+      </section>
+
+      <aside class="method-callout">
+        <p>QUALITY RULE / NO ESTIMATION</p>
+        <strong>未报告的数字保持为空，不用推测值填满看板。</strong>
+        <span>缺口本身也是信息，应注明原因、发现日期和预计复核时间。</span>
+      </aside>
+
+      <section class="memo__section">
+        <p class="memo__index">03 / GAPS</p>
+        <h2>缺失值分成三种状态</h2>
+        <div class="gap-list">
+          <div><span class="status-dot status-dot--late"></span><strong>延迟发布</strong><p>来源正常，但本期内容尚未出现。</p></div>
+          <div><span class="status-dot status-dot--missing"></span><strong>来源缺失</strong><p>页面关闭、迁移或无法确认发布主体。</p></div>
+          <div><span class="status-dot status-dot--review"></span><strong>等待复核</strong><p>出现口径变化，暂缓与旧数据合并。</p></div>
+        </div>
+      </section>
+
+      <section class="memo__section">
+        <p class="memo__index">04 / REVISION</p>
+        <h2>修订不会悄悄覆盖旧结论</h2>
+        <p>当来源纠错、定义变化或数据被撤回时，记录修订日期、影响指标与原因；若历史值变化，会在版本说明中保留前后差异。</p>
+        <div class="revision-log">
+          <div><time datetime="2026-07-22">2026-07-22</time><strong>v1.4</strong><span>补充缺失值状态与修订规则</span></div>
+          <div><time datetime="2026-06-04">2026-06-04</time><strong>v1.3</strong><span>统一滚动窗口的 UTC 边界</span></div>
+          <div><time datetime="2026-04-18">2026-04-18</time><strong>v1.2</strong><span>新增来源归属与复核日期字段</span></div>
+        </div>
+      </section>
+
+      <a class="memo__next" href="tool.html"><span>NEXT / LOCAL UTILITY</span><strong>用占比工具验证两个数字之间的关系 →</strong></a>
+    </article>
+  </main>
+
+  <footer class="floor-line">
+    <p class="floor-line__txt">公开数据也有时间边界；使用前请核对当前来源与适用条件。</p>
+  </footer>
+
+  <script src="assets/porch.js"></script>
+</body>
+</html>

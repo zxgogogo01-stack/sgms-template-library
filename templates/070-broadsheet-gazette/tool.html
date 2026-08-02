@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang='{LANG}'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='theme-color' content='#f7f6f2'>
+  <title>收支两栏账 — {SITE_NAME}</title>
+  <meta name='description' content='返佣收入对手续费支出，算净结余与覆盖率。'>
+  <link rel='canonical' href='https://{SITE_DOMAIN}/tool.html'>
+  <meta property='og:type' content='website'>
+  <meta property='og:site_name' content='{SITE_NAME}'>
+  <meta property='og:title' content='收支两栏账 — {SITE_NAME}'>
+  <meta property='og:description' content='返佣收入对手续费支出，算净结余与覆盖率。'>
+  <meta property='og:url' content='https://{SITE_DOMAIN}/tool.html'>
+  <meta name='twitter:card' content='summary'>
+  <link rel='stylesheet' href='css/press.css'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "收支两栏账",
+    "url": "https://{SITE_DOMAIN}/tool.html"
+  }
+  </script>
+  <style>
+    /* ledger tool extras */
+    .ledgersheet { max-width: 560px; margin: 0 auto; padding: 48px 24px 80px; }
+    .ledgersheet-card {
+      background: var(--pagewhite);
+      border: 2px solid var(--inkblack);
+      padding: 38px 42px;
+    }
+    .ledgersheet-card h1 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      border-bottom: 4px solid var(--inkblack);
+      padding-bottom: 10px;
+    }
+    .ledgersheet-card > p { color: var(--inkfaded); margin: 10px 0 8px; }
+    .ledgersheet-card label {
+      display: block;
+      margin: 16px 0 6px;
+      font-family: var(--sans70);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      color: var(--navyseal-deep);
+    }
+    .ledgersheet-card input {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 15px;
+      border: 1px solid var(--inkblack);
+      background: var(--newsprint);
+      color: var(--inkblack);
+      font: inherit;
+      font-family: var(--mono70);
+      font-variant-numeric: tabular-nums;
+      transition: border-color var(--pressmove), box-shadow var(--pressmove);
+    }
+    .ledgersheet-card input:focus {
+      outline: none;
+      border-color: var(--navyseal);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--navyseal) 20%, transparent);
+    }
+    .ledgersheet-card input[aria-invalid='true'] {
+      border-color: #a8322d;
+      box-shadow: 0 0 0 3px color-mix(in srgb, #a8322d 18%, transparent);
+    }
+    .ledgersheet-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 52px;
+      border: 2px solid var(--inkblack);
+      background: var(--inkblack);
+      color: var(--newsprint);
+      font-family: var(--sans70);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      cursor: pointer;
+      transition: background var(--pressmove), border-color var(--pressmove);
+    }
+    .ledgersheet-run:hover { background: var(--navyseal); border-color: var(--navyseal); }
+    .ledgersheet-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 26px;
+      padding: 15px 18px;
+      border: 1px dotted var(--inkblack);
+      background: var(--greytint);
+      line-height: 1.8;
+      font-variant-numeric: tabular-nums;
+    }
+    .ledgersheet-out b { color: var(--navyseal-deep); }
+    @media (max-width: 600px) {
+      .ledgersheet-card { padding: 26px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class='pressbar'>
+    <div class='pressbar-in'>
+      <a class='pressbar-brand' href='index.html'>{BRAND_EN}</a>
+      <button type='button' class='pressbar-btn' id='pressbar-btn' aria-label='主导航' aria-expanded='false' aria-controls='pressbar-nav'>
+        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+      </button>
+      <nav class='pressbar-nav' id='pressbar-nav' aria-label='主导航'>
+        <a href='index.html'>头版</a>
+        <a href='article.html'>报道</a>
+        <a href='tool.html' aria-current='page'>两栏账</a>
+        <a href='legal.html'>披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='ledgersheet'>
+    <form class='ledgersheet-card' id='lg-form' novalidate>
+      <h1>收支两栏账</h1>
+      <p>左栏记收入（返佣），右栏记支出（手续费），底下出结论。本地计算。</p>
+      <label for='lg-in'>月返佣收入</label>
+      <input type='number' id='lg-in' step='any' min='0' placeholder='如 62' aria-describedby='lg-result'>
+      <label for='lg-out-fee'>月手续费支出</label>
+      <input type='number' id='lg-out-fee' step='any' min='0' placeholder='如 88' aria-describedby='lg-result'>
+      <button type='submit' class='ledgersheet-run' id='lg-run'>结账</button>
+      <output class='ledgersheet-out' id='lg-result' role='status' aria-live='polite'></output>
+    </form>
+  </main>
+
+  <footer class='printfoot' style='max-width: 560px; margin: 0 auto; padding: 0 24px 40px;'>
+    <p class='printfoot-fine'>结果仅供参考，实际以平台结算为准。</p>
+  </footer>
+
+  <script src='press.js'></script>
+</body>
+</html>

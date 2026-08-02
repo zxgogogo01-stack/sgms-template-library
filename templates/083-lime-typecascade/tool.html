@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang='__lang__'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#f4f4f2'>
+    <title>所需返佣比例反推器 — __site_name__</title>
+    <meta name='description' content='想把净费率压到某个数？反推需要多高的返佣比例。'>
+    <link rel='canonical' href='https://__site_domain__/tool.html'>
+    <meta property='og:type' content='website'>
+    <meta property='og:site_name' content='__site_name__'>
+    <meta property='og:title' content='所需返佣比例反推器 — __site_name__'>
+    <meta property='og:description' content='想把净费率压到某个数？反推需要多高的返佣比例。'>
+    <meta property='og:url' content='https://__site_domain__/tool.html'>
+    <meta name='twitter:card' content='summary'>
+    <link rel='stylesheet' href='css/cascade.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "所需返佣比例反推器",
+        "url": "https://__site_domain__/tool.html"
+    }
+    </script>
+    <style>
+        .solverbay { max-width: 540px; margin: 0 auto; padding: 50px 24px 84px; }
+        .solverbay-card {
+            background: var(--sheetpale);
+            border: 3px solid var(--leadink);
+            box-shadow: 8px 8px 0 var(--limehi);
+            padding: 42px 46px;
+        }
+        .solverbay-card h1 {
+            font-size: 1.35rem;
+            font-weight: 900;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+        .solverbay-card > p { color: var(--greylead); margin: 8px 0 8px; }
+        .solverbay-card label {
+            display: block;
+            margin: 16px 0 6px;
+            font-size: .8rem;
+            font-weight: 900;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--limehi-deep);
+        }
+        .solverbay-card input {
+            width: 100%;
+            min-height: 48px;
+            padding: 10px 16px;
+            border: 2px solid var(--leadink);
+            background: var(--paperfield);
+            color: var(--leadink);
+            font: inherit;
+            font-family: var(--mono83);
+            font-variant-numeric: tabular-nums;
+            transition: box-shadow var(--snap83);
+        }
+        .solverbay-card input:focus {
+            outline: none;
+            box-shadow: 4px 4px 0 var(--limehi);
+        }
+        .solverbay-card input[aria-invalid='true'] {
+            border-color: #b42318;
+            box-shadow: 4px 4px 0 color-mix(in srgb, #b42318 65%, transparent);
+        }
+        .solverbay-run {
+            margin-top: 26px;
+            width: 100%;
+            min-height: 54px;
+            border: 3px solid var(--leadink);
+            background: var(--limehi);
+            color: var(--leadink);
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform var(--snap83), background var(--snap83);
+        }
+        .solverbay-run:hover { transform: translate(-2px, -2px); background: var(--limehi-deep); }
+        .solverbay-out {
+            display: block;
+            margin-top: 18px;
+            min-height: 26px;
+            padding: 16px 20px;
+            border: 2px solid var(--leadink);
+            background: var(--palegrey);
+            line-height: 1.8;
+            font-variant-numeric: tabular-nums;
+        }
+        .solverbay-out b { color: var(--limehi-deep); }
+        @media (max-width: 600px) {
+            .solverbay-card { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header class='typebar'>
+        <div class='typebar-in'>
+            <a class='typebar-brand' href='index.html'>__brand_en__</a>
+            <button type='button' class='typebar-btn' id='typebar-btn' aria-label='主导航' aria-expanded='false' aria-controls='typebar-nav'>
+                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+            </button>
+            <nav class='typebar-nav' id='typebar-nav' aria-label='主导航'>
+                <a href='index.html'>瀑布</a>
+                <a href='article.html'>文章</a>
+                <a href='tool.html' aria-current='page'>比例反推</a>
+                <a href='legal.html'>披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class='solverbay'>
+        <form class='solverbay-card' id='nv-form' novalidate>
+            <h1>所需返佣比例反推器</h1>
+            <p>目标先定，比例反推：想把净费率压到某个数，需要多高的返佣？本地计算。</p>
+            <label for='nv-base'>基础费率（%）</label>
+            <input type='number' id='nv-base' step='any' min='0' max='100' placeholder='如 0.05' aria-describedby='nv-out'>
+            <label for='nv-target'>目标净费率（%）</label>
+            <input type='number' id='nv-target' step='any' min='0' max='100' placeholder='如 0.035' aria-describedby='nv-out'>
+            <button type='submit' class='solverbay-run' id='nv-run'>反推</button>
+            <output class='solverbay-out' id='nv-out' role='status' aria-live='polite'></output>
+        </form>
+    </main>
+
+    <footer class='typefoot'>
+        <div class='typefoot-in'>
+            <p class='typefoot-fine'>结果仅供参考，实际以平台结算为准。</p>
+        </div>
+    </footer>
+
+    <script src='cascade.js'></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="[[LANG]]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#33465c">
+  <title>读物样板 — [[SITE_NAME]]</title>
+  <meta name="description" content="入门读物文章页样板。">
+  <link rel="canonical" href="https://[[SITE_DOMAIN]]/article.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="[[SITE_NAME]]">
+  <meta property="og:title" content="读物样板 — [[SITE_NAME]]">
+  <meta property="og:description" content="入门读物文章页样板。">
+  <meta property="og:url" content="https://[[SITE_DOMAIN]]/article.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="css/tone.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "读物样板",
+    "datePublished": "2026-01-19",
+    "mainEntityOfPage": "https://[[SITE_DOMAIN]]/article.html"
+  }
+  </script>
+  <style>
+    /* article page extras */
+    .leaf { max-width: 740px; margin: 0 auto; padding: 44px 24px 80px; }
+    .leaf-band {
+      background: var(--card);
+      border: 1px solid var(--edge);
+      border-radius: var(--rd);
+      box-shadow: var(--sh);
+      padding: 44px 50px;
+    }
+    .leaf-kick {
+      margin: 0 0 10px;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--copper);
+    }
+    .leaf-band h1 { font-family: var(--serx); font-size: clamp(1.5rem, 3.2vw, 2.15rem); }
+    .leaf-meta { margin: 12px 0 0; font-size: .84rem; color: var(--dus); }
+    .leaf-band h2 {
+      font-family: var(--serx);
+      font-size: 1.28rem;
+      margin: 32px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--copper-wash);
+    }
+    .leaf-band p { margin: 0 0 14px; color: var(--inkc-2); }
+    .leaf-first {
+      background: var(--copper-wash);
+      border-radius: var(--rd);
+      padding: 16px 22px;
+      margin: 20px 0;
+    }
+    .leaf-scroll { overflow-x: auto; border: 1px solid var(--edge); border-radius: var(--rd); margin: 14px 0 8px; }
+    .leaf-band table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+    .leaf-band th, .leaf-band td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--edge); font-size: .92rem; white-space: nowrap; }
+    .leaf-band thead th { background: var(--slate); color: #eef2f7; border-bottom: 0; }
+    .leaf-band tbody tr:hover { background: var(--copper-wash); }
+    .leaf-band tbody tr:last-child td { border-bottom: 0; }
+    .leaf-note { font-size: .84rem; color: var(--dus); }
+    @media (max-width: 620px) {
+      .leaf-band { padding: 26px 22px; }
+      .leaf-band th, .leaf-band td { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header class="cap">
+    <div class="cap-in">
+      <a class="markrow" href="index.html">[[BRAND_EN]]</a>
+      <button type="button" class="cap-btn" id="cap-btn" aria-label="主导航" aria-expanded="false" aria-controls="cap-nav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <nav class="cap-nav" id="cap-nav" aria-label="主导航">
+        <a href="index.html">入门带</a>
+        <a href="article.html" aria-current="page">读物</a>
+        <a href="tool.html">工具</a>
+        <a href="legal.html">披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="leaf">
+    <article class="leaf-band">
+      <p class="leaf-kick">资金流</p>
+      <h1>返佣的钱到底从哪来，到哪去</h1>
+      <p class="leaf-meta">发布 <time datetime="2026-01-19">2026-01-19</time> · 口径核对 <time datetime="2026-01-19">2026-01-19</time></p>
+
+      <div class="leaf-first"><b>一句话答案：</b>返佣来自交易手续费按规则分配后的份额，不是额外收益；最终金额取决于实际成交、费率与结算口径。</div>
+
+      <h2>链路拆开看</h2>
+      <p>一笔成交先产生手续费，平台按产品与账户规则确认可计佣部分，再依据有效邀请关系计算分成，达到结算条件后进入账单。</p>
+
+      <h2>三家平台的口径差异</h2>
+      <div class="leaf-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">平台</th><th scope="col">计佣基数</th><th scope="col">结算</th><th scope="col">核对</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>示例平台A</td><td>以账户页为准</td><td>以账户页为准</td><td>2026-01-19</td></tr>
+            <tr><td>示例平台B</td><td>以账户页为准</td><td>以账户页为准</td><td>2026-01-19</td></tr>
+            <tr><td>示例平台C</td><td>以账户页为准</td><td>以账户页为准</td><td>2026-01-19</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="leaf-note">表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
+
+      <h2>提醒</h2>
+      <p>返佣只会降低部分已发生的交易成本，不构成收益保证。比例、范围和结算条件都可能调整，应以平台官方规则与账户页面为准。</p>
+    </article>
+  </main>
+
+  <footer class="base">
+    <p class="base-line">内容以各平台官方页面为准；不构成投资建议。</p>
+  </footer>
+
+  <script src="lift.js"></script>
+</body>
+</html>

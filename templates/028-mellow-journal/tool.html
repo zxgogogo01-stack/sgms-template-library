@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A private in-browser sentence and rhythm analyzer for English and Chinese prose.">
+  <title>Sentence &amp; Rhythm Analyzer — [[SITE_NAME]]</title><link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the sentence desk</a>
+  <div class="shell">
+    <header class="site-header"><div class="container masthead"><p class="edition">Vol. IV · Summer 2026</p><a class="brand" href="index.html"><strong>[[SITE_NAME]]</strong><span>Essays on attention &amp; ordinary time</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Journal</a><a href="article.html">Featured</a><a href="tool.html" aria-current="page">Sentences</a><a href="legal.html">Colophon</a></nav></div></header>
+    <div class="issue-rule"><div class="container issue-row"><span>The sentence desk</span><span>Private · Runs entirely in your browser</span></div></div>
+    <main id="main">
+      <header class="page-hero"><div class="container"><p class="kicker">A small instrument for writers</p><h1>Sentence &amp; rhythm analyzer</h1><p class="intro">Paste a draft to see where its pace quickens, where it lingers, and how the lengths of its sentences create rhythm. English and Chinese text are both supported.</p></div></header>
+      <div class="container tool-page"><div class="tool-layout">
+        <section class="analyzer" aria-labelledby="analyzer-title">
+          <div class="analyzer-head"><h2 id="analyzer-title">Your working paragraph</h2><p>The analysis stays on this page. Your text is never uploaded or stored.</p></div>
+          <form class="analyzer-form" id="analyzer-form" novalidate>
+            <label for="draft-text">Draft text</label>
+            <textarea id="draft-text" aria-describedby="draft-hint draft-error">A quiet room is not an empty room. The pipes cool inside the wall, the curtain responds to an air current too slight for skin, and a cup settles against its saucer. Listen long enough, and the room begins to describe itself.</textarea>
+            <p id="draft-hint" class="skip-link">Enter one or more sentences in English or Chinese.</p><p class="field-error" id="draft-error" aria-live="polite"></p>
+            <div class="form-actions"><button class="button" type="submit">Analyze the rhythm</button><button class="button-quiet" id="load-sample" type="button">Load feature excerpt</button><button class="button-quiet" id="reset-tool" type="button">Reset</button></div>
+            <div class="metric-grid" aria-label="Text metrics">
+              <div class="metric"><span>Sentences</span><strong id="sentence-count">—</strong></div>
+              <div class="metric"><span>Words / units</span><strong id="unit-count">—</strong></div>
+              <div class="metric"><span>Average length</span><strong id="average-length">—</strong></div>
+              <div class="metric"><span>Reading time</span><strong id="reading-time">—</strong></div>
+            </div>
+            <section class="analysis-panel" aria-labelledby="breakdown-title">
+              <div class="analysis-head"><h3 id="breakdown-title">Sentence-by-sentence</h3><button class="copy-button" id="copy-analysis" type="button">Copy summary</button></div>
+              <div class="analysis-empty" id="analysis-empty">Run the analyzer to reveal the paragraph’s pace.</div>
+              <table class="sentence-table" id="sentence-table" hidden><thead><tr><th scope="col">No.</th><th scope="col">Sentence</th><th scope="col">Units</th><th scope="col">Rhythm</th></tr></thead><tbody id="sentence-body"></tbody></table>
+            </section>
+            <p class="tool-status" id="tool-status" aria-live="polite"></p>
+          </form>
+        </section>
+        <aside class="tool-aside">
+          <section class="note-card"><h3>Reading the result</h3><ul><li><strong>Brief:</strong> 8 units or fewer—useful for emphasis.</li><li><strong>Measured:</strong> 9–20 units—the natural gait of most prose.</li><li><strong>Long:</strong> 21+ units—expansive, but worth reading aloud.</li></ul></section>
+          <section class="note-card"><h3>Try another texture</h3><p>Load a sample, then edit it to hear how one added clause changes the pace.</p><div class="sample-list"><button class="sample-button" type="button" data-sample="english">English field note</button><button class="sample-button" type="button" data-sample="mixed">English + 中文</button></div></section>
+          <section class="note-card"><h3>A gentle caveat</h3><p>Numbers can reveal repetition, not quality. A long sentence may wander beautifully; a short one may do nothing at all.</p></section>
+        </aside>
+      </div></div>
+    </main>
+    <footer class="site-footer"><div class="container footer-grid"><p>© 2026 [[SITE_NAME]]. Made for attentive readers.</p><div class="footer-links"><a href="index.html">Journal</a><a href="article.html">Featured essay</a><a href="legal.html">Colophon &amp; policies</a></div></div></footer>
+  </div>
+  <script>
+    (() => {
+      const samples = {
+        english: 'A room is never silent. The floor contracts, a pipe knocks once, and the window carries the distant friction of the street. Attention does not make the room quieter; it makes the room legible.',
+        mixed: 'The room holds its breath. 窗外的雨落在旧空调上，像一台不肯停下的打字机。We listen, and the ordinary becomes precise.'
+      };
+      const defaultText = 'A quiet room is not an empty room. The pipes cool inside the wall, the curtain responds to an air current too slight for skin, and a cup settles against its saucer. Listen long enough, and the room begins to describe itself.';
+      const form = document.getElementById('analyzer-form');
+      const input = document.getElementById('draft-text');
+      const error = document.getElementById('draft-error');
+      const body = document.getElementById('sentence-body');
+      const table = document.getElementById('sentence-table');
+      const empty = document.getElementById('analysis-empty');
+      const status = document.getElementById('tool-status');
+      const output = { sentences: document.getElementById('sentence-count'), units: document.getElementById('unit-count'), average: document.getElementById('average-length'), time: document.getElementById('reading-time') };
+      let latest = null;
+      function splitSentences(text) { return (text.match(/[^.!?。！？]+[.!?。！？]?/g) || []).map(part => part.trim()).filter(Boolean); }
+      function countUnits(text) { const words = text.match(/[A-Za-z0-9]+(?:[’'-][A-Za-z0-9]+)*/g) || []; const cjk = text.match(/[\u3400-\u9fff]/g) || []; return words.length + cjk.length; }
+      function rhythm(units) { return units <= 8 ? 'Brief' : units <= 20 ? 'Measured' : 'Long'; }
+      function clearError() { input.removeAttribute('aria-invalid'); error.textContent = ''; }
+      function analyze() {
+        const text = input.value.trim();
+        status.textContent = '';
+        if (!text) { input.setAttribute('aria-invalid', 'true'); error.textContent = 'Add at least one sentence before analyzing.'; input.focus(); return; }
+        clearError();
+        const sentences = splitSentences(text).map(sentence => ({ text: sentence, units: countUnits(sentence) })).filter(item => item.units > 0);
+        if (!sentences.length) { input.setAttribute('aria-invalid', 'true'); error.textContent = 'We could not find a readable sentence. Add a few words and punctuation.'; input.focus(); return; }
+        const total = sentences.reduce((sum, item) => sum + item.units, 0);
+        latest = { sentences, total, average: total / sentences.length, minutes: Math.max(1, Math.ceil(total / 220)) };
+        output.sentences.textContent = String(sentences.length); output.units.textContent = String(total); output.average.textContent = latest.average.toFixed(1); output.time.textContent = `${latest.minutes} min`;
+        body.textContent = '';
+        sentences.forEach((item, index) => { const row = document.createElement('tr'); [String(index + 1), item.text, String(item.units), rhythm(item.units)].forEach(value => { const cell = document.createElement('td'); cell.textContent = value; row.appendChild(cell); }); body.appendChild(row); });
+        empty.hidden = true; table.hidden = false; status.textContent = `Analysis complete: ${sentences.length} sentence${sentences.length === 1 ? '' : 's'} mapped.`;
+      }
+      form.addEventListener('submit', event => { event.preventDefault(); analyze(); });
+      input.addEventListener('input', clearError);
+      document.getElementById('load-sample').addEventListener('click', () => { input.value = samples.english; clearError(); analyze(); input.focus(); });
+      document.querySelectorAll('[data-sample]').forEach(button => button.addEventListener('click', () => { input.value = samples[button.dataset.sample]; clearError(); analyze(); input.focus(); }));
+      document.getElementById('reset-tool').addEventListener('click', () => { input.value = defaultText; clearError(); latest = null; body.textContent = ''; table.hidden = true; empty.hidden = false; status.textContent = ''; Object.values(output).forEach(node => node.textContent = '—'); input.focus(); });
+      document.getElementById('copy-analysis').addEventListener('click', async () => {
+        if (!latest) { status.textContent = 'Analyze a paragraph before copying its summary.'; return; }
+        const longest = [...latest.sentences].sort((a, b) => b.units - a.units)[0];
+        const summary = `Sentence rhythm: ${latest.sentences.length} sentences, ${latest.total} units, ${latest.average.toFixed(1)} average. Longest: ${longest.units} units — ${longest.text}`;
+        try { await navigator.clipboard.writeText(summary); status.textContent = 'Summary copied to the clipboard.'; } catch { status.textContent = 'Copy is unavailable here. Select the sentence table instead.'; }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang='{LANG}'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='theme-color' content='#f7f6f2'>
+  <title>披露与免责 — {SITE_NAME}</title>
+  <meta name='description' content='{SITE_NAME} 的利益披露与免责声明。'>
+  <link rel='canonical' href='https://{SITE_DOMAIN}/legal.html'>
+  <meta property='og:type' content='website'>
+  <meta property='og:site_name' content='{SITE_NAME}'>
+  <meta property='og:title' content='披露与免责 — {SITE_NAME}'>
+  <meta property='og:description' content='{SITE_NAME} 的利益披露与免责声明。'>
+  <meta property='og:url' content='https://{SITE_DOMAIN}/legal.html'>
+  <meta name='twitter:card' content='summary'>
+  <link rel='stylesheet' href='css/press.css'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "披露与免责",
+    "url": "https://{SITE_DOMAIN}/legal.html"
+  }
+  </script>
+  <style>
+    /* legal page extras */
+    .noticesheet { max-width: 680px; margin: 0 auto; padding: 44px 24px 80px; }
+    .noticesheet h1 {
+      font-size: 1.9rem;
+      font-weight: 900;
+      text-align: center;
+      border-top: 4px solid var(--inkblack);
+      border-bottom: 1px solid var(--inkblack);
+      padding: 14px 0;
+    }
+    .noticesheet-meta { text-align: center; margin: 10px 0 26px; font-family: var(--sans70); font-size: .82rem; color: var(--inkfaded); }
+    .decree {
+      background: var(--pagewhite);
+      border: 1px solid var(--foldline);
+      border-left: 4px solid var(--inkblack);
+      padding: 20px 26px;
+      margin-bottom: 13px;
+    }
+    .decree h2 {
+      font-family: var(--sans70);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      margin-bottom: 7px;
+      color: var(--navyseal-deep);
+    }
+    .decree p { margin: 0; color: var(--inkfaded); }
+  </style>
+</head>
+<body>
+  <header class='pressbar'>
+    <div class='pressbar-in'>
+      <a class='pressbar-brand' href='index.html'>{BRAND_EN}</a>
+      <button type='button' class='pressbar-btn' id='pressbar-btn' aria-label='主导航' aria-expanded='false' aria-controls='pressbar-nav'>
+        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+      </button>
+      <nav class='pressbar-nav' id='pressbar-nav' aria-label='主导航'>
+        <a href='index.html'>头版</a>
+        <a href='article.html'>报道</a>
+        <a href='tool.html'>两栏账</a>
+        <a href='legal.html' aria-current='page'>披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='noticesheet'>
+    <h1>披露与免责</h1>
+    <p class='noticesheet-meta'>更新 2026-01-19</p>
+
+    <section class='decree'>
+      <h2>利益披露</h2>
+      <p>本站（{SITE_DOMAIN}）展示交易平台邀请码。用码注册不会多付费用，还能享最高 20% 手续费减免*（* 实际比例以交易所页面显示为准，可能随政策调整）。</p>
+    </section>
+
+    <section class='decree'>
+      <h2>报道口径</h2>
+      <p>报道为公开信息整理，注明核对时间；平台规则随时调整，以官方页面实时显示为准。</p>
+    </section>
+
+    <section class='decree'>
+      <h2>免责声明</h2>
+      <p>内容不构成投资建议；数字资产波动剧烈，请自行评估风险。</p>
+    </section>
+
+    <section class='decree'>
+      <h2>更正与联系</h2>
+      <p>纠错请附条目与依据：{CONTACT_EMAIL}。查实即更正并注明时间。</p>
+    </section>
+  </main>
+
+  <footer class='printfoot' style='max-width: 680px; margin: 0 auto; padding: 0 24px 40px;'>
+    <p class='printfoot-fine'>内容以各平台官方页面为准；不构成投资建议。</p>
+  </footer>
+
+  <script src='press.js'></script>
+</body>
+</html>

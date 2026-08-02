@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang='[[LANG]]'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#0e1621'>
+    <title>往返手续费计算器 — [[SITE_NAME]]</title>
+    <meta name='description' content='开仓平仓两条腿的手续费一起算，含返佣后的净成本。'>
+    <link rel='canonical' href='https://[[SITE_DOMAIN]]/tool.html'>
+    <meta property='og:type' content='website'>
+    <meta property='og:site_name' content='[[SITE_NAME]]'>
+    <meta property='og:title' content='往返手续费计算器 — [[SITE_NAME]]'>
+    <meta property='og:description' content='开仓平仓两条腿的手续费一起算，含返佣后的净成本。'>
+    <meta property='og:url' content='https://[[SITE_DOMAIN]]/tool.html'>
+    <meta name='twitter:card' content='summary'>
+    <link rel='stylesheet' href='static/watch.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "往返手续费计算器",
+        "url": "https://[[SITE_DOMAIN]]/tool.html"
+    }
+    </script>
+    <style>
+        .helmdesk { max-width: 540px; margin: 0 auto; padding: 46px 24px 80px; }
+        .helmdesk-card {
+            background: var(--cabin79);
+            border: 1px solid var(--riggingline);
+            border-top: 4px solid var(--mooncyan);
+            border-radius: calc(var(--hatch79) + 4px);
+            padding: 40px 44px;
+        }
+        .helmdesk-card h1 { font-family: var(--serif79); font-size: 1.48rem; }
+        .helmdesk-card > p { color: var(--mistblue); margin: 6px 0 8px; }
+        .helmdesk-card label {
+            display: block;
+            margin: 16px 0 6px;
+            font-family: var(--mono79);
+            font-size: .76rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--mooncyan);
+        }
+        .helmdesk-card input {
+            width: 100%;
+            min-height: 47px;
+            padding: 10px 15px;
+            border: 1px solid var(--riggingline);
+            border-radius: var(--hatch79);
+            background: var(--midships);
+            color: var(--moonwhite);
+            font: inherit;
+            font-family: var(--mono79);
+            font-variant-numeric: tabular-nums;
+            transition: border-color var(--swell79), box-shadow var(--swell79);
+        }
+        .helmdesk-card input:focus {
+            outline: none;
+            border-color: var(--mooncyan);
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--mooncyan) 18%, transparent);
+        }
+        .helmdesk-card input[aria-invalid='true'] {
+            border-color: #ff8f75;
+            box-shadow: 0 0 0 4px color-mix(in srgb, #ff8f75 20%, transparent);
+        }
+        .helmdesk-run {
+            margin-top: 26px;
+            width: 100%;
+            min-height: 52px;
+            border: 0;
+            border-radius: var(--hatch79);
+            background: var(--mooncyan);
+            color: #06222a;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            cursor: pointer;
+            box-shadow: 0 10px 26px color-mix(in srgb, var(--mooncyan) 38%, transparent);
+            transition: transform var(--swell79), background var(--swell79);
+        }
+        .helmdesk-run:hover { transform: translateY(-2px); background: var(--mooncyan-hi); }
+        .helmdesk-out {
+            display: block;
+            margin-top: 18px;
+            min-height: 26px;
+            padding: 15px 19px;
+            border-radius: var(--hatch79);
+            background: var(--cabin79-2);
+            line-height: 1.78;
+            font-variant-numeric: tabular-nums;
+        }
+        .helmdesk-out b { color: var(--mooncyan-hi); }
+        @media (max-width: 600px) {
+            .helmdesk-card { padding: 26px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header class='watchbar'>
+        <div class='watchbar-in'>
+            <a class='watchbar-brand' href='index.html'>[[BRAND_EN]]</a>
+            <button type='button' class='watchbar-btn' id='watchbar-btn' aria-label='主导航' aria-expanded='false' aria-controls='watchbar-nav'>
+                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+            </button>
+            <nav class='watchbar-nav' id='watchbar-nav' aria-label='主导航'>
+                <a href='index.html'>夜航台</a>
+                <a href='article.html'>值守记录</a>
+                <a href='tool.html' aria-current='page'>往返费用</a>
+                <a href='legal.html'>披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class='helmdesk'>
+        <form class='helmdesk-card' id='rt-form' novalidate>
+            <h1>往返手续费计算器</h1>
+            <p>开仓一笔、平仓一笔，两条腿的费用一起算清。本地计算。</p>
+            <label for='rt-size'>单笔仓位金额</label>
+            <input type='number' id='rt-size' step='any' min='0' placeholder='如 5000' aria-describedby='rt-out'>
+            <label for='rt-rate'>费率（%，按单边）</label>
+            <input type='number' id='rt-rate' step='any' min='0' max='100' placeholder='如 0.05' aria-describedby='rt-out'>
+            <label for='rt-cut'>返佣比例（%，可留空）</label>
+            <input type='number' id='rt-cut' step='any' min='0' max='100' placeholder='如 30' aria-describedby='rt-out'>
+            <button type='submit' class='helmdesk-run' id='rt-run'>算往返</button>
+            <output class='helmdesk-out' id='rt-out' role='status' aria-live='polite'></output>
+        </form>
+    </main>
+
+    <footer class='dawnline'>
+        <div class='dawnline-in'>
+            <p class='dawnline-fine'>结果仅供参考，实际以平台结算为准。</p>
+        </div>
+    </footer>
+
+    <script src='static/watch.js'></script>
+</body>
+</html>

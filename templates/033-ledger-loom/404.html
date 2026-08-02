@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='__LANG__'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>这一页没有入账 · __SITE_NAME__</title>
+  <meta name='description' content='请求的页面不在当前流水簿中。'>
+  <meta name='robots' content='noindex'>
+  <link rel='stylesheet' href='site.css'>
+</head>
+<body>
+  <header data-site-header><div><a href='index.html' data-brand aria-label='返回月度经营流水簿首页'><b>L/33</b><span><strong>__SITE_NAME__</strong><small>Ledger loom · edition 033</small></span></a><nav data-nav aria-label='主导航'><a href='index.html'>流水簿</a><a href='article.html'>记账方法</a><a href='tool.html'>结余工具</a><a href='legal.html'>使用说明</a></nav></div></header>
+
+  <main data-page='404'>
+    <section data-404-card aria-labelledby='not-found-title'>
+      <div>
+        <p data-kicker>Ledger lookup · entry not found</p>
+        <h1 id='not-found-title'>这一页，没有入账。</h1>
+        <p>地址可能已被修订、移至新月份，或从未写入当前账簿。先返回已结账的 2026 年 7 月流水，或查看记账方法了解字段与版本约定。</p>
+        <div data-404-actions><a href='index.html' data-button='accent'>返回流水簿</a><a href='article.html' data-button>查看记账方法</a></div>
+      </div>
+      <aside aria-label='错误诊断'>
+        <span data-404-code>404</span>
+        <dl><div><dt>Lookup</dt><dd>0 records</dd></div><div><dt>Current ledger</dt><dd>07 / 2026</dd></div><div><dt>Status</dt><dd>Not found</dd></div><div><dt>Next</dt><dd>Open current</dd></div></dl>
+      </aside>
+    </section>
+  </main>
+
+  <footer><div><div><h2>__SITE_NAME__ · 月度经营流水簿</h2><p>找不到页面时，先回到当前已结账版本。</p></div><div><nav aria-label='页脚导航'><a href='index.html'>流水簿</a><a href='tool.html'>结余工具</a><a href='legal.html'>使用说明</a></nav><small>HTTP 404 · __SITE_DOMAIN__</small></div></div></footer>
+  <script src='app.js'></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+(function(){
+  'use strict';
+  var menu=document.getElementById('coverbar-btn'),nav=document.getElementById('coverbar-nav');
+  if(menu&&nav){menu.addEventListener('click',function(){var open=nav.classList.toggle('is-open');menu.setAttribute('aria-expanded',open?'true':'false');});document.addEventListener('keydown',function(event){if(event.key==='Escape'&&nav.classList.contains('is-open')){nav.classList.remove('is-open');menu.setAttribute('aria-expanded','false');menu.focus();}});}
+  var modes={story:{kicker:'PRIMARY STORY',title:'先让读者看到本期唯一的主角',items:['主标题保持两行以内','图像承担封面中央的最大面积','日期与阅读入口放在故事脚部']},name:{kicker:'MASTHEAD',title:'刊名要像出版物本身一样稳定',items:['固定字重、字距与对齐基线','刊期信息贴近刊名但不争抢视线','每一期只改变内容，不改变识别骨架']},lines:{kicker:'COVER LINES',title:'封面线散布，但信息次序不能散',items:['每条只保留标题与一个分类','左右位置错落，字号保持一致','避开人物、主标题和阅读入口']}};
+  var tablist=document.querySelector('.cover-modes'),tabs=[].slice.call(document.querySelectorAll('[data-cover-mode]')),panel=document.querySelector('.cover-tool-result'),kicker=document.getElementById('tool-kicker'),title=document.getElementById('tool-preview-title'),items=document.getElementById('tool-items');
+  if(panel){panel.id='cover-tool-results';panel.setAttribute('role','tabpanel');panel.setAttribute('aria-live','polite');panel.setAttribute('aria-atomic','true');}
+  tabs.forEach(function(tab,index){tab.id='cover-mode-'+(index+1);tab.setAttribute('aria-controls','cover-tool-results');tab.setAttribute('tabindex',index===0?'0':'-1');});
+  function render(key){var data=modes[key];if(!data||!kicker||!title||!items)return;kicker.textContent=data.kicker;title.textContent=data.title;items.replaceChildren();data.items.forEach(function(text){var li=document.createElement('li');li.textContent=text;items.appendChild(li);});tabs.forEach(function(tab){var active=tab.getAttribute('data-cover-mode')===key;tab.classList.toggle('is-active',active);tab.setAttribute('aria-selected',active?'true':'false');tab.setAttribute('tabindex',active?'0':'-1');if(active&&panel)panel.setAttribute('aria-labelledby',tab.id);});}
+  function move(current,event){var index=tabs.indexOf(current),next=index;if(event.key==='ArrowRight'||event.key==='ArrowDown')next=(index+1)%tabs.length;else if(event.key==='ArrowLeft'||event.key==='ArrowUp')next=(index-1+tabs.length)%tabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=tabs.length-1;else return;event.preventDefault();render(tabs[next].getAttribute('data-cover-mode'));tabs[next].focus();}
+  tabs.forEach(function(tab){tab.addEventListener('click',function(){render(tab.getAttribute('data-cover-mode'));});tab.addEventListener('keydown',function(event){move(tab,event);});});
+  if(tablist&&tabs.length)render(tabs[0].getAttribute('data-cover-mode'));
+}());

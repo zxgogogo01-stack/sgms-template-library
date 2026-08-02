@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang='%LANG%'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>时间戳解码台 — %SITE_NAME%</title>
+    <meta name='description' content='将 Unix 时间戳转换为本地时间、UTC 时间与 ISO 8601 格式。'>
+    <link rel='canonical' href='https://%SITE_DOMAIN%/tool.html'>
+    <meta property='og:title' content='时间戳解码台 — %SITE_NAME%'>
+    <meta property='og:description' content='将 Unix 时间戳转换为本地时间、UTC 时间与 ISO 8601 格式。'>
+    <meta property='og:url' content='https://%SITE_DOMAIN%/tool.html'>
+    <link rel='stylesheet' href='css/style.css'>
+    <script type='application/ld+json'>
+    {"@context":"https://schema.org","@type":"WebApplication","name":"时间戳解码台","url":"https://%SITE_DOMAIN%/tool.html","applicationCategory":"UtilitiesApplication"}
+    </script>
+</head>
+<body>
+    <a class='skip-link' href='#main'>跳到时间工具</a>
+    <div class='desk'>
+        <aside class='channel'>
+            <div>
+                <p class='channel-kicker'>RAFTWIRE / 018</p>
+                <a class='station' href='index.html' aria-label='返回今日快讯'>%SITE_NAME%</a>
+                <p class='station-sub'>INDEPENDENT SIGNAL DESK</p>
+                <nav class='channel-nav' aria-label='站点导航'>
+                    <a href='index.html'>今日快讯 <span>LIVE</span></a>
+                    <a href='article.html'>往日归档 <span>ARC</span></a>
+                    <a href='tool.html' aria-current='page'>时间工具 <span>UTC</span></a>
+                    <a href='legal.html'>编发说明 <span>DOC</span></a>
+                </nav>
+            </div>
+            <div class='channel-status'>
+                <div class='status-row'><span>计算模式</span><strong>LOCAL</strong></div>
+                <div class='signal-line' aria-hidden='true'><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <p class='channel-note'>NO DATA TRANSFER<br>BROWSER ONLY</p>
+            </div>
+        </aside>
+
+        <main class='feed' id='main'>
+            <header class='deskbar'><p>Timestamp desk · Local utility</p><div class='live-mark'><i aria-hidden='true'></i><span>不会保存输入</span></div></header>
+            <header class='page-title'>
+                <p class='eyebrow'>Decode time</p>
+                <h1>把机器时间，<br>还原成上下文。</h1>
+                <p class='page-title__lede'>输入秒级或毫秒级 Unix 时间戳，获取浏览器本地时间、UTC 与 ISO 8601 表示。转换在当前页面完成。</p>
+            </header>
+
+            <section class='console' aria-labelledby='console-title'>
+                <form class='console-form' id='stamp-form' novalidate>
+                    <p class='eyebrow'>Input channel</p>
+                    <h2 id='console-title'>时间戳输入</h2>
+                    <div class='field'>
+                        <label for='stamp-input'>Unix 时间戳</label>
+                        <input id='stamp-input' name='stamp-input' type='number' step='1' inputmode='numeric' value='1785573128' aria-describedby='stamp-error'>
+                        <span class='field-error' id='stamp-error'></span>
+                    </div>
+                    <div class='field-row'>
+                        <div class='field'>
+                            <label for='stamp-unit'>输入单位</label>
+                            <select id='stamp-unit' name='stamp-unit'>
+                                <option value='seconds' selected>秒（10 位）</option>
+                                <option value='milliseconds'>毫秒（13 位）</option>
+                            </select>
+                        </div>
+                        <div class='field'>
+                            <label for='hour-mode'>本地显示</label>
+                            <select id='hour-mode' name='hour-mode'>
+                                <option value='24' selected>24 小时制</option>
+                                <option value='12'>12 小时制</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type='submit'>解码时间戳</button>
+                </form>
+
+                <aside class='console-output' aria-label='转换结果'>
+                    <div class='output-head'><span>Decoded output</span><span id='output-state'>READY</span></div>
+                    <output id='stamp-output' aria-live='polite' aria-atomic='true'>
+                        <strong class='output-date' id='local-output'>2026/08/01 16:32:08</strong>
+                        <span class='output-iso' id='iso-output'>2026-08-01T08:32:08.000Z</span>
+                    </output>
+                    <div class='output-grid'>
+                        <div><span>UTC</span><strong id='utc-output'>08:32:08</strong></div>
+                        <div><span>本地偏移</span><strong id='offset-output'>UTC+08:00</strong></div>
+                        <div><span>秒级</span><strong id='seconds-output'>1785573128</strong></div>
+                        <div><span>星期</span><strong id='weekday-output'>星期六</strong></div>
+                    </div>
+                    <button class='output-copy' type='button' id='output-copy'>复制 ISO 时间</button>
+                    <span class='output-status' id='output-status' role='status' aria-live='polite'></span>
+                </aside>
+            </section>
+
+            <section class='tool-notes' aria-label='时间戳提示'>
+                <article><p class='micro'>01 / Unit</p><h3>先确认秒或毫秒</h3><p>多数秒级时间戳为 10 位，毫秒级通常为 13 位；单位错误会导致日期偏离。</p></article>
+                <article><p class='micro'>02 / Zone</p><h3>同一时刻，多种显示</h3><p>本地时间受设备时区影响，跨地区协作优先记录 UTC 或 ISO 8601。</p></article>
+                <article><p class='micro'>03 / Source</p><h3>时间戳不等于发布时间</h3><p>字段可能表示创建、更新或同步时间，仍需结合原始数据说明判断。</p></article>
+            </section>
+
+            <footer class='desk-foot'><p>工具仅在浏览器本地计算，不发送或保存输入。</p><p><a href='index.html'>返回今日快讯</a> · %CONTACT_EMAIL%</p></footer>
+        </main>
+    </div>
+    <script>
+        (function () {
+            'use strict';
+            var form = document.getElementById('stamp-form');
+            var input = document.getElementById('stamp-input');
+            var unit = document.getElementById('stamp-unit');
+            var hourMode = document.getElementById('hour-mode');
+            var error = document.getElementById('stamp-error');
+            var isoValue = '2026-08-01T08:32:08.000Z';
+            var pageLang = document.documentElement.lang;
+            var locale = pageLang && pageLang.indexOf('%') === -1 ? pageLang : 'zh-CN';
+            function pad(number) { return String(number).padStart(2, '0'); }
+            function offsetText(date) { var minutes = -date.getTimezoneOffset(); var sign = minutes >= 0 ? '+' : '-'; var value = Math.abs(minutes); return 'UTC' + sign + pad(Math.floor(value / 60)) + ':' + pad(value % 60); }
+            function convert(event) {
+                event.preventDefault();
+                input.removeAttribute('aria-invalid'); error.textContent = '';
+                var raw = Number(input.value);
+                if (!Number.isFinite(raw) || raw < 0 || !Number.isInteger(raw)) { input.setAttribute('aria-invalid', 'true'); error.textContent = '请输入不小于 0 的整数时间戳。'; input.focus(); document.getElementById('output-state').textContent = 'CHECK'; return; }
+                var milliseconds = unit.value === 'seconds' ? raw * 1000 : raw;
+                var date = new Date(milliseconds);
+                if (Number.isNaN(date.getTime()) || date.getUTCFullYear() > 9999) { input.setAttribute('aria-invalid', 'true'); error.textContent = '该时间戳超出可解析范围。'; input.focus(); document.getElementById('output-state').textContent = 'RANGE'; return; }
+                var options = {year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:hourMode.value === '12'};
+                document.getElementById('local-output').textContent = new Intl.DateTimeFormat(locale, options).format(date);
+                isoValue = date.toISOString(); document.getElementById('iso-output').textContent = isoValue;
+                document.getElementById('utc-output').textContent = pad(date.getUTCHours()) + ':' + pad(date.getUTCMinutes()) + ':' + pad(date.getUTCSeconds());
+                document.getElementById('offset-output').textContent = offsetText(date);
+                document.getElementById('seconds-output').textContent = String(Math.floor(milliseconds / 1000));
+                document.getElementById('weekday-output').textContent = new Intl.DateTimeFormat(locale, {weekday:'long'}).format(date);
+                document.getElementById('output-state').textContent = 'DECODED';
+            }
+            form.addEventListener('submit', convert);
+            document.getElementById('output-copy').addEventListener('click', function () {
+                var status = document.getElementById('output-status');
+                function done() { status.textContent = 'ISO 时间已复制。'; }
+                if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(isoValue).then(done, function () { status.textContent = '复制失败，请手动选择。'; });
+                else status.textContent = '当前浏览器不支持自动复制，请手动选择。';
+            });
+        }());
+    </script>
+</body>
+</html>

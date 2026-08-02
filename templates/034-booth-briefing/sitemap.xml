@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://__SITE_DOMAIN__/</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://__SITE_DOMAIN__/article.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/tool.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/legal.html</loc></url>
+</urlset>

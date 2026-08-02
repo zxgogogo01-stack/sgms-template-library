@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang='~LANG~'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#101426'>
+    <title>返佣汇总台账 — ~SITE_NAME~</title>
+    <meta name='description' content='把多个平台的月返佣填进来，合计并算各自占比。'>
+    <link rel='canonical' href='https://~SITE_DOMAIN~/tool.html'>
+    <meta property='og:type' content='website'>
+    <meta property='og:site_name' content='~SITE_NAME~'>
+    <meta property='og:title' content='返佣汇总台账 — ~SITE_NAME~'>
+    <meta property='og:description' content='把多个平台的月返佣填进来，合计并算各自占比。'>
+    <meta property='og:url' content='https://~SITE_DOMAIN~/tool.html'>
+    <meta name='twitter:card' content='summary'>
+    <link rel='stylesheet' href='assets/star.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "返佣汇总台账",
+        "url": "https://~SITE_DOMAIN~/tool.html"
+    }
+    </script>
+    <style>
+        .tally67 { max-width: 540px; margin: 0 auto; padding: 50px 24px 84px; }
+        .tally67-card {
+            background: var(--nebula);
+            border: 1px solid var(--meridian);
+            border-top: 4px solid var(--goldstar);
+            border-radius: var(--orb67);
+            padding: 42px 46px;
+        }
+        .tally67-card h1 { font-family: var(--serif67); font-size: 1.5rem; }
+        .tally67-card > p { color: var(--stardust); margin: 6px 0 8px; }
+        .tally67-card label {
+            display: block;
+            margin: 16px 0 6px;
+            font-family: var(--mono67);
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            color: var(--goldstar);
+        }
+        .tally67-card input {
+            width: 100%;
+            min-height: 48px;
+            padding: 10px 16px;
+            border: 1px solid var(--meridian);
+            border-radius: 11px;
+            background: var(--midnight);
+            color: var(--moonink);
+            font: inherit;
+            font-family: var(--mono67);
+            font-variant-numeric: tabular-nums;
+            transition: border-color var(--glint), box-shadow var(--glint);
+        }
+        .tally67-card input:focus {
+            outline: none;
+            border-color: var(--goldstar);
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--goldstar) 18%, transparent);
+        }
+        .tally67-card input[aria-invalid='true'] {
+            border-color: #ff7368;
+            box-shadow: 0 0 0 4px color-mix(in srgb, #ff7368 18%, transparent);
+        }
+        .tally67-run {
+            margin-top: 26px;
+            width: 100%;
+            min-height: 52px;
+            border: 0;
+            border-radius: 999px;
+            background: var(--goldstar);
+            color: #241c05;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            cursor: pointer;
+            box-shadow: 0 10px 26px color-mix(in srgb, var(--goldstar) 30%, transparent);
+            transition: transform var(--glint), background var(--glint);
+        }
+        .tally67-run:hover { transform: translateY(-2px); background: var(--goldstar-hi); }
+        .tally67-out {
+            display: block;
+            margin-top: 18px;
+            min-height: 26px;
+            padding: 15px 19px;
+            border-radius: 11px;
+            background: var(--nebula-2);
+            line-height: 1.85;
+            font-variant-numeric: tabular-nums;
+        }
+        .tally67-out b { color: var(--goldstar-hi); }
+        @media (max-width: 600px) {
+            .tally67-card { padding: 28px 22px; }
+        }
+    </style>
+</head>
+<body>
+    <header class='skydeck'>
+        <div class='skydeck-in'>
+            <a class='skydeck-brand' href='index.html'>~BRAND_EN~</a>
+            <button type='button' class='skydeck-btn' id='skydeck-btn' aria-label='主导航' aria-expanded='false' aria-controls='skydeck-nav'>
+                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+            </button>
+            <nav class='skydeck-nav' id='skydeck-nav' aria-label='主导航'>
+                <a href='index.html'>星图</a>
+                <a href='article.html'>文章</a>
+                <a href='tool.html' aria-current='page'>汇总台账</a>
+                <a href='legal.html'>披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class='tally67'>
+        <form class='tally67-card' id='tb-form' novalidate>
+            <h1>返佣汇总台账</h1>
+            <p>用几个平台就填几栏，合计与占比一起出。本地计算，不上传。</p>
+            <label for='tb-a'>平台 A 月返佣</label>
+            <input type='number' id='tb-a' step='any' min='0' placeholder='如 45' aria-describedby='tb-out'>
+            <label for='tb-b'>平台 B 月返佣（可留空）</label>
+            <input type='number' id='tb-b' step='any' min='0' placeholder='' aria-describedby='tb-out'>
+            <label for='tb-c'>平台 C 月返佣（可留空）</label>
+            <input type='number' id='tb-c' step='any' min='0' placeholder='' aria-describedby='tb-out'>
+            <button type='submit' class='tally67-run' id='tb-run'>汇总</button>
+            <output class='tally67-out' id='tb-out' role='status' aria-live='polite'></output>
+        </form>
+    </main>
+
+    <footer class='horizon'>
+        <div class='horizon-in'>
+            <p class='horizon-fine'>结果仅供参考，实际以各平台结算为准。</p>
+        </div>
+    </footer>
+
+    <script src='assets/star.js'></script>
+</body>
+</html>

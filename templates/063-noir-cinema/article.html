@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="__lang__">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0b0d">
+    <title>场刊样板 — __site_name__</title>
+    <meta name="description" content="放映厅站场刊页样板。">
+    <link rel="canonical" href="https://__site_domain__/article.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="__site_name__">
+    <meta property="og:title" content="场刊样板 — __site_name__">
+    <meta property="og:description" content="放映厅站场刊页样板。">
+    <meta property="og:url" content="https://__site_domain__/article.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="css/screen.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "场刊样板",
+        "datePublished": "2026-01-19",
+        "mainEntityOfPage": "https://__site_domain__/article.html"
+    }
+    </script>
+    <style>
+        .playbook { max-width: 760px; margin: 0 auto; padding: 52px 26px 90px; }
+        .playbook-tcode {
+            font-family: var(--mono63);
+            font-size: .8rem;
+            letter-spacing: .3em;
+            color: var(--curtain-hot);
+            font-weight: 700;
+        }
+        .playbook h1 {
+            font-family: var(--serif63);
+            font-size: clamp(1.6rem, 3.8vw, 2.4rem);
+            line-height: 1.26;
+            margin: 14px 0 0;
+        }
+        .playbook-meta { margin: 12px 0 0; font-family: var(--mono63); font-variant-numeric: tabular-nums; font-size: .84rem; color: var(--ushergrey); }
+        .playbook-bar { border: 0; border-top: 6px solid #000; margin: 30px 0; }
+        .playbook-gist {
+            padding: 18px 24px;
+            background: var(--boothx);
+            border: 1px solid var(--gaffer);
+            border-left: 4px solid var(--curtain);
+            margin-bottom: 28px;
+        }
+        .playbook h2 {
+            font-family: var(--serif63);
+            font-size: 1.32rem;
+            margin: 36px 0 12px;
+        }
+        .playbook h2::before { content: "▸ "; color: var(--curtain-hot); }
+        .playbook p { margin: 0 0 15px; }
+        .playbook-roll { overflow-x: auto; border: 1px solid var(--gaffer); margin: 16px 0 8px; }
+        .playbook table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+        .playbook th, .playbook td { text-align: left; padding: 12px 17px; border-bottom: 1px solid var(--gaffer); font-size: .92rem; white-space: nowrap; }
+        .playbook thead th {
+            background: var(--boothx);
+            font-family: var(--mono63);
+            font-size: .78rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--curtain-hot);
+            border-bottom: 0;
+        }
+        .playbook tbody tr:last-child td { border-bottom: 0; }
+        .playbook-fine { font-size: .84rem; color: var(--ushergrey); }
+        @media (max-width: 640px) {
+            .playbook { padding: 38px 20px 70px; }
+            .playbook th, .playbook td { white-space: normal; }
+        }
+    </style>
+</head>
+<body>
+    <header class="lobby">
+        <div class="lobby-in">
+            <a class="lobby-sign" href="index.html">__brand_en__</a>
+            <button type="button" class="lobby-btn" id="lobby-btn" aria-label="主导航" aria-expanded="false" aria-controls="lobby-nav">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+            <nav class="lobby-nav" id="lobby-nav" aria-label="主导航">
+                <a href="index.html">放映厅</a>
+                <a href="article.html" aria-current="page">场刊</a>
+                <a href="tool.html">到账估算</a>
+                <a href="legal.html">披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="playbook">
+        <article>
+            <p class="playbook-tcode">SCENE 01 · 费率观察</p>
+            <h1>示例平台A 挂单档位调整：返佣基数怎么跟着变</h1>
+            <p class="playbook-meta">发布 2026-01-19 · 口径核对 2026-01-19</p>
+            <hr class="playbook-bar">
+
+            <div class="playbook-gist"><b>先说结论：</b>费率档位变化会沿着手续费基数传导到返佣金额；核对时应同时确认产品线、账户档位与生效时间。</div>
+
+            <h2>变了什么</h2>
+            <p>先记录调整覆盖的产品、账户层级和生效时间，并把时区统一到自己的账单时区；随后保存规则页版本，便于到账后逐项复核。</p>
+
+            <h2>对返佣的传导</h2>
+            <p>计算顺序是成交额乘手续费率得到手续费，再乘可返比例得到预计返佣。若存在抵扣、上限或排除产品，应先从计佣基数中剔除。</p>
+            <div class="playbook-roll">
+                <table>
+                    <thead>
+                        <tr><th scope="col">项目</th><th scope="col">调整前</th><th scope="col">调整后</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>挂单费率（基础档）</td><td>0.0X%</td><td>0.0X%</td></tr>
+                        <tr><td>演示返佣（每万元）</td><td>X.XX</td><td>X.XX</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="playbook-fine">表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
+
+            <h2>要不要动</h2>
+            <p>判断时不要只看返佣比例，还要核对费率、产品范围、结算门槛与到账周期。规则可能调整，正式决策应以账户页面的最新显示为准。</p>
+        </article>
+    </main>
+
+    <footer class="curtaincall">
+        <div class="curtaincall-in">
+            <p class="curtaincall-fine">内容为信息整理，以各平台官方页面为准；不构成投资建议。</p>
+        </div>
+    </footer>
+
+    <script src="show.js"></script>
+</body>
+</html>

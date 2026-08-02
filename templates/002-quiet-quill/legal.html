@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>站点说明 — {{SITE_NAME}}</title>
+  <meta name="description" content="{{SITE_NAME}} 的站点说明与声明。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/legal.html">
+  <meta property="og:title" content="站点说明 — {{SITE_NAME}}">
+  <meta property="og:description" content="{{SITE_NAME}} 的站点说明与声明。">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/legal.html">
+  <link rel="stylesheet" href="assets/core.css">
+  <link rel="stylesheet" href="assets/frame.css">
+  <link rel="stylesheet" href="assets/bits.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "站点说明",
+    "url": "https://{{SITE_DOMAIN}}/legal.html"
+  }
+  </script>
+</head>
+<body>
+  <header class="masthead">
+    <nav class="masthead__menu" aria-label="站内导航">
+      <a class="masthead__item" href="index.html">目录</a>
+      <a class="masthead__item" href="article.html">本期长文</a>
+      <a class="masthead__item" href="tool.html">字数统计</a>
+    </nav>
+    <span class="masthead__mark">{{SITE_NAME}}</span>
+  </header>
+
+  <main>
+    <article class="prose">
+      <h1>站点说明</h1>
+      <div class="prose__meta"><time class="prose__when" datetime="2026-07-28">2026-07-28 更新</time><span>阅读与隐私说明</span></div>
+      <p>这是一份给读者看的说明，不是藏在页脚里的免责文字。它解释 {{SITE_NAME}} 如何写作、修订、引用资料，以及如何对待你主动留下的信息。</p>
+      <h2>我们怎样标记事实与判断</h2>
+      <p>文中的事实尽量附上可复核的来源和核对日期；推断、经验与个人观点会明确区分。涉及规则、价格或服务状态时，请以对应机构最新发布的正式页面为准。</p>
+      <h2>修订与归档</h2>
+      <p>不会悄悄改写影响结论的内容。重要修订会保留日期和简短说明；已经失效但仍有参考价值的文章，会在开头显示归档提示，而不是直接消失。</p>
+      <h2>隐私与订阅</h2>
+      <p>本站模板默认不加载第三方统计脚本。首页订阅表单仅演示交互，不会发送或保存邮箱；接入真实服务后，应在此处补充服务商、保存期限和退订方式。</p>
+      <h2>转载、纠错与联系</h2>
+      <p>短篇引用请保留文章标题与原始链接；完整转载需事先获得许可。如果你发现事实、链接或时间线需要修正，请写信至 <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>，并附上可核对的出处。</p>
+    </article>
+  </main>
+
+  <footer class="foot-grid">
+    <div class="foot-grid__cell">
+      <p class="foot-grid__strong">{{SITE_NAME}}</p>
+      <p>{{SITE_TAGLINE}}</p>
+    </div>
+    <div class="foot-grid__cell">
+      <p><a href="legal.html">站点说明</a></p>
+      <p>{{CONTACT_EMAIL}}</p>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

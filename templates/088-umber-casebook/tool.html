@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='[[LANG]]'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>案例核验清单｜[[SITE_NAME]]</title>
+  <meta name='description' content='按问题类型生成三步核验清单。'>
+  <link rel='canonical' href='https://[[SITE_DOMAIN]]/tool.html'>
+  <link rel='stylesheet' href='public.css'><link rel='stylesheet' href='static/casebook.css'>
+</head>
+<body>
+  <header class='casebar'><div class='casebar-in'><a class='casebar-brand' href='index.html'>[[BRAND_EN]]</a><button class='casebar-btn' id='casebar-btn' type='button' aria-label='主导航' aria-expanded='false' aria-controls='casebar-nav'><span></span><span></span></button><nav class='casebar-nav' id='casebar-nav' aria-label='主导航'><a href='index.html'>案例库</a><a href='article.html'>方法</a><a href='tool.html' aria-current='page'>核验清单</a><a href='legal.html'>说明</a></nav></div></header>
+  <main class='case-subpage'>
+    <nav class='case-crumb' aria-label='面包屑'><a href='index.html'>案例库</a> ／ 核验清单</nav>
+    <p class='case-kicker'>Evidence checklist</p>
+    <h1 class='case-heading'>从问题类型开始，建立可复查的证据链</h1>
+    <p class='case-lead'>选择当前最接近的问题，先完成三项基础记录，再决定是否需要扩大核验范围。</p>
+    <div class='case-tool-grid'>
+      <div class='case-filter-list' aria-label='案例类型'><button type='button' class='case-filter is-active' data-case='fee'>费用差异<span>费率、优惠与结算金额不一致</span></button><button type='button' class='case-filter' data-case='arrival'>到账异常<span>状态、批次或实际余额不同步</span></button><button type='button' class='case-filter' data-case='source'>来源核验<span>页面、截图或规则出处不明</span></button></div>
+      <section class='case-result' aria-live='polite'><p class='case-kicker'>Checklist</p><h2 id='case-result-label'>费用差异核验</h2><ol id='case-result-list'><li><strong>01</strong><span>固定订单类型和计价单位</span></li><li><strong>02</strong><span>重算费率与优惠的作用顺序</span></li><li><strong>03</strong><span>按结算批次回到账单复查</span></li></ol><p class='case-note'>清单只帮助整理信息，实际规则以当期公开文件和原始记录为准。</p></section>
+    </div>
+  </main>
+  <footer class='casefoot'><div class='casefoot-in'><p>[[BRAND_EN]] · [[SITE_TAGLINE]]</p><nav aria-label='页脚导航'><a href='article.html'>方法</a><a href='tool.html'>核验清单</a><a href='legal.html'>说明</a></nav><small>案例用于说明核验方法，不代表对任何个案作出结论。</small></div></footer>
+  <script src='static/casebook.js'></script>
+</body>
+</html>

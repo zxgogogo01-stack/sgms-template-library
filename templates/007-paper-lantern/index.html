@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{SITE_NAME}} — 概念词典</title>
+  <meta name="description" content="{{SITE_DESC}}">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}">
+  <meta property="og:description" content="{{SITE_DESC}}">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <link rel="stylesheet" href="assets/wick.css">
+  <link rel="stylesheet" href="assets/panel.css">
+  <link rel="stylesheet" href="assets/shade.css">
+  <link rel="stylesheet" href="assets/boutique.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"DefinedTermSet","name":"{{SITE_NAME}}","url":"https://{{SITE_DOMAIN}}/"}
+  </script>
+</head>
+<body>
+  <header class="arch">
+    <a class="arch__name" href="index.html" aria-current="page">{{SITE_NAME}}</a>
+    <nav class="arch__ways" aria-label="主导航">
+      <a class="arch__way" href="index.html" aria-current="page">词条目录</a>
+      <a class="arch__way" href="article.html">深读示例</a>
+      <a class="arch__way" href="tool.html">记忆卡</a>
+      <a class="arch__way" href="legal.html">编写公约</a>
+    </nav>
+  </header>
+
+  <main class="hall">
+    <section class="glow glow--edition">
+      <div class="glow__mast">
+        <p class="glow__label">PAPER LANTERN / EDITION 007</p>
+        <span>公开概念词典 · 持续校订</span>
+      </div>
+      <h1 class="glow__title">{{SITE_NAME}}</h1>
+      <p class="glow__line">{{SITE_TAGLINE}}</p>
+      <dl class="glow__folio" aria-label="词典概况">
+        <div><dt>收录</dt><dd>8 条</dd></div>
+        <div><dt>主题</dt><dd>市场基础</dd></div>
+        <div><dt>复核</dt><dd>2026-07-22</dd></div>
+      </dl>
+    </section>
+
+    <div class="seek-line">
+      <label class="seek-line__tip" for="seek-box">检索词条</label>
+      <input class="seek-line__box" type="search" id="seek-box" placeholder="输入词名或定义关键词" aria-controls="entry-field" aria-describedby="seek-status">
+      <p class="seek-line__status" id="seek-status" aria-live="polite">共 8 个词条</p>
+    </div>
+
+    <section class="today-card" aria-labelledby="today-word">
+      <span class="today-card__flag">今日词条 / DAILY TERM</span>
+      <span class="today-card__index">NO. 023</span>
+      <p class="today-card__type">名词 · 市场结构</p>
+      <h2 class="today-card__word" id="today-word">流动性</h2>
+      <p class="today-card__sense">资产能够在价格变化较小的情况下被快速买入或卖出的程度，通常与成交活跃度、买卖价差及订单深度共同相关。</p>
+      <a class="today-card__read" href="article.html">阅读全文 <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="entry-field" id="entry-field" aria-label="词条列表">
+      <div class="entry-field__heading">
+        <div><p>01 / MARKET BASICS</p><h2 class="entry-field__cap">基础概念</h2></div>
+        <span>5 条 · 最近校订 07/22</span>
+      </div>
+      <div class="entry-field__set">
+        <a class="entry-field__item" href="article.html" data-term="流动性">
+          <span class="entry-field__no">023</span><strong class="entry-field__term">流动性</strong>
+          <span class="entry-field__brief">能够快速成交且尽量不推动价格的程度。</span><span class="entry-field__meta">市场结构 · 4 分钟</span>
+        </a>
+        <a class="entry-field__item" href="article.html" data-term="限价单">
+          <span class="entry-field__no">001</span><strong class="entry-field__term">限价单</strong>
+          <span class="entry-field__brief">按指定价格或更优价格成交的委托。</span><span class="entry-field__meta">订单类型 · 2 分钟</span>
+        </a>
+        <a class="entry-field__item" href="article.html" data-term="市价单">
+          <span class="entry-field__no">002</span><strong class="entry-field__term">市价单</strong>
+          <span class="entry-field__brief">以当前可获得价格尽快成交的委托。</span><span class="entry-field__meta">订单类型 · 2 分钟</span>
+        </a>
+        <a class="entry-field__item" href="article.html" data-term="订单簿">
+          <span class="entry-field__no">003</span><strong class="entry-field__term">订单簿</strong>
+          <span class="entry-field__brief">按价格排列的待成交买卖委托集合。</span><span class="entry-field__meta">市场结构 · 4 分钟</span>
+        </a>
+        <a class="entry-field__item" href="article.html" data-term="市场深度">
+          <span class="entry-field__no">004</span><strong class="entry-field__term">市场深度</strong>
+          <span class="entry-field__brief">不同价位上可成交数量的分布状况。</span><span class="entry-field__meta">市场结构 · 3 分钟</span>
+        </a>
+      </div>
+
+      <div class="entry-field__heading">
+        <div><p>02 / FEE STRUCTURE</p><h2 class="entry-field__cap">费用相关</h2></div>
+        <span>3 条 · 最近校订 07/18</span>
+      </div>
+      <div class="entry-field__set">
+        <a class="entry-field__item" href="article.html" data-term="挂单费率">
+          <span class="entry-field__no">005</span><strong class="entry-field__term">挂单费率</strong>
+          <span class="entry-field__brief">限价单进入订单簿等待成交时适用的费率。</span><span class="entry-field__meta">交易费用 · 3 分钟</span>
+        </a>
+        <a class="entry-field__item" href="article.html" data-term="吃单费率">
+          <span class="entry-field__no">006</span><strong class="entry-field__term">吃单费率</strong>
+          <span class="entry-field__brief">立即与簿内委托成交时适用的费率。</span><span class="entry-field__meta">交易费用 · 3 分钟</span>
+        </a>
+        <a class="entry-field__item" href="article.html" data-term="分档">
+          <span class="entry-field__no">007</span><strong class="entry-field__term">分档</strong>
+          <span class="entry-field__brief">按成交量或持仓规模划分的费率等级。</span><span class="entry-field__meta">交易费用 · 2 分钟</span>
+        </a>
+      </div>
+      <div class="entry-field__empty" id="entry-empty" hidden>
+        <strong>灯下暂时没有这条记录</strong>
+        <p>换一个关键词，或清空搜索查看完整目录。</p>
+        <button type="button" id="seek-clear">清空检索</button>
+      </div>
+    </section>
+
+    <aside class="revision-ribbon">
+      <p>EDITOR'S DESK</p>
+      <strong>每个词条先给一句可引用定义，再解释边界、反例与使用情境。</strong>
+      <a href="legal.html">查看编写与校订公约 →</a>
+    </aside>
+  </main>
+
+  <footer class="lantern-foot"><p class="lantern-foot__words">概念解释不替代专业建议 · <a href="legal.html">编写公约</a> · {{CONTACT_EMAIL}}</p></footer>
+  <script src="assets/lamp.js"></script>
+</body>
+</html>

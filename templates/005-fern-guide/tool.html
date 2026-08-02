@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学习路线规划 — {{SITE_NAME}}</title>
+  <meta name="description" content="输入已完成与总章节数，计算进度、剩余章节与下一段学习建议。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="学习路线规划 — {{SITE_NAME}}">
+  <meta property="og:description" content="输入已完成与总章节数，计算进度、剩余章节与下一段学习建议。">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <link rel="stylesheet" href="assets/stem.css">
+  <link rel="stylesheet" href="assets/canopy.css">
+  <link rel="stylesheet" href="assets/leaf.css">
+  <link rel="stylesheet" href="assets/boutique.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "学习路线规划",
+    "url": "https://{{SITE_DOMAIN}}/tool.html",
+    "applicationCategory": "EducationalApplication"
+  }
+  </script>
+</head>
+<body>
+  <header class="peak">
+    <span class="peak__logo" aria-hidden="true">05</span>
+    <span class="peak__word">{{SITE_NAME}}</span>
+    <nav class="peak__menu" aria-label="主导航">
+      <a class="peak__jump" href="index.html">路线</a>
+      <a class="peak__jump" href="article.html">章节样例</a>
+      <a class="peak__jump" href="tool.html" aria-current="page">进度规划</a>
+      <a class="peak__jump" href="legal.html">学前须知</a>
+    </nav>
+  </header>
+
+  <main class="valley valley--tool">
+    <section class="glade glade--tool">
+      <p class="glade__kicker">ROUTE PLANNER / LOCAL TOOL</p>
+      <h1 class="glade__head">学习路线规划</h1>
+      <p class="glade__deck">不追求连续打卡，只把下一段学习安排得足够明确。</p>
+      <p class="glade__meta"><span>浏览器本地计算</span><span>不上传输入</span></p>
+    </section>
+
+    <aside class="tool-brief" aria-label="使用说明">
+      <p class="tool-brief__eyebrow">BEFORE YOU START</p>
+      <h2>两组数字，一条下一步建议</h2>
+      <ol>
+        <li>填写已完成与总章节数</li>
+        <li>选择每次计划完成的章节数</li>
+        <li>得到剩余进度和下一段安排</li>
+      </ol>
+      <p>结果仅保留在当前页面，刷新后清空。</p>
+    </aside>
+
+    <form class="prog" id="prog-form" novalidate>
+      <header class="prog__head">
+        <p>PLANNER / 005</p>
+        <h2>填写你的路线进度</h2>
+      </header>
+      <div class="prog__field">
+        <label for="prog-done">已完成章节</label>
+        <input type="number" id="prog-done" min="0" step="1" inputmode="numeric" placeholder="例如 4" required>
+      </div>
+      <div class="prog__field">
+        <label for="prog-total">总章节数</label>
+        <input type="number" id="prog-total" min="1" step="1" inputmode="numeric" placeholder="例如 12" required>
+      </div>
+      <div class="prog__field prog__field--pace">
+        <label for="prog-pace">下一次计划完成</label>
+        <select id="prog-pace">
+          <option value="1">1 章 · 轻量推进</option>
+          <option value="2" selected>2 章 · 标准节奏</option>
+          <option value="3">3 章 · 集中学习</option>
+        </select>
+      </div>
+      <div class="prog__actions">
+        <button class="prog__run" type="submit">生成路线建议</button>
+        <button class="prog__reset" type="reset">清空</button>
+      </div>
+      <div class="prog__track" role="progressbar" aria-label="学习进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="prog__fill" id="prog-bar"></div>
+      </div>
+      <output class="prog__result" id="prog-out" aria-live="polite">
+        <span class="prog__result-kicker">ROUTE STATUS</span>
+        <strong>等待输入路线数据</strong>
+        <small>填写后将显示完成比例、剩余章节与下一步建议。</small>
+      </output>
+    </form>
+  </main>
+
+  <footer class="roots">
+    <p class="roots__note">工具只在当前浏览器运行，不上传或保存输入内容。</p>
+  </footer>
+
+  <script src="assets/go.js"></script>
+</body>
+</html>

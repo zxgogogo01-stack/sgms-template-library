@@ -1,0 +1,94 @@
+/* Fern Guide — canopy (layout) */
+.valley {
+  width: min(calc(100% - 48px), 1120px);
+  margin: 0 auto;
+  padding: 52px 0 104px;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.peak {
+  position: sticky;
+  z-index: 30;
+  top: 0;
+  width: 100%;
+  min-height: 82px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 0 max(24px, calc((100vw - 1120px) / 2));
+  color: #f4f0e4;
+  background: rgba(16, 42, 33, 0.96);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+.peak__menu {
+  min-width: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: clamp(4px, 1vw, 14px);
+}
+
+.glade { grid-column: span 7; }
+.invite-nook { grid-column: span 5; }
+.path-steps, .chapter-wall, .pitfall-list { grid-column: 1 / -1; }
+
+.path-steps__lane {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  counter-reset: stops;
+}
+
+.chapter-wall__cells {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+
+.invite-nook__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.lesson, .must-read { grid-column: 2 / 12; }
+.prog { grid-column: 3 / 11; }
+
+@media (max-width: 1020px) {
+  .glade, .invite-nook { grid-column: 1 / -1; }
+  .path-steps__lane { grid-template-columns: 1fr 1fr; }
+  .lesson, .must-read, .prog { grid-column: 1 / -1; }
+}
+
+@media (max-width: 620px) {
+  .valley {
+    width: min(calc(100% - 32px), 1120px);
+    padding: 30px 0 76px;
+    gap: 22px;
+  }
+
+  .peak {
+    position: relative;
+    min-height: auto;
+    grid-template-columns: auto 1fr;
+    padding: 18px 16px 0;
+  }
+
+  .peak__menu {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .peak__menu::-webkit-scrollbar { display: none; }
+  .path-steps__lane, .chapter-wall__cells { grid-template-columns: 1fr; }
+  .invite-nook__row { grid-template-columns: 1fr; }
+}

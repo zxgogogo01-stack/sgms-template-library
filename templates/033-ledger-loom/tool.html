@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='__LANG__'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>本地结余核算台 · __SITE_NAME__</title>
+  <meta name='description' content='在浏览器本地解析带正负号的金额，计算收入、支出与净结余。'>
+  <link rel='canonical' href='https://__SITE_DOMAIN__/tool.html'>
+  <meta property='og:title' content='本地结余核算台 · __SITE_NAME__'>
+  <meta property='og:description' content='在浏览器本地解析带正负号的金额，计算收入、支出与净结余。'>
+  <meta property='og:url' content='https://__SITE_DOMAIN__/tool.html'>
+  <link rel='stylesheet' href='site.css'>
+  <script type='application/ld+json'>
+  {"@context":"https://schema.org","@type":"WebApplication","name":"本地结余核算台","url":"https://__SITE_DOMAIN__/tool.html","applicationCategory":"FinanceApplication","operatingSystem":"Any"}
+  </script>
+</head>
+<body>
+  <header data-site-header><div><a href='index.html' data-brand aria-label='返回月度经营流水簿首页'><b>L/33</b><span><strong>__SITE_NAME__</strong><small>Ledger loom · edition 033</small></span></a><nav data-nav aria-label='主导航'><a href='index.html'>流水簿</a><a href='article.html'>记账方法</a><a href='tool.html' aria-current='page'>结余工具</a><a href='legal.html'>使用说明</a></nav></div></header>
+
+  <main data-page='tool'>
+    <header>
+      <div><p data-kicker>Local balance calculator · no upload</p><h1>把一串金额，核成清楚的结余。</h1><p data-lede>每行输入一个带正负号的金额，工具会分开统计收入、支出与净结余。事项名称可以跟在金额后面，不参与运算。</p></div>
+      <aside><p data-label>Processing note</p><p>所有输入只在当前浏览器中处理，不保存、不上传，也不自动判断会计或税务分类。</p></aside>
+    </header>
+
+    <div data-tool-layout>
+      <section>
+        <form data-tool-card id='balance-form' novalidate>
+          <p data-kicker>Paste signed amounts</p>
+          <div data-field>
+            <label for='balance-source'>金额明细 <span id='line-count'>0 行</span></label>
+            <textarea id='balance-source' placeholder='+28000 顾问项目首款&#10;-1280 云服务续费&#10;+16800 设计项目二期款' aria-describedby='balance-help balance-error'></textarea>
+            <small id='balance-help'>支持 ¥、￥、逗号和小数；每行只读取第一个带正负号的金额。</small>
+          </div>
+          <p data-error id='balance-error' aria-live='polite'></p>
+          <div data-tool-actions>
+            <button type='submit' data-button='primary'>计算结余</button>
+            <button type='button' data-act='load-sample' data-button='accent'>载入本月样例</button>
+            <button type='button' data-act='clear-balance'>清空</button>
+          </div>
+        </form>
+
+        <section data-result id='balance-result' hidden tabindex='-1' aria-labelledby='result-title'>
+          <header><strong id='result-title'>核算结果</strong><span data-status id='result-status'>Ready</span></header>
+          <div data-result-grid>
+            <div><span data-meta-label>收入合计</span><strong id='total-in'>¥0</strong></div>
+            <div><span data-meta-label>支出合计</span><strong id='total-out'>¥0</strong></div>
+            <div><span data-meta-label>净结余</span><strong id='net-balance'>¥0</strong></div>
+          </div>
+          <footer><span><b id='parsed-count'>0</b> 笔已识别 · <b id='ignored-count'>0</b> 行已忽略</span><button type='button' data-act='copy-result'>复制结果</button></footer>
+        </section>
+        <p data-inline-status id='tool-status' aria-live='polite'></p>
+      </section>
+
+      <aside data-tool-notes>
+        <section data-panel><p data-kicker>Accepted format</p><h3>输入约定</h3><ul><li>收入以 <code>+</code> 开头</li><li>支出以 <code>-</code> 或 <code>−</code> 开头</li><li>事项名称写在金额后</li><li>空行自动忽略</li></ul></section>
+        <section data-panel><p data-kicker>Before you use it</p><h3>结果只做核算</h3><p>它不会判断一笔钱应归入哪个分类，也不会替你核对发票、合同、税费或付款状态。</p></section>
+        <section data-panel><p data-kicker>Privacy</p><h3>只在本地处理</h3><p>关闭页面后，输入与结果不会由本模板保存。若浏览器安装了第三方扩展，请自行评估其数据权限。</p></section>
+      </aside>
+    </div>
+  </main>
+
+  <footer><div><div><h2>__SITE_NAME__ · 本地结余核算台</h2><p>先核金额，再回到账簿检查分类与凭证。</p></div><div><nav aria-label='页脚导航'><a href='index.html'>返回流水簿</a><a href='article.html'>记账方法</a><a href='legal.html'>使用说明</a></nav><small>LOCAL TOOL · __SITE_DOMAIN__ · NO STORAGE</small></div></div></footer>
+  <script src='app.js'></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang='__lang__'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='theme-color' content='#f9f4ea'>
+  <title>日均摊算器 — __site_name__</title>
+  <meta name='description' content='把月手续费和返佣摊到每一天，看清日均净成本。'>
+  <link rel='canonical' href='https://__site_domain__/tool.html'>
+  <meta property='og:type' content='website'>
+  <meta property='og:site_name' content='__site_name__'>
+  <meta property='og:title' content='日均摊算器 — __site_name__'>
+  <meta property='og:description' content='把月手续费和返佣摊到每一天，看清日均净成本。'>
+  <meta property='og:url' content='https://__site_domain__/tool.html'>
+  <meta name='twitter:card' content='summary'>
+  <link rel='stylesheet' href='style.css'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "日均摊算器",
+    "url": "https://__site_domain__/tool.html"
+  }
+  </script>
+  <style>
+    .abacus { max-width: 540px; margin: 0 auto; padding: 50px 24px 84px; }
+    .abacus-card {
+      background: var(--leafwhite);
+      border: 1.5px solid var(--ruleline);
+      border-top: 4px double var(--sootink);
+      border-radius: var(--chamfer);
+      box-shadow: var(--inkshadow-hi);
+      padding: 42px 46px;
+    }
+    .abacus-card h1 { font-family: var(--serif68); font-size: 1.5rem; letter-spacing: .06em; }
+    .abacus-card > p { color: var(--fadedink); margin: 6px 0 8px; }
+    .abacus-card label {
+      display: block;
+      margin: 16px 0 6px;
+      font-size: .86rem;
+      font-weight: 800;
+      color: var(--cinnabar-deep);
+    }
+    .abacus-card input {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 16px;
+      border: 1.5px solid var(--ruleline);
+      border-radius: var(--chamfer);
+      background: var(--ricepaper);
+      color: var(--sootink);
+      font: inherit;
+      font-family: var(--mono68);
+      font-variant-numeric: tabular-nums;
+      transition: border-color var(--brush), box-shadow var(--brush);
+    }
+    .abacus-card input:focus {
+      outline: none;
+      border-color: var(--cinnabar);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--cinnabar) 15%, transparent);
+    }
+    .abacus-card input[aria-invalid='true'] {
+      border-color: #b94436;
+      box-shadow: 0 0 0 4px color-mix(in srgb, #b94436 16%, transparent);
+    }
+    .abacus-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 52px;
+      border: 0;
+      border-radius: var(--chamfer);
+      background: var(--cinnabar);
+      color: #fdf3ef;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      cursor: pointer;
+      box-shadow: 0 10px 24px color-mix(in srgb, var(--cinnabar) 36%, transparent);
+      transition: transform var(--brush), background var(--brush);
+    }
+    .abacus-run:hover { transform: translateY(-2px); background: var(--cinnabar-deep); }
+    .abacus-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 26px;
+      padding: 15px 19px;
+      border-radius: var(--chamfer);
+      background: var(--washtint);
+      line-height: 1.8;
+      font-variant-numeric: tabular-nums;
+    }
+    .abacus-out b { color: var(--cinnabar-deep); }
+    @media (max-width: 600px) {
+      .abacus-card { padding: 30px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class='eaves'>
+    <div class='eaves-in'>
+      <a class='eaves-brand' href='index.html'>__brand_en__</a>
+      <button type='button' class='eaves-btn' id='eaves-btn' aria-label='主导航' aria-expanded='false' aria-controls='eaves-nav'>
+        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+      </button>
+      <nav class='eaves-nav' id='eaves-nav' aria-label='主导航'>
+        <a href='index.html'>年鉴</a>
+        <a href='article.html'>文章</a>
+        <a href='tool.html' aria-current='page'>日均摊算</a>
+        <a href='legal.html'>披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='abacus'>
+    <form class='abacus-card' id='da-form' novalidate>
+      <h1>日均摊算器</h1>
+      <p>把一个月的手续费摊到每天，数字就不吓人也不含糊了。本地计算。</p>
+      <label for='da-fee'>月手续费合计</label>
+      <input type='number' id='da-fee' step='any' min='0' placeholder='如 86' aria-describedby='da-out'>
+      <label for='da-back'>月返佣合计（可留空）</label>
+      <input type='number' id='da-back' step='any' min='0' placeholder='如 25' aria-describedby='da-out'>
+      <label for='da-days'>按多少天摊（如 30）</label>
+      <input type='number' id='da-days' step='1' min='1' placeholder='30' aria-describedby='da-out'>
+      <button type='submit' class='abacus-run' id='da-run'>摊一摊</button>
+      <output class='abacus-out' id='da-out' role='status' aria-live='polite'></output>
+    </form>
+  </main>
+
+  <footer class='bindfoot'>
+    <div class='bindfoot-in'>
+      <p class='bindfoot-fine'>结果仅供参考，实际以平台结算为准。</p>
+    </div>
+  </footer>
+
+  <script src='turn.js'></script>
+</body>
+</html>

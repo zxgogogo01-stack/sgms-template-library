@@ -1,0 +1,14 @@
+(function(){
+  'use strict';
+  var menu=document.getElementById('trackbar-btn'),nav=document.getElementById('trackbar-nav');
+  if(menu&&nav){menu.addEventListener('click',function(){var open=nav.classList.toggle('is-open');menu.setAttribute('aria-expanded',open?'true':'false');});document.addEventListener('keydown',function(event){if(event.key==='Escape'&&nav.classList.contains('is-open')){nav.classList.remove('is-open');menu.setAttribute('aria-expanded','false');menu.focus();}});}
+  var data={hour:{mark:'HOUR · AFTER MIDNIGHT',title:'午夜以后',rows:[['01','城市熄灯以后','04:18'],['02','凌晨两点的自动售货机','03:42'],['03','沿河散步的人没有影子','05:06']]},scene:{mark:'SCENE · BY THE RIVER',title:'沿河而行',rows:[['01','河面开始播放月光','04:18'],['02','雾中的桥墩','03:36'],['03','清晨第一声汽笛','04:52']]},tempo:{mark:'TEMPO · SLOW',title:'慢拍曲目',rows:[['01','末班车驶过高架桥','03:58'],['02','没有影子的散步者','05:06'],['03','天亮以前','04:24']]}};
+  var tablist=document.querySelector('.track-modes'),buttons=[].slice.call(document.querySelectorAll('.track-mode')),panel=document.querySelector('.track-result'),mark=document.getElementById('track-result-mark'),title=document.getElementById('track-result-title'),list=document.getElementById('track-result-list');
+  if(tablist)tablist.setAttribute('aria-label','选曲方式');
+  if(panel){panel.id='track-result';panel.setAttribute('role','tabpanel');panel.setAttribute('aria-live','polite');panel.setAttribute('aria-atomic','true');}
+  buttons.forEach(function(button,index){button.id='track-mode-'+(index+1);button.setAttribute('aria-controls','track-result');button.setAttribute('tabindex',index===0?'0':'-1');});
+  function render(key){var item=data[key];if(!item||!list)return;if(mark)mark.textContent=item.mark;if(title)title.textContent=item.title;list.innerHTML=item.rows.map(function(row){return'<li><strong>'+row[0]+'</strong><span>'+row[1]+'</span><time>'+row[2]+'</time></li>';}).join('');buttons.forEach(function(button){var active=button.dataset.mode===key;button.classList.toggle('is-active',active);button.setAttribute('aria-selected',active?'true':'false');button.setAttribute('tabindex',active?'0':'-1');if(active&&panel)panel.setAttribute('aria-labelledby',button.id);});}
+  function move(current,event){var index=buttons.indexOf(current),next=index;if(event.key==='ArrowRight'||event.key==='ArrowDown')next=(index+1)%buttons.length;else if(event.key==='ArrowLeft'||event.key==='ArrowUp')next=(index-1+buttons.length)%buttons.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=buttons.length-1;else return;event.preventDefault();render(buttons[next].dataset.mode);buttons[next].focus();}
+  buttons.forEach(function(button){button.addEventListener('click',function(){render(button.dataset.mode);});button.addEventListener('keydown',function(event){move(button,event);});});
+  if(buttons.length)render('hour');
+}());

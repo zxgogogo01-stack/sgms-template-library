@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='__lang__'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>缺字 — __site_name__</title>
+    <meta name='robots' content='noindex'>
+    <link rel='stylesheet' href='css/cascade.css'>
+    <style>
+        .droptype { min-height: 90vh; display: grid; place-items: center; padding: 24px; text-align: center; }
+        .droptype-in h1 {
+            font-size: clamp(6rem, 26vw, 14rem);
+            font-weight: 900;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 4px var(--limehi);
+            font-variant-numeric: tabular-nums;
+        }
+        .droptype-in p { color: var(--greylead); margin: 14px 0 26px; }
+        .droptype-back {
+            display: inline-block;
+            min-height: 50px;
+            line-height: 44px;
+            padding: 0 30px;
+            border: 3px solid var(--leadink);
+            background: var(--limehi);
+            color: var(--leadink);
+            font-weight: 900;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            transition: transform var(--snap83), background var(--snap83);
+        }
+        .droptype-back:hover { transform: translate(-2px, -2px); background: var(--limehi-deep); }
+    </style>
+</head>
+<body>
+    <div class='droptype'>
+        <div class='droptype-in'>
+            <h1>404</h1>
+            <p>这枚铅字从版上掉了——页面不存在或已回炉。</p>
+            <a class='droptype-back' href='index.html'>回瀑布</a>
+        </div>
+    </div>
+</body>
+</html>

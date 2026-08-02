@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="__LANG__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171918">
+  <title>__SITE_NAME__｜城市公共数据晨报</title>
+  <meta name="description" content="__SITE_DESC__">
+  <link rel="canonical" href="https://__SITE_DOMAIN__/">
+  <meta property="og:title" content="__SITE_NAME__｜城市公共数据晨报">
+  <meta property="og:description" content="__SITE_DESC__">
+  <meta property="og:url" content="https://__SITE_DOMAIN__/">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"__SITE_NAME__","url":"https://__SITE_DOMAIN__/","description":"__SITE_DESC__"}
+  </script>
+  <link rel="stylesheet" href="site.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a data-skip href="#main">跳到主要内容</a>
+  <header>
+    <div data-mast>
+      <a data-brand href="index.html" aria-label="__SITE_NAME__ 首页"><strong>__SITE_NAME__</strong><small>Tabular Times · Civic Data Desk</small></a>
+      <nav data-nav aria-label="主要导航">
+        <a href="index.html" aria-current="page">晨报</a>
+        <a href="article.html">数据要闻</a>
+        <a href="tool.html">统计工具</a>
+        <a href="legal.html">方法与口径</a>
+      </nav>
+      <div data-edition aria-label="版本信息"><span>NO. 031 · MORNING</span><span>UPDATED 08:40 CST</span></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <aside data-ticker aria-label="城市快照">
+      <div>
+        <span>服务响应 <b>18.4m</b> <i data-positive>−2.6%</i></span>
+        <span>公交准点 <b>86.4%</b> <i data-positive>+1.8pt</i></span>
+        <span>空气舒适 <b>78.6</b> <i data-neutral>持平</i></span>
+        <span>有效样本 <b>18,420</b> <i data-neutral>已复核</i></span>
+      </div>
+    </aside>
+
+    <section data-wrap data-lead>
+      <div>
+        <p data-kicker>Morning edition 031 · 2026.08.01</p>
+        <h1>城市今天，<br><em>从数字开始。</em></h1>
+        <p>__SITE_TAGLINE__。我们把交通、环境与公共服务数据压缩成一份可核查、可行动的早间读物，不让重要变化淹没在表格里。</p>
+      </div>
+      <aside data-brief aria-label="本期简报口径">
+        <dl>
+          <div><dt>最后更新</dt><dd>08:40</dd></div>
+          <div><dt>数据窗口</dt><dd>07:00–08:30</dd></div>
+          <div><dt>接入来源</dt><dd>06 组</dd></div>
+          <div><dt>发布状态</dt><dd>人工复核</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section data-wrap data-metrics aria-label="核心指标">
+      <article><small>01 · 有效观察样本</small><output>18,420</output><p>覆盖 12 个片区与 86 个观测点</p></article>
+      <article><small>02 · 公交准点率</small><output>86.4%</output><p>较近七日同期提升 1.8 个百分点</p></article>
+      <article><small>03 · 通勤中位时长</small><output>41.8 min</output><p>中心城区入口仍有结构性拥堵</p></article>
+      <article><small>04 · 服务按期响应</small><output>92.1%</output><p>过去 24 小时工单按期完成率</p></article>
+    </section>
+
+    <section data-wrap data-report aria-labelledby="report-title">
+      <header data-sectionhead>
+        <div><p data-kicker>Morning dashboard</p><h2 id="report-title">城市脉搏表</h2></div>
+        <p>六项指标均附数据窗口、变化幅度与状态解释。筛选和排序只在本页本地完成，不上传输入。</p>
+      </header>
+
+      <div data-controls>
+        <label><span>搜索指标</span><input id="report-search" type="search" placeholder="例如：公交、空气、响应" autocomplete="off"></label>
+        <div data-filters aria-label="指标分类">
+          <button type="button" data-filter="all" aria-pressed="true">全部</button>
+          <button type="button" data-filter="mobility" aria-pressed="false">交通</button>
+          <button type="button" data-filter="environment" aria-pressed="false">环境</button>
+          <button type="button" data-filter="service" aria-pressed="false">服务</button>
+        </div>
+        <button type="button" data-sort aria-label="当前按变化从高到低排列">按变化 ↓</button>
+      </div>
+
+      <div data-tablemeta><output id="report-count" aria-live="polite">6 / 6 项指标可见</output><span>基准：近 7 日同一时段</span></div>
+      <div data-tablewrap>
+        <table>
+          <caption>2026 年 8 月 1 日城市早间六项指标</caption>
+          <thead><tr><th scope="col">指标</th><th scope="col">当前值</th><th scope="col">变化</th><th scope="col">完成度</th><th scope="col">状态</th><th scope="col">窗口</th></tr></thead>
+          <tbody id="report-body">
+            <tr data-kind="mobility" data-change="2.4"><th scope="row">早高峰通行效率<small>主干路网综合指数</small></th><td>82.6</td><td data-positive>+2.4%</td><td><meter min="0" max="100" value="82.6">82.6%</meter></td><td><span data-status="normal">改善</span></td><td>07:00–08:30</td></tr>
+            <tr data-kind="mobility" data-change="1.8"><th scope="row">公交准点表现<small>48 条骨干线路</small></th><td>86.4%</td><td data-positive>+1.8pt</td><td><meter min="0" max="100" value="86.4">86.4%</meter></td><td><span data-status="normal">正常</span></td><td>06:30–08:30</td></tr>
+            <tr data-kind="mobility" data-change="-2.6"><th scope="row">道路拥堵延时<small>平均额外耗时</small></th><td>18.4 min</td><td data-positive>−2.6%</td><td><meter min="0" max="30" value="18.4">18.4 分钟</meter></td><td><span data-status="watch">关注</span></td><td>07:15–08:15</td></tr>
+            <tr data-kind="environment" data-change="0"><th scope="row">空气舒适指数<small>温湿风与颗粒物合成</small></th><td>78.6</td><td data-neutral>0.0</td><td><meter min="0" max="100" value="78.6">78.6%</meter></td><td><span data-status="stable">稳定</span></td><td>08:00</td></tr>
+            <tr data-kind="environment" data-change="1.1"><th scope="row">公园到访热度<small>六处城市公园</small></th><td>64.2</td><td data-positive>+1.1%</td><td><meter min="0" max="100" value="64.2">64.2%</meter></td><td><span data-status="normal">正常</span></td><td>06:00–08:00</td></tr>
+            <tr data-kind="service" data-change="0.7"><th scope="row">公共服务按期响应<small>过去 24 小时工单</small></th><td>92.1%</td><td data-positive>+0.7pt</td><td><meter min="0" max="100" value="92.1">92.1%</meter></td><td><span data-status="normal">达标</span></td><td>滚动 24h</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="report-empty" data-empty hidden>
+        <strong>没有匹配的指标</strong><p>换一个关键词，或恢复全部分类。</p><button id="reset-report" type="button" data-button="outline">清除条件</button>
+      </div>
+
+      <div data-newsgrid>
+        <article data-newslead>
+          <time datetime="2026-08-01T08:20:00+08:00">08:20 · 今日头条</time>
+          <h3>早高峰效率回升，但三处入口仍在拖慢全城。</h3>
+          <p>准点率提升不代表拥堵已经消失。我们把 18,420 条观察拆到片区，找到三处需要优先处理的结构性瓶颈。</p>
+          <a href="article.html">阅读全文与口径说明 →</a>
+        </article>
+        <ol data-newslist>
+          <li><time datetime="2026-08-01T08:05:00+08:00">08:05 · 环境</time><a href="article.html#comfort">湿度回落，户外舒适窗口延长至 10:30</a></li>
+          <li><time datetime="2026-08-01T07:50:00+08:00">07:50 · 服务</time><a href="article.html#service">社区事项首轮回复缩短 3.2 分钟</a></li>
+          <li><time datetime="2026-08-01T07:35:00+08:00">07:35 · 方法</time><a href="legal.html#quality">为什么我们不把缺失数据填成零</a></li>
+        </ol>
+      </div>
+
+      <aside data-access>
+        <p><b>内测资料访问码</b><br><code id="access-code">__INVITE_CODE__</code><small>__COMPLIANCE_NOTE__</small></p>
+        <div><button type="button" data-act="copy-access" data-button="accent">复制访问码</button><output id="access-status" aria-live="polite"></output></div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div data-foot>
+      <div><strong>__SITE_NAME__</strong><p>每天把城市公共数据整理成值得阅读、能够复核的一页晨报。</p></div>
+      <div><nav aria-label="页脚导航"><a href="article.html">数据要闻</a><a href="tool.html">统计工具</a><a href="legal.html">方法与口径</a></nav><small>© 2026 __SITE_NAME__ · __SITE_DOMAIN__</small></div>
+    </div>
+  </footer>
+</body>
+</html>

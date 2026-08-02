@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="__LANG__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>安静终端｜__SITE_NAME__</title>
+  <meta name="description" content="__SITE_DESC__">
+  <link rel="canonical" href="https://__SITE_DOMAIN__/">
+  <meta property="og:title" content="安静终端｜__SITE_NAME__">
+  <meta property="og:description" content="__SITE_DESC__">
+  <meta property="og:url" content="https://__SITE_DOMAIN__/">
+  <link rel="stylesheet" href="site.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"__SITE_NAME__ 安静终端","url":"https://__SITE_DOMAIN__/","description":"__SITE_DESC__"}</script>
+</head>
+<body data-page="home">
+  <a href="#main" data-skip>跳到主要内容</a>
+  <header>
+    <div data-masthead>
+      <a href="index.html" data-brand><span>root@quiet:~$</span><b>__SITE_NAME__</b></a>
+      <nav aria-label="主导航"><a href="index.html" aria-current="page">运行看板</a><a href="article.html">采集说明</a><a href="tool.html">可用率</a><a href="legal.html">数据边界</a></nav>
+      <span data-clock><strong>UTC 09:42:18</strong>SNAPSHOT · 2026.08.01</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section data-page-hero aria-labelledby="hero-title">
+      <div>
+        <p data-kicker>Quiet operations console · r07</p>
+        <h1 id="hero-title">所有信号，<br>都在安静运行。</h1>
+        <p data-lede>__SITE_TAGLINE__。把服务状态、可用率窗口与变更记录压进一张克制的运行台；没有炫技图表，只有能被复核的信号。</p>
+      </div>
+      <div data-hero-terminal aria-label="快照说明">
+        <p data-terminal-line><span>scope</span><b>6 services</b></p>
+        <p data-terminal-line><span>window</span><b>rolling 30d</b></p>
+        <p data-terminal-line><span>refresh</span><b>every 15 min</b></p>
+        <p data-terminal-line><span>source lag</span><b>&lt; 8 min</b></p>
+        <p data-terminal-line><span>mode</span><b>public snapshot</b></p>
+      </div>
+    </section>
+
+    <section data-commandbar aria-label="服务筛选">
+      <p><span>quietctl</span> status --filter</p>
+      <div data-filter-row>
+        <button type="button" data-service-filter="all" aria-pressed="true">全部 6</button>
+        <button type="button" data-service-filter="operational" aria-pressed="false">正常 4</button>
+        <button type="button" data-service-filter="degraded" aria-pressed="false">降级 1</button>
+        <button type="button" data-service-filter="maintenance" aria-pressed="false">维护 1</button>
+      </div>
+    </section>
+
+    <section data-summary-grid aria-label="运行摘要">
+      <div data-summary-card><p>rolling uptime</p><strong>99.982%</strong><small>过去 30 天 · 示例快照</small></div>
+      <div data-summary-card><p>checked</p><strong>6</strong><small>服务节点</small></div>
+      <div data-summary-card><p>incidents</p><strong>02</strong><small>本周期记录</small></div>
+      <div data-summary-card><p>next poll</p><strong>12m</strong><small>自动刷新</small></div>
+    </section>
+
+    <section aria-labelledby="services-title">
+      <div data-section-head><div><p data-kicker>01 · SERVICE MATRIX</p><h2 id="services-title">当前服务</h2></div><p><output id="service-count" aria-live="polite">6 / 6 项可见</output>。状态来自结构示例，建站时请接入已核验的数据源。</p></div>
+      <div data-service-grid>
+        <article data-service data-status="operational"><span data-status-dot aria-hidden="true"></span><div><h3>边缘网关</h3><p>全球接入与路由解析 · 过去 24h 无异常</p></div><code>edge / ok</code></article>
+        <article data-service data-status="operational"><span data-status-dot aria-hidden="true"></span><div><h3>身份服务</h3><p>登录、会话与权限校验 · p95 184ms</p></div><code>auth / ok</code></article>
+        <article data-service data-status="degraded"><span data-status-dot aria-hidden="true"></span><div><h3>搜索索引</h3><p>增量索引延迟升高，读取结果不受影响</p></div><code>search / slow</code></article>
+        <article data-service data-status="operational"><span data-status-dot aria-hidden="true"></span><div><h3>对象存储</h3><p>文件写入与读取 · 30d 可用率 99.998%</p></div><code>store / ok</code></article>
+        <article data-service data-status="maintenance"><span data-status-dot aria-hidden="true"></span><div><h3>分析管线</h3><p>计划维护至 10:30 UTC · 仪表板暂停刷新</p></div><code>data / maint</code></article>
+        <article data-service data-status="operational"><span data-status-dot aria-hidden="true"></span><div><h3>通知队列</h3><p>邮件与回调投递 · 当前积压 18 条</p></div><code>notify / ok</code></article>
+      </div>
+      <div id="service-empty" data-empty hidden><b>没有匹配的服务状态。</b><br>切换筛选条件即可恢复完整矩阵。</div>
+    </section>
+
+    <section aria-labelledby="log-title">
+      <div data-section-head><div><p data-kicker>02 · EVENT STREAM</p><h2 id="log-title">事件记录</h2></div><p>事件按开始时间倒序排列；展开可查看影响范围与恢复动作。</p></div>
+      <div data-log-list>
+        <details><summary><time datetime="2026-08-01T08:16:00Z">08.01 · 08:16</time><b>搜索索引延迟升高</b><span>monitoring</span></summary><p>增量索引队列在批量更新后出现积压。读取与检索仍可用，新内容出现时间延后约 11 分钟；当前持续观察。</p></details>
+        <details><summary><time datetime="2026-07-27T02:40:00Z">07.27 · 02:40</time><b>边缘节点路由抖动</b><span>resolved · 18m</span></summary><p>华东两处边缘节点短时回源，少量请求延迟升高。切换备用路由后恢复，未发现数据丢失。</p></details>
+        <details><summary><time datetime="2026-07-18T12:00:00Z">07.18 · 12:00</time><b>数据库例行升级</b><span>completed · 31m</span></summary><p>完成只读副本升级与连接池轮换。写入服务在维护窗口内保持在线，没有触发降级。</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>示例快照 · 数据仅用于模板结构展示 · __SITE_DOMAIN__</p><div><button type="button" id="copy-summary" data-secondary-button>复制运行摘要</button><a href="article.html">查看采集口径</a><a href="legal.html">阅读数据边界</a><span id="copy-summary-status" aria-live="polite"></span></div></footer>
+  <script src="app.js"></script>
+</body>
+</html>

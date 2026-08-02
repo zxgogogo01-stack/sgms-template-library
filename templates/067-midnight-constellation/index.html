@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang='~LANG~'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#101426'>
+    <title>~SITE_NAME~ — 返佣星图：按星座找，按亮度挑</title>
+    <meta name='description' content='~SITE_DESC~'>
+    <link rel='canonical' href='https://~SITE_DOMAIN~/'>
+    <meta property='og:type' content='website'>
+    <meta property='og:site_name' content='~SITE_NAME~'>
+    <meta property='og:title' content='~SITE_NAME~ — 返佣星图'>
+    <meta property='og:description' content='~SITE_DESC~'>
+    <meta property='og:url' content='https://~SITE_DOMAIN~/'>
+    <meta name='twitter:card' content='summary'>
+    <link rel='stylesheet' href='public.css'>
+    <link rel='stylesheet' href='assets/star.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "~SITE_NAME~",
+        "url": "https://~SITE_DOMAIN~/"
+    }
+    </script>
+</head>
+<body>
+    <header class='skydeck'>
+        <div class='skydeck-in'>
+            <a class='skydeck-brand' href='index.html'>~BRAND_EN~</a>
+            <button type='button' class='skydeck-btn' id='skydeck-btn' aria-label='主导航' aria-expanded='false' aria-controls='skydeck-nav'>
+                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+            </button>
+            <nav class='skydeck-nav' id='skydeck-nav' aria-label='主导航'>
+                <a href='index.html' aria-current='page'>星图</a>
+                <a href='article.html'>文章</a>
+                <a href='tool.html'>汇总台账</a>
+                <a href='legal.html'>披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class='nightfield cst' data-cst>
+        <div class='nightfield-in cst-in'>
+
+            <div class='starhead cst-head'>
+                <p class='starhead-brow cst-eyebrow'>返佣星图</p>
+                <h1 class='starhead-h1 cst-h1'>把散落的返佣知识<br>连成一张星图</h1>
+                <p class='starhead-lede cst-lede'>按栏目筛、按关键词搜，每颗"星"都注明来源与口径核对时间。</p>
+            </div>
+
+            <div class='lens cst-filter' role='group' aria-label='栏目筛选'>
+                <a class='lenschip cst-chip is-on is-active' href='#all' data-cat='all'>全部</a>
+                <a class='lenschip cst-chip' href='#starter' data-cat='starter'>新手入门<span class='lens-n cst-n'>2</span></a>
+                <a class='lenschip cst-chip' href='#rate' data-cat='rate'>费率与返佣<span class='lens-n cst-n'>3</span></a>
+                <a class='lenschip cst-chip' href='#safety' data-cat='safety'>安全与合规<span class='lens-n cst-n'>2</span></a>
+                <input type='search' class='lens-search cst-search' id='lens-search' hidden placeholder='搜标题或摘要' aria-label='搜索'>
+            </div>
+
+            <div class='skygrid cst-grid' id='skygrid'>
+                <a class='starcard cst-card' href='article.html' data-cat='rate' data-text='示例平台A 挂单档位调整 返佣基数 费率观察'>
+                    <span class='starcard-logo cst-logo' aria-hidden='true'><b>费</b></span>
+                    <span class='starcard-body cst-body'>
+                        <span class='starcard-title cst-title'>示例平台A 挂单档位调整：返佣基数怎么跟着变</span>
+                        <span class='starcard-ex cst-ex'>置顶——一句话讲清净影响，进文看演示算例。</span>
+                    </span>
+                    <span class='starcard-tag cst-tag'>费率与返佣</span>
+                </a>
+                <a class='starcard cst-card' href='article.html' data-cat='rate' data-text='现货 合约 返佣口径 对照'>
+                    <span class='starcard-logo cst-logo' aria-hidden='true'><b>对</b></span>
+                    <span class='starcard-body cst-body'>
+                        <span class='starcard-title cst-title'>现货与合约的返佣口径差在哪</span>
+                        <span class='starcard-ex cst-ex'>同一家平台两套费率表，别拿错。</span>
+                    </span>
+                    <span class='starcard-tag cst-tag'>费率与返佣</span>
+                </a>
+                <a class='starcard cst-card' href='article.html' data-cat='safety' data-text='仿冒 邀请页 域名 连字符 核验'>
+                    <span class='starcard-logo cst-logo' aria-hidden='true'><b>核</b></span>
+                    <span class='starcard-body cst-body'>
+                        <span class='starcard-title cst-title'>仿冒邀请页出现新变种：域名多一个连字符</span>
+                        <span class='starcard-ex cst-ex'>域名、证书、公告，三步核验。</span>
+                    </span>
+                    <span class='starcard-tag cst-tag'>安全与合规</span>
+                </a>
+                <a class='starcard cst-card' href='article.html' data-cat='rate' data-text='月交易十万 返佣覆盖成本 三档演示 算例'>
+                    <span class='starcard-logo cst-logo' aria-hidden='true'><b>算</b></span>
+                    <span class='starcard-body cst-body'>
+                        <span class='starcard-title cst-title'>月交易十万，返佣能覆盖多少成本：三档演示</span>
+                        <span class='starcard-ex cst-ex'>数字是演示的，方法是真的。</span>
+                    </span>
+                    <span class='starcard-tag cst-tag'>费率与返佣</span>
+                </a>
+                <a class='starcard cst-card' href='article.html' data-cat='starter' data-text='漏填邀请码 补救 补绑 流程'>
+                    <span class='starcard-logo cst-logo' aria-hidden='true'><b>补</b></span>
+                    <span class='starcard-body cst-body'>
+                        <span class='starcard-title cst-title'>注册时漏填邀请码，事后还有救吗</span>
+                        <span class='starcard-ex cst-ex'>各平台补绑规则不一样。</span>
+                    </span>
+                    <span class='starcard-tag cst-tag'>新手入门</span>
+                </a>
+                <a class='starcard cst-card' href='article.html' data-cat='starter' data-text='返佣从哪来 手续费流向 概念'>
+                    <span class='starcard-logo cst-logo' aria-hidden='true'><b>源</b></span>
+                    <span class='starcard-body cst-body'>
+                        <span class='starcard-title cst-title'>返佣是从哪里来的：一笔手续费的完整流向</span>
+                        <span class='starcard-ex cst-ex'>先懂钱的流向，再谈比例。</span>
+                    </span>
+                    <span class='starcard-tag cst-tag'>新手入门</span>
+                </a>
+                <a class='starcard cst-card' href='article.html' data-cat='safety' data-text='秒返 90% 骗局 剧本 避坑'>
+                    <span class='starcard-logo cst-logo' aria-hidden='true'><b>坑</b></span>
+                    <span class='starcard-body cst-body'>
+                        <span class='starcard-title cst-title'>「秒返 90%」的链接为什么不要点</span>
+                        <span class='starcard-ex cst-ex'>高比例话术的通用剧本拆解。</span>
+                    </span>
+                    <span class='starcard-tag cst-tag'>安全与合规</span>
+                </a>
+            </div>
+            <p class='voidnote cst-empty' id='voidnote' hidden>这个方向暂时没有星星——换个筛选或关键词。</p>
+
+        </div>
+    </section>
+
+    <footer class='horizon'>
+        <div class='horizon-in'>
+            <p class='horizon-brand'>~BRAND_EN~ · ~SITE_TAGLINE~</p>
+            <nav class='horizon-nav' aria-label='页脚导航'>
+                <a href='article.html'>文章</a>
+                <a href='tool.html'>汇总台账</a>
+                <a href='legal.html'>披露与免责</a>
+            </nav>
+            <p class='horizon-fine'>* 减免比例以交易所页面实时显示为准。内容不构成投资建议。</p>
+        </div>
+    </footer>
+
+    <script src='assets/star.js'></script>
+</body>
+</html>

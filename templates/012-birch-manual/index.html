@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='%LANG%'>
+<head>
+    <meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>%SITE_NAME% - 交易费率概念手册</title><meta name='description' content='%SITE_DESC%'>
+    <link rel='canonical' href='https://%SITE_DOMAIN%/'><meta property='og:title' content='%SITE_NAME%'><meta property='og:description' content='%SITE_DESC%'><meta property='og:url' content='https://%SITE_DOMAIN%/'>
+    <link rel='stylesheet' href='css/style.css'>
+    <script type='application/ld+json'>{"@context":"https://schema.org","@type":"TechArticle","name":"%SITE_NAME%","url":"https://%SITE_DOMAIN%/"}</script>
+</head>
+<body>
+<div class='wrap'>
+    <aside class='rail'>
+        <a class='logo' href='index.html' aria-label='返回 %SITE_NAME% 手册首页'>%SITE_NAME%</a>
+        <nav class='toc' aria-label='章节导航'>
+            <p class='toc-part'>第一部分 · 基础</p><a href='index.html'>手册首页</a><a href='article.html'>1.1 挂单与吃单</a><a href='article.html'>1.2 费率结构</a>
+            <p class='toc-part'>第二部分 · 进阶</p><a href='article.html'>2.1 交易量分档</a><a href='article.html'>2.2 核对周期</a>
+            <p class='toc-part'>附录</p><a href='tool.html'>读完自查</a><a href='legal.html'>使用须知</a>
+        </nav>
+    </aside>
+    <main class='main'>
+        <section class='intro-band' aria-labelledby='manual-title'>
+            <div class='intro-txt'><p class='intro-kicker'>BIRCH MANUAL / REV. 2026.01</p><h1 id='manual-title'>%SITE_NAME%</h1><p class='intro-sub'>%SITE_TAGLINE%</p><p class='intro-deck'>从成交方式到费率分档，按“定义—误解—例子—核对入口”的顺序读懂常见规则。</p></div>
+            <div class='intro-art' aria-label='手册版本信息'><strong>01</strong><span>FOUNDATIONS<br>5 ENTRIES</span></div>
+        </section>
+        <section class='invite-slip' aria-label='邀请码'><span>配套邀请码</span><code id='slip-code'>%INVITE_CODE%</code><button type='button' id='slip-copy' aria-label='复制邀请码' aria-live='polite'>复制</button><small>%COMPLIANCE_NOTE%</small></section>
+        <section class='entries' aria-labelledby='core-title'>
+            <h2 class='section-cap' id='core-title'>核心概念</h2>
+            <article class='entry' data-no='1.1'><h3><a href='article.html'>挂单与吃单</a></h3><p>挂单等待市场来成交；吃单立即与现有订单成交。两者消耗流动性的方式不同。</p></article>
+            <article class='entry' data-no='1.2'><h3><a href='article.html'>基础费率与分档费率</a></h3><p>基础费率是默认起点，分档费率通常按一定周期内的交易量或其他条件调整。</p></article>
+            <article class='entry' data-no='2.1'><h3><a href='article.html'>评估周期与生效时间</a></h3><p>统计窗口、更新时间和生效时点可能不同，核对时应同时确认三者。</p></article>
+        </section>
+        <section class='quick-row' aria-labelledby='quick-title'><h2 id='quick-title'>术语速查</h2><table><thead><tr><th scope='col'>术语</th><th scope='col'>速记</th><th scope='col'>核对重点</th></tr></thead><tbody><tr><td data-label='术语'>挂单</td><td data-label='速记'>等待成交，增加流动性</td><td data-label='核对重点'>订单是否真正进入订单簿</td></tr><tr><td data-label='术语'>吃单</td><td data-label='速记'>立即成交，消耗流动性</td><td data-label='核对重点'>成交速度与滑点</td></tr><tr><td data-label='术语'>分档</td><td data-label='速记'>按量或条件分级</td><td data-label='核对重点'>周期、币种与生效时间</td></tr></tbody></table></section>
+        <footer class='endcap'><p>手册内容仅供学习，不构成投资建议 · <a href='legal.html'>使用须知</a> · %CONTACT_EMAIL%</p></footer>
+    </main>
+</div>
+<script src='js/site.js'></script>
+</body></html>

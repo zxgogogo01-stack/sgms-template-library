@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="__LANG__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>统计会客室｜__SITE_NAME__</title>
+  <meta name="description" content="__SITE_DESC__">
+  <link rel="canonical" href="https://__SITE_DOMAIN__/">
+  <meta property="og:title" content="统计会客室｜__SITE_NAME__">
+  <meta property="og:description" content="__SITE_DESC__">
+  <meta property="og:url" content="https://__SITE_DOMAIN__/">
+  <link rel="stylesheet" href="site.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"__SITE_NAME__ 统计会客室","url":"https://__SITE_DOMAIN__/","description":"__SITE_DESC__"}</script>
+</head>
+<body data-page="home">
+  <a href="#main" data-skip>跳到主要内容</a>
+  <header>
+    <div data-masthead>
+      <a href="index.html" data-brand><span>SP</span><strong>__SITE_NAME__</strong></a>
+      <nav aria-label="主导航">
+        <a href="index.html" aria-current="page">陈列</a>
+        <a href="article.html">口径档案</a>
+        <a href="tool.html">分析台</a>
+        <a href="legal.html">资料声明</a>
+      </nav>
+      <span data-session>本席数据已核验</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section data-hero aria-labelledby="hero-title">
+      <div>
+        <p data-eyebrow>Statistical salon · 第 24 席</p>
+        <h1 id="hero-title">把数字请进<br>一间会客室。</h1>
+        <p data-lede>__SITE_TAGLINE__。这里不追逐喧哗的仪表盘，只把样本、趋势与口径摆上同一张桌，供每一次判断从容核对。</p>
+      </div>
+      <aside data-hero-note aria-label="本次开放席位">
+        <span>本次开放席位</span>
+        <strong>12,480</strong>
+        <p>完成核验的有效观察值<br>更新于 2026.08 · 09:30</p>
+      </aside>
+    </section>
+
+    <section aria-labelledby="signal-title">
+      <div data-section-head>
+        <div>
+          <p data-eyebrow>Conversation pieces</p>
+          <h2 id="signal-title">本席谈资</h2>
+        </div>
+        <p><span id="stat-count">6 / 6 项可见</span>。切换观察主题，比较增长、回访与样本质量。</p>
+      </div>
+      <div data-filter-row aria-label="统计主题筛选">
+        <button type="button" data-stat-filter="all" aria-pressed="true">全部谈资</button>
+        <button type="button" data-stat-filter="growth" aria-pressed="false">增长</button>
+        <button type="button" data-stat-filter="retention" aria-pressed="false">回访</button>
+        <button type="button" data-stat-filter="quality" aria-pressed="false">质量</button>
+      </div>
+
+      <div data-stat-grid data-visible="6">
+        <article data-stat data-group="growth">
+          <header><span>有效样本</span><b>+6.8%</b></header>
+          <output>12,480</output>
+          <p>较上一观察窗增加 794 份</p>
+          <div data-trend aria-label="完成进度 82%"><i style="--value:82%"></i></div>
+        </article>
+        <article data-stat data-group="growth">
+          <header><span>完成问卷</span><b>+4.1%</b></header>
+          <output>3,216</output>
+          <p>整体完成率为 25.8%</p>
+          <div data-trend aria-label="完成进度 64%"><i style="--value:64%"></i></div>
+        </article>
+        <article data-stat data-group="retention">
+          <header><span>日均停留</span><b>+01:16</b></header>
+          <output>08:42</output>
+          <p>长读样本贡献主要增量</p>
+          <div data-trend aria-label="完成进度 72%"><i style="--value:72%"></i></div>
+        </article>
+        <article data-stat data-group="retention">
+          <header><span>回访样本</span><b>+2.3%</b></header>
+          <output>1,094</output>
+          <p>30 日内再次出现的独立样本</p>
+          <div data-trend aria-label="完成进度 48%"><i style="--value:48%"></i></div>
+        </article>
+        <article data-stat data-group="quality">
+          <header><span>置信区间</span><b>稳定</b></header>
+          <output>95%</output>
+          <p>主要估计误差范围为 ±1.7%</p>
+          <div data-trend aria-label="完成进度 95%"><i style="--value:95%"></i></div>
+        </article>
+        <article data-stat data-group="quality">
+          <header><span>有效字段</span><b>87.5%</b></header>
+          <output>42/48</output>
+          <p>六个低完整度字段已单列说明</p>
+          <div data-trend aria-label="完成进度 88%"><i style="--value:88%"></i></div>
+        </article>
+      </div>
+      <div id="stat-empty" data-empty hidden>
+        <h3>这一席暂时没有谈资</h3>
+        <p>恢复全部主题，即可重新查看本期陈列。</p>
+        <button type="button" id="reset-stats" data-quiet-button>恢复全部</button>
+      </div>
+    </section>
+
+    <section data-ledger-wrap aria-labelledby="ledger-title">
+      <div data-section-head>
+        <div>
+          <p data-eyebrow>Reading ledger</p>
+          <h2 id="ledger-title">席间记录</h2>
+        </div>
+        <p>相同口径下的四个观察窗。完整定义与修订历史见口径档案。</p>
+      </div>
+      <div data-table-scroll tabindex="0" aria-label="可横向滚动的席间记录表">
+        <table>
+          <thead><tr><th scope="col">观察窗</th><th scope="col">样本数</th><th scope="col">完成率</th><th scope="col">回访率</th><th scope="col">状态</th></tr></thead>
+          <tbody>
+            <tr><td><strong>2026 · 夏末</strong></td><td>12,480</td><td>25.8%</td><td>8.8%</td><td><span data-badge>已核验</span></td></tr>
+            <tr><td><strong>2026 · 初夏</strong></td><td>11,686</td><td>24.7%</td><td>8.1%</td><td><span data-badge>已归档</span></td></tr>
+            <tr><td><strong>2026 · 春分</strong></td><td>10,914</td><td>23.9%</td><td>7.6%</td><td><span data-badge>已归档</span></td></tr>
+            <tr><td><strong>2025 · 冬至</strong></td><td>9,842</td><td>22.4%</td><td>7.2%</td><td><span data-badge>已归档</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section data-invitation aria-label="会客室邀请函">
+      <p>带一位同事入席，继续这场有口径的讨论。</p>
+      <code id="invite-code" data-code>__INVITE_CODE__</code>
+      <button type="button" id="copy-invite">复制席位码</button>
+      <small id="copy-status" aria-live="polite">__COMPLIANCE_NOTE__</small>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 __SITE_NAME__ · 数据为结构示例，不构成投资或决策建议。</p>
+    <nav aria-label="页脚导航"><a href="article.html">方法与口径</a><a href="legal.html">资料声明</a><a href="mailto:__CONTACT_EMAIL__">联系编辑席</a></nav>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='__LANG__'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>第 02 章：发布门禁与执行清单 · __SITE_NAME__</title>
+  <meta name='description' content='从变更冻结、证据留档到上线确认的五步发布执行章节。'>
+  <link rel='canonical' href='https://__SITE_DOMAIN__/article.html'>
+  <meta property='og:title' content='第 02 章：发布门禁与执行清单 · __SITE_NAME__'>
+  <meta property='og:description' content='可执行、可追溯的发布门禁与回滚章节示例。'>
+  <meta property='og:url' content='https://__SITE_DOMAIN__/article.html'>
+  <link rel='stylesheet' href='site.css'>
+  <script type='application/ld+json'>{"@context":"https://schema.org","@type":"TechArticle","headline":"第 02 章：发布门禁与执行清单","datePublished":"2026-08-01","dateModified":"2026-08-01","version":"3.4"}</script>
+</head>
+<body>
+  <header data-site-header><div><a href='index.html' data-brand aria-label='返回手册索引'><b>H/35</b><span><strong>__SITE_NAME__</strong><small>Cedar field handbook · rev 3.4</small></span></a><nav data-nav aria-label='主导航'><a href='index.html'>章节索引</a><a href='article.html' aria-current='page'>执行章节</a><a href='tool.html'>字符核验</a><a href='legal.html'>使用说明</a></nav></div></header>
+
+  <main data-page='article'>
+    <header><div><p data-kicker>Chapter 02 · current · owner operations</p><h1>发布门禁与执行清单。</h1><p data-lede>用五个可验证步骤把“准备好了”变成可复核的发布判断；任一关键门禁失败，就暂停而不是带病上线。</p></div><aside><p data-label>Chapter metadata</p><p>编号：H35-02<br>版本：3.4<br>状态：现行<br>复核：2026.11<br>负责人：Operations</p></aside></header>
+
+    <div data-doc-grid>
+      <aside data-toc aria-label='本章目录'><strong>本章目录</strong><ol><li><a href='#scope'>02.1 · 适用范围</a></li><li><a href='#gates'>02.2 · 三道门禁</a></li><li><a href='#checklist'>02.3 · 执行清单</a></li><li><a href='#rollback'>02.4 · 停止与回滚</a></li><li><a href='#evidence'>02.5 · 证据与修订</a></li></ol></aside>
+      <article data-prose>
+        <p>发布不是一次点击，而是一组证据充分、责任明确、随时可停止的决定。</p>
+        <h2 id='scope'>02.1 适用范围</h2><p>本章适用于面向用户的内容、配置与前端变更。纯内部草稿可简化流程；涉及权限、计费、合规或不可逆数据变更时，必须增加专项复核。</p><div data-callout><strong>Stop condition</strong>若负责人、回滚路径或验收证据任一项缺失，发布状态必须保持 HLD。</div>
+        <h2 id='gates'>02.2 三道发布门禁</h2><div data-process><div><b>01</b><h3>范围冻结</h3><p>发布窗口内不再新增需求；所有变更都能回到同一清单。</p></div><div><b>02</b><h3>证据齐备</h3><p>桌面、手机、深色、错误状态与关键路径均有验收记录。</p></div><div><b>03</b><h3>责任确认</h3><p>执行人、批准人和回滚负责人在窗口前完成确认。</p></div></div>
+<h2 id='checklist'>02.3 发布执行清单</h2><p>勾选状态只保存在当前浏览器会话，用于现场核对，不替代正式发布记录。</p><div data-check-progress><strong id='check-count' role='status' aria-live='polite' aria-atomic='true' tabindex='-1'>0 / 5 已完成</strong><div><button type='button' id='check-all'>全部标记</button><button type='button' id='reset-checklist'>重置</button></div></div><ol data-checklist>
+          <li><label><input type='checkbox' data-release-check><b>G01</b><span>发布范围与最终变更清单一致。</span></label></li><li><label><input type='checkbox' data-release-check><b>G02</b><span>桌面、手机、深色模式和错误状态已验收。</span></label></li><li><label><input type='checkbox' data-release-check><b>G03</b><span>回滚步骤、负责人和最长恢复时间已确认。</span></label></li><li><label><input type='checkbox' data-release-check><b>G04</b><span>监控、用户反馈入口与升级联系人可用。</span></label></li><li><label><input type='checkbox' data-release-check><b>G05</b><span>发布说明包含影响范围、版本和已知限制。</span></label></li>
+        </ol>
+        <h2 id='rollback'>02.4 停止、回滚与恢复</h2><p>若关键路径失败、错误率持续上升或验证结果与预期不一致，执行人有权立即停止。优先控制影响，再讨论原因。</p><table><thead><tr><th scope='col'>情形</th><th scope='col'>立即动作</th><th scope='col'>记录要求</th></tr></thead><tbody><tr><td>关键路径不可用</td><td>暂停发布并回滚</td><td>时间、影响、版本</td></tr><tr><td>非关键显示异常</td><td>评估影响后修复</td><td>截图、范围、负责人</td></tr><tr><td>监控信号冲突</td><td>保持 HLD，补充验证</td><td>原始信号与判断</td></tr></tbody></table>
+        <h2 id='evidence'>02.5 证据与本章修订</h2><p>最小证据集包含发布编号、代码或内容版本、验收环境、执行时间、批准人、结果与异常。截图不能替代可检索的文本记录。</p><h3>修订记录</h3><table><thead><tr><th scope='col'>版本</th><th scope='col'>日期</th><th scope='col'>变更</th><th scope='col'>状态</th></tr></thead><tbody><tr><td>3.4</td><td>2026.08.01</td><td>补充回滚证据与五项门禁</td><td>现行</td></tr><tr><td>3.3</td><td>2026.05.01</td><td>统一 HLD / RBK 状态</td><td>归档</td></tr></tbody></table>
+      </article>
+    </div>
+  </main>
+
+  <footer><div><div><h2>__SITE_NAME__ · 第 02 章</h2><p>执行清单帮助现场核对，正式记录仍需进入发布档案。</p></div><div><nav aria-label='页脚导航'><a href='index.html'>章节索引</a><a href='tool.html'>字符核验</a><a href='legal.html'>使用说明</a></nav><small>H35-02 · REV 3.4 · __SITE_DOMAIN__ · __CONTACT_EMAIL__</small></div></div></footer>
+  <script src='app.js'></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="[[LANG]]">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>复核抽样 - [[SITE_NAME]]</title>
+    <meta name="description" content="从自定义清单中随机抽取若干条目，作为本次重点复核项。">
+    <link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
+    <meta property="og:title" content="复核抽样 - [[SITE_NAME]]">
+    <meta property="og:description" content="从自定义清单中随机抽取若干条目，作为本次重点复核项。">
+    <meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"复核抽样工具","url":"https://[[SITE_DOMAIN]]/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
+</head>
+<body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <div class="status-strip"><div class="shell status-strip-inner"><span>Local review sampler · no inputs are uploaded</span><span>抽样用于复核，不替代完整清单</span></div></div>
+    <header class="site-header"><div class="shell header-inner"><a class="brand" href="index.html">[[SITE_NAME]]<small>Breeze checklist · calm operations desk</small></a><nav class="primary-nav" aria-label="主要导航"><a href="index.html">今日自查</a><a href="article.html">使用方法</a><a href="tool.html" aria-current="page">复核抽样</a><a href="legal.html">数据说明</a></nav></div></header>
+
+    <main id="main" class="shell page-main">
+        <header class="page-head"><div><p class="eyebrow">Review sampler / 发现熟悉步骤里的盲区</p><h1>随机抽三项，重新证明它们真的完成。</h1><p>把自己的检查条目按行贴入，选择抽取数量。结果只在当前页面生成，不上传、不保存，也不会自动判断条目是否合格。</p></div><aside class="fact-card" aria-label="工具说明"><dl><div><dt>输入格式</dt><dd>每行一条</dd></div><div><dt>抽取范围</dt><dd>1–20 条</dd></div><div><dt>重复条目</dt><dd>可自动去重</dd></div><div><dt>处理位置</dt><dd>浏览器本地</dd></div></dl></aside></header>
+
+        <section class="audit-layout" aria-label="复核抽样工具"><form class="audit-form" id="audit-form" novalidate><p class="eyebrow">Sampling pool / 条目池</p><h2>准备本次复核</h2><p>建议使用可验证的动作句，不要使用“提高警惕”这类无法判定完成的表述。</p><div class="field"><label for="pool">检查条目（每行一条）</label><textarea id="pool" aria-describedby="pool-help form-error">官方域名已独立核对并加入书签
+两步验证已启用并保存离线恢复码
+最近登录设备和会话均可识别
+API 与第三方授权遵循最小权限
+对象、方向、金额与单位已逐项复述
+费率、限制、到账时间与撤销条件已查看
+地址或收款信息已通过独立渠道确认
+本周异常与处理结果已有记录</textarea><p class="field-help" id="pool-help">空行会被忽略；单次最多处理 100 条</p></div><div class="inline-fields"><div class="field"><label for="take">抽取数量</label><input id="take" type="number" min="1" max="20" step="1" value="3" inputmode="numeric" aria-describedby="take-help form-error"><p class="field-help" id="take-help">不能超过有效条目数量</p></div><div class="field"><label for="label-mode">结果编号</label><select id="label-mode"><option value="check">CHECK 01</option><option value="review">REVIEW 01</option><option value="plain">仅数字 01</option></select><p class="field-help">只改变结果前缀</p></div></div><label class="choice-line"><input type="checkbox" id="dedupe" checked>忽略完全相同的重复条目</label><p class="form-error" id="form-error" role="alert"></p><div class="button-row"><button class="button button-accent" type="submit">抽取本次复核项</button><button class="button button-secondary" type="button" id="reset-tool">恢复示例</button></div></form>
+
+        <section class="audit-result" aria-labelledby="result-title"><p class="result-state" id="result-state">WAITING FOR POOL</p><h2 id="result-title">本次重点复核</h2><div class="result-summary"><div><strong id="pool-count">0</strong><span>有效条目</span></div><div><strong id="pick-count">0</strong><span>本次抽中</span></div></div><ol class="audit-picks" id="audit-picks"><li data-number="—">尚未抽取复核项</li></ol><button class="button" type="button" id="copy-result" disabled>复制抽样结果</button><p class="copy-status" id="copy-result-status" aria-live="polite"></p></section></section>
+        <aside class="tool-note"><strong>使用边界：</strong>随机抽样只能帮助发现熟悉流程里的盲区。首次操作、重大变更或高风险场景仍应完成整套清单，不能用抽中的少数条目代替完整核对。</aside>
+    </main>
+
+    <footer class="site-footer"><div class="shell footer-inner"><p>条目池与抽样结果只存在于当前页面；离开或刷新后不会保留。</p><nav class="footer-links" aria-label="页脚导航"><a href="index.html">今日自查</a><a href="article.html">使用方法</a><a href="legal.html">数据说明</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
+
+    <script>
+        (function () {
+            var defaults = document.getElementById('pool').value;
+            var form = document.getElementById('audit-form');
+            var pool = document.getElementById('pool');
+            var take = document.getElementById('take');
+            var dedupe = document.getElementById('dedupe');
+            var mode = document.getElementById('label-mode');
+            var error = document.getElementById('form-error');
+            var output = document.getElementById('audit-picks');
+            var copyButton = document.getElementById('copy-result');
+            var copyStatus = document.getElementById('copy-result-status');
+            var picked = [];
+
+            function resetInvalid() { [pool, take].forEach(function (field) { field.removeAttribute('aria-invalid'); }); error.textContent = ''; copyStatus.textContent = ''; }
+            function invalidate(field, message) { field.setAttribute('aria-invalid', 'true'); error.textContent = message; field.focus(); }
+            function clearResult() { picked = []; document.getElementById('result-state').textContent = 'WAITING FOR POOL'; document.getElementById('pool-count').textContent = '0'; document.getElementById('pick-count').textContent = '0'; output.innerHTML = '<li data-number="—">尚未抽取复核项</li>'; copyButton.disabled = true; }
+            function rows() { var list = pool.value.split(/\r?\n/).map(function (item) { return item.trim(); }).filter(Boolean); if (dedupe.checked) list = list.filter(function (item, index) { return list.indexOf(item) === index; }); return list; }
+            function prefix(index) { var number = String(index + 1).padStart(2, '0'); if (mode.value === 'plain') return number; return (mode.value === 'review' ? 'REVIEW ' : 'CHECK ') + number; }
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); resetInvalid();
+                var list = rows(), amount = Number(take.value);
+                if (!list.length) { invalidate(pool, '请至少输入一条可复核的检查条目。'); clearResult(); return; }
+                if (list.length > 100) { invalidate(pool, '单次最多处理 100 条，请减少条目数量。'); clearResult(); return; }
+                if (!Number.isInteger(amount) || amount < 1 || amount > 20) { invalidate(take, '抽取数量必须是 1–20 之间的整数。'); clearResult(); return; }
+                if (amount > list.length) { invalidate(take, '抽取数量不能超过有效条目数量。'); clearResult(); return; }
+                var shuffled = list.slice();
+                for (var i = shuffled.length - 1; i > 0; i -= 1) { var j = Math.floor(Math.random() * (i + 1)), temp = shuffled[i]; shuffled[i] = shuffled[j]; shuffled[j] = temp; }
+                picked = shuffled.slice(0, amount);
+                output.textContent = '';
+                picked.forEach(function (item, index) { var li = document.createElement('li'); li.setAttribute('data-number', prefix(index)); li.textContent = item; output.appendChild(li); });
+                document.getElementById('result-state').textContent = 'SAMPLE READY';
+                document.getElementById('pool-count').textContent = String(list.length);
+                document.getElementById('pick-count').textContent = String(picked.length);
+                copyButton.disabled = false;
+            });
+            document.getElementById('reset-tool').addEventListener('click', function () { pool.value = defaults; take.value = '3'; dedupe.checked = true; mode.value = 'check'; resetInvalid(); clearResult(); pool.focus(); });
+            copyButton.addEventListener('click', function () { var text = picked.map(function (item, index) { return prefix(index) + ' · ' + item; }).join('\n'); function done() { copyStatus.textContent = '抽样结果已复制。'; } function fallback() { var field = document.createElement('textarea'); field.value = text; document.body.appendChild(field); field.select(); try { document.execCommand('copy'); done(); } catch (copyError) { copyStatus.textContent = '复制失败，请手动记录结果。'; } field.remove(); } if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback); else fallback(); });
+        })();
+    </script>
+</body>
+</html>

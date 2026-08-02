@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="[[LANG]]">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark">
+  <title>金额分摊方法手册｜[[SITE_NAME]]</title><meta name="description" content="了解整分算法、余数分配、边界情况与结果复核方法。"><link rel="canonical" href="https://[[SITE_DOMAIN]]/article.html">
+  <meta property="og:title" content="金额分摊方法手册｜[[SITE_NAME]]"><meta property="og:description" content="整分算法、余数规则与复核清单。"><meta property="og:url" content="https://[[SITE_DOMAIN]]/article.html"><link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"金额分摊方法手册","datePublished":"2026-08-01","author":{"@type":"Organization","name":"[[SITE_NAME]]"}}</script>
+</head>
+<body><a class="skip-link" href="#main">跳到主要内容</a><div class="shell">
+  <header class="site-header"><div class="container header-grid"><a class="brand" href="index.html"><strong>[[SITE_NAME]]</strong><span>Precision bench 027</span></a><div class="header-main"><nav class="site-nav" aria-label="主导航"><a href="index.html">工作台</a><a href="tool.html">金额分摊</a><a href="article.html" aria-current="page">方法手册</a><a href="legal.html">使用边界</a></nav><span class="bench-status"><i class="status-light" aria-hidden="true"></i>文档已复核</span></div></div><div class="calibration-strip"><div class="container calibration-row"><span>Method note / MN-01</span><span>Reviewed 2026.08.01 · Precision 0.01</span></div></div></header>
+  <main id="main"><header class="page-hero"><div class="container"><p class="kicker">Method manual / 01</p><h1>金额分摊，<br>不是简单除法。</h1><p>当总金额无法被人数整除时，必须明确最小精度、余数归属和复核方式。这份手册把工具背后的规则完整展开。</p><div class="page-meta"><span>文档 MN-01</span><span>更新 2026.08.01</span><span>阅读约 6 分钟</span></div></div></header>
+    <div class="article-wrap"><div class="container article-grid"><article class="prose">
+      <p>金额分摊的目标不是让每个人得到数学意义上完全相同的小数，而是在指定货币精度内，让每份金额尽可能接近，并确保所有份额重新相加后与原金额完全一致。</p>
+      <h2 id="method">一、先换成最小货币单位</h2><p>直接用小数连续运算可能出现机器浮点误差。工具先把金额换算为整数的“分”，完成整除和余数计算后，再格式化为两位小数。</p><div class="formula"><code>总分数 = 四舍五入（总金额 × 100）</code><code>基础份额 = 向下取整（总分数 ÷ 人数）</code><code>余数 = 总分数 − 基础份额 × 人数</code></div><p>例如 100.00 元分给 6 人：总分数是 10000，基础份额是 1666 分，余数是 4 分。因此 4 人得到 16.67 元，2 人得到 16.66 元。</p>
+      <table class="data-table"><thead><tr><th>项目</th><th>计算</th><th>结果</th></tr></thead><tbody><tr><td>总金额</td><td>100.00 × 100</td><td>10000 分</td></tr><tr><td>基础份额</td><td>10000 ÷ 6 向下取整</td><td>1666 分</td></tr><tr><td>余数</td><td>10000 − 1666 × 6</td><td>4 分</td></tr><tr><td>复核</td><td>4 × 16.67 + 2 × 16.66</td><td>100.00 元</td></tr></tbody></table>
+      <h2 id="remainder">二、余数必须有明确顺序</h2><p>剩余的 1 至若干个最小单位会逐一加到部分参与者名下。工具提供“从前往后”和“从后往前”两种方向，并在明细表中标出多分 0.01 的参与者。</p><div class="callout"><strong>分配方向不等于绝对公平</strong><p>如果同一群人需要反复结算，建议每次轮换起始人，或在外部约定固定的轮换规则。工具只执行当前选择，不记录历史轮次。</p></div>
+      <h2 id="edge">三、边界情况</h2><h3>金额小于人数</h3><p>例如 0.03 元分给 5 人，3 人得到 0.01 元，2 人得到 0.00 元。这在数学和合计上成立，但是否适合实际结算应由参与者判断。</p><h3>只有一名参与者</h3><p>全部金额归该参与者，不产生余数。该场景仍可用于快速生成一条可复制的明细。</p><h3>金额超过常用范围</h3><p>工具限制在 9,999,999.99 以内、人数不超过 50。超出范围时建议拆分批次，并分别保存复核记录。</p><h3>币种与精度</h3><p>币种只改变符号和名称，当前计算统一保留两位小数。对于以整数为常用单位或需要更多小数位的资产，本工具不适用。</p>
+      <h2 id="checklist">四、结果复核清单</h2><ol class="check-list"><li><strong>确认输入：</strong>总金额、人数和币种与原始记录一致。</li><li><strong>确认方向：</strong>知道哪些参与者会优先获得余数。</li><li><strong>确认明细：</strong>参与者数量与输入人数一致，没有漏行。</li><li><strong>确认合计：</strong>工具显示的“复核合计”与总金额完全相同。</li></ol>
+      <h2 id="use">五、适用与不适用</h2><p>适用于小组餐费、共同采购、活动费用等简单平均分摊。涉及比例分成、税费归属、汇率转换、利息或合同义务时，应使用适合该业务的专业流程。</p><p>发现算法或文档问题，可将输入条件和预期结果发送至 <a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a>。请不要附带真实姓名、账号或支付凭证。</p>
+    </article><aside class="article-aside" aria-label="文章辅助导航"><nav class="toc" aria-label="本文目录"><p>On this page</p><a href="#method">最小货币单位</a><a href="#remainder">余数分配顺序</a><a href="#edge">边界情况</a><a href="#checklist">复核清单</a><a href="#use">适用范围</a></nav><div class="aside-note"><p>Try the method</p><h3>直接生成明细</h3><p>输入总金额和人数，查看每一份的精确归属与合计复核。</p><a href="tool.html">打开金额分摊器</a></div></aside></div></div>
+  </main><footer class="site-footer"><div class="container footer-grid"><p>© 2026 [[SITE_NAME]] · 方法手册 MN-01</p><div class="footer-links"><a href="index.html">工作台</a><a href="tool.html">金额分摊</a><a href="legal.html">使用边界</a></div></div></footer>
+</div></body></html>

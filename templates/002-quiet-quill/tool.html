@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>字数统计 — {{SITE_NAME}}</title>
+  <meta name="description" content="粘贴文本，统计字符、中文字与英文词数。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="字数统计 — {{SITE_NAME}}">
+  <meta property="og:description" content="粘贴文本，统计字符、中文字与英文词数。">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <link rel="stylesheet" href="assets/core.css">
+  <link rel="stylesheet" href="assets/frame.css">
+  <link rel="stylesheet" href="assets/bits.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "字数统计",
+    "url": "https://{{SITE_DOMAIN}}/tool.html"
+  }
+  </script>
+</head>
+<body>
+  <header class="masthead">
+    <nav class="masthead__menu" aria-label="站内导航">
+      <a class="masthead__item" href="index.html">目录</a>
+      <a class="masthead__item" href="article.html">本期长文</a>
+      <a class="masthead__item" href="tool.html" aria-current="page">字数统计</a>
+    </nav>
+    <span class="masthead__mark">{{SITE_NAME}}</span>
+  </header>
+
+  <main>
+    <section class="headline">
+      <h1 class="headline__big">字数统计</h1>
+      <p class="headline__small">一张安静的编辑台 · 所有计算都在本地完成</p>
+    </section>
+
+    <section class="count-pad" aria-label="字数统计工具">
+      <label for="count-src">粘贴或输入文本</label>
+      <div class="count-pad__bar">
+        <p>粘贴草稿，实时查看篇幅与阅读节奏。</p>
+        <button class="count-pad__clear" id="count-clear" type="button">清空文本</button>
+      </div>
+      <textarea class="count-pad__area" id="count-src" placeholder="从这里开始写，或粘贴一段已经完成的文字……" aria-describedby="count-out"></textarea>
+      <div class="count-pad__report" id="count-out" aria-live="polite">
+        <span><strong id="metric-chars">0</strong>有效字符</span>
+        <span><strong id="metric-words">0</strong>英文词</span>
+        <span><strong id="metric-paras">0</strong>段落</span>
+        <span><strong id="metric-time">0</strong>分钟阅读</span>
+      </div>
+      <p class="count-pad__hint" id="count-hint">还没有文字。输入后会给出一条简短的篇幅提示。</p>
+    </section>
+  </main>
+
+  <footer class="foot-grid">
+    <div class="foot-grid__cell">
+      <p class="foot-grid__strong">{{SITE_NAME}}</p>
+      <p>{{SITE_TAGLINE}}</p>
+    </div>
+    <div class="foot-grid__cell">
+      <p><a href="legal.html">站点说明</a></p>
+      <p>{{CONTACT_EMAIL}}</p>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

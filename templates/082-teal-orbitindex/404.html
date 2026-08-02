@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='~LANG~'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>脱离轨道 — ~SITE_NAME~</title>
+  <meta name='robots' content='noindex'>
+  <link rel='stylesheet' href='orbit.css'>
+  <style>
+    /* 404 extras */
+    .strayorbit { max-width: 460px; margin: 14vh auto; padding: 0 24px; text-align: center; }
+    .strayorbit-card {
+      position: relative;
+      background: var(--podwhite);
+      border-radius: calc(var(--pod82) + 6px);
+      box-shadow: var(--floatb-hi);
+      padding: 54px 40px;
+      overflow: hidden;
+    }
+    .strayorbit-card::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 260px;
+      height: 260px;
+      border: 1.5px dashed color-mix(in srgb, var(--ringteal) 40%, transparent);
+      border-radius: 50%;
+    }
+    .strayorbit-card h1 {
+      position: relative;
+      font-family: var(--serif82);
+      font-size: 3.2rem;
+      color: var(--ringteal-deep);
+      font-variant-numeric: tabular-nums;
+    }
+    .strayorbit-card p { position: relative; color: var(--soft82); margin: 8px 0 22px; }
+    .strayorbit-back {
+      position: relative;
+      display: inline-block;
+      min-height: 46px;
+      line-height: 46px;
+      padding: 0 26px;
+      border-radius: 999px;
+      background: var(--ringteal);
+      color: #eef7f9;
+      font-weight: 800;
+      transition: transform var(--drift82), background var(--drift82);
+    }
+    .strayorbit-back:hover { transform: translateY(-2px); background: var(--ringteal-deep); }
+  </style>
+</head>
+<body>
+  <div class='strayorbit'>
+    <div class='strayorbit-card'>
+      <h1>404</h1>
+      <p>这颗小行星脱离了轨道——页面不存在或已并轨。</p>
+      <a class='strayorbit-back' href='index.html'>回轨道图</a>
+    </div>
+  </div>
+</body>
+</html>

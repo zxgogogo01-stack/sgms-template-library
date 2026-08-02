@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{SITE_NAME}} — 费率与返佣档位总览</title>
+  <meta name="description" content="{{SITE_DESC}}">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}">
+  <meta property="og:description" content="{{SITE_DESC}}">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" href="assets/layout.css">
+  <link rel="stylesheet" href="assets/parts.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{SITE_NAME}}",
+    "url": "https://{{SITE_DOMAIN}}/"
+  }
+  </script>
+</head>
+<body>
+  <header class="top-line">
+    <a class="top-line__brand" href="index.html" aria-label="返回首页">{{SITE_NAME}}</a>
+    <nav class="top-line__nav" aria-label="主导航">
+      <a class="top-line__link" href="index.html" aria-current="page">费率总览</a>
+      <a class="top-line__link" href="article.html">文章</a>
+      <a class="top-line__link" href="tool.html">工具</a>
+      <a class="top-line__link" href="legal.html">关于</a>
+    </nav>
+  </header>
+
+  <main class="page-well">
+    <section class="intro">
+      <h1 class="intro__title">{{SITE_NAME}}</h1>
+      <p class="intro__sub">{{SITE_TAGLINE}}</p>
+    </section>
+
+    <!-- Invite block: remove this whole section if not needed -->
+    <section class="invite-strip" aria-label="邀请码">
+      <div class="invite-strip__inner">
+        <span class="invite-strip__label">邀请码</span>
+        <code class="invite-strip__code" id="invite-code">{{INVITE_CODE}}</code>
+        <button class="invite-strip__copy" type="button" aria-label="复制邀请码">复制</button>
+        <span class="invite-strip__hint" role="status" aria-live="polite" aria-atomic="true" hidden>已复制</span>
+      </div>
+      <p class="invite-strip__note">{{COMPLIANCE_NOTE}}</p>
+    </section>
+
+    <section class="filter-bar" aria-label="筛选">
+      <label class="filter-bar__label" for="pick-venue">平台</label>
+      <select class="filter-bar__select" id="pick-venue">
+        <option value="">全部</option>
+        <option value="a">示例平台A</option>
+        <option value="b">示例平台B</option>
+        <option value="c">示例平台C</option>
+      </select>
+      <label class="filter-bar__label" for="pick-tier">档位</label>
+      <select class="filter-bar__select" id="pick-tier">
+        <option value="">全部</option>
+        <option value="base">基础</option>
+        <option value="mid">进阶</option>
+        <option value="top">高阶</option>
+      </select>
+      <button class="filter-bar__reset" id="reset-filter" type="button">重置</button>
+    </section>
+
+    <section class="rate-board" aria-label="费率对照">
+      <h2 class="rate-board__title">费率对照表</h2>
+      <div class="rate-board__scroll">
+        <table class="rate-board__table" id="rate-table">
+          <thead>
+            <tr>
+              <th scope="col">平台</th>
+              <th scope="col">档位</th>
+              <th scope="col">挂单费率</th>
+              <th scope="col">吃单费率</th>
+              <th scope="col">说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-venue="a" data-tier="base">
+              <td>示例平台A</td><td>基础</td><td>0.0X%</td><td>0.0X%</td><td>示例数据，导入后替换</td>
+            </tr>
+            <tr data-venue="a" data-tier="mid">
+              <td>示例平台A</td><td>进阶</td><td>0.0X%</td><td>0.0X%</td><td>示例数据，导入后替换</td>
+            </tr>
+            <tr data-venue="b" data-tier="base">
+              <td>示例平台B</td><td>基础</td><td>0.0X%</td><td>0.0X%</td><td>示例数据，导入后替换</td>
+            </tr>
+            <tr data-venue="b" data-tier="top">
+              <td>示例平台B</td><td>高阶</td><td>0.0X%</td><td>0.0X%</td><td>示例数据，导入后替换</td>
+            </tr>
+            <tr data-venue="c" data-tier="base">
+              <td>示例平台C</td><td>基础</td><td>0.0X%</td><td>0.0X%</td><td>示例数据，导入后替换</td>
+            </tr>
+            <tr data-venue="c" data-tier="mid">
+              <td>示例平台C</td><td>进阶</td><td>0.0X%</td><td>0.0X%</td><td>示例数据，导入后替换</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="rate-board__empty" id="rate-empty" role="status" aria-live="polite" hidden>当前组合暂无记录，请调整筛选条件。</p>
+      <p class="rate-board__foot">表内均为中性演示数据，实际数值以各平台官方页面为准。</p>
+    </section>
+
+    <section class="spec-trio" aria-label="名词说明">
+      <article class="spec-card">
+        <h3 class="spec-card__head">挂单费率</h3>
+        <p class="spec-card__body">挂单指以限价单进入订单簿等待成交的委托，通常费率低于吃单。</p>
+      </article>
+      <article class="spec-card">
+        <h3 class="spec-card__head">吃单费率</h3>
+        <p class="spec-card__body">吃单指立即与订单簿现有委托成交的委托，流动性消耗方费率一般更高。</p>
+      </article>
+      <article class="spec-card">
+        <h3 class="spec-card__head">档位规则</h3>
+        <p class="spec-card__body">多数平台按近三十日成交量或持仓分档，档位越高费率越低，规则各家不同。</p>
+      </article>
+    </section>
+
+    <section class="faq-strip" aria-label="常见问题">
+      <h2 class="faq-strip__title">常见问题</h2>
+      <details class="faq-strip__item">
+        <summary class="faq-strip__q">表里的数字为什么采用演示数据？</summary>
+        <p class="faq-strip__a">模板不内置任何真实费率，建站时统一替换为核实过的数值，避免过期误导。</p>
+      </details>
+      <details class="faq-strip__item">
+        <summary class="faq-strip__q">费率多久核对一次比较合适？</summary>
+        <p class="faq-strip__a">建议每月对照官方页面复核一次，并在页面标注最近核对日期。</p>
+      </details>
+      <details class="faq-strip__item">
+        <summary class="faq-strip__q">不同平台的档位能直接对比吗？</summary>
+        <p class="faq-strip__a">分档口径不同，直接对比容易失真，页面应注明各自的分档依据。</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="site-foot__cols">
+      <div class="site-foot__col">
+        <h2 class="site-foot__head">{{SITE_NAME}}</h2>
+        <p class="site-foot__text">{{SITE_TAGLINE}}</p>
+      </div>
+      <div class="site-foot__col">
+        <h2 class="site-foot__head">页面</h2>
+        <a class="site-foot__link" href="article.html">文章样例</a>
+        <a class="site-foot__link" href="tool.html">费用估算</a>
+        <a class="site-foot__link" href="legal.html">免责声明</a>
+      </div>
+      <div class="site-foot__col">
+        <h2 class="site-foot__head">联系</h2>
+        <p class="site-foot__text">{{CONTACT_EMAIL}}</p>
+      </div>
+    </div>
+    <p class="site-foot__line">本站内容仅作信息整理，不构成任何投资建议。</p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

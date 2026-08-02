@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang='__lang__'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#faf7f8'>
+    <title>实际费率诊断器 — __site_name__</title>
+    <meta name='description' content='用期间交易量和手续费反推实际费率，并对比口径。'>
+    <link rel='canonical' href='https://__site_domain__/tool.html'>
+    <meta property='og:type' content='website'>
+    <meta property='og:site_name' content='__site_name__'>
+    <meta property='og:title' content='实际费率诊断器 — __site_name__'>
+    <meta property='og:description' content='用期间交易量和手续费反推实际费率，并对比口径。'>
+    <meta property='og:url' content='https://__site_domain__/tool.html'>
+    <meta name='twitter:card' content='summary'>
+    <link rel='stylesheet' href='static/flow.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "实际费率诊断器",
+        "url": "https://__site_domain__/tool.html"
+    }
+    </script>
+    <style>
+        /* 工具页补充样式 */
+        .clinic { max-width: 540px; margin: 0 auto; padding: 48px 24px 80px; }
+        .clinic-card {
+            background: var(--cardmilk);
+            border-radius: calc(var(--roundel) + 4px);
+            box-shadow: var(--puff-hi);
+            border-top: 4px solid var(--berry);
+            padding: 40px 44px;
+        }
+        .clinic-card h1 { font-family: var(--serif73); font-size: 1.48rem; }
+        .clinic-card > p { color: var(--mauve73); margin: 6px 0 8px; }
+        .clinic-card label {
+            display: block;
+            margin: 16px 0 6px;
+            font-size: .86rem;
+            font-weight: 800;
+            color: var(--berry-deep);
+        }
+        .clinic-card input {
+            width: 100%;
+            min-height: 47px;
+            padding: 10px 15px;
+            border: 1.5px solid var(--petalline);
+            border-radius: 13px;
+            background: var(--milktone);
+            color: var(--plumink);
+            font: inherit;
+            font-family: var(--mono73);
+            font-variant-numeric: tabular-nums;
+            transition: border-color var(--flit73), box-shadow var(--flit73);
+        }
+        .clinic-card input:focus {
+            outline: none;
+            border-color: var(--berry);
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--berry) 15%, transparent);
+        }
+        .clinic-card input[aria-invalid='true'] {
+            border-color: #b42318;
+            box-shadow: 0 0 0 4px color-mix(in srgb, #b42318 14%, transparent);
+        }
+        .clinic-run {
+            margin-top: 26px;
+            width: 100%;
+            min-height: 52px;
+            border: 0;
+            border-radius: 999px;
+            background: var(--berry);
+            color: #fdf0f3;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: .06em;
+            cursor: pointer;
+            box-shadow: 0 10px 24px color-mix(in srgb, var(--berry) 34%, transparent);
+            transition: transform var(--flit73), background var(--flit73);
+        }
+        .clinic-run:hover { transform: translateY(-2px); background: var(--berry-deep); }
+        .clinic-out {
+            display: block;
+            margin-top: 18px;
+            min-height: 26px;
+            padding: 15px 19px;
+            border-radius: 13px;
+            background: var(--blushwash);
+            line-height: 1.78;
+            font-variant-numeric: tabular-nums;
+        }
+        .clinic-out b { color: var(--berry-deep); }
+        @media (max-width: 600px) {
+            .clinic-card { padding: 26px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header class='cornice'>
+        <div class='cornice-in'>
+            <a class='cornice-brand' href='index.html'>__brand_en__</a>
+            <button type='button' class='cornice-btn' id='cornice-btn' aria-label='主导航' aria-expanded='false' aria-controls='cornice-nav'>
+                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+            </button>
+            <nav class='cornice-nav' id='cornice-nav' aria-label='主导航'>
+                <a href='index.html'>瀑布墙</a>
+                <a href='article.html'>文章</a>
+                <a href='tool.html' aria-current='page'>费率诊断</a>
+                <a href='legal.html'>披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class='clinic'>
+        <form class='clinic-card' id='dx-form' novalidate>
+            <h1>实际费率诊断器</h1>
+            <p>不看宣传页，用自己的账单算实际费率。本地计算，不上传。</p>
+            <label for='dx-vol'>期间交易量</label>
+            <input type='number' id='dx-vol' step='any' min='0' placeholder='如 100000' aria-describedby='dx-out'>
+            <label for='dx-fee'>期间手续费合计</label>
+            <input type='number' id='dx-fee' step='any' min='0' placeholder='如 52' aria-describedby='dx-out'>
+            <label for='dx-ref'>口径费率（%，可留空）</label>
+            <input type='number' id='dx-ref' step='any' min='0' max='100' placeholder='如 0.05' aria-describedby='dx-out'>
+            <button type='submit' class='clinic-run' id='dx-run'>诊断</button>
+            <output class='clinic-out' id='dx-out' role='status' aria-live='polite'></output>
+        </form>
+    </main>
+
+    <footer class='groundsill'>
+        <div class='groundsill-in'>
+            <p class='groundsill-fine'>结果仅供参考，实际以平台结算为准。</p>
+        </div>
+    </footer>
+
+    <script src='static/flow.js'></script>
+</body>
+</html>

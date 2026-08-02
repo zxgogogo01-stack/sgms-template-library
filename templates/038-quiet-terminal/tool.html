@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="__LANG__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>可用率分析｜__SITE_NAME__</title>
+  <meta name="description" content="输入时间窗口与停机分钟数，在本地计算可用率、停机预算和状态等级。">
+  <link rel="canonical" href="https://__SITE_DOMAIN__/tool.html">
+  <meta property="og:title" content="可用率分析｜__SITE_NAME__">
+  <meta property="og:description" content="输入时间窗口与停机分钟数，在本地计算可用率、停机预算和状态等级。">
+  <meta property="og:url" content="https://__SITE_DOMAIN__/tool.html">
+  <link rel="stylesheet" href="site.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"安静终端可用率分析","url":"https://__SITE_DOMAIN__/tool.html","applicationCategory":"UtilitiesApplication"}</script>
+</head>
+<body data-page="tool">
+  <a href="#main" data-skip>跳到主要内容</a>
+  <header><div data-masthead><a href="index.html" data-brand><span>root@quiet:~$</span><b>__SITE_NAME__</b></a><nav aria-label="主导航"><a href="index.html">运行看板</a><a href="article.html">采集说明</a><a href="tool.html" aria-current="page">可用率</a><a href="legal.html">数据边界</a></nav><span data-clock><strong>LOCAL PROCESS</strong>NO DATA UPLOAD</span></div></header>
+
+  <main id="main">
+    <section data-page-hero aria-labelledby="hero-title"><div><p data-kicker>Uptime workbench · local utility</p><h1 id="hero-title">把停机分钟，<br>换算成可用率。</h1><p data-lede>选择统计窗口，输入计划内外的停机时长；分析台会给出可用率、平均每日停机和 99.9% 目标的剩余预算。</p></div><div data-hero-terminal><p data-terminal-line><span>input</span><b>minutes + days</b></p><p data-terminal-line><span>precision</span><b>3 decimals</b></p><p data-terminal-line><span>target</span><b>99.900%</b></p><p data-terminal-line><span>upload</span><b>disabled</b></p></div></section>
+
+    <div data-tool-shell>
+      <section data-tool-form aria-labelledby="form-title"><p data-kicker>INPUT BUFFER</p><h2 id="form-title">分析参数</h2><div data-field><label for="up-down"><span>停机时长</span><span>分钟 · ≥ 0</span></label><input type="number" id="up-down" min="0" step="any" inputmode="decimal" placeholder="例如：7.8"></div><div data-field><label for="up-days"><span>统计窗口</span><span>天 · 1—366</span></label><input type="number" id="up-days" min="1" max="366" step="1" inputmode="numeric" placeholder="例如：30"></div><div data-actions><button type="button" id="run-uptime" data-button>运行分析</button><button type="button" id="load-uptime-sample" data-secondary-button>载入示例</button><button type="button" id="clear-uptime" data-secondary-button>清空</button></div><p id="uptime-feedback" data-feedback aria-live="polite"></p></section>
+      <section id="uptime-result" data-tool-result tabindex="-1" aria-labelledby="result-title"><p data-kicker>OUTPUT REGISTER</p><h2 id="result-title">计算结果</h2><output id="uptime-value" data-result-value>—.—%</output><p id="uptime-status" data-result-note>输入参数后运行分析，结果会显示在这里。</p><div data-result-meta><div><span>窗口分钟</span><b id="window-minutes">—</b></div><div><span>实际停机</span><b id="downtime-minutes">—</b></div><div><span>每日平均</span><b id="daily-average">—</b></div><div><span>99.9% 剩余预算</span><b id="remaining-budget">—</b></div></div><p data-result-note>计算只反映输入窗口，不判断停机原因。计划维护是否排除，请遵循站点公开口径。</p><div data-actions><button type="button" id="copy-uptime" data-secondary-button disabled>复制结果</button></div></section>
+    </div>
+  </main>
+  <footer><p>所有计算仅在当前浏览器内完成 · 输入不会保存或上传</p><div><a href="index.html">查看运行看板</a><a href="article.html">了解统计口径</a><a href="legal.html">查看数据边界</a></div></footer>
+  <script src="app.js"></script>
+</body>
+</html>

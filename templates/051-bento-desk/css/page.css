@@ -1,0 +1,175 @@
+/* 051 内页排版补充（article/tool/legal 共用） */
+.page-well { max-width: 860px; margin: 0 auto; padding: 30px 24px 72px; }
+
+.crumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .84rem;
+    color: var(--dim);
+    margin-bottom: 22px;
+}
+
+.crumb a { color: var(--dim); }
+.crumb a:hover { color: var(--amber); }
+.crumb b { color: var(--ink-2); font-weight: 600; }
+
+.prose-shell {
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    border-radius: var(--arc);
+    box-shadow: var(--lift);
+    padding: 46px 52px;
+}
+
+.prose-head { border-bottom: 1px solid var(--hairline); padding-bottom: 22px; margin-bottom: 26px; }
+
+.prose-kick {
+    margin: 0 0 10px;
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--amber);
+}
+
+.prose-shell h1 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+
+.prose-meta { margin: 12px 0 0; font-size: .84rem; color: var(--dim); }
+
+.prose-toc {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 18px;
+    background: var(--amber-wash);
+    border-radius: 11px;
+    padding: 13px 20px;
+    margin-bottom: 26px;
+    font-size: .9rem;
+}
+
+.prose-toc b { color: var(--amber); font-weight: 700; }
+.prose-toc a { color: var(--ink-2); }
+.prose-toc a:hover { color: var(--amber); }
+
+.prose-shell h2 {
+    font-size: 1.28rem;
+    margin: 34px 0 12px;
+    padding-left: 14px;
+    border-left: 3px solid var(--amber);
+}
+
+.prose-shell h3 { font-size: 1.05rem; margin: 22px 0 8px; }
+
+.prose-shell p { margin: 0 0 14px; color: var(--ink-2); }
+
+.prose-scroll { overflow-x: auto; margin: 14px 0 6px; border: 1px solid var(--hairline); border-radius: 11px; }
+
+.prose-shell table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+
+.prose-shell th, .prose-shell td {
+    text-align: left;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--hairline);
+    white-space: nowrap;
+    font-size: .92rem;
+}
+
+.prose-shell thead th {
+    background: var(--deep);
+    color: #eef1fb;
+    font-weight: 600;
+    border-bottom: 0;
+}
+
+.prose-shell tbody tr:nth-child(even) { background: color-mix(in srgb, var(--amber-wash) 50%, transparent); }
+.prose-shell tbody tr:hover { background: var(--amber-wash); }
+.prose-shell tbody tr:last-child td { border-bottom: 0; }
+
+.prose-foot { font-size: .84rem; color: var(--dim); }
+
+/* 工具面板 */
+.rig-panel {
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    border-radius: var(--arc);
+    box-shadow: var(--lift);
+    padding: 40px 44px;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.rig-panel h1 { font-size: 1.5rem; margin-bottom: 6px; }
+.rig-panel > p { color: var(--dim); margin: 0 0 18px; }
+
+.rig-panel label {
+    display: block;
+    margin: 16px 0 6px;
+    font-size: .88rem;
+    font-weight: 600;
+    color: var(--ink-2);
+}
+
+.rig-panel input {
+    width: 100%;
+    min-height: 47px;
+    padding: 10px 15px;
+    border: 1.5px solid var(--hairline);
+    border-radius: 10px;
+    background: var(--paper);
+    color: var(--ink);
+    font: inherit;
+    font-variant-numeric: tabular-nums;
+    transition: border-color var(--wink), box-shadow var(--wink);
+}
+
+.rig-panel input:focus {
+    outline: none;
+    border-color: var(--amber);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--amber) 18%, transparent);
+}
+.rig-panel input[aria-invalid='true'] {
+    border-color: #b42318;
+    box-shadow: 0 0 0 4px color-mix(in srgb, #b42318 18%, transparent);
+}
+
+.rig-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+
+.rig-run {
+    margin-top: 24px;
+    width: 100%;
+    min-height: 50px;
+    border: 0;
+    border-radius: 11px;
+    background: var(--deep);
+    color: #fff;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    cursor: pointer;
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--deep) 40%, transparent);
+    transition: transform var(--wink), background var(--wink);
+}
+
+.rig-run:hover { transform: translateY(-2px); background: var(--deep-2); }
+.rig-run:active { transform: translateY(0); }
+
+.rig-out {
+    display: block;
+    margin-top: 18px;
+    min-height: 24px;
+    padding: 14px 18px;
+    border-radius: 11px;
+    background: var(--amber-wash);
+    color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 620px) {
+    .prose-shell { padding: 26px 22px; }
+    .prose-shell th, .prose-shell td { white-space: normal; }
+    .rig-panel { padding: 26px 22px; }
+    .rig-duo { grid-template-columns: 1fr; }
+}

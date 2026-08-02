@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='[[LANG]]'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>路线规划器｜[[SITE_NAME]]</title>
+  <meta name='description' content='根据当前问题生成一条三步核对路线。'>
+  <link rel='canonical' href='https://[[SITE_DOMAIN]]/tool.html'>
+  <link rel='stylesheet' href='public.css'>
+  <link rel='stylesheet' href='static/route.css'>
+</head>
+<body>
+  <header class='routebar'><div class='routebar-in'><a class='routebar-brand' href='index.html'>[[BRAND_EN]]</a><button type='button' class='routebar-btn' id='routebar-btn' aria-label='主导航' aria-expanded='false' aria-controls='routebar-nav'><svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg></button><nav class='routebar-nav' id='routebar-nav' aria-label='主导航'><a href='index.html'>路线图</a><a href='article.html'>指南</a><a href='tool.html' aria-current='page'>路线规划</a><a href='legal.html'>说明</a></nav></div></header>
+  <main class='route-subpage'>
+    <nav class='route-crumb' aria-label='面包屑'><a href='index.html'>路线图</a> ／ 路线规划器</nav>
+    <p class='route-kicker'>Choose a route</p>
+    <h1 class='route-heading'>你现在需要解决哪一种问题？</h1>
+    <p class='route-lead'>选一个最接近的情境，规划器会给出一条便于执行和复查的三步路线。结果只作信息整理。</p>
+    <div class='route-tool-grid'>
+      <div class='route-choice-list' aria-label='问题类型'>
+        <button type='button' class='route-choice is-active' data-route='start'>第一次核对<span>从费用流向和到账位置开始</span></button>
+        <button type='button' class='route-choice' data-route='compare'>比较两种方案<span>统一条件后再比较差异</span></button>
+        <button type='button' class='route-choice' data-route='verify'>排查到账差异<span>从记录反查时区与批次</span></button>
+      </div>
+      <section class='route-panel route-result' aria-live='polite'><p class='route-kicker'>Your route</p><h2 id='route-result-label'>第一次核对的三步路线</h2><ol id='route-result-list'><li><strong>01</strong><span>先看懂一笔手续费的流向</span></li><li><strong>02</strong><span>分清现货与合约费率表</span></li><li><strong>03</strong><span>核对结算周期与到账位置</span></li></ol><p class='route-disclaimer'>请以服务方当期公开规则和实际账单为准。</p></section>
+    </div>
+  </main>
+  <footer class='routefoot'><div class='routefoot-in'><p>[[BRAND_EN]] · [[SITE_TAGLINE]]</p><nav aria-label='页脚导航'><a href='article.html'>指南</a><a href='tool.html'>路线规划</a><a href='legal.html'>说明</a></nav><small>内容按来源与核对日期维护，不构成投资建议。</small></div></footer>
+  <script src='static/route.js'></script>
+</body>
+</html>

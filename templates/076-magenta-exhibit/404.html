@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='%%LANG%%'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>展品已撤 — %%SITE_NAME%%</title>
+  <meta name='robots' content='noindex'>
+  <link rel='stylesheet' href='assets/gallery.css'>
+  <style>
+    .emptyframe { max-width: 460px; margin: 14vh auto; padding: 0 26px; text-align: center; }
+    .emptyframe-card {
+      background: var(--plinthwhite);
+      border: 1px solid var(--hairfine);
+      box-shadow: var(--floatv-hi);
+      padding: 20px;
+    }
+    .emptyframe-inner {
+      border: 1px solid var(--hairfine);
+      padding: 46px 34px;
+    }
+    .emptyframe-inner h1 {
+      font-family: var(--serif76);
+      font-size: 3.4rem;
+      color: var(--magenta76);
+      font-variant-numeric: tabular-nums;
+    }
+    .emptyframe-inner p { color: var(--dovemute); margin: 8px 0 22px; }
+    .emptyframe-back {
+      display: inline-block;
+      min-height: 46px;
+      line-height: 46px;
+      padding: 0 27px;
+      background: var(--charink);
+      color: var(--wallwhite);
+      font-weight: 700;
+      letter-spacing: .14em;
+      transition: background var(--glidev), transform var(--glidev);
+    }
+    .emptyframe-back:hover { transform: translateY(-2px); background: var(--magenta76); }
+  </style>
+</head>
+<body>
+  <div class='emptyframe'>
+    <div class='emptyframe-card'>
+      <div class='emptyframe-inner'>
+        <h1>404</h1>
+        <p>画框还挂着，作品撤走了——页面不存在或已下展。</p>
+        <a class='emptyframe-back' href='index.html'>回展厅</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

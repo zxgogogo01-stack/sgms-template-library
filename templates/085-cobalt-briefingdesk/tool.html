@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang='{LANG}'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#f5f4f1'>
+    <title>场景导航器 — {SITE_NAME}</title>
+    <meta name='description' content='按你的交易方式（现货/合约/定投）切换推荐阅读清单。'>
+    <link rel='canonical' href='https://{SITE_DOMAIN}/tool.html'>
+    <meta property='og:type' content='website'>
+    <meta property='og:site_name' content='{SITE_NAME}'>
+    <meta property='og:title' content='场景导航器 — {SITE_NAME}'>
+    <meta property='og:description' content='按你的交易方式（现货/合约/定投）切换推荐阅读清单。'>
+    <meta property='og:url' content='https://{SITE_DOMAIN}/tool.html'>
+    <meta name='twitter:card' content='summary'>
+    <link rel='stylesheet' href='css/brief.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "场景导航器",
+        "url": "https://{SITE_DOMAIN}/tool.html"
+    }
+    </script>
+    <style>
+        /* 导航器补充样式 */
+        .navigator { max-width: 620px; margin: 0 auto; padding: 46px 24px 80px; }
+        .navigator-card {
+            background: var(--panewhite85);
+            border-radius: calc(var(--bevel85) + 4px);
+            box-shadow: var(--haze85-hi);
+            border-top: 3px solid var(--cobalt);
+            padding: 40px 44px;
+        }
+        .navigator-card h1 { font-family: var(--serif85); font-size: 1.5rem; }
+        .navigator-card > p { color: var(--mutegrey85); margin: 6px 0 18px; }
+        .scenetabs { display: flex; gap: 10px; flex-wrap: wrap; }
+        .scenetab {
+            min-height: 44px;
+            padding: 9px 20px;
+            border-radius: 999px;
+            border: 1.5px solid var(--seamline85);
+            background: var(--warmgrey85);
+            color: var(--mutegrey85);
+            font: inherit;
+            font-size: .92rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: color var(--tickpace), border-color var(--tickpace), transform var(--tickpace);
+        }
+        .scenetab:hover { transform: translateY(-2px); color: var(--cobalt-deep); border-color: var(--cobalt); }
+        .scenetab.is-on85 { background: var(--cobalt); border-color: var(--cobalt); color: #f2f6fe; }
+        .scenetab:focus-visible { outline: 3px solid color-mix(in srgb, var(--cobalt) 38%, transparent); outline-offset: 3px; }
+        #sc-label {
+            margin: 22px 0 10px;
+            font-size: .82rem;
+            font-weight: 800;
+            letter-spacing: .16em;
+            color: var(--tangerine85);
+        }
+        #sc-list { list-style: none; }
+        #sc-list li {
+            border-bottom: 1px solid var(--seamline85);
+        }
+        #sc-list li:last-child { border-bottom: 0; }
+        #sc-list a {
+            display: block;
+            padding: 14px 6px;
+            font-weight: 700;
+            font-size: .97rem;
+            transition: background var(--tickpace), padding-left var(--tickpace), color var(--tickpace);
+        }
+        #sc-list a:hover { background: var(--duskwash85); padding-left: 15px; color: var(--cobalt-deep); }
+        .navigator-fine { margin-top: 16px; font-size: .82rem; color: var(--mutegrey85); }
+        @media (max-width: 600px) {
+            .navigator-card { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header class='briefbar'>
+        <div class='briefbar-in'>
+            <a class='briefbar-brand' href='index.html'>{BRAND_EN}</a>
+            <button type='button' class='briefbar-btn' id='briefbar-btn' aria-label='主导航' aria-expanded='false' aria-controls='briefbar-nav'>
+                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+            </button>
+            <nav class='briefbar-nav' id='briefbar-nav' aria-label='主导航'>
+                <a href='index.html'>简报台</a>
+                <a href='article.html'>简报</a>
+                <a href='tool.html' aria-current='page'>场景导航</a>
+                <a href='legal.html'>披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class='navigator'>
+        <section class='navigator-card'>
+            <h1>场景导航器</h1>
+            <p>你怎么交易，就从哪条线读起。选一个场景，清单立刻换。</p>
+            <div class='scenetabs' role='group' aria-label='选择场景'>
+                <button type='button' class='scenetab is-on85' data-scene='spot' aria-pressed='true' aria-controls='sc-panel'>现货为主</button>
+                <button type='button' class='scenetab' data-scene='contract' aria-pressed='false' aria-controls='sc-panel'>合约为主</button>
+                <button type='button' class='scenetab' data-scene='dca' aria-pressed='false' aria-controls='sc-panel'>定投为主</button>
+            </div>
+            <div id='sc-panel' role='region' aria-labelledby='sc-label' aria-live='polite' aria-atomic='true'>
+                <p id='sc-label'>现货为主的推荐阅读</p>
+                <ul id='sc-list'></ul>
+            </div>
+            <p class='navigator-fine'>清单展示通用核对顺序，部署时可替换为站内对应的深度文章。</p>
+        </section>
+    </main>
+
+    <footer class='brieffoot'>
+        <div class='brieffoot-in'>
+            <p class='brieffoot-fine'>内容不构成投资建议；以各平台官方页面为准。</p>
+        </div>
+    </footer>
+
+    <script src='brief.js'></script>
+</body>
+</html>

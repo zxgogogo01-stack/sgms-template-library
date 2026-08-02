@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="%%LANG%%">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fafbfc">
+  <title>事件样板 — %%SITE_NAME%%</title>
+  <meta name="description" content="监控台站事件页样板。">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/article.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="%%SITE_NAME%%">
+  <meta property="og:title" content="事件样板 — %%SITE_NAME%%">
+  <meta property="og:description" content="监控台站事件页样板。">
+  <meta property="og:url" content="https://%%SITE_DOMAIN%%/article.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="css/status.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "事件样板",
+    "datePublished": "2026-01-19",
+    "mainEntityOfPage": "https://%%SITE_DOMAIN%%/article.html"
+  }
+  </script>
+  <style>
+    /* incident detail extras */
+    .casefile { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
+    .casefile-card {
+      background: var(--sheet66);
+      border: 1px solid var(--rim66);
+      border-radius: var(--corner66);
+      box-shadow: var(--float66-hi);
+      padding: 40px 46px;
+    }
+    .casefile-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+    .casefile-card h1 {
+      font-family: var(--serif66);
+      font-size: clamp(1.45rem, 3.3vw, 1.95rem);
+      line-height: 1.34;
+    }
+    .casefile-meta { margin: 10px 0 0; font-family: var(--mono66); font-variant-numeric: tabular-nums; font-size: .82rem; color: var(--mute66); }
+    .casefile-gist {
+      margin: 24px 0;
+      padding: 15px 20px;
+      border-radius: 10px;
+      background: var(--tint66);
+      border-left: 4px solid var(--amber66);
+    }
+    .casefile-card h2 { font-family: var(--serif66); font-size: 1.2rem; margin: 30px 0 11px; }
+    .casefile-card h2::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--live66);
+      margin-right: 9px;
+    }
+    .casefile-card p { margin: 0 0 13px; }
+    .casefile-roll { overflow-x: auto; border-radius: 10px; border: 1px solid var(--rim66); margin: 14px 0 8px; }
+    .casefile-card table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+    .casefile-card th, .casefile-card td { text-align: left; padding: 10px 15px; border-bottom: 1px solid var(--rim66); font-size: .89rem; white-space: nowrap; }
+    .casefile-card thead th { background: var(--tint66); color: var(--live66-deep); font-family: var(--mono66); font-size: .76rem; letter-spacing: .1em; border-bottom: 0; }
+    .casefile-card tbody tr:last-child td { border-bottom: 0; }
+    .casefile-fine { font-size: .83rem; color: var(--mute66); }
+    @media (max-width: 640px) {
+      .casefile-card { padding: 26px 20px; }
+      .casefile-card th, .casefile-card td { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header class="pylon">
+    <div class="pylon-in">
+      <a class="pylon-brand" href="index.html">%%BRAND_EN%%</a>
+      <button type="button" class="pylon-btn" id="pylon-btn" aria-label="主导航" aria-expanded="false" aria-controls="pylon-nav">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="pylon-nav" id="pylon-nav" aria-label="主导航">
+        <a href="index.html">监控台</a>
+        <a href="article.html" aria-current="page">事件档案</a>
+        <a href="tool.html">偏差检查</a>
+        <a href="legal.html">披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="casefile">
+    <article class="casefile-card">
+      <div class="casefile-head">
+        <span class="flare-tag"><span class="beacon beacon-amber"></span>跟进中</span>
+        <span class="tagcat">费率观察</span>
+      </div>
+      <h1>示例平台A 挂单档位调整：返佣基数怎么跟着变</h1>
+      <p class="casefile-meta">发布 2026-01-19 · 口径核对 2026-01-19</p>
+
+      <div class="casefile-gist"><b>先说结论：</b>费率档位变化会沿着手续费基数传导到返佣金额；核对时应同时确认产品线、账户档位与生效时间。</div>
+
+      <h2>变了什么</h2>
+      <p>先记录调整覆盖的产品、账户层级和生效时间，并把时区统一到自己的账单时区；随后保存规则页版本，便于到账后逐项复核。</p>
+
+      <h2>对返佣的传导</h2>
+      <p>计算顺序是成交额乘手续费率得到手续费，再乘可返比例得到预计返佣。若存在抵扣、上限或排除产品，应先从计佣基数中剔除。</p>
+      <div class="casefile-roll">
+        <table>
+          <thead>
+            <tr><th scope="col">项目</th><th scope="col">调整前</th><th scope="col">调整后</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>挂单费率（基础档）</td><td>0.0X%</td><td>0.0X%</td></tr>
+            <tr><td>演示返佣（每万元）</td><td>X.XX</td><td>X.XX</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="casefile-fine">表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
+
+      <h2>要不要动</h2>
+      <p>判断时不要只看返佣比例，还要核对费率、产品范围、结算门槛与到账周期。规则可能调整，正式决策应以账户页面的最新显示为准。</p>
+    </article>
+  </main>
+
+  <footer class="groundfloor">
+    <div class="girth groundfloor-in">
+      <p class="groundfloor-fine">内容为信息整理，以各平台官方页面为准；不构成投资建议。</p>
+    </div>
+  </footer>
+
+  <script src="pulse.js"></script>
+</body>
+</html>

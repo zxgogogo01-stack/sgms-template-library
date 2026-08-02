@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="[[LANG]]">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark">
+  <title>金额分摊器｜[[SITE_NAME]]</title><meta name="description" content="按人数精确分摊金额，明确余数归属并复核总和。"><link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
+  <meta property="og:title" content="金额分摊器｜[[SITE_NAME]]"><meta property="og:description" content="生成逐人分摊明细，所有计算均在浏览器本地完成。"><meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html"><link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"金额分摊器","url":"https://[[SITE_DOMAIN]]/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Web Browser"}</script>
+</head>
+<body><a class="skip-link" href="#main">跳到主要内容</a><div class="shell">
+  <header class="site-header"><div class="container header-grid"><a class="brand" href="index.html"><strong>[[SITE_NAME]]</strong><span>Precision bench 027</span></a><div class="header-main"><nav class="site-nav" aria-label="主导航"><a href="index.html">工作台</a><a href="tool.html" aria-current="page">金额分摊</a><a href="article.html">方法手册</a><a href="legal.html">使用边界</a></nav><span class="bench-status"><i class="status-light" aria-hidden="true"></i>本地计算可用</span></div></div><div class="calibration-strip"><div class="container calibration-row"><span>Tool / Split-01</span><span>Local execution · No input upload</span></div></div></header>
+  <main id="main"><header class="page-hero"><div class="container"><p class="kicker">Local utility / split-01</p><h1>每一分钱，<br>都有明确去处。</h1><p>按人数平均分配总金额，选择余数方向，并生成可复核、可复制的逐人明细。</p></div></header>
+    <section class="tool-page" aria-labelledby="tool-title"><div class="container tool-layout"><div class="calculator"><div class="calculator-head"><div><h2 id="tool-title">金额分摊器</h2><p>精度固定为 0.01；总金额限制在 9,999,999.99 以内。</p></div><span class="tool-badge">Browser local</span></div>
+      <form class="split-form" id="split-form" novalidate><div class="form-grid">
+        <div class="field"><label for="total">总金额</label><input id="total" name="total" value="100.00" inputmode="decimal" autocomplete="off" aria-describedby="total-error"><p class="field-error" id="total-error"></p></div>
+        <div class="field"><label for="heads">参与人数</label><input id="heads" name="heads" value="6" inputmode="numeric" autocomplete="off" aria-describedby="heads-error"><p class="field-error" id="heads-error"></p></div>
+        <div class="field"><label for="currency">显示币种</label><select id="currency" name="currency"><option value="CNY">人民币 CNY</option><option value="USD">美元 USD</option><option value="EUR">欧元 EUR</option><option value="HKD">港元 HKD</option></select><p class="field-error"></p></div>
+        <div class="order-panel"><span>余数分配方向</span><div class="order-options" role="group" aria-label="余数分配方向"><button class="order-button" type="button" data-order="forward" aria-pressed="true">从前往后</button><button class="order-button" type="button" data-order="reverse" aria-pressed="false">从后往前</button></div></div>
+      </div><div class="form-actions"><button class="button" type="submit">生成分摊明细</button><button class="button-secondary" type="button" id="reset-tool">重置示例</button></div>
+        <section class="result-panel" id="result-panel" aria-live="polite" aria-atomic="false"><div class="result-summary"><div class="result-stat"><span>基础份额</span><strong id="base-share">—</strong></div><div class="result-stat"><span>获得余数人数</span><strong id="extra-count">—</strong></div><div class="result-stat"><span>复核合计</span><strong id="verified-total">—</strong></div></div><div class="result-head"><h3 id="result-title">分摊明细</h3><button class="button-secondary" type="button" id="copy-result">复制明细</button></div><div class="result-empty" id="result-empty" hidden>修正输入后重新生成明细。</div><div class="allocation-wrap" id="allocation-wrap"><table class="allocation-table"><thead><tr><th scope="col">参与者</th><th scope="col">余数标记</th><th scope="col">分配金额</th></tr></thead><tbody id="allocation-body"></tbody></table></div></section><p class="copy-status" id="tool-status" role="status" aria-live="polite"></p>
+      </form></div>
+      <aside class="tool-aside" aria-label="工具说明"><section class="tool-note"><h3>示例输入</h3><div class="examples"><button class="example-button" type="button" data-total="100" data-heads="6">100.00 / 6 人 · 有余数</button><button class="example-button" type="button" data-total="88" data-heads="4">88.00 / 4 人 · 整除</button><button class="example-button" type="button" data-total="0.03" data-heads="5">0.03 / 5 人 · 金额小于人数</button></div></section><section class="tool-note"><h3>计算规则</h3><ul><li>金额先换算成整数的分</li><li>每人先获得基础份额</li><li>余数按所选方向逐一分配</li><li>明细总和必须等于总金额</li></ul></section><section class="tool-note"><h3>输入边界</h3><p>不要输入姓名、账号或支付凭证。币种只影响显示符号，不执行汇率转换。</p><p><a href="article.html">查看完整方法手册</a></p></section></aside>
+    </div></section>
+  </main><footer class="site-footer"><div class="container footer-grid"><p>© 2026 [[SITE_NAME]] · 结果仅供计算辅助，请自行复核</p><div class="footer-links"><a href="index.html">工作台</a><a href="article.html">方法手册</a><a href="legal.html">使用边界</a></div></div></footer>
+</div>
+<script>
+(() => {
+  const form = document.querySelector('#split-form');
+  const total = document.querySelector('#total');
+  const heads = document.querySelector('#heads');
+  const currency = document.querySelector('#currency');
+  const totalError = document.querySelector('#total-error');
+  const headsError = document.querySelector('#heads-error');
+  const body = document.querySelector('#allocation-body');
+  const wrap = document.querySelector('#allocation-wrap');
+  const empty = document.querySelector('#result-empty');
+  const status = document.querySelector('#tool-status');
+  const symbols = { CNY: '¥', USD: '$', EUR: '€', HKD: 'HK$' };
+  let order = 'forward'; let copyText = '';
+
+  function clearErrors() { [total, heads].forEach((input) => input.removeAttribute('aria-invalid')); totalError.textContent = ''; headsError.textContent = ''; status.textContent = ''; }
+  function money(cents) { return `${symbols[currency.value]}${(cents / 100).toFixed(2)}`; }
+  function invalid(input, element, message) { input.setAttribute('aria-invalid', 'true'); element.textContent = message; }
+  function parse() {
+    clearErrors(); const amountText = total.value.trim(); const headsText = heads.value.trim();
+    const amount = Number(amountText); const count = Number(headsText);
+    if (!/^\d+(?:\.\d{1,2})?$/.test(amountText) || !Number.isFinite(amount) || amount < 0.01 || amount > 9999999.99) invalid(total, totalError, '请输入 0.01 至 9,999,999.99，最多两位小数');
+    if (!/^\d+$/.test(headsText) || !Number.isInteger(count) || count < 1 || count > 50) invalid(heads, headsError, '请输入 1 至 50 的整数');
+    if (total.hasAttribute('aria-invalid') || heads.hasAttribute('aria-invalid')) { (total.hasAttribute('aria-invalid') ? total : heads).focus(); return null; }
+    return { cents: Math.round(amount * 100), count };
+  }
+  function render() {
+    const values = parse(); if (!values) { body.innerHTML = ''; wrap.hidden = true; empty.hidden = false; document.querySelector('#base-share').textContent = '—'; document.querySelector('#extra-count').textContent = '—'; document.querySelector('#verified-total').textContent = '—'; document.querySelector('#result-title').textContent = '请修正输入'; copyText = ''; return; }
+    const base = Math.floor(values.cents / values.count); const extra = values.cents - base * values.count; const rows = [];
+    for (let index = 0; index < values.count; index += 1) { const getsExtra = order === 'forward' ? index < extra : index >= values.count - extra; const share = base + (getsExtra ? 1 : 0); rows.push({ index: index + 1, getsExtra, share }); }
+    body.innerHTML = rows.map((row) => `<tr><td>参与者 ${String(row.index).padStart(2, '0')}</td><td>${row.getsExtra ? '<span class="extra-mark">+0.01</span>' : '—'}</td><td><strong>${money(row.share)}</strong></td></tr>`).join('');
+    document.querySelector('#base-share').textContent = money(base); document.querySelector('#extra-count').textContent = `${extra} 人`; document.querySelector('#verified-total').textContent = money(rows.reduce((sum, row) => sum + row.share, 0)); document.querySelector('#result-title').textContent = `${values.count} 人分摊明细`; wrap.hidden = false; empty.hidden = true;
+    copyText = [`金额分摊｜${money(values.cents)} ÷ ${values.count} 人`, `方向：${order === 'forward' ? '从前往后' : '从后往前'}`, ...rows.map((row) => `参与者 ${String(row.index).padStart(2, '0')}：${money(row.share)}${row.getsExtra ? '（含余数 0.01）' : ''}`), `复核合计：${money(values.cents)}`].join('\n');
+  }
+  form.addEventListener('submit', (event) => { event.preventDefault(); render(); });
+  document.querySelectorAll('[data-order]').forEach((button) => button.addEventListener('click', () => { order = button.dataset.order; document.querySelectorAll('[data-order]').forEach((item) => item.setAttribute('aria-pressed', String(item === button))); render(); }));
+  currency.addEventListener('change', render);
+  document.querySelectorAll('.example-button').forEach((button) => button.addEventListener('click', () => { total.value = Number(button.dataset.total).toFixed(2); heads.value = button.dataset.heads; render(); }));
+  document.querySelector('#reset-tool').addEventListener('click', () => { total.value = '100.00'; heads.value = '6'; currency.value = 'CNY'; order = 'forward'; document.querySelectorAll('[data-order]').forEach((item) => item.setAttribute('aria-pressed', String(item.dataset.order === 'forward'))); render(); total.focus(); status.textContent = '已恢复默认示例'; });
+  document.querySelector('#copy-result').addEventListener('click', async () => { if (!copyText) { status.textContent = '请先生成有效明细'; return; } try { await navigator.clipboard.writeText(copyText); status.textContent = '分摊明细已复制'; } catch (_) { status.textContent = '浏览器未授权复制，请手动选择明细'; } });
+  render();
+})();
+</script></body></html>

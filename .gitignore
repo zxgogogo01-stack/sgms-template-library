@@ -1,0 +1,15 @@
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+# macOS
+.DS_Store
+._*
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# Local visual QA output (large and reproducible)
+artifacts/qa/

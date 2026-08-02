@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{SITE_NAME}} — 指标观察台</title>
+  <meta name="description" content="{{SITE_DESC}}">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}">
+  <meta property="og:description" content="{{SITE_DESC}}">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <link rel="stylesheet" href="assets/set.css">
+  <link rel="stylesheet" href="assets/plan.css">
+  <link rel="stylesheet" href="assets/face.css">
+  <link rel="stylesheet" href="assets/boutique.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "{{SITE_NAME}} 指标样例集",
+    "description": "{{SITE_DESC}}",
+    "url": "https://{{SITE_DOMAIN}}/"
+  }
+  </script>
+</head>
+<body>
+  <header class="deck">
+    <span class="deck__title">{{SITE_NAME}}</span>
+    <nav class="deck__row" aria-label="主导航">
+      <a class="deck__pick" href="index.html" aria-current="page">总览</a>
+      <a class="deck__pick" href="article.html">方法说明</a>
+      <a class="deck__pick" href="tool.html">占比工具</a>
+      <a class="deck__pick" href="legal.html">看板声明</a>
+    </nav>
+  </header>
+
+  <main class="porch-floor">
+    <section class="lede">
+      <p class="lede__label">MEASUREMENT DESK / 006</p>
+      <h1 class="lede__big">{{SITE_NAME}}</h1>
+      <p class="lede__thin">{{SITE_TAGLINE}}</p>
+      <div class="lede__status">
+        <span><b>状态</b> 演示数据</span>
+        <span><b>复核</b> 2026-07-22 09:00 UTC</span>
+        <span><b>口径</b> 最近 30 日</span>
+      </div>
+    </section>
+
+    <section class="stat-lot" aria-label="核心指标">
+      <article class="stat-lot__unit">
+        <span class="stat-lot__code">M-01 / QUALITY</span>
+        <strong class="stat-lot__figure">94.8</strong>
+        <span class="stat-lot__what">字段核验覆盖率</span>
+        <small class="stat-lot__delta stat-lot__delta--up">较上期 +1.6</small>
+      </article>
+      <article class="stat-lot__unit">
+        <span class="stat-lot__code">M-02 / SOURCES</span>
+        <strong class="stat-lot__figure">1,284</strong>
+        <span class="stat-lot__what">纳入观察的来源</span>
+        <small class="stat-lot__delta">本期新增 42</small>
+      </article>
+      <article class="stat-lot__unit">
+        <span class="stat-lot__code">M-03 / CHANGE</span>
+        <strong class="stat-lot__figure">+6.2%</strong>
+        <span class="stat-lot__what">30 日样例变化</span>
+        <small class="stat-lot__delta">对比上一窗口</small>
+      </article>
+      <article class="stat-lot__unit">
+        <span class="stat-lot__code">M-04 / REGIONS</span>
+        <strong class="stat-lot__figure">18</strong>
+        <span class="stat-lot__what">有核验来源的区域</span>
+        <small class="stat-lot__delta stat-lot__delta--warn">2 个区域待补</small>
+      </article>
+    </section>
+
+    <section class="quality-strip" aria-label="数据质量摘要">
+      <div><span>01</span><strong>演示数据</strong><small>请替换为已核实内容</small></div>
+      <div><span>02</span><strong>UTC 边界</strong><small>滚动窗口统一时区</small></div>
+      <div><span>03</span><strong>不做估算</strong><small>缺失值保持为空</small></div>
+      <a href="article.html">查看完整方法 →</a>
+    </section>
+
+    <section class="plot-duo" aria-label="趋势图与来源覆盖图">
+      <figure class="plot-duo__pane">
+        <svg viewBox="0 0 320 140" role="img" aria-labelledby="trend-title trend-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="trend-title">近六期字段核验覆盖率变化</title>
+          <desc id="trend-desc">样例折线从 88 上升至 94.8，中间有两次小幅回落。</desc>
+          <rect width="320" height="140" fill="none"></rect>
+          <polyline points="10,110 60,90 110,96 160,60 210,72 260,40 310,52" fill="none" stroke="#3567a6" stroke-width="3"></polyline>
+          <line x1="10" y1="120" x2="310" y2="120" stroke="#9db2c9" stroke-width="1"></line>
+        </svg>
+        <figcaption class="plot-duo__cap">
+          <span class="plot-duo__title">核验覆盖率</span>
+          <span>近 6 期 · 演示序列</span>
+        </figcaption>
+        <p class="plot-duo__note"><strong>94.8</strong> 当前值 <span>最高值 96.1</span></p>
+      </figure>
+      <figure class="plot-duo__pane">
+        <svg viewBox="0 0 320 140" role="img" aria-labelledby="coverage-title coverage-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="coverage-title">六类来源的样例覆盖量</title>
+          <desc id="coverage-desc">六根柱形展示不同来源类别的相对覆盖量，其中第四类最高。</desc>
+          <rect x="20" y="70" width="32" height="50"></rect>
+          <rect x="70" y="50" width="32" height="70"></rect>
+          <rect x="120" y="84" width="32" height="36"></rect>
+          <rect x="170" y="38" width="32" height="82"></rect>
+          <rect x="220" y="60" width="32" height="60"></rect>
+          <rect x="270" y="76" width="32" height="44"></rect>
+          <line x1="10" y1="120" x2="310" y2="120" stroke="#9db2c9" stroke-width="1"></line>
+        </svg>
+        <figcaption class="plot-duo__cap">
+          <span class="plot-duo__title">来源覆盖量</span>
+          <span>6 类来源 · 相对分布</span>
+        </figcaption>
+        <p class="plot-duo__note"><strong>1,284</strong> 已纳入 <span>42 个本期新增</span></p>
+      </figure>
+    </section>
+
+    <section class="basis" aria-labelledby="definition-title">
+      <div class="basis__head">
+        <p>DATA DICTIONARY / 006</p>
+        <h2 class="basis__cap" id="definition-title">每个数字怎样得到</h2>
+      </div>
+      <div class="basis__scroll" tabindex="0" aria-label="指标定义表">
+        <table class="basis__table">
+          <thead>
+            <tr><th scope="col">指标</th><th scope="col">定义</th><th scope="col">窗口</th><th scope="col">最近复核</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">字段核验覆盖率</th><td data-label="定义">已核验字段数 ÷ 全部跟踪字段数</td><td data-label="窗口">24h</td><td data-label="最近复核">2026-07-22</td></tr>
+            <tr><th scope="row">观察来源</th><td data-label="定义">当前仍可访问且具有明确归属的公开来源</td><td data-label="窗口">7d</td><td data-label="最近复核">2026-07-22</td></tr>
+            <tr><th scope="row">30 日变化</th><td data-label="定义">当前窗口与上一等长窗口的差异</td><td data-label="窗口">30d</td><td data-label="最近复核">2026-07-22</td></tr>
+            <tr><th scope="row">报告区域</th><td data-label="定义">至少拥有一个已核验公开来源的区域</td><td data-label="窗口">—</td><td data-label="最近复核">2026-07-22</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="basis__hint"><strong>发布提醒：</strong>本页数字为排版演示数据，上线前必须替换并核对来源、日期和计算口径。</p>
+    </section>
+  </main>
+
+  <footer class="floor-line">
+    <p class="floor-line__txt">演示看板 · 不构成投资或行动建议 · <a href="legal.html">看板声明</a> · {{CONTACT_EMAIL}}</p>
+  </footer>
+
+  <script src="assets/porch.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang='%%LANG%%'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='theme-color' content='#fbfbfa'>
+  <title>邀请码格式体检 — %%SITE_NAME%%</title>
+  <meta name='description' content='贴入邀请码，本地检查空格、长度、字符集等常见格式问题。'>
+  <link rel='canonical' href='https://%%SITE_DOMAIN%%/tool.html'>
+  <meta property='og:type' content='website'>
+  <meta property='og:site_name' content='%%SITE_NAME%%'>
+  <meta property='og:title' content='邀请码格式体检 — %%SITE_NAME%%'>
+  <meta property='og:description' content='贴入邀请码，本地检查空格、长度、字符集等常见格式问题。'>
+  <meta property='og:url' content='https://%%SITE_DOMAIN%%/tool.html'>
+  <meta name='twitter:card' content='summary'>
+  <link rel='stylesheet' href='assets/gallery.css'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "邀请码格式体检",
+    "url": "https://%%SITE_DOMAIN%%/tool.html"
+  }
+  </script>
+  <style>
+    .conservlab { max-width: 560px; margin: 0 auto; padding: 50px 26px 88px; }
+    .conservlab-card {
+      background: var(--plinthwhite);
+      border: 1px solid var(--hairfine);
+      border-top: 4px solid var(--magenta76);
+      box-shadow: var(--floatv-hi);
+      padding: 42px 46px;
+    }
+    .conservlab-card h1 { font-family: var(--serif76); font-size: 1.55rem; }
+    .conservlab-card > p { color: var(--dovemute); margin: 6px 0 8px; }
+    .conservlab-card label {
+      display: block;
+      margin: 18px 0 6px;
+      font-family: var(--mono76);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--magenta76-deep);
+    }
+    .conservlab-card input {
+      width: 100%;
+      min-height: 50px;
+      padding: 10px 16px;
+      border: 1px solid var(--hairfine);
+      background: var(--wallwhite);
+      color: var(--charink);
+      font: inherit;
+      font-family: var(--mono76);
+      letter-spacing: .1em;
+      transition: border-color var(--glidev), box-shadow var(--glidev);
+    }
+    .conservlab-card input:focus {
+      outline: none;
+      border-color: var(--magenta76);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--magenta76) 14%, transparent);
+    }
+    .conservlab-card input[aria-invalid='true'] {
+      border-color: #b42318;
+      box-shadow: 0 0 0 4px color-mix(in srgb, #b42318 14%, transparent);
+    }
+    .conservlab-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 52px;
+      border: 0;
+      background: var(--charink);
+      color: var(--wallwhite);
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      cursor: pointer;
+      transition: background var(--glidev), transform var(--glidev);
+    }
+    .conservlab-run:hover { transform: translateY(-2px); background: var(--magenta76); }
+    .conservlab-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 26px;
+      padding: 16px 20px;
+      background: var(--mistwash);
+      border-left: 4px solid var(--magenta76);
+      line-height: 1.8;
+    }
+    .conservlab-out b { color: var(--magenta76-deep); }
+    @media (max-width: 600px) {
+      .conservlab-card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class='vestibule'>
+    <div class='vestibule-in'>
+      <a class='vestibule-brand' href='index.html'>%%BRAND_EN%%</a>
+      <button type='button' class='vestibule-btn' id='vestibule-btn' aria-label='主导航' aria-expanded='false' aria-controls='vestibule-nav'>
+        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+      </button>
+      <nav class='vestibule-nav' id='vestibule-nav' aria-label='主导航'>
+        <a href='index.html'>展厅</a>
+        <a href='article.html'>展签</a>
+        <a href='tool.html' aria-current='page'>格式体检</a>
+        <a href='legal.html'>披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='conservlab'>
+    <form class='conservlab-card' id='fc-form' novalidate>
+      <h1>邀请码格式体检</h1>
+      <p>注册前先看一眼码本身有没有问题：空格、长度、奇怪字符。只在本地检查，不上传。</p>
+      <label for='fc-code'>粘贴邀请码</label>
+      <input type='text' id='fc-code' autocomplete='off' spellcheck='false' placeholder='如 %%INVITE_CODE%%' aria-describedby='fc-out'>
+      <button type='submit' class='conservlab-run' id='fc-run'>体检</button>
+      <output class='conservlab-out' id='fc-out' role='status' aria-live='polite'></output>
+    </form>
+  </main>
+
+  <footer class='cloakroom'>
+    <div class='cloakroom-in'>
+      <p class='cloakroom-fine'>本工具只查格式；码是否有效以平台注册页为准。</p>
+    </div>
+  </footer>
+
+  <script src='assets/gallery.js'></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='{LANG}'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>缺页 — {SITE_NAME}</title>
+  <meta name='robots' content='noindex'>
+  <link rel='stylesheet' href='css/current.css'>
+  <style>
+    .missingleaf { max-width: 460px; margin: 15vh auto; padding: 0 26px; text-align: center; }
+    .missingleaf-card {
+      background: var(--sheetcream);
+      border-radius: var(--leafedge);
+      box-shadow: var(--pressfall-hi);
+      border-top: 3px double var(--umberink);
+      border-bottom: 3px double var(--umberink);
+      padding: 52px 40px;
+    }
+    .missingleaf-card h1 {
+      font-size: 3.4rem;
+      color: var(--ochre80);
+      font-variant-numeric: tabular-nums;
+    }
+    .missingleaf-card p { font-family: var(--sans80); color: var(--fadedumber); margin: 8px 0 22px; }
+    .missingleaf-back {
+      display: inline-block;
+      min-height: 46px;
+      line-height: 46px;
+      padding: 0 26px;
+      border-radius: var(--leafedge);
+      background: var(--ochre80);
+      color: #fdf5ec;
+      font-family: var(--sans80);
+      font-weight: 800;
+      transition: transform var(--turn80), background var(--turn80);
+    }
+    .missingleaf-back:hover { transform: translateY(-2px); background: var(--ochre80-deep); }
+  </style>
+</head>
+<body>
+  <div class='missingleaf'>
+    <div class='missingleaf-card'>
+      <h1>404</h1>
+      <p>这一页被裁掉了——不在本期，也不在存档。</p>
+      <a class='missingleaf-back' href='index.html'>回本期</a>
+    </div>
+  </div>
+</body>
+</html>

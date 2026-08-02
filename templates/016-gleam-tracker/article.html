@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang='%LANG%'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>口径档案 — %SITE_NAME%</title>
+    <meta name='description' content='指标定义、统计窗口、来源与复核规则。'>
+    <link rel='canonical' href='https://%SITE_DOMAIN%/article.html'>
+    <meta property='og:title' content='口径档案 — %SITE_NAME%'>
+    <meta property='og:description' content='指标定义、统计窗口、来源与复核规则。'>
+    <meta property='og:url' content='https://%SITE_DOMAIN%/article.html'>
+    <link rel='stylesheet' href='css/style.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "口径档案",
+        "dateModified": "2026-08-01"
+    }
+    </script>
+</head>
+<body>
+    <div class='rig'>
+        <aside class='mast'>
+            <div>
+                <p class='mast-kicker'>GLEAM / 016</p>
+                <a class='beacon' href='index.html' aria-label='返回指标首页'>%SITE_NAME%</a>
+                <nav class='picks' aria-label='主导航'>
+                    <a href='index.html'>指标观测</a>
+                    <a href='article.html' aria-current='page'>口径档案</a>
+                    <a href='tool.html'>距离计算</a>
+                    <a href='legal.html'>站点说明</a>
+                </nav>
+            </div>
+            <p class='mast-status'><span aria-hidden='true'></span>口径版本 · 2026.08</p>
+        </aside>
+
+        <main class='watch'>
+            <header class='page-head'>
+                <p class='eyebrow'>METHODOLOGY / SOURCE NOTES</p>
+                <h1>口径档案</h1>
+                <p>把定义、时间窗口和来源写清楚，指标才具备可比较性。</p>
+            </header>
+
+            <div class='document-shell'>
+                <nav class='document-nav' aria-label='本文目录'>
+                    <span>本文目录</span>
+                    <a href='#principles'>记录原则</a>
+                    <a href='#definitions'>指标定义</a>
+                    <a href='#cadence'>复核节奏</a>
+                </nav>
+
+                <article class='record'>
+                    <p class='record__lead'>这是一份可直接替换内容的数据字典模板。上线时应为每个指标保留定义、数据源、统计窗口、时区和最近核对时间。</p>
+
+                    <section id='principles'>
+                        <p class='section-number'>01 / PRINCIPLES</p>
+                        <h2>先统一口径，再讨论趋势</h2>
+                        <p>名称相似并不代表统计对象相同。比较前先确认采样频率、去重规则和单位换算，避免把口径差异解释为业务变化。</p>
+                        <ul class='check-list'>
+                            <li><strong>来源</strong><span>公开页面、接口或手工录入渠道</span></li>
+                            <li><strong>窗口</strong><span>自然日、滚动七日或滚动三十日</span></li>
+                            <li><strong>时区</strong><span>统一记录 UTC 或站点采用的本地时区</span></li>
+                            <li><strong>复核</strong><span>记录最近更新时间与异常说明</span></li>
+                        </ul>
+                    </section>
+
+                    <section id='definitions'>
+                        <p class='section-number'>02 / DEFINITIONS</p>
+                        <h2>示例指标定义</h2>
+                        <dl class='definition-list'>
+                            <div><dt>活跃地址数</dt><dd>统计窗口内至少发生一次有效交互的去重地址数。示例采用滚动七日窗口，按 UTC 汇总。</dd></div>
+                            <div><dt>协议收入</dt><dd>按指定口径汇总的协议侧收入，不含未实现收益。上线时需注明币种与换算时间。</dd></div>
+                            <div><dt>日均交易额</dt><dd>统计周期总交易额除以有效天数。异常中断日是否剔除，应在来源说明中写明。</dd></div>
+                            <div><dt>净流入强度</dt><dd>归一化后的净流入观察值，仅用于站内趋势比较，不应直接解释为价格预测。</dd></div>
+                        </dl>
+                    </section>
+
+                    <section id='cadence'>
+                        <p class='section-number'>03 / REVIEW CADENCE</p>
+                        <h2>建立稳定的复核节奏</h2>
+                        <p>固定在同一时间抓取数据，并对大幅变化进行二次核验。口径变更时保留旧版本说明，避免历史图表失去可解释性。</p>
+                        <aside class='note-box'>
+                            <span>编辑提示</span>
+                            <p>示例内容用于展示信息层级，正式发布前请替换为经过核实的定义与来源。</p>
+                        </aside>
+                    </section>
+                </article>
+            </div>
+
+            <footer class='stern'>
+                <p>对指标口径有疑问，请联系 %CONTACT_EMAIL%。</p>
+                <p><a href='index.html'>返回指标观测</a></p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

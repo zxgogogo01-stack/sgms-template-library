@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang='%LANG%'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>目标距离计算 — %SITE_NAME%</title>
+    <meta name='description' content='计算当前值与目标值之间的百分比距离。'>
+    <link rel='canonical' href='https://%SITE_DOMAIN%/tool.html'>
+    <meta property='og:title' content='目标距离计算 — %SITE_NAME%'>
+    <meta property='og:description' content='计算当前值与目标值之间的百分比距离。'>
+    <meta property='og:url' content='https://%SITE_DOMAIN%/tool.html'>
+    <link rel='stylesheet' href='css/style.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "目标距离计算",
+        "url": "https://%SITE_DOMAIN%/tool.html"
+    }
+    </script>
+</head>
+<body>
+    <div class='rig'>
+        <aside class='mast'>
+            <div>
+                <p class='mast-kicker'>GLEAM / 016</p>
+                <a class='beacon' href='index.html' aria-label='返回指标首页'>%SITE_NAME%</a>
+                <nav class='picks' aria-label='主导航'>
+                    <a href='index.html'>指标观测</a>
+                    <a href='article.html'>口径档案</a>
+                    <a href='tool.html' aria-current='page'>距离计算</a>
+                    <a href='legal.html'>站点说明</a>
+                </nav>
+            </div>
+            <p class='mast-status'><span aria-hidden='true'></span>仅在浏览器本地计算</p>
+        </aside>
+
+        <main class='watch'>
+            <header class='page-head'>
+                <p class='eyebrow'>LOCAL UTILITY / GAP CALCULATOR</p>
+                <h1>目标距离计算</h1>
+                <p>输入当前值与目标值，快速判断需要上涨或回落的百分比。</p>
+            </header>
+
+            <div class='tool-grid'>
+                <form class='span-calc' id='span-calc' novalidate>
+                    <div class='calc-head'>
+                        <span>CALC / 01</span>
+                        <strong>两个输入，一步得到结果</strong>
+                    </div>
+                    <div class='field'>
+                        <label for='sc-now'>当前值</label>
+                        <input type='number' id='sc-now' step='any' inputmode='decimal' placeholder='例如 80' aria-describedby='sc-out' required>
+                    </div>
+                    <div class='field'>
+                        <label for='sc-aim'>目标值</label>
+                        <input type='number' id='sc-aim' step='any' inputmode='decimal' placeholder='例如 100' aria-describedby='sc-out' required>
+                    </div>
+                    <button type='submit' id='sc-go'>开始计算</button>
+                    <output id='sc-out' role='status' aria-live='polite' aria-atomic='true'>等待输入。所有计算仅在当前浏览器完成。</output>
+                </form>
+
+                <aside class='formula-card'>
+                    <p class='eyebrow'>FORMULA NOTE</p>
+                    <h2>结果如何计算</h2>
+                    <p class='formula'>(目标值 − 当前值) ÷ |当前值| × 100%</p>
+                    <dl>
+                        <div><dt>正结果</dt><dd>需要上涨对应百分比到达目标</dd></div>
+                        <div><dt>负结果</dt><dd>需要回落对应百分比到达目标</dd></div>
+                        <div><dt>当前值为 0</dt><dd>无法作为百分比计算的分母</dd></div>
+                    </dl>
+                    <p class='formula-card__note'>计算结果仅作数值换算，不构成投资或行动建议。</p>
+                </aside>
+            </div>
+
+            <section class='tool-note'>
+                <p class='eyebrow'>USE WITH CONTEXT</p>
+                <h2>百分比距离不等于实现概率</h2>
+                <p>距离只能描述两个数值之间的关系。判断趋势时仍需结合指标口径、时间窗口与数据质量。</p>
+            </section>
+
+            <footer class='stern'>
+                <p>本工具不保存输入内容。</p>
+                <p><a href='article.html'>查看口径档案</a></p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        (function () {
+            'use strict';
+            var form = document.getElementById('span-calc');
+            var nowInput = document.getElementById('sc-now');
+            var aimInput = document.getElementById('sc-aim');
+            var output = document.getElementById('sc-out');
+
+            function invalidate(input, message) {
+                input.setAttribute('aria-invalid', 'true');
+                output.setAttribute('data-state', 'error');
+                output.textContent = message;
+                input.focus();
+            }
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                var now = parseFloat(nowInput.value);
+                var aim = parseFloat(aimInput.value);
+                nowInput.removeAttribute('aria-invalid');
+                aimInput.removeAttribute('aria-invalid');
+                output.removeAttribute('data-state');
+
+                if (isNaN(now) || now === 0) {
+                    invalidate(nowInput, '请输入不等于 0 的当前值。');
+                    return;
+                }
+                if (isNaN(aim)) {
+                    invalidate(aimInput, '请输入有效的目标值。');
+                    return;
+                }
+
+                var percentage = ((aim - now) / Math.abs(now)) * 100;
+                output.setAttribute('data-state', 'success');
+                if (percentage > 0) {
+                    output.textContent = '从 ' + now + ' 到 ' + aim + '，还需上涨 ' + percentage.toFixed(2) + '%。';
+                } else if (percentage < 0) {
+                    output.textContent = '从 ' + now + ' 到 ' + aim + '，需要回落 ' + Math.abs(percentage).toFixed(2) + '%。';
+                } else {
+                    output.textContent = '当前值已经等于目标值，距离为 0.00%。';
+                }
+            });
+        }());
+    </script>
+</body>
+</html>

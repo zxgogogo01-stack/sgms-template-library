@@ -1,0 +1,112 @@
+/* 信号周摘 — 铜色编辑部周刊 */
+:root {
+    color-scheme: light dark;
+    --paper: #f1ecdf;
+    --sheet: #fffaf0;
+    --ink: #241d17;
+    --muted: #6f6256;
+    --copper: #a85d2c;
+    --copper-soft: #d39a66;
+    --night: #29231f;
+    --line: #cfc3b2;
+    --wash: #e4dac9;
+    --link: #77401f;
+    --error: #8b2f1f;
+    --shadow: 8px 8px 0 rgba(36, 29, 23, 0.1);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.72 "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+h1, h2, h3 { margin: 0; line-height: 1.16; text-wrap: balance; }
+p { margin: 0 0 1em; }
+a { color: var(--link); text-underline-offset: 0.22em; }
+button, input { font: inherit; }
+:focus-visible { outline: 3px solid var(--copper-soft); outline-offset: 4px; }
+::selection { color: #fff; background: var(--copper); }
+
+.lay { width: min(1200px, 100%); min-height: 100vh; margin: 0 auto; display: flex; }
+.bin { flex: 0 0 250px; padding: 42px 28px; color: #f3eadc; background: var(--night); }
+.head-tag { margin: 0 0 34px; display: block; color: inherit; font-family: ui-monospace, Consolas, monospace; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-decoration: none; text-transform: uppercase; overflow-wrap: anywhere; }
+.head-tag::before { content: "SD / WEEKLY"; display: block; margin-bottom: 10px; color: var(--copper-soft); font-size: 0.68rem; }
+.vols { display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,0.16); }
+.vols a { min-height: 48px; padding: 12px 10px; color: #cdbfae; border-bottom: 1px solid rgba(255,255,255,0.13); text-decoration: none; }
+.vols a:hover, .vols a.now, .vols a[aria-current='page'] { padding-left: 16px; color: #fff; background: #3b3028; border-left: 4px solid var(--copper-soft); }
+.bin-extra { margin: 22px 0 0; }
+.bin-extra + .bin-extra { margin-top: 8px; }
+.bin-extra a { color: #d9c9b7; }
+
+.zone { min-width: 0; flex: 1 1 auto; padding: 54px clamp(30px, 6vw, 72px) 30px; display: flex; flex-direction: column; gap: 38px; }
+.lead-two { min-height: 330px; padding: clamp(34px, 6vw, 62px); display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 34px; align-items: end; color: #fff7ec; background: var(--night); border-top: 9px solid var(--copper); box-shadow: var(--shadow); }
+.lead-copy { min-width: 0; }
+.eyebrow, .issue-kicker { margin: 0 0 18px; color: var(--copper-soft); font: 800 0.72rem/1.4 ui-monospace, Consolas, monospace; letter-spacing: 0.16em; text-transform: uppercase; }
+.lead-copy h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); letter-spacing: -0.055em; overflow-wrap: anywhere; }
+.lead-motto { margin: 16px 0 8px; color: #f0d7bd; font-size: 1.05rem; }
+.lead-deck { max-width: 610px; color: #c9bbad; }
+.issue-card { min-height: 206px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; color: var(--night); background: #fffaf0; border-left: 8px solid var(--copper); }
+.issue-card strong { font-size: 4.6rem; line-height: 1; }
+.issue-card span { font: 700 0.68rem/1.7 ui-monospace, Consolas, monospace; letter-spacing: 0.12em; }
+
+.code-bar { padding: 20px 22px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px 18px; align-items: center; color: #f8eee0; background: #3a2e26; border-top: 6px solid var(--copper-soft); box-shadow: var(--shadow); }
+.code-bar label { font-weight: 800; }
+.code-bar input { min-width: 0; min-height: 46px; padding: 9px 13px; color: #fff; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); font-family: ui-monospace, Consolas, monospace; }
+.code-bar button, .delta-box button { min-height: 46px; padding: 9px 22px; color: #fff; background: var(--copper); border: 0; cursor: pointer; }
+.code-law { grid-column: 1 / -1; margin: 0; color: #baa999; font-size: 0.8rem; }
+
+.items { display: grid; gap: 12px; }
+.items > h2 { margin-bottom: 4px; padding-bottom: 13px; border-bottom: 2px solid var(--ink); font-size: 1.5rem; }
+.item { position: relative; min-height: 132px; padding: 26px 28px 24px 92px; background: var(--sheet); border: 1px solid var(--line); box-shadow: 4px 4px 0 rgba(36,29,23,0.06); }
+.item-no { position: absolute; left: 26px; top: 26px; width: 42px; height: 42px; display: grid; place-items: center; color: #fff; background: var(--copper); font: 800 0.9rem ui-monospace, Consolas, monospace; border-radius: 50%; }
+.item h3 { margin-bottom: 8px; font-size: 1.18rem; }
+.item p { margin-bottom: 8px; color: var(--muted); }
+.item-meta { color: var(--copper); font: 700 0.72rem ui-monospace, Consolas, monospace; letter-spacing: 0.08em; }
+.src-note { padding: 28px; background: var(--wash); border-left: 7px solid var(--copper); }
+.src-note h2 { margin-bottom: 10px; font-size: 1.35rem; }
+.src-note p { margin: 0; color: var(--muted); }
+
+.back-issue, .about-page, .delta-box { width: min(820px, 100%); padding: clamp(30px, 6vw, 64px); background: var(--sheet); border-top: 8px solid var(--copper); box-shadow: var(--shadow); }
+.back-issue h1, .about-page h1, .delta-box h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); letter-spacing: -0.05em; }
+.stamp, .about-intro, .tool-intro { margin: 14px 0 28px; color: var(--muted); }
+.back-issue h2, .about-page h2 { margin: 30px 0 8px; color: var(--link); font-size: 1.28rem; }
+.back-issue hr { margin: 28px 0; border: 0; border-top: 1px dashed var(--line); }
+.source-line { color: var(--copper); font: 700 0.72rem ui-monospace, Consolas, monospace; letter-spacing: 0.06em; }
+.delta-box { display: grid; gap: 12px; }
+.delta-box label { font-weight: 800; }
+.delta-box input { width: 100%; min-height: 48px; padding: 10px 12px; color: var(--ink); background: var(--paper); border: 1px solid var(--line); }
+.delta-box button { width: fit-content; margin-top: 8px; }
+.delta-box output { min-height: 58px; margin-top: 8px; padding: 16px 18px; background: var(--wash); border-left: 5px solid var(--copper); font-weight: 800; }
+.delta-box output:empty::before { content: "结果将在这里显示"; color: var(--muted); font-weight: 400; }
+.delta-box input[aria-invalid='true'] { border-color: var(--copper); box-shadow: 0 0 0 3px color-mix(in srgb, var(--copper) 22%, transparent); }
+.delta-box output.is-error { color: var(--error); background: color-mix(in srgb, var(--copper) 14%, var(--sheet)); }
+
+.tail { margin-top: auto; padding-top: 18px; color: var(--muted); border-top: 1px solid var(--line); font-size: 0.82rem; }
+.lost-issue { width: min(680px, calc(100% - 32px)); min-height: 100vh; margin: 0 auto; padding: 70px 0; display: grid; place-content: center; }
+.lost-card { padding: clamp(36px, 8vw, 72px); color: #fff7ec; background: var(--night); border-left: 8px solid var(--copper); box-shadow: var(--shadow); }
+.lost-code { color: var(--copper-soft); font: 800 0.72rem ui-monospace, Consolas, monospace; letter-spacing: 0.15em; }
+.lost-issue h1 { margin: 18px 0; font-size: clamp(3rem, 8vw, 5.4rem); }
+.lost-issue p { color: #d2c4b4; }
+.lost-issue a { color: #fff; }
+
+@media (max-width: 800px) {
+    .lay { flex-direction: column; }
+    .bin { flex-basis: auto; padding: 18px 16px 10px; }
+    .head-tag { margin-bottom: 10px; }
+    .head-tag::before { display: inline; margin: 0 10px 0 0; }
+    .vols { flex-direction: row; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x proximity; scrollbar-color: var(--copper-soft) rgba(255,255,255,0.08); border-top: 0; }
+    .vols a { flex: 1 0 auto; border: 0; border-bottom: 3px solid transparent; scroll-snap-align: start; }
+    .vols a:hover, .vols a.now, .vols a[aria-current='page'] { padding-left: 10px; border-left: 0; border-bottom-color: var(--copper-soft); }
+    .bin-extra { display: none; }
+    .zone { padding: 30px 16px 26px; gap: 32px; }
+    .lead-two { min-height: 430px; padding: 32px 26px; grid-template-columns: 1fr; }
+    .issue-card { min-height: 122px; display: grid; grid-template-columns: 1fr auto; align-items: end; }
+    .code-bar { grid-template-columns: 1fr; }
+    .code-law { grid-column: 1; }
+    .item { padding: 24px 22px 22px 80px; }
+    .item-no { left: 22px; top: 24px; }
+    .back-issue, .about-page, .delta-box { padding: 30px 24px; }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root { --paper: #151210; --sheet: #211c18; --ink: #f1e8dd; --muted: #b9aa9b; --copper: #ca7540; --copper-soft: #e0a16b; --night: #28211c; --line: #4b4036; --wash: #302820; --link: #efb17b; --error: #ffc1ad; --shadow: 8px 8px 0 rgba(0,0,0,0.32); }
+}
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }

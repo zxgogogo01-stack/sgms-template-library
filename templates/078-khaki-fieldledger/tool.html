@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="__lang__">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f1efe6">
+  <title>换平台差额速算器 — __site_name__</title>
+  <meta name="description" content="两边净费率一减，月交易量一乘，搬家值不值当场算。">
+  <link rel="canonical" href="https://__site_domain__/tool.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="__site_name__">
+  <meta property="og:title" content="换平台差额速算器 — __site_name__">
+  <meta property="og:description" content="两边净费率一减，月交易量一乘，搬家值不值当场算。">
+  <meta property="og:url" content="https://__site_domain__/tool.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="css/field.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "换平台差额速算器",
+    "url": "https://__site_domain__/tool.html"
+  }
+  </script>
+  <style>
+    /* switch tool extras */
+    .surveytool { max-width: 540px; margin: 0 auto; padding: 46px 24px 80px; }
+    .surveytool-card {
+      background: var(--canvas78);
+      border: 2px solid var(--sootbrown);
+      box-shadow: var(--cast78-hi);
+      padding: 38px 42px;
+    }
+    .surveytool-card h1 { font-family: var(--serif78); font-size: 1.48rem; }
+    .surveytool-card > p { color: var(--drygrass); margin: 6px 0 8px; }
+    .surveytool-card label {
+      display: block;
+      margin: 16px 0 6px;
+      font-family: var(--mono78);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--olive78-deep);
+    }
+    .surveytool-card input {
+      width: 100%;
+      min-height: 47px;
+      padding: 10px 15px;
+      border: 2px solid var(--ropeline);
+      background: var(--khakibed);
+      color: var(--sootbrown);
+      font: inherit;
+      font-family: var(--mono78);
+      font-variant-numeric: tabular-nums;
+      transition: border-color var(--stride), box-shadow var(--stride);
+    }
+    .surveytool-card input:focus {
+      outline: none;
+      border-color: var(--olive78);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--olive78) 20%, transparent);
+    }
+    .surveytool-card input[aria-invalid="true"] {
+      border-color: var(--signalred);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--signalred) 18%, transparent);
+    }
+    .surveytool-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 52px;
+      border: 2px solid var(--olive78);
+      background: var(--olive78);
+      color: var(--canvas78);
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      cursor: pointer;
+      transition: background var(--stride), border-color var(--stride), transform var(--stride);
+    }
+    .surveytool-run:hover { transform: translateY(-2px); background: var(--olive78-deep); border-color: var(--olive78-deep); }
+    .surveytool-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 26px;
+      padding: 15px 18px;
+      background: var(--dustwash);
+      border-left: 4px solid var(--signalred);
+      line-height: 1.8;
+      font-variant-numeric: tabular-nums;
+    }
+    .surveytool-out b { color: var(--olive78-deep); }
+    @media (max-width: 600px) {
+      .surveytool-card { padding: 26px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="fieldbar">
+    <div class="fieldbar-in">
+      <a class="fieldbar-brand" href="index.html">__brand_en__</a>
+      <button type="button" class="fieldbar-btn" id="fieldbar-btn" aria-label="主导航" aria-expanded="false" aria-controls="fieldbar-nav">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="fieldbar-nav" id="fieldbar-nav" aria-label="主导航">
+        <a href="index.html">台账</a>
+        <a href="article.html">记录</a>
+        <a href="tool.html" aria-current="page">差额速算</a>
+        <a href="legal.html">披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="surveytool">
+    <form class="surveytool-card" id="sw-form" novalidate>
+      <h1>换平台差额速算器</h1>
+      <p>A 是现在用的，B 是想搬去的。三个数算搬家值不值。本地计算。</p>
+      <label for="sw-vol">月交易量</label>
+      <input type="number" id="sw-vol" step="any" min="0" placeholder="如 200000" aria-describedby="sw-out">
+      <label for="sw-ra">A 的净费率（%，扣完返佣后）</label>
+      <input type="number" id="sw-ra" step="any" min="0" max="100" placeholder="如 0.038" aria-describedby="sw-out">
+      <label for="sw-rb">B 的净费率（%，扣完返佣后）</label>
+      <input type="number" id="sw-rb" step="any" min="0" max="100" placeholder="如 0.031" aria-describedby="sw-out">
+      <button type="submit" class="surveytool-run" id="sw-run">算差额</button>
+      <output class="surveytool-out" id="sw-out" role="status" aria-live="polite"></output>
+    </form>
+  </main>
+
+  <footer class="basecamp">
+    <div class="basecamp-in">
+      <p class="basecamp-fine">结果仅供参考，实际以平台结算为准。</p>
+    </div>
+  </footer>
+
+  <script src="field.js"></script>
+</body>
+</html>

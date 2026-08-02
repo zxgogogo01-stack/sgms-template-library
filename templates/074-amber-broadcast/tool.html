@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang='[[LANG]]'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='theme-color' content='#17120e'>
+  <title>混合费率计算器 — [[SITE_NAME]]</title>
+  <meta name='description' content='挂单吃单各占多少，混合费率一键折算。'>
+  <link rel='canonical' href='https://[[SITE_DOMAIN]]/tool.html'>
+  <meta property='og:type' content='website'>
+  <meta property='og:site_name' content='[[SITE_NAME]]'>
+  <meta property='og:title' content='混合费率计算器 — [[SITE_NAME]]'>
+  <meta property='og:description' content='挂单吃单各占多少，混合费率一键折算。'>
+  <meta property='og:url' content='https://[[SITE_DOMAIN]]/tool.html'>
+  <meta name='twitter:card' content='summary'>
+  <link rel='stylesheet' href='radio.css'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "混合费率计算器",
+    "url": "https://[[SITE_DOMAIN]]/tool.html"
+  }
+  </script>
+  <style>
+    /* mixer tool extras */
+    .mixdesk { max-width: 540px; margin: 0 auto; padding: 46px 24px 80px; }
+    .mixdesk-card {
+      background: var(--walnut);
+      border: 1px solid var(--grille);
+      border-top: 4px solid var(--amberdial);
+      border-radius: calc(var(--dialR) + 4px);
+      padding: 40px 44px;
+    }
+    .mixdesk-card h1 { font-family: var(--serif74); font-size: 1.48rem; }
+    .mixdesk-card > p { color: var(--khaki74); margin: 6px 0 8px; }
+    .mixdesk-card label {
+      display: block;
+      margin: 16px 0 6px;
+      font-family: var(--mono74);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      color: var(--amberdial);
+    }
+    .mixdesk-card input {
+      width: 100%;
+      min-height: 47px;
+      padding: 10px 15px;
+      border: 1px solid var(--grille);
+      border-radius: 11px;
+      background: var(--boothdark);
+      color: var(--cream74);
+      font: inherit;
+      font-family: var(--mono74);
+      font-variant-numeric: tabular-nums;
+      transition: border-color var(--hum), box-shadow var(--hum);
+    }
+    .mixdesk-card input:focus {
+      outline: none;
+      border-color: var(--amberdial);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--amberdial) 18%, transparent);
+    }
+    .mixdesk-card input[aria-invalid='true'] {
+      border-color: #ff8f75;
+      box-shadow: 0 0 0 4px color-mix(in srgb, #ff8f75 20%, transparent);
+    }
+    .mixdesk-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 52px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--amberdial);
+      color: #241804;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      cursor: pointer;
+      box-shadow: 0 10px 26px color-mix(in srgb, var(--amberdial) 40%, transparent);
+      transition: transform var(--hum), background var(--hum);
+    }
+    .mixdesk-run:hover { transform: translateY(-2px); background: var(--amberdial-hot); }
+    .mixdesk-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 26px;
+      padding: 15px 19px;
+      border-radius: 11px;
+      background: var(--walnut-2);
+      line-height: 1.78;
+      font-variant-numeric: tabular-nums;
+    }
+    .mixdesk-out b { color: var(--amberdial-hot); }
+    @media (max-width: 600px) {
+      .mixdesk-card { padding: 26px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class='dialbar'>
+    <div class='dialbar-in'>
+      <a class='dialbar-brand' href='index.html'>[[BRAND_EN]]</a>
+      <button type='button' class='dialbar-btn' id='dialbar-btn' aria-label='主导航' aria-expanded='false' aria-controls='dialbar-nav'>
+        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+      </button>
+      <nav class='dialbar-nav' id='dialbar-nav' aria-label='主导航'>
+        <a href='index.html'>电台</a>
+        <a href='article.html'>节目稿</a>
+        <a href='tool.html' aria-current='page'>混合费率</a>
+        <a href='legal.html'>披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='mixdesk'>
+    <form class='mixdesk-card' id='mx-form' novalidate>
+      <h1>混合费率计算器</h1>
+      <p>像调音台一样调比例：挂单占多少，混合费率就落在哪。本地计算。</p>
+      <label for='mx-maker'>挂单费率（%）</label>
+      <input type='number' id='mx-maker' step='any' min='0' max='100' placeholder='如 0.02' aria-describedby='mx-out'>
+      <label for='mx-taker'>吃单费率（%）</label>
+      <input type='number' id='mx-taker' step='any' min='0' max='100' placeholder='如 0.05' aria-describedby='mx-out'>
+      <label for='mx-share'>挂单占比（%）</label>
+      <input type='number' id='mx-share' step='any' min='0' max='100' placeholder='如 60' aria-describedby='mx-out'>
+      <button type='submit' class='mixdesk-run' id='mx-run'>推子拉起来</button>
+      <output class='mixdesk-out' id='mx-out' role='status' aria-live='polite'></output>
+    </form>
+  </main>
+
+  <footer class='signoff'>
+    <div class='signoff-in'>
+      <p class='signoff-fine'>结果仅供参考，实际以平台结算为准。</p>
+    </div>
+  </footer>
+
+  <script src='radio.js'></script>
+</body>
+</html>

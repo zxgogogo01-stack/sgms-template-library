@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang='%LANG%'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>%SITE_NAME% - 独立产品评测与横向对比</title>
+    <meta name='description' content='%SITE_DESC%'>
+    <link rel='canonical' href='https://%SITE_DOMAIN%/'>
+    <meta property='og:title' content='%SITE_NAME% - 独立产品评测与横向对比'>
+    <meta property='og:description' content='%SITE_DESC%'>
+    <meta property='og:url' content='https://%SITE_DOMAIN%/'>
+    <link rel='stylesheet' href='css/style.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "%SITE_NAME%",
+        "url": "https://%SITE_DOMAIN%/",
+        "description": "%SITE_DESC%"
+    }
+    </script>
+</head>
+<body>
+    <a class='skip-link' href='#main'>跳到主要内容</a>
+    <header class='topbar'>
+        <div class='topbar-inner'>
+            <a class='brand' href='index.html' aria-label='%SITE_NAME% 首页'>
+                <span class='brand-mark' aria-hidden='true'>SR</span>
+                <span class='brand-copy'>%SITE_NAME%<small>Independent Review Bureau</small></span>
+            </a>
+            <nav class='primary-nav' aria-label='主要导航'>
+                <a href='index.html' aria-current='page'>横向对比</a>
+                <a href='article.html'>深度评测</a>
+                <a href='tool.html'>评分实验室</a>
+                <a href='legal.html'>评测准则</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id='main'>
+        <div class='shell'>
+            <section class='hero' aria-labelledby='hero-title'>
+                <div class='hero-copy'>
+                    <p class='eyebrow'>Review dossier / 019</p>
+                    <h1 id='hero-title'>把推荐建立在证据上。</h1>
+                    <p class='hero-lede'>%SITE_TAGLINE% 我们公开评分权重、复测日期与证据边界，让每一个结论都能被追问、复核和更新。</p>
+                    <div class='hero-actions'>
+                        <a class='button' href='#comparison'>查看本期对比</a>
+                        <a class='button button-secondary' href='legal.html'>阅读评测准则</a>
+                    </div>
+                </div>
+                <aside class='hero-card' aria-label='本期推荐指数'>
+                    <span class='stamp'>Dossier 2026.08 / Category: Workflow</span>
+                    <div class='index-score'>
+                        <strong>8.4</strong>
+                        <span>本期首选综合指数 / 10</span>
+                    </div>
+                    <div class='confidence'>
+                        <p>结论置信度 86%</p>
+                        <div class='confidence-track' aria-label='结论置信度 86%'><span style='width:86%'></span></div>
+                    </div>
+                </aside>
+            </section>
+
+            <section class='method-strip' aria-label='评测方法摘要'>
+                <div class='method-intro'>
+                    <strong>METHOD / V2.6</strong>
+                    <span>统一任务、同等时长、独立记录</span>
+                </div>
+                <div><strong>12 DAYS</strong><span>持续使用周期</span></div>
+                <div><strong>4 DIMENSIONS</strong><span>证据、体验、价值、支持</span></div>
+                <div><strong>18 TASKS</strong><span>真实工作流测试</span></div>
+                <div><strong>30 AUG</strong><span>下一次复测日期</span></div>
+            </section>
+
+            <section class='section' id='comparison' aria-labelledby='comparison-title'>
+                <div class='section-head'>
+                    <div>
+                        <p class='eyebrow'>Field comparison</p>
+                        <h2 id='comparison-title'>三款工具，三个清晰取向。</h2>
+                    </div>
+                    <p>本组数据用于演示完整模板的信息密度与交互。正式上线时，请以真实测试对象、可核验数据和明确的复测日期替换。</p>
+                </div>
+
+                <div class='audience-tabs' aria-label='按使用人群筛选'>
+                    <button type='button' data-audience='all' aria-pressed='true'>全部对象</button>
+                    <button type='button' data-audience='solo' aria-pressed='false'>独立使用</button>
+                    <button type='button' data-audience='team' aria-pressed='false'>团队协作</button>
+                </div>
+                <p class='comparison-state' id='comparison-state' aria-live='polite'>当前展示全部 3 个评测对象。</p>
+
+                <div class='candidate-grid'>
+                    <article class='candidate featured' data-fit='solo team'>
+                        <div class='candidate-top'><span class='candidate-label'>EDITOR'S PICK</span><span class='candidate-score'>8.4</span></div>
+                        <h3>Northstar One</h3>
+                        <p>结构完整、协作边界清楚，适合想把分散流程收拢到一个工作区的小型团队。</p>
+                        <ul class='metric-list'>
+                            <li><span>更适合</span><strong>2–20 人团队</strong></li>
+                            <li><span>学习成本</span><strong>中等</strong></li>
+                            <li><span>复测状态</span><strong>已完成</strong></li>
+                        </ul>
+                    </article>
+                    <article class='candidate' data-fit='solo'>
+                        <div class='candidate-top'><span class='candidate-label'>BEST FOR SOLO</span><span class='candidate-score'>8.0</span></div>
+                        <h3>Plainfield</h3>
+                        <p>界面克制、启动迅速，个人使用顺手；高级自动化与多人权限仍有取舍。</p>
+                        <ul class='metric-list'>
+                            <li><span>更适合</span><strong>个人创作者</strong></li>
+                            <li><span>学习成本</span><strong>较低</strong></li>
+                            <li><span>复测状态</span><strong>已完成</strong></li>
+                        </ul>
+                    </article>
+                    <article class='candidate' data-fit='team'>
+                        <div class='candidate-top'><span class='candidate-label'>TEAM CONTROL</span><span class='candidate-score'>7.7</span></div>
+                        <h3>Relay Desk</h3>
+                        <p>权限和审计能力扎实，适合流程复杂的团队；初始配置时间明显高于另外两款。</p>
+                        <ul class='metric-list'>
+                            <li><span>更适合</span><strong>流程型团队</strong></li>
+                            <li><span>学习成本</span><strong>较高</strong></li>
+                            <li><span>复测状态</span><strong>跟进中</strong></li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class='matrix-wrap' tabindex='0' aria-label='可横向滚动的评分对比表'>
+                    <table class='matrix'>
+                        <thead>
+                            <tr><th scope='col'>评测维度</th><th scope='col'>Northstar One</th><th scope='col'>Plainfield</th><th scope='col'>Relay Desk</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope='row'>证据完整度</th><td>8.8 / 10</td><td>8.1 / 10</td><td>8.5 / 10</td></tr>
+                            <tr><th scope='row'>核心体验</th><td>8.6 / 10</td><td>8.7 / 10</td><td>7.3 / 10</td></tr>
+                            <tr><th scope='row'>成本价值</th><td>7.9 / 10</td><td>8.4 / 10</td><td>7.1 / 10</td></tr>
+                            <tr><th scope='row'>支持与透明度</th><td>8.2 / 10</td><td>7.0 / 10</td><td>8.3 / 10</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <aside class='invite-band' aria-label='邀请码信息'>
+                <div>
+                    <h2>体验本期首选前，先阅读利益说明。</h2>
+                    <p>%COMPLIANCE_NOTE%</p>
+                </div>
+                <div>
+                    <div class='invite-code'>
+                        <code id='invite-value'>%INVITE_CODE%</code>
+                        <button type='button' id='invite-copy'>复制邀请码</button>
+                    </div>
+                    <p class='invite-status' id='invite-status' aria-live='polite'></p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class='site-footer'>
+        <div class='shell footer-inner'>
+            <p>独立评测模板 · 结论不构成投资或购买承诺</p>
+            <nav class='footer-links' aria-label='页脚导航'>
+                <a href='article.html'>完整评测</a><a href='tool.html'>评分实验室</a><a href='legal.html'>利益与准则</a><a href='mailto:%CONTACT_EMAIL%'>%CONTACT_EMAIL%</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-audience]'));
+            var candidates = Array.prototype.slice.call(document.querySelectorAll('.candidate'));
+            var state = document.getElementById('comparison-state');
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    var audience = tab.getAttribute('data-audience');
+                    tabs.forEach(function (item) { item.setAttribute('aria-pressed', String(item === tab)); });
+                    var visible = 0;
+                    candidates.forEach(function (candidate) {
+                        var show = audience === 'all' || candidate.getAttribute('data-fit').split(' ').indexOf(audience) !== -1;
+                        candidate.hidden = !show;
+                        if (show) visible += 1;
+                    });
+                    var label = audience === 'team' ? '团队协作' : audience === 'solo' ? '独立使用' : '全部';
+                    state.textContent = '当前展示' + label + '适用的 ' + visible + ' 个评测对象。';
+                });
+            });
+
+            var copy = document.getElementById('invite-copy');
+            var value = document.getElementById('invite-value');
+            var status = document.getElementById('invite-status');
+            function done() {
+                status.textContent = '邀请码已复制，请同时核对适用条件。';
+                copy.textContent = '已复制';
+                window.setTimeout(function () { copy.textContent = '复制邀请码'; }, 1600);
+            }
+            copy.addEventListener('click', function () {
+                var text = value.textContent.trim();
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(done, fallback);
+                } else { fallback(); }
+                function fallback() {
+                    var range = document.createRange();
+                    range.selectNodeContents(value);
+                    var selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    try { document.execCommand('copy'); done(); } catch (error) { status.textContent = '请手动选择并复制邀请码。'; }
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

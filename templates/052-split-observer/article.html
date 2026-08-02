@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang='~LANG~'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='theme-color' content='#7c1f2e'>
+  <title>评述样板 — ~SITE_NAME~</title>
+  <meta name='description' content='平台观察评述文章页样板。'>
+  <link rel='canonical' href='https://~SITE_DOMAIN~/article.html'>
+  <meta property='og:type' content='article'>
+  <meta property='og:site_name' content='~SITE_NAME~'>
+  <meta property='og:title' content='评述样板 — ~SITE_NAME~'>
+  <meta property='og:description' content='平台观察评述文章页样板。'>
+  <meta property='og:url' content='https://~SITE_DOMAIN~/article.html'>
+  <meta name='twitter:card' content='summary'>
+  <link rel='stylesheet' href='style.css'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "评述样板",
+    "datePublished": "2026-01-19",
+    "mainEntityOfPage": "https://~SITE_DOMAIN~/article.html"
+  }
+  </script>
+  <style>
+    .essay {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .essay-head {
+      border-top: 2px solid var(--coal);
+      border-bottom: 1px solid var(--rule);
+      padding: 26px 0 22px;
+      margin-bottom: 28px;
+    }
+    .essay-kick {
+      margin: 0 0 10px;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--gilt);
+    }
+    .essay h1 { font-size: clamp(1.55rem, 3.2vw, 2.25rem); }
+    .essay-meta { margin: 14px 0 0; font-size: .84rem; color: var(--quiet); }
+    .essay h2 {
+      font-size: 1.3rem;
+      margin: 36px 0 12px;
+    }
+    .essay h2::before { content: '§ '; color: var(--gilt); font-family: var(--face-num); }
+    .essay h3 { font-size: 1.04rem; margin: 22px 0 8px; }
+    .essay p { margin: 0 0 15px; color: var(--coal2); }
+    .essay blockquote {
+      margin: 22px 0;
+      padding: 14px 24px;
+      border-left: 4px solid var(--wine);
+      background: var(--wash);
+      font-family: var(--face-num);
+      font-style: italic;
+      color: var(--coal2);
+    }
+    .essay-tablewrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--bend); margin: 16px 0 8px; }
+    .essay table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+    .essay th, .essay td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--rule); font-size: .92rem; white-space: nowrap; }
+    .essay thead th { background: var(--coal); color: var(--cream); border-bottom: 0; font-weight: 700; }
+    .essay tbody tr:hover { background: var(--wash); }
+    .essay tbody tr:last-child td { border-bottom: 0; }
+    .essay-note { font-size: .84rem; color: var(--quiet); }
+    @media (max-width: 620px) {
+      .essay th, .essay td { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header class='mast'>
+    <div class='mast-in'>
+      <a class='sig' href='index.html'>~BRAND_EN~</a>
+      <button type='button' class='mast-btn' id='mast-btn' aria-label='主导航' aria-expanded='false' aria-controls='mast-nav'>
+        <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
+      </button>
+      <nav class='mast-nav' id='mast-nav' aria-label='主导航'>
+        <a href='index.html'>观察</a>
+        <a href='article.html' aria-current='page'>评述</a>
+        <a href='tool.html'>算一算</a>
+        <a href='legal.html'>披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='essay'>
+    <header class='essay-head'>
+      <p class='essay-kick'>平台观察</p>
+      <h1>三家平台返佣结算口径逐条对读</h1>
+      <p class='essay-meta'>发布 <time datetime='2026-01-19'>2026-01-19</time> · 口径核对 <time datetime='2026-01-19'>2026-01-19</time></p>
+    </header>
+
+    <p>结论先说：三家的「返佣比例」数字没法直接比，因为分母不一样。下文把每家的结算口径拆开对读，表格在第二节。</p>
+
+    <h2>口径差在哪</h2>
+    <p>逐个平台核对计佣基数、结算周期与最低结算条件，并记录规则页与核对日期；字段没有对齐前，不直接比较比例。</p>
+    <blockquote>比例高不一定代表到账更多：先确认计佣基数、可计入产品与结算周期，再比较百分比。</blockquote>
+
+    <h2>对照表</h2>
+    <div class='essay-tablewrap'>
+      <table>
+        <thead>
+          <tr><th scope='col'>平台</th><th scope='col'>计佣基数</th><th scope='col'>结算周期</th><th scope='col'>最小起付</th><th scope='col'>核对</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>示例平台A</td><td>以账户页为准</td><td>以账户页为准</td><td>以账户页为准</td><td>2026-01-19</td></tr>
+          <tr><td>示例平台B</td><td>以账户页为准</td><td>以账户页为准</td><td>以账户页为准</td><td>2026-01-19</td></tr>
+          <tr><td>示例平台C</td><td>以账户页为准</td><td>以账户页为准</td><td>以账户页为准</td><td>2026-01-19</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class='essay-note'>表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
+
+    <h2>怎么用这张表</h2>
+    <p>低频交易先看最低结算条件，高频交易再看费率档位与统计窗口；涉及抵扣时，还要确认抵扣前后哪一个金额进入计佣。</p>
+
+  </main>
+
+  <footer class='foot'>
+    <p class='foot-line'>观察内容以各平台官方页面为准；不构成投资建议。</p>
+  </footer>
+
+  <script src='boot.js'></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang='[[LANG]]'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='theme-color' content='#2f6b66'>
+  <title>减免比例还原器 — [[SITE_NAME]]</title>
+  <meta name='description' content='用交易额、官方费率和实付手续费，反推你实际享受的减免比例。'>
+  <link rel='canonical' href='https://[[SITE_DOMAIN]]/tool.html'>
+  <meta property='og:type' content='website'>
+  <meta property='og:site_name' content='[[SITE_NAME]]'>
+  <meta property='og:title' content='减免比例还原器 — [[SITE_NAME]]'>
+  <meta property='og:description' content='用交易额、官方费率和实付手续费，反推你实际享受的减免比例。'>
+  <meta property='og:url' content='https://[[SITE_DOMAIN]]/tool.html'>
+  <meta name='twitter:card' content='summary'>
+  <link rel='stylesheet' href='static/os.css'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "减免比例还原器",
+    "url": "https://[[SITE_DOMAIN]]/tool.html"
+  }
+  </script>
+  <style>
+    .calcpane { max-width: 560px; margin: 0 auto; padding: 48px 24px 80px; }
+    .calcpane-win {
+      border-radius: var(--nub64);
+      background: var(--chassis-2);
+      border: 1.5px solid var(--bezel);
+      box-shadow: var(--drop64-hi);
+      overflow: hidden;
+    }
+    .calcpane-body { padding: 34px 42px 40px; }
+    .calcpane-body h1 { font-family: var(--serif64); font-size: 1.45rem; }
+    .calcpane-body > p { color: var(--etch-dim); margin: 6px 0 8px; }
+    .calcpane-body label {
+      display: block;
+      margin: 16px 0 6px;
+      font-family: var(--mono64);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: var(--keytone);
+    }
+    .calcpane-body input {
+      width: 100%;
+      min-height: 47px;
+      padding: 10px 15px;
+      border: 1.5px solid var(--bezel);
+      border-radius: 8px;
+      background: var(--chassis);
+      color: var(--etch);
+      font: inherit;
+      font-family: var(--mono64);
+      font-variant-numeric: tabular-nums;
+      transition: border-color var(--blip), box-shadow var(--blip);
+    }
+    .calcpane-body input:focus {
+      outline: none;
+      border-color: var(--keytone);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--keytone) 16%, transparent);
+    }
+    .calcpane-body input[aria-invalid='true'] {
+      border-color: #c04437;
+      box-shadow: 0 0 0 4px color-mix(in srgb, #c04437 16%, transparent);
+    }
+    .calcpane-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 52px;
+      border: 1.5px solid var(--keytone);
+      border-radius: var(--nub64);
+      background: var(--keytone);
+      color: var(--chassis-2);
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      cursor: pointer;
+      box-shadow: 0 3px 0 color-mix(in srgb, var(--keytone) 55%, #000);
+      transition: transform var(--blip), box-shadow var(--blip);
+    }
+    .calcpane-run:hover { transform: translateY(-2px); box-shadow: 0 5px 0 color-mix(in srgb, var(--keytone) 55%, #000); }
+    .calcpane-run:active { transform: translateY(1px); box-shadow: 0 1px 0 color-mix(in srgb, var(--keytone) 55%, #000); }
+    .calcpane-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 26px;
+      padding: 15px 19px;
+      border-radius: 8px;
+      background: var(--wellx);
+      line-height: 1.75;
+      font-variant-numeric: tabular-nums;
+    }
+    .calcpane-out b { color: var(--keytone); }
+    @media (max-width: 600px) {
+      .calcpane-body { padding: 26px 20px 32px; }
+    }
+  </style>
+</head>
+<body>
+  <header class='menubar'>
+    <div class='menubar-in'>
+      <a class='menubar-brand' href='index.html'>[[BRAND_EN]]</a>
+      <button type='button' class='menubar-btn' id='menubar-btn' aria-label='主导航' aria-expanded='false' aria-controls='menubar-nav'>
+        <svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+      </button>
+      <nav class='menubar-nav' id='menubar-nav' aria-label='主导航'>
+        <a href='index.html'>工作台</a>
+        <a href='article.html'>文档</a>
+        <a href='tool.html' aria-current='page'>比例还原</a>
+        <a href='legal.html'>披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='calcpane'>
+    <section class='calcpane-win'>
+      <div class='winbar'>
+        <span class='lamps' aria-hidden='true'><i class='lamp lamp-r'></i><i class='lamp lamp-y'></i><i class='lamp lamp-g'></i></span>
+        <span class='winbar-name'>比例还原器.app</span>
+      </div>
+      <form class='calcpane-body' id='rv-form' novalidate>
+        <h1>减免比例还原器</h1>
+        <p>不确定自己到底省了多少？三个数反推出来。本地计算，不上传。</p>
+        <label for='rv-amt'>交易额</label>
+        <input type='number' id='rv-amt' step='any' min='0' placeholder='如 10000' aria-describedby='rv-out'>
+        <label for='rv-rate'>官方费率（%）</label>
+        <input type='number' id='rv-rate' step='any' min='0' max='100' placeholder='如 0.05' aria-describedby='rv-out'>
+        <label for='rv-paid'>实付手续费</label>
+        <input type='number' id='rv-paid' step='any' min='0' placeholder='如 3.5' aria-describedby='rv-out'>
+        <button type='submit' class='calcpane-run' id='rv-run'>还原比例</button>
+        <output class='calcpane-out' id='rv-out' role='status' aria-live='polite'></output>
+      </form>
+    </section>
+  </main>
+
+  <footer class='powerdown'>
+    <div class='powerdown-in'>
+      <p class='powerdown-fine'>结果仅供参考，实际以平台结算为准。</p>
+    </div>
+  </footer>
+
+  <script src='static/os.js'></script>
+</body>
+</html>

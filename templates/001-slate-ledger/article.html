@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>理解挂单与吃单：先比较交易路径，再比较费率 — {{SITE_NAME}}</title>
+  <meta name="description" content="从成交路径、费率口径与档位规则三个维度，建立可复核的交易费用比较方法。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html">
+  <meta property="og:title" content="理解挂单与吃单：先比较交易路径，再比较费率 — {{SITE_NAME}}">
+  <meta property="og:description" content="从成交路径、费率口径与档位规则三个维度，建立可复核的交易费用比较方法。">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
+  <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" href="assets/layout.css">
+  <link rel="stylesheet" href="assets/parts.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "理解挂单与吃单：先比较交易路径，再比较费率",
+    "datePublished": "2026-01-01",
+    "author": { "@type": "Organization", "name": "{{SITE_NAME}}" }
+  }
+  </script>
+  <style>
+    .essay {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px 32px;
+      border-radius: 6px;
+    }
+    .essay__meta {
+      color: #5a6b78;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+    .essay h2 {
+      margin-top: 32px;
+    }
+    @media (prefers-color-scheme: dark) {
+      .essay { background: #1e262d; }
+      .essay__meta { color: #93a4b1; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-line">
+    <a class="top-line__brand" href="index.html" aria-label="返回首页">{{SITE_NAME}}</a>
+    <nav class="top-line__nav" aria-label="主导航">
+      <a class="top-line__link" href="index.html">费率总览</a>
+      <a class="top-line__link" href="article.html" aria-current="page">文章</a>
+      <a class="top-line__link" href="tool.html">工具</a>
+      <a class="top-line__link" href="legal.html">关于</a>
+    </nav>
+  </header>
+
+  <main class="page-well">
+    <article class="essay">
+      <h1>理解挂单与吃单：先比较交易路径，再比较费率</h1>
+      <p class="essay__meta">方法说明 · 阅读约 4 分钟 · 上线时填写最近核对日期</p>
+      <p class="essay__lead">费率表只是比较的起点。真正影响费用的，是订单如何成交、当前账户落在哪个档位，以及平台如何定义统计周期。</p>
+      <h2>先确认订单如何进入市场</h2>
+      <p>挂单通常以限价委托进入订单簿，等待其他交易者成交；吃单则会立即匹配已有委托。两者对应的流动性角色不同，平台也往往采用不同费率。</p>
+      <p>比较时不要只摘录最低数字。应同时记录订单类型、适用市场与数据核对日期，避免把不同口径放进同一列。</p>
+      <h2>再核对账户档位</h2>
+      <p>平台常按近三十日成交量、资产余额或会员等级分档。展示费率时，应把档位条件和费率放在一起，并注明信息以官方页面为准。</p>
+      <ul>
+        <li>确认统计周期与时区</li>
+        <li>区分现货、合约等市场类型</li>
+        <li>记录优惠条件和失效规则</li>
+      </ul>
+      <h2>建立可复核的比较记录</h2>
+      <p>一份可靠的费率记录应保留来源、核对日期和适用条件。数字更新时只改数据层，解释文字仍保持同一口径，读者才能看懂变化来自哪里。</p>
+    </article>
+  </main>
+
+  <footer class="site-foot">
+    <p class="site-foot__line">本站内容仅作信息整理，不构成任何投资建议。联系：{{CONTACT_EMAIL}}</p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

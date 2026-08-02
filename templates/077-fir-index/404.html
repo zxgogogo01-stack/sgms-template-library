@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='~LANG~'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>无此条目 — ~SITE_NAME~</title>
+    <meta name='robots' content='noindex'>
+    <link rel='stylesheet' href='style.css'>
+    <style>
+        /* 404 补充样式 */
+        .blankrow { max-width: 460px; margin: 15vh auto; padding: 0 24px; text-align: center; }
+        .blankrow-card {
+            background: var(--leafcard);
+            border-radius: calc(var(--edge77) + 4px);
+            box-shadow: var(--shade77-hi);
+            border-top: 4px solid var(--apricot77);
+            padding: 52px 40px;
+        }
+        .blankrow-card h1 {
+            font-family: var(--serif77);
+            font-size: 3.2rem;
+            color: var(--firgreen);
+            font-variant-numeric: tabular-nums;
+        }
+        .blankrow-card p { color: var(--stonegrey); margin: 8px 0 22px; }
+        .blankrow-back {
+            display: inline-block;
+            min-height: 46px;
+            line-height: 46px;
+            padding: 0 26px;
+            border-radius: var(--edge77);
+            background: var(--firgreen);
+            color: #f2f7f0;
+            font-weight: 800;
+            transition: transform var(--slip77), background var(--slip77);
+        }
+        .blankrow-back:hover { transform: translateY(-2px); background: var(--firgreen-deep); }
+    </style>
+</head>
+<body>
+    <div class='blankrow'>
+        <div class='blankrow-card'>
+            <h1>404</h1>
+            <p>索引里没有这一行——条目不存在或已并入他处。</p>
+            <a class='blankrow-back' href='index.html'>回索引</a>
+        </div>
+    </div>
+</body>
+</html>

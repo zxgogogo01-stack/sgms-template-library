@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang='%LANG%'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>加权评分实验室 - %SITE_NAME%</title>
+    <meta name='description' content='按公开权重计算产品综合得分，查看各维度贡献并复制评分摘要。'>
+    <link rel='canonical' href='https://%SITE_DOMAIN%/tool.html'>
+    <meta property='og:title' content='加权评分实验室 - %SITE_NAME%'>
+    <meta property='og:description' content='按公开权重计算产品综合得分，查看各维度贡献并复制评分摘要。'>
+    <meta property='og:url' content='https://%SITE_DOMAIN%/tool.html'>
+    <link rel='stylesheet' href='css/style.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "加权评分实验室",
+        "url": "https://%SITE_DOMAIN%/tool.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any"
+    }
+    </script>
+</head>
+<body>
+    <a class='skip-link' href='#main'>跳到主要内容</a>
+    <header class='topbar'>
+        <div class='topbar-inner'>
+            <a class='brand' href='index.html' aria-label='%SITE_NAME% 首页'><span class='brand-mark' aria-hidden='true'>SR</span><span class='brand-copy'>%SITE_NAME%<small>Independent Review Bureau</small></span></a>
+            <nav class='primary-nav' aria-label='主要导航'><a href='index.html'>横向对比</a><a href='article.html'>深度评测</a><a href='tool.html' aria-current='page'>评分实验室</a><a href='legal.html'>评测准则</a></nav>
+        </div>
+    </header>
+
+    <main id='main' class='shell'>
+        <header class='page-head'>
+            <div>
+                <p class='eyebrow'>Scoring laboratory / transparent weights</p>
+                <h1>让分数可以被重新计算。</h1>
+                <p>输入四项得分并调整权重。工具会自动归一化权重，在本地完成计算，不上传或保存输入内容。</p>
+            </div>
+            <aside class='page-meta' aria-label='工具说明'>
+                <dl>
+                    <div><dt>得分范围</dt><dd>0–10 分</dd></div>
+                    <div><dt>权重规则</dt><dd>自动归一化</dd></div>
+                    <div><dt>数据处理</dt><dd>仅在浏览器本地</dd></div>
+                </dl>
+            </aside>
+        </header>
+
+        <section class='tool-layout' aria-label='加权评分器'>
+            <form class='score-form' id='score-form' novalidate>
+                <p class='eyebrow'>Input board</p>
+                <h2>评分与权重</h2>
+                <p>正式评测时，每一项得分都应有测试记录或可核验来源支撑。</p>
+                <div class='field-head' aria-hidden='true'><span>评测维度</span><span>得分 / 10</span><span>权重</span></div>
+                <div class='score-field'>
+                    <label for='score-evidence'>证据完整度</label>
+                    <input id='score-evidence' type='number' min='0' max='10' step='0.1' value='8.8' aria-label='证据完整度得分'>
+                    <input id='weight-evidence' type='number' min='0' step='1' value='30' aria-label='证据完整度权重'>
+                </div>
+                <div class='score-field'>
+                    <label for='score-usability'>核心体验</label>
+                    <input id='score-usability' type='number' min='0' max='10' step='0.1' value='8.6' aria-label='核心体验得分'>
+                    <input id='weight-usability' type='number' min='0' step='1' value='30' aria-label='核心体验权重'>
+                </div>
+                <div class='score-field'>
+                    <label for='score-value'>成本价值</label>
+                    <input id='score-value' type='number' min='0' max='10' step='0.1' value='7.9' aria-label='成本价值得分'>
+                    <input id='weight-value' type='number' min='0' step='1' value='20' aria-label='成本价值权重'>
+                </div>
+                <div class='score-field'>
+                    <label for='score-support'>支持与透明度</label>
+                    <input id='score-support' type='number' min='0' max='10' step='0.1' value='8.2' aria-label='支持与透明度得分'>
+                    <input id='weight-support' type='number' min='0' step='1' value='20' aria-label='支持与透明度权重'>
+                </div>
+                <p class='form-error' id='form-error' role='alert'></p>
+                <div class='button-row'>
+                    <button class='button' type='submit'>计算综合得分</button>
+                    <button class='button button-secondary' type='button' id='score-reset'>恢复示例</button>
+                </div>
+            </form>
+
+            <section class='score-result' aria-labelledby='result-heading'>
+                <p class='result-state' id='result-state'>READY TO CALCULATE</p>
+                <h2 id='result-heading'>综合结果</h2>
+                <div class='result-total' id='result-total'>— <small>/ 10</small></div>
+                <p class='result-verdict' id='result-verdict'>输入或调整评分后，综合结论与各维度贡献会显示在这里。</p>
+                <ul class='result-breakdown' id='result-breakdown'>
+                    <li><span>证据完整度</span><strong>—</strong></li><li><span>核心体验</span><strong>—</strong></li><li><span>成本价值</span><strong>—</strong></li><li><span>支持与透明度</span><strong>—</strong></li>
+                </ul>
+                <button class='button' type='button' id='result-copy' disabled>复制评分摘要</button>
+                <p class='result-status' id='result-status' aria-live='polite'></p>
+            </section>
+        </section>
+    </main>
+
+    <footer class='site-footer'>
+        <div class='shell footer-inner'><p>工具只用于整理判断，不替代来源核验与人工结论。</p><nav class='footer-links' aria-label='页脚导航'><a href='index.html'>返回对比</a><a href='legal.html'>评测准则</a><a href='mailto:%CONTACT_EMAIL%'>%CONTACT_EMAIL%</a></nav></div>
+    </footer>
+
+    <script>
+        (function () {
+            var dimensions = [
+                { key: 'evidence', label: '证据完整度' },
+                { key: 'usability', label: '核心体验' },
+                { key: 'value', label: '成本价值' },
+                { key: 'support', label: '支持与透明度' }
+            ];
+            var form = document.getElementById('score-form');
+            var error = document.getElementById('form-error');
+            var state = document.getElementById('result-state');
+            var totalEl = document.getElementById('result-total');
+            var verdict = document.getElementById('result-verdict');
+            var breakdown = document.getElementById('result-breakdown');
+            var copy = document.getElementById('result-copy');
+            var copyStatus = document.getElementById('result-status');
+            var summary = '';
+
+            function clearInvalid() {
+                form.querySelectorAll('[aria-invalid="true"]').forEach(function (field) { field.removeAttribute('aria-invalid'); });
+                error.textContent = '';
+            }
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                clearInvalid();
+                var rows = dimensions.map(function (dimension) {
+                    return {
+                        label: dimension.label,
+                        scoreField: document.getElementById('score-' + dimension.key),
+                        weightField: document.getElementById('weight-' + dimension.key)
+                    };
+                });
+                var bad = rows.reduce(function (found, row) {
+                    var score = Number(row.scoreField.value);
+                    var weight = Number(row.weightField.value);
+                    if (!found && (!Number.isFinite(score) || score < 0 || score > 10)) return row.scoreField;
+                    if (!found && (!Number.isFinite(weight) || weight < 0)) return row.weightField;
+                    return found;
+                }, null);
+                var weightTotal = rows.reduce(function (sum, row) { return sum + Number(row.weightField.value); }, 0);
+                if (!bad && weightTotal <= 0) bad = rows[0].weightField;
+                if (bad) {
+                    bad.setAttribute('aria-invalid', 'true');
+                    bad.focus();
+                    error.textContent = weightTotal <= 0 ? '至少有一项权重需要大于 0。' : '得分应在 0–10 之间，权重不能为负数。';
+                    return;
+                }
+
+                var weighted = rows.reduce(function (sum, row) { return sum + Number(row.scoreField.value) * Number(row.weightField.value); }, 0) / weightTotal;
+                var total = weighted.toFixed(2);
+                state.textContent = 'SCORE READY';
+                totalEl.innerHTML = total + ' <small>/ 10</small>';
+                verdict.textContent = weighted >= 8.5 ? '表现优秀，但仍应结合适用对象与证据边界阅读。' : weighted >= 7 ? '综合表现稳健，主要取舍需要回到你的真实使用场景。' : '综合得分偏保守，建议先核查短板是否属于核心需求。';
+                breakdown.innerHTML = rows.map(function (row) {
+                    var contribution = Number(row.scoreField.value) * Number(row.weightField.value) / weightTotal;
+                    return '<li><span>' + row.label + '</span><strong>' + contribution.toFixed(2) + ' 分</strong></li>';
+                }).join('');
+                summary = '综合评分 ' + total + '/10；' + rows.map(function (row) { return row.label + ' ' + row.scoreField.value + '（权重 ' + row.weightField.value + '）'; }).join('；');
+                copy.disabled = false;
+                copyStatus.textContent = '';
+            });
+
+            document.getElementById('score-reset').addEventListener('click', function () {
+                var defaults = { evidence: [8.8, 30], usability: [8.6, 30], value: [7.9, 20], support: [8.2, 20] };
+                dimensions.forEach(function (dimension) {
+                    document.getElementById('score-' + dimension.key).value = defaults[dimension.key][0];
+                    document.getElementById('weight-' + dimension.key).value = defaults[dimension.key][1];
+                });
+                clearInvalid();
+                state.textContent = 'READY TO CALCULATE';
+                totalEl.innerHTML = '— <small>/ 10</small>';
+                verdict.textContent = '输入或调整评分后，综合结论与各维度贡献会显示在这里。';
+                breakdown.innerHTML = '<li><span>证据完整度</span><strong>—</strong></li><li><span>核心体验</span><strong>—</strong></li><li><span>成本价值</span><strong>—</strong></li><li><span>支持与透明度</span><strong>—</strong></li>';
+                copy.disabled = true;
+                copyStatus.textContent = '';
+            });
+
+            copy.addEventListener('click', function () {
+                if (!summary) return;
+                function done() { copyStatus.textContent = '评分摘要已复制。'; }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(summary).then(done, function () { fallback(summary); });
+                } else { fallback(summary); }
+                function fallback(text) {
+                    var box = document.createElement('textarea');
+                    box.value = text;
+                    box.setAttribute('readonly', '');
+                    box.style.position = 'fixed';
+                    box.style.opacity = '0';
+                    document.body.appendChild(box);
+                    box.select();
+                    try { document.execCommand('copy'); done(); } catch (copyError) { copyStatus.textContent = '复制失败，请手动记录结果。'; }
+                    box.remove();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

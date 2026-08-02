@@ -1,0 +1,17 @@
+/* Orbit Brief — signal ground */
+:root {
+  --ob-bg:#e8edf0;
+  --ob-panel:#f4f6f5;
+  --ob-ink:#152530;
+  --ob-soft:#5e6d75;
+  --ob-line:#aebbc0;
+  --ob-blue:#166b89;
+  --ob-cyan:#45a7b3;
+  --ob-orange:#e4683e;
+  --ob-night:#0f1e27;
+  --ob-sans:"Helvetica Neue","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+  --ob-mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{margin:0;color:var(--ob-ink);background:linear-gradient(rgba(21,37,48,.035) 1px,transparent 1px) 0 0/100% 32px,var(--ob-bg);font-family:var(--ob-sans);line-height:1.65;overflow-x:hidden}h1,h2{margin:0 0 10px;font-weight:650;line-height:1.05;letter-spacing:-.035em}p,dl{margin:0 0 16px}dt{font-weight:700}dd{margin:0 0 16px}a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}::selection{background:#a6d5da;color:#0c313b}:focus-visible{outline:3px solid var(--ob-orange);outline-offset:4px}
+@media(prefers-color-scheme:dark){:root{--ob-bg:#0d171d;--ob-panel:#14232b;--ob-ink:#e4ebec;--ob-soft:#97a8ad;--ob-line:#344b55;--ob-blue:#55a7bd;--ob-cyan:#66c3ca;--ob-orange:#f17b53;--ob-night:#071015}body{background:linear-gradient(rgba(102,195,202,.03) 1px,transparent 1px) 0 0/100% 32px,var(--ob-bg)}::selection{background:#1f6774;color:#fff}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}

@@ -1,0 +1,71 @@
+/* Metric Porch — layout plan */
+.porch-floor {
+  width: min(calc(100% - 48px), 1160px);
+  margin: 0 auto;
+  padding: 48px 0 104px;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.deck {
+  position: sticky;
+  z-index: 30;
+  top: 0;
+  width: 100%;
+  min-height: 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  padding: 0 max(24px, calc((100vw - 1160px) / 2));
+  color: #f4f7fa;
+  background: rgba(12, 21, 33, 0.97);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+.deck__row { display: flex; justify-content: flex-end; gap: 4px; }
+
+.lede, .stat-lot, .plot-duo, .basis { grid-column: 1 / -1; }
+
+.stat-lot {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.plot-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.memo, .terms { grid-column: 2 / 12; }
+.share-kit { grid-column: 3 / 11; }
+
+@media (max-width: 780px) {
+  .porch-floor {
+    width: min(calc(100% - 32px), 1160px);
+    padding: 28px 0 72px;
+  }
+
+  .deck {
+    position: relative;
+    grid-template-columns: 1fr;
+    row-gap: 8px;
+    padding: 18px 16px 0;
+  }
+
+  .deck__row {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .deck__row::-webkit-scrollbar { display: none; }
+  .stat-lot { grid-template-columns: 1fr 1fr; }
+  .plot-duo { grid-template-columns: 1fr; gap: 16px; }
+  .memo, .terms, .share-kit { grid-column: 1 / -1; }
+}
+
+@media (max-width: 460px) {
+  .stat-lot { grid-template-columns: 1fr; }
+}

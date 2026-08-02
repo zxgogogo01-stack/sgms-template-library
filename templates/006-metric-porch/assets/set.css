@@ -1,0 +1,74 @@
+/* Metric Porch — settings and resets */
+:root {
+  color-scheme: light;
+  --navy-950: #0c1521;
+  --navy-900: #111e2d;
+  --navy-800: #1b2b3d;
+  --blue: #165ee2;
+  --blue-soft: #dce7fb;
+  --lime: #d8ff54;
+  --orange: #f16d42;
+  --paper: #f2f0ea;
+  --panel: #fffefa;
+  --ink: #111a27;
+  --muted: #5f6975;
+  --line: #cbd0d6;
+  --mono: Consolas, "SFMono-Regular", "Liberation Mono", monospace;
+  --sans: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+html { box-sizing: border-box; scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2 { margin: 0; line-height: 1.08; }
+p, figure { margin: 0; }
+
+table { width: 100%; border-collapse: collapse; }
+
+th, td {
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+a { color: var(--blue); text-underline-offset: 4px; }
+button, input { font: inherit; }
+button { touch-action: manipulation; }
+
+::selection { color: #fff; background: var(--blue); }
+
+:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --paper: #0a111a;
+    --panel: #121e2a;
+    --ink: #e8edf2;
+    --muted: #9ca9b6;
+    --line: #304052;
+    --blue-soft: #172d51;
+  }
+}

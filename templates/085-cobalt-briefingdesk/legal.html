@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang='{LANG}'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#f5f4f1'>
+    <title>披露与免责 — {SITE_NAME}</title>
+    <meta name='description' content='{SITE_NAME} 的利益披露与免责声明。'>
+    <link rel='canonical' href='https://{SITE_DOMAIN}/legal.html'>
+    <meta property='og:type' content='website'>
+    <meta property='og:site_name' content='{SITE_NAME}'>
+    <meta property='og:title' content='披露与免责 — {SITE_NAME}'>
+    <meta property='og:description' content='{SITE_NAME} 的利益披露与免责声明。'>
+    <meta property='og:url' content='https://{SITE_DOMAIN}/legal.html'>
+    <meta name='twitter:card' content='summary'>
+    <link rel='stylesheet' href='css/brief.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "披露与免责",
+        "url": "https://{SITE_DOMAIN}/legal.html"
+    }
+    </script>
+    <style>
+        /* 披露页补充样式 */
+        .brieflaw { max-width: 680px; margin: 0 auto; padding: 44px 24px 80px; }
+        .brieflaw h1 { font-family: var(--serif85); font-size: 1.75rem; }
+        .brieflaw-meta { margin: 8px 0 24px; font-family: var(--mono85); font-size: .8rem; color: var(--mutegrey85); }
+        .lawmemo {
+            background: var(--panewhite85);
+            border-radius: var(--bevel85);
+            box-shadow: var(--haze85);
+            padding: 22px 28px;
+            margin-bottom: 13px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+        }
+        .lawmemo strong {
+            font-family: var(--mono85);
+            font-variant-numeric: tabular-nums;
+            font-size: 1.05rem;
+            color: var(--tangerine85);
+        }
+        .lawmemo h2 { font-size: 1rem; margin-bottom: 6px; color: var(--cobalt-deep); }
+        .lawmemo p { margin: 0; color: var(--mutegrey85); }
+    </style>
+</head>
+<body>
+    <header class='briefbar'>
+        <div class='briefbar-in'>
+            <a class='briefbar-brand' href='index.html'>{BRAND_EN}</a>
+            <button type='button' class='briefbar-btn' id='briefbar-btn' aria-label='主导航' aria-expanded='false' aria-controls='briefbar-nav'>
+                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+            </button>
+            <nav class='briefbar-nav' id='briefbar-nav' aria-label='主导航'>
+                <a href='index.html'>简报台</a>
+                <a href='article.html'>简报</a>
+                <a href='tool.html'>场景导航</a>
+                <a href='legal.html' aria-current='page'>披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class='brieflaw'>
+        <h1>披露与免责</h1>
+        <p class='brieflaw-meta'>更新 2026-01-19</p>
+
+        <section class='lawmemo'>
+            <strong>01</strong>
+            <div>
+                <h2>利益披露</h2>
+                <p>本站（{SITE_DOMAIN}）展示交易平台邀请码。用码注册不会多付费用，还能享最高 20% 手续费减免*（* 实际比例以交易所页面显示为准，可能随政策调整）。</p>
+            </div>
+        </section>
+
+        <section class='lawmemo'>
+            <strong>02</strong>
+            <div>
+                <h2>简报口径</h2>
+                <p>简报为公开信息整理，注明核对时间；平台规则随时调整，以官方页面实时显示为准。</p>
+            </div>
+        </section>
+
+        <section class='lawmemo'>
+            <strong>03</strong>
+            <div>
+                <h2>免责声明</h2>
+                <p>内容不构成投资建议；数字资产波动剧烈，请自行评估风险。</p>
+            </div>
+        </section>
+
+        <section class='lawmemo'>
+            <strong>04</strong>
+            <div>
+                <h2>更正与联系</h2>
+                <p>纠错请附条目与依据：{CONTACT_EMAIL}。查实即更正并注明时间。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class='brieffoot'>
+        <div class='brieffoot-in'>
+            <p class='brieffoot-fine'>内容以各平台官方页面为准；不构成投资建议。</p>
+        </div>
+    </footer>
+
+    <script src='brief.js'></script>
+</body>
+</html>

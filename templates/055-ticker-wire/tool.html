@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang='{LANG}'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#0e1118'>
+    <title>返佣折算器 — {SITE_NAME}</title>
+    <meta name='description' content='输入手续费与分成比例，折算返佣与净负担。'>
+    <link rel='canonical' href='https://{SITE_DOMAIN}/tool.html'>
+    <meta property='og:type' content='website'>
+    <meta property='og:site_name' content='{SITE_NAME}'>
+    <meta property='og:title' content='返佣折算器 — {SITE_NAME}'>
+    <meta property='og:description' content='输入手续费与分成比例，折算返佣与净负担。'>
+    <meta property='og:url' content='https://{SITE_DOMAIN}/tool.html'>
+    <meta name='twitter:card' content='summary'>
+    <link rel='stylesheet' href='skin.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "返佣折算器",
+        "url": "https://{SITE_DOMAIN}/tool.html"
+    }
+    </script>
+    <style>
+        /* converter extras */
+        .convwrap { max-width: 540px; margin: 0 auto; padding: 46px 24px 80px; }
+        .convcard {
+            border-radius: var(--rr);
+            background: var(--slab5);
+            box-shadow: var(--dk-hi), inset 0 0 0 1px var(--seam5);
+            padding: 40px 44px;
+            position: relative;
+        }
+        .convcard::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 24px; right: 24px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--glowline), transparent);
+        }
+        .convcard h1 { font-size: 1.5rem; margin-bottom: 8px; }
+        .convcard > p { color: var(--shade5); margin: 0 0 14px; }
+        .convcard label {
+            display: block;
+            margin: 16px 0 6px;
+            font-family: var(--monox);
+            font-size: .8rem;
+            letter-spacing: .1em;
+            color: var(--grey5);
+        }
+        .convcard input {
+            width: 100%;
+            min-height: 47px;
+            padding: 10px 15px;
+            border: 1px solid var(--seam5);
+            border-radius: 9px;
+            background: var(--pit);
+            color: var(--white5);
+            font: inherit;
+            font-family: var(--monox);
+            font-variant-numeric: tabular-nums;
+            transition: border-color var(--zip), box-shadow var(--zip);
+        }
+        .convcard input:focus {
+            outline: none;
+            border-color: var(--glowline);
+            box-shadow: 0 0 0 4px rgba(62, 230, 193, .14);
+        }
+        .convcard input[aria-invalid='true'] {
+            border-color: #ff7b8b;
+            box-shadow: 0 0 0 4px rgba(255, 123, 139, .16);
+        }
+        .conv-run {
+            margin-top: 26px;
+            width: 100%;
+            min-height: 50px;
+            border: 0;
+            border-radius: 9px;
+            background: var(--glowline);
+            color: #06211a;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            cursor: pointer;
+            box-shadow: 0 10px 26px rgba(62, 230, 193, .28);
+            transition: transform var(--zip), background var(--zip), box-shadow var(--zip);
+        }
+        .conv-run:hover { transform: translateY(-2px); background: var(--glowline-2); box-shadow: 0 14px 32px rgba(62, 230, 193, .4); }
+        .conv-run:active { transform: translateY(0); }
+        .conv-out {
+            display: block;
+            margin-top: 18px;
+            min-height: 24px;
+            padding: 14px 18px;
+            border-radius: 9px;
+            background: var(--pit);
+            box-shadow: inset 0 0 0 1px var(--seam5);
+            color: var(--grey5);
+            font-variant-numeric: tabular-nums;
+        }
+        @media (max-width: 620px) {
+            .convcard { padding: 26px 22px; }
+        }
+    </style>
+</head>
+<body>
+    <header class='console'>
+        <div class='console-in'>
+            <a class='callsign' href='index.html'>{BRAND_EN}<span class='callsign-cue'>_</span></a>
+            <button type='button' class='console-btn' id='console-btn' aria-label='主导航' aria-expanded='false' aria-controls='console-nav'>
+                <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
+            </button>
+            <nav class='console-nav' id='console-nav' aria-label='主导航'>
+                <a href='index.html'>快讯台</a>
+                <a href='article.html'>专栏</a>
+                <a href='tool.html' aria-current='page'>计算台</a>
+                <a href='legal.html'>披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class='convwrap'>
+        <form class='convcard' id='cv-form' novalidate>
+            <h1>返佣折算器</h1>
+            <p>输入一笔手续费与分成比例，折算返佣金额与净负担。本地计算。</p>
+            <label for='cv-fee'>手续费金额</label>
+            <input type='number' id='cv-fee' step='any' min='0' placeholder='如 12.5' aria-describedby='cv-out'>
+            <label for='cv-cut'>返佣分成比例（%）</label>
+            <input type='number' id='cv-cut' step='any' min='0' max='100' placeholder='如 30' aria-describedby='cv-out'>
+            <button type='submit' class='conv-run' id='cv-run'>折算</button>
+            <output class='conv-out' id='cv-out' role='status' aria-live='polite'></output>
+        </form>
+    </main>
+
+    <footer class='dockend'>
+        <p class='de-line'>结果仅供参考，实际以平台结算为准。</p>
+    </footer>
+
+    <script src='deck.js'></script>
+</body>
+</html>

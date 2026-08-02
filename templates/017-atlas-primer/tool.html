@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang='%LANG%'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>学习航线规划器 — %SITE_NAME%</title>
+    <meta name='description' content='按课时数量、每周学习频率和单次时长生成课程安排。'>
+    <link rel='canonical' href='https://%SITE_DOMAIN%/tool.html'>
+    <meta property='og:title' content='学习航线规划器 — %SITE_NAME%'>
+    <meta property='og:description' content='按课时数量、每周学习频率和单次时长生成课程安排。'>
+    <meta property='og:url' content='https://%SITE_DOMAIN%/tool.html'>
+    <link rel='stylesheet' href='css/style.css'>
+    <script type='application/ld+json'>
+    {"@context":"https://schema.org","@type":"WebApplication","name":"学习航线规划器","url":"https://%SITE_DOMAIN%/tool.html","applicationCategory":"EducationalApplication"}
+    </script>
+</head>
+<body>
+    <a class='skip-link' href='#main'>跳到规划器</a>
+    <div class='folio'>
+        <aside class='chart-rail'>
+            <div>
+                <p class='rail-topline'>FIELD ATLAS / 017</p>
+                <a class='brand' href='index.html' aria-label='返回课程首页'>%SITE_NAME%</a>
+                <p class='brand-note'>FOUNDATIONS OF MAP READING</p>
+                <nav class='rail-nav' aria-label='课程导航'>
+                    <a href='index.html'><span>00</span>课程图集</a>
+                    <a href='article.html'><span>01</span>样例课时</a>
+                    <a href='tool.html' aria-current='page'><span>02</span>学习规划</a>
+                    <a href='legal.html'><span>03</span>学前须知</a>
+                </nav>
+            </div>
+            <div class='rail-progress' aria-label='工具说明'>
+                <div class='rail-progress__row'><span>工具类型</span><strong>LOCAL</strong></div>
+                <div class='rail-progress__track'><span></span></div>
+            </div>
+            <p class='rail-foot'>数据仅在浏览器内计算<br>不会发送或保存</p>
+        </aside>
+
+        <main class='sheet' id='main'>
+            <header class='topbar'>
+                <p>Route planner · Local tool</p>
+                <div class='topbar-meta'><i aria-hidden='true'></i><span>学习节奏建议</span></div>
+            </header>
+
+            <header class='page-heading'>
+                <p class='eyebrow'>Study route</p>
+                <h1>把一门课，<br>排进真实生活。</h1>
+                <p class='page-heading__lede'>输入课时数量、每周可学习天数和单次时长，规划器会给出完成周期与建议节奏。结果仅供安排学习，不会被保存。</p>
+            </header>
+
+            <section class='planner-shell' aria-labelledby='planner-title'>
+                <form class='planner-panel' id='planner' novalidate>
+                    <p class='eyebrow'>Inputs</p>
+                    <h2 id='planner-title'>设置你的学习条件</h2>
+                    <div class='field-row'>
+                        <div class='field'>
+                            <label for='lesson-count'>课程课时数</label>
+                            <input id='lesson-count' name='lesson-count' type='number' min='1' max='60' step='1' value='4' inputmode='numeric' aria-describedby='lesson-error'>
+                            <span class='field-error' id='lesson-error'></span>
+                        </div>
+                        <div class='field'>
+                            <label for='days-week'>每周学习天数</label>
+                            <select id='days-week' name='days-week' aria-describedby='days-error'>
+                                <option value=''>请选择</option>
+                                <option value='1'>每周 1 天</option>
+                                <option value='2' selected>每周 2 天</option>
+                                <option value='3'>每周 3 天</option>
+                                <option value='4'>每周 4 天</option>
+                                <option value='5'>每周 5 天</option>
+                                <option value='6'>每周 6 天</option>
+                                <option value='7'>每天</option>
+                            </select>
+                            <span class='field-error' id='days-error'></span>
+                        </div>
+                    </div>
+                    <div class='field'>
+                        <label for='session-minutes'>单次可学习时长（分钟）</label>
+                        <input id='session-minutes' name='session-minutes' type='number' min='10' max='180' step='5' value='30' inputmode='numeric' aria-describedby='minutes-error'>
+                        <span class='field-error' id='minutes-error'></span>
+                    </div>
+                    <button type='submit'>生成学习航线</button>
+                </form>
+
+                <aside class='planner-result' aria-label='规划结果'>
+                    <div class='planner-result__top'><span>Estimated route</span><span id='result-code'>READY</span></div>
+                    <output id='plan-output' aria-live='polite' aria-atomic='true'>
+                        <span class='result-days' id='result-weeks'>2 <small>周</small></span>
+                        <p class='result-copy' id='result-copy'>每周学习 2 天，每次约 30 分钟，可按每次 1 课时的节奏完成。</p>
+                    </output>
+                    <div class='result-route'><span>推荐节奏</span><strong id='result-route'>周二 · 周六</strong></div>
+                </aside>
+            </section>
+
+            <section class='planner-tips' aria-label='学习建议'>
+                <article><p class='micro-label'>01 / Short</p><h3>短课时不连刷</h3><p>留出复述和练习时间，比一次性看完更容易形成记忆。</p></article>
+                <article><p class='micro-label'>02 / Review</p><h3>每两课复盘一次</h3><p>用自己的话写三行总结，检查你是否真正理解了概念。</p></article>
+                <article><p class='micro-label'>03 / Buffer</p><h3>给计划留出缓冲</h3><p>结果是最低完成周期，实际安排可多预留一周应对变化。</p></article>
+            </section>
+
+            <footer class='site-foot'>
+                <p>规划结果仅用于个人学习安排，刷新页面后重置。</p>
+                <p><a href='article.html'>返回样例课时</a> · %CONTACT_EMAIL%</p>
+            </footer>
+        </main>
+    </div>
+    <script>
+        (function () {
+            'use strict';
+            var form = document.getElementById('planner');
+            var lesson = document.getElementById('lesson-count');
+            var days = document.getElementById('days-week');
+            var minutes = document.getElementById('session-minutes');
+            var routeNames = {1:'周六',2:'周二 · 周六',3:'周一 · 周三 · 周六',4:'周一 · 周三 · 周五 · 周日',5:'工作日',6:'周一至周六',7:'每天'};
+
+            function clearError(field, errorId) {
+                field.removeAttribute('aria-invalid');
+                document.getElementById(errorId).textContent = '';
+            }
+            function showError(field, errorId, message) {
+                field.setAttribute('aria-invalid', 'true');
+                document.getElementById(errorId).textContent = message;
+            }
+            function calculate(event) {
+                event.preventDefault();
+                clearError(lesson, 'lesson-error'); clearError(days, 'days-error'); clearError(minutes, 'minutes-error');
+                var lessonValue = Number(lesson.value);
+                var daysValue = Number(days.value);
+                var minuteValue = Number(minutes.value);
+                var invalid = null;
+                if (!Number.isInteger(lessonValue) || lessonValue < 1 || lessonValue > 60) { showError(lesson, 'lesson-error', '请输入 1–60 的整数。'); invalid = lesson; }
+                if (!daysValue) { showError(days, 'days-error', '请选择每周学习天数。'); if (!invalid) invalid = days; }
+                if (!Number.isFinite(minuteValue) || minuteValue < 10 || minuteValue > 180) { showError(minutes, 'minutes-error', '请输入 10–180 分钟。'); if (!invalid) invalid = minutes; }
+                if (invalid) { invalid.focus(); document.getElementById('result-code').textContent = 'CHECK'; return; }
+                var lessonsPerSession = Math.max(1, Math.floor(minuteValue / 25));
+                var sessions = Math.ceil(lessonValue / lessonsPerSession);
+                var weeks = Math.ceil(sessions / daysValue);
+                document.getElementById('result-weeks').innerHTML = weeks + ' <small>周</small>';
+                document.getElementById('result-copy').textContent = '每周学习 ' + daysValue + ' 天，每次约 ' + minuteValue + ' 分钟，可按每次 ' + lessonsPerSession + ' 课时的节奏完成。';
+                document.getElementById('result-route').textContent = routeNames[daysValue];
+                document.getElementById('result-code').textContent = 'ROUTE ' + String(weeks).padStart(2, '0');
+            }
+            form.addEventListener('submit', calculate);
+        }());
+    </script>
+</body>
+</html>

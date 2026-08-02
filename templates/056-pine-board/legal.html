@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang='%%LANG%%'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='theme-color' content='#f4f6f2'>
+  <title>披露与免责 — %%SITE_NAME%%</title>
+  <meta name='description' content='%%SITE_NAME%% 的利益披露与免责声明。'>
+  <link rel='canonical' href='https://%%SITE_DOMAIN%%/legal.html'>
+  <meta property='og:type' content='website'>
+  <meta property='og:site_name' content='%%SITE_NAME%%'>
+  <meta property='og:title' content='披露与免责 — %%SITE_NAME%%'>
+  <meta property='og:description' content='%%SITE_NAME%% 的利益披露与免责声明。'>
+  <meta property='og:url' content='https://%%SITE_DOMAIN%%/legal.html'>
+  <meta name='twitter:card' content='summary'>
+  <link rel='stylesheet' href='static/app.css'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "披露与免责",
+    "url": "https://%%SITE_DOMAIN%%/legal.html"
+  }
+  </script>
+  <style>
+    .codex { max-width: 700px; margin: 0 auto; padding: 46px 24px 84px; }
+    .codex h1 { font-family: var(--serif6); font-size: 1.85rem; }
+    .codex-meta { margin: 10px 0 26px; font-size: .85rem; color: var(--dim6); }
+    .codex-item {
+      background: var(--card6);
+      border-radius: var(--arc);
+      box-shadow: var(--lift);
+      padding: 24px 30px;
+      margin-bottom: 14px;
+      border-left: 4px solid var(--pine);
+    }
+    .codex-item:nth-child(odd) { border-left-color: var(--gilt6); }
+    .codex-item h2 { font-family: var(--serif6); font-size: 1.08rem; margin-bottom: 8px; }
+    .codex-item p { margin: 0; color: var(--dim6); }
+  </style>
+</head>
+<body>
+  <header class='gable'>
+    <div class='gable-in'>
+      <a class='ensign' href='index.html'>%%BRAND_EN%%</a>
+      <button type='button' class='gable-btn' id='gable-btn' aria-label='主导航' aria-expanded='false' aria-controls='gable-menu'>
+        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+      </button>
+      <nav class='gable-menu' id='gable-menu' aria-label='主导航'>
+        <a class='gable-tab' href='index.html'>看板</a>
+        <a class='gable-tab' href='article.html'>文章</a>
+        <a class='gable-tab' href='tool.html'>手续费计算</a>
+        <a class='gable-tab' href='legal.html' aria-current='page'>披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='codex'>
+    <h1>披露与免责</h1>
+    <p class='codex-meta'>更新 2026-01-19</p>
+
+    <section class='codex-item'>
+      <h2>利益披露</h2>
+      <p>本站（%%SITE_DOMAIN%%）展示交易平台邀请码。用码注册不会多付费用，还能享最高 20% 手续费减免*（* 实际比例以交易所页面显示为准，可能随政策调整）。</p>
+    </section>
+
+    <section class='codex-item'>
+      <h2>内容口径</h2>
+      <p>条目为公开信息整理，注明核对时间；平台规则随时调整，以官方页面实时显示为准。</p>
+    </section>
+
+    <section class='codex-item'>
+      <h2>免责声明</h2>
+      <p>内容不构成投资建议；数字资产波动剧烈，请自行评估风险。</p>
+    </section>
+
+    <section class='codex-item'>
+      <h2>更正与联系</h2>
+      <p>纠错请附条目与依据：%%CONTACT_EMAIL%%。查实即更正并注明时间。</p>
+    </section>
+  </main>
+
+  <footer class='cellar'>
+    <div class='cellar-in'>
+      <p class='cellar-fine'>内容以各平台官方页面为准；不构成投资建议。</p>
+    </div>
+  </footer>
+
+  <script src='static/app.js'></script>
+</body>
+</html>

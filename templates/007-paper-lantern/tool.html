@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>记忆卡 — {{SITE_NAME}}</title><meta name="description" content="随机抽取词条，先回忆定义，再翻面核对。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <link rel="stylesheet" href="assets/wick.css"><link rel="stylesheet" href="assets/panel.css"><link rel="stylesheet" href="assets/shade.css"><link rel="stylesheet" href="assets/boutique.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"词条记忆卡","url":"https://{{SITE_DOMAIN}}/tool.html"}</script>
+</head>
+<body>
+  <header class="arch"><a class="arch__name" href="index.html">{{SITE_NAME}}</a><nav class="arch__ways" aria-label="主导航"><a class="arch__way" href="index.html">词条目录</a><a class="arch__way" href="article.html">深读示例</a><a class="arch__way" href="tool.html" aria-current="page">记忆卡</a><a class="arch__way" href="legal.html">编写公约</a></nav></header>
+  <main class="hall hall--tool">
+    <section class="glow glow--tool"><p class="glow__label">MEMORY DECK / 007</p><h1 class="glow__title">灯下记忆卡</h1><p class="glow__line">先看词名，在心里说出定义，再翻面核对。所有操作仅在本地浏览器运行。</p><div class="tool-stats"><span>7 张卡片</span><span>不重复抽取</span><span>本地运行</span></div></section>
+    <section class="draw-stage" aria-labelledby="deck-title">
+      <div class="draw-stage__intro"><p>HOW TO USE</p><h2 id="deck-title">一抽、一想、一核对</h2><ol><li>抽取一张词条卡</li><li>先不翻面，复述定义</li><li>显示释义，核对关键词</li></ol></div>
+      <div class="draw-stage__work">
+        <div class="draw-stage__card" aria-live="polite">
+          <span class="draw-stage__label" id="draw-label">准备开始</span>
+          <h2 id="draw-term">从七个词条中抽取一张</h2>
+          <p id="draw-sense" hidden></p>
+          <span class="draw-stage__hint" id="draw-hint">抽取后先尝试用一句话解释它。</span>
+        </div>
+        <div class="draw-stage__actions">
+          <button class="draw-stage__go" type="button" id="draw-btn">抽一张</button>
+          <button class="draw-stage__reveal" type="button" id="reveal-btn" disabled>显示释义</button>
+        </div>
+        <p class="draw-stage__progress" id="draw-progress" aria-live="polite">尚未开始 · 共 7 张</p>
+      </div>
+    </section>
+  </main>
+  <footer class="lantern-foot"><p class="lantern-foot__words">记忆卡用于概念复习，不保存输入或学习记录。</p></footer>
+  <script src="assets/lamp.js"></script>
+</body>
+</html>

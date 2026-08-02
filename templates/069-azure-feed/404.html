@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="[[LANG]]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态不见了 — [[SITE_NAME]]</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="static/feed.css">
+    <style>
+        /* 404 补充样式 */
+        .ghostpost { max-width: 460px; margin: 15vh auto; padding: 0 24px; text-align: center; }
+        .ghostpost-card {
+            background: var(--foam69);
+            border-radius: var(--pebble69);
+            box-shadow: var(--mist69-hi);
+            padding: 50px 40px;
+        }
+        .ghostpost-face {
+            width: 74px;
+            height: 74px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--shallow);
+            color: var(--greyblue);
+            font-family: var(--serif69);
+            font-size: 1.8rem;
+        }
+        .ghostpost-card h1 { font-family: var(--serif69); font-size: 2.8rem; color: var(--azure-deep); }
+        .ghostpost-card p { color: var(--greyblue); margin: 6px 0 22px; }
+    </style>
+</head>
+<body>
+    <div class="ghostpost">
+        <div class="ghostpost-card">
+            <span class="ghostpost-face" aria-hidden="true">?</span>
+            <h1>404</h1>
+            <p>这条动态已删除或从未发布。</p>
+            <a class="wisp wisp-solid" href="index.html">回动态流</a>
+        </div>
+    </div>
+</body>
+</html>

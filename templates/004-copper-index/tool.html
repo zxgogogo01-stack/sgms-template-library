@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>链接整理台 — {{SITE_NAME}}</title>
+  <meta name="description" content="规范链接格式、过滤无效项、去除重复行并生成整理报告。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="链接整理台 — {{SITE_NAME}}">
+  <meta property="og:description" content="规范链接格式、过滤无效项、去除重复行并生成整理报告。">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <link rel="stylesheet" href="assets/root.css">
+  <link rel="stylesheet" href="assets/grids.css">
+  <link rel="stylesheet" href="assets/skin.css">
+  <link rel="stylesheet" href="assets/boutique.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "链接整理台",
+    "url": "https://{{SITE_DOMAIN}}/tool.html"
+  }
+  </script>
+</head>
+<body>
+  <header class="ridge">
+    <a class="ridge__home" href="index.html">{{SITE_NAME}}</a>
+    <nav class="ridge__set" aria-label="导航">
+      <a class="ridge__go" href="article.html">收录说明</a>
+      <a class="ridge__go" href="tool.html" aria-current="page">链接去重</a>
+      <a class="ridge__go" href="legal.html">声明</a>
+    </nav>
+  </header>
+
+  <main class="floor">
+    <section class="grand">
+      <h1 class="grand__line">链接整理台</h1>
+      <p class="grand__under">规范格式、过滤无效项、合并重复链接 · 全程在本地运行</p>
+    </section>
+
+    <div class="dedupe">
+      <div class="dedupe__intro"><p>每行放一个完整链接。无法识别的内容会单独计数，不会混入整理结果。</p><span>LOCAL PROCESS / NO UPLOAD</span></div>
+      <label for="dedupe-in">原始链接</label>
+      <textarea id="dedupe-in" placeholder="每行粘贴一条完整网址"></textarea>
+      <fieldset class="dedupe__options"><legend>整理规则</legend><label><input type="checkbox" id="trim-slash" checked> 忽略末尾斜线</label><label><input type="checkbox" id="drop-hash" checked> 移除页面锚点</label></fieldset>
+      <div class="dedupe__actions"><button class="dedupe__act" type="button" id="dedupe-go">开始整理</button><button class="dedupe__clear" type="button" id="dedupe-clear">清空</button></div>
+      <div class="dedupe__meta" id="dedupe-info" role="status" aria-live="polite">等待输入链接。</div>
+      <label for="dedupe-out">整理结果</label>
+      <textarea id="dedupe-out" readonly placeholder="有效且唯一的链接会出现在这里"></textarea>
+    </div>
+  </main>
+
+  <footer class="base-foot">
+    <p class="base-foot__words">工具只在当前浏览器运行 · 不上传、不保存输入内容</p>
+  </footer>
+
+  <script src="assets/nav.js"></script>
+</body>
+</html>

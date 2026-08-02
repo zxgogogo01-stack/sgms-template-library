@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='%%LANG%%'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>查无此信 — %%SITE_NAME%%</title>
+    <meta name='robots' content='noindex'>
+    <link rel='stylesheet' href='assets/mail.css'>
+    <style>
+        .deadletter { max-width: 460px; margin: 15vh auto; padding: 0 24px; text-align: center; }
+        .deadletter-card {
+            background: var(--panewhite);
+            border: 2px dashed color-mix(in srgb, var(--plum71) 40%, var(--sealine));
+            border-radius: calc(var(--slotR) + 4px);
+            box-shadow: var(--lift71-hi);
+            padding: 50px 40px;
+        }
+        .deadletter-ic {
+            display: inline-grid;
+            place-items: center;
+            width: 66px;
+            height: 66px;
+            border-radius: 50%;
+            background: var(--blush71);
+            color: var(--plum71);
+            margin-bottom: 14px;
+        }
+        .deadletter-card h1 { font-family: var(--serif71); font-size: 2.9rem; color: var(--plum71-deep); }
+        .deadletter-card p { color: var(--dovegrey); margin: 6px 0 22px; }
+    </style>
+</head>
+<body>
+    <div class='deadletter'>
+        <div class='deadletter-card'>
+            <span class='deadletter-ic' aria-hidden='true'><svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='4' width='20' height='16' rx='2'/><path d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'/></svg></span>
+            <h1>404</h1>
+            <p>查无此信——地址不对或已退回。</p>
+            <a class='sendkey sendkey-solid' href='index.html'>回收件箱</a>
+        </div>
+    </div>
+</body>
+</html>

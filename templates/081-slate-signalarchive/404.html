@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="%%LANG%%">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卷宗遗失 — %%SITE_NAME%%</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="assets/archive.css">
+    <style>
+        /* 404 补充样式 */
+        .lostfile81 { max-width: 460px; margin: 15vh auto; padding: 0 24px; text-align: center; }
+        .lostfile81-card {
+            background: var(--foliocard);
+            border: 1px solid var(--hairfold);
+            border-radius: calc(var(--foldR) + 4px);
+            box-shadow: var(--dropfall-hi);
+            padding: 50px 40px;
+            position: relative;
+        }
+        .lostfile81-card::before {
+            content: "遗失";
+            position: absolute;
+            right: 22px;
+            top: 22px;
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .2em;
+            color: var(--waxred);
+            border: 2px solid var(--waxred);
+            border-radius: 4px;
+            padding: 3px 10px;
+            transform: rotate(8deg);
+            opacity: .85;
+        }
+        .lostfile81-card h1 {
+            font-family: var(--serif81);
+            font-size: 3.2rem;
+            color: var(--steelblue-deep);
+            font-variant-numeric: tabular-nums;
+        }
+        .lostfile81-card p { color: var(--slatehint); margin: 8px 0 22px; }
+        .lostfile81-back {
+            display: inline-block;
+            min-height: 46px;
+            line-height: 46px;
+            padding: 0 26px;
+            border-radius: var(--foldR);
+            background: var(--steelblue);
+            color: #f2f6fa;
+            font-weight: 800;
+            transition: transform var(--shift81), background var(--shift81);
+        }
+        .lostfile81-back:hover { transform: translateY(-2px); background: var(--steelblue-deep); }
+    </style>
+</head>
+<body>
+    <div class="lostfile81">
+        <div class="lostfile81-card">
+            <h1>404</h1>
+            <p>这份卷宗不在架上——编号不存在或已并卷。</p>
+            <a class="lostfile81-back" href="index.html">回档案室</a>
+        </div>
+    </div>
+</body>
+</html>

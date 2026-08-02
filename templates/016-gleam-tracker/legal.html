@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang='%LANG%'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>站点说明 — %SITE_NAME%</title>
+    <meta name='description' content='%SITE_NAME% 的数据、风险与联系说明。'>
+    <link rel='canonical' href='https://%SITE_DOMAIN%/legal.html'>
+    <meta property='og:title' content='站点说明 — %SITE_NAME%'>
+    <meta property='og:description' content='%SITE_NAME% 的数据、风险与联系说明。'>
+    <meta property='og:url' content='https://%SITE_DOMAIN%/legal.html'>
+    <link rel='stylesheet' href='css/style.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "站点说明",
+        "url": "https://%SITE_DOMAIN%/legal.html"
+    }
+    </script>
+</head>
+<body>
+    <div class='rig'>
+        <aside class='mast'>
+            <div>
+                <p class='mast-kicker'>GLEAM / 016</p>
+                <a class='beacon' href='index.html' aria-label='返回指标首页'>%SITE_NAME%</a>
+                <nav class='picks' aria-label='主导航'>
+                    <a href='index.html'>指标观测</a>
+                    <a href='article.html'>口径档案</a>
+                    <a href='tool.html'>距离计算</a>
+                    <a href='legal.html' aria-current='page'>站点说明</a>
+                </nav>
+            </div>
+            <p class='mast-status'><span aria-hidden='true'></span>说明版本 · %EFFECTIVE_DATE%</p>
+        </aside>
+
+        <main class='watch'>
+            <header class='page-head'>
+                <p class='eyebrow'>SITE NOTES / RESPONSIBILITY</p>
+                <h1>站点说明</h1>
+                <p>关于数据性质、计算结果、第三方链接与联系渠道。</p>
+            </header>
+
+            <div class='document-shell'>
+                <aside class='legal-meta'>
+                    <span>生效日期</span>
+                    <strong>%EFFECTIVE_DATE%</strong>
+                    <span>适用域名</span>
+                    <strong>%SITE_DOMAIN%</strong>
+                </aside>
+
+                <article class='record waiver'>
+                    <section>
+                        <p class='section-number'>01 / DATA</p>
+                        <h2>数据性质</h2>
+                        <p>本站整理公开数据与示例内容供信息参考。数据可能因来源更新、统计窗口或网络延迟而滞后，一切以相关官方页面实时展示为准。</p>
+                    </section>
+                    <section>
+                        <p class='section-number'>02 / DECISIONS</p>
+                        <h2>非投资建议</h2>
+                        <p>任何指标、观察摘要和计算结果都不构成投资建议、要约或招揽。请根据自身情况独立判断并承担相应风险。</p>
+                    </section>
+                    <section>
+                        <p class='section-number'>03 / EXTERNAL LINKS</p>
+                        <h2>第三方链接与邀请码</h2>
+                        <p>页面可能包含第三方链接或邀请码，相关服务由对应第三方提供。%COMPLIANCE_NOTE%</p>
+                    </section>
+                    <section>
+                        <p class='section-number'>04 / CONTACT</p>
+                        <h2>更正与联系</h2>
+                        <p>如发现数据、来源或口径说明存在问题，请发送邮件至 <a href='mailto:%CONTACT_EMAIL%'>%CONTACT_EMAIL%</a>。</p>
+                    </section>
+                </article>
+            </div>
+
+            <footer class='stern'>
+                <p>请在正式上线前替换示例日期与联系信息。</p>
+                <p><a href='index.html'>返回指标观测</a></p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

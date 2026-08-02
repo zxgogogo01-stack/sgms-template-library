@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang='__lang__'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='theme-color' content='#f2f3f4'>
+  <title>费率档位速查 — __site_name__</title>
+  <meta name='description' content='输入 30 天交易量，速查演示费率档位并估算返佣。'>
+  <link rel='canonical' href='https://__site_domain__/tool.html'>
+  <meta property='og:type' content='website'>
+  <meta property='og:site_name' content='__site_name__'>
+  <meta property='og:title' content='费率档位速查 — __site_name__'>
+  <meta property='og:description' content='输入 30 天交易量，速查演示费率档位并估算返佣。'>
+  <meta property='og:url' content='https://__site_domain__/tool.html'>
+  <meta name='twitter:card' content='summary'>
+  <link rel='stylesheet' href='css/line.css'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "费率档位速查",
+    "url": "https://__site_domain__/tool.html"
+  }
+  </script>
+  <style>
+    /* tool page extras */
+    .gauge { max-width: 620px; margin: 0 auto; padding: 48px 24px 80px; }
+    .gauge-card {
+      background: var(--sheet8);
+      border-radius: var(--bend8);
+      box-shadow: var(--veil8-hi);
+      border-top: 4px solid var(--slate8);
+      padding: 40px 46px;
+    }
+    .gauge-card h1 { font-family: var(--serif8); font-size: 1.5rem; }
+    .gauge-card > p { color: var(--mist8); margin: 6px 0 10px; }
+    .gauge-card label {
+      display: block;
+      margin: 17px 0 6px;
+      font-family: var(--mono8);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: var(--slate8);
+    }
+    .gauge-card input {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 16px;
+      border: 1.5px solid var(--rim8);
+      border-radius: 10px;
+      background: var(--fog8);
+      color: var(--coal8);
+      font: inherit;
+      font-family: var(--mono8);
+      font-variant-numeric: tabular-nums;
+      transition: border-color var(--tick8), box-shadow var(--tick8);
+    }
+    .gauge-card input:focus {
+      outline: none;
+      border-color: var(--ember8);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--ember8) 18%, transparent);
+    }
+    .gauge-card input[aria-invalid='true'] {
+      border-color: #b94b32;
+      box-shadow: 0 0 0 4px color-mix(in srgb, #b94b32 16%, transparent);
+    }
+    .gauge-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 52px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--ember8);
+      color: #fff6ee;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      cursor: pointer;
+      box-shadow: 0 10px 24px color-mix(in srgb, var(--ember8) 36%, transparent);
+      transition: transform var(--tick8), background var(--tick8);
+    }
+    .gauge-run:hover { transform: translateY(-2px); background: var(--ember8-deep); }
+    .gauge-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 26px;
+      padding: 15px 19px;
+      border-radius: 10px;
+      background: var(--tint8);
+      line-height: 1.75;
+      font-variant-numeric: tabular-nums;
+    }
+    .gauge-out b { color: var(--ember8-deep); }
+    .gauge-tiers { margin-top: 26px; overflow-x: auto; border-radius: 10px; box-shadow: inset 0 0 0 1px var(--rim8); }
+    .gauge-tiers table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+    .gauge-tiers th, .gauge-tiers td { text-align: left; padding: 10px 15px; border-bottom: 1px solid var(--rim8); font-size: .88rem; white-space: nowrap; }
+    .gauge-tiers thead th { background: var(--tint8); color: var(--slate8); font-family: var(--mono8); font-size: .78rem; border-bottom: 0; }
+    .gauge-tiers tbody tr:last-child td { border-bottom: 0; }
+    @media (max-width: 720px) {
+      .gauge-card { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class='crest'>
+    <div class='crest-in'>
+      <a class='crest-mark' href='index.html'>__brand_en__</a>
+      <button type='button' class='crest-burger' id='crest-burger' aria-label='主导航' aria-expanded='false' aria-controls='crest-nav'>
+        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+      </button>
+      <nav class='crest-nav' id='crest-nav' aria-label='主导航'>
+        <a href='index.html'>时间线</a>
+        <a href='article.html'>文章</a>
+        <a href='tool.html' aria-current='page'>费率速查</a>
+        <a href='legal.html'>披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class='gauge'>
+    <form class='gauge-card' id='tq-form' novalidate>
+      <h1>费率档位速查</h1>
+      <p>填 30 天交易量，返回演示档位费率并估算返佣。本地计算，不上传。</p>
+      <label for='tq-vol'>30 天交易量</label>
+      <input type='number' id='tq-vol' step='any' min='0' placeholder='如 500000' aria-describedby='tq-out'>
+      <label for='tq-cut'>返佣比例（%，默认 30）</label>
+      <input type='number' id='tq-cut' step='any' min='0' max='100' placeholder='30' aria-describedby='tq-out'>
+      <button type='submit' class='gauge-run' id='tq-run'>速查</button>
+      <output class='gauge-out' id='tq-out' role='status' aria-live='polite'></output>
+
+      <div class='gauge-tiers'>
+        <table>
+          <thead>
+            <tr><th scope='col'>30 天量（演示）</th><th scope='col'>吃单</th><th scope='col'>挂单</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>&lt; 10 万</td><td>0.060%</td><td>0.020%</td></tr>
+            <tr><td>10 万 - 100 万</td><td>0.050%</td><td>0.016%</td></tr>
+            <tr><td>100 万 - 1000 万</td><td>0.040%</td><td>0.012%</td></tr>
+            <tr><td>&ge; 1000 万</td><td>0.030%</td><td>0.008%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </main>
+
+  <footer class='keel'>
+    <div class='keel-in'>
+      <p class='keel-fine'>表内为演示档位，实际以平台档位页与结算为准。</p>
+    </div>
+  </footer>
+
+  <script src='line.js'></script>
+</body>
+</html>

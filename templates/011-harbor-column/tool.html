@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='%LANG%'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>阅读时长估算 - %SITE_NAME%</title>
+    <meta name='description' content='在浏览器本地估算中英文文章阅读时间。'>
+    <link rel='canonical' href='https://%SITE_DOMAIN%/tool.html'>
+    <meta property='og:title' content='阅读时长估算 - %SITE_NAME%'>
+    <meta property='og:description' content='在浏览器本地估算中英文文章阅读时间。'>
+    <meta property='og:url' content='https://%SITE_DOMAIN%/tool.html'>
+    <link rel='stylesheet' href='css/style.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "阅读时长估算",
+        "url": "https://%SITE_DOMAIN%/tool.html"
+    }
+    </script>
+</head>
+<body>
+    <div class='frame'>
+        <aside class='dock'>
+            <a class='dock-mark' href='index.html' aria-label='返回 %SITE_NAME% 首页'>%SITE_NAME%</a>
+            <nav class='menu' aria-label='栏目导航'>
+                <a href='index.html'>专栏首页</a>
+                <a href='article.html'>本期评论</a>
+                <a href='tool.html'>阅读时长</a>
+                <a href='legal.html'>栏目说明</a>
+            </nav>
+            <p class='dock-note'>LOCAL TOOL<br>NO UPLOAD</p>
+        </aside>
+
+        <main class='flow'>
+            <section class='readtime' aria-labelledby='readtime-title'>
+                <p class='page-kicker'>COLUMN TOOL / READ TIME</p>
+                <h1 id='readtime-title'>阅读时长估算</h1>
+                <p class='readtime-intro'>中文按每分钟约 400 字、英文按每分钟约 200 词估算。内容只在当前浏览器中处理。</p>
+                <label for='rt-text'>文章内容</label>
+                <textarea id='rt-text' placeholder='把需要估算的文章粘贴到这里…'></textarea>
+                <button type='button' id='rt-go'>开始估算</button>
+                <output id='rt-out' aria-live='polite'>结果会显示在这里。</output>
+            </section>
+
+            <footer class='footline'><p>工具在本地运行，不保存、不上传内容</p></footer>
+        </main>
+    </div>
+    <script src='js/site.js'></script>
+</body>
+</html>

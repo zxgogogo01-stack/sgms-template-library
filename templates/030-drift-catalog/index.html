@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="[[LANG]]">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#123b49">
+    <title>[[SITE_NAME]]｜漂流者的数字航海图</title>
+    <meta name="description" content="[[SITE_DESC]]">
+    <link rel="canonical" href="https://[[SITE_DOMAIN]]/">
+    <meta property="og:title" content="[[SITE_NAME]]｜漂流者的数字航海图">
+    <meta property="og:description" content="[[SITE_DESC]]">
+    <meta property="og:url" content="https://[[SITE_DOMAIN]]/">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "[[SITE_NAME]]",
+        "description": "[[SITE_DESC]]",
+        "url": "https://[[SITE_DOMAIN]]/"
+    }
+    </script>
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html" aria-label="[[SITE_NAME]] 首页">
+                <span class="brand-mark" aria-hidden="true">D</span>
+                <span class="brand-copy"><strong>[[SITE_NAME]]</strong><small>Drift Index · Field Notes</small></span>
+            </a>
+            <nav class="site-nav" aria-label="主要导航">
+                <a href="index.html" aria-current="page">航海图</a>
+                <a href="article.html">收录手记</a>
+                <a href="tool.html">链接净化台</a>
+                <a href="legal.html">编辑原则</a>
+            </nav>
+            <div class="header-coordinates" aria-label="本期坐标">
+                <span>N 31°14′ / E 121°29′</span>
+                <span>ISSUE 030 · OPEN WATER</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main" id="main">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <p class="eyebrow">Independent web atlas · 独立网页图鉴</p>
+                    <h1>给漂流在网页海上的人<em>一张有用的航海图。</em></h1>
+                    <p class="hero-lead">[[SITE_TAGLINE]]。这里不追逐热榜，只标记仍然清醒、好用、值得再次抵达的数字岛屿。</p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="#catalog">开始探索 <span aria-hidden="true">↘</span></a>
+                        <a class="button secondary" href="article.html">阅读收录方法</a>
+                    </div>
+                </div>
+                <div class="chart-card" aria-label="本期资源航线示意图">
+                    <img class="chart-image" src="assets/drift-chart.png" alt="三座灯塔由沙金色航线连接的深海航海图" width="1448" height="1086">
+                    <div class="chart-label label-a"><span>Point 01 / Research</span><strong>深水研究站</strong></div>
+                    <div class="chart-label label-b"><span>Point 02 / Making</span><strong>创作者船坞</strong></div>
+                    <div class="chart-label label-c"><span>Point 03 / Signals</span><strong>微光观测所</strong></div>
+                    <div class="chart-status"><small>Current edition</small><strong>030</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="signal-strip" aria-label="目录状态">
+            <div class="container signal-list">
+                <div class="signal"><span>精选坐标</span><strong>07 处</strong></div>
+                <div class="signal"><span>最近校准</span><strong>2026.08</strong></div>
+                <div class="signal"><span>编辑方式</span><strong>人工复核</strong></div>
+                <div class="signal"><span>信号状态</span><strong>稳定接收</strong></div>
+            </div>
+        </section>
+
+        <section class="catalog-section" id="catalog">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Charted places · 已标记坐标</p>
+                        <h2>不是更多链接，<br>是更少但更好的去处。</h2>
+                    </div>
+                    <p>每一条收录都经过可访问性、信息密度、维护状态与独特价值四次校准。使用搜索或按航线筛选。</p>
+                </div>
+
+                <div class="catalog-controls">
+                    <label class="search-wrap" for="catalog-search">
+                        <span hidden>搜索目录</span>
+                        <input id="catalog-search" type="search" placeholder="搜索名称、用途或关键词…" autocomplete="off">
+                    </label>
+                    <div class="filter-group" aria-label="按航线筛选">
+                        <button class="filter-button" type="button" data-filter="all" aria-pressed="true">全部</button>
+                        <button class="filter-button" type="button" data-filter="research" aria-pressed="false">研究</button>
+                        <button class="filter-button" type="button" data-filter="making" aria-pressed="false">创作</button>
+                        <button class="filter-button" type="button" data-filter="signal" aria-pressed="false">观察</button>
+                    </div>
+                </div>
+                <div class="catalog-meta">
+                    <span id="catalog-count" aria-live="polite">7 / 7 条航线可见</span>
+                    <button class="text-button" type="button" id="copy-route">复制本期航线</button>
+                </div>
+                <p class="status-message" id="copy-route-status" aria-live="polite"></p>
+
+                <div class="catalog-grid">
+                    <article class="catalog-card featured" data-category="research">
+                        <div class="card-top"><span class="card-number">COORD. 030—01</span><span class="category-tag">研究 RESEARCH</span></div>
+                        <h3>潮汐档案室<br>把分散的公开资料重新连成线</h3>
+                        <p>适合做主题研究前的第一站：按来源、年份和可信度整理数据脉络，并留下清晰的回溯路径。</p>
+                        <a class="card-link" href="article.html"><span>查看编辑评注</span><span aria-hidden="true">↗</span></a>
+                    </article>
+                    <article class="catalog-card" data-category="making">
+                        <div class="card-top"><span class="card-number">030—02</span><span class="category-tag">创作 MAKING</span></div>
+                        <h3>字形浮标</h3>
+                        <p>为中西文排版建立比例、节奏与字体回退参考，不让好内容沉在粗糙字形里。</p>
+                        <a class="card-link" href="article.html"><span>查看坐标</span><span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="catalog-card" data-category="signal">
+                        <div class="card-top"><span class="card-number">030—03</span><span class="category-tag">观察 SIGNAL</span></div>
+                        <h3>边缘信号台</h3>
+                        <p>追踪小众技术、独立媒体与新型协作方式，只记录真正发生结构变化的信号。</p>
+                        <a class="card-link" href="article.html"><span>查看坐标</span><span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="catalog-card" data-category="research">
+                        <div class="card-top"><span class="card-number">030—04</span><span class="category-tag">研究 RESEARCH</span></div>
+                        <h3>长读潜水舱</h3>
+                        <p>收纳值得安静读完的深度文章，按问题而非发布时间组织内容。</p>
+                        <a class="card-link" href="article.html"><span>查看坐标</span><span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="catalog-card" data-category="making">
+                        <div class="card-top"><span class="card-number">030—05</span><span class="category-tag">创作 MAKING</span></div>
+                        <h3>无痕链接台</h3>
+                        <p>清除分享链接里的追踪参数与锚点，留下更干净、更适合归档的地址。</p>
+                        <a class="card-link" href="tool.html"><span>打开净化工具</span><span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="catalog-card" data-category="signal">
+                        <div class="card-top"><span class="card-number">030—06</span><span class="category-tag">观察 SIGNAL</span></div>
+                        <h3>慢速天气图</h3>
+                        <p>不追逐每小时波动，用季度尺度观察文化、消费与工作方式的缓慢迁移。</p>
+                        <a class="card-link" href="article.html"><span>查看坐标</span><span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="catalog-card" data-category="research">
+                        <div class="card-top"><span class="card-number">030—07</span><span class="category-tag">研究 RESEARCH</span></div>
+                        <h3>来源罗盘</h3>
+                        <p>用一组简单问题识别原始来源、转述链路与证据强度，避免在引用迷雾里失航。</p>
+                        <a class="card-link" href="article.html"><span>查看坐标</span><span aria-hidden="true">→</span></a>
+                    </article>
+                </div>
+
+                <div class="catalog-empty" id="catalog-empty" hidden>
+                    <strong>这片海域暂时没有信号</strong>
+                    <p>换一个关键词，或清除筛选条件重新查看全部坐标。</p>
+                    <button class="button secondary" type="button" id="clear-catalog">重置航海图</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="dispatch">
+            <div class="container">
+                <div class="dispatch-card">
+                    <div>
+                        <h2>发现一座值得被标记的数字岛屿？</h2>
+                        <p>把地址、用途与推荐理由发送至 [[CONTACT_EMAIL]]。我们会亲自航行一次，再决定是否把它画进下一期地图。</p>
+                    </div>
+                    <a class="button" href="article.html">查看收录规则 <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <strong>[[SITE_NAME]]</strong>
+                <p>一份持续校准的独立网页图鉴。收录不是背书，抵达之前仍请保持判断。</p>
+            </div>
+            <div class="footer-meta">
+                <nav class="footer-nav" aria-label="页尾导航">
+                    <a href="article.html">收录手记</a><a href="tool.html">链接净化台</a><a href="legal.html">编辑原则</a>
+                </nav>
+                <small>[[SITE_DOMAIN]] · ISSUE 030 · ALL SIGNALS CHECKED</small>
+            </div>
+        </div>
+    </footer>
+    <script src="catalog.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="{LANG}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eef4f3">
+  <title>手续费记账页 — {SITE_NAME}</title>
+  <meta name="description" content="随手记三笔手续费，合计后按返佣比例估算。">
+  <link rel="canonical" href="https://{SITE_DOMAIN}/tool.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{SITE_NAME}">
+  <meta property="og:title" content="手续费记账页 — {SITE_NAME}">
+  <meta property="og:description" content="随手记三笔手续费，合计后按返佣比例估算。">
+  <meta property="og:url" content="https://{SITE_DOMAIN}/tool.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="css/glue.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "手续费记账页",
+    "url": "https://{SITE_DOMAIN}/tool.html"
+  }
+  </script>
+  <style>
+    .ledgerx { max-width: 540px; margin: 0 auto; padding: 50px 24px 84px; }
+    .ledgerx-pad {
+      position: relative;
+      background: var(--paperx);
+      border-radius: 4px;
+      box-shadow: var(--shadex-hi);
+      padding: 42px 44px;
+      background-image: repeating-linear-gradient(180deg, transparent 0 30px, color-mix(in srgb, var(--seamx) 55%, transparent) 30px 31px);
+    }
+    .ledgerx-pad::before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      right: 40px;
+      width: 96px;
+      height: 24px;
+      background: color-mix(in srgb, var(--teal0) 45%, transparent);
+      transform: rotate(2deg);
+      border-radius: 2px;
+    }
+    .ledgerx-pad h1 { font-family: var(--serif0); font-size: 1.5rem; }
+    .ledgerx-pad > p { color: var(--fadex); margin: 6px 0 8px; }
+    .ledgerx-pad label {
+      display: block;
+      margin: 15px 0 5px;
+      font-size: .85rem;
+      font-weight: 800;
+      color: var(--teal0-deep);
+    }
+    .ledgerx-pad input {
+      width: 100%;
+      min-height: 47px;
+      padding: 10px 15px;
+      border: 2px solid var(--seamx);
+      border-radius: 10px 3px 10px 3px;
+      background: var(--mist0);
+      color: var(--inkx);
+      font: inherit;
+      font-family: var(--mono0);
+      font-variant-numeric: tabular-nums;
+      transition: border-color var(--wink), box-shadow var(--wink);
+    }
+    .ledgerx-pad input:focus {
+      outline: none;
+      border-color: var(--teal0);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--teal0) 16%, transparent);
+    }
+    .ledgerx-pad input[aria-invalid="true"] {
+      border-color: #bd4d3e;
+      box-shadow: 0 0 0 4px color-mix(in srgb, #bd4d3e 16%, transparent);
+    }
+    .ledgerx-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 52px;
+      border: 0;
+      border-radius: 12px 4px 12px 4px;
+      background: var(--coral0);
+      color: #fff6f2;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      cursor: pointer;
+      box-shadow: 0 10px 24px color-mix(in srgb, var(--coral0) 36%, transparent);
+      transition: transform var(--wink), filter var(--wink);
+    }
+    .ledgerx-run:hover { transform: translateY(-2px) rotate(-.4deg); filter: brightness(1.05); }
+    .ledgerx-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 26px;
+      padding: 15px 19px;
+      border-radius: 4px 14px 4px 14px;
+      background: var(--tintx);
+      line-height: 1.75;
+      font-variant-numeric: tabular-nums;
+    }
+    .ledgerx-out b { color: var(--teal0-deep); }
+    @media (max-width: 560px) {
+      .ledgerx-pad { padding: 30px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="awning">
+    <div class="awning-in">
+      <a class="decal" href="index.html">{BRAND_EN}</a>
+      <button type="button" class="awning-knob" id="awning-knob" aria-label="主导航" aria-expanded="false" aria-controls="awning-nav">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="awning-nav" id="awning-nav" aria-label="主导航">
+        <a href="index.html">剪贴墙</a>
+        <a href="article.html">文章</a>
+        <a href="tool.html" aria-current="page">记账页</a>
+        <a href="legal.html">披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="ledgerx">
+    <form class="ledgerx-pad" id="bk-form" novalidate>
+      <h1>手续费记账页</h1>
+      <p>随手记最多三笔手续费，合计后按返佣比例估一估。本地计算。</p>
+      <label for="bk-f1">第一笔手续费</label>
+      <input type="number" id="bk-f1" step="any" min="0" placeholder="如 4.2" aria-describedby="bk-out">
+      <label for="bk-f2">第二笔（可留空）</label>
+      <input type="number" id="bk-f2" step="any" min="0" placeholder="" aria-describedby="bk-out">
+      <label for="bk-f3">第三笔（可留空）</label>
+      <input type="number" id="bk-f3" step="any" min="0" placeholder="" aria-describedby="bk-out">
+      <label for="bk-cut">返佣比例（%）</label>
+      <input type="number" id="bk-cut" step="any" min="0" max="100" placeholder="如 30" aria-describedby="bk-out">
+      <button type="submit" class="ledgerx-run" id="bk-run">合计一下</button>
+      <output class="ledgerx-out" id="bk-out" role="status" aria-live="polite"></output>
+    </form>
+  </main>
+
+  <footer class="baseboard">
+    <div class="baseboard-in">
+      <p class="baseboard-fine">结果仅供参考，实际以平台结算为准。</p>
+    </div>
+  </footer>
+
+  <script src="glue.js"></script>
+</body>
+</html>

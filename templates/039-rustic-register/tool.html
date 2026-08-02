@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="__LANG__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>条目校对台 · __SITE_NAME__</title>
+  <meta name="description" content="在浏览器本地检查登记名称中的完全重复与标准化近似项。">
+  <link rel="canonical" href="https://__SITE_DOMAIN__/tool.html">
+  <meta property="og:title" content="条目校对台 · __SITE_NAME__">
+  <meta property="og:description" content="检查完全重复与忽略空格、标点后的近似登记名称。">
+  <meta property="og:url" content="https://__SITE_DOMAIN__/tool.html">
+  <link rel="stylesheet" href="site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "条目校对台",
+    "applicationCategory": "UtilitiesApplication",
+    "url": "https://__SITE_DOMAIN__/tool.html"
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" data-skip>跳到主要内容</a>
+  <header class="site-header">
+    <div class="shell topbar">
+      <a class="brand" href="index.html" aria-label="__SITE_NAME__ 首页"><span class="brand-mark">RR / 039</span><span class="brand-name">__SITE_NAME__</span></a>
+      <nav class="site-nav" aria-label="主要导航">
+        <a href="index.html">地方名录</a>
+        <a href="article.html">本期卷宗</a>
+        <a href="tool.html" aria-current="page">校对工具</a>
+        <a href="legal.html">收录规则</a>
+      </nav>
+      <p class="edition"><strong>本地校对台</strong>不上传输入内容</p>
+    </div>
+  </header>
+
+  <main id="main" class="page-main">
+    <header class="shell page-intro">
+      <div>
+        <p class="eyebrow">Duplicate desk · local utility</p>
+        <h1>把重名和近似项，在入册前找出来。</h1>
+      </div>
+      <div class="intro-note">
+        <p>每行输入一个名称。校对台会分别列出完全重复项，以及忽略空格、标点和大小写后的近似项。</p>
+        <span class="status-chip" data-tone="verified">仅在当前浏览器计算</span>
+      </div>
+    </header>
+
+    <section class="shell workbench" aria-labelledby="workbench-title">
+      <div class="workbench-grid">
+        <form class="workbench-panel" data-duplicate-form novalidate>
+          <p class="section-kicker">Input register</p>
+          <h2 id="workbench-title">待校对名册</h2>
+          <div class="form-field">
+            <label for="duplicate-input">登记名称，每行一项</label>
+            <textarea id="duplicate-input" rows="12" placeholder="榆木巷子手作食集&#10;泥丘陶器所&#10;榆木巷子 · 手作食集" aria-describedby="duplicate-help duplicate-message"></textarea>
+            <p id="duplicate-help" class="form-help">空行会被忽略；至少需要两个有效名称。</p>
+          </div>
+          <div class="button-row">
+            <button class="action-button" type="submit">开始校对</button>
+            <button class="quiet-button" type="button" data-tool-sample>载入示例</button>
+            <button class="quiet-button" type="button" data-tool-clear>清空</button>
+          </div>
+          <p id="duplicate-message" class="form-message" data-tool-message role="status" aria-live="polite"></p>
+        </form>
+
+        <section class="workbench-panel" aria-labelledby="result-title" tabindex="-1" data-result-panel>
+          <p class="section-kicker">Review result</p>
+          <h2 id="result-title">校对结果</h2>
+          <div class="result-summary" aria-label="结果摘要">
+            <div><strong data-count-total>0</strong><span>有效名称</span></div>
+            <div><strong data-count-exact>0</strong><span>完全重复组</span></div>
+            <div><strong data-count-near>0</strong><span>近似名称组</span></div>
+          </div>
+
+          <div class="result-group">
+            <h3>完全重复</h3>
+            <ul class="result-list" data-exact-results><li class="result-empty">运行校对后显示结果。</li></ul>
+          </div>
+          <div class="result-group">
+            <h3>标准化近似项</h3>
+            <ul class="result-list" data-near-results><li class="result-empty">会忽略空格、间隔点、连字符与大小写。</li></ul>
+          </div>
+          <p class="result-note">近似项只用于提示人工复核，不等同于判定两个条目相同。</p>
+          <div class="button-row">
+            <button class="quiet-button" type="button" data-copy-results disabled>复制结果</button>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <p>校对结果不会自动改写名录。最终合并、保留或拆分决定应结合地点、经营主体与来源证据人工完成。</p>
+      <nav class="utility-links" aria-label="页脚导航"><a href="index.html">查看名录</a><a href="legal.html">了解入册规则</a><a href="article.html">查看卷宗结构</a></nav>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

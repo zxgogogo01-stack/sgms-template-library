@@ -1,0 +1,79 @@
+/* Fern Guide — stem (base) */
+:root {
+  color-scheme: light;
+  --fern-950: #102a21;
+  --fern-900: #173b2f;
+  --fern-800: #20513f;
+  --fern-700: #2b7054;
+  --fern-500: #4f9670;
+  --fern-200: #b9d2c0;
+  --fern-100: #dfeade;
+  --paper: #f3f0e5;
+  --paper-deep: #e9e4d5;
+  --sheet: #fffdf7;
+  --ink: #193027;
+  --muted: #627069;
+  --line: #cbd2c8;
+  --amber: #b9782e;
+  --amber-soft: #f3e5cc;
+  --display: "STSong", "Songti SC", "Noto Serif SC", Georgia, serif;
+  --sans: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--paper);
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--display);
+  line-height: 1.18;
+}
+
+p, ul, ol { margin: 0 0 18px; }
+
+a { color: var(--fern-700); text-underline-offset: 4px; }
+
+button, input { font: inherit; }
+
+button { touch-action: manipulation; }
+
+output { font-family: Consolas, "SFMono-Regular", monospace; }
+
+::selection { color: #fff; background: var(--fern-700); }
+
+:focus-visible {
+  outline: 3px solid #d49a48;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --paper: #101b16;
+    --paper-deep: #17251e;
+    --sheet: #1b2b23;
+    --ink: #e4ecdf;
+    --muted: #a5b4aa;
+    --line: #3a4c41;
+    --amber-soft: #352918;
+  }
+}

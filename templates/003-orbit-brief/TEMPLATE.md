@@ -1,0 +1,35 @@
+# 003-orbit-brief
+
+## 适合什么站
+
+期刊式产品简报 / 行业周报：首页即「本期」，要点三块 + 往期归档 + 名词小抄，适合需要长期连续观察的主题。
+
+## 结构特点
+
+- CSS Grid 骨架，BEM 类名（`crest__*`、`point-trio__*`、`back-issues__*`、`jargon-pad__*`）
+- 报头 crest 保留刊名、期号和同排导航，升级为深色信号台样式
+- 断点以 940px 为主，归档在手机端追加 560px 收束；深色模式自适应
+- `assets/` 下 ground / shape / trim 三个样式文件 + 单 IIFE 的 run.js
+- 正文增加编辑元信息、判断标尺、引文与下期观察清单
+- 倒计时工具包含缺省、错误、成功状态与「7 天后」快捷设定
+
+## 占位符清单（`{{X}}` 语法）
+
+| 占位符 | 说明 |
+|---|---|
+| `{{SITE_NAME}}` | 刊名 |
+| `{{SITE_DOMAIN}}` | 域名 |
+| `{{SITE_TAGLINE}}` | 副题 |
+| `{{SITE_DESC}}` | meta description |
+| `{{CONTACT_EMAIL}}` | 联系邮箱 |
+| `{{LANG}}` | html lang 值 |
+
+## 哪些区块可删
+
+- 名词小抄 `<aside class="jargon-pad">` 可整块删
+- 往期归档卡片按需增删；正文页 `article.html` 结构可复制出多期
+- tool.html（倒计时）可删，同时移除导航与 sitemap 对应项
+
+## 备注
+
+当前演示内容使用「第 18 期」，导入时统一替换期号与日期。2026-08 已完成 index / article / tool / legal / 404、深色与移动端的整套精品化复核。

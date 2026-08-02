@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>占比拆解工具 — {{SITE_NAME}}</title>
+  <meta name="description" content="计算部分占总体的百分比、剩余值与相对比例。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="占比拆解工具 — {{SITE_NAME}}">
+  <meta property="og:description" content="计算部分占总体的百分比、剩余值与相对比例。">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <link rel="stylesheet" href="assets/set.css">
+  <link rel="stylesheet" href="assets/plan.css">
+  <link rel="stylesheet" href="assets/face.css">
+  <link rel="stylesheet" href="assets/boutique.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "占比拆解工具",
+    "url": "https://{{SITE_DOMAIN}}/tool.html",
+    "applicationCategory": "UtilitiesApplication"
+  }
+  </script>
+</head>
+<body>
+  <header class="deck">
+    <span class="deck__title">{{SITE_NAME}}</span>
+    <nav class="deck__row" aria-label="主导航">
+      <a class="deck__pick" href="index.html">总览</a>
+      <a class="deck__pick" href="article.html">方法说明</a>
+      <a class="deck__pick" href="tool.html" aria-current="page">占比工具</a>
+      <a class="deck__pick" href="legal.html">看板声明</a>
+    </nav>
+  </header>
+
+  <main class="porch-floor porch-floor--tool">
+    <section class="lede lede--tool">
+      <p class="lede__label">LOCAL UTILITY / 006</p>
+      <h1 class="lede__big">占比拆解工具</h1>
+      <p class="lede__thin">看见百分比，也看见它背后的部分、总体与剩余。</p>
+      <p class="lede__status"><span><b>运行</b> 浏览器本地</span><span><b>存储</b> 不保存输入</span></p>
+    </section>
+
+    <aside class="tool-spec" aria-label="计算规则">
+      <p>FORMULA / SHARE OF TOTAL</p>
+      <h2>部分 ÷ 总体 × 100</h2>
+      <dl>
+        <div><dt>允许</dt><dd>0 与小数</dd></div>
+        <div><dt>限制</dt><dd>部分不得大于总体</dd></div>
+        <div><dt>精度</dt><dd>保留两位小数</dd></div>
+      </dl>
+    </aside>
+
+    <form class="share-kit" id="share-form" novalidate>
+      <header class="share-kit__head">
+        <p>CALCULATOR / 006</p>
+        <h2>输入两组数值</h2>
+        <span>例如：384 是 1,280 的多少？</span>
+      </header>
+      <div class="share-kit__field">
+        <label for="share-part">部分值</label>
+        <input type="number" id="share-part" step="any" min="0" inputmode="decimal" placeholder="例如 384" required>
+      </div>
+      <div class="share-kit__field">
+        <label for="share-total">总体值</label>
+        <input type="number" id="share-total" step="any" min="0" inputmode="decimal" placeholder="例如 1280" required>
+      </div>
+      <div class="share-kit__actions">
+        <button type="submit">计算占比</button>
+        <button class="share-kit__reset" type="reset">清空</button>
+      </div>
+      <output class="share-result" id="share-out" aria-live="polite">
+        <span class="share-result__label">WAITING FOR INPUT</span>
+        <strong>输入部分值与总体值</strong>
+        <small>结果会同时显示占比、剩余值与相对比例。</small>
+      </output>
+      <div class="share-breakdown" id="share-breakdown" aria-hidden="true">
+        <div><span>占比</span><strong>—</strong></div>
+        <div><span>剩余</span><strong>—</strong></div>
+        <div><span>相对比例</span><strong>—</strong></div>
+      </div>
+    </form>
+  </main>
+
+  <footer class="floor-line">
+    <p class="floor-line__txt">工具仅做数值关系计算，不判断数据是否可靠或适用于具体决策。</p>
+  </footer>
+
+  <script src="assets/porch.js"></script>
+</body>
+</html>

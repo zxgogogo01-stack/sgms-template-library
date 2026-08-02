@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="__LANG__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>采集说明｜__SITE_NAME__</title>
+  <meta name="description" content="了解安静终端的采集来源、刷新窗口、状态判定与数据缺口。">
+  <link rel="canonical" href="https://__SITE_DOMAIN__/article.html">
+  <meta property="og:title" content="采集说明｜__SITE_NAME__">
+  <meta property="og:description" content="了解安静终端的采集来源、刷新窗口、状态判定与数据缺口。">
+  <meta property="og:url" content="https://__SITE_DOMAIN__/article.html">
+  <link rel="stylesheet" href="site.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"安静终端采集说明","url":"https://__SITE_DOMAIN__/article.html"}</script>
+</head>
+<body data-page="article">
+  <a href="#main" data-skip>跳到主要内容</a>
+  <header><div data-masthead><a href="index.html" data-brand><span>root@quiet:~$</span><b>__SITE_NAME__</b></a><nav aria-label="主导航"><a href="index.html">运行看板</a><a href="article.html" aria-current="page">采集说明</a><a href="tool.html">可用率</a><a href="legal.html">数据边界</a></nav><span data-clock><strong>DOCSET 07</strong>REV · 2026.08.01</span></div></header>
+
+  <main id="main">
+    <section data-page-hero aria-labelledby="hero-title">
+      <div><p data-kicker>Collection readme · plain language</p><h1 id="hero-title">数字怎么来，<br>状态怎么算。</h1><p data-lede>这不是一张“永远全绿”的装饰看板。每个状态都需要来源、时间窗口、判定阈值和可解释的缺口。</p></div>
+      <div data-hero-terminal><p data-terminal-line><span>document</span><b>methodology.md</b></p><p data-terminal-line><span>version</span><b>3.2</b></p><p data-terminal-line><span>timezone</span><b>UTC</b></p><p data-terminal-line><span>review cycle</span><b>quarterly</b></p></div>
+    </section>
+
+    <div data-doc-shell>
+      <aside data-doc-nav aria-label="本文目录"><p>这份说明用于核对首页快照，不代表任何服务等级承诺。</p><ol><li><a href="#sources">01 · 数据来源</a></li><li><a href="#windows">02 · 时间窗口</a></li><li><a href="#states">03 · 状态判定</a></li><li><a href="#gaps">04 · 数据缺口</a></li><li><a href="#citation">05 · 引用格式</a></li></ol></aside>
+      <article data-doc-content>
+        <section id="sources"><p data-kicker>01 · SOURCES</p><h2>优先采用能被追溯的公开来源。</h2><p>服务状态来自官方状态页、公开运行接口或经过授权的监测端点。每个来源都记录抓取时间、返回状态和解析版本；无法确认来源时，条目会保留为空而不是猜测。</p><div data-callout><strong>展示原则</strong><p>首页中的名称、数值与事件均为模板结构示例。正式上线前，应替换为站点拥有权限且已核验的真实数据。</p></div><h3>来源优先级</h3><ul><li>服务自身发布的状态与事件记录；</li><li>授权监测端点的可用性与延迟；</li><li>人工核对的补充说明，不用于覆盖自动记录。</li></ul></section>
+        <section id="windows"><p data-kicker>02 · WINDOWS</p><h2>同一个百分比，必须带着窗口一起读。</h2><p>首页默认采用滚动 30 天窗口，每 15 分钟刷新一次。窗口会随时间推进，因此今天的 99.982% 与明天的相同数值可能来自不同样本。</p><code data-codeblock>uptime = (window_minutes - downtime_minutes) / window_minutes × 100
+window = rolling 30 days · timezone = UTC</code><p>维护是否计入停机时间由站点策略决定，并应在数据边界页公开说明。</p></section>
+        <section id="states"><p data-kicker>03 · STATE MODEL</p><h2>状态标签只表达当前影响。</h2><p><b>正常</b>表示主要功能处于约定范围；<b>降级</b>表示功能仍可使用，但延迟、错误率或更新速度偏离基线；<b>维护</b>表示计划内操作正在进行；<b>中断</b>才表示关键路径不可用。</p><div data-callout><strong>避免“全绿偏差”</strong><p>没有新数据不等于一切正常。超过刷新阈值的条目应显示“数据过期”，并保留最后成功检查时间。</p></div></section>
+        <section id="gaps"><p data-kicker>04 · GAPS</p><h2>看板没有看到的，也要写清楚。</h2><p>公开快照通常无法覆盖地区性网络问题、单一账号异常、第三方依赖的全部故障或尚未确认的用户报告。看板适合快速了解趋势，不替代服务商公告与内部监控。</p></section>
+        <section id="citation"><p data-kicker>05 · CITATION</p><h2>引用这份说明</h2><code id="citation-text" data-codeblock>__SITE_NAME__：《安静终端采集说明》，版本 3.2，修订于 2026-08-01，https://__SITE_DOMAIN__/article.html</code><div data-copybar><p id="citation-status" aria-live="polite">引用时请保留版本、日期和页面地址。</p><button type="button" id="copy-citation" data-secondary-button>复制引用</button></div></section>
+      </article>
+    </div>
+  </main>
+
+  <footer><p>methodology.md · version 3.2 · __SITE_DOMAIN__</p><div><a href="index.html">返回运行看板</a><a href="legal.html">查看数据边界</a><a href="mailto:__CONTACT_EMAIL__">提交修订</a></div></footer>
+  <script src="app.js"></script>
+</body>
+</html>

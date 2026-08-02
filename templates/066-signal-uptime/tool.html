@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="%%LANG%%">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fafbfc">
+  <title>费率偏差检查器 — %%SITE_NAME%%</title>
+  <meta name="description" content="对比口径应付与实付手续费，检查偏差是否正常。">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="%%SITE_NAME%%">
+  <meta property="og:title" content="费率偏差检查器 — %%SITE_NAME%%">
+  <meta property="og:description" content="对比口径应付与实付手续费，检查偏差是否正常。">
+  <meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="css/status.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "费率偏差检查器",
+    "url": "https://%%SITE_DOMAIN%%/tool.html"
+  }
+  </script>
+  <style>
+    /* tool extras */
+    .probebay { max-width: 540px; margin: 0 auto; padding: 46px 24px 80px; }
+    .probebay-card {
+      background: var(--sheet66);
+      border: 1px solid var(--rim66);
+      border-top: 4px solid var(--live66);
+      border-radius: var(--corner66);
+      box-shadow: var(--float66-hi);
+      padding: 40px 44px;
+    }
+    .probebay-card h1 { font-family: var(--serif66); font-size: 1.45rem; }
+    .probebay-card > p { color: var(--mute66); margin: 6px 0 8px; }
+    .probebay-card label {
+      display: block;
+      margin: 16px 0 6px;
+      font-family: var(--mono66);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: var(--live66-deep);
+    }
+    .probebay-card input {
+      width: 100%;
+      min-height: 47px;
+      padding: 10px 15px;
+      border: 1px solid var(--rim66);
+      border-radius: 10px;
+      background: var(--cloud66);
+      color: var(--slate66);
+      font: inherit;
+      font-family: var(--mono66);
+      font-variant-numeric: tabular-nums;
+      transition: border-color var(--tap66), box-shadow var(--tap66);
+    }
+    .probebay-card input:focus {
+      outline: none;
+      border-color: var(--live66);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--live66) 15%, transparent);
+    }
+    .probebay-card input[aria-invalid="true"] {
+      border-color: #bd4739;
+      box-shadow: 0 0 0 4px color-mix(in srgb, #bd4739 16%, transparent);
+    }
+    .probebay-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 52px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--live66);
+      color: #f2fbf5;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      cursor: pointer;
+      box-shadow: 0 10px 24px color-mix(in srgb, var(--live66) 34%, transparent);
+      transition: transform var(--tap66), background var(--tap66);
+    }
+    .probebay-run:hover { transform: translateY(-2px); background: var(--live66-deep); }
+    .probebay-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 26px;
+      padding: 15px 19px;
+      border-radius: 10px;
+      background: var(--tint66);
+      line-height: 1.78;
+      font-variant-numeric: tabular-nums;
+    }
+    .probebay-out b { color: var(--live66-deep); }
+    @media (max-width: 600px) {
+      .probebay-card { padding: 26px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="pylon">
+    <div class="pylon-in">
+      <a class="pylon-brand" href="index.html">%%BRAND_EN%%</a>
+      <button type="button" class="pylon-btn" id="pylon-btn" aria-label="主导航" aria-expanded="false" aria-controls="pylon-nav">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="pylon-nav" id="pylon-nav" aria-label="主导航">
+        <a href="index.html">监控台</a>
+        <a href="article.html">事件档案</a>
+        <a href="tool.html" aria-current="page">偏差检查</a>
+        <a href="legal.html">披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="probebay">
+    <form class="probebay-card" id="dv-form" novalidate>
+      <h1>费率偏差检查器</h1>
+      <p>怀疑扣多了？拿一笔单子进来对一对。本地计算，不上传。</p>
+      <label for="dv-amt">交易额</label>
+      <input type="number" id="dv-amt" step="any" min="0" placeholder="如 10000" aria-describedby="dv-out">
+      <label for="dv-rate">口径费率（%）</label>
+      <input type="number" id="dv-rate" step="any" min="0" max="100" placeholder="如 0.05" aria-describedby="dv-out">
+      <label for="dv-paid">实付手续费</label>
+      <input type="number" id="dv-paid" step="any" min="0" placeholder="如 5.2" aria-describedby="dv-out">
+      <button type="submit" class="probebay-run" id="dv-run">检查偏差</button>
+      <output class="probebay-out" id="dv-out" role="status" aria-live="polite"></output>
+    </form>
+  </main>
+
+  <footer class="groundfloor">
+    <div class="girth groundfloor-in">
+      <p class="groundfloor-fine">结果仅供参考，实际以平台结算为准。</p>
+    </div>
+  </footer>
+
+  <script src="pulse.js"></script>
+</body>
+</html>

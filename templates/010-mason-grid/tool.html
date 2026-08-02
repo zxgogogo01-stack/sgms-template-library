@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>快速筛选 — {{SITE_NAME}}</title>
+  <meta name="description" content="按指南、数据和工具分类筛选资源。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="快速筛选 — {{SITE_NAME}}">
+  <meta property="og:description" content="按指南、数据和工具分类筛选资源。">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <link rel="stylesheet" href="assets/mortar.css">
+  <link rel="stylesheet" href="assets/blocks.css">
+  <link rel="stylesheet" href="assets/finish.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "快速筛选",
+    "url": "https://{{SITE_DOMAIN}}/tool.html"
+  }
+  </script>
+</head>
+<body>
+  <header class="cap-bar">
+    <a class="cap-bar__brand" href="index.html" aria-label="返回 {{SITE_NAME}} 首页">{{SITE_NAME}}</a>
+    <nav class="cap-bar__nav" aria-label="主导航">
+      <a class="cap-bar__link" href="index.html">资源墙</a>
+      <a class="cap-bar__link" href="article.html">编辑精选</a>
+      <a class="cap-bar__link" href="tool.html" aria-current="page">快速筛选</a>
+      <a class="cap-bar__link" href="legal.html">声明</a>
+    </nav>
+  </header>
+
+  <main class="yard">
+    <section class="kindset" aria-labelledby="filter-title">
+      <div>
+        <div class="kindset__intro">
+          <p class="banner__eyebrow">QUICK FILTER / RESOURCE TYPE</p>
+          <h1 id="filter-title">找到需要的那一块</h1>
+          <p>按资源类型缩小范围，筛选不会离开当前页面。</p>
+        </div>
+        <div class="kindset__bar" id="kind-bar" role="group" aria-label="资源分类筛选">
+          <button type="button" data-kind="all" aria-pressed="true">全部资源</button>
+          <button type="button" data-kind="guide" aria-pressed="false">指南</button>
+          <button type="button" data-kind="data" aria-pressed="false">数据</button>
+          <button type="button" data-kind="tool" aria-pressed="false">工具</button>
+        </div>
+        <p class="kindset__count" id="kind-count" aria-live="polite">当前显示 6 项资源</p>
+      </div>
+      <ul class="kindset__list" id="kind-list">
+        <li data-kind="guide"><span class="kindset__tagword">GUIDE · 01</span>信息源核对清单</li>
+        <li data-kind="data"><span class="kindset__tagword">DATA · 02</span>公开数据入口索引</li>
+        <li data-kind="tool"><span class="kindset__tagword">TOOL · 03</span>网页存档与差异检查</li>
+        <li data-kind="guide"><span class="kindset__tagword">GUIDE · 04</span>访谈记录模板</li>
+        <li data-kind="data"><span class="kindset__tagword">DATA · 05</span>常用指标口径表</li>
+        <li data-kind="tool"><span class="kindset__tagword">TOOL · 06</span>证据卡片生成器</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="ground">
+    <p class="ground__line">筛选仅作用于当前资源列表 · <a href="index.html">返回完整资源墙</a></p>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+/* Tidal Notes — coast (layout) */
+.strand {
+  width: min(1120px, calc(100% - 40px));
+  min-height: 84px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.strand__paths {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.bay {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 54px 0 96px;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 48px 24px;
+}
+
+.swell,
+.tide-line,
+.note-full,
+.cove-page,
+.gap-shell { grid-column: 1 / -1; }
+
+.tide-line {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.tide-line__mark {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: start;
+  padding: 30px 0;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+}
+
+.tag-drift { grid-column: 1 / span 8; }
+
+.tag-drift__pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.about-cove { grid-column: 9 / -1; }
+
+.gap-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1.18fr);
+  gap: 0;
+  align-items: stretch;
+}
+
+.gap-box { display: grid; gap: 22px; }
+
+.shore {
+  border-top: 1px solid var(--line);
+  padding: 28px 20px 40px;
+}
+
+.shore__line { width: min(1120px, 100%); margin: 0 auto; }
+
+@media (max-width: 760px) {
+  .strand {
+    width: calc(100% - 32px);
+    grid-template-columns: 1fr;
+    padding: 18px 0 8px;
+    gap: 10px;
+  }
+
+  .strand__paths {
+    width: 100%;
+    grid-auto-flow: column;
+    justify-content: stretch;
+    overflow-x: auto;
+  }
+
+  .bay {
+    width: calc(100% - 32px);
+    padding: 32px 0 64px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .tide-line__mark {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  .tide-line__read { grid-column: 2; justify-self: start; }
+  .tag-drift, .about-cove { grid-column: 1 / -1; }
+
+  .gap-shell { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .tide-line__mark { grid-template-columns: 64px minmax(0, 1fr); gap: 12px; }
+}

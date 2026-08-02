@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='{LANG}'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>版面缺失 — {SITE_NAME}</title>
+  <meta name='robots' content='noindex'>
+  <link rel='stylesheet' href='css/press.css'>
+  <style>
+    /* 404 extras */
+    .misprint { max-width: 480px; margin: 14vh auto; padding: 0 24px; text-align: center; }
+    .misprint-card {
+      background: var(--pagewhite);
+      border-top: 4px solid var(--inkblack);
+      border-bottom: 4px solid var(--inkblack);
+      padding: 50px 40px;
+    }
+    .misprint-card h1 {
+      font-size: 4.5rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      color: var(--navyseal);
+      font-variant-numeric: tabular-nums;
+    }
+    .misprint-card p { color: var(--inkfaded); margin: 8px 0 24px; }
+    .misprint-back {
+      display: inline-block;
+      min-height: 46px;
+      line-height: 42px;
+      padding: 0 26px;
+      border: 2px solid var(--inkblack);
+      background: var(--inkblack);
+      color: var(--newsprint);
+      font-family: var(--sans70);
+      font-weight: 700;
+      letter-spacing: .16em;
+      transition: background var(--pressmove), border-color var(--pressmove);
+    }
+    .misprint-back:hover { background: var(--navyseal); border-color: var(--navyseal); }
+  </style>
+</head>
+<body>
+  <div class='misprint'>
+    <div class='misprint-card'>
+      <h1>404</h1>
+      <p>这一版没付印——版面不存在或已撤稿。</p>
+      <a class='misprint-back' href='index.html'>回头版</a>
+    </div>
+  </div>
+</body>
+</html>

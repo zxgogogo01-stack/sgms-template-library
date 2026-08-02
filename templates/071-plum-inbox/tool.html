@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang='%%LANG%%'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#f4f2f0'>
+    <title>返佣对账核对器 — %%SITE_NAME%%</title>
+    <meta name='description' content='用期间手续费、约定比例和实收金额，核对返佣有没有对上账。'>
+    <link rel='canonical' href='https://%%SITE_DOMAIN%%/tool.html'>
+    <meta property='og:type' content='website'>
+    <meta property='og:site_name' content='%%SITE_NAME%%'>
+    <meta property='og:title' content='返佣对账核对器 — %%SITE_NAME%%'>
+    <meta property='og:description' content='用期间手续费、约定比例和实收金额，核对返佣有没有对上账。'>
+    <meta property='og:url' content='https://%%SITE_DOMAIN%%/tool.html'>
+    <meta name='twitter:card' content='summary'>
+    <link rel='stylesheet' href='assets/mail.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "返佣对账核对器",
+        "url": "https://%%SITE_DOMAIN%%/tool.html"
+    }
+    </script>
+    <style>
+        .checkdesk { max-width: 540px; margin: 0 auto; padding: 48px 24px 80px; }
+        .checkdesk-card {
+            background: var(--panewhite);
+            border: 1px solid var(--sealine);
+            border-top: 4px solid var(--plum71);
+            border-radius: calc(var(--slotR) + 4px);
+            box-shadow: var(--lift71-hi);
+            padding: 40px 44px;
+        }
+        .checkdesk-card h1 { font-family: var(--serif71); font-size: 1.48rem; }
+        .checkdesk-card > p { color: var(--dovegrey); margin: 6px 0 8px; }
+        .checkdesk-card label {
+            display: block;
+            margin: 16px 0 6px;
+            font-size: .86rem;
+            font-weight: 800;
+            color: var(--plum71-deep);
+        }
+        .checkdesk-card input {
+            width: 100%;
+            min-height: 47px;
+            padding: 10px 15px;
+            border: 1.5px solid var(--sealine);
+            border-radius: 11px;
+            background: var(--warmash);
+            color: var(--cocoaink);
+            font: inherit;
+            font-family: var(--mono71);
+            font-variant-numeric: tabular-nums;
+            transition: border-color var(--swish), box-shadow var(--swish);
+        }
+        .checkdesk-card input:focus {
+            outline: none;
+            border-color: var(--plum71);
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--plum71) 15%, transparent);
+        }
+        .checkdesk-card input[aria-invalid='true'] {
+            border-color: #b94238;
+            box-shadow: 0 0 0 4px color-mix(in srgb, #b94238 16%, transparent);
+        }
+        .checkdesk-run {
+            margin-top: 26px;
+            width: 100%;
+            min-height: 52px;
+            border: 0;
+            border-radius: 999px;
+            background: var(--plum71);
+            color: #fbf2fa;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: .06em;
+            cursor: pointer;
+            box-shadow: 0 10px 24px color-mix(in srgb, var(--plum71) 32%, transparent);
+            transition: transform var(--swish), background var(--swish);
+        }
+        .checkdesk-run:hover { transform: translateY(-2px); background: var(--plum71-deep); }
+        .checkdesk-out {
+            display: block;
+            margin-top: 18px;
+            min-height: 26px;
+            padding: 15px 19px;
+            border-radius: 11px;
+            background: var(--blush71);
+            line-height: 1.78;
+            font-variant-numeric: tabular-nums;
+        }
+        .checkdesk-out b { color: var(--plum71-deep); }
+        @media (max-width: 600px) {
+            .checkdesk-card { padding: 26px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header class='postbar'>
+        <div class='postbar-in'>
+            <a class='postbar-brand' href='index.html'>%%BRAND_EN%%</a>
+            <button type='button' class='postbar-btn' id='postbar-btn' aria-label='主导航' aria-expanded='false' aria-controls='postbar-nav'>
+                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+            </button>
+            <nav class='postbar-nav' id='postbar-nav' aria-label='主导航'>
+                <a href='index.html'>收件箱</a>
+                <a href='article.html'>信件</a>
+                <a href='tool.html' aria-current='page'>对账核对</a>
+                <a href='legal.html'>披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class='checkdesk'>
+        <form class='checkdesk-card' id='rc-form' novalidate>
+            <h1>返佣对账核对器</h1>
+            <p>返佣到底给没给够？三个数对一次账。本地计算，不上传。</p>
+            <label for='rc-fee'>期间手续费合计</label>
+            <input type='number' id='rc-fee' step='any' min='0' placeholder='如 120' aria-describedby='rc-out'>
+            <label for='rc-cut'>约定返佣比例（%）</label>
+            <input type='number' id='rc-cut' step='any' min='0' max='100' placeholder='如 30' aria-describedby='rc-out'>
+            <label for='rc-got'>实收返佣</label>
+            <input type='number' id='rc-got' step='any' min='0' placeholder='如 34.8' aria-describedby='rc-out'>
+            <button type='submit' class='checkdesk-run' id='rc-run'>对账</button>
+            <output class='checkdesk-out' id='rc-out' role='status' aria-live='polite'></output>
+        </form>
+    </main>
+
+    <footer class='postfoot'>
+        <div class='postfoot-in'>
+            <p class='postfoot-fine'>结果仅供参考，实际以平台结算为准。</p>
+        </div>
+    </footer>
+
+    <script src='assets/mail.js'></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='[[LANG]]'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>异常结算案例复盘｜[[SITE_NAME]]</title>
+  <meta name='description' content='用时间线与证据表复盘一笔异常结算。'>
+  <link rel='canonical' href='https://[[SITE_DOMAIN]]/article.html'>
+  <link rel='stylesheet' href='public.css'><link rel='stylesheet' href='static/casebook.css'>
+</head>
+<body>
+  <header class='casebar'><div class='casebar-in'><a class='casebar-brand' href='index.html'>[[BRAND_EN]]</a><button class='casebar-btn' id='casebar-btn' type='button' aria-label='主导航' aria-expanded='false' aria-controls='casebar-nav'><span></span><span></span></button><nav class='casebar-nav' id='casebar-nav' aria-label='主导航'><a href='index.html'>案例库</a><a href='article.html' aria-current='page'>方法</a><a href='tool.html'>核验清单</a><a href='legal.html'>说明</a></nav></div></header>
+  <main class='case-subpage'>
+    <nav class='case-crumb' aria-label='面包屑'><a href='index.html'>案例库</a> ／ 到账核验 ／ 案例 01</nav>
+    <p class='case-kicker'>Case file · verified</p>
+    <h1 class='case-heading'>一笔异常结算，怎样沿着证据链找到原因</h1>
+    <p class='case-lead'>这份案例不预设结论，而是将事实、规则和推断分开记录，再用时间线定位最早出现差异的节点。</p>
+    <article class='case-file'>
+      <div class='case-file-meta'><div><small>案例编号</small><b>CB-2026-001</b></div><div><small>核对范围</small><b>订单至到账</b></div><div><small>状态</small><b>已完成复查</b></div></div>
+      <div class='case-timeline'>
+        <section class='case-event'><time datetime='2026-01-16T09:20'>09:20</time><div><h2>固定原始记录</h2><p>保存订单编号、成交量、计价单位和页面状态，不使用二次转述代替原始字段。</p></div></section>
+        <section class='case-event'><time datetime='2026-01-16T12:00'>12:00</time><div><h2>匹配当期规则</h2><p>根据成交时间而非查看时间选择费率版本，并记录公告的生效节点。</p></div></section>
+        <section class='case-event'><time datetime='2026-01-17T08:40'>次日 08:40</time><div><h2>重建结算路径</h2><p>按批次与到账位置复算后，差异来自时区换日，而非费率本身。</p></div></section>
+      </div>
+      <div class='case-evidence' role='region' aria-label='证据清单' tabindex='0'><table><thead><tr><th>证据</th><th>用途</th><th>可信度</th></tr></thead><tbody><tr><td>原始账单</td><td>确认金额、币种与批次</td><td>直接记录</td></tr><tr><td>规则快照</td><td>确定当期费率版本</td><td>公开来源</td></tr><tr><td>时间线</td><td>解释跨时区日期差异</td><td>交叉验证</td></tr></tbody></table></div>
+    </article>
+  </main>
+  <footer class='casefoot'><div class='casefoot-in'><p>[[BRAND_EN]] · [[SITE_TAGLINE]]</p><nav aria-label='页脚导航'><a href='article.html'>方法</a><a href='tool.html'>核验清单</a><a href='legal.html'>说明</a></nav><small>案例用于说明核验方法，不代表对任何个案作出结论。</small></div></footer>
+  <script src='static/casebook.js'></script>
+</body>
+</html>

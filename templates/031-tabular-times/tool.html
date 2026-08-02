@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="__LANG__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171918">
+  <title>数据摘要计算器｜__SITE_NAME__</title>
+  <meta name="description" content="__SITE_DESC__">
+  <link rel="canonical" href="https://__SITE_DOMAIN__/tool.html">
+  <meta property="og:title" content="数据摘要计算器｜__SITE_NAME__">
+  <meta property="og:description" content="__SITE_DESC__">
+  <meta property="og:url" content="https://__SITE_DOMAIN__/tool.html">
+  <link rel="stylesheet" href="site.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a data-skip href="#main">跳到主要内容</a>
+  <header>
+    <div data-mast>
+      <a data-brand href="index.html" aria-label="__SITE_NAME__ 首页"><strong>__SITE_NAME__</strong><small>Tabular Times · Civic Data Desk</small></a>
+      <nav data-nav aria-label="主要导航"><a href="index.html">晨报</a><a href="article.html">数据要闻</a><a href="tool.html" aria-current="page">统计工具</a><a href="legal.html">方法与口径</a></nav>
+      <div data-edition><span>NO. 031 · TOOL</span><span>LOCAL PROCESSING</span></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <header data-wrap data-pagehead>
+      <div><p data-kicker>Local statistics desk</p><h1>把一列数字，<br>变成可靠摘要。</h1><p>粘贴 2–500 个数值，立即得到样本数、均值、中位数、极值和样本标准差。计算在当前浏览器内完成，不会上传数据。</p></div>
+      <dl data-pagefacts>
+        <div><dt>处理位置</dt><dd>仅本地</dd></div>
+        <div><dt>最大样本</dt><dd>500</dd></div>
+        <div><dt>标准差</dt><dd>样本 SD</dd></div>
+        <div><dt>精度</dt><dd>4 位小数</dd></div>
+      </dl>
+    </header>
+
+    <section data-wrap data-toolgrid aria-label="数据摘要计算器">
+      <div data-tool>
+        <label for="stats-input"><b>输入数值</b><br><small>可用空格、逗号或换行分隔。百分号请先转换为数值。</small></label>
+        <textarea id="stats-input" rows="9" placeholder="82.6, 79.8, 81.1, 84.2, 86.4" aria-describedby="stats-help stats-error"></textarea>
+        <p id="stats-help">至少需要两个有效数字；不接受混合文字、无穷值或超过 500 个样本。</p>
+        <p id="stats-error" data-error role="alert"></p>
+        <div data-actions>
+          <button type="button" data-act="calculate" data-button="accent">生成统计摘要</button>
+          <button type="button" data-act="reset-stats" data-button="outline">清空</button>
+        </div>
+
+        <section id="stats-result" data-result hidden aria-labelledby="result-title">
+          <header><div><p data-kicker>Computed locally</p><h2 id="result-title">摘要结果</h2></div><p>样本标准差使用 n−1</p></header>
+          <div data-statgrid>
+            <div><small>样本数</small><output id="stat-count" tabindex="-1">0</output></div>
+            <div><small>平均值</small><output id="stat-mean" tabindex="-1">0</output></div>
+            <div><small>中位数</small><output id="stat-median">0</output></div>
+            <div><small>最小值</small><output id="stat-min">0</output></div>
+            <div><small>最大值</small><output id="stat-max">0</output></div>
+            <div><small>样本标准差</small><output id="stat-sd">0</output></div>
+          </div>
+          <div data-actions><button type="button" data-act="copy-stats" data-button="outline">复制摘要</button></div>
+          <p id="stats-status" data-statusline aria-live="polite"></p>
+        </section>
+      </div>
+
+      <aside data-method>
+        <h2>试一组公开样例</h2>
+        <p>样例只用于演示计算，不代表实时城市指标。选择后仍需点击“生成统计摘要”。</p>
+        <div data-presets>
+          <button type="button" data-act="preset" data-values="82.6 79.8 81.1 84.2 86.4 83.5 85.0"><b>通行效率</b><br><small>7 个观测值</small></button>
+          <button type="button" data-act="preset" data-values="18.4 17.9 18.8 19.1 18.2 17.6 18.5"><b>拥堵延时</b><br><small>7 个分钟值</small></button>
+          <button type="button" data-act="preset" data-values="91.8 92.1 91.4 92.6 90.9 93.0 92.3"><b>服务响应</b><br><small>7 个百分比值</small></button>
+        </div>
+        <h2>如何解读</h2>
+        <p>均值适合整体水平，中位数更能抵抗极端值；样本标准差越大，代表这组数值越分散。不要用摘要值替代原始分布与数据口径。</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer><div data-foot><div><strong>__SITE_NAME__</strong><p>本工具只做本地计算，不保存、不发送输入内容。</p></div><div><nav aria-label="页脚导航"><a href="index.html">返回晨报</a><a href="article.html">数据要闻</a><a href="legal.html">方法与口径</a></nav><small>© 2026 __SITE_NAME__ · __SITE_DOMAIN__</small></div></div></footer>
+</body>
+</html>

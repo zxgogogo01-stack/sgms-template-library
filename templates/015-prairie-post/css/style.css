@@ -1,0 +1,105 @@
+/* 草原邮报 — 田野观察个人博客 */
+:root {
+    color-scheme: light dark;
+    --paper: #f3efe3;
+    --sheet: #fffaf0;
+    --ink: #302d21;
+    --muted: #746d55;
+    --field: #617542;
+    --field-deep: #34452d;
+    --sun: #d99235;
+    --rust: #a75c29;
+    --line: #d3c9ae;
+    --wash: #e8e0c9;
+    --link: #82501f;
+    --shadow: 8px 8px 0 rgba(48,45,33,0.09);
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.75 "Noto Serif SC", "Songti SC", Georgia, serif; }
+h1, h2, h3 { margin: 0; line-height: 1.2; text-wrap: balance; }
+p { margin: 0 0 1em; }
+a { color: var(--link); text-underline-offset: 0.22em; }
+button, input { font: inherit; }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 4px; }
+::selection { color: #fff; background: var(--field); }
+
+.field { width: min(1160px, 100%); min-height: 100vh; margin: 0 auto; display: flex; }
+.porch { flex: 0 0 260px; padding: 42px 30px; color: #f8f2e6; background: var(--field-deep); border-right: 8px solid #718458; }
+.sign { margin: 0; font-family: ui-monospace, Consolas, monospace; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; overflow-wrap: anywhere; }
+.sign::before { content: "PP / FIELD NOTES"; display: block; margin-bottom: 10px; color: #efb96f; font-size: 0.66rem; }
+.sign-sub { margin: 14px 0 30px; color: #c2d0b4; font-size: 0.9rem; }
+.trail { display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,0.18); }
+.trail a { min-height: 48px; padding: 12px 10px; color: #d4dec9; border-bottom: 1px solid rgba(255,255,255,0.14); text-decoration: none; }
+.trail a:hover, .trail a.here, .trail a[aria-current='page'] { padding-left: 16px; color: #fff; background: #495d3a; border-left: 4px solid var(--sun); }
+.tagset { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; color: #b8c7aa; font-size: 0.82rem; }
+.tagset span { flex-basis: 100%; }
+.tagset button { min-height: 38px; padding: 6px 10px; color: #eef2e9; background: transparent; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; }
+.tagset button:hover, .tagset button.active { color: var(--field-deep); background: #f0c184; border-color: #f0c184; }
+
+.acre { min-width: 0; flex: 1 1 auto; padding: 54px clamp(30px, 6vw, 72px) 30px; display: flex; flex-direction: column; gap: 38px; }
+.sunrise { min-height: 330px; padding: clamp(34px, 6vw, 62px); display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: 34px; align-items: end; color: #fff8e9; background: var(--field-deep); border-top: 9px solid var(--sun); box-shadow: var(--shadow); }
+.sunrise-words { min-width: 0; }
+.sunrise-kicker, .page-kicker { margin: 0 0 18px; color: #efb96f; font: 800 0.7rem/1.5 ui-monospace, Consolas, monospace; letter-spacing: 0.15em; text-transform: uppercase; }
+.sunrise-words h1 { font-size: clamp(2.8rem, 6vw, 5.3rem); letter-spacing: -0.055em; overflow-wrap: anywhere; }
+.sunrise-words p { max-width: 600px; margin: 16px 0 0; color: #c9d4be; }
+.sunrise-note { min-height: 202px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; color: var(--field-deep); background: #fffaf0; border-left: 8px solid var(--sun); }
+.sunrise-note strong { font-size: 3.8rem; line-height: 1; }
+.sunrise-note span { font: 800 0.67rem/1.7 ui-monospace, Consolas, monospace; letter-spacing: 0.1em; }
+
+.filter-status { min-height: 24px; margin: 0; color: var(--muted); font-size: 0.82rem; }
+.haystack { display: grid; gap: 14px; }
+.hay { padding: 28px 30px; background: var(--sheet); border: 1px solid var(--line); border-left: 6px solid var(--field); box-shadow: 4px 4px 0 rgba(48,45,33,0.05); }
+.hay[hidden] { display: none; }
+.hay h2 { margin-bottom: 8px; font-size: 1.45rem; }
+.hay h2 a { text-decoration: none; }
+.hay h2 a:hover { color: var(--rust); }
+.hay-meta { margin-bottom: 10px; color: var(--rust); font: 700 0.72rem ui-monospace, Consolas, monospace; letter-spacing: 0.06em; }
+.hay p:last-child { margin: 0; color: var(--muted); }
+.visitor-note { padding: 28px 30px; background: var(--wash); border-top: 6px solid var(--sun); }
+.visitor-note h2 { margin-bottom: 14px; font-size: 1.25rem; }
+.visitor-note blockquote { margin: 12px 0; color: var(--muted); font-style: italic; }
+
+.fulltext, .pace, .about { width: min(820px, 100%); padding: clamp(30px, 6vw, 64px); background: var(--sheet); border-top: 8px solid var(--sun); box-shadow: var(--shadow); }
+.fulltext h1, .pace h1, .about h1 { font-size: clamp(2.6rem, 6vw, 4.7rem); letter-spacing: -0.05em; }
+.fulltext .backlink { margin-bottom: 22px; font-size: 0.85rem; }
+.fulltext .hay-meta { margin: 15px 0 28px; }
+.fulltext h2, .about h2 { margin: 32px 0 10px; color: var(--link); font-size: 1.35rem; }
+.pullquote { margin: 28px 0; padding: 20px 22px; background: var(--wash); border-left: 5px solid var(--field); font-size: 1.12rem; }
+.pace { display: grid; gap: 12px; }
+.pace-intro, .about-intro { margin: 15px 0 26px; color: var(--muted); }
+.pace label { font-weight: 800; }
+.pace input { width: 100%; min-height: 50px; padding: 10px 12px; color: var(--ink); background: var(--paper); border: 1px solid var(--line); }
+.pace button { width: fit-content; min-height: 46px; margin-top: 8px; padding: 9px 24px; color: #fff; background: var(--rust); border: 0; cursor: pointer; }
+.pace output { min-height: 58px; margin-top: 8px; padding: 16px 18px; background: var(--wash); border-left: 5px solid var(--field); font-weight: 800; }
+.pace output:empty::before { content: "更新节奏会显示在这里"; color: var(--muted); font-weight: 400; }
+
+.gatepost { margin-top: auto; padding-top: 18px; color: var(--muted); border-top: 1px solid var(--line); font-size: 0.82rem; }
+.offtrail { width: min(680px, calc(100% - 32px)); min-height: 100vh; margin: 0 auto; padding: 70px 0; display: grid; place-content: center; }
+.offtrail-card { padding: clamp(36px, 8vw, 72px); color: #fff8e9; background: var(--field-deep); border-left: 8px solid var(--sun); box-shadow: var(--shadow); }
+.offtrail-code { color: #efb96f; font: 800 0.7rem ui-monospace, Consolas, monospace; letter-spacing: 0.15em; }
+.offtrail h1 { margin: 18px 0; font-size: clamp(3rem, 8vw, 5.2rem); }
+.offtrail p { color: #c9d4be; }
+.offtrail a { color: #fff; }
+
+@media (max-width: 680px) {
+    .field { flex-direction: column; }
+    .porch { flex-basis: auto; padding: 18px 16px 10px; border-right: 0; border-bottom: 7px solid #718458; }
+    .sign::before { display: inline; margin: 0 10px 0 0; }
+    .sign-sub { display: none; }
+    .trail { margin-top: 10px; flex-direction: row; overflow-x: auto; border-top: 0; }
+    .trail a { flex: 1 0 auto; border: 0; border-bottom: 3px solid transparent; }
+    .trail a:hover, .trail a.here, .trail a[aria-current='page'] { padding-left: 10px; border-left: 0; border-bottom-color: var(--sun); }
+    .tagset { margin-top: 12px; flex-wrap: nowrap; overflow-x: auto; }
+    .tagset span { display: none; }
+    .tagset button { flex: 0 0 auto; }
+    .acre { padding: 30px 16px 26px; gap: 32px; }
+    .sunrise { min-height: 430px; padding: 32px 26px; grid-template-columns: 1fr; }
+    .sunrise-note { min-height: 122px; display: grid; grid-template-columns: 1fr auto; align-items: end; }
+    .hay { padding: 24px 22px; }
+    .fulltext, .pace, .about { padding: 30px 24px; }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root { --paper: #12150f; --sheet: #20251b; --ink: #eef0e5; --muted: #aeb69d; --field: #8ca163; --field-deep: #34452d; --sun: #e2a44d; --rust: #d47a3d; --line: #424c36; --wash: #293120; --link: #c0d18a; --shadow: 8px 8px 0 rgba(0,0,0,0.32); }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }

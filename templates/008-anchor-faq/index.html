@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{SITE_NAME}} — 支持中心</title><meta name="description" content="{{SITE_DESC}}">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <link rel="stylesheet" href="assets/anchor.css"><link rel="stylesheet" href="assets/berth.css"><link rel="stylesheet" href="assets/rope.css"><link rel="stylesheet" href="assets/boutique.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"{{SITE_NAME}}","url":"https://{{SITE_DOMAIN}}/"}</script>
+</head>
+<body>
+  <header class="brow"><a class="brow__site" href="index.html">{{SITE_NAME}}</a><nav class="brow__lane" aria-label="主导航"><a class="brow__stop" href="index.html" aria-current="page">支持首页</a><a class="brow__stop" href="article.html">安全指南</a><a class="brow__stop" href="tool.html">工单助手</a><a class="brow__stop" href="legal.html">服务说明</a></nav></header>
+  <main class="cabin">
+    <section class="plain plain--desk">
+      <div class="plain__status"><span>KNOWLEDGE BASE / 008</span><strong><i aria-hidden="true"></i>内容已复核</strong></div>
+      <h1 class="plain__h">先找到答案，<br>再决定是否提交工单。</h1>
+      <p class="plain__p">{{SITE_TAGLINE}}</p>
+      <div class="support-search">
+        <label for="faq-search">搜索帮助内容</label>
+        <input type="search" id="faq-search" placeholder="例如：忘记密码、费率、邀请码" aria-controls="faq-groups" aria-describedby="faq-status">
+        <span id="faq-status" aria-live="polite">6 个常见问题</span>
+      </div>
+    </section>
+
+    <nav class="quick-jump" aria-label="问题分类">
+      <a class="quick-jump__chip" href="#qa-account"><span>01</span><strong>账户与安全</strong><em>2 个问题</em></a>
+      <a class="quick-jump__chip" href="#qa-fee"><span>02</span><strong>费用与结算</strong><em>3 个问题</em></a>
+      <a class="quick-jump__chip" href="#qa-invite"><span>03</span><strong>邀请码</strong><em>1 个问题</em></a>
+    </nav>
+
+    <div class="faq-layout" id="faq-groups">
+      <aside class="faq-rail"><p>SUPPORT INDEX</p><a href="#qa-account">账户与安全</a><a href="#qa-fee">费用与结算</a><a href="#qa-invite">邀请码</a><span>最近复核<br><strong>2026-07-22</strong></span></aside>
+      <div class="faq-main">
+        <section class="qa-block" id="qa-account" aria-labelledby="account-title">
+          <header class="qa-block__head"><div><p>01 / ACCOUNT</p><h2 class="qa-block__cap" id="account-title">账户与安全</h2></div><span>2 个问题</span></header>
+          <details class="qa-block__unit" open data-search="账户 安全 两步验证 验证码 密码">
+            <summary class="qa-block__ask"><span>01</span>如何保护账户安全？<em>3 分钟</em></summary>
+            <div class="qa-block__ans"><p>启用两步验证，使用独立且足够强的密码，并只从已确认的官方入口访问账户。任何客服都不应索要验证码、恢复码或完整密码。</p><aside><strong>先做这三件事</strong><span>核对域名 · 启用两步验证 · 保存恢复信息</span></aside><a href="article.html">查看完整安全检查 →</a></div>
+          </details>
+          <details class="qa-block__unit" data-search="忘记 密码 找回 登录 邮件 会话">
+            <summary class="qa-block__ask"><span>02</span>忘记密码怎么办？<em>2 分钟</em></summary>
+            <div class="qa-block__ans"><p>从官方登录页进入密码找回流程，核对域名和邮件发件人。完成重置后检查登录记录，并撤销不认识的设备与会话。</p></div>
+          </details>
+        </section>
+
+        <section class="qa-block" id="qa-fee" aria-labelledby="fee-title">
+          <header class="qa-block__head"><div><p>02 / BILLING</p><h2 class="qa-block__cap" id="fee-title">费用与结算</h2></div><span>3 个问题</span></header>
+          <details class="qa-block__unit" data-search="挂单 吃单 费率 流动性">
+            <summary class="qa-block__ask"><span>01</span>挂单和吃单费率为什么不同？<em>3 分钟</em></summary>
+            <div class="qa-block__ans"><p>挂单进入订单簿等待成交，通常被视为提供流动性；吃单会立即匹配现有委托，属于消耗流动性，因此计费方式可能不同。</p></div>
+          </details>
+          <details class="qa-block__unit" data-search="费率 档位 更新 周期 成交量">
+            <summary class="qa-block__ask"><span>02</span>费率档位多久更新一次？<em>2 分钟</em></summary>
+            <div class="qa-block__ans"><p>常见做法是按滚动周期评估成交量并定期更新。具体时间、时区、门槛与生效延迟，应以对应官方费率页为准。</p></div>
+          </details>
+          <details class="qa-block__unit" data-search="返佣 到账 结算 奖励 账单">
+            <summary class="qa-block__ask"><span>03</span>返佣什么时候到账？<em>2 分钟</em></summary>
+            <div class="qa-block__ans"><p>结算周期因规则而异，可在账户的奖励、返佣或账单记录中核对状态。超过公布周期仍未显示时，再准备订单号与时间提交工单。</p></div>
+          </details>
+        </section>
+
+        <section class="qa-block" id="qa-invite" aria-labelledby="invite-title">
+          <header class="qa-block__head"><div><p>03 / INVITE</p><h2 class="qa-block__cap" id="invite-title">邀请码</h2></div><span>1 个问题</span></header>
+          <details class="qa-block__unit" data-search="邀请码 推荐码 注册 填写">
+            <summary class="qa-block__ask"><span>01</span>邀请码在哪里填写？<em>1 分钟</em></summary>
+            <div class="qa-block__ans"><p>通常位于注册表单的“邀请码”或“推荐码”字段。填写前请确认它是否可选，并了解关联规则与生效条件。</p></div>
+          </details>
+          <aside class="invite-belt" aria-label="邀请码"><div><span class="invite-belt__word">本站邀请码</span><strong class="invite-belt__code" id="belt-code">{{INVITE_CODE}}</strong></div><button class="invite-belt__act" type="button">复制邀请码</button><em class="invite-belt__law">{{COMPLIANCE_NOTE}}</em></aside>
+        </section>
+
+        <div class="faq-empty" id="faq-empty" hidden><strong>没有匹配的问题</strong><p>尝试更短的关键词，或直接使用工单助手整理问题。</p><button type="button" id="faq-clear">清空搜索</button></div>
+      </div>
+    </div>
+
+    <section class="reach-out"><div><p>NEXT STEP</p><h2 class="reach-out__cap">还是没解决？</h2><p class="reach-out__txt">先准备问题、时间、错误提示和已尝试步骤，工单会更容易被准确处理。</p></div><a href="tool.html">开始整理工单 <span aria-hidden="true">→</span></a></section>
+  </main>
+  <footer class="keel"><p class="keel__row">帮助内容仅供参考，不构成投资建议 · <a href="legal.html">服务说明</a> · {{CONTACT_EMAIL}}</p></footer>
+  <script src="assets/moor.js"></script>
+</body>
+</html>

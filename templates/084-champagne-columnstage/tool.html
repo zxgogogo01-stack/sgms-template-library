@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="[[LANG]]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f1e8">
+  <title>距下一档测距仪 — [[SITE_NAME]]</title>
+  <meta name="description" content="离下一费率档还差多少交易量，按剩余天数折算日均。">
+  <link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="[[SITE_NAME]]">
+  <meta property="og:title" content="距下一档测距仪 — [[SITE_NAME]]">
+  <meta property="og:description" content="离下一费率档还差多少交易量，按剩余天数折算日均。">
+  <meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="static/stage.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "距下一档测距仪",
+    "url": "https://[[SITE_DOMAIN]]/tool.html"
+  }
+  </script>
+  <style>
+    .rangefinder { max-width: 540px; margin: 0 auto; padding: 50px 26px 84px; }
+    .rangefinder-card {
+      background: var(--boxwhite);
+      border: 1.5px solid var(--cordline);
+      border-top: 5px solid var(--champgold);
+      border-radius: 0 0 var(--arch84) var(--arch84);
+      box-shadow: var(--limelight-hi);
+      padding: 42px 46px;
+    }
+    .rangefinder-card h1 { font-family: var(--serif84); font-size: 1.5rem; }
+    .rangefinder-card > p { color: var(--graphite84); margin: 6px 0 8px; }
+    .rangefinder-card label {
+      display: block;
+      margin: 16px 0 6px;
+      font-size: .84rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      color: var(--inknavy);
+    }
+    .rangefinder-card input {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 16px;
+      border: 1.5px solid var(--cordline);
+      border-radius: var(--arch84);
+      background: var(--housecream);
+      color: var(--inknavy);
+      font: inherit;
+      font-family: var(--mono84);
+      font-variant-numeric: tabular-nums;
+      transition: border-color var(--cue84), box-shadow var(--cue84);
+    }
+    .rangefinder-card input:focus {
+      outline: none;
+      border-color: var(--champgold);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--champgold) 20%, transparent);
+    }
+    .rangefinder-card input[aria-invalid="true"] {
+      border-color: #b42318;
+      box-shadow: 0 0 0 4px color-mix(in srgb, #b42318 14%, transparent);
+    }
+    .rangefinder-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 52px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--inknavy);
+      color: var(--housecream);
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      cursor: pointer;
+      box-shadow: 0 10px 24px color-mix(in srgb, var(--inknavy) 32%, transparent);
+      transition: transform var(--cue84), background var(--cue84);
+    }
+    .rangefinder-run:hover { transform: translateY(-2px); background: var(--inknavy-2); }
+    .rangefinder-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 26px;
+      padding: 15px 19px;
+      border-radius: var(--arch84);
+      background: var(--softtint);
+      line-height: 1.8;
+      font-variant-numeric: tabular-nums;
+    }
+    .rangefinder-out b { color: var(--champgold-deep); }
+    @media (max-width: 600px) {
+      .rangefinder-card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="stagebar">
+    <div class="stagebar-in">
+      <a class="stagebar-brand" href="index.html">[[BRAND_EN]]</a>
+      <button type="button" class="stagebar-btn" id="stagebar-btn" aria-label="主导航" aria-expanded="false" aria-controls="stagebar-nav">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="stagebar-nav" id="stagebar-nav" aria-label="主导航">
+        <a href="index.html">舞台</a>
+        <a href="article.html">专栏</a>
+        <a href="tool.html" aria-current="page">档位测距</a>
+        <a href="legal.html">披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="rangefinder">
+    <form class="rangefinder-card" id="tg-form" novalidate>
+      <h1>距下一档测距仪</h1>
+      <p>离下一费率档还差多少？折算成日均需求看看现不现实。本地计算。</p>
+      <label for="tg-vol">当前 30 天交易量</label>
+      <input type="number" id="tg-vol" step="any" min="0" placeholder="如 82000" aria-describedby="tg-out">
+      <label for="tg-goal">下一档门槛</label>
+      <input type="number" id="tg-goal" step="any" min="0" placeholder="如 100000" aria-describedby="tg-out">
+      <label for="tg-days">剩余天数（可留空）</label>
+      <input type="number" id="tg-days" step="1" min="1" placeholder="如 9" aria-describedby="tg-out">
+      <button type="submit" class="rangefinder-run" id="tg-run">测距</button>
+      <output class="rangefinder-out" id="tg-out" role="status" aria-live="polite"></output>
+    </form>
+  </main>
+
+  <footer class="wingfoot">
+    <div class="wingfoot-in">
+      <p class="wingfoot-fine">结果仅供参考；不建议为凑档而过度交易。</p>
+    </div>
+  </footer>
+
+  <script src="static/stage.js"></script>
+</body>
+</html>

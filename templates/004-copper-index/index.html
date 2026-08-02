@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{SITE_NAME}} — 研究与写作资源目录</title>
+  <meta name="description" content="{{SITE_DESC}}">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}">
+  <meta property="og:description" content="{{SITE_DESC}}">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <link rel="stylesheet" href="assets/root.css">
+  <link rel="stylesheet" href="assets/grids.css">
+  <link rel="stylesheet" href="assets/skin.css">
+  <link rel="stylesheet" href="assets/boutique.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "{{SITE_NAME}}",
+    "url": "https://{{SITE_DOMAIN}}/"
+  }
+  </script>
+</head>
+<body>
+  <header class="ridge">
+    <a class="ridge__home" href="index.html">{{SITE_NAME}}</a>
+    <nav class="ridge__set" aria-label="导航">
+      <a class="ridge__go" href="article.html">收录说明</a>
+      <a class="ridge__go" href="tool.html">链接去重</a>
+      <a class="ridge__go" href="legal.html">声明</a>
+    </nav>
+  </header>
+
+  <main class="floor">
+    <section class="grand">
+      <h1 class="grand__line">{{SITE_NAME}}</h1>
+      <p class="grand__under">{{SITE_TAGLINE}} · 一份经过核对、标注状态并定期复查的研究资源索引</p>
+    </section>
+
+    <nav class="alpha-rail" aria-label="字母索引">
+      <a class="alpha-rail__dot" href="#sec-learn">学</a>
+      <a class="alpha-rail__dot" href="#sec-data">数</a>
+      <a class="alpha-rail__dot" href="#sec-tools">工</a>
+      <a class="alpha-rail__dot" href="#sec-read">读</a>
+    </nav>
+
+    <section class="shelf" id="sec-learn">
+      <h2 class="shelf__cap">入门学习</h2>
+      <div class="shelf__row">
+        <a class="shelf__box" href="article.html">
+          <span class="shelf__state">基础 · 12 分钟</span>
+          <strong class="shelf__name">问题拆解卡</strong>
+          <span class="shelf__note">把模糊需求拆成对象、动作、时间和证据，适合第一次整理复杂问题时使用。</span>
+        </a>
+        <a class="shelf__box" href="article.html">
+          <span class="shelf__state">方法 · 已复核</span>
+          <strong class="shelf__name">证据等级手册</strong>
+          <span class="shelf__note">区分原始来源、转述与经验判断，让每句话的确定程度一眼可见。</span>
+        </a>
+        <a class="shelf__box" href="article.html">
+          <span class="shelf__state">模板 · 可复制</span>
+          <strong class="shelf__name">观察窗口指南</strong>
+          <span class="shelf__note">为一次比较设定统一的起止时间，避免让不同周期的数字替彼此发言。</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="shelf" id="sec-data">
+      <h2 class="shelf__cap">数据参考</h2>
+      <div class="shelf__row">
+        <a class="shelf__box" href="article.html">
+          <span class="shelf__state">参考 · 口径优先</span>
+          <strong class="shelf__name">口径备忘录</strong>
+          <span class="shelf__note">记录分子、分母、统计时间和排除项，适合放在每张数据表的第一页。</span>
+        </a>
+        <a class="shelf__box" href="article.html">
+          <span class="shelf__state">清单 · 8 项</span>
+          <strong class="shelf__name">来源核对表</strong>
+          <span class="shelf__note">检查发布时间、修订记录、适用对象和引用范围，为归档前做最后一次确认。</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="shelf" id="sec-tools">
+      <h2 class="shelf__cap">实用工具</h2>
+      <div class="shelf__row">
+        <a class="shelf__box" href="tool.html">
+          <span class="shelf__state">本站工具 · 本地运行</span>
+          <strong class="shelf__name">链接整理台</strong>
+          <span class="shelf__note">规范格式、过滤无效项并去除重复链接，内容不会离开当前浏览器。</span>
+        </a>
+        <a class="shelf__box" href="article.html">
+          <span class="shelf__state">模板 · 周期记录</span>
+          <strong class="shelf__name">日期快照页</strong>
+          <span class="shelf__note">为容易变化的页面保留核对日期、版本提示和下一次复查时间。</span>
+        </a>
+        <a class="shelf__box" href="article.html">
+          <span class="shelf__state">模板 · 修订记录</span>
+          <strong class="shelf__name">变更日志卡</strong>
+          <span class="shelf__note">用一句话说明改了什么、为何修改，以及原结论是否仍然成立。</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="shelf" id="sec-read">
+      <h2 class="shelf__cap">深度阅读</h2>
+      <div class="shelf__row">
+        <a class="shelf__box" href="article.html">
+          <span class="shelf__state">长文 · 编辑方法</span>
+          <strong class="shelf__name">结论也有保质期</strong>
+          <span class="shelf__note">讨论何时更新、归档或撤回一篇文章，让旧信息不再伪装成今天的答案。</span>
+        </a>
+        <a class="shelf__box" href="article.html">
+          <span class="shelf__state">长文 · 研究笔记</span>
+          <strong class="shelf__name">小样本里的诚实表达</strong>
+          <span class="shelf__note">当证据还不够多，怎样写清观察、限制与下一步，而不是过早下定论。</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="base-foot">
+    <p class="base-foot__words">人工收录 · 每季复核 · 状态留痕 · <a href="legal.html">目录声明</a> · {{CONTACT_EMAIL}}</p>
+  </footer>
+
+  <script src="assets/nav.js"></script>
+</body>
+</html>

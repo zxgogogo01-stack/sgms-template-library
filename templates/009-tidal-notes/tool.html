@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>日期差计算 — {{SITE_NAME}}</title>
+  <meta name="description" content="选择两个日期，计算两次记录之间相隔多少天。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="日期差计算 — {{SITE_NAME}}">
+  <meta property="og:description" content="选择两个日期，计算两次记录之间相隔多少天。">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <link rel="stylesheet" href="assets/water.css">
+  <link rel="stylesheet" href="assets/coast.css">
+  <link rel="stylesheet" href="assets/foam.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "日期差计算",
+    "url": "https://{{SITE_DOMAIN}}/tool.html"
+  }
+  </script>
+</head>
+<body>
+  <header class="strand">
+    <a class="strand__title" href="index.html" aria-label="返回 {{SITE_NAME}} 首页">{{SITE_NAME}}</a>
+    <nav class="strand__paths" aria-label="主导航">
+      <a class="strand__path" href="index.html">时间线</a>
+      <a class="strand__path" href="article.html">本期全文</a>
+      <a class="strand__path" href="tool.html" aria-current="page">日期差</a>
+      <a class="strand__path" href="legal.html">关于</a>
+    </nav>
+  </header>
+
+  <main class="bay">
+    <section class="gap-shell" aria-labelledby="gap-title">
+      <div class="gap-intro">
+        <p class="page-kicker">FIELD TOOL / DATE GAP</p>
+        <h1 id="gap-title">两次记录，隔了多久？</h1>
+        <p>选定起止日期，计算间隔天数。适合安排复查、追踪习惯或核对项目节奏。</p>
+      </div>
+      <div class="gap-box">
+        <div>
+          <label for="gap-a">起始日期</label>
+          <input type="date" id="gap-a">
+        </div>
+        <div>
+          <label for="gap-b">结束日期</label>
+          <input type="date" id="gap-b">
+        </div>
+        <button type="button" id="gap-run">计算间隔</button>
+        <output id="gap-out" aria-live="polite">选择两个日期后，结果会显示在这里。</output>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shore">
+    <p class="shore__line">日期按本地时间计算 · 个人记录，仅供参考</p>
+  </footer>
+  <script src="assets/tide.js"></script>
+</body>
+</html>

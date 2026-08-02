@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{SITE_NAME}} — 观察、方法与慢写作</title>
+  <meta name="description" content="{{SITE_DESC}}">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}">
+  <meta property="og:description" content="{{SITE_DESC}}">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <link rel="stylesheet" href="assets/core.css">
+  <link rel="stylesheet" href="assets/frame.css">
+  <link rel="stylesheet" href="assets/bits.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "{{SITE_NAME}}",
+    "url": "https://{{SITE_DOMAIN}}/"
+  }
+  </script>
+</head>
+<body>
+  <header class="masthead">
+    <nav class="masthead__menu" aria-label="站内导航">
+      <a class="masthead__item" href="index.html" aria-current="page">目录</a>
+      <a class="masthead__item" href="article.html">本期长文</a>
+      <a class="masthead__item" href="tool.html">字数统计</a>
+    </nav>
+    <span class="masthead__mark">{{SITE_NAME}}</span>
+  </header>
+
+  <main>
+    <section class="headline">
+      <h1 class="headline__big">{{SITE_NAME}}</h1>
+      <p class="headline__small">{{SITE_TAGLINE}} · 把结论写清，也把来路留下</p>
+    </section>
+
+    <section class="essay-roll" aria-label="文章列表">
+      <article class="essay-roll__entry">
+        <time class="essay-roll__date" datetime="2026-07-28">2026-07-28</time>
+        <h2 class="essay-roll__head"><a href="article.html">把规则读成一张时间地图</a></h2>
+        <p class="essay-roll__lede">当公告、问答与执行细则散落在不同页面，我们如何辨认真正生效的那一刻，并让一次判断经得起回看。</p>
+      </article>
+      <article class="essay-roll__entry">
+        <time class="essay-roll__date" datetime="2026-07-16">2026-07-16</time>
+        <h2 class="essay-roll__head"><a href="article.html">数字旁边，永远留一行口径</a></h2>
+        <p class="essay-roll__lede">同一个百分比，可能回答三种完全不同的问题。比精确更重要的，是先交代分母、时间与样本边界。</p>
+      </article>
+      <article class="essay-roll__entry">
+        <time class="essay-roll__date" datetime="2026-07-03">2026-07-03</time>
+        <h2 class="essay-roll__head"><a href="article.html">一次失败的比较，以及后来补上的三列</a></h2>
+        <p class="essay-roll__lede">一张看似有力的对照表为何得出了错误结论：我们补上来源、截止时间和适用对象后，答案发生了什么变化。</p>
+      </article>
+      <article class="essay-roll__entry">
+        <time class="essay-roll__date" datetime="2026-06-19">2026-06-19</time>
+        <h2 class="essay-roll__head"><a href="article.html">写在归档之前：保留一条结论的来路</a></h2>
+        <p class="essay-roll__lede">不是所有旧文章都该保持沉默。为更新、修订与失效信息建立清楚的标记，才是对读者真正的尊重。</p>
+      </article>
+    </section>
+
+    <aside class="note-box">
+      <h2 class="note-box__title">订阅更新</h2>
+      <p class="note-box__text">每月一至两封，只寄新文章与重要修订。不追踪打开率，不转交地址。</p>
+      <form class="note-box__form" id="sub-form" novalidate>
+        <label class="note-box__label" for="sub-mail">邮箱</label>
+        <input class="note-box__input" type="email" id="sub-mail" placeholder="输入你的邮箱地址" autocomplete="email" aria-describedby="sub-status" required>
+        <button class="note-box__go" type="submit">订阅</button>
+      </form>
+      <p class="note-box__done" id="sub-status" role="status" aria-live="polite"></p>
+    </aside>
+  </main>
+
+  <footer class="foot-grid">
+    <div class="foot-grid__cell">
+      <p class="foot-grid__strong">{{SITE_NAME}}</p>
+      <p>{{SITE_TAGLINE}}</p>
+    </div>
+    <div class="foot-grid__cell">
+      <p><a href="legal.html">站点说明</a></p>
+      <p>{{CONTACT_EMAIL}}</p>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

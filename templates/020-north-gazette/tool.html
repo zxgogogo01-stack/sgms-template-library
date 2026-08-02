@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='%LANG%'>
+<head>
+    <meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>新闻线整理台 - %SITE_NAME%</title>
+    <meta name='description' content='按中文或英文顺序整理多行新闻标题，可去重、倒序并复制结果。'>
+    <link rel='canonical' href='https://%SITE_DOMAIN%/tool.html'><meta property='og:title' content='新闻线整理台 - %SITE_NAME%'><meta property='og:description' content='按中文或英文顺序整理多行新闻标题，可去重、倒序并复制结果。'><meta property='og:url' content='https://%SITE_DOMAIN%/tool.html'>
+    <link rel='stylesheet' href='css/style.css'>
+    <script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebApplication","name":"新闻线整理台","url":"https://%SITE_DOMAIN%/tool.html","applicationCategory":"UtilitiesApplication"}</script>
+</head>
+<body>
+    <a class='skip-link' href='#main'>跳到主要内容</a>
+    <div class='utility'><div class='shell utility-inner'><span>编辑工具 / 本地处理</span><span>输入内容不会上传</span></div></div>
+    <header class='masthead shell'><div class='masthead-main'><a class='publication' href='index.html'>%SITE_NAME%</a><div class='edition-mark'>NEWSROOM<br>UTILITY DESK</div></div></header>
+    <nav class='desk-nav' aria-label='主要栏目'><div class='shell desk-nav-inner'><a href='index.html'>今日头版</a><a href='article.html'>深度报道</a><a href='tool.html' aria-current='page'>编辑工具</a><a href='legal.html'>编辑准则</a></div></nav>
+    <main id='main' class='shell'>
+        <header class='page-head'><div><p class='eyebrow'>Line desk / Sort and clean</p><h1>把杂乱标题整理成可用新闻线。</h1><p>逐行粘贴标题，选择顺序并决定是否去重。工具会保留原文，只清除空行与首尾空格。</p></div><aside class='page-meta' aria-label='工具说明'><dl><div><dt>处理位置</dt><dd>浏览器本地</dd></div><div><dt>支持语言</dt><dd>中文与英文</dd></div><div><dt>输入上限</dt><dd>500 行</dd></div></dl></aside></header>
+        <section class='sorter-layout' aria-label='新闻标题排序工具'>
+            <form class='sort-panel' id='sort-form' novalidate>
+                <p class='eyebrow'>Input wire</p><h2>原始新闻线</h2><p>一行一条。空行会被忽略，重复项可选择合并。</p>
+                <label for='line-input'>待整理标题</label><textarea id='line-input' aria-describedby='sort-error' placeholder='北港航线恢复&#10;冷空气抵达城区&#10;科研站发布观测'></textarea>
+                <div class='option-row'><label><input type='radio' name='direction' value='asc' checked> 正序 A–Z</label><label><input type='radio' name='direction' value='desc'> 倒序 Z–A</label><label><input id='dedupe-lines' type='checkbox'> 合并重复项</label></div>
+                <p class='sort-error' id='sort-error' role='alert'></p><div class='button-row'><button class='button' type='submit'>整理新闻线</button><button class='button button-secondary' type='button' id='sort-clear'>清空</button></div>
+            </form>
+            <section class='result-panel' aria-labelledby='result-title'>
+                <p class='sort-state' id='sort-state'>WAITING FOR INPUT</p><h2 id='result-title'>整理结果</h2><p class='sort-stats' id='sort-stats'>0 行</p><textarea id='line-output' readonly aria-label='整理后的新闻线'></textarea><button class='button' type='button' id='sort-copy' disabled>复制整理结果</button><p class='copy-status' id='sort-copy-status' aria-live='polite'></p>
+            </section>
+        </section>
+    </main>
+    <footer class='site-footer'><div class='shell footer-inner'><p>编辑工具仅整理文本，不判断内容真实性。</p><nav class='footer-links' aria-label='页脚导航'><a href='index.html'>返回头版</a><a href='legal.html'>编辑准则</a><a href='mailto:%CONTACT_EMAIL%'>%CONTACT_EMAIL%</a></nav></div></footer>
+    <script>
+        (function () {
+            var form = document.getElementById('sort-form'), input = document.getElementById('line-input'), output = document.getElementById('line-output'), error = document.getElementById('sort-error'), state = document.getElementById('sort-state'), stats = document.getElementById('sort-stats'), copy = document.getElementById('sort-copy'), copyStatus = document.getElementById('sort-copy-status');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); input.removeAttribute('aria-invalid'); error.textContent = ''; copyStatus.textContent = '';
+                var rows = input.value.split(/\r?\n/).map(function (line) { return line.trim(); }).filter(Boolean);
+                if (!rows.length) { input.setAttribute('aria-invalid', 'true'); input.focus(); error.textContent = '请至少输入一条新闻标题。'; return; }
+                if (rows.length > 500) { input.setAttribute('aria-invalid', 'true'); input.focus(); error.textContent = '一次最多整理 500 行。'; return; }
+                if (document.getElementById('dedupe-lines').checked) rows = rows.filter(function (line, index, list) { return list.indexOf(line) === index; });
+                rows.sort(function (a, b) { return a.localeCompare(b, '%LANG%' === '%LANG%' ? 'zh-CN' : '%LANG%'); });
+                if (document.querySelector('input[name="direction"]:checked').value === 'desc') rows.reverse();
+                output.value = rows.join('\n'); state.textContent = 'SORTED'; stats.textContent = rows.length + ' 行'; copy.disabled = false;
+            });
+            document.getElementById('sort-clear').addEventListener('click', function () { input.value = ''; output.value = ''; input.removeAttribute('aria-invalid'); error.textContent = ''; state.textContent = 'WAITING FOR INPUT'; stats.textContent = '0 行'; copy.disabled = true; copyStatus.textContent = ''; input.focus(); });
+            copy.addEventListener('click', function () { function done() { copyStatus.textContent = '整理结果已复制。'; } if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(output.value).then(done, fallback); else fallback(); function fallback() { output.select(); try { document.execCommand('copy'); done(); } catch (copyError) { copyStatus.textContent = '复制失败，请手动选择结果。'; } } });
+        })();
+    </script>
+</body>
+</html>

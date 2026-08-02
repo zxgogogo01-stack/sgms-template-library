@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="[[LANG]]">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>语义化版本比较器｜[[SITE_NAME]]</title>
+  <meta name="description" content="在浏览器本地比较两个语义化版本号，支持 v 前缀、预发布标识与构建信息。">
+  <link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
+  <meta property="og:title" content="语义化版本比较器｜[[SITE_NAME]]">
+  <meta property="og:description" content="快速判断两个版本的先后关系，输入不会离开浏览器。">
+  <meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container masthead">
+        <a class="brand" href="index.html" aria-label="[[SITE_NAME]] 首页"><span class="brand-mark" aria-hidden="true">SB</span><span class="brand-copy"><span class="brand-name">[[SITE_NAME]]</span><span class="brand-desc">Release intelligence</span></span></a>
+        <nav class="site-nav" aria-label="主导航"><a href="index.html">公告</a><a href="article.html">最新版本</a><a href="tool.html" aria-current="page">版本比较</a><a href="legal.html">发布规范</a></nav>
+      </div>
+      <div class="top-signal"><div class="container signal-row"><span><i class="signal-dot" aria-hidden="true"></i>本地工具 · 不上传输入内容</span><span>SEMVER 2.0.0 COMPATIBLE</span></div></div>
+    </header>
+
+    <main id="main">
+      <header class="page-hero">
+        <div class="container"><p class="eyebrow">Local utility / semver</p><h1>版本先后，<br>一次说清。</h1><p>比较正式版、预发布版与构建标识。所有计算均在当前浏览器完成，不发送输入内容。</p></div>
+      </header>
+
+      <section class="tool-page" aria-labelledby="tool-heading">
+        <div class="container tool-grid">
+          <div class="tool-panel">
+            <div class="tool-panel-head"><h2 id="tool-heading">语义化版本比较器</h2><p>输入完整的主版本.次版本.修订号，例如 3.8.0 或 3.9.0-rc.2。</p></div>
+            <form class="tool-form" id="version-form" novalidate>
+              <div class="version-row">
+                <div class="field"><label for="version-a">版本 A</label><input id="version-a" name="version-a" value="v3.8.0" inputmode="text" autocomplete="off" aria-describedby="error-a"><p class="field-error" id="error-a"></p></div>
+                <button class="icon-button" id="swap" type="button" aria-label="交换两个版本" title="交换版本">⇄</button>
+                <div class="field"><label for="version-b">版本 B</label><input id="version-b" name="version-b" value="3.7.2" inputmode="text" autocomplete="off" aria-describedby="error-b"><p class="field-error" id="error-b"></p></div>
+              </div>
+              <div class="form-actions"><button class="button" type="submit">比较版本</button><button class="button-quiet" id="copy-result" type="button">复制结论</button><button class="button-quiet" id="reset" type="button">重置示例</button></div>
+
+              <section class="result-box" id="result" data-state="idle" aria-live="polite" aria-atomic="true">
+                <p class="result-kicker">Comparison ready</p><h3 class="result-title" id="result-title">等待比较</h3><p class="result-detail" id="result-detail">提交两个有效版本后，这里会显示优先级结论。</p>
+                <div class="segment-list" id="segments" hidden>
+                  <div class="segment"><span>主版本</span><strong id="segment-major">—</strong></div>
+                  <div class="segment"><span>次版本</span><strong id="segment-minor">—</strong></div>
+                  <div class="segment"><span>修订 / 预发布</span><strong id="segment-patch">—</strong></div>
+                </div>
+              </section>
+              <p class="copy-status" id="tool-status" role="status" aria-live="polite" style="color:var(--green)"></p>
+            </form>
+          </div>
+
+          <aside class="tool-note" aria-label="版本比较说明">
+            <section class="note-card"><p class="rail-label">Quick examples</p><div class="example-list"><button class="example-button" type="button" data-a="3.8.0" data-b="3.7.2">3.8.0 vs 3.7.2 · 正式版</button><button class="example-button" type="button" data-a="3.8.0-rc.1" data-b="3.8.0">3.8.0-rc.1 vs 3.8.0 · 预发布</button><button class="example-button" type="button" data-a="3.8.0+build.1" data-b="3.8.0+build.2">构建信息不同 · 优先级相同</button></div></section>
+            <section class="note-card"><h3>支持的格式</h3><ul><li>可选的 <code>v</code> 前缀</li><li>三段数字核心版本</li><li><code>-alpha.1</code> 等预发布标识</li><li><code>+build.7</code> 等构建信息</li></ul></section>
+            <section class="note-card"><h3>判定规则</h3><p>先比较主、次、修订号；正式版高于同核心版本的预发布版。构建信息仅用于标识，不改变优先级。</p></section>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="container footer-grid"><p>© 2026 [[SITE_NAME]] · 工具仅供版本判断，不替代发布说明。</p><div class="footer-links"><a href="index.html">全部公告</a><a href="article.html">最新版本</a><a href="legal.html">发布规范</a></div></div></footer>
+  </div>
+
+  <script>
+  (() => {
+    const form = document.querySelector('#version-form');
+    const inputA = document.querySelector('#version-a');
+    const inputB = document.querySelector('#version-b');
+    const errorA = document.querySelector('#error-a');
+    const errorB = document.querySelector('#error-b');
+    const result = document.querySelector('#result');
+    const resultTitle = document.querySelector('#result-title');
+    const resultDetail = document.querySelector('#result-detail');
+    const segments = document.querySelector('#segments');
+    const status = document.querySelector('#tool-status');
+    let conclusion = '';
+    const pattern = /^v?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?$/;
+
+    function parse(value) {
+      const clean = value.trim();
+      const match = clean.match(pattern);
+      if (!match) return { error: '请输入完整版本，例如 3.8.0 或 3.8.0-rc.1' };
+      const pre = match[4] ? match[4].split('.') : [];
+      if (pre.some((part) => /^\d+$/.test(part) && part.length > 1 && part.startsWith('0'))) return { error: '预发布数字标识不能包含前导零' };
+      return { raw: clean, core: [Number(match[1]), Number(match[2]), Number(match[3])], pre, build: match[5] || '' };
+    }
+
+    function compareIdentifiers(a, b) {
+      const max = Math.max(a.length, b.length);
+      for (let i = 0; i < max; i += 1) {
+        if (a[i] === undefined) return -1;
+        if (b[i] === undefined) return 1;
+        if (a[i] === b[i]) continue;
+        const aNumber = /^\d+$/.test(a[i]);
+        const bNumber = /^\d+$/.test(b[i]);
+        if (aNumber && bNumber) return Number(a[i]) > Number(b[i]) ? 1 : -1;
+        if (aNumber !== bNumber) return aNumber ? -1 : 1;
+        return a[i] > b[i] ? 1 : -1;
+      }
+      return 0;
+    }
+
+    function compare(a, b) {
+      for (let i = 0; i < 3; i += 1) if (a.core[i] !== b.core[i]) return a.core[i] > b.core[i] ? 1 : -1;
+      if (!a.pre.length && !b.pre.length) return 0;
+      if (!a.pre.length) return 1;
+      if (!b.pre.length) return -1;
+      return compareIdentifiers(a.pre, b.pre);
+    }
+
+    function clearErrors() {
+      [inputA, inputB].forEach((input) => input.removeAttribute('aria-invalid'));
+      errorA.textContent = ''; errorB.textContent = '';
+    }
+
+    function showSegment(id, a, b) { document.querySelector(id).textContent = `${a} ↔ ${b}`; }
+
+    function runComparison() {
+      clearErrors(); status.textContent = '';
+      const a = parse(inputA.value); const b = parse(inputB.value);
+      if (a.error || b.error) {
+        if (a.error) { inputA.setAttribute('aria-invalid', 'true'); errorA.textContent = a.error; }
+        if (b.error) { inputB.setAttribute('aria-invalid', 'true'); errorB.textContent = b.error; }
+        (a.error ? inputA : inputB).focus();
+        result.dataset.state = 'idle'; resultTitle.textContent = '请修正版本格式'; resultDetail.textContent = '错误字段已经标出，修正后重新比较。'; segments.hidden = true; conclusion = '';
+        return;
+      }
+      const order = compare(a, b);
+      result.dataset.state = order > 0 ? 'a' : order < 0 ? 'b' : 'equal';
+      resultTitle.textContent = order > 0 ? '版本 A 更新' : order < 0 ? '版本 B 更新' : '两个版本优先级相同';
+      resultDetail.textContent = order === 0 ? `${a.raw} 与 ${b.raw} 的语义化优先级一致；构建信息不参与排序。` : `${order > 0 ? a.raw : b.raw} 的优先级高于 ${order > 0 ? b.raw : a.raw}。`;
+      conclusion = `${resultTitle.textContent}：${resultDetail.textContent}`;
+      showSegment('#segment-major', a.core[0], b.core[0]);
+      showSegment('#segment-minor', a.core[1], b.core[1]);
+      showSegment('#segment-patch', `${a.core[2]}${a.pre.length ? '-' + a.pre.join('.') : ''}`, `${b.core[2]}${b.pre.length ? '-' + b.pre.join('.') : ''}`);
+      segments.hidden = false;
+    }
+
+    form.addEventListener('submit', (event) => { event.preventDefault(); runComparison(); });
+    document.querySelector('#swap').addEventListener('click', () => { const value = inputA.value; inputA.value = inputB.value; inputB.value = value; runComparison(); });
+    document.querySelector('#reset').addEventListener('click', () => { inputA.value = 'v3.8.0'; inputB.value = '3.7.2'; clearErrors(); runComparison(); inputA.focus(); status.textContent = '已恢复默认示例'; });
+    document.querySelector('#copy-result').addEventListener('click', async () => {
+      if (!conclusion) { status.textContent = '请先完成一次有效比较'; return; }
+      try { await navigator.clipboard.writeText(conclusion); status.textContent = '比较结论已复制'; }
+      catch (_) { status.textContent = '浏览器未授权复制，请手动选取结论'; }
+    });
+    document.querySelectorAll('.example-button').forEach((button) => button.addEventListener('click', () => { inputA.value = button.dataset.a; inputB.value = button.dataset.b; runComparison(); }));
+    runComparison();
+  })();
+  </script>
+</body>
+</html>

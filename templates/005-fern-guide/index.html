@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{SITE_NAME}} — 新手路线手册</title>
+  <meta name="description" content="{{SITE_DESC}}">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}">
+  <meta property="og:description" content="{{SITE_DESC}}">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <link rel="stylesheet" href="assets/stem.css">
+  <link rel="stylesheet" href="assets/canopy.css">
+  <link rel="stylesheet" href="assets/leaf.css">
+  <link rel="stylesheet" href="assets/boutique.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "{{SITE_NAME}}",
+    "description": "{{SITE_DESC}}",
+    "provider": { "@type": "Organization", "name": "{{SITE_NAME}}" }
+  }
+  </script>
+</head>
+<body>
+  <header class="peak">
+    <span class="peak__logo" aria-hidden="true">05</span>
+    <span class="peak__word">{{SITE_NAME}}</span>
+    <nav class="peak__menu" aria-label="主导航">
+      <a class="peak__jump" href="index.html" aria-current="page">路线</a>
+      <a class="peak__jump" href="article.html">章节样例</a>
+      <a class="peak__jump" href="tool.html">进度规划</a>
+      <a class="peak__jump" href="legal.html">学前须知</a>
+    </nav>
+  </header>
+
+  <main class="valley">
+    <section class="glade">
+      <p class="glade__kicker">CURATED STARTER ROUTE</p>
+      <h1 class="glade__head">{{SITE_NAME}}</h1>
+      <p class="glade__deck">{{SITE_TAGLINE}}</p>
+      <p class="glade__meta"><span>4 段主路线</span><span>6 份进阶札记</span><span>每季人工复核</span></p>
+    </section>
+
+    <aside class="invite-nook" aria-label="同行入口">
+      <div class="invite-nook__head">
+        <p class="invite-nook__overline">TRAIL PASS / OPTIONAL</p>
+        <h2>把路线带走，再按自己的节奏出发</h2>
+      </div>
+      <dl class="trail-register">
+        <div><dt>建议起步</dt><dd>20 分钟</dd></div>
+        <div><dt>复核频率</dt><dd>每季度</dd></div>
+      </dl>
+      <p class="invite-nook__cap">注册时可填写邀请码</p>
+      <div class="invite-nook__row">
+        <output class="invite-nook__value" id="nook-code">{{INVITE_CODE}}</output>
+        <button class="invite-nook__btn" type="button" aria-describedby="copy-status">复制代码</button>
+      </div>
+      <p class="invite-nook__status" id="copy-status" aria-live="polite"></p>
+      <p class="invite-nook__legal">{{COMPLIANCE_NOTE}}</p>
+    </aside>
+
+    <section class="path-steps" aria-labelledby="route-title">
+      <div class="section-heading">
+        <p>ROUTE / 01</p>
+        <h2 class="path-steps__cap" id="route-title">从理解到复盘</h2>
+      </div>
+      <ol class="path-steps__lane">
+        <li class="path-steps__stop">
+          <p class="path-steps__meta">12 分钟 · 建立边界</p>
+          <h3 class="path-steps__name">先把名词放回语境</h3>
+          <p class="path-steps__gist">明确对象、流程与不适用范围，避免被相似术语和旧版界面带偏。</p>
+        </li>
+        <li class="path-steps__stop">
+          <p class="path-steps__meta">18 分钟 · 安全检查</p>
+          <h3 class="path-steps__name">再梳理账户与权限</h3>
+          <p class="path-steps__gist">检查验证方式、授权边界与恢复路径，把关键设置留成可复查记录。</p>
+        </li>
+        <li class="path-steps__stop">
+          <p class="path-steps__meta">15 分钟 · 读懂条件</p>
+          <h3 class="path-steps__name">看清费用与时效</h3>
+          <p class="path-steps__gist">同时核对费率、门槛、结算周期和附加条件，不只盯住一个数字。</p>
+        </li>
+        <li class="path-steps__stop">
+          <p class="path-steps__meta">10 分钟 · 留下记录</p>
+          <h3 class="path-steps__name">用一次复盘收尾</h3>
+          <p class="path-steps__gist">记录操作前提、实际结果和待确认项，为下一次判断保留可靠上下文。</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="chapter-wall" aria-labelledby="chapter-title">
+      <div class="section-heading">
+        <p>FIELD NOTES / 02</p>
+        <h2 class="chapter-wall__cap" id="chapter-title">六份路线札记</h2>
+      </div>
+      <div class="chapter-wall__cells">
+        <a class="chapter-wall__cell" href="article.html">
+          <span class="chapter-wall__tag">基础 · 12′</span>
+          <span class="chapter-wall__title">给概念画出边界</span>
+        </a>
+        <a class="chapter-wall__cell" href="article.html">
+          <span class="chapter-wall__tag">安全 · 18′</span>
+          <span class="chapter-wall__title">把账户设置留成清单</span>
+        </a>
+        <a class="chapter-wall__cell" href="article.html">
+          <span class="chapter-wall__tag">进阶 · 15′</span>
+          <span class="chapter-wall__title">费率之外还要看什么</span>
+        </a>
+        <a class="chapter-wall__cell" href="article.html">
+          <span class="chapter-wall__tag">判断 · 14′</span>
+          <span class="chapter-wall__title">识别失效的旧版路径</span>
+        </a>
+        <a class="chapter-wall__cell" href="article.html">
+          <span class="chapter-wall__tag">实践 · 20′</span>
+          <span class="chapter-wall__title">完成第一次低风险演练</span>
+        </a>
+        <a class="chapter-wall__cell" href="article.html">
+          <span class="chapter-wall__tag">复盘 · 10′</span>
+          <span class="chapter-wall__title">做一张可复用的观察卡</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="pitfall-list" aria-labelledby="check-title">
+      <div class="section-heading">
+        <p>CHECK BEFORE GO / 03</p>
+        <h2 class="pitfall-list__cap" id="check-title">出发前，先避开三个误区</h2>
+      </div>
+      <ul class="pitfall-list__items">
+        <li class="pitfall-list__one"><strong>把单一数字当作完整答案。</strong>费率、时效、门槛与适用条件必须放在一起判断。</li>
+        <li class="pitfall-list__one"><strong>照着旧截图逐步点击。</strong>入口可能随版本调整，操作前应先核对当前页面与官方说明。</li>
+        <li class="pitfall-list__one"><strong>省略自己的复核记录。</strong>记下日期、前提与结果，才能知道下一次究竟变了什么。</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="roots">
+    <p class="roots__note">人工收录 · 每季复核 · 学习资料不构成行动建议 · <a href="legal.html">学前须知</a> · {{CONTACT_EMAIL}}</p>
+  </footer>
+
+  <script src="assets/go.js"></script>
+</body>
+</html>

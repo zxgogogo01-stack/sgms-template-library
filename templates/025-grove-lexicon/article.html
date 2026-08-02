@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="[[LANG]]">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>滑点：定义、边界与计算 - [[SITE_NAME]]</title>
+    <meta name="description" content="解释滑点的定义、计算口径、示例、常见误用与相关术语。">
+    <link rel="canonical" href="https://[[SITE_DOMAIN]]/article.html">
+    <meta property="og:title" content="滑点：定义、边界与计算 - [[SITE_NAME]]">
+    <meta property="og:description" content="解释滑点的定义、计算口径、示例、常见误用与相关术语。">
+    <meta property="og:url" content="https://[[SITE_DOMAIN]]/article.html">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"滑点","description":"预期参考价与实际平均成交价之间的偏离。","url":"https://[[SITE_DOMAIN]]/article.html","inDefinedTermSet":"https://[[SITE_DOMAIN]]/"}</script>
+</head>
+<body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <div class="status-strip"><div class="shell status-inner"><span>Entry 10 / 12 · reviewed 2026.08</span><span>Branch: risk & execution</span></div></div>
+    <header class="site-header"><div class="shell header-inner"><a class="brand" href="index.html">[[SITE_NAME]]<small>Grove lexicon · field research desk</small></a><nav class="primary-nav" aria-label="主要导航"><a href="index.html">词典索引</a><a href="article.html" aria-current="page">核心词条</a><a href="tool.html">语境统计</a><a href="legal.html">编纂说明</a></nav></div></header>
+
+    <main id="main" class="shell page-main">
+        <header class="page-head"><div><p class="eyebrow">Core entry / 风险与执行</p><h1>滑点 <span>Slippage</span></h1><p>一个经常被用来解释“为什么结果和页面价格不同”的词。要让它可比较，必须同时说明参考价、方向、数量和时间。</p></div><aside class="fact-card" aria-label="词条信息"><dl><div><dt>词条编号</dt><dd>R-03</dd></div><div><dt>所属分支</dt><dd>风险控制</dd></div><div><dt>阅读时间</dt><dd>约 6 分钟</dd></div><div><dt>最近复核</dt><dd>2026.08</dd></div></dl></aside></header>
+
+        <div class="entry-layout"><aside class="entry-index"><p class="eyebrow">On this entry</p><strong>本页索引</strong><a href="#definition">01 · 最短定义</a><a href="#boundary">02 · 使用边界</a><a href="#calculation">03 · 计算口径</a><a href="#example">04 · 中性示例</a><a href="#misuse">05 · 常见误用</a><a href="#related">06 · 相关词条</a></aside><article class="entry-sheet">
+            <p class="eyebrow">Definition first / 先定义，再展开</p>
+            <div class="definition" id="definition"><strong>滑点：</strong>预期参考价与实际平均成交价之间的偏离。它描述结果与参照之间的差，不自动解释产生偏离的唯一原因。</div>
+
+            <h2 id="boundary">先把四个边界说清。</h2>
+            <p>单独说“滑点是 0.4%”还不够。一个可复核的陈述至少需要说明四件事：</p>
+            <ol class="example-steps"><li><div><strong>参考价</strong><br>使用下单时最优报价、中间价、到达价，还是其他事先约定的基准。</div></li><li><div><strong>方向</strong><br>买入和卖出的不利偏离方向相反，正负号必须配合约定解释。</div></li><li><div><strong>数量</strong><br>同一市场状态下，不同数量可能跨越不同价格层级。</div></li><li><div><strong>时间</strong><br>报价变化很快，比较时点和执行窗口会改变结果。</div></li></ol>
+            <div class="notice"><strong>不要混在一起：</strong>滑点、平台手续费和买卖价差都可能影响总成本，但它们是不同口径。复盘时应分别记录。</div>
+
+            <h2 id="calculation">计算口径要与方向一起读。</h2>
+            <p>下面是一种常见的买入方向表达。实际项目可以使用不同公式，但必须在比较前固定口径。</p>
+            <div class="formula"><code>(实际平均成交价 − 参考价) ÷ 参考价 × 100%</code><span>买入方向的示意口径</span></div>
+            <p>如果是卖出方向，通常会调整差值方向，使“不利偏离”仍便于阅读。只给百分比、不说方向和公式，会让同一结果被相反理解。</p>
+
+            <h2 id="example">用一组中性数字走一遍。</h2>
+            <ol class="example-steps"><li><div>操作前选定参考价为 <strong>10.00</strong>，计划买入一组单位。</div></li><li><div>订单在多个价格层级完成，实际加权平均成交价为 <strong>10.04</strong>。</div></li><li><div>按上方口径计算：(10.04 − 10.00) ÷ 10.00 × 100% = <strong>0.40%</strong>。</div></li><li><div>记录应写成“以 10.00 为下单时参考价，买入平均成交价 10.04，示意滑点 0.40%”；手续费另记。</div></li></ol>
+            <p class="crossref">以上数字只用于说明计算结构，不代表任何平台、资产或预期结果。</p>
+
+            <h2 id="misuse">三种常见的“说了但没说清”。</h2>
+            <p><strong>把最优报价当成全部数量的保证。</strong> 最优档只表示该价格层级当时可见的数量，不代表完整订单都能在那里成交。</p>
+            <p><strong>把全部价格变化都叫滑点。</strong> 市场整体变化、延迟、订单冲击和数据时点差异可能同时存在，需要分别记录证据。</p>
+            <p><strong>只谈比例，不谈样本。</strong> 不同数量、时段和流动性环境下的比例不可直接并列比较。</p>
+
+            <h2 id="related">把滑点放回术语地图。</h2>
+            <div class="related-grid"><a class="related-card" href="index.html#term-depth"><strong>市场深度</strong><span>不同价格层级的可用数量</span></a><a class="related-card" href="index.html#term-spread"><strong>买卖价差</strong><span>最优卖价与买价的差额</span></a><a class="related-card" href="index.html#term-taker-fee"><strong>吃单费率</strong><span>消耗可用流动性时的费用口径</span></a></div>
+        </article></div>
+    </main>
+
+    <footer class="site-footer"><div class="shell footer-inner"><p>词条用于学习与建立共同语言，不构成个性化建议；示例仅说明术语口径。</p><nav class="footer-links" aria-label="页脚导航"><a href="index.html">返回词典</a><a href="tool.html">语境统计</a><a href="legal.html">编纂说明</a><a href="mailto:[[CONTACT_EMAIL]]">提交勘误</a></nav></div></footer>
+</body>
+</html>

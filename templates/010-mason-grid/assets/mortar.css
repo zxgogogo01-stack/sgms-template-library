@@ -1,0 +1,56 @@
+/* Mason Grid — mortar (tokens and base) */
+:root {
+  color-scheme: light dark;
+  --concrete: #e9e5db;
+  --concrete-deep: #d8d1c4;
+  --brick-paper: #f8f4ea;
+  --ink: #171a19;
+  --muted: #66675f;
+  --brick: #b9452e;
+  --brick-dark: #7f2f22;
+  --yellow: #d9b542;
+  --line: #aca89c;
+  --shadow: 8px 8px 0 rgba(23, 26, 25, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Arial Narrow", "Roboto Condensed", "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--concrete);
+}
+
+h1, h2, h3 { margin: 0; line-height: 1.08; text-wrap: balance; }
+p { margin: 0 0 1em; }
+a { color: var(--brick-dark); text-underline-offset: 0.2em; }
+code { font-family: Consolas, "Courier New", monospace; }
+button { font: inherit; }
+[hidden] { display: none !important; }
+
+::selection { color: #fff; background: var(--brick); }
+
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --concrete: #171918;
+    --concrete-deep: #242625;
+    --brick-paper: #252622;
+    --ink: #f0ece1;
+    --muted: #b3b1a7;
+    --brick: #e16a4f;
+    --brick-dark: #ff9a7f;
+    --yellow: #e0bd52;
+    --line: #4a4c47;
+    --shadow: 8px 8px 0 rgba(0, 0, 0, 0.38);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}

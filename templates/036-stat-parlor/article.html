@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="__LANG__">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>口径档案｜__SITE_NAME__</title>
+  <meta name="description" content="统计会客室的样本定义、计算边界、核验方式与修订记录。">
+  <link rel="canonical" href="https://__SITE_DOMAIN__/article.html">
+  <meta property="og:title" content="口径档案｜__SITE_NAME__">
+  <meta property="og:description" content="统计会客室的样本定义、计算边界、核验方式与修订记录。">
+  <meta property="og:url" content="https://__SITE_DOMAIN__/article.html">
+  <link rel="stylesheet" href="site.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"统计会客室口径档案","datePublished":"2026-08-01","author":{"@type":"Organization","name":"__SITE_NAME__"}}</script>
+</head>
+<body data-page="article">
+  <a href="#main" data-skip>跳到主要内容</a>
+  <header>
+    <div data-masthead>
+      <a href="index.html" data-brand><span>SP</span><strong>__SITE_NAME__</strong></a>
+      <nav aria-label="主导航"><a href="index.html">陈列</a><a href="article.html" aria-current="page">口径档案</a><a href="tool.html">分析台</a><a href="legal.html">资料声明</a></nav>
+      <span data-session>档案修订 4.2</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <header data-inner-hero>
+      <div>
+        <p data-eyebrow>Method book · Archive 04</p>
+        <h1>每个数字，<br>都该带着来历。</h1>
+        <p data-lede>这份档案解释首页六项谈资如何采集、筛除、计算与修订。结论可以简洁，过程必须经得起追问。</p>
+      </div>
+      <aside data-meta-card>
+        <dl><dt>当前版本</dt><dd>4.2</dd><dt>观察窗</dt><dd>30 日</dd><dt>时区</dt><dd>UTC+8</dd><dt>最近核验</dt><dd>2026.08.01</dd></dl>
+      </aside>
+    </header>
+
+    <div data-document>
+      <aside>
+        <p data-eyebrow>本页目录</p>
+        <p>先读样本边界，再查看各指标定义。桌面端目录会停留在阅读侧边。</p>
+        <nav aria-label="文章目录"><a href="#scope">01 · 样本边界</a><a href="#metrics">02 · 指标口径</a><a href="#quality">03 · 质量控制</a><a href="#revision">04 · 修订记录</a></nav>
+      </aside>
+
+      <article data-prose>
+        <section id="scope">
+          <p data-eyebrow>01 · Sample boundary</p>
+          <h2>样本先被定义，数字才有意义。</h2>
+          <p>本期观察窗覆盖连续 30 个自然日。有效样本指在观察窗内完成至少一个核心动作、通过重复识别与异常时长检查，并具备基本来源信息的独立记录。</p>
+          <p>同一匿名标识在 24 小时内出现多次时，仅保留首次有效动作；跨设备记录不做强制合并。无法确认来源或时间戳异常的记录进入隔离层，不参与首页统计。</p>
+          <div data-callout><strong>阅读提醒</strong>12,480 是去重后的有效观察值，不代表真实自然人数，也不等同于注册账户数。</div>
+        </section>
+
+        <section id="metrics">
+          <p data-eyebrow>02 · Metric notes</p>
+          <h2>六项谈资如何计算</h2>
+          <div data-details-controls><button type="button" id="open-metrics" data-quiet-button>展开全部口径</button><button type="button" id="close-metrics" data-quiet-button>收起全部</button></div>
+          <details data-metric-detail open><summary>有效样本与完成问卷</summary><div>有效样本按匿名标识与 24 小时窗口去重。完成问卷指所有必填字段通过格式检查的记录；完成率以有效样本为分母。</div></details>
+          <details data-metric-detail><summary>日均停留与回访样本</summary><div>停留时长采用相邻事件时间差，并对 30 分钟以上无事件间隔做截断。回访样本指在首次出现后的第 2 至 30 日再次产生核心动作的样本。</div></details>
+          <details data-metric-detail><summary>置信区间与有效字段</summary><div>置信区间按简单随机抽样近似估计，展示 95% 水平下的误差范围。有效字段要求完整度达到 80%，且枚举值异常比例低于 3%。</div></details>
+        </section>
+
+        <section id="quality">
+          <p data-eyebrow>03 · Quality desk</p>
+          <h2>三道核验，拦住漂亮但不可靠的数。</h2>
+          <h3>结构核验</h3><p>检查字段类型、必填项、枚举边界与时间顺序。结构错误记录不会进入指标层。</p>
+          <h3>分布核验</h3><p>将本期与过去四个观察窗比较。单项变化超过两个标准差时，必须补充来源说明或重新抽样。</p>
+          <h3>人工复核</h3><p>从有效样本中分层抽取 2%，核对关键动作链与来源标签。复核结果与脚本摘要一并归档。</p>
+        </section>
+
+        <section id="revision">
+          <p data-eyebrow>04 · Revision log</p>
+          <h2>修订不是抹去旧口径，而是留下可追踪的变化。</h2>
+          <div data-table-scroll tabindex="0" aria-label="可横向滚动的修订记录表">
+            <table><thead><tr><th scope="col">版本</th><th scope="col">日期</th><th scope="col">修订内容</th><th scope="col">影响</th></tr></thead><tbody><tr><td>4.2</td><td>2026.08.01</td><td>回访窗口改为第 2 至 30 日</td><td>回访率 -0.2%</td></tr><tr><td>4.1</td><td>2026.06.12</td><td>增加异常时长截断</td><td>停留 -00:38</td></tr><tr><td>4.0</td><td>2026.03.20</td><td>启用 24 小时去重窗口</td><td>样本 -3.1%</td></tr></tbody></table>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer><p>口径版本 4.2 · 旧版数据不回改 · __SITE_DOMAIN__</p><nav aria-label="页脚导航"><a href="index.html">返回陈列</a><a href="tool.html">打开分析台</a><a href="mailto:__CONTACT_EMAIL__">提交口径问题</a></nav></footer>
+  <script src="app.js"></script>
+</body>
+</html>

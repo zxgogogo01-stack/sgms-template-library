@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang='{LANG}'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#f5f7ef'>
+    <title>定投手续费计算器 — {SITE_NAME}</title>
+    <meta name='description' content='每次定投金额、每月次数、费率与返佣比例，算全年净成本。'>
+    <link rel='canonical' href='https://{SITE_DOMAIN}/tool.html'>
+    <meta property='og:type' content='website'>
+    <meta property='og:site_name' content='{SITE_NAME}'>
+    <meta property='og:title' content='定投手续费计算器 — {SITE_NAME}'>
+    <meta property='og:description' content='每次定投金额、每月次数、费率与返佣比例，算全年净成本。'>
+    <meta property='og:url' content='https://{SITE_DOMAIN}/tool.html'>
+    <meta name='twitter:card' content='summary'>
+    <link rel='stylesheet' href='petal.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "定投手续费计算器",
+        "url": "https://{SITE_DOMAIN}/tool.html"
+    }
+    </script>
+    <style>
+        /* 工具页补充样式 */
+        .potting { max-width: 540px; margin: 0 auto; padding: 50px 24px 84px; }
+        .potting-card {
+            background: var(--blossom);
+            border-radius: 40px 22px 40px 22px;
+            box-shadow: var(--shade65-hi);
+            padding: 44px 46px;
+            border-top: 4px solid var(--moss65);
+        }
+        .potting-card h1 { font-family: var(--serif65); font-size: 1.5rem; }
+        .potting-card > p { color: var(--sage65); margin: 6px 0 8px; }
+        .potting-card label {
+            display: block;
+            margin: 16px 0 6px;
+            font-size: .86rem;
+            font-weight: 800;
+            color: var(--moss65-deep);
+        }
+        .potting-card input {
+            width: 100%;
+            min-height: 48px;
+            padding: 10px 16px;
+            border: 1.5px solid var(--twig);
+            border-radius: 16px;
+            background: var(--loam);
+            color: var(--barkink);
+            font: inherit;
+            font-variant-numeric: tabular-nums;
+            transition: border-color var(--sway), box-shadow var(--sway);
+        }
+        .potting-card input:focus {
+            outline: none;
+            border-color: var(--moss65);
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--moss65) 16%, transparent);
+        }
+        .potting-card input[aria-invalid='true'] {
+            border-color: #b74c3a;
+            box-shadow: 0 0 0 4px color-mix(in srgb, #b74c3a 16%, transparent);
+        }
+        .potting-run {
+            margin-top: 26px;
+            width: 100%;
+            min-height: 52px;
+            border: 0;
+            border-radius: 999px;
+            background: var(--moss65);
+            color: #f3f8ec;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: .06em;
+            cursor: pointer;
+            box-shadow: 0 10px 24px color-mix(in srgb, var(--moss65) 36%, transparent);
+            transition: transform var(--sway), background var(--sway);
+        }
+        .potting-run:hover { transform: translateY(-2px); background: var(--moss65-deep); }
+        .potting-out {
+            display: block;
+            margin-top: 18px;
+            min-height: 26px;
+            padding: 15px 19px;
+            border-radius: 18px;
+            background: var(--dapple);
+            line-height: 1.78;
+            font-variant-numeric: tabular-nums;
+        }
+        .potting-out b { color: var(--moss65-deep); }
+        @media (max-width: 600px) {
+            .potting-card { padding: 30px 22px; border-radius: 26px; }
+        }
+    </style>
+</head>
+<body>
+    <header class='arbor'>
+        <div class='arbor-in'>
+            <a class='arbor-brand' href='index.html'>{BRAND_EN}</a>
+            <button type='button' class='arbor-btn' id='arbor-btn' aria-label='主导航' aria-expanded='false' aria-controls='arbor-nav'>
+                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+            </button>
+            <nav class='arbor-nav' id='arbor-nav' aria-label='主导航'>
+                <a href='index.html'>花园</a>
+                <a href='article.html'>文章</a>
+                <a href='tool.html' aria-current='page'>定投算账</a>
+                <a href='legal.html'>披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class='potting'>
+        <form class='potting-card' id='dc-form' novalidate>
+            <h1>定投手续费计算器</h1>
+            <p>定投像浇水，费用像蒸发。四个数看看一年蒸发多少。本地计算。</p>
+            <label for='dc-per'>每次定投金额</label>
+            <input type='number' id='dc-per' step='any' min='0' placeholder='如 500' aria-describedby='dc-out'>
+            <label for='dc-times'>每月次数</label>
+            <input type='number' id='dc-times' step='1' min='1' placeholder='如 4' aria-describedby='dc-out'>
+            <label for='dc-rate'>手续费率（%）</label>
+            <input type='number' id='dc-rate' step='any' min='0' max='100' placeholder='如 0.1' aria-describedby='dc-out'>
+            <label for='dc-cut'>返佣比例（%，可留空）</label>
+            <input type='number' id='dc-cut' step='any' min='0' max='100' placeholder='如 30' aria-describedby='dc-out'>
+            <button type='submit' class='potting-run' id='dc-run'>算一算</button>
+            <output class='potting-out' id='dc-out' role='status' aria-live='polite'></output>
+        </form>
+    </main>
+
+    <footer class='mulch'>
+        <div class='mulch-in'>
+            <p class='mulch-fine'>结果仅供参考，实际以平台结算为准。</p>
+        </div>
+    </footer>
+
+    <script src='petal.js'></script>
+</body>
+</html>

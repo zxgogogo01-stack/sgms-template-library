@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>站点说明 — {{SITE_NAME}}</title>
+  <meta name="description" content="{{SITE_NAME}} 的编辑准则与声明。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/legal.html">
+  <meta property="og:title" content="站点说明 — {{SITE_NAME}}">
+  <meta property="og:description" content="{{SITE_NAME}} 的编辑准则与声明。">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/legal.html">
+  <link rel="stylesheet" href="assets/ground.css">
+  <link rel="stylesheet" href="assets/shape.css">
+  <link rel="stylesheet" href="assets/trim.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "站点说明",
+    "url": "https://{{SITE_DOMAIN}}/legal.html"
+  }
+  </script>
+</head>
+<body>
+  <header class="crest">
+    <span class="crest__name">{{SITE_NAME}}</span>
+    <span class="crest__issue">说明</span>
+    <nav class="crest__links" aria-label="导航">
+      <a class="crest__a" href="index.html">本期</a>
+      <a class="crest__a" href="article.html">正文</a>
+      <a class="crest__a" href="tool.html">倒计时</a>
+      <a class="crest__a" href="legal.html" aria-current="page">说明</a>
+    </nav>
+  </header>
+
+  <main class="trunk">
+    <article class="rules-col">
+      <h1>站点说明</h1>
+      <div class="body-col__meta"><time datetime="2026-07-31">2026-07-31 更新</time><span>编辑方法 · 公开版</span></div>
+      <p>这份说明公开 {{SITE_NAME}} 如何选择信号、标注证据和处理修订。简报的价值不在于抢先下结论，而在于让判断能够被复核。</p>
+      <h2>什么会进入一期简报</h2>
+      <p>每条信号至少要回答三个问题：观察到什么、使用什么口径、下一步如何验证。只有热度、没有行为证据的消息会留在观察队列，不直接写成结论。</p>
+      <h2>事实、判断与不确定性</h2>
+      <p>事实尽量附原始来源与核对日期；解释性判断会明确使用“我们认为”；证据不足的部分标记为“待验证”，不会用确定语气补齐空白。</p>
+      <h2>修订与时效</h2>
+      <p>每期内容只对应发布时的观察窗口。影响结论的改动会留下修订日期和说明；失效内容保留归档标记，帮助读者理解当时的判断背景。</p>
+      <h2>隐私、反馈与联系</h2>
+      <p>本模板默认不加载第三方统计脚本，倒计时工具也不会上传日期。意见与勘误请写信至 <a class="rules-col__link" href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>。</p>
+    </article>
+  </main>
+
+  <footer class="tail-bar">
+    <p class="tail-bar__msg">方法公开，修订留痕，证据可复核</p>
+  </footer>
+
+  <script src="assets/run.js"></script>
+</body>
+</html>

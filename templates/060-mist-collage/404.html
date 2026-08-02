@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{LANG}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面不存在 — {SITE_NAME}</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="css/glue.css">
+  <style>
+    .fallen { max-width: 440px; margin: 15vh auto; padding: 0 24px; text-align: center; }
+    .fallen-card {
+      position: relative;
+      background: var(--paperx);
+      border-radius: 4px;
+      box-shadow: var(--shadex-hi);
+      padding: 52px 40px;
+      transform: rotate(-1.5deg);
+    }
+    .fallen-card::before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%) rotate(2deg);
+      width: 104px;
+      height: 24px;
+      background: color-mix(in srgb, var(--coral0) 50%, transparent);
+      border-radius: 2px;
+    }
+    .fallen-card h1 {
+      font-family: var(--serif0);
+      font-size: 3.2rem;
+      color: var(--teal0);
+    }
+    .fallen-card p { color: var(--fadex); margin: 6px 0 22px; }
+  </style>
+</head>
+<body>
+  <div class="fallen">
+    <div class="fallen-card">
+      <h1>404</h1>
+      <p>这张卡从墙上掉下来了——找不到或已撕掉。</p>
+      <a class="patch patch-bold" href="index.html">回剪贴墙</a>
+    </div>
+  </div>
+</body>
+</html>

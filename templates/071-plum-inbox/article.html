@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang='%%LANG%%'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#f4f2f0'>
+    <title>信件样板 — %%SITE_NAME%%</title>
+    <meta name='description' content='收件箱站信件页样板。'>
+    <link rel='canonical' href='https://%%SITE_DOMAIN%%/article.html'>
+    <meta property='og:type' content='article'>
+    <meta property='og:site_name' content='%%SITE_NAME%%'>
+    <meta property='og:title' content='信件样板 — %%SITE_NAME%%'>
+    <meta property='og:description' content='收件箱站信件页样板。'>
+    <meta property='og:url' content='https://%%SITE_DOMAIN%%/article.html'>
+    <meta name='twitter:card' content='summary'>
+    <link rel='stylesheet' href='assets/mail.css'>
+    <script type='application/ld+json'>
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "信件样板",
+        "datePublished": "2026-01-19",
+        "mainEntityOfPage": "https://%%SITE_DOMAIN%%/article.html"
+    }
+    </script>
+    <style>
+        .letterpage { max-width: 740px; margin: 0 auto; padding: 44px 24px 80px; }
+        .letterpage-card {
+            background: var(--panewhite);
+            border: 1px solid var(--sealine);
+            border-radius: calc(var(--slotR) + 4px);
+            box-shadow: var(--lift71-hi);
+            padding: 42px 48px;
+        }
+        .letterpage-card h1 {
+            font-family: var(--serif71);
+            font-size: clamp(1.45rem, 3.3vw, 1.95rem);
+            line-height: 1.35;
+            margin-top: 12px;
+        }
+        .letterpage-gist {
+            margin: 24px 0;
+            padding: 15px 20px;
+            border-radius: 10px;
+            background: var(--blush71);
+            border-left: 4px solid var(--plum71);
+        }
+        .letterpage-card h2 {
+            font-family: var(--serif71);
+            font-size: 1.2rem;
+            margin: 30px 0 11px;
+        }
+        .letterpage-card h2::before { content: '➤ '; color: var(--plum71); font-size: .8em; }
+        .letterpage-card p { margin: 0 0 13px; }
+        .letterpage-roll { overflow-x: auto; border-radius: 10px; border: 1px solid var(--sealine); margin: 14px 0 8px; }
+        .letterpage-card table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+        .letterpage-card th, .letterpage-card td { text-align: left; padding: 10px 15px; border-bottom: 1px solid var(--sealine); font-size: .89rem; white-space: nowrap; }
+        .letterpage-card thead th { background: var(--blush71); color: var(--plum71-deep); font-size: .8rem; letter-spacing: .08em; border-bottom: 0; }
+        .letterpage-card tbody tr:last-child td { border-bottom: 0; }
+        .letterpage-fine { font-size: .83rem; color: var(--dovegrey); }
+        @media (max-width: 640px) {
+            .letterpage-card { padding: 28px 20px; }
+            .letterpage-card th, .letterpage-card td { white-space: normal; }
+        }
+    </style>
+</head>
+<body>
+    <header class='postbar'>
+        <div class='postbar-in'>
+            <a class='postbar-brand' href='index.html'>%%BRAND_EN%%</a>
+            <button type='button' class='postbar-btn' id='postbar-btn' aria-label='主导航' aria-expanded='false' aria-controls='postbar-nav'>
+                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+            </button>
+            <nav class='postbar-nav' id='postbar-nav' aria-label='主导航'>
+                <a href='index.html'>收件箱</a>
+                <a href='article.html' aria-current='page'>信件</a>
+                <a href='tool.html'>对账核对</a>
+                <a href='legal.html'>披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class='letterpage'>
+        <article class='letterpage-card'>
+            <div class='openmail-head'>
+                <span class='starkick'><span class='starmark' aria-hidden='true'>★</span>置顶信件</span>
+                <span class='plumchip'>费率观察</span>
+            </div>
+            <h1>示例平台A 挂单档位调整：返佣基数怎么跟着变</h1>
+            <div class='sendermeta'>
+                <span class='sender-face' aria-hidden='true'><b>费</b></span>
+                <span class='sender-cols'>
+                    <span class='sender-from'>费率观察组</span>
+                    <time class='sender-date' datetime='2026-01-19'>2026-01-19 · 口径核对 2026-01-19</time>
+                </span>
+            </div>
+
+            <div class='letterpage-gist'><b>先说结论：</b>费率档位变化会沿着手续费基数传导到返佣金额；核对时应同时确认产品线、账户档位与生效时间。</div>
+
+            <h2>变了什么</h2>
+            <p>先记录调整覆盖的产品、账户层级和生效时间，并把时区统一到自己的账单时区；随后保存规则页版本，便于到账后逐项复核。</p>
+
+            <h2>对返佣的传导</h2>
+            <p>计算顺序是成交额乘手续费率得到手续费，再乘可返比例得到预计返佣。若存在抵扣、上限或排除产品，应先从计佣基数中剔除。</p>
+            <div class='letterpage-roll'>
+                <table>
+                    <thead>
+                        <tr><th scope='col'>项目</th><th scope='col'>调整前</th><th scope='col'>调整后</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>挂单费率（基础档）</td><td>0.0X%</td><td>0.0X%</td></tr>
+                        <tr><td>演示返佣（每万元）</td><td>X.XX</td><td>X.XX</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class='letterpage-fine'>表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
+
+            <h2>要不要动</h2>
+            <p>判断时不要只看返佣比例，还要核对费率、产品范围、结算门槛与到账周期。规则可能调整，正式决策应以账户页面的最新显示为准。</p>
+        </article>
+    </main>
+
+    <footer class='postfoot'>
+        <div class='postfoot-in'>
+            <p class='postfoot-fine'>内容为信息整理，以各平台官方页面为准；不构成投资建议。</p>
+        </div>
+    </footer>
+
+    <script src='assets/mail.js'></script>
+</body>
+</html>

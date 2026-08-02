@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{SITE_NAME}} — 人工筛选的资源墙</title>
+  <meta name="description" content="{{SITE_DESC}}">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}">
+  <meta property="og:description" content="{{SITE_DESC}}">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <link rel="stylesheet" href="assets/mortar.css">
+  <link rel="stylesheet" href="assets/blocks.css">
+  <link rel="stylesheet" href="assets/finish.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "{{SITE_NAME}}",
+    "url": "https://{{SITE_DOMAIN}}/"
+  }
+  </script>
+</head>
+<body>
+  <header class="cap-bar">
+    <a class="cap-bar__brand" href="index.html" aria-label="返回 {{SITE_NAME}} 首页">{{SITE_NAME}}</a>
+    <nav class="cap-bar__nav" aria-label="主导航">
+      <a class="cap-bar__link" href="index.html" aria-current="page">资源墙</a>
+      <a class="cap-bar__link" href="article.html">编辑精选</a>
+      <a class="cap-bar__link" href="tool.html">快速筛选</a>
+      <a class="cap-bar__link" href="legal.html">声明</a>
+    </nav>
+  </header>
+
+  <main class="yard">
+    <section class="banner" aria-labelledby="wall-title">
+      <p class="banner__eyebrow">CURATED WALL / 08 RESOURCES</p>
+      <h1 class="banner__title" id="wall-title">把可靠资源砌成一面墙</h1>
+      <p class="banner__sub">{{SITE_TAGLINE}} · 所有条目均由人工阅读、标注用途并定期复查。</p>
+    </section>
+
+    <section class="code-plate" aria-label="邀请码">
+      <div class="code-plate__face">
+        <span class="code-plate__k">ACCESS PLATE / INVITE</span>
+        <code class="code-plate__v" id="plate-code">{{INVITE_CODE}}</code>
+        <button class="code-plate__copy" type="button" aria-label="复制邀请码" aria-live="polite">复制代码</button>
+      </div>
+      <p class="code-plate__small">{{COMPLIANCE_NOTE}}</p>
+    </section>
+
+    <h2 class="wall-cap">本期上墙 / Current selection</h2>
+    <section class="brick-yard" aria-label="资源列表">
+      <a class="brick-yard__brick brick-yard__brick--wide" href="article.html">
+        <span class="brick-yard__kind">GUIDE · 已核对 01/18</span>
+        <strong class="brick-yard__head">信息源核对清单</strong>
+        <span class="brick-yard__blurb">从发布日期、原始链接到利益关系，十分钟完成一次基础核验。</span>
+        <span class="brick-yard__no">01</span>
+      </a>
+      <a class="brick-yard__brick" href="article.html">
+        <span class="brick-yard__kind">DATA</span>
+        <strong class="brick-yard__head">公开数据入口索引</strong>
+        <span class="brick-yard__blurb">按主题整理的官方数据入口。</span>
+        <span class="brick-yard__no">02</span>
+      </a>
+      <a class="brick-yard__brick" href="article.html">
+        <span class="brick-yard__kind">TOOL</span>
+        <strong class="brick-yard__head">网页存档与差异检查</strong>
+        <span class="brick-yard__blurb">追踪页面更新，保存关键版本。</span>
+        <span class="brick-yard__no">03</span>
+      </a>
+      <a class="brick-yard__brick brick-yard__brick--tall" href="article.html">
+        <span class="brick-yard__kind">READ · LONGFORM</span>
+        <strong class="brick-yard__head">如何读懂一份方法说明</strong>
+        <span class="brick-yard__blurb">先找样本、口径和限制，再看结论。适合需要快速判断研究质量的读者。</span>
+        <span class="brick-yard__no">04</span>
+      </a>
+      <a class="brick-yard__brick" href="article.html">
+        <span class="brick-yard__kind">GUIDE</span>
+        <strong class="brick-yard__head">访谈记录模板</strong>
+        <span class="brick-yard__blurb">把原话、观察与推断分栏记录。</span>
+        <span class="brick-yard__no">05</span>
+      </a>
+      <a class="brick-yard__brick" href="article.html">
+        <span class="brick-yard__kind">DATA</span>
+        <strong class="brick-yard__head">常用指标口径表</strong>
+        <span class="brick-yard__blurb">避免同名指标被误当成一回事。</span>
+        <span class="brick-yard__no">06</span>
+      </a>
+      <a class="brick-yard__brick brick-yard__brick--wide" href="article.html">
+        <span class="brick-yard__kind">TOOL · UPDATED</span>
+        <strong class="brick-yard__head">证据卡片生成器</strong>
+        <span class="brick-yard__blurb">把出处、摘录、核对日期与不确定性放进同一张卡片。</span>
+        <span class="brick-yard__no">07</span>
+      </a>
+      <a class="brick-yard__brick" href="article.html">
+        <span class="brick-yard__kind">READ</span>
+        <strong class="brick-yard__head">编辑部每月复盘</strong>
+        <span class="brick-yard__blurb">本月新增、移除与更正记录。</span>
+        <span class="brick-yard__no">08</span>
+      </a>
+    </section>
+
+    <section class="submit-note">
+      <h2 class="submit-note__cap">推荐一块好砖</h2>
+      <p class="submit-note__txt">请把链接、适用人群和推荐理由发至 {{CONTACT_EMAIL}}。不接受付费上墙；被收录不代表本站背书。</p>
+    </section>
+  </main>
+
+  <footer class="ground">
+    <p class="ground__line">人工整理，仅供参考，不构成投资建议 · <a href="legal.html">收录标准与声明</a></p>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>

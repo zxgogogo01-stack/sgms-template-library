@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="[[LANG]]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#33465c">
+  <title>净费率计算 — [[SITE_NAME]]</title>
+  <meta name="description" content="成交额、名义费率、减免比例三个数，算出真实手续费。">
+  <link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="[[SITE_NAME]]">
+  <meta property="og:title" content="净费率计算 — [[SITE_NAME]]">
+  <meta property="og:description" content="成交额、名义费率、减免比例三个数，算出真实手续费。">
+  <meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="css/tone.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "净费率计算",
+    "url": "https://[[SITE_DOMAIN]]/tool.html"
+  }
+  </script>
+  <style>
+    /* tool page extras */
+    .rigband { max-width: 560px; margin: 0 auto; padding: 46px 24px 80px; }
+    .rigband-card {
+      background: var(--card);
+      border: 1px solid var(--edge);
+      border-top: 4px solid var(--copper);
+      border-radius: var(--rd);
+      box-shadow: var(--sh-hi);
+      padding: 40px 44px;
+    }
+    .rigband-card h1 { font-family: var(--serx); font-size: 1.5rem; margin-bottom: 8px; }
+    .rigband-card > p { color: var(--dus); margin: 0 0 14px; }
+    .rigband-card label {
+      display: block;
+      margin: 16px 0 6px;
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--inkc-2);
+    }
+    .rigband-card input {
+      width: 100%;
+      min-height: 47px;
+      padding: 10px 15px;
+      border: 1.5px solid var(--edge);
+      border-radius: 9px;
+      background: var(--mist);
+      color: var(--inkc);
+      font: inherit;
+      font-variant-numeric: tabular-nums;
+      transition: border-color var(--tw), box-shadow var(--tw);
+    }
+    .rigband-card input:focus {
+      outline: none;
+      border-color: var(--slate);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--slate) 16%, transparent);
+    }
+    .rigband-card input[aria-invalid="true"] {
+      border-color: #b42318;
+      box-shadow: 0 0 0 4px color-mix(in srgb, #b42318 18%, transparent);
+    }
+    .rigband-run {
+      margin-top: 26px;
+      width: 100%;
+      min-height: 50px;
+      border: 0;
+      border-radius: 9px;
+      background: var(--slate);
+      color: #fff;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      cursor: pointer;
+      box-shadow: 0 10px 24px color-mix(in srgb, var(--slate-deep) 45%, transparent);
+      transition: transform var(--tw), background var(--tw);
+    }
+    .rigband-run:hover { transform: translateY(-2px); background: var(--slate-2); }
+    .rigband-run:active { transform: translateY(0); }
+    .rigband-out {
+      display: block;
+      margin-top: 18px;
+      min-height: 24px;
+      padding: 14px 18px;
+      border-radius: 9px;
+      background: var(--copper-wash);
+      color: var(--inkc-2);
+      font-variant-numeric: tabular-nums;
+    }
+    @media (max-width: 620px) {
+      .rigband-card { padding: 26px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="cap">
+    <div class="cap-in">
+      <a class="markrow" href="index.html">[[BRAND_EN]]</a>
+      <button type="button" class="cap-btn" id="cap-btn" aria-label="主导航" aria-expanded="false" aria-controls="cap-nav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <nav class="cap-nav" id="cap-nav" aria-label="主导航">
+        <a href="index.html">入门带</a>
+        <a href="article.html">读物</a>
+        <a href="tool.html" aria-current="page">工具</a>
+        <a href="legal.html">披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="rigband">
+    <form class="rigband-card" id="nf-form" novalidate>
+      <h1>净费率计算</h1>
+      <p>三个数算出减免后的真实手续费。全部在浏览器本地完成。</p>
+      <label for="nf-vol">成交额</label>
+      <input type="number" id="nf-vol" step="any" min="0" placeholder="如 50000" aria-describedby="nf-out">
+      <label for="nf-rate">名义费率（%）</label>
+      <input type="number" id="nf-rate" step="any" min="0" max="100" placeholder="如 0.1" aria-describedby="nf-out">
+      <label for="nf-off">减免比例（%）</label>
+      <input type="number" id="nf-off" step="any" min="0" max="100" placeholder="如 20" aria-describedby="nf-out">
+      <button type="submit" class="rigband-run" id="nf-run">计算</button>
+      <output class="rigband-out" id="nf-out" role="status" aria-live="polite"></output>
+    </form>
+  </main>
+
+  <footer class="base">
+    <p class="base-line">结果仅供参考，实际以平台结算为准。</p>
+  </footer>
+
+  <script src="lift.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="~LANG~">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f2ea">
+    <title>累计返佣估算器 — ~SITE_NAME~</title>
+    <meta name="description" content="按日均手续费、天数与返佣比例，估算一段时间的累计返佣。">
+    <link rel="canonical" href="https://~SITE_DOMAIN~/tool.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="~SITE_NAME~">
+    <meta property="og:title" content="累计返佣估算器 — ~SITE_NAME~">
+    <meta property="og:description" content="按日均手续费、天数与返佣比例，估算一段时间的累计返佣。">
+    <meta property="og:url" content="https://~SITE_DOMAIN~/tool.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="card.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "累计返佣估算器",
+        "url": "https://~SITE_DOMAIN~/tool.html"
+    }
+    </script>
+    <style>
+        /* 工具页补充样式 */
+        .brew { max-width: 520px; margin: 0 auto; padding: 46px 22px 76px; }
+        .brew-card {
+            background: var(--milk);
+            border-radius: calc(var(--round7) + 4px);
+            box-shadow: var(--soft7-hi);
+            padding: 40px 42px;
+            position: relative;
+            overflow: hidden;
+        }
+        .brew-card::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto;
+            height: 5px;
+            background: linear-gradient(90deg, var(--caramel), var(--roast), var(--caramel));
+        }
+        .brew-card h1 { font-family: var(--serif7); font-size: 1.5rem; }
+        .brew-card > p { color: var(--latte); margin: 6px 0 8px; }
+        .brew-card label {
+            display: block;
+            margin: 17px 0 6px;
+            font-size: .85rem;
+            font-weight: 800;
+            color: var(--roast-deep);
+        }
+        .brew-card input {
+            width: 100%;
+            min-height: 48px;
+            padding: 10px 16px;
+            border: 1.5px solid var(--crumb);
+            border-radius: 12px;
+            background: var(--oat);
+            color: var(--bean);
+            font: inherit;
+            font-variant-numeric: tabular-nums;
+            transition: border-color var(--ease7), box-shadow var(--ease7);
+        }
+        .brew-card input:focus {
+            outline: none;
+            border-color: var(--roast);
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--caramel) 20%, transparent);
+        }
+        .brew-card input[aria-invalid="true"] {
+            border-color: #b84832;
+            box-shadow: 0 0 0 4px color-mix(in srgb, #b84832 16%, transparent);
+        }
+        .brew-run {
+            margin-top: 26px;
+            width: 100%;
+            min-height: 52px;
+            border: 0;
+            border-radius: 999px;
+            background: var(--roast);
+            color: #fdf6ec;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: .05em;
+            cursor: pointer;
+            box-shadow: 0 10px 24px color-mix(in srgb, var(--roast) 36%, transparent);
+            transition: transform var(--ease7), background var(--ease7);
+        }
+        .brew-run:hover { transform: translateY(-2px); background: var(--roast-deep); }
+        .brew-out {
+            display: block;
+            margin-top: 18px;
+            min-height: 26px;
+            padding: 15px 19px;
+            border-radius: 12px;
+            background: var(--foam);
+            line-height: 1.7;
+            font-variant-numeric: tabular-nums;
+        }
+        .brew-out b { color: var(--roast-deep); }
+        @media (max-width: 560px) {
+            .brew-card { padding: 28px 22px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="halo">
+        <div class="halo-in">
+            <a class="halo-brand" href="index.html">~BRAND_EN~</a>
+            <nav class="halo-nav" aria-label="主导航">
+                <a href="article.html">文章</a>
+                <a href="tool.html" aria-current="page">工具</a>
+                <a href="legal.html">披露</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="brew">
+        <form class="brew-card" id="es-form" novalidate>
+            <h1>累计返佣估算器</h1>
+            <p>日均手续费 × 天数 × 返佣比例，估一段时间能返多少。本地计算。</p>
+            <label for="es-daily">日均手续费</label>
+            <input type="number" id="es-daily" step="any" min="0" placeholder="如 8.5" aria-describedby="es-out">
+            <label for="es-days">估算天数</label>
+            <input type="number" id="es-days" step="1" min="1" placeholder="如 90" aria-describedby="es-out">
+            <label for="es-cut">返佣比例（%）</label>
+            <input type="number" id="es-cut" step="any" min="0" max="100" placeholder="如 30" aria-describedby="es-out">
+            <button type="submit" class="brew-run" id="es-run">估一估</button>
+            <output class="brew-out" id="es-out" role="status" aria-live="polite"></output>
+        </form>
+    </main>
+
+    <footer class="hemline" style="padding-bottom: 40px;">
+        <p class="hemline-fine">结果仅供参考，实际以平台结算为准。</p>
+    </footer>
+
+    <script src="card.js"></script>
+</body>
+</html>

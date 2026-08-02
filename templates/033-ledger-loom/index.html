@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang='__LANG__'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>月度经营流水簿 · __SITE_NAME__</title>
+  <meta name='description' content='__SITE_DESC__'>
+  <link rel='canonical' href='https://__SITE_DOMAIN__/'>
+  <meta property='og:title' content='月度经营流水簿 · __SITE_NAME__'>
+  <meta property='og:description' content='__SITE_DESC__'>
+  <meta property='og:url' content='https://__SITE_DOMAIN__/'>
+  <link rel='stylesheet' href='site.css'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "__SITE_NAME__ 月度经营流水簿",
+    "description": "一份包含收入、支出、分类与复核状态的公开示例账簿。",
+    "url": "https://__SITE_DOMAIN__/"
+  }
+  </script>
+</head>
+<body>
+  <header data-site-header>
+    <div>
+      <a href='index.html' data-brand aria-label='返回月度经营流水簿首页'>
+        <b>L/33</b>
+        <span><strong>__SITE_NAME__</strong><small>Ledger loom · edition 033</small></span>
+      </a>
+      <nav data-nav aria-label='主导航'>
+        <a href='index.html' aria-current='page'>流水簿</a>
+        <a href='article.html'>记账方法</a>
+        <a href='tool.html'>结余工具</a>
+        <a href='legal.html'>使用说明</a>
+      </nav>
+    </div>
+  </header>
+
+  <main data-page='home'>
+    <section data-hero aria-labelledby='home-title'>
+      <div>
+        <header>
+          <p data-kicker>Monthly operating ledger · July 2026</p>
+          <h1 id='home-title'>把每一笔，织成<em>可复核</em>的经营脉络。</h1>
+          <p data-lede>__SITE_TAGLINE__。这里公开一份已结账的月度示例：收入、支出、凭证与修订状态彼此对应，读者可以看懂，也可以复核。</p>
+        </header>
+        <p data-footnote>PUBLIC SAMPLE · CNY · ACCRUAL BASIS · UPDATED 2026.08.01</p>
+      </div>
+      <aside data-hero-status aria-label='本月结账状态'>
+        <header><span>Month close</span><span>07 / 2026</span></header>
+        <div><strong>已结账</strong><p>8 笔流水已归类，凭证与金额均完成复核。</p></div>
+        <footer><span>Reviewer: EDITOR</span><span>Locked</span></footer>
+      </aside>
+    </section>
+
+    <section data-status-grid aria-label='本月关键数字'>
+      <div><span data-meta-label>本月收入</span><strong>¥54,400</strong></div>
+      <div><span data-meta-label>本月支出</span><strong>¥14,499</strong></div>
+      <div><span data-meta-label>净结余</span><strong>¥39,901</strong></div>
+      <div><span data-meta-label>复核进度</span><strong>8 / 8</strong></div>
+    </section>
+
+    <section aria-labelledby='ledger-title'>
+      <header data-section-head>
+        <div><p data-kicker>July ledger · eight verified entries</p><h2 id='ledger-title'>本月流水</h2></div>
+        <p>搜索事项或分类，也可以只看收入、支出或仍需复核的项目。数字是示例，但字段与复核逻辑可以直接复用。</p>
+      </header>
+
+      <div data-control-bar>
+        <label for='entry-search'><span data-label>搜索流水</span><input id='entry-search' type='search' placeholder='例如：顾问、协作、税费' autocomplete='off'></label>
+        <div data-filter-group aria-label='流水筛选'>
+          <button type='button' data-entry-filter='all' aria-pressed='true'>全部</button>
+          <button type='button' data-entry-filter='in' aria-pressed='false'>收入</button>
+          <button type='button' data-entry-filter='out' aria-pressed='false'>支出</button>
+          <button type='button' data-entry-filter='review' aria-pressed='false'>待复核</button>
+        </div>
+      </div>
+
+      <div data-ledger-grid>
+        <section data-ledger-main aria-label='月度流水表'>
+          <header data-ledger-meta><span id='entry-count'>8 / 8 笔可见</span><span>Currency · CNY</span></header>
+          <table data-ledger-table>
+            <thead><tr><th scope='col'>日期</th><th scope='col'>事项</th><th scope='col'>分类</th><th scope='col'>凭证</th><th scope='col'>金额</th></tr></thead>
+            <tbody>
+              <tr data-entry data-kind='in' data-state='verified' data-search='顾问项目 首款 项目收入 INV-0726-01'>
+                <td data-label='日期'>07.03</td><td data-label='事项'>顾问项目首款</td><td data-label='分类'><span data-entry-type>项目收入</span></td><td data-label='凭证'>INV-0726-01</td><td data-label='金额' data-amount='in'>+¥28,000</td>
+              </tr>
+              <tr data-entry data-kind='out' data-state='verified' data-search='云服务 续费 软件服务 OPS-0705'>
+                <td data-label='日期'>07.05</td><td data-label='事项'>云服务续费</td><td data-label='分类'><span data-entry-type>运营成本</span></td><td data-label='凭证'>OPS-0705</td><td data-label='金额' data-amount='out'>−¥1,280</td>
+              </tr>
+              <tr data-entry data-kind='out' data-state='verified' data-search='样品 打印 物料支出 MAT-0708'>
+                <td data-label='日期'>07.08</td><td data-label='事项'>样品打印</td><td data-label='分类'><span data-entry-type>物料支出</span></td><td data-label='凭证'>MAT-0708</td><td data-label='金额' data-amount='out'>−¥860</td>
+              </tr>
+              <tr data-entry data-kind='in' data-state='verified' data-search='设计项目 二期 项目收入 INV-0712-02'>
+                <td data-label='日期'>07.12</td><td data-label='事项'>设计项目二期款</td><td data-label='分类'><span data-entry-type>项目收入</span></td><td data-label='凭证'>INV-0712-02</td><td data-label='金额' data-amount='in'>+¥16,800</td>
+              </tr>
+              <tr data-entry data-kind='out' data-state='verified' data-search='外部协作者 费用 协作支出 COL-0715'>
+                <td data-label='日期'>07.15</td><td data-label='事项'>外部协作者费用</td><td data-label='分类'><span data-entry-type>协作支出</span></td><td data-label='凭证'>COL-0715</td><td data-label='金额' data-amount='out'>−¥6,200</td>
+              </tr>
+              <tr data-entry data-kind='in' data-state='verified' data-search='摄影交付 尾款 项目收入 INV-0718-03'>
+                <td data-label='日期'>07.18</td><td data-label='事项'>摄影交付尾款</td><td data-label='分类'><span data-entry-type>项目收入</span></td><td data-label='凭证'>INV-0718-03</td><td data-label='金额' data-amount='in'>+¥9,600</td>
+              </tr>
+              <tr data-entry data-kind='out' data-state='verified' data-search='税费 预留 税费准备 TAX-0722'>
+                <td data-label='日期'>07.22</td><td data-label='事项'>当月税费预留</td><td data-label='分类'><span data-entry-type>税费准备</span></td><td data-label='凭证'>TAX-0722</td><td data-label='金额' data-amount='out'>−¥5,460</td>
+              </tr>
+              <tr data-entry data-kind='out' data-state='verified' data-search='设计软件 订阅 软件服务 OPS-0729'>
+                <td data-label='日期'>07.29</td><td data-label='事项'>设计软件订阅</td><td data-label='分类'><span data-entry-type>运营成本</span></td><td data-label='凭证'>OPS-0729</td><td data-label='金额' data-amount='out'>−¥699</td>
+              </tr>
+            </tbody>
+          </table>
+          <div data-empty id='entry-empty' hidden>
+            <h3>没有匹配的流水</h3>
+            <p>换一个关键词，或恢复全部分类。</p>
+            <button type='button' id='reset-entries'>清除筛选</button>
+          </div>
+        </section>
+
+        <aside data-ledger-aside>
+          <section data-panel>
+            <p data-kicker>Category summary</p>
+            <h3>分类小计</h3>
+            <table data-summary-table>
+              <tbody>
+                <tr><th scope='row'>项目收入</th><td>¥54,400</td></tr>
+                <tr><th scope='row'>运营与物料</th><td>−¥2,839</td></tr>
+                <tr><th scope='row'>协作支出</th><td>−¥6,200</td></tr>
+                <tr><th scope='row'>税费准备</th><td>−¥5,460</td></tr>
+                <tr><th scope='row'>净结余</th><td>¥39,901</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section data-panel>
+            <p data-kicker>Reconciliation</p>
+            <h3>凭证已对齐</h3>
+            <div data-progress aria-label='复核进度 100%'><span style='width:100%'></span></div>
+            <small>8 笔流水 · 8 份凭证 · 0 个差异项</small>
+          </section>
+          <section data-panel data-copy>
+            <p data-kicker>Collaborator access</p>
+            <h3>协作簿邀请码</h3>
+            <code id='ledger-code'>__INVITE_CODE__</code>
+            <button type='button' data-act='copy-code'>复制邀请码</button>
+            <p data-inline-status id='copy-status' aria-live='polite'></p>
+            <small>__COMPLIANCE_NOTE__</small>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section data-conventions aria-labelledby='conventions-title'>
+      <header><p data-kicker>Ledger conventions</p><h2 id='conventions-title'>三条记账约定</h2><p data-lede>先统一口径，再讨论结余。</p></header>
+      <ol>
+        <li><div><strong>金额有方向</strong><p>收入使用正数，支出使用负数；不把退款与折扣藏进备注。</p></div></li>
+        <li><div><strong>每笔有凭证</strong><p>发票、合同、付款记录或修订说明至少保留一种可定位证据。</p></div></li>
+        <li><div><strong>结账后留轨迹</strong><p>月结后不直接覆盖旧数；差异进入修订记录，注明原因与复核人。</p></div></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <div><h2>__SITE_NAME__ · 月度经营流水簿</h2><p>让经营数字有来处、有分类，也有复核路径。</p></div>
+      <div><nav aria-label='页脚导航'><a href='article.html'>记账方法</a><a href='tool.html'>结余工具</a><a href='legal.html'>使用说明</a></nav><small>LEDGER 033 · __SITE_DOMAIN__ · __CONTACT_EMAIL__</small></div>
+    </div>
+  </footer>
+  <script src='app.js'></script>
+</body>
+</html>

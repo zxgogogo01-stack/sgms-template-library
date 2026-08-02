@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="~LANG~">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f7f7">
+  <title>绑码自查清单 — ~SITE_NAME~</title>
+  <meta name="description" content="注册绑码前逐项自查，勾完看就绪度。">
+  <link rel="canonical" href="https://~SITE_DOMAIN~/tool.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="~SITE_NAME~">
+  <meta property="og:title" content="绑码自查清单 — ~SITE_NAME~">
+  <meta property="og:description" content="注册绑码前逐项自查，勾完看就绪度。">
+  <meta property="og:url" content="https://~SITE_DOMAIN~/tool.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="css/handbook.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "绑码自查清单",
+    "url": "https://~SITE_DOMAIN~/tool.html"
+  }
+  </script>
+  <style>
+    .checkhall { max-width: 620px; margin: 0 auto; padding: 46px 24px 80px; }
+    .checkhall-card {
+      background: var(--sheetpane);
+      border: 1px solid var(--seamgrey);
+      border-top: 4px solid var(--rustred);
+      border-radius: var(--notch);
+      box-shadow: var(--paperlift-hi);
+      padding: 40px 44px;
+    }
+    .checkhall-card h1 { font-family: var(--serif72); font-size: 1.5rem; }
+    .checkhall-card > p { color: var(--steelgrey); margin: 6px 0 18px; }
+    .checkline {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 15px;
+      border: 1px solid var(--seamgrey);
+      border-radius: var(--notch);
+      margin-bottom: 9px;
+      cursor: pointer;
+      transition: border-color var(--snick), background var(--snick);
+    }
+    .checkline:hover { border-color: var(--rustred); background: var(--washgrey); }
+    .checkline input {
+      width: 19px;
+      height: 19px;
+      margin-top: 4px;
+      accent-color: var(--rustred);
+      cursor: pointer;
+    }
+    .checkline b { display: block; font-size: .95rem; }
+    .checkline small { color: var(--steelgrey); font-size: .84rem; line-height: 1.6; display: block; }
+    .ck-track {
+      margin-top: 20px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--washgrey);
+      overflow: hidden;
+    }
+    #ck-fill {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--rustred), var(--rustred-deep));
+      transition: width .3s ease;
+    }
+    .ck-readout {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-top: 12px;
+      gap: 14px;
+    }
+    #ck-pct {
+      font-family: var(--mono72);
+      font-variant-numeric: tabular-nums;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--rustred);
+    }
+    #ck-verdict { color: var(--steelgrey); font-size: .92rem; }
+    @media (max-width: 600px) {
+      .checkhall-card { padding: 26px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="ridgepole">
+    <div class="ridgepole-in">
+      <a class="ridgepole-brand" href="index.html">~BRAND_EN~</a>
+      <button type="button" class="ridgepole-btn" id="ridgepole-btn" aria-label="主导航" aria-expanded="false" aria-controls="ridgepole-nav">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="ridgepole-nav" id="ridgepole-nav" aria-label="主导航">
+        <a href="index.html">手册</a>
+        <a href="article.html">条目</a>
+        <a href="tool.html" aria-current="page">自查清单</a>
+        <a href="legal.html">披露</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="checkhall">
+    <section class="checkhall-card">
+      <h1>绑码自查清单</h1>
+      <p>注册绑码前把五项勾完，就绪度实时算。只在本地，不上传。</p>
+
+      <label class="checkline"><input type="checkbox"><span><b>核对了官方域名</b><small>从官网或官方公告进入注册页，不点陌生链接。</small></span></label>
+      <label class="checkline"><input type="checkbox"><span><b>检查了证书与页面细节</b><small>地址栏锁标、域名拼写、无多余连字符。</small></span></label>
+      <label class="checkline"><input type="checkbox"><span><b>确认了邀请码填写位置</b><small>注册表单里的邀请码栏位，而不是任何"代充"入口。</small></span></label>
+      <label class="checkline"><input type="checkbox"><span><b>读过返佣口径</b><small>比例、结算周期、是否与 VIP 叠加，规则页各看一遍。</small></span></label>
+      <label class="checkline"><input type="checkbox"><span><b>记下了核对日期</b><small>平台规则会变，标记这次核对的时间，方便日后复查。</small></span></label>
+
+      <div class="ck-track" id="ck-track" role="progressbar" aria-label="核对进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="ck-fill"></span></div>
+      <div class="ck-readout">
+        <span id="ck-pct" aria-live="polite">0%</span>
+        <span id="ck-verdict">先别急着注册，逐项核对完再动手。</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="baseplate">
+    <div class="baseplate-in">
+      <p class="baseplate-fine">清单为通用提醒，具体以各平台规则为准。</p>
+    </div>
+  </footer>
+
+  <script src="handbook.js"></script>
+</body>
+</html>

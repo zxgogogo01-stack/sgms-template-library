@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='~LANG~'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>迷失夜空 — ~SITE_NAME~</title>
+    <meta name='robots' content='noindex'>
+    <link rel='stylesheet' href='assets/star.css'>
+    <style>
+        .lostsky { max-width: 460px; margin: 15vh auto; padding: 0 24px; text-align: center; }
+        .lostsky-card {
+            background: var(--nebula);
+            border: 1px solid var(--meridian);
+            border-radius: var(--orb67);
+            padding: 52px 40px;
+        }
+        .lostsky-card h1 {
+            font-family: var(--serif67);
+            font-size: 3.4rem;
+            color: var(--goldstar);
+            text-shadow: 0 0 30px color-mix(in srgb, var(--goldstar) 45%, transparent);
+        }
+        .lostsky-card p { color: var(--stardust); margin: 8px 0 24px; }
+        .lostsky-back {
+            display: inline-block;
+            min-height: 47px;
+            line-height: 47px;
+            padding: 0 27px;
+            border-radius: 999px;
+            background: var(--goldstar);
+            color: #241c05;
+            font-weight: 800;
+            transition: transform var(--glint), background var(--glint);
+        }
+        .lostsky-back:hover { transform: translateY(-2px); background: var(--goldstar-hi); }
+    </style>
+</head>
+<body>
+    <div class='lostsky'>
+        <div class='lostsky-card'>
+            <h1>404</h1>
+            <p>这颗星不在星图上——可能已经流走了。</p>
+            <a class='lostsky-back' href='index.html'>回星图</a>
+        </div>
+    </div>
+</body>
+</html>
