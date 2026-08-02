@@ -15,7 +15,7 @@
 
 `index.html` / `article.html` / `tool.html` / `legal.html` / `404.html` / `robots.txt` / `sitemap.xml` / `TEMPLATE.md`，以及 `public.css`、`assets/main.css`、`assets/wire.js`。
 
-## 首页占位符
+## 占位符
 
 `~SITE_NAME~`、`~BRAND_EN~`、`~SITE_DOMAIN~`、`~SITE_TAGLINE~`、`~SITE_DESC~`、`~SEO_TITLE~`、`~HERO_EYEBROW~`、`~HERO_TITLE~`、`~HERO_DESCRIPTION~`、`~HOME_LATEST_LABEL~`、`~CONTACT_EMAIL~`、`~LANG~`。
 

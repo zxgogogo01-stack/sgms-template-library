@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html lang='__lang__'>
+<html lang='~LANG~'>
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>线断了 — __site_name__</title>
+    <meta name='theme-color' content='#2b3a55'>
+    <title>线断了 — ~SITE_NAME~</title>
     <meta name='robots' content='noindex'>
     <link rel='stylesheet' href='assets/main.css'>
     <style>
         /* 404 补充 */
+        .snap-well {
+            min-height: calc(100vh - 224px);
+            display: grid;
+            place-items: center;
+            padding: clamp(48px, 9vh, 96px) 24px;
+        }
         .snap {
+            width: min(100%, 440px);
             max-width: 440px;
-            margin: 16vh auto;
             padding: 0 24px;
             text-align: center;
         }
@@ -25,14 +32,38 @@
             color: var(--night);
         }
         .snap p { color: var(--hush); }
+        @media (max-width: 620px) {
+            .snap-well { min-height: calc(100vh - 264px); padding-inline: 18px; }
+        }
     </style>
 </head>
 <body>
-    <div class='snap'>
-        <div class='snap-line' aria-hidden='true'></div>
-        <h1>404</h1>
-        <p>轴线在这里断开了——页面不存在或已移动。</p>
-        <p><a class='seal' href='index.html'>回答疑轴</a></p>
-    </div>
+    <header class='spine-top'>
+        <a class='brandline' href='index.html'>~BRAND_EN~</a>
+        <button type='button' class='spine-btn' id='spine-btn' aria-label='主导航' aria-expanded='false' aria-controls='spine-nav'>
+            <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
+        </button>
+        <nav class='spine-nav' id='spine-nav' aria-label='主导航'>
+            <a href='index.html'>答疑轴</a>
+            <a href='article.html'>长答</a>
+            <a href='tool.html'>净费率</a>
+            <a href='legal.html'>披露</a>
+        </nav>
+    </header>
+
+    <main class='snap-well'>
+        <section class='snap' aria-labelledby='snap-title'>
+            <div class='snap-line' aria-hidden='true'></div>
+            <h1 id='snap-title'>404</h1>
+            <p>轴线在这里断开了——页面不存在或已移动。</p>
+            <p><a class='seal' href='index.html'>回答疑轴</a></p>
+        </section>
+    </main>
+
+    <footer class='spine-end'>
+        <p class='se-line'>没有找到目标页面；请返回答疑轴继续查看长答、工具与披露。</p>
+    </footer>
+
+    <script src='assets/wire.js'></script>
 </body>
 </html>
