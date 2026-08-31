@@ -2,7 +2,7 @@
   'use strict';
 
   var root=document.documentElement;
-  var storageKey='scatter-theme';
+  var storageKey='scatter-study-043-theme';
   var themeButton=document.querySelector('[data-theme-button]');
   var themeLabel=document.querySelector('[data-theme-label]');
 
@@ -45,6 +45,12 @@
     });
   }
 
+  function normalized(value){
+    var text=String(value||'');
+    if(text.normalize){text=text.normalize('NFKC');}
+    return text.trim().toLocaleLowerCase();
+  }
+
   var noteSearch=document.querySelector('[data-note-search]');
   var noteFilters=document.querySelector('[data-note-filters]');
   var notes=Array.prototype.slice.call(document.querySelectorAll('[data-note]'));
@@ -52,11 +58,11 @@
   var noteEmpty=document.querySelector('[data-note-empty]');
   var activeFilter='all';
   function filterNotes(){
-    var query=noteSearch?noteSearch.value.trim().toLowerCase():'';
+    var query=noteSearch?normalized(noteSearch.value):'';
     var shown=0;
     notes.forEach(function(note){
       var stateMatch=activeFilter==='all'||note.dataset.status===activeFilter;
-      var text=(note.dataset.search+' '+note.textContent).toLowerCase();
+      var text=normalized(note.dataset.search+' '+note.textContent);
       var searchMatch=!query||text.indexOf(query)>-1;
       note.hidden=!(stateMatch&&searchMatch);
       if(!note.hidden){shown+=1;}
@@ -92,7 +98,7 @@
   var copyOutput=document.querySelector('[data-copy-output]');
   var copyStatus=document.querySelector('[data-copy-status]');
   var generated='';
-  var citationErrorFields=citationForm?[citationForm.elements.title,citationForm.elements.year,citationForm.elements.source]:[];
+  var citationErrorFields=citationForm?[citationForm.elements.title,citationForm.elements.author,citationForm.elements.year,citationForm.elements.source]:[];
   if(message){message.id='citation-message';message.setAttribute('role','alert');message.setAttribute('aria-atomic','true');citationErrorFields.forEach(function(field){field.setAttribute('aria-describedby','citation-message');field.addEventListener('input',function(){field.removeAttribute('aria-invalid');});});}
   function buildCitation(data){
     var author=data.author.trim()||'作者不详';
@@ -105,26 +111,35 @@
     }
     return author+'. '+title+'['+typeNames[data.type]+']. '+year+(source?'. '+source:'')+'.';
   }
+  function resetCitationOutput(){
+    generated='';message.textContent='';copyStatus.textContent='';styleLabel.textContent='等待资料';copyOutput.disabled=true;citationErrorFields.forEach(function(field){field.removeAttribute('aria-invalid');});
+    preview.innerHTML='<span>OUTPUT / 000</span><p class="ss43-preview-empty">填写左侧资料后，这里会出现可复制的引用。</p>';
+  }
   if(citationForm){
+    citationForm.addEventListener('input',function(){if(generated){resetCitationOutput();}else{message.textContent='';copyStatus.textContent='';}});
+    citationForm.addEventListener('change',function(){if(generated){resetCitationOutput();}else{message.textContent='';copyStatus.textContent='';}});
     citationForm.addEventListener('submit',function(event){
-      event.preventDefault();copyStatus.textContent='';citationErrorFields.forEach(function(field){field.removeAttribute('aria-invalid');});
+      event.preventDefault();generated='';copyOutput.disabled=true;styleLabel.textContent='等待资料';copyStatus.textContent='';citationErrorFields.forEach(function(field){field.removeAttribute('aria-invalid');});
       var data=Object.fromEntries(new FormData(citationForm).entries());
       if(!data.title.trim()){citationForm.elements.title.setAttribute('aria-invalid','true');message.textContent='请先填写题名；没有题名的资料无法被可靠定位。';citationForm.elements.title.focus();return;}
-      if(data.year.trim()&&!/^\d{4}$/.test(data.year.trim())){citationForm.elements.year.setAttribute('aria-invalid','true');message.textContent='年份应为四位数字，例如 2026。';citationForm.elements.year.focus();return;}
-      if(data.source.trim()&&/^www\./i.test(data.source.trim())){citationForm.elements.source.setAttribute('aria-invalid','true');message.textContent='网页地址请补全安全协议前缀，或只填写来源名称。';citationForm.elements.source.focus();return;}
+      if(Array.from(data.title.trim()).length>200){citationForm.elements.title.setAttribute('aria-invalid','true');message.textContent='题名最多 200 个字符，请缩短后重试。';citationForm.elements.title.focus();return;}
+      if(Array.from(data.author.trim()).length>120){citationForm.elements.author.setAttribute('aria-invalid','true');message.textContent='作者或机构最多 120 个字符，请缩短后重试。';citationForm.elements.author.focus();return;}
+      if(data.year.trim()&&!/^(?:1\d{3}|20\d{2})$/.test(data.year.trim())){citationForm.elements.year.setAttribute('aria-invalid','true');message.textContent='年份应为 1000–2099 的四位数字，例如 2026。';citationForm.elements.year.focus();return;}
+      if(Array.from(data.source.trim()).length>500){citationForm.elements.source.setAttribute('aria-invalid','true');message.textContent='来源或链接最多 500 个字符，请缩短后重试。';citationForm.elements.source.focus();return;}
+      if(/[\r\n\t]/.test(data.source)){citationForm.elements.source.setAttribute('aria-invalid','true');message.textContent='来源或链接不能包含换行或制表符。';citationForm.elements.source.focus();return;}
+      if(data.source.trim()&&/^(?:www\.|http:\/\/)/i.test(data.source.trim())){citationForm.elements.source.setAttribute('aria-invalid','true');message.textContent='网页地址请使用完整的 HTTPS 安全链接，或只填写来源名称。';citationForm.elements.source.focus();return;}
+      if(data.source.trim()&&/^https:\/\//i.test(data.source.trim())){try{var parsedSource=new URL(data.source.trim());if(parsedSource.username||parsedSource.password){throw new Error('credentials');}}catch(error){citationForm.elements.source.setAttribute('aria-invalid','true');message.textContent='网页地址无效，或包含不应公开的登录信息。';citationForm.elements.source.focus();return;}}
+      if(!['report','article','dataset','web','field'].includes(data.type)||!['gb','note'].includes(data.style)){message.textContent='资料类型或编排风格无效，请重新选择。';return;}
       message.textContent='';generated=buildCitation(data);
       preview.innerHTML='<span>OUTPUT / READY</span><blockquote></blockquote><p>请在使用前再次核对原始来源。</p>';
       preview.querySelector('blockquote').textContent=generated;
       styleLabel.textContent=data.style==='gb'?'GB/T 7714 简式':'研究笔记式';
       copyOutput.disabled=false;
     });
-    citationForm.addEventListener('reset',function(){setTimeout(function(){
-      generated='';message.textContent='';copyStatus.textContent='';styleLabel.textContent='等待资料';copyOutput.disabled=true;citationErrorFields.forEach(function(field){field.removeAttribute('aria-invalid');});
-      preview.innerHTML='<span>OUTPUT / 000</span><p class="preview-empty">填写左侧资料后，这里会出现可复制的引用。</p>';
-    },0);});
+    citationForm.addEventListener('reset',function(){setTimeout(resetCitationOutput,0);});
     var sample=document.querySelector('[data-load-sample]');
     if(sample){sample.addEventListener('click',function(){
-      citationForm.elements.title.value='城市街角温度观测记录';citationForm.elements.author.value='~SITE_NAME~ 研究桌';citationForm.elements.year.value='2026';citationForm.elements.type.value='field';citationForm.elements.style.value='gb';citationForm.elements.source.value='https://~SITE_DOMAIN~/article.html';citationErrorFields.forEach(function(field){field.removeAttribute('aria-invalid');});message.textContent='示例已载入，可继续修改。';
+      resetCitationOutput();citationForm.elements.title.value='城市街角温度观测记录';citationForm.elements.author.value='~SITE_NAME~ 研究桌';citationForm.elements.year.value='2026';citationForm.elements.type.value='field';citationForm.elements.style.value='gb';citationForm.elements.source.value='https://~SITE_DOMAIN~/article.html';citationErrorFields.forEach(function(field){field.removeAttribute('aria-invalid');});message.textContent='示例已载入，可继续修改。';
     });}
   }
   if(copyOutput){copyOutput.addEventListener('click',function(){if(!generated){return;}copyText(generated).then(function(){copyStatus.textContent='已复制到剪贴板';}).catch(function(){copyStatus.textContent='复制失败，请手动选择';});});}
@@ -144,10 +159,10 @@
     {title:'雨停之后，哪一种路面最晚变干',keys:'雨水 路面 排水',href:'index.html#notes'},
     {title:'研究引用编排器',keys:'引用 来源 格式 工具',href:'tool.html'}
   ];
-  if(missingForm){missingForm.addEventListener('submit',function(event){
-    event.preventDefault();var query=missingForm.querySelector('input').value.trim().toLowerCase();missingResults.innerHTML='';
-    if(!query){missingStatus.textContent='先输入一个主题关键词。';missingResults.hidden=true;return;}
-    var found=deskIndex.filter(function(item){return (item.title+' '+item.keys).toLowerCase().indexOf(query)>-1;});
+  if(missingForm){var missingInput=missingForm.querySelector('input');missingInput.addEventListener('input',function(){missingInput.removeAttribute('aria-invalid');missingStatus.textContent='';missingResults.replaceChildren();missingResults.hidden=true;});missingForm.addEventListener('submit',function(event){
+    event.preventDefault();var query=normalized(missingInput.value);missingResults.replaceChildren();
+    if(!query){missingInput.setAttribute('aria-invalid','true');missingStatus.textContent='先输入一个主题关键词。';missingResults.hidden=true;missingInput.focus();return;}
+    missingInput.removeAttribute('aria-invalid');var found=deskIndex.filter(function(item){return normalized(item.title+' '+item.keys).indexOf(query)>-1;});
     if(!found.length){missingStatus.textContent='当前索引没有匹配项，试试“温度”或“引用”。';missingResults.hidden=true;return;}
     missingStatus.textContent='找到 '+found.length+' 条可访问内容。';missingResults.hidden=false;
     found.forEach(function(item){var li=document.createElement('li');var a=document.createElement('a');a.href=item.href;a.textContent=item.title;li.appendChild(a);missingResults.appendChild(li);});
