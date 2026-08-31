@@ -27,6 +27,13 @@
 - 版本号、生效日期、复核周期必须在封面、页头、页脚和修订记录中保持一致
 - 若移除某个页面，请同步调整所有导航、`sitemap.xml` 与本说明
 
+## 后续 AI 的文字接入顺序
+
+1. 先替换上方 6 个全局占位符，再逐页改写标题、摘要、章程条款和政策正文。
+2. 只改可见文字、SEO 描述、结构化数据里的文字字段及日期版本；保留现成 HTML 层级、`data-*` 属性、ID、五页导航和 `site.css`，无需重新设计 UI。
+3. 增删首页原则时，同步维护 `data-kind`、筛选按钮、条款索引、引用编号与 `data-reference`；不要改动 `app.js` 依赖的属性名。
+4. 文案完成后运行 `node tools/validate.js templates/032-plain-manifest` 与 `node tools/audit-template.js templates/032-plain-manifest`，确认占位符、链接、描述和交互契约仍然完整。
+
 ## 交互说明
 
 - 首页支持本地关键词搜索、分类筛选、空结果恢复和条款引用复制

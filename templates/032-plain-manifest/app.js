@@ -84,11 +84,31 @@
   }
 
   var source = document.getElementById("width-source");
+  var output = document.getElementById("width-output");
+
+  function invalidateTool() {
+    if (!source) return;
+    source.removeAttribute("aria-invalid");
+    document.getElementById("tool-error").textContent = "";
+    document.getElementById("tool-status").textContent = "";
+    document.getElementById("tool-result").hidden = true;
+    output.value = "";
+    document.getElementById("output-count").textContent = "0 字符";
+    document.getElementById("changed-count").textContent = "0";
+    document.getElementById("mode-label").textContent = "—";
+  }
+
   if (source) {
     source.addEventListener("input", function () {
       document.getElementById("source-count").textContent = source.value.length + " 字符";
-      source.removeAttribute("aria-invalid");
-      document.getElementById("tool-error").textContent = "";
+      invalidateTool();
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('input[name="width-mode"]'), function (radio) {
+      radio.addEventListener("change", invalidateTool);
+    });
+    output.addEventListener("input", function () {
+      document.getElementById("output-count").textContent = output.value.length + " 字符";
+      document.getElementById("tool-status").textContent = "";
     });
   }
 
@@ -125,9 +145,16 @@
     var error = document.getElementById("tool-error");
     var panel = document.getElementById("tool-result");
     var status = document.getElementById("tool-status");
-    if (!input.value.trim()) {
+    if (!input.value) {
       input.setAttribute("aria-invalid", "true");
       error.textContent = "请先输入需要规范化的文本。";
+      panel.hidden = true;
+      input.focus();
+      return;
+    }
+    if (input.value.length > 20000) {
+      input.setAttribute("aria-invalid", "true");
+      error.textContent = "单次输入不得超过 20,000 个字符。";
       panel.hidden = true;
       input.focus();
       return;
@@ -159,12 +186,9 @@
   function clearTool() {
     var input = document.getElementById("width-source");
     input.value = "";
-    input.removeAttribute("aria-invalid");
-    document.getElementById("width-output").value = "";
     document.getElementById("source-count").textContent = "0 字符";
-    document.getElementById("tool-error").textContent = "";
-    document.getElementById("tool-status").textContent = "";
-    document.getElementById("tool-result").hidden = true;
+    document.getElementById("mode-half").checked = true;
+    invalidateTool();
     input.focus();
   }
 
@@ -172,8 +196,7 @@
     var input = document.getElementById("width-source");
     input.value = "版本：Ｖ２．４　负责人：ＥＤＩＴＯＲ\n状态：ＡＣＣＥＰＴＥＤ　日期：２０２６－０８－０１";
     document.getElementById("source-count").textContent = input.value.length + " 字符";
-    input.removeAttribute("aria-invalid");
-    document.getElementById("tool-error").textContent = "";
+    invalidateTool();
     input.focus();
   }
 })();

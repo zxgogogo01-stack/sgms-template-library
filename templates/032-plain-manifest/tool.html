@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17191d">
   <title>文本宽度规范化｜__SITE_NAME__</title>
-  <meta name="description" content="__SITE_DESC__">
+  <meta name="description" content="在浏览器本地批量转换全角与半角 ASCII 字符，保留中文、换行和其他符号。">
   <link rel="canonical" href="https://__SITE_DOMAIN__/tool.html">
   <meta property="og:title" content="文本宽度规范化｜__SITE_NAME__">
-  <meta property="og:description" content="__SITE_DESC__">
+  <meta property="og:description" content="不上传、不保存输入的全角与半角文本规范化工具。">
   <meta property="og:url" content="https://__SITE_DOMAIN__/tool.html">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"文本宽度规范化","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","url":"https://__SITE_DOMAIN__/tool.html"}
@@ -29,9 +29,9 @@
     <section data-wrap data-toolgrid aria-label="文本宽度规范化工具">
       <div data-tool>
         <div data-fieldhead><label for="width-source">待处理文本</label><output id="source-count">0 字符</output></div>
-        <textarea id="width-source" rows="9" placeholder="例如：版本：Ｖ２．４　状态：ＡＣＣＥＰＴＥＤ" aria-describedby="tool-help tool-error"></textarea>
+        <textarea id="width-source" rows="9" maxlength="20000" placeholder="例如：版本：Ｖ２．４　状态：ＡＣＣＥＰＴＥＤ" aria-describedby="tool-help tool-error"></textarea>
         <p id="tool-help">转换只影响空格与 U+FF01–U+FF5E 范围字符；中文、换行和其他符号保持不变。</p>
-        <fieldset data-modes><legend>转换方向</legend><label><input type="radio" name="width-mode" value="half" checked> 全角 → 半角</label><label><input type="radio" name="width-mode" value="full"> 半角 → 全角</label></fieldset>
+        <fieldset data-modes><legend>转换方向</legend><label for="mode-half"><input id="mode-half" type="radio" name="width-mode" value="half" aria-label="全角转半角" checked> 全角 → 半角</label><label for="mode-full"><input id="mode-full" type="radio" name="width-mode" value="full" aria-label="半角转全角"> 半角 → 全角</label></fieldset>
         <p id="tool-error" data-error role="alert"></p>
         <div data-actions><button type="button" data-act="convert" data-button>开始规范化</button><button type="button" data-act="load-sample" data-button="signal">载入公开样例</button><button type="button" data-act="clear-tool" data-button="quiet">清空</button></div>
 
@@ -39,7 +39,7 @@
           <p data-kicker>Normalized output</p><h2 id="result-heading">规范化结果</h2>
           <div data-resultmeta><div><small>转换方向</small><output id="mode-label">—</output></div><div><small>变更字符</small><output id="changed-count">0</output></div><div><small>结果长度</small><output id="output-count">0 字符</output></div></div>
           <div data-fieldhead><label for="width-output">结果文本</label><span>可继续编辑后复制</span></div>
-          <textarea id="width-output" rows="9" readonly></textarea>
+          <textarea id="width-output" rows="9" maxlength="20000" aria-label="可编辑的规范化结果"></textarea>
           <div data-actions><button type="button" data-act="copy-output" data-button="quiet">复制结果</button></div>
           <p id="tool-status" data-inline-status aria-live="polite"></p>
         </section>
