@@ -16,143 +16,158 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到主要内容</a>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container masthead">
-        <a class="brand" href="index.html" aria-label="[[SITE_NAME]] 首页">
-          <span class="brand-mark" aria-hidden="true">SB</span>
-          <span class="brand-copy"><span class="brand-name">[[SITE_NAME]]</span><span class="brand-desc">Release intelligence</span></span>
+  <a class="sb-skip-link" href="#main">跳到主要内容</a>
+  <div class="sb-site-shell">
+    <header class="sb-site-header">
+      <div class="sb-container sb-masthead">
+        <a class="sb-brand" href="index.html" aria-label="[[SITE_NAME]] 首页">
+          <span class="sb-brand-mark" aria-hidden="true">SB</span>
+          <span class="sb-brand-copy"><span class="sb-brand-name">[[SITE_NAME]]</span><span class="sb-brand-desc">Release intelligence</span></span>
         </a>
-        <nav class="site-nav" aria-label="主导航">
+        <nav class="sb-site-nav" aria-label="主导航">
           <a href="index.html" aria-current="page">公告</a>
           <a href="article.html">最新版本</a>
           <a href="tool.html">版本比较</a>
           <a href="legal.html">发布规范</a>
         </nav>
       </div>
-      <div class="top-signal">
-        <div class="container signal-row">
-          <span><i class="signal-dot" aria-hidden="true"></i>发布通道正常 · LAST CHECK 09:40 CST</span>
+      <div class="sb-top-signal">
+        <div class="sb-container sb-signal-row">
+          <span><i class="sb-signal-dot" aria-hidden="true"></i>发布通道正常 · LAST CHECK 09:40 CST</span>
           <span>当前稳定版 v3.8.0 · 公告时区 Asia/Shanghai</span>
         </div>
       </div>
     </header>
 
     <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="container hero-grid">
+      <section class="sb-hero" aria-labelledby="hero-title">
+        <div class="sb-container sb-hero-grid">
           <div>
-            <p class="eyebrow">Change intelligence / 026</p>
+            <p class="sb-eyebrow">Change intelligence / 026</p>
             <h1 id="hero-title">每一次上线，<br>都有证据链。</h1>
-            <p class="hero-lead">集中查阅功能发布、权限调整、接口变化与维护窗口。先判断影响，再安排动作——不让关键更新淹没在消息流里。</p>
+            <p class="sb-hero-lead">集中查阅功能发布、权限调整、接口变化与维护窗口。先判断影响，再安排动作——不让关键更新淹没在消息流里。</p>
           </div>
-          <div class="hero-summary" aria-label="发布概览">
-            <div class="hero-metric"><strong>3.8.0</strong><span>当前稳定版本</span></div>
-            <div class="hero-metric"><strong>06</strong><span>近 90 天发布</span></div>
-            <div class="hero-metric"><strong>0</strong><span>未解决高风险项</span></div>
+          <div class="sb-hero-summary" aria-label="发布概览">
+            <div class="sb-hero-metric"><strong>3.8.0</strong><span>当前稳定版本</span></div>
+            <div class="sb-hero-metric"><strong>06</strong><span>近 90 天发布</span></div>
+            <div class="sb-hero-metric"><strong>0</strong><span>未解决高风险项</span></div>
           </div>
         </div>
       </section>
 
-      <section class="workbench" aria-labelledby="release-heading">
-        <div class="container">
-          <div class="section-head">
-            <div><p class="eyebrow">Release ledger</p><h2 id="release-heading">版本与公告</h2></div>
+      <section class="sb-workbench" aria-labelledby="release-heading">
+        <div class="sb-container">
+          <div class="sb-section-head">
+            <div><p class="sb-eyebrow">Release ledger</p><h2 id="release-heading">版本与公告</h2></div>
             <p>每条公告均标注生效时间、影响范围与建议动作。列表共 <strong>6</strong> 条，默认按发布时间倒序排列。</p>
           </div>
 
-          <div class="command-bar" aria-label="公告筛选工具">
-            <div class="search-wrap"><label class="sr-only" for="release-search" hidden>搜索公告</label><input id="release-search" type="search" placeholder="搜索版本、标题或关键词" aria-label="搜索公告" autocomplete="off"></div>
-            <div class="filter-list" role="group" aria-label="按类别筛选">
-              <button class="filter-button" type="button" data-filter="all" aria-pressed="true">全部</button>
-              <button class="filter-button" type="button" data-filter="platform" aria-pressed="false">平台</button>
-              <button class="filter-button" type="button" data-filter="access" aria-pressed="false">权限</button>
-              <button class="filter-button" type="button" data-filter="api" aria-pressed="false">API</button>
-              <button class="filter-button" type="button" data-filter="data" aria-pressed="false">数据</button>
+          <div class="sb-command-bar" aria-label="公告筛选工具">
+            <div class="sb-search-wrap"><label class="sb-sr-only" for="release-search" hidden>搜索公告</label><input id="release-search" type="search" placeholder="搜索版本、标题或关键词" aria-label="搜索公告" autocomplete="off"></div>
+            <div class="sb-filter-list" role="group" aria-label="按类别筛选">
+              <button class="sb-filter-button" type="button" data-filter="all" aria-pressed="true">全部</button>
+              <button class="sb-filter-button" type="button" data-filter="platform" aria-pressed="false">平台</button>
+              <button class="sb-filter-button" type="button" data-filter="access" aria-pressed="false">权限</button>
+              <button class="sb-filter-button" type="button" data-filter="api" aria-pressed="false">API</button>
+              <button class="sb-filter-button" type="button" data-filter="data" aria-pressed="false">数据</button>
             </div>
           </div>
 
-          <div class="bulletin-layout">
-            <aside class="rail" aria-label="公告状态与邀请码">
-              <section class="rail-panel">
-                <p class="rail-label">Release health</p>
-                <div class="health-line" aria-label="发布状态 100% 正常"><span></span></div>
-                <ul class="rail-list" style="margin-top:16px">
+          <div class="sb-bulletin-layout">
+            <aside class="sb-rail" aria-label="公告状态与邀请码">
+              <section class="sb-rail-panel">
+                <p class="sb-rail-label">Release health</p>
+                <div class="sb-health-line" aria-label="发布状态 100% 正常"><span></span></div>
+                <ul class="sb-rail-list" style="margin-top:16px">
                   <li><span>稳定通道</span><strong>v3.8.0</strong></li>
                   <li><span>候选通道</span><strong>v3.9.0-rc.2</strong></li>
                   <li><span>下次维护</span><strong>08/09</strong></li>
                 </ul>
               </section>
-              <section class="rail-panel">
-                <p class="rail-label">Impact key</p>
-                <ul class="rail-list">
-                  <li><span><i class="tag amber">重要</i></span><span>需安排动作</span></li>
-                  <li><span><i class="tag">改进</i></span><span>建议了解</span></li>
-                  <li><span><i class="tag green">维护</i></span><span>低风险变更</span></li>
+              <section class="sb-rail-panel">
+                <p class="sb-rail-label">Impact key</p>
+                <ul class="sb-rail-list">
+                  <li><span><i class="sb-tag sb-amber">重要</i></span><span>需安排动作</span></li>
+                  <li><span><i class="sb-tag">改进</i></span><span>建议了解</span></li>
+                  <li><span><i class="sb-tag sb-green">维护</i></span><span>低风险变更</span></li>
                 </ul>
               </section>
-              <section class="rail-panel invite-box">
-                <p class="rail-label">Private preview</p>
-                <label for="invite-code" class="rail-label" style="margin-bottom:7px">内测邀请码</label>
-                <input class="invite-code" id="invite-code" value="[[INVITE_CODE]]" readonly>
-                <div class="invite-actions"><button class="button" type="button" id="copy-invite">复制邀请码</button></div>
-                <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
-                <p class="microcopy">邀请码仅用于获准的测试环境，不代表正式服务资格。</p>
+              <section class="sb-rail-panel sb-invite-box">
+                <p class="sb-rail-label">Private preview</p>
+                <label for="invite-code" class="sb-rail-label" style="margin-bottom:7px">内测邀请码</label>
+                <input class="sb-invite-code" id="invite-code" value="[[INVITE_CODE]]" readonly>
+                <div class="sb-invite-actions"><button class="sb-button" type="button" id="copy-invite">复制邀请码</button></div>
+                <p class="sb-copy-status" id="copy-status" role="status" aria-live="polite"></p>
+                <p class="sb-microcopy">邀请码仅用于获准的测试环境，不代表正式服务资格。</p>
               </section>
             </aside>
 
             <div>
-              <div class="results-meta"><span id="result-message" role="status" aria-live="polite">显示全部公告</span><strong><span id="result-count">6</span> / 6</strong></div>
-              <div class="release-list" id="release-list">
-                <a class="release-card" href="article.html" data-tags="platform access audit export" data-level="important">
-                  <div class="release-version">v3.8.0<span class="release-date">2026.07.29</span></div>
-                  <div class="release-content"><div class="release-meta"><span class="tag amber">重要</span><span class="tag">平台</span><span class="tag">权限</span></div><h3 class="release-title">权限审计与导出流程更新</h3><p class="release-summary">新增审计快照、导出审批与 30 天追溯记录；管理员需在 8 月 12 日前复核导出角色。</p></div>
-                  <span class="release-arrow" aria-hidden="true">↗</span>
+              <div class="sb-results-meta"><span id="result-message" role="status" aria-live="polite">显示全部公告</span><strong><span id="result-count">6</span> / 6</strong></div>
+              <div class="sb-release-list" id="release-list">
+                <a class="sb-release-card" href="article.html" data-tags="platform access audit export" data-level="important">
+                  <div class="sb-release-version">v3.8.0<span class="sb-release-date">2026.07.29</span></div>
+                  <div class="sb-release-content"><div class="sb-release-meta"><span class="sb-tag sb-amber">重要</span><span class="sb-tag">平台</span><span class="sb-tag">权限</span></div><h3 class="sb-release-title">权限审计与导出流程更新</h3><p class="sb-release-summary">新增审计快照、导出审批与 30 天追溯记录；管理员需在 8 月 12 日前复核导出角色。</p></div>
+                  <span class="sb-release-arrow" aria-hidden="true">↗</span>
                 </a>
-                <a class="release-card" href="article.html#migration" data-tags="api token webhook security" data-level="important">
-                  <div class="release-version">v3.7.2<span class="release-date">2026.07.16</span></div>
-                  <div class="release-content"><div class="release-meta"><span class="tag amber">重要</span><span class="tag">API</span></div><h3 class="release-title">Webhook 签名升级至 HMAC-SHA256</h3><p class="release-summary">旧签名继续兼容 45 天。新版增加时间戳校验，降低重放请求风险。</p></div>
-                  <span class="release-arrow" aria-hidden="true">↗</span>
+                <a class="sb-release-card" href="article.html#migration" data-tags="api token webhook security" data-level="important">
+                  <div class="sb-release-version">v3.7.2<span class="sb-release-date">2026.07.16</span></div>
+                  <div class="sb-release-content"><div class="sb-release-meta"><span class="sb-tag sb-amber">重要</span><span class="sb-tag">API</span></div><h3 class="sb-release-title">Webhook 签名升级至 HMAC-SHA256</h3><p class="sb-release-summary">旧签名继续兼容 45 天。新版增加时间戳校验，降低重放请求风险。</p></div>
+                  <span class="sb-release-arrow" aria-hidden="true">↗</span>
                 </a>
-                <a class="release-card" href="article.html#changes" data-tags="data export csv filter" data-level="improvement">
-                  <div class="release-version">v3.7.0<span class="release-date">2026.06.30</span></div>
-                  <div class="release-content"><div class="release-meta"><span class="tag">改进</span><span class="tag">数据</span></div><h3 class="release-title">大型数据集分批导出</h3><p class="release-summary">超过 50 万行的任务改为异步生成，并提供有效期 24 小时的下载记录。</p></div>
-                  <span class="release-arrow" aria-hidden="true">↗</span>
+                <a class="sb-release-card" href="article.html#changes" data-tags="data export csv filter" data-level="improvement">
+                  <div class="sb-release-version">v3.7.0<span class="sb-release-date">2026.06.30</span></div>
+                  <div class="sb-release-content"><div class="sb-release-meta"><span class="sb-tag">改进</span><span class="sb-tag">数据</span></div><h3 class="sb-release-title">大型数据集分批导出</h3><p class="sb-release-summary">超过 50 万行的任务改为异步生成，并提供有效期 24 小时的下载记录。</p></div>
+                  <span class="sb-release-arrow" aria-hidden="true">↗</span>
                 </a>
-                <a class="release-card" href="article.html#scope" data-tags="access sso role security" data-level="improvement">
-                  <div class="release-version">v3.6.4<span class="release-date">2026.06.12</span></div>
-                  <div class="release-content"><div class="release-meta"><span class="tag">改进</span><span class="tag">权限</span></div><h3 class="release-title">SSO 角色映射支持预览</h3><p class="release-summary">保存规则前即可查看预计新增、调整与移除的成员，减少错误映射。</p></div>
-                  <span class="release-arrow" aria-hidden="true">↗</span>
+                <a class="sb-release-card" href="article.html#scope" data-tags="access sso role security" data-level="improvement">
+                  <div class="sb-release-version">v3.6.4<span class="sb-release-date">2026.06.12</span></div>
+                  <div class="sb-release-content"><div class="sb-release-meta"><span class="sb-tag">改进</span><span class="sb-tag">权限</span></div><h3 class="sb-release-title">SSO 角色映射支持预览</h3><p class="sb-release-summary">保存规则前即可查看预计新增、调整与移除的成员，减少错误映射。</p></div>
+                  <span class="sb-release-arrow" aria-hidden="true">↗</span>
                 </a>
-                <a class="release-card" href="article.html#support" data-tags="platform maintenance performance" data-level="maintenance">
-                  <div class="release-version">v3.6.1<span class="release-date">2026.05.24</span></div>
-                  <div class="release-content"><div class="release-meta"><span class="tag green">维护</span><span class="tag">平台</span></div><h3 class="release-title">任务队列稳定性维护</h3><p class="release-summary">高峰期排队策略优化，后台任务可见性与失败原因说明同步增强。</p></div>
-                  <span class="release-arrow" aria-hidden="true">↗</span>
+                <a class="sb-release-card" href="article.html#support" data-tags="platform maintenance performance" data-level="maintenance">
+                  <div class="sb-release-version">v3.6.1<span class="sb-release-date">2026.05.24</span></div>
+                  <div class="sb-release-content"><div class="sb-release-meta"><span class="sb-tag sb-green">维护</span><span class="sb-tag">平台</span></div><h3 class="sb-release-title">任务队列稳定性维护</h3><p class="sb-release-summary">高峰期排队策略优化，后台任务可见性与失败原因说明同步增强。</p></div>
+                  <span class="sb-release-arrow" aria-hidden="true">↗</span>
                 </a>
-                <a class="release-card" href="article.html#changes" data-tags="api pagination sdk data" data-level="maintenance">
-                  <div class="release-version">v3.5.8<span class="release-date">2026.05.08</span></div>
-                  <div class="release-content"><div class="release-meta"><span class="tag green">维护</span><span class="tag">API</span><span class="tag">数据</span></div><h3 class="release-title">游标分页边界行为统一</h3><p class="release-summary">空结果统一返回空游标；现有 SDK 无需升级，直接调用方建议复核判断条件。</p></div>
-                  <span class="release-arrow" aria-hidden="true">↗</span>
+                <a class="sb-release-card" href="article.html#changes" data-tags="api pagination sdk data" data-level="maintenance">
+                  <div class="sb-release-version">v3.5.8<span class="sb-release-date">2026.05.08</span></div>
+                  <div class="sb-release-content"><div class="sb-release-meta"><span class="sb-tag sb-green">维护</span><span class="sb-tag">API</span><span class="sb-tag">数据</span></div><h3 class="sb-release-title">游标分页边界行为统一</h3><p class="sb-release-summary">空结果统一返回空游标；现有 SDK 无需升级，直接调用方建议复核判断条件。</p></div>
+                  <span class="sb-release-arrow" aria-hidden="true">↗</span>
                 </a>
               </div>
-              <div class="empty-state" id="empty-state" hidden>
-                <strong>没有匹配的公告</strong><p>换个关键词，或清除当前类别筛选后再试。</p><button class="button" type="button" id="reset-filter">显示全部公告</button>
+              <div class="sb-empty-state" id="empty-state" hidden>
+                <strong>没有匹配的公告</strong><p>换个关键词，或清除当前类别筛选后再试。</p><button class="sb-button" type="button" id="reset-filter">显示全部公告</button>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <section class="sb-release-proof" aria-labelledby="release-proof-title">
+        <figure class="sb-proof-sheet">
+          <figcaption><time datetime="2026-08-14T16:40:00+08:00">2026.08.14 · 16:40 UTC+8</time><span id="release-proof-title">Release evidence / 发布凭证</span></figcaption>
+          <meter min="0" max="5" value="5" aria-label="五项发布闸门已全部完成">5 / 5</meter>
+          <details>
+            <summary>查看本次发布闸门与责任记录</summary>
+            <dl>
+              <div><dt>迁移演练</dt><dd><data value="5">5 项已通过</data><abbr title="Service Level Objective">SLO</abbr> 未受影响</dd></div>
+              <div><dt>回退窗口</dt><dd>发布后 45 分钟内持续观察，触发条件见完整公告</dd></div>
+              <div><dt>状态归档</dt><dd>原始检查记录与订正说明保留 180 天</dd></div>
+            </dl>
+          </details>
+          <address>发布记录问题请联系 <a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></address>
+        </figure>
+      </section>
     </main>
 
-    <footer class="site-footer"><div class="container footer-grid"><p>© 2026 [[SITE_NAME]] · [[COMPLIANCE_NOTE]]</p><div class="footer-links"><a href="article.html">最新公告</a><a href="tool.html">版本比较</a><a href="legal.html">发布规范</a></div></div></footer>
+    <footer class="sb-site-footer"><div class="sb-container sb-footer-grid"><p>© 2026 [[SITE_NAME]] · [[COMPLIANCE_NOTE]]</p><div class="sb-footer-links"><a href="article.html">最新公告</a><a href="tool.html">版本比较</a><a href="legal.html">发布规范</a></div></div></footer>
   </div>
 
   <script>
   (() => {
     const search = document.querySelector('#release-search');
     const buttons = [...document.querySelectorAll('[data-filter]')];
-    const cards = [...document.querySelectorAll('.release-card')];
+    const cards = [...document.querySelectorAll('.sb-release-card')];
     const count = document.querySelector('#result-count');
     const message = document.querySelector('#result-message');
     const empty = document.querySelector('#empty-state');

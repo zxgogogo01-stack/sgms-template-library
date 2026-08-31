@@ -13,22 +13,22 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到主要内容</a>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container masthead">
-        <a class="brand" href="index.html" aria-label="[[SITE_NAME]] 首页"><span class="brand-mark" aria-hidden="true">SB</span><span class="brand-copy"><span class="brand-name">[[SITE_NAME]]</span><span class="brand-desc">Release intelligence</span></span></a>
-        <nav class="site-nav" aria-label="主导航"><a href="index.html">公告</a><a href="article.html">最新版本</a><a href="tool.html">版本比较</a><a href="legal.html" aria-current="page">发布规范</a></nav>
+  <a class="sb-skip-link" href="#main">跳到主要内容</a>
+  <div class="sb-site-shell">
+    <header class="sb-site-header">
+      <div class="sb-container sb-masthead">
+        <a class="sb-brand" href="index.html" aria-label="[[SITE_NAME]] 首页"><span class="sb-brand-mark" aria-hidden="true">SB</span><span class="sb-brand-copy"><span class="sb-brand-name">[[SITE_NAME]]</span><span class="sb-brand-desc">Release intelligence</span></span></a>
+        <nav class="sb-site-nav" aria-label="主导航"><a href="index.html">公告</a><a href="article.html">最新版本</a><a href="tool.html">版本比较</a><a href="legal.html" aria-current="page">发布规范</a></nav>
       </div>
-      <div class="top-signal"><div class="container signal-row"><span><i class="signal-dot" aria-hidden="true"></i>治理文档 · 最近复核 2026.07.31</span><span>DOCUMENT ID · PUB-026-R3</span></div></div>
+      <div class="sb-top-signal"><div class="sb-container sb-signal-row"><span><i class="sb-signal-dot" aria-hidden="true"></i>治理文档 · 最近复核 2026.07.31</span><span>DOCUMENT ID · PUB-026-R3</span></div></div>
     </header>
 
     <main id="main">
-      <header class="page-hero"><div class="container"><p class="eyebrow">Publication charter</p><h1>发布与<br>订正规范</h1><p>这份文件说明本站公告的适用范围、时间口径、版本标识与纠错方式。它是阅读变更时的共同基准。</p><div class="page-meta"><span>版本 R3</span><span>生效 2026.08.01</span><span>维护方 [[SITE_NAME]]</span></div></div></header>
+      <header class="sb-page-hero"><div class="sb-container"><p class="sb-eyebrow">Publication charter</p><h1>发布与<br>订正规范</h1><p>这份文件说明本站公告的适用范围、时间口径、版本标识与纠错方式。它是阅读变更时的共同基准。</p><div class="sb-page-meta"><span>版本 R3</span><span>生效 2026.08.01</span><span>维护方 [[SITE_NAME]]</span></div></div></header>
 
-      <div class="container legal-grid">
-        <nav class="legal-index" aria-label="规范目录"><a href="#nature">01 文档性质</a><a href="#time">02 时间与生效</a><a href="#version">03 版本口径</a><a href="#correction">04 订正与撤回</a><a href="#archive">05 归档规则</a><a href="#privacy">06 工具与数据</a><a href="#invite">07 邀请码边界</a><a href="#contact">08 联系方式</a></nav>
-        <article class="legal-copy">
+      <div class="sb-container sb-legal-grid">
+        <nav class="sb-legal-index" aria-label="规范目录"><a href="#nature">01 文档性质</a><a href="#time">02 时间与生效</a><a href="#version">03 版本口径</a><a href="#correction">04 订正与撤回</a><a href="#archive">05 归档规则</a><a href="#privacy">06 工具与数据</a><a href="#invite">07 邀请码边界</a><a href="#contact">08 联系方式</a></nav>
+        <article class="sb-legal-copy">
           <section id="nature"><h2>01 · 文档性质与适用范围</h2><p>本站用于发布 [[SITE_NAME]] 的产品功能、接口行为、权限策略、维护窗口与重要订正。公告是变更沟通材料，不构成超出既有协议的额外承诺。</p><p>若公告与已签署的服务协议、数据处理附件或单独书面约定冲突，以后者为准。安全事件、个别客户的专属配置与未公开测试不会在公共公告中披露敏感细节。</p></section>
           <section id="time"><h2>02 · 时间与生效</h2><p>除非公告另有标注，所有日期与时间均以 Asia/Shanghai 为准。页面中的“发布”表示公告公开时间，“生效”表示变更开始影响用户或接口的时间，两者可能不同。</p><p>计划维护若跨越日期，将同时标出开始与结束时间。因安全或稳定性需要而立即生效的变更，会在影响标签中明确标识，并说明无法提前通知的原因。</p></section>
           <section id="version"><h2>03 · 版本口径</h2><p>产品版本采用主版本.次版本.修订号的三段格式。预发布标识位于连字符之后，构建信息位于加号之后。功能是否可用仍可能受账户方案、区域或灰度策略影响。</p><ul><li>主版本：包含不兼容变化或大范围产品调整。</li><li>次版本：新增向后兼容的能力。</li><li>修订号：修复或低风险维护。</li></ul></section>
@@ -36,12 +36,12 @@
           <section id="archive"><h2>05 · 归档与可访问性</h2><p>历史公告按版本与发布时间归档。我们尽量长期保留稳定地址，便于内部引用与审计。界面停止维护的旧版本仍可能保留记录，但不代表继续提供技术支持。</p></section>
           <section id="privacy"><h2>06 · 本地工具与输入数据</h2><p>版本比较器在浏览器本地运行，输入内容不会主动发送至本站。浏览器扩展、设备策略或网络环境可能有各自的数据处理行为，不在本站控制范围内。</p><p>请勿将访问令牌、密码、个人信息或其他敏感内容输入版本字段。</p></section>
           <section id="invite"><h2>07 · 邀请码使用边界</h2><p>首页邀请码用于获准的测试或预览环境。邀请码不代表正式订阅、服务资格或任何收益承诺，也不得出售、批量分享或用于绕过访问控制。失效或被撤销的邀请码不会另行补偿。</p></section>
-          <section id="contact"><h2>08 · 联系与反馈</h2><p>发现公告内容错误、无障碍问题或版本比较异常，可发送邮件至 <a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a>。请提供页面地址、问题描述和复现条件，不要在邮件中发送密码或访问令牌。</p><div class="callout"><strong>合规说明</strong><p>[[COMPLIANCE_NOTE]]</p></div></section>
+          <section id="contact"><h2>08 · 联系与反馈</h2><p>发现公告内容错误、无障碍问题或版本比较异常，可发送邮件至 <a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a>。请提供页面地址、问题描述和复现条件，不要在邮件中发送密码或访问令牌。</p><div class="sb-callout"><strong>合规说明</strong><p>[[COMPLIANCE_NOTE]]</p></div></section>
         </article>
       </div>
     </main>
 
-    <footer class="site-footer"><div class="container footer-grid"><p>© 2026 [[SITE_NAME]] · 发布规范 R3</p><div class="footer-links"><a href="index.html">全部公告</a><a href="article.html">最新版本</a><a href="tool.html">版本比较</a></div></div></footer>
+    <footer class="sb-site-footer"><div class="sb-container sb-footer-grid"><p>© 2026 [[SITE_NAME]] · 发布规范 R3</p><div class="sb-footer-links"><a href="index.html">全部公告</a><a href="article.html">最新版本</a><a href="tool.html">版本比较</a></div></div></footer>
   </div>
 </body>
 </html>
