@@ -254,3 +254,12 @@
   .share-result { background: #08111c !important; }
   .share-kit__reset { color: #8eb2ff !important; }
 }
+
+/* 2026-08 final QA: complete dashboard depth and interaction feedback */
+.stat-lot__unit,.plot-duo__pane{transition:background 180ms ease,box-shadow 180ms ease,transform 180ms ease}
+.stat-lot__unit:hover,.plot-duo__pane:hover{background:color-mix(in srgb,var(--blue) 5%,var(--sheet));box-shadow:0 14px 32px rgba(12,21,33,.08);transform:translateY(-2px)}
+.share-kit button{transition:background 180ms ease,color 180ms ease,box-shadow 180ms ease,transform 180ms ease}
+.share-kit button:hover{box-shadow:0 8px 22px rgba(53,103,166,.22);transform:translateY(-2px)}
+.share-kit button:active{box-shadow:none;transform:translateY(1px)}
+.floor-line__txt a{display:inline-flex;align-items:center;min-height:36px;border-bottom:1px solid rgba(255,255,255,.4);transition:color 180ms ease,border-color 180ms ease}
+.floor-line__txt a:hover{border-color:var(--lime);color:var(--lime)}

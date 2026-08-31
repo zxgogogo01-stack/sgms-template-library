@@ -100,7 +100,8 @@ function strictChecks(dir) {
     const html = read(path.join(dir, page));
     for (const token of collectTokens(html)) usedTokens.add(token);
 
-    const titleMatches = html.match(/<title\b[^>]*>[\s\S]*?<\/title>/gi) || [];
+    const head = (html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i) || [html])[0];
+    const titleMatches = head.match(/<title\b[^>]*>[\s\S]*?<\/title>/gi) || [];
     if (titleMatches.length !== 1) fails.push(page + " 必须且只能有一个 <title>");
     const title = titleMatches.length ? visibleText(titleMatches[0]) : "";
     if (!title) fails.push(page + " title 为空");
