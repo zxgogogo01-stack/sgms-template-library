@@ -29,6 +29,13 @@
     empty.hidden = visible !== 0;
   }
 
+  function sortRows() {
+    rows.sort(function (left, right) {
+      return descending ? Number(right.dataset.change) - Number(left.dataset.change) : Number(left.dataset.change) - Number(right.dataset.change);
+    });
+    rows.forEach(function (row) { document.getElementById("report-body").appendChild(row); });
+  }
+
   if (search) {
     search.addEventListener("input", renderReport);
     filters.forEach(function (button) {
@@ -51,13 +58,11 @@
     });
     sortButton.addEventListener("click", function () {
       descending = !descending;
-      rows.sort(function (left, right) {
-        return descending ? Number(right.dataset.change) - Number(left.dataset.change) : Number(left.dataset.change) - Number(right.dataset.change);
-      });
-      rows.forEach(function (row) { document.getElementById("report-body").appendChild(row); });
+      sortRows();
       sortButton.textContent = descending ? "按变化 ↓" : "按变化 ↑";
       sortButton.setAttribute("aria-label", descending ? "当前按变化从高到低排列" : "当前按变化从低到高排列");
     });
+    sortRows();
     renderReport();
   }
 
@@ -108,7 +113,18 @@
   }
 
   function format(number) {
+    var absolute = Math.abs(number);
+    if (absolute > 0 && (absolute < 0.0001 || absolute >= 1000000000000)) return number.toExponential(4);
     return Number(number.toFixed(4)).toLocaleString("zh-CN", { maximumFractionDigits: 4 });
+  }
+
+  function invalidateStats() {
+    var input = document.getElementById("stats-input");
+    if (!input) return;
+    input.removeAttribute("aria-invalid");
+    document.getElementById("stats-error").textContent = "";
+    document.getElementById("stats-status").textContent = "";
+    document.getElementById("stats-result").hidden = true;
   }
 
   function calculate() {
@@ -116,17 +132,25 @@
     var error = document.getElementById("stats-error");
     var panel = document.getElementById("stats-result");
     var status = document.getElementById("stats-status");
-    var parsed = parseNumbers(input.value.trim());
+    var raw = input.value.trim();
     input.removeAttribute("aria-invalid");
     error.textContent = "";
     status.textContent = "";
-    if (!input.value.trim()) {
+    if (!raw) {
       input.setAttribute("aria-invalid", "true");
       error.textContent = "请先输入至少两个数字。";
       panel.hidden = true;
       input.focus();
       return;
     }
+    if (raw.length > 20000) {
+      input.setAttribute("aria-invalid", "true");
+      error.textContent = "单次输入不得超过 20,000 个字符。";
+      panel.hidden = true;
+      input.focus();
+      return;
+    }
+    var parsed = parseNumbers(raw);
     if (parsed.error) {
       input.setAttribute("aria-invalid", "true");
       error.textContent = parsed.error + "。";
@@ -150,16 +174,25 @@
       return;
     }
     var sorted = nums.slice().sort(function (a, b) { return a - b; });
-    var sum = nums.reduce(function (total, value) { return total + value; }, 0);
-    var mean = sum / nums.length;
-    var median = sorted.length % 2 ? sorted[(sorted.length - 1) / 2] : (sorted[sorted.length / 2 - 1] + sorted[sorted.length / 2]) / 2;
-    var variance = nums.reduce(function (total, value) { return total + Math.pow(value - mean, 2); }, 0) / (nums.length - 1);
+    var scale = nums.reduce(function (largest, value) { return Math.max(largest, Math.abs(value)); }, 0);
+    var scaledMean = scale ? nums.reduce(function (total, value) { return total + value / scale; }, 0) / nums.length : 0;
+    var mean = scaledMean * scale;
+    var median = sorted.length % 2 ? sorted[(sorted.length - 1) / 2] : scale ? (sorted[sorted.length / 2 - 1] / scale + sorted[sorted.length / 2] / scale) / 2 * scale : 0;
+    var scaledVariance = scale ? nums.reduce(function (total, value) { return total + Math.pow(value / scale - scaledMean, 2); }, 0) / (nums.length - 1) : 0;
+    var standardDeviation = Math.sqrt(scaledVariance) * scale;
+    if (![mean, median, standardDeviation].every(Number.isFinite)) {
+      input.setAttribute("aria-invalid", "true");
+      error.textContent = "数值跨度过大，无法生成有限的统计摘要。";
+      panel.hidden = true;
+      input.focus();
+      return;
+    }
     document.getElementById("stat-count").textContent = nums.length.toLocaleString("zh-CN");
     document.getElementById("stat-mean").textContent = format(mean);
     document.getElementById("stat-median").textContent = format(median);
     document.getElementById("stat-min").textContent = format(sorted[0]);
     document.getElementById("stat-max").textContent = format(sorted[sorted.length - 1]);
-    document.getElementById("stat-sd").textContent = format(Math.sqrt(variance));
+    document.getElementById("stat-sd").textContent = format(standardDeviation);
     panel.hidden = false;
     document.getElementById("stat-mean").focus();
   }
@@ -176,18 +209,17 @@
   function resetStats() {
     var input = document.getElementById("stats-input");
     input.value = "";
-    input.removeAttribute("aria-invalid");
-    document.getElementById("stats-error").textContent = "";
-    document.getElementById("stats-status").textContent = "";
-    document.getElementById("stats-result").hidden = true;
+    invalidateStats();
     input.focus();
   }
 
   function usePreset(button) {
     var input = document.getElementById("stats-input");
     input.value = button.dataset.values;
-    input.removeAttribute("aria-invalid");
-    document.getElementById("stats-error").textContent = "";
+    invalidateStats();
     input.focus();
   }
+
+  var statsInput = document.getElementById("stats-input");
+  if (statsInput) statsInput.addEventListener("input", invalidateStats);
 })();

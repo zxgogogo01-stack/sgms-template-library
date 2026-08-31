@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#171918">
   <title>数据摘要计算器｜__SITE_NAME__</title>
-  <meta name="description" content="__SITE_DESC__">
+  <meta name="description" content="在浏览器本地计算 2–500 个数值的均值、中位数、极值与样本标准差。">
   <link rel="canonical" href="https://__SITE_DOMAIN__/tool.html">
   <meta property="og:title" content="数据摘要计算器｜__SITE_NAME__">
-  <meta property="og:description" content="__SITE_DESC__">
+  <meta property="og:description" content="不上传数据的本地统计摘要计算器。">
   <meta property="og:url" content="https://__SITE_DOMAIN__/tool.html">
   <link rel="stylesheet" href="site.css">
   <script src="app.js" defer></script>
@@ -37,7 +37,7 @@
     <section data-wrap data-toolgrid aria-label="数据摘要计算器">
       <div data-tool>
         <label for="stats-input"><b>输入数值</b><br><small>可用空格、逗号或换行分隔。百分号请先转换为数值。</small></label>
-        <textarea id="stats-input" rows="9" placeholder="82.6, 79.8, 81.1, 84.2, 86.4" aria-describedby="stats-help stats-error"></textarea>
+        <textarea id="stats-input" rows="9" maxlength="20000" placeholder="82.6, 79.8, 81.1, 84.2, 86.4" aria-describedby="stats-help stats-error"></textarea>
         <p id="stats-help">至少需要两个有效数字；不接受混合文字、无穷值或超过 500 个样本。</p>
         <p id="stats-error" data-error role="alert"></p>
         <div data-actions>
