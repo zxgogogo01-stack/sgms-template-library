@@ -212,3 +212,10 @@
 @media (prefers-color-scheme: dark) {
   .gap-box output.is-error { color: #ffb79e; background: #512b25; }
 }
+
+/* 2026-08 final QA: complete calculator feedback and compact-link targets */
+.gap-box button{transition:background 180ms ease,box-shadow 180ms ease,transform 180ms ease}
+.gap-box button:hover{box-shadow:0 8px 22px rgba(25,70,72,.2);transform:translateY(-2px)}
+.gap-box button:active{box-shadow:none;transform:translateY(1px)}
+.shore__line a,.note-full__back a,.washed a{display:inline-flex;align-items:center;min-height:36px;border-bottom:1px solid currentColor;transition:color 180ms ease,border-color 180ms ease,transform 180ms ease}
+.shore__line a:hover,.note-full__back a:hover,.washed a:hover{border-color:var(--marker);color:var(--marker);transform:translateX(3px)}
