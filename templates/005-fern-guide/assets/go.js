@@ -65,8 +65,8 @@
 
     clearInvalid();
 
-    if (!Number.isInteger(done) || done < 0) invalid.push(doneInput);
-    if (!Number.isInteger(total) || total < 1) invalid.push(totalInput);
+    if (doneInput.value.trim() === "" || !Number.isInteger(done) || done < 0) invalid.push(doneInput);
+    if (totalInput.value.trim() === "" || !Number.isInteger(total) || total < 1) invalid.push(totalInput);
     if (Number.isInteger(done) && Number.isInteger(total) && done > total) {
       invalid.push(doneInput, totalInput);
     }

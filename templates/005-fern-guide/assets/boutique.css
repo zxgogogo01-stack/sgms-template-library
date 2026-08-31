@@ -386,3 +386,11 @@
   .prog__result,
   .policy-contact { background: #0d211a; }
 }
+
+/* 2026-08 final QA: complete primary, secondary and footer feedback */
+.invite-nook__btn,.prog__run,.prog__reset{transition:background 180ms ease,color 180ms ease,box-shadow 180ms ease,transform 180ms ease}
+.invite-nook__btn:hover,.prog__run:hover{box-shadow:0 8px 22px rgba(16,42,33,.2);transform:translateY(-2px)}
+.prog__reset:hover{color:#fff;background:var(--fern-700);transform:translateY(-2px)}
+.invite-nook__btn:active,.prog__run:active,.prog__reset:active{box-shadow:none;transform:translateY(1px)}
+.roots__note a{display:inline-flex;align-items:center;min-height:36px;border-bottom:1px solid rgba(230,234,223,.42);transition:color 180ms ease,border-color 180ms ease}
+.roots__note a:hover{border-color:var(--amber);color:var(--amber)}
