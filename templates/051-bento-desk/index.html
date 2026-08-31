@@ -13,96 +13,118 @@
   <meta property="og:description" content="%%SITE_DESC%%">
   <meta property="og:url" content="https://%%SITE_DOMAIN%%/">
   <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="css/public.css">
   <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-  <header class="crown">
-    <div class="crown-in">
-      <a class="wordmark" href="index.html">%%BRAND_EN%%<span class="wordmark-dot">.</span></a>
-      <button type="button" class="crown-fold" id="fold-btn" aria-label="主导航" aria-expanded="false" aria-controls="crown-nav">
+  <a class="bd51-skip" href="#bd51-main">跳到主要内容</a>
+  <header class="bd51-crown">
+    <div class="bd51-crown-in">
+      <a class="bd51-wordmark" href="index.html">%%BRAND_EN%%<span class="bd51-wordmark-dot">.</span></a>
+      <button type="button" class="bd51-crown-fold" id="bd51-fold-btn" aria-label="主导航" aria-expanded="false" aria-controls="bd51-crown-nav">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
-      <nav class="crown-nav" id="crown-nav" aria-label="主导航">
+      <nav class="bd51-crown-nav" id="bd51-crown-nav" aria-label="主导航">
         <a href="index.html" aria-current="page">首页</a>
         <a href="article.html">指南</a>
         <a href="tool.html">工具</a>
         <a href="legal.html">披露</a>
+        <button type="button" class="bd51-theme" id="bd51-theme-button" aria-label="切换到夜间模式">夜间</button>
       </nav>
     </div>
   </header>
 
-  <main class="bento-wrap">
-    <div class="bento-grid">
-      <section class="bento-tile bento-hero">
-        <p class="bento-eyebrow">%%HERO_EYEBROW%%</p>
-        <h1 class="bento-h1">%%HERO_TITLE%%</h1>
-        <p class="bento-hero-sub">%%HERO_DESCRIPTION%%</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="article.html">开始阅读 <span class="arrow">→</span></a>
-          <a class="btn" href="legal.html">了解本站</a>
+  <main class="bd51-bento-wrap" id="bd51-main">
+    <div class="bd51-bento-grid">
+      <section class="bd51-bento-tile bd51-bento-hero">
+        <p class="bd51-bento-eyebrow">%%HERO_EYEBROW%%</p>
+        <h1 class="bd51-bento-h1">%%HERO_TITLE%%</h1>
+        <p class="bd51-bento-hero-sub">%%HERO_DESCRIPTION%%</p>
+        <div class="bd51-hero-cta">
+          <a class="bd51-btn bd51-btn-primary" href="article.html">开始阅读 <span class="bd51-arrow">→</span></a>
+          <a class="bd51-btn" href="legal.html">了解本站</a>
         </div>
       </section>
 
-      <a class="bento-tile bento-feature" href="article.html">
-        <span class="bento-kicker">%%HOME_FEATURED_LABEL%%</span>
-        <div class="bento-feature-foot">
-          <div class="bento-meta"><span class="bento-tag">费率与返佣</span><time datetime="2026-01-20">2026-01-20</time></div>
-          <h2 class="bento-feature-title">不同产品线的手续费与返佣口径对照</h2>
-          <p class="bento-feature-ex">先统一费率、交易额和结算周期，再比较返佣后的实际成本。</p>
+      <a class="bd51-bento-tile bd51-bento-feature" href="article.html">
+        <span class="bd51-bento-kicker">%%HOME_FEATURED_LABEL%%</span>
+        <div class="bd51-bento-feature-foot">
+          <div class="bd51-bento-meta"><span class="bd51-bento-tag">费率与返佣</span><time datetime="2026-01-20">2026-01-20</time></div>
+          <h2 class="bd51-bento-feature-title">不同产品线的手续费与返佣口径对照</h2>
+          <p class="bd51-bento-feature-ex">先统一费率、交易额和结算周期，再比较返佣后的实际成本。</p>
         </div>
       </a>
 
-      <a class="bento-tile bento-cat" href="article.html">
-        <span class="bento-cat-head"><span class="bento-cat-name">新手入门</span><span class="bento-cat-desc">注册、认证与安全核验</span></span>
-        <span class="bento-cat-foot"><b class="bento-cat-num">08</b><span class="bento-arrow" aria-hidden="true">→</span></span>
+      <a class="bd51-bento-tile bd51-bento-cat" href="article.html">
+        <span class="bd51-bento-cat-head"><span class="bd51-bento-cat-name">新手入门</span><span class="bd51-bento-cat-desc">注册、认证与安全核验</span></span>
+        <span class="bd51-bento-cat-foot"><b class="bd51-bento-cat-num">08</b><span class="bd51-bento-arrow" aria-hidden="true">→</span></span>
       </a>
-      <a class="bento-tile bento-cat" href="article.html">
-        <span class="bento-cat-head"><span class="bento-cat-name">费率与返佣</span><span class="bento-cat-desc">费率表、等级与结算规则</span></span>
-        <span class="bento-cat-foot"><b class="bento-cat-num">12</b><span class="bento-arrow" aria-hidden="true">→</span></span>
+      <a class="bd51-bento-tile bd51-bento-cat" href="article.html">
+        <span class="bd51-bento-cat-head"><span class="bd51-bento-cat-name">费率与返佣</span><span class="bd51-bento-cat-desc">费率表、等级与结算规则</span></span>
+        <span class="bd51-bento-cat-foot"><b class="bd51-bento-cat-num">12</b><span class="bd51-bento-arrow" aria-hidden="true">→</span></span>
       </a>
-      <a class="bento-tile bento-cat" href="article.html">
-        <span class="bento-cat-head"><span class="bento-cat-name">安全与防骗</span><span class="bento-cat-desc">域名核验、两步验证与提现保护</span></span>
-        <span class="bento-cat-foot"><b class="bento-cat-num">06</b><span class="bento-arrow" aria-hidden="true">→</span></span>
-      </a>
-
-      <a class="bento-tile bento-post" href="article.html">
-        <div class="bento-meta"><span class="bento-tag">费率与返佣</span><time datetime="2026-01-18">2026-01-18</time></div>
-        <h3 class="bento-post-title">返佣到账周期有哪些常见差异</h3>
-        <p class="bento-post-ex">对照日结、周结与月结规则，核验最小结算条件。</p>
-      </a>
-      <a class="bento-tile bento-post" href="article.html">
-        <div class="bento-meta"><span class="bento-tag">新手入门</span><time datetime="2026-01-15">2026-01-15</time></div>
-        <h3 class="bento-post-title">身份认证不通过时应该检查什么</h3>
-        <p class="bento-post-ex">从证件有效期、照片清晰度到地区资格逐项排查。</p>
-      </a>
-      <a class="bento-tile bento-post" href="article.html">
-        <div class="bento-meta"><span class="bento-tag">安全与防骗</span><time datetime="2026-01-12">2026-01-12</time></div>
-        <h3 class="bento-post-title">如何识别仿冒客服和钓鱼链接</h3>
-        <p class="bento-post-ex">不要分享验证码，所有敏感操作回到官方应用完成。</p>
+      <a class="bd51-bento-tile bd51-bento-cat" href="article.html">
+        <span class="bd51-bento-cat-head"><span class="bd51-bento-cat-name">安全与防骗</span><span class="bd51-bento-cat-desc">域名核验、两步验证与提现保护</span></span>
+        <span class="bd51-bento-cat-foot"><b class="bd51-bento-cat-num">06</b><span class="bd51-bento-arrow" aria-hidden="true">→</span></span>
       </a>
 
-      <a class="bento-tile bento-link" href="tool.html">
-        <span class="bento-arrow" aria-hidden="true">↗</span>
-        <span class="bento-link-ico">算</span>
-        <span class="bento-link-body"><span class="bento-link-title">手续费对比器</span><span class="bento-link-ex">比较不同费率与返佣条件下的净成本</span></span>
+      <a class="bd51-bento-tile bd51-bento-post" href="article.html">
+        <div class="bd51-bento-meta"><span class="bd51-bento-tag">费率与返佣</span><time datetime="2026-01-18">2026-01-18</time></div>
+        <h3 class="bd51-bento-post-title">返佣到账周期有哪些常见差异</h3>
+        <p class="bd51-bento-post-ex">对照日结、周结与月结规则，核验最小结算条件。</p>
       </a>
-      <a class="bento-tile bento-link" href="tool.html">
-        <span class="bento-arrow" aria-hidden="true">↗</span>
-        <span class="bento-link-ico">验</span>
-        <span class="bento-link-body"><span class="bento-link-title">注册前核验清单</span><span class="bento-link-ex">确认域名、资格、费率和邀请码状态</span></span>
+      <a class="bd51-bento-tile bd51-bento-post" href="article.html">
+        <div class="bd51-bento-meta"><span class="bd51-bento-tag">新手入门</span><time datetime="2026-01-15">2026-01-15</time></div>
+        <h3 class="bd51-bento-post-title">身份认证不通过时应该检查什么</h3>
+        <p class="bd51-bento-post-ex">从证件有效期、照片清晰度到地区资格逐项排查。</p>
+      </a>
+      <a class="bd51-bento-tile bd51-bento-post" href="article.html">
+        <div class="bd51-bento-meta"><span class="bd51-bento-tag">安全与防骗</span><time datetime="2026-01-12">2026-01-12</time></div>
+        <h3 class="bd51-bento-post-title">如何识别仿冒客服和钓鱼链接</h3>
+        <p class="bd51-bento-post-ex">不要分享验证码，所有敏感操作回到官方应用完成。</p>
+      </a>
+
+      <a class="bd51-bento-tile bd51-bento-link" href="tool.html">
+        <span class="bd51-bento-arrow" aria-hidden="true">↗</span>
+        <span class="bd51-bento-link-ico">算</span>
+        <span class="bd51-bento-link-body"><span class="bd51-bento-link-title">手续费对比器</span><span class="bd51-bento-link-ex">比较不同费率与返佣条件下的净成本</span></span>
+      </a>
+      <a class="bd51-bento-tile bd51-bento-link" href="tool.html">
+        <span class="bd51-bento-arrow" aria-hidden="true">↗</span>
+        <span class="bd51-bento-link-ico">验</span>
+        <span class="bd51-bento-link-body"><span class="bd51-bento-link-title">注册前核验清单</span><span class="bd51-bento-link-ex">确认域名、资格、费率和邀请码状态</span></span>
       </a>
     </div>
+
+    <section class="bd51-desk-audit" aria-labelledby="bd51-desk-title">
+      <header>
+        <div><p class="bd51-desk-kicker">DECISION DESK / 04 CHECKPOINTS</p><h2 id="bd51-desk-title">在比较优惠前，<br>先把口径摆上桌。</h2></div>
+        <output aria-live="polite">COMPARE THE NET COST</output>
+      </header>
+      <div class="bd51-desk-board">
+        <figure>
+          <figcaption>净手续费阅读式</figcaption>
+          <p><data value="volume">成交额</data><span>×</span><data value="fee">费率</data><span>−</span><data value="rebate">返还</data><span>=</span><strong>净成本</strong></p>
+          <small>每一步都应注明取整方式、有效期与适用账户。</small>
+        </figure>
+        <dl>
+          <div><dt><dfn>01</dfn> 来源</dt><dd>保存官方规则页与核对日期。</dd></div>
+          <div><dt><dfn>02</dfn> 资格</dt><dd>确认地区、账户类型与活动范围。</dd></div>
+          <div><dt><dfn>03</dfn> 口径</dt><dd>分开记录手续费率和返佣比例。</dd></div>
+          <div><dt><dfn>04</dfn> 到账</dt><dd>按账单核对周期、状态与金额。</dd></div>
+        </dl>
+        <aside><h3>这张桌只负责比较，不替你做决定。</h3><p>示例数字用于展示结构；正式发布时由内容人员依据可追溯来源逐项替换。</p><a href="legal.html">查看披露边界 <span aria-hidden="true">↗</span></a></aside>
+      </div>
+    </section>
   </main>
 
-  <footer class="ledge">
-    <div class="ledge-in">
-      <div class="ledge-col"><p class="wordmark ledge-mark">%%BRAND_EN%%<span class="wordmark-dot">.</span></p><p class="ledge-dim">%%FOOTER_NOTE%%</p></div>
-      <div class="ledge-col"><h4>栏目</h4><a href="article.html">新手入门</a><a href="article.html">费率与返佣</a><a href="article.html">安全与防骗</a></div>
-      <div class="ledge-col"><h4>工具</h4><a href="tool.html">手续费对比器</a></div>
-      <div class="ledge-col"><h4>说明</h4><a href="legal.html">披露与免责</a></div>
+  <footer class="bd51-ledge">
+    <div class="bd51-ledge-in">
+      <div class="bd51-ledge-col"><p class="bd51-wordmark bd51-ledge-mark">%%BRAND_EN%%<span class="bd51-wordmark-dot">.</span></p><p class="bd51-ledge-dim">%%FOOTER_NOTE%%</p></div>
+      <div class="bd51-ledge-col"><h4>栏目</h4><a href="article.html">新手入门</a><a href="article.html">费率与返佣</a><a href="article.html">安全与防骗</a></div>
+      <div class="bd51-ledge-col"><h4>工具</h4><a href="tool.html">手续费对比器</a></div>
+      <div class="bd51-ledge-col"><h4>说明</h4><a href="legal.html">披露与免责</a></div>
     </div>
-    <p class="ledge-line">费率与返佣规则以对应平台官方页面和账户实际显示为准。</p>
+    <p class="bd51-ledge-line">费率与返佣规则以对应平台官方页面和账户实际显示为准。</p>
   </footer>
   <script src="site.js"></script>
 </body>

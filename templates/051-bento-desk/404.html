@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/page.css">
     <style>
-        .void-well {
+        .bd51-void-well {
             min-height: calc(100vh - 230px);
             display: grid;
             place-items: center;
             padding: clamp(44px, 9vh, 96px) 24px;
         }
-        .void-dish {
+        .bd51-void-dish {
             width: min(100%, 460px);
             max-width: 460px;
             padding: 52px 40px;
@@ -25,47 +25,50 @@
             border-radius: var(--arc);
             box-shadow: var(--lift-up);
         }
-        .void-dish h1 {
+        .bd51-void-dish h1 {
             font-size: 3.2rem;
             background: linear-gradient(120deg, var(--deep-2), var(--amber));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-        .void-dish p { color: var(--dim); }
-        .void-dish .knap { justify-content: center; }
+        .bd51-void-dish p { color: var(--dim); }
+        .bd51-void-dish .bd51-knap { justify-content: center; }
         @media (max-width: 620px) {
-            .void-well { min-height: calc(100vh - 270px); padding-inline: 18px; }
-            .void-dish { padding: 42px 24px; }
+            .bd51-void-well { min-height: calc(100vh - 270px); padding-inline: 18px; }
+            .bd51-void-dish { padding: 42px 24px; }
         }
     </style>
 </head>
 <body>
-    <header class="crown">
-        <div class="crown-in">
-            <a class="wordmark" href="index.html">%%BRAND_EN%%<span class="wordmark-dot">.</span></a>
-            <button type="button" class="crown-fold" id="fold-btn" aria-label="主导航" aria-expanded="false" aria-controls="crown-nav">
+    <a class="bd51-skip" href="#bd51-main">跳到主要内容</a>
+    <header class="bd51-crown">
+        <div class="bd51-crown-in">
+            <a class="bd51-wordmark" href="index.html">%%BRAND_EN%%<span class="bd51-wordmark-dot">.</span></a>
+            <button type="button" class="bd51-crown-fold" id="bd51-fold-btn" aria-label="主导航" aria-expanded="false" aria-controls="bd51-crown-nav">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
             </button>
-            <nav class="crown-nav" id="crown-nav" aria-label="主导航">
+            <nav class="bd51-crown-nav" id="bd51-crown-nav" aria-label="主导航">
                 <a href="index.html">首页</a>
                 <a href="article.html">指南</a>
                 <a href="tool.html">工具</a>
                 <a href="legal.html">披露</a>
+                <button type="button" class="bd51-theme" id="bd51-theme-button" aria-label="切换到夜间模式">夜间</button>
             </nav>
         </div>
     </header>
 
-    <main class="void-well">
-        <section class="void-dish" aria-labelledby="void-title">
-            <h1 id="void-title">404</h1>
+    <main class="bd51-void-well" id="bd51-main">
+        <section class="bd51-void-dish" aria-labelledby="bd51-void-title">
+            <h1 id="bd51-void-title">404</h1>
             <p>这个格子是空的——页面不存在或已移动。</p>
-            <p><a class="knap knap-solid" href="index.html">回便当格首页</a></p>
+            <form class="bd51-void-search" data-topic-search novalidate><label for="bd51-topic-query">搜索站内主题</label><div><input id="bd51-topic-query" name="query" type="search" maxlength="80" autocomplete="off" aria-describedby="bd51-topic-help bd51-topic-feedback" placeholder="如：费率、计算、披露"><button type="submit">查找</button></div><small id="bd51-topic-help">最多 80 个字符，只检索这套模板的主要页面。</small><p id="bd51-topic-feedback" data-topic-feedback role="status" aria-live="polite">可搜索首页、指南、工具和披露。</p></form>
+            <p><a class="bd51-knap bd51-knap-solid" href="index.html">回便当格首页</a></p>
         </section>
     </main>
 
-    <footer class="ledge">
-        <p class="ledge-line">没有找到目标页面；你可以返回首页继续浏览栏目、指南与工具。</p>
+    <footer class="bd51-ledge">
+        <p class="bd51-ledge-line">没有找到目标页面；你可以返回首页继续浏览栏目、指南与工具。</p>
     </footer>
 
     <script src="site.js"></script>
