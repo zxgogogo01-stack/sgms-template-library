@@ -13,28 +13,28 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"馆藏编号生成器","url":"https://[[SITE_DOMAIN]]/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
 </head>
 <body>
-    <a class="skip-link" href="#main">跳到主要内容</a>
-    <div class="catalog-strip"><div class="shell catalog-strip-inner"><span>Local cataloguing desk · inputs stay on this device</span><span>单次最多生成 200 个编号</span></div></div>
-    <header class="site-header"><div class="shell header-inner"><a class="brand" href="index.html">[[SITE_NAME]]<small>Vellum archive · annotated public record</small></a><nav class="primary-nav" aria-label="主要导航"><a href="index.html">馆藏总览</a><a href="article.html">档案全文</a><a href="tool.html" aria-current="page">编目工作台</a><a href="legal.html">收录说明</a></nav></div></header>
+    <a class="va-skip-link" href="#main">跳到主要内容</a>
+    <div class="va-catalog-strip"><div class="va-shell va-catalog-strip-inner"><span>Local cataloguing desk · inputs stay on this device</span><span>单次最多生成 200 个编号</span></div></div>
+    <header class="va-site-header"><div class="va-shell va-header-inner"><a class="va-brand" href="index.html">[[SITE_NAME]]<small>Vellum archive · annotated public record</small></a><nav class="va-primary-nav" aria-label="主要导航"><a href="index.html">馆藏总览</a><a href="article.html">档案全文</a><a href="tool.html" aria-current="page">编目工作台</a><a href="legal.html">收录说明</a></nav></div></header>
 
-    <main id="main" class="shell page-main">
-        <header class="page-head"><div><p class="eyebrow">Cataloguing desk / 稳定编号</p><h1>让每一份卷宗，都有可靠的回程路径。</h1><p>按馆藏前缀、年份、系列和流水号批量生成编号。工具只生成文本，不登记数据库，也不会把输入上传。</p></div><aside class="catalog-card" aria-label="编号规则"><dl><div><dt>结构</dt><dd>前缀－年份－系列－序号</dd></div><div><dt>最大数量</dt><dd>200 个</dd></div><div><dt>序号位数</dt><dd>2–6 位</dd></div><div><dt>处理位置</dt><dd>浏览器本地</dd></div></dl></aside></header>
+    <main id="main" class="va-shell va-page-main">
+        <header class="va-page-head"><div><p class="va-eyebrow">Cataloguing desk / 稳定编号</p><h1>让每一份卷宗，都有可靠的回程路径。</h1><p>按馆藏前缀、年份、系列和流水号批量生成编号。工具只生成文本，不登记数据库，也不会把输入上传。</p></div><aside class="va-catalog-card" aria-label="编号规则"><dl><div><dt>结构</dt><dd>前缀－年份－系列－序号</dd></div><div><dt>最大数量</dt><dd>200 个</dd></div><div><dt>序号位数</dt><dd>2–6 位</dd></div><div><dt>处理位置</dt><dd>浏览器本地</dd></div></dl></aside></header>
 
-        <section class="tool-layout" aria-label="馆藏编号生成器"><form class="accession-form" id="accession-form" novalidate><p class="eyebrow">Numbering rules / 编号条件</p><h2>设置本批卷宗</h2><p>已公开的编号不应回收或重复使用。开始前，请先核对上一批的最后序号。</p><div class="field-grid">
-            <div class="field"><label for="prefix">馆藏前缀</label><input id="prefix" type="text" value="VLM" maxlength="8" autocomplete="off" aria-describedby="prefix-help form-error"><p class="field-help" id="prefix-help">2–8 位大写英文字母或数字</p></div>
-            <div class="field"><label for="year">年份</label><input id="year" type="number" value="2026" min="1900" max="2099" step="1" inputmode="numeric" aria-describedby="year-help form-error"><p class="field-help" id="year-help">使用首次收录年份</p></div>
-            <div class="field"><label for="series">馆藏系列</label><select id="series"><option value="MTH">记录方法 MTH</option><option value="POL">公共政策 POL</option><option value="FLD">实地笔记 FLD</option><option value="GEN">综合卷宗 GEN</option></select><p class="field-help">系列代码保持三位</p></div>
-            <div class="field"><label for="separator">分隔符</label><select id="separator"><option value="-">短横线 -</option><option value="/">斜线 /</option><option value=".">圆点 .</option></select><p class="field-help">整批编号使用同一分隔符</p></div>
-            <div class="field"><label for="start">起始序号</label><input id="start" type="number" value="1" min="0" max="999999" step="1" inputmode="numeric" aria-describedby="start-help form-error"><p class="field-help" id="start-help">0–999999 之间的整数</p></div>
-            <div class="field"><label for="count">生成数量</label><input id="count" type="number" value="8" min="1" max="200" step="1" inputmode="numeric" aria-describedby="count-help form-error"><p class="field-help" id="count-help">1–200 之间的整数</p></div>
-            <div class="field"><label for="padding">序号位数</label><select id="padding"><option value="2">2 位</option><option value="3" selected>3 位</option><option value="4">4 位</option><option value="5">5 位</option><option value="6">6 位</option></select><p class="field-help">超出位数时会自动扩展</p></div>
-        </div><p class="form-error" id="form-error" role="alert"></p><div class="button-row"><button class="button" type="submit">生成馆藏编号</button><button class="button button-secondary" type="button" id="clear-button">恢复默认</button></div></form>
+        <section class="va-tool-layout" aria-label="馆藏编号生成器"><form class="va-accession-form" id="accession-form" novalidate><p class="va-eyebrow">Numbering rules / 编号条件</p><h2>设置本批卷宗</h2><p>已公开的编号不应回收或重复使用。开始前，请先核对上一批的最后序号。</p><div class="va-field-grid">
+            <div class="va-field"><label for="prefix">馆藏前缀</label><input id="prefix" type="text" value="VLM" maxlength="8" autocomplete="off" aria-describedby="prefix-help form-error"><p class="va-field-help" id="prefix-help">2–8 位大写英文字母或数字</p></div>
+            <div class="va-field"><label for="year">年份</label><input id="year" type="number" value="2026" min="1900" max="2099" step="1" inputmode="numeric" aria-describedby="year-help form-error"><p class="va-field-help" id="year-help">使用首次收录年份</p></div>
+            <div class="va-field"><label for="series">馆藏系列</label><select id="series"><option value="MTH">记录方法 MTH</option><option value="POL">公共政策 POL</option><option value="FLD">实地笔记 FLD</option><option value="GEN">综合卷宗 GEN</option></select><p class="va-field-help">系列代码保持三位</p></div>
+            <div class="va-field"><label for="separator">分隔符</label><select id="separator"><option value="-">短横线 -</option><option value="/">斜线 /</option><option value=".">圆点 .</option></select><p class="va-field-help">整批编号使用同一分隔符</p></div>
+            <div class="va-field"><label for="start">起始序号</label><input id="start" type="number" value="1" min="0" max="999999" step="1" inputmode="numeric" aria-describedby="start-help form-error"><p class="va-field-help" id="start-help">0–999999 之间的整数</p></div>
+            <div class="va-field"><label for="count">生成数量</label><input id="count" type="number" value="8" min="1" max="200" step="1" inputmode="numeric" aria-describedby="count-help form-error"><p class="va-field-help" id="count-help">1–200 之间的整数</p></div>
+            <div class="va-field"><label for="padding">序号位数</label><select id="padding"><option value="2">2 位</option><option value="3" selected>3 位</option><option value="4">4 位</option><option value="5">5 位</option><option value="6">6 位</option></select><p class="va-field-help">超出位数时会自动扩展</p></div>
+        </div><p class="va-form-error" id="form-error" role="alert"></p><div class="va-button-row"><button class="va-button" type="submit">生成馆藏编号</button><button class="va-button va-button-secondary" type="button" id="clear-button">恢复默认</button></div></form>
 
-        <section class="accession-result" aria-labelledby="result-title"><p class="result-state" id="result-state">WAITING FOR RULES</p><h2 id="result-title">本批编号</h2><div class="result-summary"><div><strong id="first-code">—</strong><span>首个编号</span></div><div><strong id="last-code">—</strong><span>末个编号</span></div><div><strong id="total-codes">0</strong><span>编号数量</span></div></div><textarea class="result-list" id="result-list" readonly aria-label="生成的馆藏编号" spellcheck="false"></textarea><button class="button" type="button" id="copy-button" disabled>复制整批编号</button><p class="copy-status" id="copy-status" aria-live="polite"></p></section></section>
-        <aside class="tool-note"><strong>编目提示：</strong>此工具不会检查编号是否已经使用。正式发布前，请把生成结果与现有目录交叉核对，并将最终分配结果写入唯一登记表。</aside>
+        <section class="va-accession-result" aria-labelledby="result-title"><p class="va-result-state" id="result-state">WAITING FOR RULES</p><h2 id="result-title">本批编号</h2><div class="va-result-summary"><div><strong id="first-code">—</strong><span>首个编号</span></div><div><strong id="last-code">—</strong><span>末个编号</span></div><div><strong id="total-codes">0</strong><span>编号数量</span></div></div><textarea class="va-result-list" id="result-list" readonly aria-label="生成的馆藏编号" spellcheck="false"></textarea><button class="va-button" type="button" id="copy-button" disabled>复制整批编号</button><p class="va-copy-status" id="copy-status" aria-live="polite"></p></section></section>
+        <aside class="va-tool-note"><strong>编目提示：</strong>此工具不会检查编号是否已经使用。正式发布前，请把生成结果与现有目录交叉核对，并将最终分配结果写入唯一登记表。</aside>
     </main>
 
-    <footer class="site-footer"><div class="shell footer-inner"><p>工具只在当前浏览器内生成文本，不保存、上传或验证馆藏编号。</p><nav class="footer-links" aria-label="页脚导航"><a href="index.html">馆藏总览</a><a href="article.html">精选卷宗</a><a href="legal.html">收录说明</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
+    <footer class="va-site-footer"><div class="va-shell va-footer-inner"><p>工具只在当前浏览器内生成文本，不保存、上传或验证馆藏编号。</p><nav class="va-footer-links" aria-label="页脚导航"><a href="index.html">馆藏总览</a><a href="article.html">精选卷宗</a><a href="legal.html">收录说明</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
 
     <script>
         (function () {
@@ -52,19 +52,19 @@
             var copyStatus = document.getElementById('copy-status');
 
             function resetInvalid() { [prefix, year, start, count].forEach(function (field) { field.removeAttribute('aria-invalid'); }); error.textContent = ''; copyStatus.textContent = ''; }
-            function invalidate(field, message) { field.setAttribute('aria-invalid', 'true'); error.textContent = message; field.focus(); }
-            function clearResult() { list.value = ''; document.getElementById('result-state').textContent = 'WAITING FOR RULES'; document.getElementById('first-code').textContent = '—'; document.getElementById('last-code').textContent = '—'; document.getElementById('total-codes').textContent = '0'; copyButton.disabled = true; }
+            function clearResult(state) { list.value = ''; document.getElementById('result-state').textContent = state || 'WAITING FOR RULES'; document.getElementById('first-code').textContent = '—'; document.getElementById('last-code').textContent = '—'; document.getElementById('total-codes').textContent = '0'; copyButton.disabled = true; }
+            function invalidate(field, message) { clearResult('CHECK RULES'); field.setAttribute('aria-invalid', 'true'); error.textContent = message; field.focus(); }
 
             form.addEventListener('submit', function (event) {
                 event.preventDefault(); resetInvalid();
                 var p = prefix.value.trim().toUpperCase(), y = Number(year.value), s = Number(start.value), c = Number(count.value), pad = Number(padding.value);
                 prefix.value = p;
-                if (!/^[A-Z0-9]{2,8}$/.test(p)) { invalidate(prefix, '馆藏前缀必须是 2–8 位大写英文字母或数字。'); clearResult(); return; }
-                if (!Number.isInteger(y) || y < 1900 || y > 2099) { invalidate(year, '年份必须是 1900–2099 之间的整数。'); clearResult(); return; }
-                if (!Number.isInteger(s) || s < 0 || s > 999999) { invalidate(start, '起始序号必须是 0–999999 之间的整数。'); clearResult(); return; }
-                if (!Number.isInteger(c) || c < 1 || c > 200) { invalidate(count, '生成数量必须是 1–200 之间的整数。'); clearResult(); return; }
+                if (!/^[A-Z0-9]{2,8}$/.test(p)) { invalidate(prefix, '馆藏前缀必须是 2–8 位大写英文字母或数字。'); return; }
+                if (!year.value || !Number.isInteger(y) || y < 1900 || y > 2099) { invalidate(year, '年份必须是 1900–2099 之间的整数。'); return; }
+                if (!start.value || !Number.isInteger(s) || s < 0 || s > 999999) { invalidate(start, '起始序号必须是 0–999999 之间的整数。'); return; }
+                if (!count.value || !Number.isInteger(c) || c < 1 || c > 200) { invalidate(count, '生成数量必须是 1–200 之间的整数。'); return; }
                 var end = s + c - 1;
-                if (end > 999999) { invalidate(count, '本批末尾序号超过 999999，请减少数量。'); clearResult(); return; }
+                if (end > 999999) { invalidate(count, '本批末尾序号超过 999999，请减少数量。'); return; }
                 var width = Math.max(pad, String(end).length), rows = [];
                 for (var i = 0; i < c; i += 1) rows.push([p, y, series.value, String(s + i).padStart(width, '0')].join(separator.value));
                 list.value = rows.join('\n');
@@ -75,7 +75,13 @@
                 copyButton.disabled = false;
             });
 
-            document.getElementById('clear-button').addEventListener('click', function () { form.reset(); resetInvalid(); clearResult(); prefix.focus(); });
+            document.getElementById('clear-button').addEventListener('click', function () { form.reset(); resetInvalid(); clearResult('WAITING FOR RULES'); prefix.focus(); });
+            Array.prototype.slice.call(form.elements).forEach(function (field) {
+                field.addEventListener('input', function () {
+                    field.removeAttribute('aria-invalid'); error.textContent = ''; copyStatus.textContent = '';
+                    clearResult('RULES CHANGED');
+                });
+            });
             copyButton.addEventListener('click', function () {
                 function done() { copyStatus.textContent = '整批编号已复制。'; }
                 function fallback() { list.select(); try { document.execCommand('copy'); done(); } catch (copyError) { copyStatus.textContent = '复制失败，请手动选择编号。'; } }
