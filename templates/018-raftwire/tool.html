@@ -114,8 +114,9 @@
             function convert(event) {
                 event.preventDefault();
                 input.removeAttribute('aria-invalid'); error.textContent = '';
-                var raw = Number(input.value);
-                if (!Number.isFinite(raw) || raw < 0 || !Number.isInteger(raw)) { input.setAttribute('aria-invalid', 'true'); error.textContent = '请输入不小于 0 的整数时间戳。'; input.focus(); document.getElementById('output-state').textContent = 'CHECK'; return; }
+                var rawText = input.value.trim();
+                var raw = Number(rawText);
+                if (rawText === '' || !Number.isSafeInteger(raw) || raw < 0) { input.setAttribute('aria-invalid', 'true'); error.textContent = '请输入不小于 0 的安全整数时间戳。'; input.focus(); document.getElementById('output-state').textContent = 'CHECK'; return; }
                 var milliseconds = unit.value === 'seconds' ? raw * 1000 : raw;
                 var date = new Date(milliseconds);
                 if (Number.isNaN(date.getTime()) || date.getUTCFullYear() > 9999) { input.setAttribute('aria-invalid', 'true'); error.textContent = '该时间戳超出可解析范围。'; input.focus(); document.getElementById('output-state').textContent = 'RANGE'; return; }
@@ -129,6 +130,7 @@
                 document.getElementById('output-state').textContent = 'DECODED';
             }
             form.addEventListener('submit', convert);
+            input.addEventListener('input', function () { input.removeAttribute('aria-invalid'); error.textContent = ''; });
             document.getElementById('output-copy').addEventListener('click', function () {
                 var status = document.getElementById('output-status');
                 function done() { status.textContent = 'ISO 时间已复制。'; }
