@@ -13,20 +13,20 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"语境统计台","url":"https://[[SITE_DOMAIN]]/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
 </head>
 <body>
-    <a class="skip-link" href="#main">跳到主要内容</a>
-    <div class="status-strip"><div class="shell status-inner"><span>Concordance lab · inputs stay on this page</span><span>Up to 8 terms · 50,000 characters</span></div></div>
-    <header class="site-header"><div class="shell header-inner"><a class="brand" href="index.html">[[SITE_NAME]]<small>Grove lexicon · field research desk</small></a><nav class="primary-nav" aria-label="主要导航"><a href="index.html">词典索引</a><a href="article.html">核心词条</a><a href="tool.html" aria-current="page">语境统计</a><a href="legal.html">编纂说明</a></nav></div></header>
+    <a class="gl-skip-link" href="#main">跳到主要内容</a>
+    <div class="gl-status-strip"><div class="gl-shell gl-status-inner"><span>Concordance lab · inputs stay on this page</span><span>Up to 8 terms · 50,000 characters</span></div></div>
+    <header class="gl-site-header"><div class="gl-shell gl-header-inner"><a class="gl-brand" href="index.html">[[SITE_NAME]]<small>Grove lexicon · field research desk</small></a><nav class="gl-primary-nav" aria-label="主要导航"><a href="index.html">词典索引</a><a href="article.html">核心词条</a><a href="tool.html" aria-current="page">语境统计</a><a href="legal.html">编纂说明</a></nav></div></header>
 
-    <main id="main" class="shell page-main">
-        <header class="page-head"><div><p class="eyebrow">Concordance lab / 观察词如何被使用</p><h1>不只数次数，<span>还要回到语境。</span></h1><p>一次统计最多八个术语，结果同时显示命中次数与上下文片段。所有处理在当前浏览器页面完成，不上传也不保存。</p></div><aside class="fact-card" aria-label="工具边界"><dl><div><dt>术语上限</dt><dd>8 个</dd></div><div><dt>文本上限</dt><dd>50,000 字符</dd></div><div><dt>语境片段</dt><dd>最多 6 条</dd></div><div><dt>数据位置</dt><dd>浏览器本地</dd></div></dl></aside></header>
+    <main id="main" class="gl-shell gl-page-main">
+        <header class="gl-page-head"><div><p class="gl-eyebrow">Concordance lab / 观察词如何被使用</p><h1>不只数次数，<span>还要回到语境。</span></h1><p>一次统计最多八个术语，结果同时显示命中次数与上下文片段。所有处理在当前浏览器页面完成，不上传也不保存。</p></div><aside class="gl-fact-card" aria-label="工具边界"><dl><div><dt>术语上限</dt><dd>8 个</dd></div><div><dt>文本上限</dt><dd>50,000 字符</dd></div><div><dt>语境片段</dt><dd>最多 6 条</dd></div><div><dt>数据位置</dt><dd>浏览器本地</dd></div></dl></aside></header>
 
-        <section class="lab-layout" aria-label="语境统计工具"><form class="lab-form" id="concordance-form" novalidate><p class="eyebrow">Source text / 文本样本</p><h2>准备分析样本</h2><p>建议保留原句与段落边界。统计结果能提示用词分布，但不能自动判断定义是否准确。</p><div class="field"><label for="source-text">待分析文本</label><textarea id="source-text" aria-describedby="text-help form-error">在操作前，团队先记录订单簿最优报价与可见深度。订单进入市场后跨越多个价格层级，平均成交价与参考价出现偏离。复盘把这段偏离记录为滑点，并将滑点与平台费率、买卖价差分别列示。讨论没有把订单簿某一档数量当成全部成交保证，也没有用较低费率替代总执行成本判断。</textarea><p class="field-help" id="text-help">保留原文；单次最多 50,000 个字符</p></div><div class="field"><label for="query-terms">要观察的术语</label><input id="query-terms" type="text" value="滑点, 订单簿, 费率" autocomplete="off" aria-describedby="terms-help form-error"><p class="field-help" id="terms-help">使用中文或英文逗号分隔，重复项自动合并</p></div><div class="inline-fields"><div class="field"><label for="match-mode">匹配方式</label><select id="match-mode"><option value="literal">连续文本</option><option value="word">英文词边界</option></select><p class="field-help">中文术语建议使用连续文本</p></div><div class="field"><label for="context-size">语境宽度</label><select id="context-size"><option value="24">短 · 前后 24 字</option><option value="42" selected>中 · 前后 42 字</option><option value="72">长 · 前后 72 字</option></select><p class="field-help">只影响结果片段长度</p></div></div><label class="choice-line"><input type="checkbox" id="case-sensitive">区分英文大小写</label><p class="form-error" id="form-error" role="alert"></p><div class="button-row"><button class="button button-acid" type="submit">生成语境统计</button><button class="button button-secondary" type="button" id="reset-tool">恢复示例</button></div></form>
+        <section class="gl-lab-layout" aria-label="语境统计工具"><form class="gl-lab-form" id="concordance-form" novalidate><p class="gl-eyebrow">Source text / 文本样本</p><h2>准备分析样本</h2><p>建议保留原句与段落边界。统计结果能提示用词分布，但不能自动判断定义是否准确。</p><div class="gl-field"><label for="source-text">待分析文本</label><textarea id="source-text" aria-describedby="text-help form-error">在操作前，团队先记录订单簿最优报价与可见深度。订单进入市场后跨越多个价格层级，平均成交价与参考价出现偏离。复盘把这段偏离记录为滑点，并将滑点与平台费率、买卖价差分别列示。讨论没有把订单簿某一档数量当成全部成交保证，也没有用较低费率替代总执行成本判断。</textarea><p class="gl-field-help" id="text-help">保留原文；单次最多 50,000 个字符</p></div><div class="gl-field"><label for="query-terms">要观察的术语</label><input id="query-terms" type="text" value="滑点, 订单簿, 费率" autocomplete="off" aria-describedby="terms-help form-error"><p class="gl-field-help" id="terms-help">使用中文或英文逗号分隔，重复项自动合并</p></div><div class="gl-inline-fields"><div class="gl-field"><label for="match-mode">匹配方式</label><select id="match-mode"><option value="literal">连续文本</option><option value="word">英文词边界</option></select><p class="gl-field-help">中文术语建议使用连续文本</p></div><div class="gl-field"><label for="context-size">语境宽度</label><select id="context-size"><option value="24">短 · 前后 24 字</option><option value="42" selected>中 · 前后 42 字</option><option value="72">长 · 前后 72 字</option></select><p class="gl-field-help">只影响结果片段长度</p></div></div><label class="gl-choice-line"><input type="checkbox" id="case-sensitive" aria-label="区分英文大小写">区分英文大小写</label><p class="gl-form-error" id="form-error" role="alert"></p><div class="gl-button-row"><button class="gl-button gl-button-acid" type="submit">生成语境统计</button><button class="gl-button gl-button-secondary" type="button" id="reset-tool">恢复示例</button></div></form>
 
-        <section class="lab-result" aria-labelledby="result-title"><p class="result-state" id="result-state">WAITING FOR ANALYSIS</p><h2 id="result-title">统计结果</h2><div class="result-summary"><div><strong id="term-count">0</strong><span>观察术语</span></div><div><strong id="hit-count">0</strong><span>总命中</span></div><div><strong id="char-count">0</strong><span>文本字符</span></div></div><div class="frequency-list" id="frequency-list"><div class="frequency-item"><span>尚未生成统计</span><strong>—</strong></div></div><div class="contexts" id="contexts"><p class="context-line">命中语境会显示在这里。</p></div><div class="result-actions"><button class="button button-small" type="button" id="copy-result" disabled>复制统计摘要</button><p class="copy-status" id="copy-status" aria-live="polite"></p></div></section></section>
-        <aside class="tool-note"><strong>解释边界：</strong>高频不等于重要，低频也不等于可以忽略。若用于内容审校，应回到每个命中片段确认术语是否表达同一概念。</aside>
+        <section class="gl-lab-result" aria-labelledby="result-title"><p class="gl-result-state" id="result-state">WAITING FOR ANALYSIS</p><h2 id="result-title">统计结果</h2><div class="gl-result-summary"><div><strong id="term-count">0</strong><span>观察术语</span></div><div><strong id="hit-count">0</strong><span>总命中</span></div><div><strong id="char-count">0</strong><span>文本字符</span></div></div><div class="gl-frequency-list" id="frequency-list"><div class="gl-frequency-item"><span>尚未生成统计</span><strong>—</strong></div></div><div class="gl-contexts" id="contexts"><p class="gl-context-line">命中语境会显示在这里。</p></div><div class="gl-result-actions"><button class="gl-button gl-button-small" type="button" id="copy-result" disabled>复制统计摘要</button><p class="gl-copy-status" id="copy-status" aria-live="polite"></p></div></section></section>
+        <aside class="gl-tool-note"><strong>解释边界：</strong>高频不等于重要，低频也不等于可以忽略。若用于内容审校，应回到每个命中片段确认术语是否表达同一概念。</aside>
     </main>
 
-    <footer class="site-footer"><div class="shell footer-inner"><p>文本、术语和统计结果只存在于当前页面；刷新或离开后不会保留。</p><nav class="footer-links" aria-label="页脚导航"><a href="index.html">返回词典</a><a href="article.html">核心词条</a><a href="legal.html">数据说明</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
+    <footer class="gl-site-footer"><div class="gl-shell gl-footer-inner"><p>文本、术语和统计结果只存在于当前页面；刷新或离开后不会保留。</p><nav class="gl-footer-links" aria-label="页脚导航"><a href="index.html">返回词典</a><a href="article.html">核心词条</a><a href="legal.html">数据说明</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
 
     <script>
         (function () {
@@ -46,8 +46,7 @@
 
             function escapeHtml(value) { return value.replace(/[&<>"']/g, function (char) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]; }); }
             function resetInvalid() { [textField, termsField].forEach(function (field) { field.removeAttribute('aria-invalid'); }); error.textContent = ''; copyStatus.textContent = ''; }
-            function invalidate(field, message) { field.setAttribute('aria-invalid', 'true'); error.textContent = message; field.focus(); }
-            function parseTerms() { var raw = termsField.value.split(/[,，\n]/).map(function (item) { return item.trim(); }).filter(Boolean); var seen = {}; return raw.filter(function (item) { var key = caseField.checked ? item : item.toLowerCase(); if (seen[key]) return false; seen[key] = true; return true; }); }
+            function parseTerms() { var raw = termsField.value.split(/[,，\n]/).map(function (item) { return item.trim(); }).filter(Boolean); var seen = Object.create(null); return raw.filter(function (item) { var key = caseField.checked ? item : item.toLowerCase(); if (seen[key]) return false; seen[key] = true; return true; }); }
             function isAsciiWord(char) { return !!char && /[A-Za-z0-9_]/.test(char); }
             function occurrences(source, term) {
                 var hay = caseField.checked ? source : source.toLowerCase();
@@ -67,24 +66,25 @@
                 var after = source.slice(at + term.length, end) + (end < source.length ? '…' : '');
                 return escapeHtml(before) + '<mark>' + escapeHtml(match) + '</mark>' + escapeHtml(after);
             }
-            function clearResult() { document.getElementById('result-state').textContent = 'WAITING FOR ANALYSIS'; document.getElementById('term-count').textContent = '0'; document.getElementById('hit-count').textContent = '0'; document.getElementById('char-count').textContent = '0'; list.innerHTML = '<div class="frequency-item"><span>尚未生成统计</span><strong>—</strong></div>'; contexts.innerHTML = '<p class="context-line">命中语境会显示在这里。</p>'; copyButton.disabled = true; summary = ''; }
+            function clearResult(state) { document.getElementById('result-state').textContent = state || 'WAITING FOR ANALYSIS'; document.getElementById('term-count').textContent = '0'; document.getElementById('hit-count').textContent = '0'; document.getElementById('char-count').textContent = '0'; list.innerHTML = '<div class="gl-frequency-item"><span>尚未生成统计</span><strong>—</strong></div>'; contexts.innerHTML = '<p class="gl-context-line">命中语境会显示在这里。</p>'; copyButton.disabled = true; summary = ''; }
+            function invalidate(field, message) { clearResult('CHECK INPUT'); field.setAttribute('aria-invalid', 'true'); error.textContent = message; field.focus(); }
 
             form.addEventListener('submit', function (event) {
                 event.preventDefault(); resetInvalid();
                 var source = textField.value.trim();
-                if (!source) { invalidate(textField, '请先输入需要分析的文本。'); clearResult(); return; }
-                if (source.length > 50000) { invalidate(textField, '文本超过 50,000 个字符，请缩短后重试。'); clearResult(); return; }
+                if (!source) { invalidate(textField, '请先输入需要分析的文本。'); return; }
+                if (source.length > 50000) { invalidate(textField, '文本超过 50,000 个字符，请缩短后重试。'); return; }
                 var terms = parseTerms();
-                if (!terms.length) { invalidate(termsField, '请至少输入一个要观察的术语。'); clearResult(); return; }
-                if (terms.length > 8) { invalidate(termsField, '单次最多观察 8 个不同术语。'); clearResult(); return; }
+                if (!terms.length) { invalidate(termsField, '请至少输入一个要观察的术语。'); return; }
+                if (terms.length > 8) { invalidate(termsField, '单次最多观察 8 个不同术语。'); return; }
                 var rows = terms.map(function (term) { return { term: term, points: occurrences(source, term) }; });
                 var total = rows.reduce(function (sum, row) { return sum + row.points.length; }, 0);
                 list.textContent = '';
-                rows.forEach(function (row) { var item = document.createElement('div'); item.className = 'frequency-item'; var name = document.createElement('span'); name.textContent = row.term; var value = document.createElement('strong'); value.textContent = String(row.points.length); item.append(name, value); list.appendChild(item); });
+                rows.forEach(function (row) { var item = document.createElement('div'); item.className = 'gl-frequency-item'; var name = document.createElement('span'); name.textContent = row.term; var value = document.createElement('strong'); value.textContent = String(row.points.length); item.append(name, value); list.appendChild(item); });
                 contexts.textContent = '';
                 var width = Number(contextField.value), shown = 0;
-                rows.forEach(function (row) { row.points.forEach(function (point) { if (shown >= 6) return; var line = document.createElement('p'); line.className = 'context-line'; line.innerHTML = renderContext(source, row.term, point, width); contexts.appendChild(line); shown += 1; }); });
-                if (!shown) contexts.innerHTML = '<p class="context-line">没有命中语境。请检查术语写法或匹配方式。</p>';
+                rows.forEach(function (row) { row.points.forEach(function (point) { if (shown >= 6) return; var line = document.createElement('p'); line.className = 'gl-context-line'; line.innerHTML = renderContext(source, row.term, point, width); contexts.appendChild(line); shown += 1; }); });
+                if (!shown) contexts.innerHTML = '<p class="gl-context-line">没有命中语境。请检查术语写法或匹配方式。</p>';
                 document.getElementById('result-state').textContent = total ? 'ANALYSIS READY' : 'NO MATCHES FOUND';
                 document.getElementById('term-count').textContent = String(terms.length);
                 document.getElementById('hit-count').textContent = String(total);
@@ -92,7 +92,13 @@
                 summary = rows.map(function (row) { return row.term + '：' + row.points.length + ' 次'; }).join('\n') + '\n总命中：' + total + ' 次；文本字符：' + source.length;
                 copyButton.disabled = false;
             });
-            document.getElementById('reset-tool').addEventListener('click', function () { textField.value = defaults.text; termsField.value = defaults.terms; modeField.value = 'literal'; contextField.value = '42'; caseField.checked = false; resetInvalid(); clearResult(); textField.focus(); });
+            document.getElementById('reset-tool').addEventListener('click', function () { textField.value = defaults.text; termsField.value = defaults.terms; modeField.value = 'literal'; contextField.value = '42'; caseField.checked = false; resetInvalid(); clearResult('WAITING FOR ANALYSIS'); textField.focus(); });
+            Array.prototype.slice.call(form.elements).forEach(function (field) {
+                field.addEventListener('input', function () {
+                    field.removeAttribute('aria-invalid'); error.textContent = ''; copyStatus.textContent = '';
+                    clearResult('INPUT CHANGED');
+                });
+            });
             copyButton.addEventListener('click', function () { function done() { copyStatus.textContent = '统计摘要已复制。'; } function fallback() { var field = document.createElement('textarea'); field.value = summary; document.body.appendChild(field); field.select(); try { document.execCommand('copy'); done(); } catch (copyError) { copyStatus.textContent = '复制失败，请手动记录摘要。'; } field.remove(); } if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(summary).then(done, fallback); else fallback(); });
         })();
     </script>
