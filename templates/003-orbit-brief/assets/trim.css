@@ -41,3 +41,14 @@
 .offcourse__eyebrow{order:-1;margin:0 0 24px!important;color:var(--ob-orange)!important;font-family:var(--ob-mono);font-size:9px;letter-spacing:.16em}
 @media(max-width:940px){.cd-panel__actions{margin-left:0}}
 @media(max-width:560px){.signal-board{grid-template-columns:1fr}.next-watch{padding:24px 20px}.next-watch ul{grid-template-columns:1fr}.body-col__quote{padding:25px 20px;font-size:18px}.cd-panel__actions{flex-direction:column}}
+
+/* 2026-08 final QA: complete button feedback and mobile link targets */
+.trunk .cd-panel__go,.trunk .cd-panel__quick{transition:background .18s,color .18s,box-shadow .18s,transform .18s}
+.trunk .cd-panel__go:hover{box-shadow:0 8px 22px rgba(228,104,62,.22);transform:translateY(-2px)}
+.trunk .cd-panel__quick:hover{background:var(--ob-night);color:#fff;transform:translateY(-2px)}
+.trunk .cd-panel__go:active,.trunk .cd-panel__quick:active{box-shadow:none;transform:translateY(1px)}
+.tail-bar__a,.rules-col__link,.offcourse a{transition:color .18s,border-color .18s,transform .18s}
+.tail-bar__a:hover,.rules-col__link:hover,.offcourse a:hover{border-color:var(--ob-cyan);color:var(--ob-cyan)}
+@media(max-width:940px){
+  .tail-bar__a,.rules-col__link,.offcourse a{display:inline-flex;align-items:center;min-height:44px}
+}
