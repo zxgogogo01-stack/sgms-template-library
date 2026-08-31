@@ -14,7 +14,7 @@
 
 ## 必须替换的占位符
 
-`__SITE_NAME__`、`__SITE_DOMAIN__`、`__SITE_DESC__`、`__INVITE_CODE__`、`__COMPLIANCE_NOTE__`、`__CONTACT_EMAIL__`、`__LANG__`
+`__SITE_NAME__`、`__SITE_DOMAIN__`、`__SITE_TAGLINE__`、`__SITE_DESC__`、`__INVITE_CODE__`、`__COMPLIANCE_NOTE__`、`__CONTACT_EMAIL__`、`__LANG__`
 
 发布前同时替换 HTML、`robots.txt` 与 `sitemap.xml` 中的域名，并核对每页标题、描述、canonical 与联系方式。
 
@@ -26,6 +26,13 @@
 - 归档表可继续添加期号；当前期必须明确标注。
 - 差值工具完全在浏览器本地运行，可单独删除，但需同步移除各页导航和 `sitemap.xml` 条目。
 - 邀请码区可删除；同步移除 `app.js` 中复制邀请码的监听即可。
+
+## 后续 AI 的文字接入顺序
+
+1. 先替换 8 个全局占位符，再按首页当期简报、归档分析、差值工具说明、编发规则与 404 文案接入真实内容。
+2. 只改文字、日期、示例数字、SEO 描述和结构化数据文字字段；保留五页 HTML 层级、ID、`data-*` 属性、`site.css` 与 `app.js`，无需重做网站 UI。
+3. 增删简报时同步维护期号牌、摘要数字、`data-focus`、`data-state`、`data-search` 和来源矩阵；筛选值与按钮必须一致。
+4. 文案完成后运行 `node tools/validate.js templates/034-booth-briefing` 与 `node tools/audit-template.js templates/034-booth-briefing`，再实测搜索、筛选、复制和差值边界。
 
 ## 视觉与交互要求
 

@@ -59,31 +59,42 @@
         button.removeAttribute('data-copied');
       }, 1600);
     };
+    var operation;
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, done);
+      operation = navigator.clipboard.writeText(text);
     } else {
-      var area = document.createElement('textarea');
-      area.value = text;
-      area.setAttribute('readonly', '');
-      area.style.position = 'fixed';
-      area.style.opacity = '0';
-      document.body.appendChild(area);
-      area.select();
-      try { document.execCommand('copy'); } catch (error) { /* selection remains as fallback */ }
-      area.remove();
-      done();
+      operation = new Promise(function (resolve, reject) {
+        var area = document.createElement('textarea');
+        area.value = text;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        try {
+          if (!document.execCommand('copy')) throw new Error('copy command failed');
+          resolve();
+        } catch (error) {
+          reject(error);
+        } finally {
+          area.remove();
+        }
+      });
     }
+    return operation.then(done);
   }
 
   var inviteCopy = document.querySelector('[data-act="copy-code"]');
   if (inviteCopy) inviteCopy.addEventListener('click', function () {
     var code = document.getElementById('brief-code');
     var status = document.getElementById('copy-status');
-    if (code) copyText(code.textContent.trim(), inviteCopy, '已复制');
-    if (status) {
+    if (!code || !status) return;
+    copyText(code.textContent.trim(), inviteCopy, '已复制').then(function () {
       status.textContent = '邀请码已复制。';
       window.setTimeout(function () { status.textContent = ''; }, 1800);
-    }
+    }, function () {
+      status.textContent = '复制失败，请手动选择邀请码。';
+    });
   });
 
   var deltaForm = document.getElementById('delta-form');
@@ -106,7 +117,18 @@
     errorLine.textContent = '';
   }
 
+  function invalidateResult() {
+    clearInvalid();
+    result.hidden = true;
+    resultStamp.textContent = '待计算';
+  }
+
   function formatNumber(value, precision) {
+    if (Object.is(value, -0)) value = 0;
+    var absolute = Math.abs(value);
+    if (absolute > 0 && (absolute >= 1000000000000 || absolute < Math.pow(10, -precision))) {
+      return value.toExponential(precision);
+    }
     var fixed = value.toFixed(precision);
     return fixed.replace(/(\.\d*?[1-9])0+$|\.0+$/, '$1');
   }
@@ -129,6 +151,14 @@
 
     var precision = Number(precisionInput.value) || 2;
     var difference = after - before;
+    if (!Number.isFinite(difference)) {
+      beforeInput.setAttribute('aria-invalid', 'true');
+      afterInput.setAttribute('aria-invalid', 'true');
+      errorLine.textContent = '数值跨度过大，无法生成有限差值。';
+      result.hidden = true;
+      beforeInput.focus();
+      return;
+    }
     var unit = unitInput.value.trim();
     var suffix = unit ? ' ' + unit : '';
     var direction = difference > 0 ? '上升' : difference < 0 ? '下降' : '持平';
@@ -139,33 +169,49 @@
       resultNote.textContent = '基期为 0，无法计算相对变化；请只引用绝对差值。';
     } else {
       var percent = difference / Math.abs(before) * 100;
-      percentOutput.textContent = (percent > 0 ? '+' : '') + formatNumber(percent, precision) + '%';
-      resultNote.textContent = '相对变化以输入的前值绝对值为基准。';
+      if (Number.isFinite(percent)) {
+        percentOutput.textContent = (percent > 0 ? '+' : '') + formatNumber(percent, precision) + '%';
+        resultNote.textContent = '相对变化以输入的前值绝对值为基准。';
+      } else {
+        percentOutput.textContent = '超出范围';
+        resultNote.textContent = '绝对差值有效，但相对变化超出有限数值范围，请勿引用百分比。';
+      }
     }
     resultStamp.textContent = '已核验 · 本地结果';
     result.hidden = false;
     result.focus();
   });
 
+  [beforeInput, afterInput, unitInput].forEach(function (input) {
+    input.addEventListener('input', invalidateResult);
+  });
+  precisionInput.addEventListener('change', invalidateResult);
+
   document.getElementById('load-sample').addEventListener('click', function () {
     beforeInput.value = '7';
     afterInput.value = '4';
     unitInput.value = '天';
     precisionInput.value = '2';
-    clearInvalid();
+    invalidateResult();
     beforeInput.focus();
   });
 
   deltaForm.addEventListener('reset', function () {
     window.setTimeout(function () {
-      clearInvalid();
-      result.hidden = true;
+      invalidateResult();
+      var copyButton = document.getElementById('copy-result');
+      copyButton.textContent = '复制结果';
+      copyButton.removeAttribute('data-copied');
       beforeInput.focus();
     }, 0);
   });
 
   document.getElementById('copy-result').addEventListener('click', function (event) {
     var line = '绝对差值：' + differenceOutput.textContent + '；相对变化：' + percentOutput.textContent + '；变化方向：' + directionOutput.textContent + '。';
-    copyText(line, event.currentTarget, '结果已复制');
+    copyText(line, event.currentTarget, '结果已复制').then(function () {
+      resultStamp.textContent = '结果已复制';
+    }, function () {
+      resultStamp.textContent = '复制失败 · 请手动记录';
+    });
   });
 })();
