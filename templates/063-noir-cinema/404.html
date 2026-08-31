@@ -1,30 +1,9 @@
-<!DOCTYPE html>
-<html lang="__lang__">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>断片 — __site_name__</title>
-    <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="css/screen.css">
-    <style>
-        .snapped { min-height: 100vh; display: grid; place-items: center; padding: 26px; text-align: center; }
-        .snapped-in { border-top: 10px solid #000; border-bottom: 10px solid #000; padding: 60px 40px; }
-        .snapped-in h1 {
-            font-family: var(--serif63);
-            font-size: clamp(4.5rem, 18vw, 9rem);
-            line-height: 1;
-            color: var(--curtain);
-        }
-        .snapped-in p { color: var(--ushergrey); margin: 14px 0 26px; }
-    </style>
-</head>
+<!doctype html>
+<html lang="%%LANG%%" data-theme="noir">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#090909"><title>胶片断点 — %%SITE_NAME%%</title><link rel="stylesheet" href="style.css"></head>
 <body>
-    <div class="snapped">
-        <div class="snapped-in">
-            <h1>404</h1>
-            <p>胶片断了——这一场不存在或已下映。</p>
-            <a class="usher usher-lit" href="index.html">回放映厅</a>
-        </div>
-    </div>
+  <a class="nc63-skip" href="#nc63-main">跳到主要内容</a><header class="nc63-boxoffice"><div><a class="nc63-mark" href="index.html"><span>N°63</span><b>%%BRAND_EN%%</b></a><button class="nc63-menu-button" type="button" aria-controls="nc63-menu" aria-expanded="false"><span aria-hidden="true">☷</span><i>场次</i></button><nav id="nc63-menu" class="nc63-menu" aria-label="主导航"><a href="index.html">放映馆</a><a href="article.html">调查场刊</a><a href="tool.html">提示单</a><a href="legal.html">片尾声明</a><button type="button" data-lamp-toggle aria-label="切换对比主题">亮灯</button></nav></div></header>
+  <main class="nc63-break" id="nc63-main"><figure aria-hidden="true"><div><span>404</span><i></i><i></i><i></i><i></i></div></figure><section><p>REEL BREAK / 404</p><h1>这个镜次没有留在胶片上。</h1><span>输入资料词，我们会从本地放映表找到最近的场次。</span><form data-reel-search novalidate><label for="nc63-query">检索放映表</label><div><input id="nc63-query" type="search" maxlength="80" autocomplete="off" placeholder="如：来源、时间码、披露" aria-describedby="nc63-search-help nc63-search-result"><button type="submit">检索</button></div><small id="nc63-search-help">最多 80 个字符，只查询本站页面。</small><p id="nc63-search-result" data-reel-result role="status" aria-live="polite">也可以返回<a href="index.html">资料放映馆</a>。</p></form></section></main>
+  <script src="projector.js"></script>
 </body>
 </html>
