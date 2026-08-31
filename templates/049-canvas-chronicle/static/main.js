@@ -6,9 +6,10 @@
   var menuButton = document.querySelector('[data-menu-button]');
   var siteNav = document.querySelector('[data-site-nav]');
   var storedTheme = null;
+  function normalize(value) { return String(value || '').normalize('NFKC').trim(); }
 
   try {
-    storedTheme = window.localStorage.getItem('cc49-theme');
+    storedTheme = window.localStorage.getItem('canvas-chronicle-049-theme');
   } catch (error) {
     storedTheme = null;
   }
@@ -17,7 +18,7 @@
     root.dataset.theme = theme;
     if (themeButton) {
       themeButton.textContent = theme === 'dark' ? '日间' : '夜间';
-      themeButton.setAttribute('aria-label', theme === 'dark' ? '切换日间模式' : '切换夜间模式');
+      themeButton.setAttribute('aria-label', theme === 'dark' ? '切换到日间模式' : '切换到夜间模式');
     }
   }
 
@@ -28,7 +29,7 @@
       var nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
       setTheme(nextTheme);
       try {
-        window.localStorage.setItem('cc49-theme', nextTheme);
+        window.localStorage.setItem('canvas-chronicle-049-theme', nextTheme);
       } catch (error) {
         // Local storage may be unavailable in private or hardened contexts.
       }
@@ -39,6 +40,7 @@
     if (!menuButton || !siteNav) return;
     menuButton.setAttribute('aria-expanded', 'false');
     siteNav.dataset.open = 'false';
+    menuButton.textContent = '目录';
   }
 
   if (menuButton && siteNav) {
@@ -46,6 +48,8 @@
       var isOpen = menuButton.getAttribute('aria-expanded') === 'true';
       menuButton.setAttribute('aria-expanded', String(!isOpen));
       siteNav.dataset.open = String(!isOpen);
+      menuButton.textContent = isOpen ? '目录' : '收起';
+      if (!isOpen) { var firstLink = siteNav.querySelector('a'); if (firstLink) firstLink.focus(); }
     });
     siteNav.addEventListener('click', function (event) {
       if (event.target.closest('a')) closeMenu();
@@ -77,8 +81,8 @@
     document.body.appendChild(helper);
     helper.select();
     try {
-      document.execCommand('copy');
-      onSuccess();
+      if (document.execCommand('copy')) onSuccess();
+      else if (statusNode) statusNode.textContent = '复制失败，请手动选择文本';
     } catch (error) {
       if (statusNode) statusNode.textContent = '复制失败，请手动选择文本';
     }
@@ -94,11 +98,12 @@
 
   function applyRecordFilter() {
     if (!records.length) return;
-    var query = recordSearch ? recordSearch.value.trim().toLowerCase() : '';
+    var query = recordSearch ? normalize(recordSearch.value).toLocaleLowerCase() : '';
     var visibleCount = 0;
     records.forEach(function (record) {
       var categoryMatches = activeFilter === 'all' || record.dataset.category === activeFilter;
-      var searchMatches = !query || (record.dataset.search || '').toLowerCase().indexOf(query) !== -1;
+      var haystack = normalize((record.dataset.search || '') + ' ' + record.textContent).toLocaleLowerCase();
+      var searchMatches = !query || haystack.indexOf(query) !== -1;
       var show = categoryMatches && searchMatches;
       record.hidden = !show;
       if (show) visibleCount += 1;
@@ -112,7 +117,7 @@
     button.addEventListener('click', function () {
       activeFilter = button.dataset.recordFilter;
       recordFilters.forEach(function (item) {
-        item.classList.toggle('is-active', item === button);
+        item.classList.toggle('cc49-is-active', item === button);
         item.setAttribute('aria-pressed', String(item === button));
       });
       applyRecordFilter();
@@ -165,20 +170,9 @@
     var impactStatus = document.querySelector('[data-impact-status]');
     var feeInputs = [feeVolume, feeBefore, feeAfter, feeCount];
 
-    feeMessage.id = feeMessage.id || 'fee-message';
-    feeInputs.forEach(function (input) {
-      input.setAttribute('aria-describedby', feeMessage.id);
-      input.addEventListener('input', function () { input.removeAttribute('aria-invalid'); });
-    });
-
-    function money(value, signed) {
-      var prefix = signed && value > 0 ? '+' : '';
-      return prefix + value.toFixed(2);
-    }
-
-    function resetFeeResult() {
-      feeMessage.textContent = '';
-      feeState.textContent = '等待输入';
+    feeMessage.id = feeMessage.id || 'cc49-fee-message';
+    function clearFeeOutput(state) {
+      feeState.textContent = state;
       feeDelta.textContent = '—';
       feeSummary.textContent = '填写条件后，这里会显示变更前、变更后与周期差额。';
       feeOld.textContent = '—';
@@ -188,53 +182,74 @@
       copyImpactButton.disabled = true;
       copyImpactButton.dataset.copyText = '';
       impactStatus.textContent = '';
+    }
+    function resetFeeResult() {
+      clearFeeOutput('等待输入'); feeMessage.textContent = '';
       feeInputs.forEach(function (input) { input.removeAttribute('aria-invalid'); });
     }
+    function parseDecimal(field, minimum, maximum, maxScale) {
+      var raw = normalize(field.value);
+      if (!/^(?:\d+|\d*\.\d+)$/.test(raw)) return null;
+      var parts = raw.split('.'); var fraction = parts[1] || '';
+      if (fraction.length > maxScale) return null;
+      var numeric = Number(raw);
+      if (!Number.isFinite(numeric) || numeric < minimum || numeric > maximum) return null;
+      return { integer: BigInt((parts[0] || '0') + fraction), scale: fraction.length, numeric: numeric };
+    }
+    function parseCount(field) {
+      var raw = normalize(field.value);
+      if (!/^\d+$/.test(raw)) return null;
+      var numeric = Number(raw);
+      return Number.isSafeInteger(numeric) && numeric >= 1 && numeric <= 100000 ? numeric : null;
+    }
+    function toCents(value) { return value.integer * (10n ** BigInt(2 - value.scale)); }
+    function divideRounded(numerator, denominator) { return (numerator + denominator / 2n) / denominator; }
+    function feeCents(volumeCents, rate) { return divideRounded(volumeCents * rate.integer, 100n * (10n ** BigInt(rate.scale))); }
+    function money(cents, signed) {
+      var negative = cents < 0n; var absolute = negative ? -cents : cents;
+      var whole = (absolute / 100n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      var prefix = negative ? '−' : signed && cents > 0n ? '+' : '';
+      return prefix + whole + '.' + (absolute % 100n).toString().padStart(2, '0');
+    }
+    function rateText(rate) { return rate.numeric.toFixed(Math.min(6, Math.max(2, rate.scale))); }
+    feeInputs.forEach(function (input) {
+      input.setAttribute('aria-describedby', feeMessage.id);
+      input.addEventListener('input', function () {
+        input.removeAttribute('aria-invalid'); feeMessage.textContent = '';
+        if (copyImpactButton.dataset.copyText) clearFeeOutput('条件已修改，请重新计算');
+      });
+    });
 
     function calculateFee(event) {
       if (event) event.preventDefault();
       feeMessage.textContent = '';
       impactStatus.textContent = '';
       feeInputs.forEach(function (input) { input.removeAttribute('aria-invalid'); });
-      var volume = Number(feeVolume.value);
-      var oldRate = Number(feeBefore.value);
-      var newRate = Number(feeAfter.value);
-      var count = Number(feeCount.value);
-      if (!feeVolume.value || !Number.isFinite(volume) || volume <= 0) {
-        feeVolume.setAttribute('aria-invalid', 'true');
-        feeMessage.textContent = '成交额必须大于 0。';
-        feeVolume.focus();
-        return;
+      var volume = parseDecimal(feeVolume, .01, 1000000000000, 2);
+      var oldRate = parseDecimal(feeBefore, 0, 100, 6);
+      var newRate = parseDecimal(feeAfter, 0, 100, 6);
+      var count = parseCount(feeCount);
+      var invalid = [];
+      if (!volume) invalid.push({ field: feeVolume, text: '成交额须为 0.01–1,000,000,000,000 的普通十进制数，最多 2 位小数' });
+      if (!oldRate) invalid.push({ field: feeBefore, text: '变更前费率须为 0–100 的普通十进制数，最多 6 位小数' });
+      if (!newRate) invalid.push({ field: feeAfter, text: '变更后费率须为 0–100 的普通十进制数，最多 6 位小数' });
+      if (!count) invalid.push({ field: feeCount, text: '估算次数须为 1–100,000 的普通整数' });
+      if (invalid.length) {
+        clearFeeOutput('输入有误'); invalid.forEach(function (item) { item.field.setAttribute('aria-invalid', 'true'); });
+        feeMessage.textContent = invalid.map(function (item) { return item.text; }).join('；') + '。'; invalid[0].field.focus(); return;
       }
-      var invalidBefore = !feeBefore.value || !Number.isFinite(oldRate) || oldRate < 0 || oldRate > 100;
-      var invalidAfter = !feeAfter.value || !Number.isFinite(newRate) || newRate < 0 || newRate > 100;
-      if (invalidBefore || invalidAfter) {
-        if (invalidBefore) feeBefore.setAttribute('aria-invalid', 'true');
-        if (invalidAfter) feeAfter.setAttribute('aria-invalid', 'true');
-        feeMessage.textContent = '费率必须填写为 0—100 之间的百分数。';
-        (invalidBefore ? feeBefore : feeAfter).focus();
-        return;
-      }
-      if (!feeCount.value || !Number.isInteger(count) || count < 1) {
-        feeCount.setAttribute('aria-invalid', 'true');
-        feeMessage.textContent = '估算次数必须是至少为 1 的整数。';
-        feeCount.focus();
-        return;
-      }
-      var oldCost = volume * oldRate / 100;
-      var newCost = volume * newRate / 100;
-      var onceDelta = newCost - oldCost;
-      var cycleDelta = onceDelta * count;
-      var state = onceDelta < 0 ? '费用下降' : onceDelta > 0 ? '费用上升' : '费用不变';
+      var volumeCents = toCents(volume); var oldCost = feeCents(volumeCents, oldRate); var newCost = feeCents(volumeCents, newRate);
+      var onceDelta = newCost - oldCost; var cycleDelta = onceDelta * BigInt(count);
+      var state = onceDelta < 0n ? '费用下降' : onceDelta > 0n ? '费用上升' : '费用不变';
       feeState.textContent = state;
       feeDelta.textContent = money(cycleDelta, true);
-      feeSummary.textContent = '按单次成交额 ' + volume.toFixed(2) + '、共 ' + count + ' 次估算，' + state + ' ' + Math.abs(cycleDelta).toFixed(2) + '。';
+      feeSummary.textContent = '按单次成交额 ' + money(volumeCents, false) + '、共 ' + count + ' 次估算，' + state + ' ' + money(cycleDelta < 0n ? -cycleDelta : cycleDelta, false) + '。';
       feeOld.textContent = money(oldCost, false);
       feeNew.textContent = money(newCost, false);
       feeOnce.textContent = money(onceDelta, true);
       feeTimes.textContent = String(count);
       copyImpactButton.disabled = false;
-      copyImpactButton.dataset.copyText = '费率变化影响试算：单次成交额 ' + volume.toFixed(2) + '；费率 ' + oldRate + '% → ' + newRate + '%；单次差额 ' + money(onceDelta, true) + '；' + count + ' 次周期差额 ' + money(cycleDelta, true) + '。';
+      copyImpactButton.dataset.copyText = '费率变化影响试算：单次成交额 ' + money(volumeCents, false) + '；费率 ' + rateText(oldRate) + '% → ' + rateText(newRate) + '%；单次费用按分四舍五入；单次差额 ' + money(onceDelta, true) + '；' + count + ' 次周期差额 ' + money(cycleDelta, true) + '。';
     }
 
     feeForm.addEventListener('submit', calculateFee);
@@ -245,6 +260,7 @@
         feeBefore.value = values[1];
         feeAfter.value = values[2];
         feeCount.value = values[3];
+        resetFeeResult();
         calculateFee();
       });
     });
@@ -270,11 +286,12 @@
       { words: ['时间轴', '档位', '结算', '现货'], href: 'index.html', label: '费率变化时间轴' }
     ];
     archiveFeedback.id = archiveFeedback.id || 'archive-feedback';
-    archiveQuery.setAttribute('aria-describedby', archiveFeedback.id);
-    archiveQuery.addEventListener('input', function () { if (archiveQuery.value.trim()) archiveQuery.removeAttribute('aria-invalid'); });
+    archiveQuery.addEventListener('input', function () {
+      archiveQuery.removeAttribute('aria-invalid'); archiveFeedback.textContent = '可搜索本站四个主要页面。';
+    });
     archiveForm.addEventListener('submit', function (event) {
       event.preventDefault();
-      var query = archiveQuery.value.trim().toLowerCase();
+      var query = normalize(archiveQuery.value).toLocaleLowerCase();
       if (!query) {
         archiveQuery.setAttribute('aria-invalid', 'true');
         archiveFeedback.textContent = '请先输入一个档案主题。';
@@ -283,7 +300,7 @@
       }
       archiveQuery.removeAttribute('aria-invalid');
       var match = archiveMap.find(function (item) {
-        return item.words.some(function (word) { return query.indexOf(word) !== -1; });
+        return item.words.some(function (word) { var normalizedWord = normalize(word).toLocaleLowerCase(); return query.indexOf(normalizedWord) !== -1 || normalizedWord.indexOf(query) !== -1; });
       });
       archiveFeedback.textContent = '';
       if (match) {
@@ -293,7 +310,7 @@
         link.textContent = match.label;
         archiveFeedback.appendChild(link);
       } else {
-        archiveFeedback.textContent = '未找到匹配记录。可尝试“费率”“来源”“档位”或“更正”。';
+        archiveFeedback.textContent = '未找到“' + query + '”。可尝试“费率”“来源”“档位”或“更正”。';
       }
     });
   }
