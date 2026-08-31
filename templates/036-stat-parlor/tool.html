@@ -32,8 +32,8 @@
       <section aria-labelledby="input-title">
         <p data-eyebrow>Input tray</p>
         <div data-field-head><label id="input-title" for="range-input">观察值</label><span id="input-count">0 个数</span></div>
-        <textarea id="range-input" aria-describedby="range-help range-feedback" placeholder="例如：18.4, 21.2, 19.8, 24.6, 20.1"></textarea>
-        <p id="range-help" data-lede>无效字符会被忽略；至少输入两个有限数字。</p>
+        <textarea id="range-input" maxlength="20000" aria-describedby="range-help range-feedback" placeholder="例如：18.4, 21.2, 19.8, 24.6, 20.1"></textarea>
+        <p id="range-help" data-lede>用空格、逗号或换行分隔；无效项会明确提示。至少 2 个、最多 500 个有限数字。</p>
         <div data-actions><button type="button" id="calculate-range" data-primary-button>整理这组数字</button><button type="button" id="load-sample" data-quiet-button>载入样例</button><button type="button" id="clear-range" data-quiet-button>清空</button></div>
         <p id="range-feedback" data-feedback aria-live="polite"></p>
       </section>

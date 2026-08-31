@@ -23,3 +23,10 @@
 - 不需要转化区时，删除首页 `[data-invitation]`；同时可移除 `app.js` 中复制席位码的对应监听。
 - 不需要本地分析工具时，可删除 `tool.html`，并同步移除各页导航与 `sitemap.xml` 中的工具入口。
 - 六项统计卡和席间记录均可按实际数据增删；保留 `data-group` 即可继续使用主题筛选。
+
+## 后续 AI 的文字接入顺序
+
+1. 先替换 8 个全局占位符，再依次改写首页谈资、口径档案、分析台说明、资料声明与 404 文案。
+2. 只改可见文字、SEO 描述、结构化数据文字字段、日期和示例数值；保留五页结构、ID、`data-*` 属性、`site.css` 与 `app.js`，无需重做模板 UI。
+3. 增删统计卡时同步维护 `data-group`、筛选按钮、可见计数、席间记录和口径档案；没有内容的分组应保留清楚空态。
+4. 文案完成后运行 `node tools/validate.js templates/036-stat-parlor` 与 `node tools/audit-template.js templates/036-stat-parlor`，再实测筛选、口径展开、复制和数列边界。

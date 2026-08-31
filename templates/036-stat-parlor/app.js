@@ -79,7 +79,9 @@
     input.addEventListener('input', function () {
       input.removeAttribute('aria-invalid');
       document.getElementById('range-feedback').textContent = '';
-      updateInputCount(parseNumbers(input.value).length);
+      var parsed = parseNumbers(input.value);
+      updateInputCount(parsed);
+      resetResults();
     });
 
     calculate.addEventListener('click', calculateRange);
@@ -92,7 +94,7 @@
       input.value = '';
       input.removeAttribute('aria-invalid');
       document.getElementById('range-feedback').textContent = '';
-      updateInputCount(0);
+      updateInputCount({ numbers: [], invalid: 0 });
       resetResults();
       input.focus();
     });
@@ -105,10 +107,26 @@
     });
 
     function calculateRange() {
-      var values = parseNumbers(input.value);
+      var raw = input.value;
+      if (raw.length > 20000) {
+        input.setAttribute('aria-invalid', 'true');
+        document.getElementById('range-feedback').textContent = '单次输入不得超过 20,000 个字符。';
+        input.focus();
+        resetResults();
+        return;
+      }
+      var parsed = parseNumbers(raw);
+      var values = parsed.numbers;
       if (values.length < 2) {
         input.setAttribute('aria-invalid', 'true');
         document.getElementById('range-feedback').textContent = '至少需要两个有效数字，才能开始比较。';
+        input.focus();
+        resetResults();
+        return;
+      }
+      if (values.length > 500) {
+        input.setAttribute('aria-invalid', 'true');
+        document.getElementById('range-feedback').textContent = '单次最多处理 500 个有效数字，请分批分析。';
         input.focus();
         resetResults();
         return;
@@ -118,12 +136,21 @@
       var min = values[0];
       var max = values[values.length - 1];
       var span = max - min;
-      var mean = values.reduce(function (sum, value) { return sum + value; }, 0) / values.length;
+      var scale = values.reduce(function (largest, value) { return Math.max(largest, Math.abs(value)); }, 0);
+      var scaledMean = scale ? values.reduce(function (sum, value) { return sum + value / scale; }, 0) / values.length : 0;
+      var mean = scaledMean * scale;
       var middle = Math.floor(values.length / 2);
-      var median = values.length % 2 ? values[middle] : (values[middle - 1] + values[middle]) / 2;
-      var variance = values.reduce(function (sum, value) { return sum + Math.pow(value - mean, 2); }, 0) / values.length;
-      var deviation = Math.sqrt(variance);
-      var ratio = mean === 0 ? 100 : Math.min(100, Math.abs(deviation / mean) * 100);
+      var median = values.length % 2 ? values[middle] : scale ? (values[middle - 1] / scale + values[middle] / scale) / 2 * scale : 0;
+      var scaledVariance = scale ? values.reduce(function (sum, value) { return sum + Math.pow(value / scale - scaledMean, 2); }, 0) / values.length : 0;
+      var deviation = Math.sqrt(scaledVariance) * scale;
+      if (![span, mean, median, deviation].every(Number.isFinite)) {
+        input.setAttribute('aria-invalid', 'true');
+        document.getElementById('range-feedback').textContent = '数值跨度过大，无法生成有限的分析摘要。';
+        input.focus();
+        resetResults();
+        return;
+      }
+      var ratio = deviation === 0 ? 0 : mean === 0 ? 100 : Math.min(100, Math.abs(deviation / mean) * 100);
 
       setResult('result-min', min);
       setResult('result-max', max);
@@ -132,12 +159,12 @@
       setResult('result-median', median);
       setResult('result-deviation', deviation);
       document.getElementById('result-count').textContent = values.length + ' 个有效数';
-      document.getElementById('dispersion-bar').style.setProperty('--value', Math.max(4, ratio) + '%');
+      document.getElementById('dispersion-bar').style.setProperty('--value', (ratio === 0 ? 0 : Math.max(4, ratio)) + '%');
       document.getElementById('dispersion-note').textContent = ratio < 10 ? '相对离散程度较低，数值聚拢在平均值附近。' : ratio < 25 ? '相对离散程度适中，建议结合观察窗继续比较。' : '相对离散程度较高，建议检查极端值与分组差异。';
       copy.disabled = false;
       input.removeAttribute('aria-invalid');
       latestSummary = '数量 ' + values.length + '；最低值 ' + format(min) + '；最高值 ' + format(max) + '；极差 ' + format(span) + '；平均值 ' + format(mean) + '；中位数 ' + format(median) + '；标准差 ' + format(deviation) + '。';
-      document.getElementById('range-feedback').textContent = '分析完成，结果已在右侧整理。';
+      document.getElementById('range-feedback').textContent = parsed.invalid ? '分析完成；' + parsed.invalid + ' 个无效项已忽略，请复核输入。' : '分析完成，结果已在右侧整理。';
       document.getElementById('range-result').focus();
     }
 
@@ -150,14 +177,25 @@
       latestSummary = '';
     }
 
-    function updateInputCount(value) {
-      document.getElementById('input-count').textContent = value + ' 个数';
+    function updateInputCount(parsed) {
+      document.getElementById('input-count').textContent = parsed.numbers.length + ' 个数' + (parsed.invalid ? ' · ' + parsed.invalid + ' 项无效' : '');
     }
   }
 
   function parseNumbers(text) {
-    var matches = text.match(/[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?/g) || [];
-    return matches.map(Number).filter(function (value) { return Number.isFinite(value); });
+    var tokens = text.split(/[\s,，;；]+/).filter(Boolean);
+    var numbers = [];
+    var invalid = 0;
+    tokens.forEach(function (token) {
+      if (!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/.test(token)) {
+        invalid += 1;
+        return;
+      }
+      var value = Number(token);
+      if (Number.isFinite(value)) numbers.push(value);
+      else invalid += 1;
+    });
+    return { numbers: numbers, invalid: invalid };
   }
 
   function setResult(id, value) {
@@ -165,7 +203,9 @@
   }
 
   function format(value) {
-    return (Math.round(value * 1000) / 1000).toLocaleString('zh-CN', { maximumFractionDigits: 3 });
+    var absolute = Math.abs(value);
+    if (absolute > 0 && (absolute >= 1000000000000 || absolute < 0.001)) return value.toExponential(3);
+    return Number(value.toFixed(3)).toLocaleString('zh-CN', { maximumFractionDigits: 3 });
   }
 
   function copyText(text) {
