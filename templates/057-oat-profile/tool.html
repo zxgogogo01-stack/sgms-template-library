@@ -1,139 +1,41 @@
-<!DOCTYPE html>
-<html lang="~LANG~">
+<!doctype html>
+<html lang="~LANG~" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f7f2ea">
-    <title>累计返佣估算器 — ~SITE_NAME~</title>
-    <meta name="description" content="按日均手续费、天数与返佣比例，估算一段时间的累计返佣。">
-    <link rel="canonical" href="https://~SITE_DOMAIN~/tool.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="~SITE_NAME~">
-    <meta property="og:title" content="累计返佣估算器 — ~SITE_NAME~">
-    <meta property="og:description" content="按日均手续费、天数与返佣比例，估算一段时间的累计返佣。">
-    <meta property="og:url" content="https://~SITE_DOMAIN~/tool.html">
-    <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="card.css">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "累计返佣估算器",
-        "url": "https://~SITE_DOMAIN~/tool.html"
-    }
-    </script>
-    <style>
-        /* 工具页补充样式 */
-        .brew { max-width: 520px; margin: 0 auto; padding: 46px 22px 76px; }
-        .brew-card {
-            background: var(--milk);
-            border-radius: calc(var(--round7) + 4px);
-            box-shadow: var(--soft7-hi);
-            padding: 40px 42px;
-            position: relative;
-            overflow: hidden;
-        }
-        .brew-card::before {
-            content: "";
-            position: absolute;
-            inset: 0 0 auto;
-            height: 5px;
-            background: linear-gradient(90deg, var(--caramel), var(--roast), var(--caramel));
-        }
-        .brew-card h1 { font-family: var(--serif7); font-size: 1.5rem; }
-        .brew-card > p { color: var(--latte); margin: 6px 0 8px; }
-        .brew-card label {
-            display: block;
-            margin: 17px 0 6px;
-            font-size: .85rem;
-            font-weight: 800;
-            color: var(--roast-deep);
-        }
-        .brew-card input {
-            width: 100%;
-            min-height: 48px;
-            padding: 10px 16px;
-            border: 1.5px solid var(--crumb);
-            border-radius: 12px;
-            background: var(--oat);
-            color: var(--bean);
-            font: inherit;
-            font-variant-numeric: tabular-nums;
-            transition: border-color var(--ease7), box-shadow var(--ease7);
-        }
-        .brew-card input:focus {
-            outline: none;
-            border-color: var(--roast);
-            box-shadow: 0 0 0 4px color-mix(in srgb, var(--caramel) 20%, transparent);
-        }
-        .brew-card input[aria-invalid="true"] {
-            border-color: #b84832;
-            box-shadow: 0 0 0 4px color-mix(in srgb, #b84832 16%, transparent);
-        }
-        .brew-run {
-            margin-top: 26px;
-            width: 100%;
-            min-height: 52px;
-            border: 0;
-            border-radius: 999px;
-            background: var(--roast);
-            color: #fdf6ec;
-            font: inherit;
-            font-size: 1rem;
-            font-weight: 800;
-            letter-spacing: .05em;
-            cursor: pointer;
-            box-shadow: 0 10px 24px color-mix(in srgb, var(--roast) 36%, transparent);
-            transition: transform var(--ease7), background var(--ease7);
-        }
-        .brew-run:hover { transform: translateY(-2px); background: var(--roast-deep); }
-        .brew-out {
-            display: block;
-            margin-top: 18px;
-            min-height: 26px;
-            padding: 15px 19px;
-            border-radius: 12px;
-            background: var(--foam);
-            line-height: 1.7;
-            font-variant-numeric: tabular-nums;
-        }
-        .brew-out b { color: var(--roast-deep); }
-        @media (max-width: 560px) {
-            .brew-card { padding: 28px 22px; }
-        }
-    </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#eee7da">
+  <title>发布前资料检查 — ~SITE_NAME~</title><meta name="description" content="用五项证据字段检查一条资料是否适合进入终审。"><link rel="canonical" href="https://~SITE_DOMAIN~/tool.html">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="~SITE_NAME~"><meta property="og:title" content="发布前资料检查 — ~SITE_NAME~"><meta property="og:description" content="用五项证据字段检查一条资料是否适合进入终审。"><meta property="og:url" content="https://~SITE_DOMAIN~/tool.html"><meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="card.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"发布前资料检查","applicationCategory":"UtilitiesApplication","url":"https://~SITE_DOMAIN~/tool.html"}</script>
 </head>
 <body>
-    <header class="halo">
-        <div class="halo-in">
-            <a class="halo-brand" href="index.html">~BRAND_EN~</a>
-            <nav class="halo-nav" aria-label="主导航">
-                <a href="article.html">文章</a>
-                <a href="tool.html" aria-current="page">工具</a>
-                <a href="legal.html">披露</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="brew">
-        <form class="brew-card" id="es-form" novalidate>
-            <h1>累计返佣估算器</h1>
-            <p>日均手续费 × 天数 × 返佣比例，估一段时间能返多少。本地计算。</p>
-            <label for="es-daily">日均手续费</label>
-            <input type="number" id="es-daily" step="any" min="0" placeholder="如 8.5" aria-describedby="es-out">
-            <label for="es-days">估算天数</label>
-            <input type="number" id="es-days" step="1" min="1" placeholder="如 90" aria-describedby="es-out">
-            <label for="es-cut">返佣比例（%）</label>
-            <input type="number" id="es-cut" step="any" min="0" max="100" placeholder="如 30" aria-describedby="es-out">
-            <button type="submit" class="brew-run" id="es-run">估一估</button>
-            <output class="brew-out" id="es-out" role="status" aria-live="polite"></output>
-        </form>
-    </main>
-
-    <footer class="hemline" style="padding-bottom: 40px;">
-        <p class="hemline-fine">结果仅供参考，实际以平台结算为准。</p>
-    </footer>
-
-    <script src="card.js"></script>
+  <a class="op57-skip" href="#op57-main">跳到主要内容</a>
+  <header class="op57-mast"><div class="op57-mast-inner"><a class="op57-wordmark" href="index.html"><i aria-hidden="true">O</i><span>~BRAND_EN~</span></a><button class="op57-menu-button" type="button" aria-expanded="false" aria-controls="op57-menu"><span aria-hidden="true">≡</span><span class="op57-sr">打开导航</span></button><nav class="op57-menu" id="op57-menu" aria-label="主导航"><a href="index.html">名片</a><a href="article.html">笔记</a><a aria-current="page" href="tool.html">发布检查</a><a href="legal.html">披露</a><button class="op57-theme" type="button" data-theme-toggle aria-label="切换深浅主题">夜间</button></nav></div></header>
+  <main class="op57-tool" id="op57-main">
+    <header class="op57-tool-head"><p class="op57-kicker">EDITORIAL GATE / 05</p><h1>发布前资料检查</h1><p>勾选已经留存的证据字段，生成一张资料完整度卡。它只检查字段是否齐备，不验证内容真假。</p></header>
+    <div class="op57-tool-grid">
+      <form class="op57-checklist" id="op57-evidence-form" novalidate>
+        <fieldset><legend>这条资料已经留存哪些字段？</legend>
+          <label><input type="checkbox" name="evidence" value="source" data-weight="30" data-label="官方一手来源" aria-label="官方一手来源"><span><b>官方一手来源</b><small>规则页、公告或账户页面</small></span><em>30</em></label>
+          <label><input type="checkbox" name="evidence" value="scope" data-weight="20" data-label="适用范围" aria-label="适用范围"><span><b>适用范围</b><small>产品、地区与账户档位</small></span><em>20</em></label>
+          <label><input type="checkbox" name="evidence" value="version" data-weight="20" data-label="版本或条款线索" aria-label="版本或条款线索"><span><b>版本或条款线索</b><small>页面日期、编号或存档</small></span><em>20</em></label>
+          <label><input type="checkbox" name="evidence" value="effective" data-weight="15" data-label="生效时间" aria-label="生效时间"><span><b>生效时间</b><small>明确日期、时刻与时区</small></span><em>15</em></label>
+          <label><input type="checkbox" name="evidence" value="owner" data-weight="15" data-label="复核责任人" aria-label="复核责任人"><span><b>复核责任人</b><small>编辑与第二核对人</small></span><em>15</em></label>
+        </fieldset>
+        <p class="op57-tool-message" id="op57-tool-message" role="status" aria-live="polite">至少勾选一项后再生成建议。</p>
+        <div class="op57-presets" aria-label="检查预设"><button type="button" data-evidence-preset="source,effective">来源 + 时间</button><button type="button" data-evidence-preset="source,scope,version,effective">核心四项</button><button type="button" data-evidence-preset="source,scope,version,effective,owner">全部齐备</button></div>
+        <div class="op57-tool-actions"><button type="submit">生成建议</button><button type="button" data-evidence-reset>清空</button></div>
+      </form>
+      <section class="op57-report" aria-labelledby="op57-report-title">
+        <header><span>READINESS CARD</span><b data-evidence-state>等待检查</b></header>
+        <div class="op57-score"><strong data-evidence-score>—</strong><span>/ 100</span><meter min="0" max="100" value="0" data-evidence-meter>0</meter></div>
+        <h2 id="op57-report-title" data-evidence-verdict>尚未生成发布建议</h2>
+        <p data-evidence-advice>勾选左侧已有证据字段。</p>
+        <div class="op57-missing-list"><h3>仍缺少</h3><ul data-evidence-missing><li>等待检查</li></ul></div>
+        <button type="button" data-copy-report disabled>复制检查结果</button><small data-report-status role="status" aria-live="polite"></small>
+      </section>
+    </div>
+    <p class="op57-tool-fine">检查结果不代表平台认可、内容正确或投资安全；发布前仍需人工终审并返回官方来源复核。</p>
+  </main>
+  <footer class="op57-footer"><p><span>~SITE_NAME~</span> · 本地计算，不上传数据</p><nav aria-label="页脚导航"><a href="legal.html">披露</a><a href="article.html">文章</a></nav></footer>
+  <script src="card.js"></script>
 </body>
 </html>

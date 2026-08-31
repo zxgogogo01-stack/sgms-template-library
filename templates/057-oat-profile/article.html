@@ -1,118 +1,41 @@
-<!DOCTYPE html>
-<html lang="~LANG~">
+<!doctype html>
+<html lang="~LANG~" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f7f2ea">
-    <title>文章样板 — ~SITE_NAME~</title>
-    <meta name="description" content="名片站文章页样板。">
-    <link rel="canonical" href="https://~SITE_DOMAIN~/article.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="~SITE_NAME~">
-    <meta property="og:title" content="文章样板 — ~SITE_NAME~">
-    <meta property="og:description" content="名片站文章页样板。">
-    <meta property="og:url" content="https://~SITE_DOMAIN~/article.html">
-    <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="card.css">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "文章样板",
-        "datePublished": "2026-01-19",
-        "mainEntityOfPage": "https://~SITE_DOMAIN~/article.html"
-    }
-    </script>
-    <style>
-        /* 文章页补充样式 */
-        .parch { max-width: 640px; margin: 0 auto; padding: 40px 22px 76px; }
-        .parch-card {
-            background: var(--milk);
-            border-radius: calc(var(--round7) + 4px);
-            box-shadow: var(--soft7-hi);
-            padding: 42px 44px;
-        }
-        .parch-back { font-size: .85rem; font-weight: 700; color: var(--caramel); }
-        .parch-card h1 {
-            font-family: var(--serif7);
-            font-size: clamp(1.42rem, 3.4vw, 1.9rem);
-            line-height: 1.35;
-            margin: 12px 0 0;
-        }
-        .parch-meta { margin: 10px 0 0; font-size: .84rem; color: var(--latte); font-variant-numeric: tabular-nums; }
-        .parch-gist {
-            margin: 24px 0;
-            padding: 16px 20px;
-            border-radius: 13px;
-            background: var(--foam);
-            border-left: 4px solid var(--caramel);
-        }
-        .parch-card h2 {
-            font-family: var(--serif7);
-            font-size: 1.2rem;
-            margin: 30px 0 10px;
-        }
-        .parch-card h2::before { content: "§ "; color: var(--caramel); }
-        .parch-card p { margin: 0 0 13px; }
-        .parch-roll { overflow-x: auto; border-radius: 12px; box-shadow: inset 0 0 0 1px var(--crumb); margin: 14px 0 8px; }
-        .parch-card table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-        .parch-card th, .parch-card td { text-align: left; padding: 10px 15px; border-bottom: 1px solid var(--crumb); font-size: .9rem; white-space: nowrap; }
-        .parch-card thead th { background: var(--foam); color: var(--roast-deep); font-size: .81rem; border-bottom: 0; }
-        .parch-card tbody tr:last-child td { border-bottom: 0; }
-        .parch-fine { font-size: .83rem; color: var(--latte); }
-        @media (max-width: 560px) {
-            .parch-card { padding: 28px 22px; }
-            .parch-card th, .parch-card td { white-space: normal; }
-        }
-    </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#eee7da">
+  <title>文章样板 — ~SITE_NAME~</title><meta name="description" content="从规则页、适用范围、生效时间到到账记录的证据链文章样板。"><link rel="canonical" href="https://~SITE_DOMAIN~/article.html">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="~SITE_NAME~"><meta property="og:title" content="文章样板 — ~SITE_NAME~"><meta property="og:description" content="从规则页到到账记录的证据链文章样板。"><meta property="og:url" content="https://~SITE_DOMAIN~/article.html"><meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="card.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"文章样板","datePublished":"2026-01-19","dateModified":"2026-01-19","mainEntityOfPage":"https://~SITE_DOMAIN~/article.html"}</script>
 </head>
 <body>
-    <header class="halo">
-        <div class="halo-in">
-            <a class="halo-brand" href="index.html">~BRAND_EN~</a>
-            <nav class="halo-nav" aria-label="主导航">
-                <a href="article.html" aria-current="page">文章</a>
-                <a href="tool.html">工具</a>
-                <a href="legal.html">披露</a>
-            </nav>
-        </div>
-    </header>
+  <div class="op57-progress" aria-hidden="true"><i data-reading-progress></i></div>
+  <a class="op57-skip" href="#op57-main">跳到主要内容</a>
+  <header class="op57-mast"><div class="op57-mast-inner"><a class="op57-wordmark" href="index.html"><i aria-hidden="true">O</i><span>~BRAND_EN~</span></a><button class="op57-menu-button" type="button" aria-expanded="false" aria-controls="op57-menu"><span aria-hidden="true">≡</span><span class="op57-sr">打开导航</span></button><nav class="op57-menu" id="op57-menu" aria-label="主导航"><a href="index.html">名片</a><a aria-current="page" href="article.html">笔记</a><a href="tool.html">发布检查</a><a href="legal.html">披露</a><button class="op57-theme" type="button" data-theme-toggle aria-label="切换深浅主题">夜间</button></nav></div></header>
 
-    <main class="parch">
-        <article class="parch-card">
-            <a class="parch-back" href="index.html">← 回名片</a>
-            <h1>示例平台A 挂单档位调整：返佣基数怎么跟着变</h1>
-            <p class="parch-meta">发布 2026-01-19 · 口径核对 2026-01-19</p>
+  <main class="op57-reading" id="op57-main">
+    <nav class="op57-crumb" aria-label="面包屑"><a href="index.html">名片</a><span aria-hidden="true">/</span><span>费率笔记</span></nav>
+    <article class="op57-article">
+      <header class="op57-article-head"><p class="op57-kicker">FIELD NOTE · 01</p><h1>挂单档位调整后，返佣基数该怎样重新核对</h1><div><time datetime="2026-01-19">发布 2026-01-19</time><span>预计阅读 5 分钟</span><span>口径已标注</span></div></header>
+      <p class="op57-deck">规则变化不是一个孤立数字。先把产品、账户档位、生效时间与来源版本放进同一张卡，再沿“成交额—手续费—计佣基数—到账”逐步核对。</p>
 
-            <div class="parch-gist"><b>先说结论：</b>费率档位变化会沿着手续费基数传导到返佣金额；核对时应同时确认产品线、账户档位与生效时间。</div>
+      <section><h2>先定边界，再抄数字</h2><p>打开官方规则页后，先记录页面版本或核对日期，再确认它覆盖的产品线、账户层级、地区和时间范围。若这些字段没有写清楚，同一个比例很可能被误用到不同场景。</p><p>账户页面与公开规则不一致时，应把账户实际显示单独记录，并向官方支持确认；不要用第三方摘要替代一手证据。</p></section>
 
-            <h2>变了什么</h2>
-            <p>先记录调整覆盖的产品、账户层级和生效时间，并把时区统一到自己的账单时区；随后保存规则页版本，便于到账后逐项复核。</p>
+      <figure class="op57-passport" id="op57-source-passport">
+        <figcaption><span>SOURCE PASSPORT</span><strong>结论的来源护照</strong></figcaption>
+        <dl><div><dt>来源主体</dt><dd>官方规则页 / 账户页</dd></div><div><dt>适用范围</dt><dd>产品、地区、账户档位</dd></div><div><dt>版本线索</dt><dd>页面日期、公告编号或存档</dd></div><div><dt>生效时间</dt><dd>含时区的明确时间点</dd></div><div><dt>复核责任</dt><dd>编辑与第二复核人</dd></div><div><dt>状态</dt><dd>草稿 / 待复核 / 已终审</dd></div></dl>
+      </figure>
 
-            <h2>对返佣的传导</h2>
-            <p>计算顺序是成交额乘手续费率得到手续费，再乘可返比例得到预计返佣。若存在抵扣、上限或排除产品，应先从计佣基数中剔除。</p>
-            <div class="parch-roll">
-                <table>
-                    <thead>
-                        <tr><th scope="col">项目</th><th scope="col">调整前</th><th scope="col">调整后</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>挂单费率（基础档）</td><td>0.0X%</td><td>0.0X%</td></tr>
-                        <tr><td>演示返佣（每万元）</td><td>X.XX</td><td>X.XX</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="parch-fine">表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
+      <section><h2>沿计算路径逐步复核</h2><p>先用适用成交额与手续费率得到手续费，再按平台定义确认哪些费用进入计佣基数，最后应用返还比例与可能存在的上限。每一步都要保留口径，不能只留下最终数字。</p>
+        <ol class="op57-steps"><li><b>01</b><span><strong>交易范围</strong>确认产品与账户档位是否在规则内。</span></li><li><b>02</b><span><strong>费用基数</strong>排除不参与返还的抵扣、税费或产品。</span></li><li><b>03</b><span><strong>到账对照</strong>用账单周期、币种和时间逐项核验。</span></li></ol>
+      </section>
 
-            <h2>要不要动</h2>
-            <p>判断时不要只看返佣比例，还要核对费率、产品范围、结算门槛与到账周期。规则可能调整，正式决策应以账户页面的最新显示为准。</p>
-        </article>
-    </main>
+      <aside class="op57-copy-note"><div><p>可移植摘要</p><h2>复制给下一位编辑</h2><span>先确认来源主体、适用范围、版本与生效时间，再沿手续费基数核对到账；无法确认的字段必须标记为待核实。</span></div><button type="button" data-copy-article>复制摘要</button><small data-article-status role="status" aria-live="polite"></small></aside>
 
-    <footer class="hemline" style="padding-bottom: 40px;">
-        <p class="hemline-fine">内容为信息整理，以各平台官方页面为准；不构成投资建议。</p>
-    </footer>
-
-    <script src="card.js"></script>
+      <section><h2>发布前的最后一道门</h2><p>返还比例、资格、活动期限和产品范围都可能调整。正式发布前应重新打开官方页面与账户页面；不能确认的信息应删去、改为条件说明，或明确标注待核实。</p></section>
+      <footer class="op57-article-end"><span>END OF NOTE</span><a href="tool.html">去做五项发布检查 →</a></footer>
+    </article>
+  </main>
+  <footer class="op57-footer"><p><span>~SITE_NAME~</span> · 信息整理，不构成投资建议</p><nav aria-label="页脚导航"><a href="legal.html">披露</a><a href="index.html">名片</a></nav></footer>
+  <script src="card.js"></script>
 </body>
 </html>

@@ -1,25 +1,39 @@
-# 057-oat-profile（忠实静态化自军哥 `home_profile`）
+# 057-oat-profile
 
-## 适合什么站
-
-个人主理人或策展型返佣站：居中人物名片、常用链接和最近更新组成轻量入口页。
-
-## 复刻口径
-
-- 首页保留源模板 `prof-wrap`、`prof-card`、`prof-links`、`prof-latest`、`prof-foot` 及全部子元素的原始类名与顺序。
-- 静态版本采用源模板的首字头像和首字缩略图分支，链接与文章循环转换为固定示例条目。
-- `public.css` 是军哥源库 `partials/style.css` 的原样副本；`card.css` 只补足静态站外壳、响应式和源类名样式。
-- 动态链接、日期格式和翻译方法已替换为本地页面链接与静态文案；未保留源模板之外的邀请码条。
+一套温暖燕麦色的主理人资料卡模板。首页由人物档案、快速文件柜和三张编辑卡组成；文章页负责展开证据链；工具页用五项检查生成发布建议。视觉与代码均使用 `op57-` 专属命名空间，不依赖公共 CMS 样式。
 
 ## 页面与文件
 
-`index.html` / `article.html` / `tool.html` / `legal.html` / `404.html` / `robots.txt` / `sitemap.xml` / `TEMPLATE.md`，以及 `public.css`、`card.css`、`card.js`。
+- `index.html`：人物档案、快速入口、最近笔记
+- `article.html`：长文、来源护照、复制摘要、阅读进度
+- `tool.html`：五项资料完整度检查
+- `legal.html`：利益披露、风险边界、联系与可复制文本
+- `404.html`：本地安全检索与页面引导
+- `card.css` / `card.js`：整套模板唯一的样式与交互入口
 
-## 首页占位符
+## 后续 AI 内容接口
 
-`~SITE_NAME~`、`~BRAND_EN~`、`~SITE_DOMAIN~`、`~SITE_TAGLINE~`、`~SITE_DESC~`、`~SEO_TITLE~`、`~HERO_EYEBROW~`、`~HERO_TITLE~`、`~HERO_DESCRIPTION~`、`~HOME_LINKS_LABEL~`、`~HOME_LATEST_LABEL~`、`~LANG~`。
+直接替换变量和可见文字即可，不需要重做 UI、DOM、类名、主题、移动导航或工具逻辑。推荐流程：
 
-## 可调项
+1. 全局替换下列变量；保留 `op57-` 类名、`data-*` 属性、元素 id 和页面文件名。
+2. 首页三张笔记可直接改标题、标签、日期和摘要；增减卡片时复制完整 `article` 节点。
+3. 文章正文可以替换，但保留“来源护照”的字段结构与披露提醒。
+4. 工具页五个检查项的权重合计为 100；如需改权重，应同步修改 `data-weight`、说明文案和 `card.js` 判定门槛。
+5. 不要填入无法由官方页面或账户页面核实的具体比例、收益承诺或“最高”宣传。
 
-- 可按实际栏目增减 `prof-pill`，按更新数量增减 `prof-post`。
-- 可把生成头像或缩略图替换为真实封面，但不要重命名或移除首页源类名。
+## 全局变量
+
+`~LANG~`、`~SITE_NAME~`、`~BRAND_EN~`、`~SITE_DOMAIN~`、`~SITE_TAGLINE~`、`~SITE_DESC~`、`~SEO_TITLE~`、`~HERO_EYEBROW~`、`~HERO_TITLE~`、`~HERO_DESCRIPTION~`、`~HOME_LINKS_LABEL~`、`~HOME_LATEST_LABEL~`、`~CONTACT_EMAIL~`。
+
+其中 `~CONTACT_EMAIL~` 只出现在联系与更正说明中，应替换为可收信地址；不需要时请改成真实可用的联系路径，不要删除整段责任说明。
+
+## 工具规则
+
+- 五项权重：官方来源 30、适用范围 20、版本/条款 20、生效时间 15、复核责任人 15。
+- 未勾任何项时不生成结果；1–59 为“暂缓发布”，60–84 为“补证后复核”，85–100 为“可进入终审”。
+- 结果只代表资料字段完整度，不代表内容正确、平台认可或投资安全。
+- 输出节点通过 `textContent` / `createElement` 构造，不得改回 `innerHTML`。
+
+## 交付前检查
+
+运行 `node tools/audit-template.js templates/057-oat-profile`、`node tools/validate.js` 和与全库其他模板的逐对相似度检查；再在 1440×1000 与 390×844 下验收五页、主题、菜单、复制、阅读进度、工具空态/三种结果/预设/重置和 404 安全检索，确认控制台无错误。

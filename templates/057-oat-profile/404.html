@@ -1,55 +1,14 @@
-<!DOCTYPE html>
-<html lang="~LANG~">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>页面不存在 — ~SITE_NAME~</title>
-    <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="card.css">
-    <style>
-        /* 404 补充样式 */
-        .lostcup { max-width: 420px; margin: 16vh auto; padding: 0 22px; text-align: center; }
-        .lostcup-card {
-            background: var(--milk);
-            border-radius: calc(var(--round7) + 6px);
-            box-shadow: var(--soft7-hi);
-            padding: 50px 38px;
-        }
-        .lostcup-face {
-            width: 84px;
-            height: 84px;
-            margin: 0 auto 14px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: radial-gradient(circle at 32% 28%, var(--caramel), var(--roast-deep) 78%);
-            box-shadow: 0 0 0 5px var(--milk), 0 0 0 6.5px var(--crumb);
-        }
-        .lostcup-face b { font-family: var(--serif7); font-size: 1.9rem; color: #fdf6ec; }
-        .lostcup-card h1 { font-family: var(--serif7); font-size: 2.6rem; color: var(--roast); }
-        .lostcup-card p { color: var(--latte); margin: 6px 0 20px; }
-        .lostcup-back {
-            display: inline-block;
-            min-height: 46px;
-            line-height: 46px;
-            padding: 0 26px;
-            border-radius: 999px;
-            background: var(--roast);
-            color: #fdf6ec;
-            font-weight: 800;
-            transition: transform var(--ease7), background var(--ease7);
-        }
-        .lostcup-back:hover { transform: translateY(-2px); background: var(--roast-deep); }
-    </style>
-</head>
+<!doctype html>
+<html lang="~LANG~" data-theme="light">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#eee7da"><title>页面不存在 — ~SITE_NAME~</title><link rel="stylesheet" href="card.css"></head>
 <body>
-    <div class="lostcup">
-        <div class="lostcup-card">
-            <div class="lostcup-face" aria-hidden="true"><b>?</b></div>
-            <h1>404</h1>
-            <p>这一页不在名片上——可能已下架或换了位置。</p>
-            <a class="lostcup-back" href="index.html">回名片</a>
-        </div>
-    </div>
+  <a class="op57-skip" href="#op57-main">跳到主要内容</a>
+  <header class="op57-mast"><div class="op57-mast-inner"><a class="op57-wordmark" href="index.html"><i aria-hidden="true">O</i><span>~BRAND_EN~</span></a><button class="op57-menu-button" type="button" aria-expanded="false" aria-controls="op57-menu"><span aria-hidden="true">≡</span><span class="op57-sr">打开导航</span></button><nav class="op57-menu" id="op57-menu" aria-label="主导航"><a href="index.html">名片</a><a href="article.html">笔记</a><a href="tool.html">发布检查</a><a href="legal.html">披露</a><button class="op57-theme" type="button" data-theme-toggle aria-label="切换深浅主题">夜间</button></nav></div></header>
+  <main class="op57-missing" id="op57-main">
+    <section><p class="op57-kicker">MISFILED / 404</p><h1>这张卡不在档案盒里。</h1><p>地址可能已更换。输入主题词，我们会把你带到最接近的本地页面。</p>
+      <form class="op57-route" data-route-search novalidate><label for="op57-route-query">查找站内资料</label><div><input id="op57-route-query" type="search" maxlength="80" autocomplete="off" placeholder="如：费率、证据、披露" aria-describedby="op57-route-help op57-route-result"><button type="submit">找卡片</button></div><small id="op57-route-help">最多 80 个字符，只查询本模板内置页面。</small><p id="op57-route-result" data-route-result role="status" aria-live="polite">也可以直接返回<a href="index.html">首页名片</a>。</p></form>
+    </section><aside aria-hidden="true"><b>57</b><span>NOT FOUND</span></aside>
+  </main>
+  <script src="card.js"></script>
 </body>
 </html>
