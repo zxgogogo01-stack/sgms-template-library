@@ -14,8 +14,10 @@
     var trackingKeys = /^(utm_.+|fbclid|gclid|dclid|msclkid|mc_cid|mc_eid|ref|referrer|source)$/i;
 
     function cleanLine(value) {
-        var url = new URL(value);
+        var url;
+        try { url = new URL(value); } catch (_) { throw new Error("不是完整有效的链接"); }
         if (url.protocol !== "http:" && url.protocol !== "https:") throw new Error("只支持 http 或 https 链接");
+        if (url.username || url.password) throw new Error("链接不得包含账号或密码");
         var removed = 0;
         Array.from(url.searchParams.keys()).forEach(function (key) {
             if (trackingKeys.test(key)) {
@@ -31,8 +33,20 @@
     function fail(message) {
         input.setAttribute("aria-invalid", "true");
         error.textContent = message;
+        output.value = "";
+        summary.textContent = "净化完成";
+        status.textContent = "";
         result.hidden = true;
         input.focus();
+    }
+
+    function invalidateResult() {
+        input.removeAttribute("aria-invalid");
+        error.textContent = "";
+        output.value = "";
+        summary.textContent = "净化完成";
+        status.textContent = "";
+        result.hidden = true;
     }
 
     form.addEventListener("submit", function (event) {
@@ -43,6 +57,10 @@
         status.textContent = "";
         if (!rows.length) {
             fail("请先粘贴至少一条完整链接。");
+            return;
+        }
+        if (input.value.length > 20000) {
+            fail("单次输入不得超过 20,000 个字符。");
             return;
         }
         if (rows.length > 20) {
@@ -67,6 +85,8 @@
         output.focus();
     });
 
+    input.addEventListener("input", invalidateResult);
+
     copy.addEventListener("click", function () {
         var fallback = function () {
             output.select();
@@ -85,6 +105,7 @@
         input.removeAttribute("aria-invalid");
         error.textContent = "";
         output.value = "";
+        summary.textContent = "净化完成";
         result.hidden = true;
         status.textContent = "";
         input.focus();
@@ -93,8 +114,7 @@
     samples.forEach(function (button) {
         button.addEventListener("click", function () {
             input.value = button.dataset.sample;
-            input.removeAttribute("aria-invalid");
-            error.textContent = "";
+            invalidateResult();
             input.focus();
         });
     });

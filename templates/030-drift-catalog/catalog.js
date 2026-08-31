@@ -2,7 +2,7 @@
     "use strict";
 
     var search = document.getElementById("catalog-search");
-    var cards = Array.prototype.slice.call(document.querySelectorAll(".catalog-card"));
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".dc-catalog-card"));
     var filters = Array.prototype.slice.call(document.querySelectorAll("[data-filter]"));
     var count = document.getElementById("catalog-count");
     var empty = document.getElementById("catalog-empty");

@@ -22,63 +22,63 @@
     <link rel="stylesheet" href="site.css">
 </head>
 <body>
-    <a class="skip-link" href="#main">跳到主要内容</a>
-    <header class="site-header">
-        <div class="header-inner">
-            <a class="brand" href="index.html" aria-label="[[SITE_NAME]] 首页"><span class="brand-mark" aria-hidden="true">D</span><span class="brand-copy"><strong>[[SITE_NAME]]</strong><small>Drift Index · Field Notes</small></span></a>
-            <nav class="site-nav" aria-label="主要导航"><a href="index.html">航海图</a><a href="article.html">收录手记</a><a href="tool.html" aria-current="page">链接净化台</a><a href="legal.html">编辑原则</a></nav>
-            <div class="header-coordinates"><span>N 31°14′ / E 121°29′</span><span>ISSUE 030 · OPEN WATER</span></div>
+    <a class="dc-skip-link" href="#main">跳到主要内容</a>
+    <header class="dc-site-header">
+        <div class="dc-header-inner">
+            <a class="dc-brand" href="index.html" aria-label="[[SITE_NAME]] 首页"><span class="dc-brand-mark" aria-hidden="true">D</span><span class="dc-brand-copy"><strong>[[SITE_NAME]]</strong><small>Drift Index · Field Notes</small></span></a>
+            <nav class="dc-site-nav" aria-label="主要导航"><a href="index.html">航海图</a><a href="article.html">收录手记</a><a href="tool.html" aria-current="page">链接净化台</a><a href="legal.html">编辑原则</a></nav>
+            <div class="dc-header-coordinates"><span>N 31°14′ / E 121°29′</span><span>ISSUE 030 · OPEN WATER</span></div>
         </div>
     </header>
 
-    <main class="site-main" id="main">
-        <header class="page-hero">
-            <div class="container">
-                <nav class="breadcrumb" aria-label="面包屑"><a href="index.html">航海图</a><span>／</span><span>链接净化台</span></nav>
-                <div class="page-hero-grid">
-                    <div><p class="eyebrow">Clean passage · 本地工具</p><h1>把链接里的尾流，<br>留在身后。</h1><p>移除常见追踪参数与页面锚点，保留真正决定内容位置的地址。</p></div>
-                    <div class="page-stamp"><span>Local only</span><strong>0</strong><span>Data uploaded</span></div>
+    <main class="dc-site-main" id="main">
+        <header class="dc-page-hero">
+            <div class="dc-container">
+                <nav class="dc-breadcrumb" aria-label="面包屑"><a href="index.html">航海图</a><span>／</span><span>链接净化台</span></nav>
+                <div class="dc-page-hero-grid">
+                    <div><p class="dc-eyebrow">Clean passage · 本地工具</p><h1>把链接里的尾流，<br>留在身后。</h1><p>移除常见追踪参数与页面锚点，保留真正决定内容位置的地址。</p></div>
+                    <div class="dc-page-stamp"><span>Local only</span><strong>0</strong><span>Data uploaded</span></div>
                 </div>
             </div>
         </header>
 
-        <div class="container tool-layout">
-            <section class="tool-panel" aria-labelledby="tool-title">
+        <div class="dc-container dc-tool-layout">
+            <section class="dc-tool-panel" aria-labelledby="tool-title">
                 <form id="clean-form" novalidate>
-                    <div class="field-label"><label for="url-input" id="tool-title">原始链接</label><small>每行一条 · 最多 20 条</small></div>
-                    <textarea id="url-input" aria-describedby="url-help url-error" placeholder="https://schema.org/report?utm_source=newsletter&amp;page=2#summary"></textarea>
+                    <div class="dc-field-label"><label for="url-input" id="tool-title">原始链接</label><small>每行一条 · 最多 20 条</small></div>
+                    <textarea id="url-input" maxlength="20000" aria-describedby="url-help url-error" placeholder="https://schema.org/report?utm_source=newsletter&amp;page=2#summary"></textarea>
                     <p id="url-help" hidden>输入一条或多条 http 或 https 链接。</p>
-                    <p class="field-error" id="url-error" aria-live="assertive"></p>
-                    <div class="tool-actions">
-                        <button class="button primary" type="submit">开始净化 <span aria-hidden="true">↘</span></button>
-                        <button class="button secondary" type="button" id="reset-tool">清空重来</button>
+                    <p class="dc-field-error" id="url-error" aria-live="assertive"></p>
+                    <div class="dc-tool-actions">
+                        <button class="dc-button dc-primary" type="submit">开始净化 <span aria-hidden="true">↘</span></button>
+                        <button class="dc-button dc-secondary" type="button" id="reset-tool">清空重来</button>
                     </div>
                 </form>
 
-                <div class="result-panel" id="tool-result" hidden>
-                    <div class="result-meta"><strong id="result-summary">净化完成</strong><span>保留有意义的查询参数</span></div>
-                    <label class="field-label" for="url-output">净化结果</label>
+                <div class="dc-result-panel" id="tool-result" hidden>
+                    <div class="dc-result-meta"><strong id="result-summary">净化完成</strong><span>保留有意义的查询参数</span></div>
+                    <label class="dc-field-label" for="url-output">净化结果</label>
                     <textarea id="url-output" readonly></textarea>
-                    <div class="tool-actions"><button class="button primary" type="button" id="copy-output">复制结果</button></div>
-                    <p class="status-message" id="tool-status" aria-live="polite"></p>
+                    <div class="dc-tool-actions"><button class="dc-button dc-primary" type="button" id="copy-output">复制结果</button></div>
+                    <p class="dc-status-message" id="tool-status" aria-live="polite"></p>
                 </div>
             </section>
 
-            <aside class="tool-aside">
+            <aside class="dc-tool-aside">
                 <h2>先试一条航线</h2>
                 <p>选择示例后点击“开始净化”，观察追踪参数与锚点如何被移除。</p>
-                <div class="sample-list">
-                    <button class="sample-button" type="button" data-sample="https://schema.org/docs?utm_source=letter&amp;utm_medium=email&amp;page=3#top">含追踪参数与页码</button>
-                    <button class="sample-button" type="button" data-sample="https://schema.org/archive?gclid=sample&amp;year=2026&amp;topic=design">保留年份与主题</button>
-                    <button class="sample-button" type="button" data-sample="https://schema.org/quiet-page#reading-position">只清除页面锚点</button>
+                <div class="dc-sample-list">
+                    <button class="dc-sample-button" type="button" data-sample="https://schema.org/docs?utm_source=letter&amp;utm_medium=email&amp;page=3#top">含追踪参数与页码</button>
+                    <button class="dc-sample-button" type="button" data-sample="https://schema.org/archive?gclid=sample&amp;year=2026&amp;topic=design">保留年份与主题</button>
+                    <button class="dc-sample-button" type="button" data-sample="https://schema.org/quiet-page#reading-position">只清除页面锚点</button>
                 </div>
-                <div class="privacy-note"><strong>本地处理</strong><br>所有计算只在当前浏览器进行，不会把链接或结果发送至服务器。</div>
+                <div class="dc-privacy-note"><strong>本地处理</strong><br>所有计算只在当前浏览器进行，不会把链接或结果发送至服务器。</div>
             </aside>
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-inner"><div class="footer-brand"><strong>[[SITE_NAME]]</strong><p>一份持续校准的独立网页图鉴。工具在本地运行，不上传输入内容。</p></div><div class="footer-meta"><nav class="footer-nav" aria-label="页尾导航"><a href="index.html">航海图</a><a href="article.html">收录手记</a><a href="legal.html">编辑原则</a></nav><small>[[SITE_DOMAIN]] · CLEAN PASSAGE TOOL</small></div></div>
+    <footer class="dc-site-footer">
+        <div class="dc-footer-inner"><div class="dc-footer-brand"><strong>[[SITE_NAME]]</strong><p>一份持续校准的独立网页图鉴。工具在本地运行，不上传输入内容。</p></div><div class="dc-footer-meta"><nav class="dc-footer-nav" aria-label="页尾导航"><a href="index.html">航海图</a><a href="article.html">收录手记</a><a href="legal.html">编辑原则</a></nav><small>[[SITE_DOMAIN]] · CLEAN PASSAGE TOOL</small></div></div>
     </footer>
     <script src="tool.js"></script>
 </body>

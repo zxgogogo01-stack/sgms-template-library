@@ -21,8 +21,18 @@
 
 ## 可编辑区域
 
-- 首页 `.catalog-card` 可增删，`data-category` 支持 `research`、`making`、`signal`
+- 首页 `.dc-catalog-card` 可增删，`data-category` 支持 `research`、`making`、`signal`
 - 分类按钮的 `data-filter` 必须与卡片分类一致
 - 图鉴统计、坐标和期号可按站点主题改写
 - `tool.js` 中 `trackingKeys` 可增加需要移除的追踪参数
 - 若移除某个页面，请同步调整所有导航与 sitemap.xml
+
+## 后续 AI 的文字接入顺序
+
+1. 先一次性替换六个全局变量/占位符，再逐页接入站点定位、目录条目、编辑评注、方法文章、政策与联系信息。
+2. 只改文字、链接、图片替代文本、结构化数据和确有需要的 `data-category` / `data-filter`；保留 `dc-` 专属类名、页面结构、响应式断点、表单 ID、ARIA 关系和既有交互。
+3. 首页航海图、筛选/搜索/空态、航线复制、完整文章、链接净化台、政策页和 404 均已搭好。后续 AI 不应重做 UI；增删目录时只复制现有卡片结构并同步计数与分类。
+4. 内容接入后核对 title、description、canonical、图片版权、外链状态、邮箱与本地隐私说明，并实测筛选、搜索、空态恢复、航线复制、链接空值/批量上限/非法协议/凭据阻断/追踪清理/输入失效/样例/重置/复制。
+5. 最后运行 `node tools/audit-template.js templates/030-drift-catalog`，并与库内其余模板逐对执行相似度检查。
+
+完整视觉、桌面/移动布局、深浅主题和交互框架均已完成；后续 AI 应把 token 用在目录内容、链接核验和编辑判断上，不在模板 UI 上重复消耗。
