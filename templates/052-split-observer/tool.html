@@ -23,28 +23,28 @@
   }
   </script>
   <style>
-    .bench {
+    .so52-bench {
+      padding: 46px 24px 80px;
       max-width: 600px;
       margin: 0 auto;
-      padding: 46px 24px 80px;
-    }
-    .bench-card {
+}
+    .so52-bench-card {
       background: var(--sheet);
       border: 2px solid var(--coal);
       border-radius: var(--bend);
       box-shadow: 6px 6px 0 var(--gilt);
       padding: 40px 44px;
     }
-    .bench-card h1 { font-size: 1.55rem; margin-bottom: 8px; }
-    .bench-card > p { color: var(--quiet); margin: 0 0 16px; }
-    .bench-card label {
+    .so52-bench-card h1 { font-size: 1.55rem; margin-bottom: 8px; }
+    .so52-bench-card > p { color: var(--quiet); margin: 0 0 16px; }
+    .so52-bench-card label {
+      color: var(--coal2);
       display: block;
-      margin: 16px 0 6px;
       font-size: .88rem;
       font-weight: 700;
-      color: var(--coal2);
-    }
-    .bench-card input {
+      margin: 16px 0 6px;
+}
+    .so52-bench-card input {
       width: 100%;
       min-height: 47px;
       padding: 10px 15px;
@@ -56,9 +56,9 @@
       font-variant-numeric: tabular-nums;
       transition: border-color var(--tick);
     }
-    .bench-card input:focus { outline: none; border-color: var(--wine); }
-    .bench-card input[aria-invalid='true'] { border-color: var(--wine2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--wine2) 20%, transparent); }
-    .bench-run {
+    .so52-bench-card input:focus { outline: none; border-color: var(--wine); }
+    .so52-bench-card input[aria-invalid='true'] { border-color: var(--wine2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--wine2) 20%, transparent); }
+    .so52-bench-run {
       margin-top: 24px;
       width: 100%;
       min-height: 50px;
@@ -73,56 +73,63 @@
       cursor: pointer;
       transition: background var(--tick), transform var(--tick);
     }
-    .bench-run:hover { background: var(--wine2); transform: translateY(-2px); }
-    .bench-run:active { transform: translateY(0); }
-    .bench-out {
-      display: block;
+    .so52-bench-run:hover { background: var(--wine2); transform: translateY(-2px); }
+    .so52-bench-run:active { transform: translateY(0); }
+    .so52-bench-out {
+      color: var(--coal2);
       margin-top: 18px;
+      background: var(--wash);
+      display: block;
+      font-variant-numeric: tabular-nums;
+      border-left: 4px solid var(--gilt);
       min-height: 24px;
       padding: 14px 18px;
-      border-left: 4px solid var(--gilt);
-      background: var(--wash);
-      color: var(--coal2);
-      font-variant-numeric: tabular-nums;
-    }
+}
     @media (max-width: 620px) {
-      .bench-card { padding: 26px 22px; }
+      .so52-bench-card { padding: 26px 22px; }
     }
   </style>
 </head>
 <body>
-  <header class='mast'>
-    <div class='mast-in'>
-      <a class='sig' href='index.html'>~BRAND_EN~</a>
-      <button type='button' class='mast-btn' id='mast-btn' aria-label='主导航' aria-expanded='false' aria-controls='mast-nav'>
+  <a class='so52-skip' href='#so52-main'>跳到主要内容</a>
+  <header class='so52-mast'>
+    <div class='so52-mast-in'>
+      <a class='so52-sig' href='index.html'>~BRAND_EN~</a>
+      <button type='button' class='so52-mast-btn' id='so52-mast-btn' aria-label='主导航' aria-expanded='false' aria-controls='so52-mast-nav'>
         <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
       </button>
-      <nav class='mast-nav' id='mast-nav' aria-label='主导航'>
+      <nav class='so52-mast-nav' id='so52-mast-nav' aria-label='主导航'>
         <a href='index.html'>观察</a>
         <a href='article.html'>评述</a>
         <a href='tool.html' aria-current='page'>算一算</a>
         <a href='legal.html'>披露</a>
+        <button type='button' class='so52-theme' id='so52-theme-button' aria-label='切换到夜间模式'>夜间</button>
       </nav>
     </div>
   </header>
 
-  <main class='bench'>
-    <form class='bench-card' id='rb-form' novalidate>
+  <main class='so52-bench' id='so52-main'>
+    <form class='so52-bench-card' id='so52-rb-form' novalidate>
       <h1>返佣试算</h1>
-      <p>三个数粗算月返佣，全部在浏览器本地计算。结果是演示口径，不构成收益承诺。</p>
-      <label for='rb-vol'>月成交额（估）</label>
-      <input type='number' id='rb-vol' step='any' min='0' placeholder='如 200000' aria-describedby='rb-out'>
-      <label for='rb-fee'>手续费率（%）</label>
-      <input type='number' id='rb-fee' step='any' min='0' max='100' placeholder='如 0.08' aria-describedby='rb-out'>
-      <label for='rb-cut'>返佣分成比例（%）</label>
-      <input type='number' id='rb-cut' step='any' min='0' max='100' placeholder='如 30' aria-describedby='rb-out'>
-      <button type='submit' class='bench-run' id='rb-run'>试算</button>
-      <output class='bench-out' id='rb-out' role='status' aria-live='polite'></output>
+      <p>先按分计算手续费和返佣，再应用可选月度封顶。全部在浏览器本地完成，不保存输入。</p>
+      <label for='so52-rb-vol'>月成交额（估）</label>
+      <input type='number' id='so52-rb-vol' name='volume' step='any' min='0.01' max='1000000000000' inputmode='decimal' required placeholder='如 200000' aria-describedby='so52-rb-help so52-rb-message'>
+      <small id='so52-rb-help'>普通十进制，0.01–1,000,000,000,000，最多 2 位小数。</small>
+      <label for='so52-rb-fee'>手续费率（%）</label>
+      <input type='number' id='so52-rb-fee' name='fee' step='any' min='0' max='100' inputmode='decimal' required placeholder='如 0.08' aria-describedby='so52-rb-message'>
+      <label for='so52-rb-cut'>返佣分成比例（%）</label>
+      <input type='number' id='so52-rb-cut' name='share' step='any' min='0' max='100' inputmode='decimal' required placeholder='如 30' aria-describedby='so52-rb-message'>
+      <label for='so52-rb-cap'>月度返佣封顶 <span>可选，留空表示不封顶</span></label>
+      <input type='number' id='so52-rb-cap' name='cap' step='any' min='0' max='1000000000000' inputmode='decimal' placeholder='如 1000' aria-describedby='so52-rb-message'>
+      <div class='so52-bench-presets'><button type='button' data-rb-preset='200000,0.08,30,'>示例：无封顶</button><button type='button' data-rb-preset='500000,0.1,25,100'>示例：触发封顶</button></div>
+      <p class='so52-bench-message' id='so52-rb-message' role='alert' aria-live='polite' aria-atomic='true'></p>
+      <div class='so52-bench-actions'><button type='submit' class='so52-bench-run' id='so52-rb-run'>生成试算</button><button type='button' data-rb-reset>清空</button></div>
+      <section class='so52-bench-out' id='so52-rb-out' aria-live='polite' aria-atomic='true'><header><span data-rb-state>等待输入</span><button type='button' data-copy-rb disabled>复制结果</button></header><output data-rb-total>—</output><dl><div><dt>手续费</dt><dd data-rb-fee-sum>—</dd></div><div><dt>封顶前返佣</dt><dd data-rb-before>—</dd></div><div><dt>实际估算返佣</dt><dd data-rb-applied>—</dd></div><div><dt>返佣后净手续费</dt><dd data-rb-net>—</dd></div><div><dt>封顶状态</dt><dd data-rb-cap-state>—</dd></div></dl><p>每月先把手续费取整到分，再把返佣取整到分；封顶最后应用。</p><small data-rb-copy-status role='status' aria-live='polite'></small></section>
     </form>
   </main>
 
-  <footer class='foot'>
-    <p class='foot-line'>结果仅供参考，实际以各平台结算记录为准。</p>
+  <footer class='so52-foot'>
+    <p class='so52-foot-line'>结果仅供参考，实际以各平台结算记录为准。</p>
   </footer>
 
   <script src='boot.js'></script>

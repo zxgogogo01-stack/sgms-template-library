@@ -13,65 +13,79 @@
   <meta property='og:description' content='~SITE_DESC~'>
   <meta property='og:url' content='https://~SITE_DOMAIN~/'>
   <meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='public.css'>
   <link rel='stylesheet' href='style.css'>
 </head>
 <body>
-  <header class='mast'>
-    <div class='mast-in'>
-      <a class='sig' href='index.html'>~BRAND_EN~</a>
-      <button type='button' class='mast-btn' id='mast-btn' aria-label='主导航' aria-expanded='false' aria-controls='mast-nav'>
+  <a class='so52-skip' href='#so52-main'>跳到主要内容</a>
+  <header class='so52-mast'>
+    <div class='so52-mast-in'>
+      <a class='so52-sig' href='index.html'>~BRAND_EN~</a>
+      <button type='button' class='so52-mast-btn' id='so52-mast-btn' aria-label='主导航' aria-expanded='false' aria-controls='so52-mast-nav'>
         <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
       </button>
-      <nav class='mast-nav' id='mast-nav' aria-label='主导航'>
+      <nav class='so52-mast-nav' id='so52-mast-nav' aria-label='主导航'>
         <a href='index.html' aria-current='page'>首页</a>
         <a href='article.html'>评述</a>
         <a href='tool.html'>工具</a>
         <a href='legal.html'>披露</a>
+        <button type='button' class='so52-theme' id='so52-theme-button' aria-label='切换到夜间模式'>夜间</button>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class='split-hero'>
-      <div class='split-left'>
-        <p class='split-eyebrow'>~HERO_EYEBROW~</p>
-        <h1 class='split-h1'>~HERO_TITLE~</h1>
-        <p class='split-lede'>~HERO_DESCRIPTION~</p>
-        <div class='split-cta'>
-          <a class='btn btn-primary' href='article.html'>开始阅读 <span class='arrow'>→</span></a>
-          <a class='split-textlink' href='legal.html'>了解本站</a>
+  <main id='so52-main'>
+    <section class='so52-split-hero'>
+      <div class='so52-split-left'>
+        <p class='so52-split-eyebrow'>~HERO_EYEBROW~</p>
+        <h1 class='so52-split-h1'>~HERO_TITLE~</h1>
+        <p class='so52-split-lede'>~HERO_DESCRIPTION~</p>
+        <div class='so52-split-cta'>
+          <a class='so52-btn so52-btn-primary' href='article.html'>开始阅读 <span class='so52-arrow'>→</span></a>
+          <a class='so52-split-textlink' href='legal.html'>了解本站</a>
         </div>
       </div>
-      <a class='split-right' href='article.html'>
-        <span class='split-kicker'>~HOME_FEATURED_LABEL~</span>
-        <span class='split-feat'>
-          <span class='split-fmeta'>费率观察<span class='dot'> · </span><time datetime='2026-01-19'>2026-01-19</time></span>
-          <span class='split-ftitle'>三类返佣结算口径应该怎样逐条比较</span>
+      <a class='so52-split-right' href='article.html'>
+        <span class='so52-split-kicker'>~HOME_FEATURED_LABEL~</span>
+        <span class='so52-split-feat'>
+          <span class='so52-split-fmeta'>费率观察<span class='so52-dot'> · </span><time datetime='2026-01-19'>2026-01-19</time></span>
+          <span class='so52-split-ftitle'>三类返佣结算口径应该怎样逐条比较</span>
         </span>
       </a>
     </section>
 
-    <div class='split-rest'>
-      <div class='split-rest-head'><span>~HOME_LATEST_LABEL~</span><a href='article.html'>查看全部 <span aria-hidden='true'>→</span></a></div>
-      <div class='split-list'>
-        <a class='split-row' href='article.html'><span class='sr-n'>01</span><span class='sr-t'>现货档位调整后，实际手续费如何变化</span><span class='sr-m'>费率观察</span><span class='sr-d'><time datetime='2026-01-18'>01-18</time></span></a>
-        <a class='split-row' href='article.html'><span class='sr-n'>02</span><span class='sr-t'>返佣到账延迟的三种常见原因</span><span class='sr-m'>返佣机制</span><span class='sr-d'><time datetime='2026-01-16'>01-16</time></span></a>
-        <a class='split-row' href='article.html'><span class='sr-n'>03</span><span class='sr-t'>只做现货是否需要区分挂单与吃单费率</span><span class='sr-m'>新手答疑</span><span class='sr-d'><time datetime='2026-01-14'>01-14</time></span></a>
-        <a class='split-row' href='article.html'><span class='sr-n'>04</span><span class='sr-t'>身份认证材料被退回时的自查清单</span><span class='sr-m'>安全核验</span><span class='sr-d'><time datetime='2026-01-11'>01-11</time></span></a>
-        <a class='split-row' href='article.html'><span class='sr-n'>05</span><span class='sr-t'>资金费率变化时应查看哪些数据</span><span class='sr-m'>费率观察</span><span class='sr-d'><time datetime='2026-01-08'>01-08</time></span></a>
-        <a class='split-row' href='article.html'><span class='sr-n'>06</span><span class='sr-t'>提现白名单能降低哪些账户风险</span><span class='sr-m'>安全核验</span><span class='sr-d'><time datetime='2026-01-05'>01-05</time></span></a>
+    <div class='so52-split-rest'>
+      <div class='so52-split-rest-head'><span>~HOME_LATEST_LABEL~</span><a href='article.html'>查看全部 <span aria-hidden='true'>→</span></a></div>
+      <div class='so52-split-list'>
+        <a class='so52-split-row' href='article.html'><span class='so52-sr-n'>01</span><span class='so52-sr-t'>现货档位调整后，实际手续费如何变化</span><span class='so52-sr-m'>费率观察</span><span class='so52-sr-d'><time datetime='2026-01-18'>01-18</time></span></a>
+        <a class='so52-split-row' href='article.html'><span class='so52-sr-n'>02</span><span class='so52-sr-t'>返佣到账延迟的三种常见原因</span><span class='so52-sr-m'>返佣机制</span><span class='so52-sr-d'><time datetime='2026-01-16'>01-16</time></span></a>
+        <a class='so52-split-row' href='article.html'><span class='so52-sr-n'>03</span><span class='so52-sr-t'>只做现货是否需要区分挂单与吃单费率</span><span class='so52-sr-m'>新手答疑</span><span class='so52-sr-d'><time datetime='2026-01-14'>01-14</time></span></a>
+        <a class='so52-split-row' href='article.html'><span class='so52-sr-n'>04</span><span class='so52-sr-t'>身份认证材料被退回时的自查清单</span><span class='so52-sr-m'>安全核验</span><span class='so52-sr-d'><time datetime='2026-01-11'>01-11</time></span></a>
+        <a class='so52-split-row' href='article.html'><span class='so52-sr-n'>05</span><span class='so52-sr-t'>资金费率变化时应查看哪些数据</span><span class='so52-sr-m'>费率观察</span><span class='so52-sr-d'><time datetime='2026-01-08'>01-08</time></span></a>
+        <a class='so52-split-row' href='article.html'><span class='so52-sr-n'>06</span><span class='so52-sr-t'>提现白名单能降低哪些账户风险</span><span class='so52-sr-m'>安全核验</span><span class='so52-sr-d'><time datetime='2026-01-05'>01-05</time></span></a>
       </div>
     </div>
+
+    <section class='so52-observation-rail' aria-labelledby='so52-rail-title'>
+      <header><div><p>OBSERVATION RAIL / FOUR PASSES</p><h2 id='so52-rail-title'>同一个百分比，<br>要经过四道观察。</h2></div><output aria-live='polite'>SOURCE → SCOPE → MATH → LEDGER</output></header>
+      <div class='so52-rail-body'>
+        <ol>
+          <li><time datetime='P1D'>01</time><strong>来源</strong><small>保存规则页与核对日期</small></li>
+          <li><time datetime='P2D'>02</time><strong>范围</strong><small>确认账户、地区与产品</small></li>
+          <li><time datetime='P3D'>03</time><strong>计算</strong><small>费率与返佣分层取整</small></li>
+          <li><time datetime='P4D'>04</time><strong>账单</strong><small>核对结算状态与到账</small></li>
+        </ol>
+        <figure><figcaption>观察完整度 / 示例</figcaption><meter min='0' max='4' value='4'>4 / 4</meter><blockquote>没有范围和时间的比例，只是一枚孤立数字。</blockquote><a href='article.html'>打开逐条评述 <span aria-hidden='true'>↗</span></a></figure>
+      </div>
+    </section>
   </main>
 
-  <footer class='foot'>
-    <div class='foot-in'>
-      <div><p class='sig foot-sig'>~BRAND_EN~</p><p class='foot-dim'>~FOOTER_NOTE~</p></div>
-      <div class='foot-col'><h4>栏目</h4><a href='article.html'>费率观察</a><a href='article.html'>返佣机制</a><a href='article.html'>新手答疑</a></div>
-      <div class='foot-col'><h4>站务</h4><a href='tool.html'>返佣试算</a><a href='legal.html'>披露与免责</a></div>
+  <footer class='so52-foot'>
+    <div class='so52-foot-in'>
+      <div><p class='so52-sig so52-foot-sig'>~BRAND_EN~</p><p class='so52-foot-dim'>~FOOTER_NOTE~</p></div>
+      <div class='so52-foot-col'><h4>栏目</h4><a href='article.html'>费率观察</a><a href='article.html'>返佣机制</a><a href='article.html'>新手答疑</a></div>
+      <div class='so52-foot-col'><h4>站务</h4><a href='tool.html'>返佣试算</a><a href='legal.html'>披露与免责</a></div>
     </div>
-    <p class='foot-line'>内容以对应平台官方页面和账户实际显示为准，不构成投资建议。</p>
+    <p class='so52-foot-line'>内容以对应平台官方页面和账户实际显示为准，不构成投资建议。</p>
   </footer>
   <script src='boot.js'></script>
 </body>

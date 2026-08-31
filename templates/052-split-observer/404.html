@@ -8,13 +8,13 @@
   <meta name='robots' content='noindex'>
   <link rel='stylesheet' href='style.css'>
   <style>
-    .absent-well {
-      min-height: calc(100vh - 226px);
-      display: grid;
-      place-items: center;
+    .so52-absent-well {
       padding: clamp(46px, 9vh, 96px) 24px;
-    }
-    .absent {
+      display: grid;
+      min-height: calc(100vh - 226px);
+      place-items: center;
+}
+    .so52-absent {
       width: min(100%, 460px);
       max-width: 460px;
       padding: 50px 40px;
@@ -24,46 +24,49 @@
       border-radius: var(--bend);
       box-shadow: 8px 8px 0 var(--gilt);
     }
-    .absent h1 {
-      font-family: var(--face-num);
-      font-style: italic;
+    .so52-absent h1 {
       font-size: 3.4rem;
       color: var(--wine);
-    }
-    .absent p { color: var(--quiet); }
-    .absent .press-full { margin-top: 8px; }
+      font-family: var(--face-num);
+      font-style: italic;
+}
+    .so52-absent p { color: var(--quiet); }
+    .so52-absent .so52-press-full { margin-top: 8px; }
     @media (max-width: 620px) {
-      .absent-well { min-height: calc(100vh - 266px); padding-inline: 18px; }
-      .absent { padding: 42px 24px; }
+      .so52-absent-well { min-height: calc(100vh - 266px); padding-inline: 18px; }
+      .so52-absent { padding: 42px 24px; }
     }
   </style>
 </head>
 <body>
-  <header class='mast'>
-    <div class='mast-in'>
-      <a class='sig' href='index.html'>~BRAND_EN~</a>
-      <button type='button' class='mast-btn' id='mast-btn' aria-label='主导航' aria-expanded='false' aria-controls='mast-nav'>
+  <a class='so52-skip' href='#so52-main'>跳到主要内容</a>
+  <header class='so52-mast'>
+    <div class='so52-mast-in'>
+      <a class='so52-sig' href='index.html'>~BRAND_EN~</a>
+      <button type='button' class='so52-mast-btn' id='so52-mast-btn' aria-label='主导航' aria-expanded='false' aria-controls='so52-mast-nav'>
         <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
       </button>
-      <nav class='mast-nav' id='mast-nav' aria-label='主导航'>
+      <nav class='so52-mast-nav' id='so52-mast-nav' aria-label='主导航'>
         <a href='index.html'>观察</a>
         <a href='article.html'>评述</a>
         <a href='tool.html'>算一算</a>
         <a href='legal.html'>披露</a>
+        <button type='button' class='so52-theme' id='so52-theme-button' aria-label='切换到夜间模式'>夜间</button>
       </nav>
     </div>
   </header>
 
-  <main class='absent-well'>
-    <section class='absent' aria-labelledby='absent-title'>
-      <h1 id='absent-title'>404</h1>
+  <main class='so52-absent-well' id='so52-main'>
+    <section class='so52-absent' aria-labelledby='so52-absent-title'>
+      <h1 id='so52-absent-title'>404</h1>
       <p>这一页缺席了——不存在或已移动。</p>
-      <p><a class='press press-full' href='index.html'>回观察台</a></p>
+      <form class='so52-absent-search' data-topic-search novalidate><label for='so52-topic-query'>搜索观察主题</label><div><input id='so52-topic-query' name='query' type='search' maxlength='80' autocomplete='off' aria-describedby='so52-topic-help so52-topic-feedback' placeholder='如：费率、返佣、披露'><button type='submit'>查找</button></div><small id='so52-topic-help'>最多 80 个字符，只检索这套模板的主要页面。</small><p id='so52-topic-feedback' data-topic-feedback role='status' aria-live='polite'>可搜索观察台、评述、试算和披露。</p></form>
+      <p><a class='so52-press so52-press-full' href='index.html'>回观察台</a></p>
     </section>
   </main>
 
-  <footer class='foot'>
-    <p class='foot-line'>没有找到目标页面；请返回观察台继续查看评述、工具与披露。</p>
+  <footer class='so52-foot'>
+    <p class='so52-foot-line'>没有找到目标页面；请返回观察台继续查看评述、工具与披露。</p>
   </footer>
 
   <script src='boot.js'></script>
