@@ -13,29 +13,29 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"复利实验室","url":"https://[[SITE_DOMAIN]]/tool.html","applicationCategory":"EducationalApplication"}</script>
 </head>
 <body>
-    <a class="skip-link" href="#main">跳到主要内容</a>
-    <div class="utility"><div class="shell utility-inner"><span>Local calculator · 输入与结果不会上传</span><span>教学工具 · 不代表真实收益</span></div></div>
-    <header class="site-header"><div class="shell header-inner"><a class="brand" href="index.html">[[SITE_NAME]]<small>Clay tutor · foundations studio</small></a><nav class="primary-nav" aria-label="主要导航"><a href="index.html">课程总览</a><a href="article.html">章节示例</a><a href="tool.html" aria-current="page">复利实验室</a><a href="legal.html">阅读须知</a></nav></div></header>
+    <a class="ct-skip-link" href="#main">跳到主要内容</a>
+    <div class="ct-utility"><div class="ct-shell ct-utility-inner"><span>Local calculator · 输入与结果不会上传</span><span>教学工具 · 不代表真实收益</span></div></div>
+    <header class="ct-site-header"><div class="ct-shell ct-header-inner"><a class="ct-brand" href="index.html">[[SITE_NAME]]<small>Clay tutor · foundations studio</small></a><nav class="ct-primary-nav" aria-label="主要导航"><a href="index.html">课程总览</a><a href="article.html">章节示例</a><a href="tool.html" aria-current="page">复利实验室</a><a href="legal.html">阅读须知</a></nav></div></header>
 
-    <main id="main" class="shell page-main">
-        <header class="page-head"><div><p class="eyebrow">Practice lab / 复利试算</p><h1>改一个假设，重新看一遍过程。</h1><p>用本金、每期费率、期数和持续投入建立教学情景。实验室会给出最终金额、累计投入、模型增长与三个关键期数，帮助你核对计算而不是预测市场。</p></div><aside class="page-meta" aria-label="工具说明"><dl><div><dt>处理位置</dt><dd>浏览器本地</dd></div><div><dt>期数范围</dt><dd>1–1000</dd></div><div><dt>费率下限</dt><dd>大于 −100%</dd></div><div><dt>金额精度</dt><dd>0.01</dd></div></dl></aside></header>
+    <main id="main" class="ct-shell ct-page-main">
+        <header class="ct-page-head"><div><p class="ct-eyebrow">Practice lab / 复利试算</p><h1>改一个假设，重新看一遍过程。</h1><p>用本金、每期费率、期数和持续投入建立教学情景。实验室会给出最终金额、累计投入、模型增长与三个关键期数，帮助你核对计算而不是预测市场。</p></div><aside class="ct-page-meta" aria-label="工具说明"><dl><div><dt>处理位置</dt><dd>浏览器本地</dd></div><div><dt>期数范围</dt><dd>1–1000</dd></div><div><dt>费率下限</dt><dd>大于 −100%</dd></div><div><dt>金额精度</dt><dd>0.01</dd></div></dl></aside></header>
 
-        <section class="calculator-layout" aria-label="复利试算工具">
-            <form class="calc-form" id="compound-form" novalidate><p class="eyebrow">Assumptions / 输入假设</p><h2>填写试算条件</h2><p>费率是“每一期”的假设。若使用月费率，期数也应按月填写。</p><div class="field-grid">
-                <div class="field"><label for="principal">初始本金</label><input id="principal" type="number" min="0" step="0.01" inputmode="decimal" aria-describedby="principal-help form-error"><p class="field-help" id="principal-help">必须大于 0，例如 10000</p></div>
-                <div class="field"><label for="rate">每期费率（%）</label><input id="rate" type="number" step="0.0001" inputmode="decimal" aria-describedby="rate-help form-error"><p class="field-help" id="rate-help">可为负值，但必须大于 −100</p></div>
-                <div class="field"><label for="periods">期数</label><input id="periods" type="number" min="1" max="1000" step="1" inputmode="numeric" aria-describedby="periods-help form-error"><p class="field-help" id="periods-help">1 到 1000 之间的整数</p></div>
-                <div class="field"><label for="contribution">每期持续投入</label><input id="contribution" type="number" min="0" step="0.01" value="0" inputmode="decimal" aria-describedby="contribution-help form-error"><p class="field-help" id="contribution-help">没有持续投入时填写 0</p></div>
-                <div class="field"><label for="timing">投入时点</label><select id="timing"><option value="end">每期末</option><option value="start">每期初</option></select><p class="field-help">时点会改变每笔投入参与增长的期数</p></div>
-                <div class="field"><label for="currency">显示币种</label><select id="currency"><option value="CNY">人民币 CNY</option><option value="USD">美元 USD</option><option value="HKD">港币 HKD</option></select><p class="field-help">只改变币种标签，不换算汇率</p></div>
-            </div><p class="form-error" id="form-error" role="alert"></p><div class="button-row"><button class="button" type="submit">开始试算</button><button class="button button-secondary" type="button" id="compound-clear">清空</button></div></form>
+        <section class="ct-calculator-layout" aria-label="复利试算工具">
+            <form class="ct-calc-form" id="compound-form" novalidate><p class="ct-eyebrow">Assumptions / 输入假设</p><h2>填写试算条件</h2><p>费率是“每一期”的假设。若使用月费率，期数也应按月填写。</p><div class="ct-field-grid">
+                <div class="ct-field"><label for="principal">初始本金</label><input id="principal" type="number" min="0" max="1000000000" step="0.01" inputmode="decimal" aria-describedby="principal-help form-error"><p class="ct-field-help" id="principal-help">必须大于 0，例如 10000</p></div>
+                <div class="ct-field"><label for="rate">每期费率（%）</label><input id="rate" type="number" step="0.0001" inputmode="decimal" aria-describedby="rate-help form-error"><p class="ct-field-help" id="rate-help">可为负值，但必须大于 −100</p></div>
+                <div class="ct-field"><label for="periods">期数</label><input id="periods" type="number" min="1" max="1000" step="1" inputmode="numeric" aria-describedby="periods-help form-error"><p class="ct-field-help" id="periods-help">1 到 1000 之间的整数</p></div>
+                <div class="ct-field"><label for="contribution">每期持续投入</label><input id="contribution" type="number" min="0" max="1000000000" step="0.01" value="0" inputmode="decimal" aria-describedby="contribution-help form-error"><p class="ct-field-help" id="contribution-help">没有持续投入时填写 0</p></div>
+                <div class="ct-field"><label for="timing">投入时点</label><select id="timing"><option value="end">每期末</option><option value="start">每期初</option></select><p class="ct-field-help">时点会改变每笔投入参与增长的期数</p></div>
+                <div class="ct-field"><label for="currency">显示币种</label><select id="currency"><option value="CNY">人民币 CNY</option><option value="USD">美元 USD</option><option value="HKD">港币 HKD</option></select><p class="ct-field-help">只改变币种标签，不换算汇率</p></div>
+            </div><p class="ct-form-error" id="form-error" role="alert"></p><div class="ct-button-row"><button class="ct-button" type="submit">开始试算</button><button class="ct-button ct-button-secondary" type="button" id="compound-clear">清空</button></div></form>
 
-            <section class="calc-result" aria-labelledby="result-title"><p class="result-state" id="result-state">WAITING FOR INPUT</p><h2 id="result-title">试算结果</h2><strong class="result-total" id="result-total">—</strong><span class="result-label">期末模型金额</span><dl class="result-list"><div><dt>累计投入</dt><dd id="total-input">—</dd></div><div><dt>模型增长</dt><dd id="modeled-growth">—</dd></div><div><dt>每期费率</dt><dd id="rate-output">—</dd></div><div><dt>试算期数</dt><dd id="periods-output">—</dd></div></dl><table class="checkpoint-table"><thead><tr><th scope="col">关键时点</th><th scope="col">模型金额</th></tr></thead><tbody id="checkpoint-body"><tr><td>—</td><td>—</td></tr></tbody></table><button class="button" type="button" id="result-copy" disabled>复制试算摘要</button><p class="copy-status" id="result-copy-status" aria-live="polite"></p></section>
+            <section class="ct-calc-result" aria-labelledby="result-title"><p class="ct-result-state" id="result-state">WAITING FOR INPUT</p><h2 id="result-title">试算结果</h2><strong class="ct-result-total" id="result-total">—</strong><span class="ct-result-label">期末模型金额</span><dl class="ct-result-list"><div><dt>累计投入</dt><dd id="total-input">—</dd></div><div><dt>模型增长</dt><dd id="modeled-growth">—</dd></div><div><dt>每期费率</dt><dd id="rate-output">—</dd></div><div><dt>试算期数</dt><dd id="periods-output">—</dd></div></dl><table class="ct-checkpoint-table"><thead><tr><th scope="col">关键时点</th><th scope="col">模型金额</th></tr></thead><tbody id="checkpoint-body"><tr><td>—</td><td>—</td></tr></tbody></table><button class="ct-button" type="button" id="result-copy" disabled>复制试算摘要</button><p class="ct-copy-status" id="result-copy-status" aria-live="polite"></p></section>
         </section>
-        <aside class="calc-note"><strong>教学边界：</strong>固定费率只是数学假设。结果不包含费用、税费、通胀、汇率变化与真实波动，也不能作为收益承诺或个人计划的唯一依据。</aside>
+        <aside class="ct-calc-note"><strong>教学边界：</strong>固定费率只是数学假设。结果不包含费用、税费、通胀、汇率变化与真实波动，也不能作为收益承诺或个人计划的唯一依据。</aside>
     </main>
 
-    <footer class="site-footer"><div class="shell footer-inner"><p>试算结果只用于学习，不构成投资、税务或规划建议。</p><nav class="footer-links" aria-label="页脚导航"><a href="index.html">课程总览</a><a href="article.html">第一课</a><a href="legal.html">阅读须知</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
+    <footer class="ct-site-footer"><div class="ct-shell ct-footer-inner"><p>试算结果只用于学习，不构成投资、税务或规划建议。</p><nav class="ct-footer-links" aria-label="页脚导航"><a href="index.html">课程总览</a><a href="article.html">第一课</a><a href="legal.html">阅读须知</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
 
     <script>
         (function () {
@@ -52,24 +52,35 @@
             var summary = '';
 
             function money(value, code) { return new Intl.NumberFormat('zh-CN', { style: 'currency', currency: code, minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value); }
+            function row(label, value) { var tr = document.createElement('tr'), th = document.createElement('th'), td = document.createElement('td'); th.scope = 'row'; th.textContent = label; td.textContent = value; tr.appendChild(th); tr.appendChild(td); return tr; }
+            function clearResult(state) {
+                summary = ''; copyButton.disabled = true;
+                document.getElementById('result-state').textContent = state || 'WAITING FOR INPUT';
+                document.getElementById('result-total').textContent = '—';
+                ['total-input', 'modeled-growth', 'rate-output', 'periods-output'].forEach(function (id) { document.getElementById(id).textContent = '—'; });
+                var body = document.getElementById('checkpoint-body'); body.textContent = ''; body.appendChild(row('—', '—'));
+            }
             function resetInvalid() { [principal, rate, periods, contribution].forEach(function (field) { field.removeAttribute('aria-invalid'); }); error.textContent = ''; copyStatus.textContent = ''; }
-            function invalidate(field, message) { field.setAttribute('aria-invalid', 'true'); error.textContent = message; field.focus(); }
-            function row(label, value) { var tr = document.createElement('tr'), th = document.createElement('td'), td = document.createElement('td'); th.textContent = label; td.textContent = value; tr.appendChild(th); tr.appendChild(td); return tr; }
+            function invalidate(field, message) { clearResult('CHECK INPUT'); field.setAttribute('aria-invalid', 'true'); error.textContent = message; field.focus(); }
 
             form.addEventListener('submit', function (event) {
                 event.preventDefault(); resetInvalid();
                 var p = Number(principal.value), r = Number(rate.value), n = Number(periods.value), c = Number(contribution.value);
                 if (!principal.value || !Number.isFinite(p) || p <= 0) { invalidate(principal, '请输入大于 0 的初始本金。'); return; }
+                if (p > 1000000000) { invalidate(principal, '初始本金不能超过 1,000,000,000。'); return; }
                 if (!rate.value || !Number.isFinite(r) || r <= -100 || r > 1000) { invalidate(rate, '每期费率必须大于 −100%，并且不超过 1000%。'); return; }
                 if (!periods.value || !Number.isInteger(n) || n < 1 || n > 1000) { invalidate(periods, '期数必须是 1 到 1000 之间的整数。'); return; }
                 if (!contribution.value || !Number.isFinite(c) || c < 0) { invalidate(contribution, '每期持续投入必须大于或等于 0。'); return; }
-                var balance = p, totalInput = p, factor = 1 + r / 100, checkpoints = {}, mid = Math.ceil(n / 2);
+                if (c > 1000000000) { invalidate(contribution, '每期持续投入不能超过 1,000,000,000。'); return; }
+                var balance = p, totalInput = p, factor = 1 + r / 100, checkpoints = {}, mid = Math.ceil(n / 2), overflow = false;
                 for (var i = 1; i <= n; i += 1) {
                     if (timing.value === 'start') { balance += c; totalInput += c; }
                     balance *= factor;
                     if (timing.value === 'end') { balance += c; totalInput += c; }
+                    if (!Number.isFinite(balance) || Math.abs(balance) > 1000000000000000) { overflow = true; break; }
                     if (i === 1 || i === mid || i === n) checkpoints[i] = balance;
                 }
+                if (overflow) { invalidate(rate, '这组费率与期数组合使结果超出安全显示范围，请降低费率或期数。'); return; }
                 var code = currency.value, growth = balance - totalInput;
                 document.getElementById('result-state').textContent = 'CALCULATED';
                 document.getElementById('result-total').textContent = money(balance, code);
@@ -83,10 +94,13 @@
                 copyButton.disabled = false;
             });
             document.getElementById('compound-clear').addEventListener('click', function () {
-                form.reset(); contribution.value = '0'; resetInvalid(); summary = ''; copyButton.disabled = true;
-                document.getElementById('result-state').textContent = 'WAITING FOR INPUT'; document.getElementById('result-total').textContent = '—';
-                ['total-input', 'modeled-growth', 'rate-output', 'periods-output'].forEach(function (id) { document.getElementById(id).textContent = '—'; });
-                document.getElementById('checkpoint-body').innerHTML = '<tr><td>—</td><td>—</td></tr>'; principal.focus();
+                form.reset(); resetInvalid(); clearResult('WAITING FOR INPUT'); principal.focus();
+            });
+            Array.prototype.slice.call(form.elements).forEach(function (field) {
+                field.addEventListener('input', function () {
+                    field.removeAttribute('aria-invalid'); error.textContent = ''; copyStatus.textContent = '';
+                    clearResult('WAITING FOR CALCULATION');
+                });
             });
             copyButton.addEventListener('click', function () {
                 function done() { copyStatus.textContent = '试算摘要已复制。'; }
