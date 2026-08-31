@@ -22,18 +22,18 @@
     </script>
 </head>
 <body>
-    <a class='skip-link' href='#main'>跳到主要内容</a>
+    <a class='sable-skip' href='#main'>跳到主要内容</a>
     <header class='topbar'>
         <div class='topbar-inner'>
-            <a class='brand' href='index.html' aria-label='%SITE_NAME% 首页'><span class='brand-mark' aria-hidden='true'>SR</span><span class='brand-copy'>%SITE_NAME%<small>Independent Review Bureau</small></span></a>
-            <nav class='primary-nav' aria-label='主要导航'><a href='index.html'>横向对比</a><a href='article.html'>深度评测</a><a href='tool.html' aria-current='page'>评分实验室</a><a href='legal.html'>评测准则</a></nav>
+            <a class='sable-brand' href='index.html' aria-label='%SITE_NAME% 首页'><span class='brand-mark' aria-hidden='true'>SR</span><span class='brand-copy'>%SITE_NAME%<small>Independent Review Bureau</small></span></a>
+            <nav class='sable-nav' aria-label='主要导航'><a href='index.html'>横向对比</a><a href='article.html'>深度评测</a><a href='tool.html' aria-current='page'>评分实验室</a><a href='legal.html'>评测准则</a></nav>
         </div>
     </header>
 
-    <main id='main' class='shell'>
-        <header class='page-head'>
+    <main id='main' class='sable-shell'>
+        <header class='sable-page-head'>
             <div>
-                <p class='eyebrow'>Scoring laboratory / transparent weights</p>
+                <p class='sable-kicker'>Scoring laboratory / transparent weights</p>
                 <h1>让分数可以被重新计算。</h1>
                 <p>输入四项得分并调整权重。工具会自动归一化权重，在本地完成计算，不上传或保存输入内容。</p>
             </div>
@@ -48,7 +48,7 @@
 
         <section class='tool-layout' aria-label='加权评分器'>
             <form class='score-form' id='score-form' novalidate>
-                <p class='eyebrow'>Input board</p>
+                <p class='sable-kicker'>Input board</p>
                 <h2>评分与权重</h2>
                 <p>正式评测时，每一项得分都应有测试记录或可核验来源支撑。</p>
                 <div class='field-head' aria-hidden='true'><span>评测维度</span><span>得分 / 10</span><span>权重</span></div>
@@ -73,9 +73,9 @@
                     <input id='weight-support' type='number' min='0' step='1' value='20' aria-label='支持与透明度权重'>
                 </div>
                 <p class='form-error' id='form-error' role='alert'></p>
-                <div class='button-row'>
-                    <button class='button' type='submit'>计算综合得分</button>
-                    <button class='button button-secondary' type='button' id='score-reset'>恢复示例</button>
+                <div class='sable-actions'>
+                    <button class='sable-action' type='submit'>计算综合得分</button>
+                    <button class='sable-action sable-action-secondary' type='button' id='score-reset'>恢复示例</button>
                 </div>
             </form>
 
@@ -87,14 +87,14 @@
                 <ul class='result-breakdown' id='result-breakdown'>
                     <li><span>证据完整度</span><strong>—</strong></li><li><span>核心体验</span><strong>—</strong></li><li><span>成本价值</span><strong>—</strong></li><li><span>支持与透明度</span><strong>—</strong></li>
                 </ul>
-                <button class='button' type='button' id='result-copy' disabled>复制评分摘要</button>
+                <button class='sable-action' type='button' id='result-copy' disabled>复制评分摘要</button>
                 <p class='result-status' id='result-status' aria-live='polite'></p>
             </section>
         </section>
     </main>
 
-    <footer class='site-footer'>
-        <div class='shell footer-inner'><p>工具只用于整理判断，不替代来源核验与人工结论。</p><nav class='footer-links' aria-label='页脚导航'><a href='index.html'>返回对比</a><a href='legal.html'>评测准则</a><a href='mailto:%CONTACT_EMAIL%'>%CONTACT_EMAIL%</a></nav></div>
+    <footer class='sable-footer'>
+        <div class='sable-shell footer-inner'><p>工具只用于整理判断，不替代来源核验与人工结论。</p><nav class='sable-footer-links' aria-label='页脚导航'><a href='index.html'>返回对比</a><a href='legal.html'>评测准则</a><a href='mailto:%CONTACT_EMAIL%'>%CONTACT_EMAIL%</a></nav></div>
     </footer>
 
     <script>
@@ -130,19 +130,23 @@
                         weightField: document.getElementById('weight-' + dimension.key)
                     };
                 });
-                var bad = rows.reduce(function (found, row) {
+                var bad = null;
+                var errorMessage = '';
+                rows.forEach(function (row) {
+                    if (bad) return;
+                    var scoreText = row.scoreField.value.trim();
+                    var weightText = row.weightField.value.trim();
                     var score = Number(row.scoreField.value);
                     var weight = Number(row.weightField.value);
-                    if (!found && (!Number.isFinite(score) || score < 0 || score > 10)) return row.scoreField;
-                    if (!found && (!Number.isFinite(weight) || weight < 0)) return row.weightField;
-                    return found;
-                }, null);
+                    if (scoreText === '' || !Number.isFinite(score) || score < 0 || score > 10) { bad = row.scoreField; errorMessage = '每项得分都必须填写 0–10 之间的有限数值。'; return; }
+                    if (weightText === '' || !Number.isFinite(weight) || weight < 0) { bad = row.weightField; errorMessage = '每项权重都必须填写不小于 0 的有限数值。'; }
+                });
                 var weightTotal = rows.reduce(function (sum, row) { return sum + Number(row.weightField.value); }, 0);
-                if (!bad && weightTotal <= 0) bad = rows[0].weightField;
+                if (!bad && weightTotal <= 0) { bad = rows[0].weightField; errorMessage = '至少有一项权重需要大于 0。'; }
                 if (bad) {
                     bad.setAttribute('aria-invalid', 'true');
                     bad.focus();
-                    error.textContent = weightTotal <= 0 ? '至少有一项权重需要大于 0。' : '得分应在 0–10 之间，权重不能为负数。';
+                    error.textContent = errorMessage;
                     return;
                 }
 
@@ -173,6 +177,14 @@
                 breakdown.innerHTML = '<li><span>证据完整度</span><strong>—</strong></li><li><span>核心体验</span><strong>—</strong></li><li><span>成本价值</span><strong>—</strong></li><li><span>支持与透明度</span><strong>—</strong></li>';
                 copy.disabled = true;
                 copyStatus.textContent = '';
+                summary = '';
+            });
+
+            form.querySelectorAll('input').forEach(function (field) {
+                field.addEventListener('input', function () {
+                    field.removeAttribute('aria-invalid');
+                    if (!form.querySelector('[aria-invalid="true"]')) error.textContent = '';
+                });
             });
 
             copy.addEventListener('click', function () {
