@@ -86,7 +86,19 @@
       event.preventDefault();
       calculateBalance();
     });
-    source.addEventListener('input', updateLineCount);
+    source.addEventListener('input', function () {
+      updateLineCount();
+      invalidateBalance();
+    });
+  }
+
+  function invalidateBalance() {
+    if (!source) return;
+    source.removeAttribute('aria-invalid');
+    setText('balance-error', '');
+    setText('tool-status', '');
+    var result = document.getElementById('balance-result');
+    if (result) result.hidden = true;
   }
 
   function updateLineCount() {
@@ -99,51 +111,66 @@
   function loadSample() {
     if (!source) return;
     source.value = sampleLines;
-    source.setAttribute('aria-invalid', 'false');
-    setText('balance-error', '');
     updateLineCount();
+    invalidateBalance();
     source.focus();
   }
 
   function parseBalance(text) {
     var lines = text.split(/\r?\n/);
-    var incoming = 0;
-    var outgoing = 0;
+    var incomingCents = 0;
+    var outgoingCents = 0;
     var parsed = 0;
     var ignored = 0;
     lines.forEach(function (line) {
       if (!line.trim()) return;
-      var match = line.match(/^\s*([+\-−])\s*[¥￥]?\s*([\d,]+(?:\.\d+)?)\b/);
+      var match = line.match(/^\s*([+\-−])\s*[¥￥]?\s*((?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d{1,2})?)(?=\s|$)/);
       if (!match) {
         ignored++;
         return;
       }
       var amount = Number(match[2].replace(/,/g, ''));
-      if (!Number.isFinite(amount)) {
+      if (!Number.isFinite(amount) || amount > 1000000000000) {
         ignored++;
         return;
       }
-      if (match[1] === '+') incoming += amount;
-      else outgoing += amount;
+      var cents = Math.round(amount * 100);
+      var nextTotal = match[1] === '+' ? incomingCents + cents : outgoingCents + cents;
+      if (!Number.isSafeInteger(cents) || !Number.isSafeInteger(nextTotal)) {
+        ignored++;
+        return;
+      }
+      if (match[1] === '+') incomingCents = nextTotal;
+      else outgoingCents = nextTotal;
       parsed++;
     });
-    return { incoming: incoming, outgoing: outgoing, net: incoming - outgoing, parsed: parsed, ignored: ignored };
+    return { incoming: incomingCents / 100, outgoing: outgoingCents / 100, net: (incomingCents - outgoingCents) / 100, parsed: parsed, ignored: ignored };
   }
 
   function calculateBalance() {
     if (!source) return;
-    var value = source.value.trim();
+    var raw = source.value;
+    var value = raw.trim();
     if (!value) {
       showBalanceError('请先输入至少一行带正负号的金额。');
       return;
     }
-    var result = parseBalance(value);
-    if (!result.parsed) {
-      showBalanceError('没有识别到金额。请使用“+28000 事项”或“-1280 事项”的写法。');
+    if (raw.length > 20000) {
+      showBalanceError('单次输入不得超过 20,000 个字符。');
       return;
     }
-    source.setAttribute('aria-invalid', 'false');
-    setText('balance-error', result.ignored ? result.ignored + ' 行未识别，已忽略；请检查格式。' : '');
+    var nonEmptyLines = raw.split(/\r?\n/).filter(function (line) { return line.trim(); });
+    if (nonEmptyLines.length > 500) {
+      showBalanceError('单次最多处理 500 行，请分批核算。');
+      return;
+    }
+    var result = parseBalance(value);
+    if (!result.parsed) {
+      showBalanceError('没有识别到可安全计算的金额。请检查正负号、千分位、小数位与单笔上限。');
+      return;
+    }
+    source.removeAttribute('aria-invalid');
+    setText('balance-error', result.ignored ? result.ignored + ' 行未识别或超出安全范围，已忽略；请检查格式与金额。' : '');
     setText('total-in', money(result.incoming));
     setText('total-out', '−' + money(result.outgoing));
     setText('net-balance', (result.net < 0 ? '−' : '') + money(Math.abs(result.net)));
@@ -161,6 +188,7 @@
   function showBalanceError(message) {
     source.setAttribute('aria-invalid', 'true');
     setText('balance-error', message);
+    setText('tool-status', '');
     var result = document.getElementById('balance-result');
     if (result) result.hidden = true;
     source.focus();
@@ -169,12 +197,8 @@
   function clearBalance() {
     if (!source) return;
     source.value = '';
-    source.setAttribute('aria-invalid', 'false');
-    setText('balance-error', '');
-    setText('tool-status', '');
-    var result = document.getElementById('balance-result');
-    if (result) result.hidden = true;
     updateLineCount();
+    invalidateBalance();
     source.focus();
   }
 

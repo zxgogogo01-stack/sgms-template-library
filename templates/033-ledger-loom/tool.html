@@ -15,9 +15,10 @@
   </script>
 </head>
 <body>
+  <a data-skip href='#main'>跳到主要内容</a>
   <header data-site-header><div><a href='index.html' data-brand aria-label='返回月度经营流水簿首页'><b>L/33</b><span><strong>__SITE_NAME__</strong><small>Ledger loom · edition 033</small></span></a><nav data-nav aria-label='主导航'><a href='index.html'>流水簿</a><a href='article.html'>记账方法</a><a href='tool.html' aria-current='page'>结余工具</a><a href='legal.html'>使用说明</a></nav></div></header>
 
-  <main data-page='tool'>
+  <main id='main' data-page='tool'>
     <header>
       <div><p data-kicker>Local balance calculator · no upload</p><h1>把一串金额，核成清楚的结余。</h1><p data-lede>每行输入一个带正负号的金额，工具会分开统计收入、支出与净结余。事项名称可以跟在金额后面，不参与运算。</p></div>
       <aside><p data-label>Processing note</p><p>所有输入只在当前浏览器中处理，不保存、不上传，也不自动判断会计或税务分类。</p></aside>
@@ -29,8 +30,8 @@
           <p data-kicker>Paste signed amounts</p>
           <div data-field>
             <label for='balance-source'>金额明细 <span id='line-count'>0 行</span></label>
-            <textarea id='balance-source' placeholder='+28000 顾问项目首款&#10;-1280 云服务续费&#10;+16800 设计项目二期款' aria-describedby='balance-help balance-error'></textarea>
-            <small id='balance-help'>支持 ¥、￥、逗号和小数；每行只读取第一个带正负号的金额。</small>
+            <textarea id='balance-source' maxlength='20000' placeholder='+28000 顾问项目首款&#10;-1280 云服务续费&#10;+16800 设计项目二期款' aria-describedby='balance-help balance-error'></textarea>
+            <small id='balance-help'>支持 ¥、￥、标准千分位和最多两位小数；每行只读取第一个带正负号的金额，单笔不超过 1 万亿元，单次最多 500 行。</small>
           </div>
           <p data-error id='balance-error' aria-live='polite'></p>
           <div data-tool-actions>
