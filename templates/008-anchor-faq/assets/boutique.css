@@ -129,3 +129,12 @@
   .plain--desk{min-height:460px}.plain__status{display:grid}.plain--desk .plain__h{margin-top:46px}.support-search{grid-template-columns:1fr;padding:18px}.support-search span{white-space:normal}.quick-jump__chip{border-right:0}.faq-layout{margin-top:0}.qa-block__ask{grid-template-columns:32px 1fr;padding:18px 50px 18px 18px}.qa-block__ask>em{grid-column:2}.qa-block__ans{padding:0 20px 24px 50px}.invite-belt{grid-template-columns:1fr}.reach-out{grid-template-columns:1fr;padding:34px 26px}.reach-out a{text-align:center}.guide-meta{grid-template-columns:1fr}.guide-meta div+div{border-top:1px solid var(--line);border-left:0}.security-check{grid-template-columns:1fr}.security-check div:nth-of-type(odd){border-right:0}.guide-next{flex-direction:column}.ticket--pro{grid-template-columns:1fr}.ticket--pro>*{grid-column:1!important}.ticket__actions{flex-direction:column}.ticket__go,.ticket__reset{width:100%}.ticket__result>div{align-items:flex-start;flex-direction:column}.adrift--signal{width:100%;padding:48px 28px}.adrift__actions{flex-direction:column;align-items:flex-start}
 }
 @media(prefers-color-scheme:dark){.support-search{background:#f4f7f9}.faq-empty,.ticket--pro{box-shadow:none}.qa-block__unit[open]{background:#142b40}.ticket select{background:var(--panel)}.ticket__result{background:#091a2a}.policy-grid p{color:var(--muted)}}
+
+/* 2026-08 final QA: complete support-tool feedback and small-link targets */
+.faq-empty button,.invite-belt__act,.ticket__go,.ticket__reset,.ticket__result button{transition:background 180ms ease,color 180ms ease,box-shadow 180ms ease,transform 180ms ease}
+.faq-empty button:hover,.invite-belt__act:hover,.ticket__go:hover{box-shadow:0 8px 22px rgba(12,27,43,.2);transform:translateY(-2px)}
+.ticket__reset:hover,.ticket__result button:not(:disabled):hover{color:#fff;background:var(--blue);transform:translateY(-2px)}
+.faq-empty button:active,.invite-belt__act:active,.ticket__go:active,.ticket__reset:active,.ticket__result button:not(:disabled):active{box-shadow:none;transform:translateY(1px)}
+.qa-block__ans>a,.keel__row a{display:inline-flex;align-items:center;min-height:36px;transition:color 180ms ease,transform 180ms ease}
+.qa-block__ans>a:hover,.keel__row a:hover{color:var(--orange);transform:translateX(3px)}
+@media(max-width:700px){.brow__site{display:flex;align-items:center;min-height:44px}}
