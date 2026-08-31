@@ -22,11 +22,17 @@
     return fallbackCopy(text);
   }
 
+  function normalized(value) {
+    var text = String(value || '');
+    if (text.normalize) text = text.normalize('NFKC');
+    return text.trim().toLocaleLowerCase();
+  }
+
   function initTheme() {
     var button = document.querySelector('[data-theme-button]');
     if (!button) return;
     var theme = null;
-    try { theme = localStorage.getItem('patchwork-theme'); } catch (error) { theme = null; }
+    try { theme = localStorage.getItem('patchwork-press-042-theme'); } catch (error) { theme = null; }
     theme = theme || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     function apply(next) {
       theme = next;
@@ -38,7 +44,7 @@
     apply(theme);
     button.addEventListener('click', function () {
       apply(theme === 'dark' ? 'light' : 'dark');
-      try { localStorage.setItem('patchwork-theme', theme); } catch (error) { /* optional */ }
+      try { localStorage.setItem('patchwork-press-042-theme', theme); } catch (error) { /* optional */ }
     });
   }
 
@@ -78,11 +84,11 @@
     var empty = grid.querySelector('[data-archive-empty]');
     var active = 'all';
     function update() {
-      var query = search.value.trim().toLocaleLowerCase();
+      var query = normalized(search.value);
       var shown = 0;
       entries.forEach(function (entry) {
         var categoryMatch = active === 'all' || entry.getAttribute('data-category') === active;
-        var textMatch = !query || entry.getAttribute('data-search').toLocaleLowerCase().indexOf(query) !== -1;
+        var textMatch = !query || normalized(entry.getAttribute('data-search')).indexOf(query) !== -1;
         entry.hidden = !(categoryMatch && textMatch);
         if (!entry.hidden) shown += 1;
       });
@@ -161,10 +167,10 @@
     var layout = document.getElementById('layout-mode');
     var seam = document.getElementById('seam-size');
     var report = '';
-    message.id = 'planner-message';
+    message.id = 'pp42-planner-message';
     message.setAttribute('role', 'alert');
     message.setAttribute('aria-atomic', 'true');
-    input.setAttribute('aria-describedby', 'planner-message');
+    input.setAttribute('aria-describedby', 'pp42-planner-message');
 
     function lines() {
       return input.value.split(/\r?\n/).map(function (line) { return line.trim(); }).filter(Boolean);
@@ -180,16 +186,26 @@
       summary.textContent = '草案会标出相对面积与建议缝份；实际裁切前请重新测量布片。';
       preview.replaceChildren();
       var placeholder = document.createElement('p');
-      placeholder.className = 'preview-placeholder';
+      placeholder.className = 'pp42-preview-placeholder';
       placeholder.textContent = '输入至少 2 块布片后生成草案';
       preview.appendChild(placeholder);
     }
 
+    function invalidatePreview() {
+      if (report || !copyButton.disabled) resetPreview();
+      message.textContent = '';
+      copyStatus.textContent = '';
+      input.removeAttribute('aria-invalid');
+    }
+
     input.addEventListener('input', function () {
       updateCount();
-      input.removeAttribute('aria-invalid');
+      invalidatePreview();
     });
+    layout.addEventListener('change', invalidatePreview);
+    seam.addEventListener('change', invalidatePreview);
     sample.addEventListener('click', function () {
+      resetPreview();
       input.value = '靛蓝劳动布 | 4 | #253b63\n原色棉 | 3 | #d8c7a0\n茜草染布 | 2 | #963f35\n灰绿衬布 | 1 | #87907a';
       input.removeAttribute('aria-invalid');
       message.textContent = '';
@@ -207,9 +223,16 @@
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
+      resetPreview();
       message.textContent = '';
       copyStatus.textContent = '';
       var rawLines = lines();
+      if (input.value.length > 2000) {
+        input.setAttribute('aria-invalid', 'true');
+        message.textContent = '输入最多 2000 个字符，请删减后重试。';
+        input.focus();
+        return;
+      }
       if (rawLines.length < 2) {
         input.setAttribute('aria-invalid', 'true');
         message.textContent = '至少输入 2 块布片，才能比较比例。';
@@ -223,19 +246,41 @@
         return;
       }
       var materials = [];
+      var materialNames = new Set();
       for (var index = 0; index < rawLines.length; index += 1) {
         var parts = rawLines[index].split('|').map(function (part) { return part.trim(); });
-        var weight = Number(parts[1]);
+        var weightText = parts[1] || '';
+        var weight = Number(weightText);
         var color = parts[2] ? normalizeHex(parts[2]) : null;
-        if (parts.length !== 3 || !parts[0] || !Number.isFinite(weight) || weight <= 0 || !color) {
+        if (parts.length !== 3 || !parts[0] || !/^(?:0|[1-9]\d*)(?:\.\d{1,3})?$/.test(weightText) || !Number.isFinite(weight) || weight <= 0 || weight > 1000000 || !color) {
           input.setAttribute('aria-invalid', 'true');
-          message.textContent = '第 ' + (index + 1) + ' 行格式不正确。请使用“名称 | 正数份量 | #六位色值”。';
+          message.textContent = '第 ' + (index + 1) + ' 行格式不正确。请使用“名称 | 0.001–1000000 份 | #六位色值”，份量最多三位小数。';
           input.focus();
           return;
         }
+        if (Array.from(parts[0]).length > 60) {
+          input.setAttribute('aria-invalid', 'true');
+          message.textContent = '第 ' + (index + 1) + ' 行名称超过 60 个字符，请缩短后重试。';
+          input.focus();
+          return;
+        }
+        var materialKey = normalized(parts[0]);
+        if (materialNames.has(materialKey)) {
+          input.setAttribute('aria-invalid', 'true');
+          message.textContent = '第 ' + (index + 1) + ' 行材料名称重复，请合并份量后重试。';
+          input.focus();
+          return;
+        }
+        materialNames.add(materialKey);
         materials.push({ name: parts[0], weight: weight, color: color });
       }
       var total = materials.reduce(function (sum, item) { return sum + item.weight; }, 0);
+      if (!Number.isFinite(total) || total <= 0) {
+        input.setAttribute('aria-invalid', 'true');
+        message.textContent = '材料总份量无效，请检查输入。';
+        input.focus();
+        return;
+      }
       input.removeAttribute('aria-invalid');
       var mode = layout.value;
       var ordered = materials.slice().sort(function (a, b) { return b.weight - a.weight; });
@@ -249,7 +294,7 @@
         var share = item.weight / total;
         var size = share >= 0.34 ? 'large' : share >= 0.18 ? 'medium' : 'small';
         if (mode === 'quiet' && itemIndex === 0) size = 'large';
-        piece.className = 'preview-piece';
+        piece.className = 'pp42-preview-piece';
         piece.setAttribute('data-size', size);
         piece.style.backgroundColor = item.color;
         piece.style.color = readableInk(item.color);
@@ -299,17 +344,24 @@
       { terms: '来源 授权 隐私 更正 联系 编辑', title: '编辑与使用说明', href: 'legal.html' },
       { terms: '修补 刺子绣 茜草 苎麻 布样 档案', title: '本期布样档案', href: 'index.html#archive' }
     ];
+    input.addEventListener('input', function () {
+      input.removeAttribute('aria-invalid');
+      status.textContent = '';
+      results.replaceChildren();
+    });
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      var query = input.value.trim().toLocaleLowerCase();
+      var query = normalized(input.value);
       results.replaceChildren();
       if (!query) {
+        input.setAttribute('aria-invalid', 'true');
         status.textContent = '请输入想查找的材料或主题。';
         input.focus();
         return;
       }
+      input.removeAttribute('aria-invalid');
       var matches = entries.filter(function (entry) {
-        return entry.terms.indexOf(query) !== -1 || entry.title.toLocaleLowerCase().indexOf(query) !== -1;
+        return normalized(entry.terms).indexOf(query) !== -1 || normalized(entry.title).indexOf(query) !== -1;
       });
       status.textContent = matches.length ? '找到 ' + matches.length + ' 份相关内容。' : '没有找到匹配内容。试试“靛蓝”“修补”或“隐私”。';
       matches.forEach(function (entry) {
