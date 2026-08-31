@@ -1,24 +1,30 @@
-# 059-violet-playbill（忠实静态化自军哥 `home_poster`）
+# 059-violet-playbill
 
-## 适合什么站
+独立的紫罗兰剧场节目单模板。首页以开幕帷幕、三幕核对流程、角色票根和节目表构成；文章页采用导演提示单；工具页逐行比较两版规则文本。全部 UI 使用 `vp59-` 专属命名空间，不依赖公共 CMS 样式。
 
-强调视觉记忆的返佣特刊站：全屏封面、精选详情、栏目瓦片、编号索引和横向专题条组成五折页面。
+## 后续 AI 内容接口
 
-## 复刻口径
+后续 AI 只替换变量和文字即可，不需要重做 UI、剧场布局、主题、移动导航、表格或对照工具：
 
-- 首页恢复源模板 `poster-scroll` 下五个 `poster-fold` 的原始顺序、层级和全部 `poster-*` 类名。
-- 静态版本采用无封面首字生成分支，展开四行侧边标题、栏目、最新文章和专题卡。
-- `public.css` 是军哥源库 `partials/style.css` 的原样副本；旧类仅用于复用现有静态样式，不替代源结构。
-- Go 条件、循环、动态链接和时间方法已改为静态内容及本地链接；额外邀请码模块已移除。
+1. 全局替换变量；保留 `vp59-` 类名、`data-*` 属性、控件 id 与五个页面文件名。
+2. 首页“正在上演”可增减整行 `tr`，角色表可复制完整链接节点；日期必须同步填写有效 `datetime`。
+3. 文章可直接改标题和正文，但保留提示单字段、核对顺序和可复制交接摘要。
+4. 工具的两侧文本每行一项，最多 50 个非空项；对比采用 NFKC 归一化、去首尾空格、保留首次出现顺序并去重。
+5. 不写未经官方页或账户页验证的具体比例、资格、期限或收益承诺。
 
-## 页面与文件
+## 变量
 
-`index.html` / `article.html` / `tool.html` / `legal.html` / `404.html` / `robots.txt` / `sitemap.xml` / `TEMPLATE.md`，以及 `public.css`、`assets/poster.css`、`assets/poster.js`。
+`[[LANG]]`、`[[SITE_NAME]]`、`[[BRAND_EN]]`、`[[SITE_DOMAIN]]`、`[[SITE_TAGLINE]]`、`[[SITE_DESC]]`、`[[SEO_TITLE]]`、`[[HERO_EYEBROW]]`、`[[HERO_TITLE]]`、`[[HERO_DESCRIPTION]]`、`[[HOME_FEATURED_LABEL]]`、`[[HOME_LATEST_LABEL]]`、`[[HOME_LINKS_LABEL]]`、`[[CONTACT_EMAIL]]`。
 
-## 首页占位符
+`[[CONTACT_EMAIL]]` 用于更正联系，应替换成真实可用地址；若不用邮箱，改成可达的联系路径，不删除责任说明。
 
-`[[SITE_NAME]]`、`[[BRAND_EN]]`、`[[SITE_DOMAIN]]`、`[[SITE_TAGLINE]]`、`[[SITE_DESC]]`、`[[SEO_TITLE]]`、`[[HERO_EYEBROW]]`、`[[HERO_TITLE]]`、`[[HERO_DESCRIPTION]]`、`[[HOME_FEATURED_LABEL]]`、`[[HOME_LATEST_LABEL]]`、`[[HOME_LINKS_LABEL]]`、`[[LANG]]`。
+## 对照工具规则
 
-## 可调项
+- A、B 两侧都必须至少有一条，任一侧超过 50 条时拒绝比较。
+- 输出共同项、仅 A、仅 B 的数量与安全动态列表；0 差异时显示“逐行口径一致”。
+- 结果仅表示规范化文本的完全匹配，不判断语义等价或事实正确；仍需人工终审。
+- 动态节点使用 `textContent` / `createElement`，不得改成 `innerHTML`。
 
-- 可增减 `poster-cat`、`poster-row` 和 `poster-card`，但应保留五折页面结构和源类名。
+## 完整审计
+
+运行 `node tools/audit-template.js templates/059-violet-playbill`、`node tools/validate.js` 和全库逐对相似度检查；再在 1440×1000 与 390×844 下验收五页、主题、移动导航、阅读进度/复制、工具空态/单边空/去重/NFKC/一致/三种差异/50与51边界/失效/复制/清空，以及 404 安全检索，确保控制台无错误。

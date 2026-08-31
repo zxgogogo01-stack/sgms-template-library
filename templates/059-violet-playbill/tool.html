@@ -1,159 +1,20 @@
-<!DOCTYPE html>
-<html lang='[[LANG]]'>
+<!doctype html>
+<html lang="[[LANG]]" data-theme="dark">
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta name='theme-color' content='#221c33'>
-    <title>净费率对比器 — [[SITE_NAME]]</title>
-    <meta name='description' content='输入两家平台的费率与返佣比例，对比扣除返佣后的净费率。'>
-    <link rel='canonical' href='https://[[SITE_DOMAIN]]/tool.html'>
-    <meta property='og:type' content='website'>
-    <meta property='og:site_name' content='[[SITE_NAME]]'>
-    <meta property='og:title' content='净费率对比器 — [[SITE_NAME]]'>
-    <meta property='og:description' content='输入两家平台的费率与返佣比例，对比扣除返佣后的净费率。'>
-    <meta property='og:url' content='https://[[SITE_DOMAIN]]/tool.html'>
-    <meta name='twitter:card' content='summary'>
-    <link rel='stylesheet' href='assets/poster.css'>
-    <script type='application/ld+json'>
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "净费率对比器",
-        "url": "https://[[SITE_DOMAIN]]/tool.html"
-    }
-    </script>
-    <style>
-        .duel { max-width: 720px; margin: 0 auto; padding: 60px 26px 90px; }
-        .duel-kick {
-            font-family: var(--mono9);
-            font-size: .78rem;
-            letter-spacing: .34em;
-            text-transform: uppercase;
-            color: var(--lilac9);
-        }
-        .duel h1 { font-family: var(--serif9); font-size: clamp(1.6rem, 3.6vw, 2.2rem); margin: 12px 0 6px; }
-        .duel-sub { color: var(--silver-dim); margin-bottom: 30px; }
-        .duel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .duel-side { border: 1px solid var(--hairline9); background: var(--inkwell-2); padding: 26px 28px; }
-        .duel-side h2 {
-            font-family: var(--mono9);
-            font-size: .88rem;
-            letter-spacing: .26em;
-            text-transform: uppercase;
-            color: var(--lilac9-hot);
-            margin-bottom: 10px;
-        }
-        .duel-side label {
-            display: block;
-            margin: 14px 0 5px;
-            font-size: .84rem;
-            font-weight: 700;
-            color: var(--silver-dim);
-        }
-        .duel-side input {
-            width: 100%;
-            min-height: 46px;
-            padding: 10px 14px;
-            border: 1px solid var(--hairline9);
-            background: var(--parlor);
-            color: var(--silver9);
-            font: inherit;
-            font-family: var(--mono9);
-            font-variant-numeric: tabular-nums;
-            transition: border-color var(--snapx), box-shadow var(--snapx);
-        }
-        .duel-side input:focus {
-            outline: none;
-            border-color: var(--lilac9);
-            box-shadow: 0 0 0 4px color-mix(in srgb, var(--lilac9) 18%, transparent);
-        }
-        .duel-side input[aria-invalid='true'] {
-            border-color: #ff786b;
-            box-shadow: 0 0 0 4px color-mix(in srgb, #ff786b 18%, transparent);
-        }
-        .duel-run {
-            margin-top: 26px;
-            width: 100%;
-            min-height: 54px;
-            border: 2px solid var(--lilac9);
-            background: var(--lilac9);
-            color: var(--parlor);
-            font: inherit;
-            font-size: 1rem;
-            font-weight: 800;
-            letter-spacing: .18em;
-            cursor: pointer;
-            transition: background var(--snapx), color var(--snapx), transform var(--snapx);
-        }
-        .duel-run:hover { transform: translateY(-2px); background: var(--lilac9-hot); border-color: var(--lilac9-hot); }
-        .duel-out {
-            display: block;
-            margin-top: 20px;
-            min-height: 26px;
-            padding: 17px 21px;
-            border: 1px solid var(--hairline9);
-            border-left: 4px solid var(--lilac9);
-            background: var(--inkwell-2);
-            line-height: 1.8;
-            font-variant-numeric: tabular-nums;
-        }
-        .duel-out b { color: var(--lilac9-hot); }
-        @media (max-width: 640px) {
-            .duel { padding: 40px 20px 70px; }
-            .duel-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#171020">
+  <title>规则台词对照台 — [[SITE_NAME]]</title><meta name="description" content="逐行比较两版规则文本，列出共同项与双方独有项。"><link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="[[SITE_NAME]]"><meta property="og:title" content="规则台词对照台 — [[SITE_NAME]]"><meta property="og:description" content="逐行比较两版规则文本，列出共同项与双方独有项。"><meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html"><meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="assets/poster.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"规则台词对照台","applicationCategory":"UtilitiesApplication","url":"https://[[SITE_DOMAIN]]/tool.html"}</script>
 </head>
 <body>
-    <header class='frontis'>
-        <div class='frontis-in'>
-            <a class='frontis-wordmark' href='index.html'>[[BRAND_EN]]</a>
-            <button type='button' class='frontis-toggle' id='frontis-toggle' aria-label='主导航' aria-expanded='false' aria-controls='frontis-links'>
-                <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
-            </button>
-            <nav class='frontis-links' id='frontis-links' aria-label='主导航'>
-                <a href='index.html'>特刊</a>
-                <a href='article.html'>文章</a>
-                <a href='tool.html' aria-current='page'>对比器</a>
-                <a href='legal.html'>披露</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class='duel'>
-        <p class='duel-kick'>工具</p>
-        <h1>净费率对比器</h1>
-        <p class='duel-sub'>两家平台各填费率与返佣比例，比扣除返佣后的净负担。本地计算，不上传。</p>
-
-        <form id='nd-form' novalidate>
-            <div class='duel-grid'>
-                <section class='duel-side'>
-                    <h2>平台 A</h2>
-                    <label for='nd-fee-a'>手续费率（%）</label>
-                    <input type='number' id='nd-fee-a' step='any' min='0' max='100' placeholder='如 0.05' aria-describedby='nd-out'>
-                    <label for='nd-cut-a'>返佣比例（%）</label>
-                    <input type='number' id='nd-cut-a' step='any' min='0' max='100' placeholder='如 30' aria-describedby='nd-out'>
-                </section>
-                <section class='duel-side'>
-                    <h2>平台 B</h2>
-                    <label for='nd-fee-b'>手续费率（%）</label>
-                    <input type='number' id='nd-fee-b' step='any' min='0' max='100' placeholder='如 0.045' aria-describedby='nd-out'>
-                    <label for='nd-cut-b'>返佣比例（%）</label>
-                    <input type='number' id='nd-cut-b' step='any' min='0' max='100' placeholder='如 20' aria-describedby='nd-out'>
-                </section>
-            </div>
-
-            <button type='submit' class='duel-run' id='nd-run'>对比</button>
-            <output class='duel-out' id='nd-out' role='status' aria-live='polite'></output>
-        </form>
-    </main>
-
-    <footer class='backleaf'>
-        <div class='backleaf-in'>
-            <p class='backleaf-fine'>结果仅供参考，实际以平台结算为准。</p>
-        </div>
-    </footer>
-
-    <script src='assets/poster.js'></script>
+  <a class="vp59-skip" href="#vp59-main">跳到主要内容</a><header class="vp59-marquee"><div class="vp59-marquee-inner"><a class="vp59-logo" href="index.html"><span>[[BRAND_EN]]</span><i>PLAYBILL №59</i></a><button class="vp59-menu-button" type="button" aria-expanded="false" aria-controls="vp59-menu"><span aria-hidden="true">MENU</span><i class="vp59-sr">打开导航</i></button><nav id="vp59-menu" class="vp59-menu" aria-label="主导航"><a href="index.html">本期节目</a><a href="article.html">主舞台</a><a aria-current="page" href="tool.html">台词对照</a><a href="legal.html">剧场规则</a><button type="button" data-theme-toggle aria-label="切换深浅主题">LIGHTS ON</button></nav></div></header>
+  <main class="vp59-compare" id="vp59-main"><header><p>LINE REHEARSAL / A ↔ B</p><h1>规则台词对照台</h1><span>每行输入一个独立要点；本地比较，不上传文本。</span></header>
+    <form id="vp59-compare-form" novalidate><div class="vp59-script-box"><header><b>A</b><span>旧版 / 来源一</span></header><label for="vp59-text-a">A 版规则要点</label><textarea id="vp59-text-a" rows="11" maxlength="5000" placeholder="每行一个要点" aria-describedby="vp59-compare-help vp59-compare-message"></textarea><small data-count-a>0 条</small></div><div class="vp59-script-box"><header><b>B</b><span>新版 / 来源二</span></header><label for="vp59-text-b">B 版规则要点</label><textarea id="vp59-text-b" rows="11" maxlength="5000" placeholder="每行一个要点" aria-describedby="vp59-compare-help vp59-compare-message"></textarea><small data-count-b>0 条</small></div>
+      <p id="vp59-compare-help">自动忽略空行、统一全角字符并去重；每侧最多 50 条。</p><p id="vp59-compare-message" role="status" aria-live="polite">两侧各输入至少一条后开始比较。</p>
+      <div class="vp59-compare-presets" aria-label="对照预设"><button type="button" data-compare-preset="same">完全一致</button><button type="button" data-compare-preset="changed">新增与删除</button><button type="button" data-compare-preset="normalized">全角归一</button></div><div class="vp59-compare-actions"><button type="submit">开始对台词</button><button type="button" data-compare-reset>清空</button></div>
+    </form>
+    <section class="vp59-diff" aria-labelledby="vp59-diff-title"><header><span>COMPARISON REPORT</span><b data-compare-state>等待输入</b></header><div class="vp59-diff-score"><h2 id="vp59-diff-title" data-compare-verdict>尚未生成对照</h2><dl><div><dt>共同</dt><dd data-common-count>—</dd></div><div><dt>仅 A</dt><dd data-only-a-count>—</dd></div><div><dt>仅 B</dt><dd data-only-b-count>—</dd></div></dl></div><div class="vp59-diff-lists"><section><h3>共同台词</h3><ul data-common-list><li>等待比较</li></ul></section><section><h3>仅 A 出现</h3><ul data-only-a-list><li>等待比较</li></ul></section><section><h3>仅 B 出现</h3><ul data-only-b-list><li>等待比较</li></ul></section></div><p>完全匹配不等于语义或事实正确，仍需人工逐项复核。</p><button type="button" data-copy-comparison disabled>复制对照结果</button><small data-comparison-status role="status" aria-live="polite"></small></section>
+  </main>
+  <script src="assets/poster.js"></script>
 </body>
 </html>
