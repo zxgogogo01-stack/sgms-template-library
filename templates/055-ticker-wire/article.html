@@ -25,78 +25,81 @@
     </script>
     <style>
         /* column page extras */
-        .colwrap { max-width: 760px; margin: 0 auto; padding: 42px 24px 80px; }
-        .colcard {
+        .tw55-colwrap { max-width: 760px; margin: 0 auto; padding: 42px 24px 80px; }
+        .tw55-colcard {
             border-radius: var(--rr);
             background: var(--slab5);
             box-shadow: var(--dk), inset 0 0 0 1px var(--seam5);
             padding: 44px 50px;
         }
-        .col-kick {
+        .tw55-col-kick {
             margin: 0 0 12px;
             font-family: var(--monox);
             font-size: .76rem;
             letter-spacing: .28em;
             color: var(--glowline);
         }
-        .colcard h1 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); }
-        .col-meta { margin: 12px 0 0; font-size: .84rem; color: var(--shade5); font-variant-numeric: tabular-nums; }
-        .col-first {
+        .tw55-colcard h1 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); }
+        .tw55-col-meta { margin: 12px 0 0; font-size: .84rem; color: var(--shade5); font-variant-numeric: tabular-nums; }
+        .tw55-col-first {
             margin: 24px 0;
             padding: 16px 22px;
             border-radius: var(--rr);
             background: var(--pit);
             box-shadow: inset 0 0 0 1px var(--seam5), inset 3px 0 0 var(--glowline);
         }
-        .colcard h2 {
+        .tw55-colcard h2 {
             font-size: 1.24rem;
             margin: 32px 0 12px;
         }
-        .colcard h2::before { content: '// '; font-family: var(--monox); color: var(--glowline); }
-        .colcard p { margin: 0 0 14px; color: var(--grey5); }
-        .col-scroll { overflow-x: auto; border-radius: var(--rr); box-shadow: inset 0 0 0 1px var(--seam5); margin: 14px 0 8px; }
-        .colcard table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-        .colcard th, .colcard td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--seam5); font-size: .9rem; white-space: nowrap; }
-        .colcard thead th { background: var(--pit); color: var(--glowline); font-family: var(--monox); font-size: .8rem; letter-spacing: .1em; border-bottom: 0; }
-        .colcard tbody tr:hover { background: var(--pit-2); }
-        .colcard tbody tr:last-child td { border-bottom: 0; }
-        .col-note { font-size: .84rem; color: var(--shade5); }
+        .tw55-colcard h2::before { content: '// '; font-family: var(--monox); color: var(--glowline); }
+        .tw55-colcard p { margin: 0 0 14px; color: var(--grey5); }
+        .tw55-col-scroll { overflow-x: auto; border-radius: var(--rr); box-shadow: inset 0 0 0 1px var(--seam5); margin: 14px 0 8px; }
+        .tw55-colcard table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+        .tw55-colcard th, .tw55-colcard td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--seam5); font-size: .9rem; white-space: nowrap; }
+        .tw55-colcard thead th { background: var(--pit); color: var(--glowline); font-family: var(--monox); font-size: .8rem; letter-spacing: .1em; border-bottom: 0; }
+        .tw55-colcard tbody tr:hover { background: var(--pit-2); }
+        .tw55-colcard tbody tr:last-child td { border-bottom: 0; }
+        .tw55-col-note { font-size: .84rem; color: var(--shade5); }
         @media (max-width: 620px) {
-            .colcard { padding: 26px 22px; }
-            .colcard th, .colcard td { white-space: normal; }
+            .tw55-colcard { padding: 26px 22px; }
+            .tw55-colcard th, .tw55-colcard td { white-space: normal; }
         }
     </style>
 </head>
 <body>
-    <header class='console'>
-        <div class='console-in'>
-            <a class='callsign' href='index.html'>{BRAND_EN}<span class='callsign-cue'>_</span></a>
-            <button type='button' class='console-btn' id='console-btn' aria-label='主导航' aria-expanded='false' aria-controls='console-nav'>
+    <div class='tw55-reading-progress' data-reading-progress aria-hidden='true'></div>
+    <a class='tw55-skip' href='#tw55-main'>跳到主要内容</a>
+    <header class='tw55-console'>
+        <div class='tw55-console-in'>
+            <a class='tw55-callsign' href='index.html'>{BRAND_EN}<span class='tw55-callsign-cue'>_</span></a>
+            <button type='button' class='tw55-console-btn' id='tw55-console-btn' aria-label='主导航' aria-expanded='false' aria-controls='tw55-console-nav'>
                 <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
             </button>
-            <nav class='console-nav' id='console-nav' aria-label='主导航'>
+            <nav class='tw55-console-nav' id='tw55-console-nav' aria-label='主导航'>
                 <a href='index.html'>快讯台</a>
                 <a href='article.html' aria-current='page'>专栏</a>
-                <a href='tool.html'>计算台</a>
+                <a href='tool.html'>时效台</a>
                 <a href='legal.html'>披露</a>
+                <button type='button' class='tw55-theme' id='tw55-theme-button' aria-label='切换到浅色模式'>浅色</button>
             </nav>
         </div>
     </header>
 
-    <main class='colwrap'>
-        <article class='colcard'>
-            <p class='col-kick'>费率观察</p>
+    <main class='tw55-colwrap' id='tw55-main'>
+        <article class='tw55-colcard'>
+            <p class='tw55-col-kick'>费率观察</p>
             <h1>示例平台A 调整挂单档位，返佣基数跟着变</h1>
-            <p class='col-meta'>发布 2026-01-19 14:00 · 口径核对 2026-01-19</p>
+            <p class='tw55-col-meta'>发布 2026-01-19 14:00 · 口径核对 2026-01-19</p>
 
-            <div class='col-first'><b>先说结论：</b>这次调整会先改变手续费基数，再按账户对应比例影响最终到账；下文把生效范围与核对方法拆开说明。</div>
+            <div class='tw55-col-first'><b>先说结论：</b>这次调整会先改变手续费基数，再按账户对应比例影响最终到账；下文把生效范围与核对方法拆开说明。</div>
 
             <h2>变了什么</h2>
             <p>先记录调整覆盖的产品、账户层级和生效时间，并把时区统一到自己的账单时区；随后保存规则页版本，便于到账后逐项复核。</p>
 
             <h2>对返佣的传导</h2>
             <p>计算顺序是成交额乘手续费率得到手续费，再乘可返比例得到预计返佣。若存在抵扣、上限或排除产品，应先从计佣基数中剔除。</p>
-            <div class='col-scroll'>
+            <div class='tw55-col-scroll'>
                 <table>
                     <thead>
                         <tr><th scope='col'>项目</th><th scope='col'>调整前</th><th scope='col'>调整后</th></tr>
@@ -107,15 +110,16 @@
                     </tbody>
                 </table>
             </div>
-            <p class='col-note'>表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
+            <p class='tw55-col-note'>表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
 
             <h2>要不要动</h2>
             <p>判断时不要只看返佣比例，还要核对费率、产品范围、结算门槛与到账周期。规则可能调整，正式决策应以账户页面的最新显示为准。</p>
+            <aside class='tw55-portable-note'><h2>复制核验摘要</h2><p>记录规则页版本、适用产品、账户层级、生效时间和统一时区，再用账户页面与账单交叉核对；无法找到一手来源的线索不得写成确定事实。</p><button type='button' data-copy-brief>复制核验摘要</button><span data-brief-status role='status' aria-live='polite'></span></aside>
         </article>
     </main>
 
-    <footer class='dockend'>
-        <p class='de-line'>快讯为信息转述，以各平台官方页面为准；不构成投资建议。</p>
+    <footer class='tw55-dockend'>
+        <p class='tw55-de-line'>快讯为信息转述，以各平台官方页面为准；不构成投资建议。</p>
     </footer>
 
     <script src='deck.js'></script>

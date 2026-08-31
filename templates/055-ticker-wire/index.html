@@ -10,64 +10,82 @@
   <meta property='og:type' content='website'><meta property='og:site_name' content='{SITE_NAME}'>
   <meta property='og:title' content='{SITE_NAME} — {SEO_TITLE}'><meta property='og:description' content='{SITE_DESC}'>
   <meta property='og:url' content='https://{SITE_DOMAIN}/'><meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='public.css'><link rel='stylesheet' href='skin.css'>
+  <link rel='stylesheet' href='skin.css'>
 </head>
 <body>
-  <div class='tick-marquee' aria-hidden='true'>
-    <div class='tick-track'>
-      <span class='tick-chip'><b>费率观察</b><span class='tick-num'>12</span></span><span class='tick-chip'><b>返佣结算</b><span class='tick-num'>09</span></span><span class='tick-chip'><b>新手通道</b><span class='tick-num'>08</span></span><span class='tick-chip'><b>安全防坑</b><span class='tick-num'>06</span></span>
-      <span class='tick-chip'><b>费率观察</b><span class='tick-num'>12</span></span><span class='tick-chip'><b>返佣结算</b><span class='tick-num'>09</span></span><span class='tick-chip'><b>新手通道</b><span class='tick-num'>08</span></span><span class='tick-chip'><b>安全防坑</b><span class='tick-num'>06</span></span>
+  <a class='tw55-skip' href='#tw55-main'>跳到主要内容</a>
+  <div class='tw55-tick-marquee' aria-hidden='true'>
+    <div class='tw55-tick-track'>
+      <span class='tw55-tick-chip'><b>费率观察</b><span class='tw55-tick-num'>12</span></span><span class='tw55-tick-chip'><b>返佣结算</b><span class='tw55-tick-num'>09</span></span><span class='tw55-tick-chip'><b>新手通道</b><span class='tw55-tick-num'>08</span></span><span class='tw55-tick-chip'><b>安全防坑</b><span class='tw55-tick-num'>06</span></span>
+      <span class='tw55-tick-chip'><b>费率观察</b><span class='tw55-tick-num'>12</span></span><span class='tw55-tick-chip'><b>返佣结算</b><span class='tw55-tick-num'>09</span></span><span class='tw55-tick-chip'><b>新手通道</b><span class='tw55-tick-num'>08</span></span><span class='tw55-tick-chip'><b>安全防坑</b><span class='tw55-tick-num'>06</span></span>
     </div>
   </div>
 
-  <header class='console'>
-    <div class='console-in'>
-      <a class='callsign' href='index.html'>{BRAND_EN}<span class='callsign-cue'>_</span></a>
-      <button type='button' class='console-btn' id='console-btn' aria-label='主导航' aria-expanded='false' aria-controls='console-nav'><svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg></button>
-      <nav class='console-nav' id='console-nav' aria-label='主导航'><a href='index.html' aria-current='page'>快讯台</a><a href='article.html'>专栏</a><a href='tool.html'>计算台</a><a href='legal.html'>披露</a></nav>
+  <header class='tw55-console'>
+    <div class='tw55-console-in'>
+      <a class='tw55-callsign' href='index.html'>{BRAND_EN}<span class='tw55-callsign-cue'>_</span></a>
+      <button type='button' class='tw55-console-btn' id='tw55-console-btn' aria-label='主导航' aria-expanded='false' aria-controls='tw55-console-nav'><svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg></button>
+      <nav class='tw55-console-nav' id='tw55-console-nav' aria-label='主导航'><a href='index.html' aria-current='page'>快讯台</a><a href='article.html'>专栏</a><a href='tool.html'>时效台</a><a href='legal.html'>披露</a><button type='button' class='tw55-theme' id='tw55-theme-button' aria-label='切换到浅色模式'>浅色</button></nav>
     </div>
   </header>
 
-  <main>
-    <section class='tick-hero'>
-      <div class='tick-in tick-hero-grid'>
-        <div class='tick-lead'>
-          <p class='tick-eyebrow'>{HERO_EYEBROW}</p><h1 class='tick-h1'>{HERO_TITLE}</h1><p class='tick-lede'>{HERO_DESCRIPTION}</p>
-          <div class='tick-cta'><a class='btn btn-primary' href='article.html'>看今日快讯 <span class='arrow'>→</span></a><a class='btn' href='legal.html'>了解本站</a></div>
+  <main id='tw55-main'>
+    <section class='tw55-tick-hero'>
+      <div class='tw55-tick-in tw55-tick-hero-grid'>
+        <div class='tw55-tick-lead'>
+          <p class='tw55-tick-eyebrow'>{HERO_EYEBROW}</p><h1 class='tw55-tick-h1'>{HERO_TITLE}</h1><p class='tw55-tick-lede'>{HERO_DESCRIPTION}</p>
+          <div class='tw55-tick-cta'><a class='tw55-btn tw55-btn-primary' href='article.html'>看今日快讯 <span class='tw55-arrow'>→</span></a><a class='tw55-btn' href='legal.html'>了解本站</a></div>
         </div>
-        <a class='tick-panel tick-feat has-cover' href='article.html'>
-          <span class='tick-panel-head'><span class='tick-dot' aria-hidden='true'></span>{HOME_FEATURED_LABEL}</span>
-          <span class='tick-feat-cover tick-feat-cover-gen'><b aria-hidden='true'>费</b></span>
-          <span class='tick-feat-body'><span class='tick-feat-meta'><span class='tick-cat'>费率观察</span><time datetime='2026-01-19'>2026-01-19</time></span><span class='tick-feat-title'>示例平台调整挂单档位，返佣基数同步变化</span><span class='tick-feat-ex'>说明变更内容、生效时间以及对返佣的传导路径。</span></span>
+        <a class='tw55-tick-panel tw55-tick-feat tw55-has-cover' href='article.html'>
+          <span class='tw55-tick-panel-head'><span class='tw55-tick-dot' aria-hidden='true'></span>{HOME_FEATURED_LABEL}</span>
+          <span class='tw55-tick-feat-cover tw55-tick-feat-cover-gen'><b aria-hidden='true'>费</b></span>
+          <span class='tw55-tick-feat-body'><span class='tw55-tick-feat-meta'><span class='tw55-tick-cat'>费率观察</span><time datetime='2026-01-19'>2026-01-19</time></span><span class='tw55-tick-feat-title'>示例平台调整挂单档位，返佣基数同步变化</span><span class='tw55-tick-feat-ex'>说明变更内容、生效时间以及对返佣的传导路径。</span></span>
         </a>
       </div>
     </section>
 
-    <div class='tick-board-wrap'>
-      <div class='tick-in tick-grid'>
-        <section class='tick-main'>
-          <div class='tick-head'><span class='tick-live'><span class='tick-dot' aria-hidden='true'></span>{HOME_LATEST_LABEL}</span><a href='article.html'>查看全部 <span class='arrow' aria-hidden='true'>→</span></a></div>
-          <div class='tick-list'>
-            <a class='tick-row' href='article.html'><span class='tick-time'><time datetime='2026-01-19T14:00'>14:00</time></span><span class='tick-body'><span class='tick-cat'>结算</span><span class='tick-title'>示例平台返佣结算时间提前两小时</span></span></a>
-            <a class='tick-row' href='article.html'><span class='tick-time'><time datetime='2026-01-19T11:20'>11:20</time></span><span class='tick-body'><span class='tick-cat'>费率</span><span class='tick-title'>基础档吃单费率对照已经更新</span></span></a>
-            <a class='tick-row' href='article.html'><span class='tick-time'><time datetime='2026-01-19T09:45'>09:45</time></span><span class='tick-body'><span class='tick-cat'>新手</span><span class='tick-title'>邀请关系查询入口位置调整</span></span></a>
-            <a class='tick-row' href='article.html'><span class='tick-time'><time datetime='2026-01-18T16:30'>16:30</time></span><span class='tick-body'><span class='tick-cat'>安全</span><span class='tick-title'>识别仿冒返佣后台的检查清单</span></span></a>
-            <a class='tick-row' href='article.html'><span class='tick-time'><time datetime='2026-01-18T10:05'>10:05</time></span><span class='tick-body'><span class='tick-cat'>费率</span><span class='tick-title'>资金费率结算周期速览</span></span></a>
+    <section class='tw55-verify-deck' aria-labelledby='tw55-verify-title'>
+      <div class='tw55-verify-in'>
+        <header><p>SIGNAL VERIFICATION / EDITOR DESK</p><h2 id='tw55-verify-title'>每条快讯，都要留下核验状态。</h2><output data-signal-count aria-live='polite'>3 条信号</output></header>
+        <menu aria-label='按核验状态筛选'>
+          <li><button type='button' data-signal-filter='all' aria-pressed='true'>全部</button></li>
+          <li><button type='button' data-signal-filter='verified' aria-pressed='false'>已核验</button></li>
+          <li><button type='button' data-signal-filter='review' aria-pressed='false'>待复核</button></li>
+          <li><button type='button' data-signal-filter='pending' aria-pressed='false'>待确认</button></li>
+        </menu>
+        <ul class='tw55-signal-list'>
+          <li data-signal-status='verified'><article><header><time datetime='2026-01-19T14:00'>14:00</time><mark>已核验</mark></header><h3>费率规则页出现新版本号</h3><p>已保存官方页面、适用产品与生效时间。</p><footer><cite>来源：官方规则页</cite><a href='article.html'>查看记录</a></footer></article></li>
+          <li data-signal-status='review'><article><header><time datetime='2026-01-19T11:20'>11:20</time><mark>待复核</mark></header><h3>账户端展示与公告口径不同</h3><p>等待第二个账户样本与账单字段交叉核对。</p><footer><cite>来源：账户页面</cite><a href='article.html'>查看记录</a></footer></article></li>
+          <li data-signal-status='pending'><article><header><time datetime='2026-01-19T09:45'>09:45</time><mark>待确认</mark></header><h3>社区流传新的结算时间</h3><p>尚未找到一手公告，不能写成确定事实。</p><footer><cite>来源：二手线索</cite><a href='legal.html'>查看边界</a></footer></article></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class='tw55-tick-board-wrap'>
+      <div class='tw55-tick-in tw55-tick-grid'>
+        <section class='tw55-tick-main'>
+          <div class='tw55-tick-head'><span class='tw55-tick-live'><span class='tw55-tick-dot' aria-hidden='true'></span>{HOME_LATEST_LABEL}</span><a href='article.html'>查看全部 <span class='tw55-arrow' aria-hidden='true'>→</span></a></div>
+          <div class='tw55-tick-list'>
+            <a class='tw55-tick-row' href='article.html'><span class='tw55-tick-time'><time datetime='2026-01-19T14:00'>14:00</time></span><span class='tw55-tick-body'><span class='tw55-tick-cat'>结算</span><span class='tw55-tick-title'>示例平台返佣结算时间提前两小时</span></span></a>
+            <a class='tw55-tick-row' href='article.html'><span class='tw55-tick-time'><time datetime='2026-01-19T11:20'>11:20</time></span><span class='tw55-tick-body'><span class='tw55-tick-cat'>费率</span><span class='tw55-tick-title'>基础档吃单费率对照已经更新</span></span></a>
+            <a class='tw55-tick-row' href='article.html'><span class='tw55-tick-time'><time datetime='2026-01-19T09:45'>09:45</time></span><span class='tw55-tick-body'><span class='tw55-tick-cat'>新手</span><span class='tw55-tick-title'>邀请关系查询入口位置调整</span></span></a>
+            <a class='tw55-tick-row' href='article.html'><span class='tw55-tick-time'><time datetime='2026-01-18T16:30'>16:30</time></span><span class='tw55-tick-body'><span class='tw55-tick-cat'>安全</span><span class='tw55-tick-title'>识别仿冒返佣后台的检查清单</span></span></a>
+            <a class='tw55-tick-row' href='article.html'><span class='tw55-tick-time'><time datetime='2026-01-18T10:05'>10:05</time></span><span class='tw55-tick-body'><span class='tw55-tick-cat'>费率</span><span class='tw55-tick-title'>资金费率结算周期速览</span></span></a>
           </div>
         </section>
-        <aside class='tick-side'>
-          <div class='tick-card'><div class='tick-card-h'>栏目</div><div class='tick-board-list'>
-            <a class='tick-board-row' href='article.html'><span class='tick-board-name'>费率观察</span><span class='tick-num'>12</span></a><a class='tick-board-row' href='article.html'><span class='tick-board-name'>返佣结算</span><span class='tick-num'>09</span></a><a class='tick-board-row' href='article.html'><span class='tick-board-name'>新手通道</span><span class='tick-num'>08</span></a><a class='tick-board-row' href='article.html'><span class='tick-board-name'>安全防坑</span><span class='tick-num'>06</span></a>
+        <aside class='tw55-tick-side'>
+          <div class='tw55-tick-card'><div class='tw55-tick-card-h'>栏目</div><div class='tw55-tick-board-list'>
+            <a class='tw55-tick-board-row' href='article.html'><span class='tw55-tick-board-name'>费率观察</span><span class='tw55-tick-num'>12</span></a><a class='tw55-tick-board-row' href='article.html'><span class='tw55-tick-board-name'>返佣结算</span><span class='tw55-tick-num'>09</span></a><a class='tw55-tick-board-row' href='article.html'><span class='tw55-tick-board-name'>新手通道</span><span class='tw55-tick-num'>08</span></a><a class='tw55-tick-board-row' href='article.html'><span class='tw55-tick-board-name'>安全防坑</span><span class='tw55-tick-num'>06</span></a>
           </div></div>
-          <div class='tick-card'><div class='tick-card-h'>{HOME_LINKS_LABEL}</div><div class='tick-link-list'>
-            <a class='tick-link' href='tool.html'><span class='tick-link-ic'><b>算</b></span><span class='tick-link-t'>返佣折算器</span></a><a class='tick-link' href='legal.html'><span class='tick-link-ic'><b>披</b></span><span class='tick-link-t'>披露与免责</span></a>
+          <div class='tw55-tick-card'><div class='tw55-tick-card-h'>{HOME_LINKS_LABEL}</div><div class='tw55-tick-link-list'>
+            <a class='tw55-tick-link' href='tool.html'><span class='tw55-tick-link-ic'><b>时</b></span><span class='tw55-tick-link-t'>快讯时效检查器</span></a><a class='tw55-tick-link' href='legal.html'><span class='tw55-tick-link-ic'><b>披</b></span><span class='tw55-tick-link-t'>披露与免责</span></a>
           </div></div>
         </aside>
       </div>
     </div>
   </main>
 
-  <footer class='dockend'><div class='dockend-in'><div><p class='callsign de-mark'>{BRAND_EN}<span class='callsign-cue'>_</span></p><p class='de-dim'>{SITE_TAGLINE}</p></div><div class='de-col'><h4>栏目</h4><a href='article.html'>费率观察</a><a href='article.html'>返佣结算</a><a href='article.html'>安全防坑</a></div><div class='de-col'><h4>站务</h4><a href='tool.html'>返佣折算器</a><a href='legal.html'>披露与免责</a><p class='de-dim'>{CONTACT_EMAIL}</p></div></div><p class='de-line'>快讯为信息转述，费率与规则以平台官方页面实时显示为准。</p></footer>
+  <footer class='tw55-dockend'><div class='tw55-dockend-in'><div><p class='tw55-callsign tw55-de-mark'>{BRAND_EN}<span class='tw55-callsign-cue'>_</span></p><p class='tw55-de-dim'>{SITE_TAGLINE}</p></div><div class='tw55-de-col'><h4>栏目</h4><a href='article.html'>费率观察</a><a href='article.html'>返佣结算</a><a href='article.html'>安全防坑</a></div><div class='tw55-de-col'><h4>站务</h4><a href='tool.html'>快讯时效检查器</a><a href='legal.html'>披露与免责</a><p class='tw55-de-dim'>{CONTACT_EMAIL}</p></div></div><p class='tw55-de-line'>快讯为信息转述，费率与规则以平台官方页面实时显示为准。</p></footer>
   <script src='deck.js'></script>
 </body>
 </html>

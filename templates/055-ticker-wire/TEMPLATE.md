@@ -1,25 +1,43 @@
-# 055-ticker-wire（忠实静态化自军哥 `home_ticker`）
+# 055-ticker-wire（霓虹快讯核验台）
 
-## 适合什么站
+## 模板定位
 
-费率行情快讯站：顶部循环栏目条、双栏 Hero、按时间排列的快讯主栏，以及分类和常用入口侧栏。
+面向费率快讯、规则变更和实时资讯站。页面使用夜间控制台、霓虹信号色、滚动栏目带、快讯流与侧栏机架；首页的核验队列要求每条消息显式标记“已核验、待复核或待确认”。
 
-## 复刻口径
+## 视觉与指纹隔离
 
-- 首页保留源模板 `tick-marquee`、`tick-hero`、`tick-feat`、`tick-main`、`tick-side` 等原始结构、类名和顺序。
-- 静态版本选用“有精选、有分类、有常用链接”的源模板合法分支；跑马灯内容按源逻辑重复两份。
-- `public.css` 是军哥源库 `partials/style.css` 的原样副本；`skin.css` 只补足独立静态站外壳、响应式和源类名样式。
-- Go 条件、循环、日期方法和动态内容链接已转换为固定示例条目及本地页面链接；未保留源模板之外的邀请码模块。
+- 全站 UI、状态和脚本钩子使用独立的 `tw55-` 命名空间。
+- 独有核验台采用 `menu` 筛选器与 `ul > li > article > cite` 证据卡骨架，和其他模板的普通卡片墙分离。
+- 仅加载 `skin.css` 与 `deck.js`，没有共享公共样式副本、远程字体、图片或第三方脚本。
+- 五页均具备跳过导航、明暗主题、44px 触控目标、移动导航、清晰焦点和安全本地交互；动态效果尊重减少动画偏好。
 
-## 页面与文件
+## 页面与职责
 
-`index.html` / `article.html` / `tool.html` / `legal.html` / `404.html` / `robots.txt` / `sitemap.xml` / `TEMPLATE.md`，以及 `public.css`、`skin.css`、`deck.js`。
+- `index.html`：滚动栏目带、双栏 Hero、核验状态筛选、快讯主流和入口侧栏。
+- `article.html`：专栏正文、口径表、阅读进度与可复制核验摘要。
+- `tool.html`：比较发布时间、核验时间和时效阈值，输出新鲜/待复核/已过时结论。
+- `legal.html`：利益关系、快讯口径、风险与联系披露，可复制通用披露段。
+- `404.html`：`noindex` 的本地线路搜索，使用 DOM 节点安全输出结果。
+- `robots.txt`、`sitemap.xml`：上线前替换域名占位符。
 
-## 首页占位符
+## 后续 AI 内容接入
+
+后续 AI 只替换文字、链接和下列占位符，不需要重做模板 UI：
 
 `{SITE_NAME}`、`{BRAND_EN}`、`{SITE_DOMAIN}`、`{SITE_TAGLINE}`、`{SITE_DESC}`、`{SEO_TITLE}`、`{HERO_EYEBROW}`、`{HERO_TITLE}`、`{HERO_DESCRIPTION}`、`{HOME_FEATURED_LABEL}`、`{HOME_LATEST_LABEL}`、`{HOME_LINKS_LABEL}`、`{CONTACT_EMAIL}`、`{LANG}`。
 
-## 可调项
+可以增删 `.tw55-tick-row` 与 `[data-signal-status]` 条目，但须为每条快讯保留发布时间、核验状态、来源、适用范围和核对时间，并同步筛选计数。必须保留语义标签、内部链接、表单 `name`、输入约束、`data-*` 行为钩子和 `aria-*` 关系。社区或二手线索在取得一手证据前只能标为待确认；不得把未经核验的费率、最高返佣、保证收益或绝对安全写成事实。
 
-- 可按内容增减 `tick-chip`、`tick-row`、`tick-board-row` 和 `tick-link`，但不要重命名首页源类名。
-- 若改用源模板的无精选分支，可用 `tick-board` 替换右侧 `tick-feat`。
+## 时效检查口径
+
+- 发布时间与核验时间须是 2000–2099 年的有效本地日期时间，并明确按同一时区比较。
+- 新鲜阈值只接受 1–10080 的整数分钟；核验时间不得早于发布时间。
+- 相隔分钟不超过阈值为“新鲜”，大于阈值但不超过两倍阈值为“待复核”，超过两倍阈值为“已过时”。
+- 输入变更立即清除旧结论；工具只判断内容时效，不替代事实核验。
+
+## 交付前检查
+
+1. 运行 `node tools/audit-template.js templates/055-ticker-wire` 与 `node tools/validate.js`。
+2. 在 1440×1000 与 390×844 检查五页，无横向溢出、断图、失效锚点或小于 44px 的交互目标。
+3. 验证主题持久化、移动菜单首链焦点/Escape、四类核验筛选、复制、阅读进度、三种时效状态、跨日/闰日/相等时间、日期与阈值非法输入、时间倒序、结果失效、清空和 404 安全搜索。
+4. 与全库逐一运行 `node tools/check-similarity.js templates/055-ticker-wire templates/NNN-name`，确保类名、骨架和 CSS 属性顺序均为零警告。
