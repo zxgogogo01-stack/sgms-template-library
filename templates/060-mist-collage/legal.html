@@ -1,104 +1,12 @@
-<!DOCTYPE html>
-<html lang="{LANG}">
+<!doctype html>
+<html lang="{LANG}" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#eef4f3">
-  <title>披露与免责 — {SITE_NAME}</title>
-  <meta name="description" content="{SITE_NAME} 的利益披露与免责声明。">
-  <link rel="canonical" href="https://{SITE_DOMAIN}/legal.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="{SITE_NAME}">
-  <meta property="og:title" content="披露与免责 — {SITE_NAME}">
-  <meta property="og:description" content="{SITE_NAME} 的利益披露与免责声明。">
-  <meta property="og:url" content="https://{SITE_DOMAIN}/legal.html">
-  <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="css/glue.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "披露与免责",
-    "url": "https://{SITE_DOMAIN}/legal.html"
-  }
-  </script>
-  <style>
-    .noticewall { max-width: 700px; margin: 0 auto; padding: 46px 24px 84px; }
-    .noticewall h1 { font-family: var(--serif0); font-size: 1.8rem; }
-    .noticewall-meta { margin: 8px 0 26px; font-family: var(--mono0); font-size: .84rem; color: var(--fadex); }
-    .notice {
-      position: relative;
-      background: var(--paperx);
-      border-radius: 4px;
-      box-shadow: var(--shadex);
-      padding: 24px 30px;
-      margin-bottom: 16px;
-    }
-    .notice:nth-child(odd) { transform: rotate(.35deg); }
-    .notice:nth-child(even) { transform: rotate(-.35deg); }
-    .notice::before {
-      content: "";
-      position: absolute;
-      top: -9px;
-      left: 26px;
-      width: 68px;
-      height: 18px;
-      border-radius: 2px;
-      transform: rotate(-2deg);
-    }
-    .notice:nth-child(odd)::before { background: color-mix(in srgb, var(--coral0) 50%, transparent); }
-    .notice:nth-child(even)::before { background: color-mix(in srgb, var(--teal0) 45%, transparent); }
-    .notice h2 { font-family: var(--serif0); font-size: 1.06rem; margin-bottom: 7px; color: var(--teal0-deep); }
-    .notice p { margin: 0; color: var(--fadex); }
-  </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e8efed"><title>披露与免责 — {SITE_NAME}</title><meta name="description" content="{SITE_NAME} 的利益披露、内容边界与更正方式。"><link rel="canonical" href="https://{SITE_DOMAIN}/legal.html">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="{SITE_NAME}"><meta property="og:title" content="披露与免责 — {SITE_NAME}"><meta property="og:description" content="{SITE_NAME} 的利益披露、内容边界与更正方式。"><meta property="og:url" content="https://{SITE_DOMAIN}/legal.html"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="css/glue.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"披露与免责","url":"https://{SITE_DOMAIN}/legal.html"}</script>
 </head>
 <body>
-  <header class="awning">
-    <div class="awning-in">
-      <a class="decal" href="index.html">{BRAND_EN}</a>
-      <button type="button" class="awning-knob" id="awning-knob" aria-label="主导航" aria-expanded="false" aria-controls="awning-nav">
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <nav class="awning-nav" id="awning-nav" aria-label="主导航">
-        <a href="index.html">剪贴墙</a>
-        <a href="article.html">文章</a>
-        <a href="tool.html">记账页</a>
-        <a href="legal.html" aria-current="page">披露</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="noticewall">
-    <h1>披露与免责</h1>
-    <p class="noticewall-meta">更新 2026-01-19</p>
-
-    <section class="notice">
-      <h2>利益披露</h2>
-      <p>本站（{SITE_DOMAIN}）展示交易平台邀请码。用码注册不会多付费用，还能享最高 20% 手续费减免*（* 实际比例以交易所页面显示为准，可能随政策调整）。</p>
-    </section>
-
-    <section class="notice">
-      <h2>内容口径</h2>
-      <p>每张卡片为公开信息整理，注明核对时间；平台规则随时调整，以官方页面实时显示为准。</p>
-    </section>
-
-    <section class="notice">
-      <h2>免责声明</h2>
-      <p>内容不构成投资建议；数字资产波动剧烈，请自行评估风险。</p>
-    </section>
-
-    <section class="notice">
-      <h2>更正与联系</h2>
-      <p>纠错请附条目与依据：{CONTACT_EMAIL}。查实即更正并注明时间。</p>
-    </section>
-  </main>
-
-  <footer class="baseboard">
-    <div class="baseboard-in">
-      <p class="baseboard-fine">内容以各平台官方页面为准；不构成投资建议。</p>
-    </div>
-  </footer>
-
+  <a class="mc60-skip" href="#mc60-main">跳到主要内容</a><header class="mc60-top"><div><a class="mc60-brand" href="index.html"><span>{BRAND_EN}</span><small>CURATED NOTES / 060</small></a><button class="mc60-menu-button" type="button" aria-expanded="false" aria-controls="mc60-menu"><span aria-hidden="true">☰</span><i class="mc60-sr">打开导航</i></button><nav class="mc60-menu" id="mc60-menu" aria-label="主导航"><a href="index.html">策展墙</a><a href="article.html">研究札记</a><a href="tool.html">来源整理</a><a aria-current="page" href="legal.html">披露</a><button type="button" data-theme-toggle aria-label="切换深浅主题">夜间</button></nav></div></header>
+  <main class="mc60-legal" id="mc60-main"><header><p>TRANSPARENCY NOTES / 04</p><h1>披露、风险与更正</h1><span>核对日期 2026-01-19</span></header><div class="mc60-legal-cards"><article><b>01</b><h2>利益关系</h2><p>本站可能展示带有利益关系的邀请码或推荐链接。读者经这些入口注册或使用服务时，本站可能获得报酬；资格、比例、产品范围与有效期以官方页面和账户实际显示为准。</p></article><article><b>02</b><h2>信息口径</h2><p>内容是对公开资料与账户口径的整理，核对日期不代表长期有效。规则、费用、地区限制和产品范围都可能调整。</p></article><article><b>03</b><h2>风险边界</h2><p>本站不提供投资、法律或税务建议，不承诺收益或成本结果。数字资产交易可能造成全部本金损失。</p></article><article><b>04</b><h2>更正与联系</h2><p>发现错误请将页面名称、问题位置与可核实依据发送至 {CONTACT_EMAIL}。确认后会修订并标注复核时间。</p></article></div><aside class="mc60-disclosure"><span>SHAREABLE DISCLOSURE</span><p>本站可能包含带有利益关系的推荐链接；资格、比例、产品范围和有效期以官方页面及账户显示为准。数字资产交易存在损失风险。</p><button type="button" data-copy-disclosure>复制披露文本</button><small data-disclosure-status role="status" aria-live="polite"></small></aside></main>
   <script src="glue.js"></script>
 </body>
 </html>
