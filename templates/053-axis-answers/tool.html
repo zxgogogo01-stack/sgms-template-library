@@ -24,13 +24,13 @@
     </script>
     <style>
         /* 计算页补充 */
-        .nf {
+        .aa53-nf {
             max-width: 520px;
             margin: 0 auto;
             padding: 46px 24px 80px;
             text-align: center;
         }
-        .nf-card {
+        .aa53-nf-card {
             background: var(--panel);
             border: 1px solid var(--seam);
             border-radius: var(--curve);
@@ -38,16 +38,16 @@
             padding: 42px 44px;
             text-align: left;
         }
-        .nf-card h1 { font-size: 1.5rem; text-align: center; }
-        .nf-card > p { color: var(--hush); margin: 8px 0 14px; text-align: center; }
-        .nf-card label {
+        .aa53-nf-card h1 { font-size: 1.5rem; text-align: center; }
+        .aa53-nf-card > p { color: var(--hush); margin: 8px 0 14px; text-align: center; }
+        .aa53-nf-card label {
             display: block;
             margin: 16px 0 6px;
             font-size: .88rem;
             font-weight: 650;
             color: var(--letter-2);
         }
-        .nf-card input {
+        .aa53-nf-card input {
             width: 100%;
             min-height: 47px;
             padding: 10px 15px;
@@ -60,16 +60,16 @@
             font-variant-numeric: tabular-nums;
             transition: border-color var(--beat), box-shadow var(--beat);
         }
-        .nf-card input:focus {
+        .aa53-nf-card input:focus {
             outline: none;
             border-color: var(--apricot);
             box-shadow: 0 0 0 4px color-mix(in srgb, var(--apricot) 20%, transparent);
         }
-        .nf-card input[aria-invalid='true'] {
+        .aa53-nf-card input[aria-invalid='true'] {
             border-color: #b42318;
             box-shadow: 0 0 0 4px color-mix(in srgb, #b42318 18%, transparent);
         }
-        .nf-run {
+        .aa53-nf-run {
             margin-top: 26px;
             width: 100%;
             min-height: 50px;
@@ -85,9 +85,9 @@
             box-shadow: 0 10px 26px color-mix(in srgb, var(--night) 38%, transparent);
             transition: transform var(--beat), background var(--beat);
         }
-        .nf-run:hover { transform: translateY(-2px); background: var(--night-2); }
-        .nf-run:active { transform: translateY(0); }
-        .nf-out {
+        .aa53-nf-run:hover { transform: translateY(-2px); background: var(--night-2); }
+        .aa53-nf-run:active { transform: translateY(0); }
+        .aa53-nf-out {
             display: block;
             margin-top: 18px;
             min-height: 24px;
@@ -98,39 +98,44 @@
             font-variant-numeric: tabular-nums;
         }
         @media (max-width: 620px) {
-            .nf-card { padding: 28px 22px; }
+            .aa53-nf-card { padding: 28px 22px; }
         }
     </style>
 </head>
 <body>
-    <header class='spine-top'>
-        <a class='brandline' href='index.html'>~BRAND_EN~</a>
-        <button type='button' class='spine-btn' id='spine-btn' aria-label='主导航' aria-expanded='false' aria-controls='spine-nav'>
+    <a class='aa53-skip' href='#aa53-main'>跳到主要内容</a>
+    <header class='aa53-spine-top'>
+        <a class='aa53-brandline' href='index.html'>~BRAND_EN~</a>
+        <button type='button' class='aa53-spine-btn' id='aa53-spine-btn' aria-label='主导航' aria-expanded='false' aria-controls='aa53-spine-nav'>
             <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
         </button>
-        <nav class='spine-nav' id='spine-nav' aria-label='主导航'>
+        <nav class='aa53-spine-nav' id='aa53-spine-nav' aria-label='主导航'>
             <a href='index.html'>答疑轴</a>
             <a href='article.html'>长答</a>
             <a href='tool.html' aria-current='page'>净费率</a>
             <a href='legal.html'>披露</a>
+            <button type='button' class='aa53-theme' id='aa53-theme-button' aria-label='切换到夜间模式'>夜间</button>
         </nav>
     </header>
 
-    <main class='nf'>
-        <form class='nf-card' id='nf-form' novalidate>
+    <main class='aa53-nf' id='aa53-main'>
+        <form class='aa53-nf-card' id='aa53-nf-form' novalidate>
             <h1>净费率计算</h1>
-            <p>名义费率 ×（1 − 减免比例）＝你实际承担的净费率。本地计算。</p>
-            <label for='nf-rate'>名义费率（%）</label>
-            <input type='number' id='nf-rate' step='any' min='0' max='100' placeholder='如 0.1' aria-describedby='nf-out'>
-            <label for='nf-off'>减免比例（%）</label>
-            <input type='number' id='nf-off' step='any' min='0' max='100' placeholder='如 20' aria-describedby='nf-out'>
-            <button type='submit' class='nf-run' id='nf-go'>算净费率</button>
-            <output class='nf-out' id='nf-out' role='status' aria-live='polite'></output>
+            <p>名义费率 ×（1 − 减免比例）＝净费率，并换算每 10,000 成交额的费用。本地精确计算。</p>
+            <label for='aa53-nf-rate'>名义费率（%）</label>
+            <input type='number' id='aa53-nf-rate' name='rate' step='any' min='0' max='100' inputmode='decimal' required placeholder='如 0.1' aria-describedby='aa53-nf-help aa53-nf-message'>
+            <label for='aa53-nf-off'>减免比例（%）</label>
+            <input type='number' id='aa53-nf-off' name='discount' step='any' min='0' max='100' inputmode='decimal' required placeholder='如 20' aria-describedby='aa53-nf-help aa53-nf-message'>
+            <small id='aa53-nf-help'>两项均为 0–100 的普通十进制数，最多 6 位小数。</small>
+            <div class='aa53-nf-presets'><button type='button' data-nf-preset='0.1,20'>示例：0.1% / 减免 20%</button><button type='button' data-nf-preset='0.075,0'>示例：无减免</button><button type='button' data-nf-preset='0.2,100'>示例：全额减免</button></div>
+            <p class='aa53-nf-message' id='aa53-nf-message' role='alert' aria-live='polite' aria-atomic='true'></p>
+            <div class='aa53-nf-actions'><button type='submit' class='aa53-nf-run' id='aa53-nf-go'>算净费率</button><button type='button' data-nf-reset>清空</button></div>
+            <section class='aa53-nf-out' id='aa53-nf-out' aria-live='polite' aria-atomic='true'><header><span data-nf-state>等待输入</span><button type='button' data-copy-nf disabled>复制结果</button></header><output data-nf-rate-result>—</output><dl><div><dt>每 10,000 名义费用</dt><dd data-nf-gross>—</dd></div><div><dt>每 10,000 减免费用</dt><dd data-nf-saving>—</dd></div><div><dt>每 10,000 净费用</dt><dd data-nf-net>—</dd></div></dl><p>费率保留最多 8 位小数；金额按分四舍五入。</p><small data-nf-copy-status role='status' aria-live='polite'></small></section>
         </form>
     </main>
 
-    <footer class='spine-end'>
-        <p class='se-line'>结果仅供参考，实际以平台页面显示为准。</p>
+    <footer class='aa53-spine-end'>
+        <p class='aa53-se-line'>结果仅供参考，实际以平台页面显示为准。</p>
     </footer>
 
     <script src='assets/wire.js'></script>

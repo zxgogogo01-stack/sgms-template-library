@@ -24,15 +24,15 @@
     </script>
     <style>
         /* 披露页补充 */
-        .oath {
+        .aa53-oath {
             max-width: 660px;
             margin: 0 auto;
             padding: 44px 24px 80px;
         }
-        .oath-head { text-align: center; margin-bottom: 26px; }
-        .oath h1 { font-size: 1.8rem; }
-        .oath-meta { margin: 12px 0 0; font-size: .84rem; color: var(--hush); }
-        .oath section {
+        .aa53-oath-head { text-align: center; margin-bottom: 26px; }
+        .aa53-oath h1 { font-size: 1.8rem; }
+        .aa53-oath-meta { margin: 12px 0 0; font-size: .84rem; color: var(--hush); }
+        .aa53-oath section {
             background: var(--panel);
             border: 1px solid var(--seam);
             border-radius: var(--curve);
@@ -40,33 +40,35 @@
             padding: 24px 30px;
             margin-bottom: 16px;
         }
-        .oath h2 { font-size: 1.08rem; margin-bottom: 8px; color: var(--night); }
-        .oath p { margin: 0; color: var(--letter-2); }
+        .aa53-oath h2 { font-size: 1.08rem; margin-bottom: 8px; color: var(--night); }
+        .aa53-oath p { margin: 0; color: var(--letter-2); }
     </style>
 </head>
 <body>
-    <header class='spine-top'>
-        <a class='brandline' href='index.html'>~BRAND_EN~</a>
-        <button type='button' class='spine-btn' id='spine-btn' aria-label='主导航' aria-expanded='false' aria-controls='spine-nav'>
+    <a class='aa53-skip' href='#aa53-main'>跳到主要内容</a>
+    <header class='aa53-spine-top'>
+        <a class='aa53-brandline' href='index.html'>~BRAND_EN~</a>
+        <button type='button' class='aa53-spine-btn' id='aa53-spine-btn' aria-label='主导航' aria-expanded='false' aria-controls='aa53-spine-nav'>
             <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
         </button>
-        <nav class='spine-nav' id='spine-nav' aria-label='主导航'>
+        <nav class='aa53-spine-nav' id='aa53-spine-nav' aria-label='主导航'>
             <a href='index.html'>答疑轴</a>
             <a href='article.html'>长答</a>
             <a href='tool.html'>净费率</a>
             <a href='legal.html' aria-current='page'>披露</a>
+            <button type='button' class='aa53-theme' id='aa53-theme-button' aria-label='切换到夜间模式'>夜间</button>
         </nav>
     </header>
 
-    <main class='oath'>
-        <header class='oath-head'>
+    <main class='aa53-oath' id='aa53-main'>
+        <header class='aa53-oath-head'>
             <h1>披露与免责</h1>
-            <p class='oath-meta'>更新 <time datetime='2026-01-19'>2026-01-19</time></p>
+            <p class='aa53-oath-meta'>更新 <time datetime='2026-01-19'>2026-01-19</time></p>
         </header>
 
         <section>
             <h2>利益披露</h2>
-            <p>本站（~SITE_DOMAIN~）展示交易平台邀请码。用码注册不会多付费用，还能享最高 20% 手续费减免*（* 实际比例以交易所页面显示为准，可能随政策调整）。</p>
+            <p>本站（~SITE_DOMAIN~）可能展示带有利益关系的邀请码或推荐链接。正式发布时必须说明本站可能获得的利益、用户是否获得优惠、适用范围和核对日期；无法核实的比例不得保留。</p>
         </section>
 
         <section>
@@ -83,10 +85,11 @@
             <h2>更正与联系</h2>
             <p>发现答案过期或有误请来信：~CONTACT_EMAIL~。查实即更正并注明更正时间。</p>
         </section>
+        <aside class='aa53-portable-note'><h2>可复用披露文本</h2><p>本页可能包含带有利益关系的推荐链接；是否使用不影响你阅读答案。费率、返佣、资格和有效期以官方页面与账户显示为准，数字资产交易存在损失风险。</p><button type='button' data-copy-disclosure>复制披露文本</button><span data-disclosure-status role='status' aria-live='polite'></span></aside>
     </main>
 
-    <footer class='spine-end'>
-        <p class='se-line'>答案以各平台官方页面为准；不构成投资建议。</p>
+    <footer class='aa53-spine-end'>
+        <p class='aa53-se-line'>答案以各平台官方页面为准；不构成投资建议。</p>
     </footer>
 
     <script src='assets/wire.js'></script>

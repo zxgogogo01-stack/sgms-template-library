@@ -13,57 +13,71 @@
   <meta property='og:description' content='~SITE_DESC~'>
   <meta property='og:url' content='https://~SITE_DOMAIN~/'>
   <meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='public.css'>
   <link rel='stylesheet' href='assets/main.css'>
 </head>
 <body>
-  <header class='spine-top'>
-    <a class='brandline' href='index.html'>~BRAND_EN~</a>
-    <button type='button' class='spine-btn' id='spine-btn' aria-label='主导航' aria-expanded='false' aria-controls='spine-nav'>
+  <a class='aa53-skip' href='#aa53-main'>跳到主要内容</a>
+  <header class='aa53-spine-top'>
+    <a class='aa53-brandline' href='index.html'>~BRAND_EN~</a>
+    <button type='button' class='aa53-spine-btn' id='aa53-spine-btn' aria-label='主导航' aria-expanded='false' aria-controls='aa53-spine-nav'>
       <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
     </button>
-    <nav class='spine-nav' id='spine-nav' aria-label='主导航'>
+    <nav class='aa53-spine-nav' id='aa53-spine-nav' aria-label='主导航'>
       <a href='index.html' aria-current='page'>答疑轴</a>
       <a href='article.html'>长答</a>
       <a href='tool.html'>净费率</a>
       <a href='legal.html'>披露</a>
+      <button type='button' class='aa53-theme' id='aa53-theme-button' aria-label='切换到夜间模式'>夜间</button>
     </nav>
   </header>
 
-  <main class='axis-wrap'>
-    <header class='axis-hero'>
-      <p class='axis-eyebrow'>~HERO_EYEBROW~</p>
-      <h1 class='axis-h1'>~HERO_TITLE~</h1>
-      <p class='axis-lede'>~HERO_DESCRIPTION~</p>
-      <div class='axis-cta'>
-        <a class='btn btn-primary' href='article.html'>从最常见的问题读起</a>
+  <main class='aa53-axis-wrap' id='aa53-main'>
+    <header class='aa53-axis-hero'>
+      <p class='aa53-axis-eyebrow'>~HERO_EYEBROW~</p>
+      <h1 class='aa53-axis-h1'>~HERO_TITLE~</h1>
+      <p class='aa53-axis-lede'>~HERO_DESCRIPTION~</p>
+      <div class='aa53-axis-cta'>
+        <a class='aa53-btn aa53-btn-primary' href='article.html'>从最常见的问题读起</a>
       </div>
     </header>
 
-    <section class='axis-list' aria-label='~HOME_LATEST_LABEL~'>
-      <a class='axis-item is-feat' href='article.html'>
-        <span class='ax-cat'>结算机制</span>
-        <span class='ax-t'>返佣是按毛手续费还是净手续费计算？</span>
-        <span class='ax-x'>先给出一句话答案，再逐项比较常见平台的结算口径与核对方法。</span>
-        <span class='ax-m'><time datetime='2026-01-19'>2026-01-19</time></span>
+    <section class='aa53-axis-list' aria-label='~HOME_LATEST_LABEL~'>
+      <a class='aa53-axis-item aa53-is-feat' href='article.html'>
+        <span class='aa53-ax-cat'>结算机制</span>
+        <span class='aa53-ax-t'>返佣是按毛手续费还是净手续费计算？</span>
+        <span class='aa53-ax-x'>先给出一句话答案，再逐项比较常见平台的结算口径与核对方法。</span>
+        <span class='aa53-ax-m'><time datetime='2026-01-19'>2026-01-19</time></span>
       </a>
-      <a class='axis-item' href='article.html'><span class='ax-cat'>新手</span><span class='ax-t'>邀请码注册后还能补绑吗？</span><span class='ax-m'><time datetime='2026-01-17'>2026-01-17</time></span></a>
-      <a class='axis-item' href='article.html'><span class='ax-cat'>费率</span><span class='ax-t'>手续费减免和返佣是同一笔钱吗？</span><span class='ax-m'><time datetime='2026-01-15'>2026-01-15</time></span></a>
-      <a class='axis-item' href='article.html'><span class='ax-cat'>结算机制</span><span class='ax-t'>为什么实际返佣比后台预估的少？</span><span class='ax-m'><time datetime='2026-01-12'>2026-01-12</time></span></a>
-      <a class='axis-item' href='article.html'><span class='ax-cat'>安全</span><span class='ax-t'>代填邀请码并要求分成是否可信？</span><span class='ax-m'><time datetime='2026-01-09'>2026-01-09</time></span></a>
-      <a class='axis-item' href='article.html'><span class='ax-cat'>费率</span><span class='ax-t'>VIP 档位和返佣能否叠加？</span><span class='ax-m'><time datetime='2026-01-06'>2026-01-06</time></span></a>
+      <a class='aa53-axis-item' href='article.html'><span class='aa53-ax-cat'>新手</span><span class='aa53-ax-t'>邀请码注册后还能补绑吗？</span><span class='aa53-ax-m'><time datetime='2026-01-17'>2026-01-17</time></span></a>
+      <a class='aa53-axis-item' href='article.html'><span class='aa53-ax-cat'>费率</span><span class='aa53-ax-t'>手续费减免和返佣是同一笔钱吗？</span><span class='aa53-ax-m'><time datetime='2026-01-15'>2026-01-15</time></span></a>
+      <a class='aa53-axis-item' href='article.html'><span class='aa53-ax-cat'>结算机制</span><span class='aa53-ax-t'>为什么实际返佣比后台预估的少？</span><span class='aa53-ax-m'><time datetime='2026-01-12'>2026-01-12</time></span></a>
+      <a class='aa53-axis-item' href='article.html'><span class='aa53-ax-cat'>安全</span><span class='aa53-ax-t'>代填邀请码并要求分成是否可信？</span><span class='aa53-ax-m'><time datetime='2026-01-09'>2026-01-09</time></span></a>
+      <a class='aa53-axis-item' href='article.html'><span class='aa53-ax-cat'>费率</span><span class='aa53-ax-t'>VIP 档位和返佣能否叠加？</span><span class='aa53-ax-m'><time datetime='2026-01-06'>2026-01-06</time></span></a>
     </section>
 
-    <div class='axis-foot'><a href='article.html'>查看全部答疑</a></div>
+    <div class='aa53-axis-foot'><a href='article.html'>查看全部答疑</a></div>
+
+    <section class='aa53-answer-anatomy' aria-labelledby='aa53-anatomy-title'>
+      <header><p>ANSWER ANATOMY / EVIDENCE FIRST</p><h2 id='aa53-anatomy-title'>一条可信答案，<br>不止一句结论。</h2><output aria-live='polite'>4 / 4 EVIDENCE LAYERS</output></header>
+      <div class='aa53-anatomy-grid'>
+        <figure><figcaption>答案中轴</figcaption><p><strong>问题</strong><i aria-hidden='true'></i><strong>口径</strong><i aria-hidden='true'></i><strong>证据</strong><i aria-hidden='true'></i><strong>边界</strong></p><blockquote>先回答，再证明；能核对，也能更正。</blockquote></figure>
+        <div class='aa53-anatomy-folds'>
+          <details open><summary><span>01</span>一句话答案</summary><p>先给直接结论，并说明它适用的前提。</p></details>
+          <details><summary><span>02</span>来源与日期</summary><p>记录官方页面、规则版本与最近核对时间。</p></details>
+          <details><summary><span>03</span>计算口径</summary><p>分开写清基数、费率、分成和取整顺序。</p></details>
+          <details><summary><span>04</span>例外与风险</summary><p>列出资格、地区、产品和状态等限制。</p></details>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class='spine-end'>
-    <div class='se-in'>
-      <div><p class='brandline se-brand'>~BRAND_EN~</p><p class='se-dim'>~SITE_TAGLINE~</p></div>
-      <div class='se-col'><h4>分类</h4><a href='article.html'>结算机制</a><a href='article.html'>费率</a><a href='article.html'>新手</a></div>
-      <div class='se-col'><h4>站务</h4><a href='tool.html'>净费率计算</a><a href='legal.html'>披露与免责</a><p class='se-dim'>~CONTACT_EMAIL~</p></div>
+  <footer class='aa53-spine-end'>
+    <div class='aa53-se-in'>
+      <div><p class='aa53-brandline aa53-se-brand'>~BRAND_EN~</p><p class='aa53-se-dim'>~SITE_TAGLINE~</p></div>
+      <div class='aa53-se-col'><h4>分类</h4><a href='article.html'>结算机制</a><a href='article.html'>费率</a><a href='article.html'>新手</a></div>
+      <div class='aa53-se-col'><h4>站务</h4><a href='tool.html'>净费率计算</a><a href='legal.html'>披露与免责</a><p class='aa53-se-dim'>~CONTACT_EMAIL~</p></div>
     </div>
-    <p class='se-line'>答案以各平台官方页面为准，逐条注明核对日期；不构成投资建议。</p>
+    <p class='aa53-se-line'>答案以各平台官方页面为准，逐条注明核对日期；不构成投资建议。</p>
   </footer>
 
   <script src='assets/wire.js'></script>

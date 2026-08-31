@@ -9,59 +9,62 @@
     <link rel='stylesheet' href='assets/main.css'>
     <style>
         /* 404 补充 */
-        .snap-well {
+        .aa53-snap-well {
             min-height: calc(100vh - 224px);
             display: grid;
             place-items: center;
             padding: clamp(48px, 9vh, 96px) 24px;
         }
-        .snap {
+        .aa53-snap {
             width: min(100%, 440px);
             max-width: 440px;
             padding: 0 24px;
             text-align: center;
         }
-        .snap-line {
+        .aa53-snap-line {
             width: 2px;
             height: 60px;
             margin: 0 auto 22px;
             background: linear-gradient(var(--apricot), transparent);
         }
-        .snap h1 {
+        .aa53-snap h1 {
             font-size: 3.4rem;
             color: var(--night);
         }
-        .snap p { color: var(--hush); }
+        .aa53-snap p { color: var(--hush); }
         @media (max-width: 620px) {
-            .snap-well { min-height: calc(100vh - 264px); padding-inline: 18px; }
+            .aa53-snap-well { min-height: calc(100vh - 264px); padding-inline: 18px; }
         }
     </style>
 </head>
 <body>
-    <header class='spine-top'>
-        <a class='brandline' href='index.html'>~BRAND_EN~</a>
-        <button type='button' class='spine-btn' id='spine-btn' aria-label='主导航' aria-expanded='false' aria-controls='spine-nav'>
+    <a class='aa53-skip' href='#aa53-main'>跳到主要内容</a>
+    <header class='aa53-spine-top'>
+        <a class='aa53-brandline' href='index.html'>~BRAND_EN~</a>
+        <button type='button' class='aa53-spine-btn' id='aa53-spine-btn' aria-label='主导航' aria-expanded='false' aria-controls='aa53-spine-nav'>
             <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
         </button>
-        <nav class='spine-nav' id='spine-nav' aria-label='主导航'>
+        <nav class='aa53-spine-nav' id='aa53-spine-nav' aria-label='主导航'>
             <a href='index.html'>答疑轴</a>
             <a href='article.html'>长答</a>
             <a href='tool.html'>净费率</a>
             <a href='legal.html'>披露</a>
+            <button type='button' class='aa53-theme' id='aa53-theme-button' aria-label='切换到夜间模式'>夜间</button>
         </nav>
     </header>
 
-    <main class='snap-well'>
-        <section class='snap' aria-labelledby='snap-title'>
-            <div class='snap-line' aria-hidden='true'></div>
-            <h1 id='snap-title'>404</h1>
+    <main class='aa53-snap-well' id='aa53-main'>
+        <section class='aa53-snap' aria-labelledby='aa53-snap-title'>
+            <div class='aa53-snap-line' aria-hidden='true'></div>
+            <h1 id='aa53-snap-title'>404</h1>
             <p>轴线在这里断开了——页面不存在或已移动。</p>
-            <p><a class='seal' href='index.html'>回答疑轴</a></p>
+            <form class='aa53-snap-search' data-topic-search novalidate><label for='aa53-topic-query'>搜索答疑主题</label><div><input id='aa53-topic-query' name='query' type='search' maxlength='80' autocomplete='off' aria-describedby='aa53-topic-help aa53-topic-feedback' placeholder='如：计佣、费率、披露'><button type='submit'>查找</button></div><small id='aa53-topic-help'>最多 80 个字符，只检索这套模板的主要页面。</small><p id='aa53-topic-feedback' data-topic-feedback role='status' aria-live='polite'>可搜索答疑轴、长答、净费率和披露。</p></form>
+            <p><a class='aa53-seal' href='index.html'>回答疑轴</a></p>
         </section>
     </main>
 
-    <footer class='spine-end'>
-        <p class='se-line'>没有找到目标页面；请返回答疑轴继续查看长答、工具与披露。</p>
+    <footer class='aa53-spine-end'>
+        <p class='aa53-se-line'>没有找到目标页面；请返回答疑轴继续查看长答、工具与披露。</p>
     </footer>
 
     <script src='assets/wire.js'></script>
