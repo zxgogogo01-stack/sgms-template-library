@@ -23,10 +23,10 @@
   }
   </script>
   <style>
-    .codex { max-width: 700px; margin: 0 auto; padding: 46px 24px 84px; }
-    .codex h1 { font-family: var(--serif6); font-size: 1.85rem; }
-    .codex-meta { margin: 10px 0 26px; font-size: .85rem; color: var(--dim6); }
-    .codex-item {
+    .pb56-codex { max-width: 700px; margin: 0 auto; padding: 46px 24px 84px; }
+    .pb56-codex h1 { font-family: var(--serif6); font-size: 1.85rem; }
+    .pb56-codex-meta { margin: 10px 0 26px; font-size: .85rem; color: var(--dim6); }
+    .pb56-codex-item {
       background: var(--card6);
       border-radius: var(--arc);
       box-shadow: var(--lift);
@@ -34,55 +34,58 @@
       margin-bottom: 14px;
       border-left: 4px solid var(--pine);
     }
-    .codex-item:nth-child(odd) { border-left-color: var(--gilt6); }
-    .codex-item h2 { font-family: var(--serif6); font-size: 1.08rem; margin-bottom: 8px; }
-    .codex-item p { margin: 0; color: var(--dim6); }
+    .pb56-codex-item:nth-child(odd) { border-left-color: var(--gilt6); }
+    .pb56-codex-item h2 { font-family: var(--serif6); font-size: 1.08rem; margin-bottom: 8px; }
+    .pb56-codex-item p { margin: 0; color: var(--dim6); }
   </style>
 </head>
 <body>
-  <header class='gable'>
-    <div class='gable-in'>
-      <a class='ensign' href='index.html'>%%BRAND_EN%%</a>
-      <button type='button' class='gable-btn' id='gable-btn' aria-label='主导航' aria-expanded='false' aria-controls='gable-menu'>
+  <a class='pb56-skip' href='#pb56-main'>跳到主要内容</a>
+  <header class='pb56-gable'>
+    <div class='pb56-gable-in'>
+      <a class='pb56-ensign' href='index.html'>%%BRAND_EN%%</a>
+      <button type='button' class='pb56-gable-btn' id='pb56-gable-btn' aria-label='主导航' aria-expanded='false' aria-controls='pb56-gable-menu'>
         <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
       </button>
-      <nav class='gable-menu' id='gable-menu' aria-label='主导航'>
-        <a class='gable-tab' href='index.html'>看板</a>
-        <a class='gable-tab' href='article.html'>文章</a>
-        <a class='gable-tab' href='tool.html'>手续费计算</a>
-        <a class='gable-tab' href='legal.html' aria-current='page'>披露</a>
+      <nav class='pb56-gable-menu' id='pb56-gable-menu' aria-label='主导航'>
+        <a class='pb56-gable-tab' href='index.html'>看板</a>
+        <a class='pb56-gable-tab' href='article.html'>文章</a>
+        <a class='pb56-gable-tab' href='tool.html'>容量规划</a>
+        <a class='pb56-gable-tab' href='legal.html' aria-current='page'>披露</a>
+        <button type='button' class='pb56-theme' id='pb56-theme-button' aria-label='切换到夜间模式'>夜间</button>
       </nav>
     </div>
   </header>
 
-  <main class='codex'>
+  <main class='pb56-codex' id='pb56-main'>
     <h1>披露与免责</h1>
-    <p class='codex-meta'>更新 2026-01-19</p>
+    <p class='pb56-codex-meta'>更新 2026-01-19</p>
 
-    <section class='codex-item'>
+    <section class='pb56-codex-item'>
       <h2>利益披露</h2>
-      <p>本站（%%SITE_DOMAIN%%）展示交易平台邀请码。用码注册不会多付费用，还能享最高 20% 手续费减免*（* 实际比例以交易所页面显示为准，可能随政策调整）。</p>
+      <p>本站（%%SITE_DOMAIN%%）可能展示带有利益关系的邀请码或推荐链接。是否使用不影响你阅读内容；资格、比例、产品范围与有效期以官方页面及账户显示为准。</p>
     </section>
 
-    <section class='codex-item'>
+    <section class='pb56-codex-item'>
       <h2>内容口径</h2>
       <p>条目为公开信息整理，注明核对时间；平台规则随时调整，以官方页面实时显示为准。</p>
     </section>
 
-    <section class='codex-item'>
+    <section class='pb56-codex-item'>
       <h2>免责声明</h2>
       <p>内容不构成投资建议；数字资产波动剧烈，请自行评估风险。</p>
     </section>
 
-    <section class='codex-item'>
+    <section class='pb56-codex-item'>
       <h2>更正与联系</h2>
       <p>纠错请附条目与依据：%%CONTACT_EMAIL%%。查实即更正并注明时间。</p>
     </section>
+    <aside class='pb56-portable-note'><h2>可复用披露文本</h2><p>本站可能包含带有利益关系的推荐链接；费率、资格、产品范围和有效期以官方页面及账户显示为准。数字资产交易存在损失风险。</p><button type='button' data-copy-disclosure>复制披露文本</button><span data-disclosure-status role='status' aria-live='polite'></span></aside>
   </main>
 
-  <footer class='cellar'>
-    <div class='cellar-in'>
-      <p class='cellar-fine'>内容以各平台官方页面为准；不构成投资建议。</p>
+  <footer class='pb56-cellar'>
+    <div class='pb56-cellar-in'>
+      <p class='pb56-cellar-fine'>内容以各平台官方页面为准；不构成投资建议。</p>
     </div>
   </footer>
 

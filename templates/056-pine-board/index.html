@@ -4,56 +4,65 @@
   <meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta name='theme-color' content='#f4f6f2'>
   <title>%%SITE_NAME%% — %%SEO_TITLE%%</title><meta name='description' content='%%SITE_DESC%%'><link rel='canonical' href='https://%%SITE_DOMAIN%%/'>
   <meta property='og:type' content='website'><meta property='og:site_name' content='%%SITE_NAME%%'><meta property='og:title' content='%%SITE_NAME%% — %%SEO_TITLE%%'><meta property='og:description' content='%%SITE_DESC%%'><meta property='og:url' content='https://%%SITE_DOMAIN%%/'><meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='public.css'><link rel='stylesheet' href='static/app.css'>
+  <link rel='stylesheet' href='static/app.css'>
 </head>
 <body>
-  <header class='gable'><div class='gable-in'><a class='ensign' href='index.html'>%%BRAND_EN%%</a><button type='button' class='gable-btn' id='gable-btn' aria-label='主导航' aria-expanded='false' aria-controls='gable-menu'><svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg></button><nav class='gable-menu' id='gable-menu' aria-label='主导航'><a class='gable-tab' href='index.html' aria-current='page'>看板</a><a class='gable-tab' href='article.html'>文章</a><a class='gable-tab' href='tool.html'>手续费计算</a><a class='gable-tab' href='legal.html'>披露</a></nav></div></header>
+  <a class='pb56-skip' href='#pb56-main'>跳到主要内容</a>
+  <header class='pb56-gable'><div class='pb56-gable-in'><a class='pb56-ensign' href='index.html'>%%BRAND_EN%%</a><button type='button' class='pb56-gable-btn' id='pb56-gable-btn' aria-label='主导航' aria-expanded='false' aria-controls='pb56-gable-menu'><svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg></button><nav class='pb56-gable-menu' id='pb56-gable-menu' aria-label='主导航'><a class='pb56-gable-tab' href='index.html' aria-current='page'>看板</a><a class='pb56-gable-tab' href='article.html'>文章</a><a class='pb56-gable-tab' href='tool.html'>容量规划</a><a class='pb56-gable-tab' href='legal.html'>披露</a><button type='button' class='pb56-theme' id='pb56-theme-button' aria-label='切换到夜间模式'>夜间</button></nav></div></header>
 
-  <main class='board-wrap'>
-    <header class='board-hero'>
-      <p class='board-eyebrow'><span class='board-eyebrow-dot' aria-hidden='true'></span>%%HERO_EYEBROW%%</p>
-      <h1 class='board-h1'>%%HERO_TITLE%%</h1><p class='board-lede'>%%HERO_DESCRIPTION%%</p>
-      <div class='board-cta'><a class='btn btn-primary' href='article.html'>从置顶开始读 <span class='arrow'>→</span></a><a class='btn' href='legal.html'>了解本站</a></div>
+  <main class='pb56-board-wrap' id='pb56-main'>
+    <header class='pb56-board-hero'>
+      <p class='pb56-board-eyebrow'><span class='pb56-board-eyebrow-dot' aria-hidden='true'></span>%%HERO_EYEBROW%%</p>
+      <h1 class='pb56-board-h1'>%%HERO_TITLE%%</h1><p class='pb56-board-lede'>%%HERO_DESCRIPTION%%</p>
+      <div class='pb56-board-cta'><a class='pb56-btn pb56-btn-primary' href='article.html'>从置顶开始读 <span class='pb56-arrow'>→</span></a><a class='pb56-btn' href='legal.html'>了解本站</a></div>
     </header>
 
-    <a class='board-banner' href='article.html'>
-      <span class='board-banner-cover board-banner-gen'><b aria-hidden='true'>费</b></span>
-      <span class='board-banner-body'><span class='board-banner-kicker'><span class='board-flag' aria-hidden='true'>★</span>%%HOME_FEATURED_LABEL%%</span><span class='board-banner-meta'><span class='board-chip'>费率观察</span><time class='board-mono' datetime='2026-01-19'>2026-01-19</time></span><span class='board-banner-title'>示例平台挂单档位调整：返佣基数如何同步变化</span><span class='board-banner-ex'>用一句话说明净影响，再用算例和逐项对照表展示核对过程。</span><span class='board-banner-more'>阅读精选 <span class='arrow' aria-hidden='true'>→</span></span></span>
+    <a class='pb56-board-banner' href='article.html'>
+      <span class='pb56-board-banner-cover pb56-board-banner-gen'><b aria-hidden='true'>费</b></span>
+      <span class='pb56-board-banner-body'><span class='pb56-board-banner-kicker'><span class='pb56-board-flag' aria-hidden='true'>★</span>%%HOME_FEATURED_LABEL%%</span><span class='pb56-board-banner-meta'><span class='pb56-board-chip'>费率观察</span><time class='pb56-board-mono' datetime='2026-01-19'>2026-01-19</time></span><span class='pb56-board-banner-title'>示例平台挂单档位调整：返佣基数如何同步变化</span><span class='pb56-board-banner-ex'>用一句话说明净影响，再用算例和逐项对照表展示核对过程。</span><span class='pb56-board-banner-more'>阅读精选 <span class='pb56-arrow' aria-hidden='true'>→</span></span></span>
     </a>
 
-    <section class='board-lanes' aria-label='%%HOME_LATEST_LABEL%%'>
-      <div class='board-lane'>
-        <a class='board-lane-head' href='article.html'><span class='board-lane-name'>新手入门</span><span class='board-lane-count board-mono'>6</span></a>
-        <div class='board-lane-body'>
-          <a class='board-card' href='article.html'><span class='board-card-cat'>概念</span><span class='board-card-title'>返佣从哪里来：一笔手续费的完整流向</span><time class='board-card-date board-mono' datetime='2026-01-16'>2026-01-16</time></a>
-          <a class='board-card' href='article.html'><span class='board-card-cat'>流程</span><span class='board-card-title'>注册时漏填邀请码，之后还能补救吗？</span><time class='board-card-date board-mono' datetime='2026-01-13'>2026-01-13</time></a>
-          <a class='board-card' href='article.html'><span class='board-card-cat'>概念</span><span class='board-card-title'>挂单和吃单的费率为什么不同？</span><time class='board-card-date board-mono' datetime='2026-01-09'>2026-01-09</time></a>
+    <section class='pb56-canopy' aria-labelledby='pb56-canopy-title'>
+      <header><p>BOARD ANATOMY / ONE SOURCE OF TRUTH</p><h2 id='pb56-canopy-title'>从置顶结论，长成三条知识泳道。</h2></header>
+      <figure>
+        <svg viewBox='0 0 760 280' role='img' aria-labelledby='pb56-map-title pb56-map-desc' xmlns='http://www.w3.org/2000/svg'><title id='pb56-map-title'>看板内容结构图</title><desc id='pb56-map-desc'>置顶内容连接新手、费率和安全三条泳道，每条泳道再连接来源与核对日期。</desc><path d='M380 64v56M140 120h480M140 120v46M380 120v46M620 120v46' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round'/><rect x='280' y='22' width='200' height='58' rx='18'/><rect x='46' y='164' width='188' height='76' rx='18'/><rect x='286' y='164' width='188' height='76' rx='18'/><rect x='526' y='164' width='188' height='76' rx='18'/><text x='380' y='57' text-anchor='middle'>置顶结论</text><text x='140' y='198' text-anchor='middle'>新手泳道</text><text x='380' y='198' text-anchor='middle'>费率泳道</text><text x='620' y='198' text-anchor='middle'>安全泳道</text><text class='pb56-map-small' x='140' y='221' text-anchor='middle'>来源 · 日期</text><text class='pb56-map-small' x='380' y='221' text-anchor='middle'>来源 · 日期</text><text class='pb56-map-small' x='620' y='221' text-anchor='middle'>来源 · 日期</text></svg>
+        <figcaption><dl><div><dt>1 个</dt><dd>置顶结论入口</dd></div><div><dt>3 条</dt><dd>独立知识泳道</dd></div><div><dt>2 项</dt><dd>每条必备证据</dd></div></dl><p>后续 AI 只填内容和证据字段，不需要重新设计看板。</p></figcaption>
+      </figure>
+    </section>
+
+    <section class='pb56-board-lanes' aria-label='%%HOME_LATEST_LABEL%%'>
+      <div class='pb56-board-lane'>
+        <a class='pb56-board-lane-head' href='article.html'><span class='pb56-board-lane-name'>新手入门</span><span class='pb56-board-lane-count pb56-board-mono'>6</span></a>
+        <div class='pb56-board-lane-body'>
+          <a class='pb56-board-card' href='article.html'><span class='pb56-board-card-cat'>概念</span><span class='pb56-board-card-title'>返佣从哪里来：一笔手续费的完整流向</span><time class='pb56-board-card-date pb56-board-mono' datetime='2026-01-16'>2026-01-16</time></a>
+          <a class='pb56-board-card' href='article.html'><span class='pb56-board-card-cat'>流程</span><span class='pb56-board-card-title'>注册时漏填邀请码，之后还能补救吗？</span><time class='pb56-board-card-date pb56-board-mono' datetime='2026-01-13'>2026-01-13</time></a>
+          <a class='pb56-board-card' href='article.html'><span class='pb56-board-card-cat'>概念</span><span class='pb56-board-card-title'>挂单和吃单的费率为什么不同？</span><time class='pb56-board-card-date pb56-board-mono' datetime='2026-01-09'>2026-01-09</time></a>
         </div>
       </div>
-      <div class='board-lane'>
-        <a class='board-lane-head' href='article.html'><span class='board-lane-name'>费率与返佣</span><span class='board-lane-count board-mono'>8</span></a>
-        <div class='board-lane-body'>
-          <a class='board-card' href='article.html'><span class='board-card-cat'>对照</span><span class='board-card-title'>现货与合约的返佣口径差在哪里？</span><time class='board-card-date board-mono' datetime='2026-01-18'>2026-01-18</time></a>
-          <a class='board-card' href='article.html'><span class='board-card-cat'>算例</span><span class='board-card-title'>月交易十万时返佣可覆盖多少成本？</span><time class='board-card-date board-mono' datetime='2026-01-15'>2026-01-15</time></a>
-          <a class='board-card' href='article.html'><span class='board-card-cat'>对照</span><span class='board-card-title'>VIP 等级与邀请返佣能否叠加？</span><time class='board-card-date board-mono' datetime='2026-01-11'>2026-01-11</time></a>
+      <div class='pb56-board-lane'>
+        <a class='pb56-board-lane-head' href='article.html'><span class='pb56-board-lane-name'>费率与返佣</span><span class='pb56-board-lane-count pb56-board-mono'>8</span></a>
+        <div class='pb56-board-lane-body'>
+          <a class='pb56-board-card' href='article.html'><span class='pb56-board-card-cat'>对照</span><span class='pb56-board-card-title'>现货与合约的返佣口径差在哪里？</span><time class='pb56-board-card-date pb56-board-mono' datetime='2026-01-18'>2026-01-18</time></a>
+          <a class='pb56-board-card' href='article.html'><span class='pb56-board-card-cat'>算例</span><span class='pb56-board-card-title'>月交易十万时返佣可覆盖多少成本？</span><time class='pb56-board-card-date pb56-board-mono' datetime='2026-01-15'>2026-01-15</time></a>
+          <a class='pb56-board-card' href='article.html'><span class='pb56-board-card-cat'>对照</span><span class='pb56-board-card-title'>VIP 等级与邀请返佣能否叠加？</span><time class='pb56-board-card-date pb56-board-mono' datetime='2026-01-11'>2026-01-11</time></a>
         </div>
       </div>
-      <div class='board-lane'>
-        <a class='board-lane-head' href='article.html'><span class='board-lane-name'>安全与合规</span><span class='board-lane-count board-mono'>5</span></a>
-        <div class='board-lane-body'>
-          <a class='board-card' href='article.html'><span class='board-card-cat'>避坑</span><span class='board-card-title'>标注“私返 90%”的链接为什么不要点？</span><time class='board-card-date board-mono' datetime='2026-01-17'>2026-01-17</time></a>
-          <a class='board-card' href='article.html'><span class='board-card-cat'>核验</span><span class='board-card-title'>核验邀请页真伪的三个步骤</span><time class='board-card-date board-mono' datetime='2026-01-12'>2026-01-12</time></a>
-          <a class='board-empty' href='article.html'>查看全部 <span class='arrow' aria-hidden='true'>→</span></a>
+      <div class='pb56-board-lane'>
+        <a class='pb56-board-lane-head' href='article.html'><span class='pb56-board-lane-name'>安全与合规</span><span class='pb56-board-lane-count pb56-board-mono'>5</span></a>
+        <div class='pb56-board-lane-body'>
+          <a class='pb56-board-card' href='article.html'><span class='pb56-board-card-cat'>避坑</span><span class='pb56-board-card-title'>标注“私返 90%”的链接为什么不要点？</span><time class='pb56-board-card-date pb56-board-mono' datetime='2026-01-17'>2026-01-17</time></a>
+          <a class='pb56-board-card' href='article.html'><span class='pb56-board-card-cat'>核验</span><span class='pb56-board-card-title'>核验邀请页真伪的三个步骤</span><time class='pb56-board-card-date pb56-board-mono' datetime='2026-01-12'>2026-01-12</time></a>
+          <a class='pb56-board-empty' href='article.html'>查看全部 <span class='pb56-arrow' aria-hidden='true'>→</span></a>
         </div>
       </div>
     </section>
 
-    <section class='board-links'><div class='board-links-head'>%%HOME_LINKS_LABEL%%</div><div class='board-links-row'>
-      <a class='board-link' href='tool.html'><span class='board-link-ic'><b>算</b></span><span class='board-link-t'>手续费计算器</span></a><a class='board-link' href='article.html'><span class='board-link-ic'><b>文</b></span><span class='board-link-t'>全部文章</span></a><a class='board-link' href='legal.html'><span class='board-link-ic'><b>披</b></span><span class='board-link-t'>利益披露</span></a><a class='board-link' href='article.html'><span class='board-link-ic'><b>核</b></span><span class='board-link-t'>口径核对记录</span></a>
+    <section class='pb56-board-links'><div class='pb56-board-links-head'>%%HOME_LINKS_LABEL%%</div><div class='pb56-board-links-row'>
+      <a class='pb56-board-link' href='tool.html'><span class='pb56-board-link-ic'><b>排</b></span><span class='pb56-board-link-t'>分栏容量规划</span></a><a class='pb56-board-link' href='article.html'><span class='pb56-board-link-ic'><b>文</b></span><span class='pb56-board-link-t'>全部文章</span></a><a class='pb56-board-link' href='legal.html'><span class='pb56-board-link-ic'><b>披</b></span><span class='pb56-board-link-t'>利益披露</span></a><a class='pb56-board-link' href='article.html'><span class='pb56-board-link-ic'><b>核</b></span><span class='pb56-board-link-t'>口径核对记录</span></a>
     </div></section>
   </main>
 
-  <footer class='cellar'><div class='cellar-in'><div class='cellar-grid'><div><p class='cellar-brand'>%%BRAND_EN%%</p><p class='cellar-note'>%%SITE_TAGLINE%%</p></div><nav class='cellar-nav' aria-label='页脚导航'><a href='article.html'>文章</a><a href='tool.html'>计算器</a><a href='legal.html'>披露与免责</a></nav></div><p class='cellar-fine'>内容以平台官方页面实时显示为准，不构成投资建议。</p></div></footer>
+  <footer class='pb56-cellar'><div class='pb56-cellar-in'><div class='pb56-cellar-grid'><div><p class='pb56-cellar-brand'>%%BRAND_EN%%</p><p class='pb56-cellar-note'>%%SITE_TAGLINE%%</p></div><nav class='pb56-cellar-nav' aria-label='页脚导航'><a href='article.html'>文章</a><a href='tool.html'>容量规划</a><a href='legal.html'>披露与免责</a></nav></div><p class='pb56-cellar-fine'>内容以平台官方页面实时显示为准，不构成投资建议。</p></div></footer>
   <script src='static/app.js'></script>
 </body>
 </html>
