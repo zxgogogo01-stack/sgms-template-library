@@ -89,7 +89,7 @@ function strictChecks(dir) {
 
   const templateDoc = read(path.join(dir, "TEMPLATE.md"));
   if (!/(替换|变量|占位符)/.test(templateDoc)) fails.push("TEMPLATE.md 缺少变量替换说明");
-  if (!/(AI|人工智能|内容接入|文字接入|使用顺序)/i.test(templateDoc)) {
+  if (!/(\bAI\b|人工智能|内容接入|文字接入|使用顺序)/i.test(templateDoc)) {
     fails.push("TEMPLATE.md 缺少后续 AI 仅替换内容的接入说明");
   }
 

@@ -89,3 +89,13 @@
   .count-pad .count-pad__area { background:var(--qq-sheet); color:var(--qq-ink); border-color:var(--qq-line); }
   .prose blockquote::before { background:var(--qq-paper); }
 }
+
+/* 2026-08 final QA: make every small editorial link easy to tap */
+.count-pad__clear,.foot-grid__cell a,.prose a,.astray a{transition:color .18s,border-color .18s,transform .18s}
+.count-pad__clear:hover,.foot-grid__cell a:hover,.prose a:hover,.astray a:hover{border-color:var(--qq-ink);color:var(--qq-red)}
+.count-pad__clear:active,.foot-grid__cell a:active,.prose a:active,.astray a:active{transform:translateY(1px)}
+@media(max-width:700px){
+  .masthead__item,.essay-roll__head a,.count-pad__clear,.foot-grid__cell a,.prose a,.astray a{display:inline-flex;align-items:center;min-height:44px}
+  .masthead__item{padding-top:8px;padding-bottom:8px}
+  .count-pad__clear{padding-top:8px;padding-bottom:8px}
+}
