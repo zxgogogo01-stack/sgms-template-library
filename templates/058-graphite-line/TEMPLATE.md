@@ -1,24 +1,30 @@
-# 058-graphite-line（忠实静态化自军哥 `home_timeline`）
+# 058-graphite-line
 
-## 适合什么站
+独立的石墨制图台风格变更档案模板。桌面采用左侧固定导轨，首页以日期、状态和证据字段组成登记线；文章页展开核对路径；工具页负责把公告时间从来源时区转换到发布时区。所有 UI 使用 `gl58-` 专属命名空间，不依赖公共 CMS 样式。
 
-费率、返佣或政策变动档案站：Hero 与分类筛选后，以纵向时间轴展示置顶记录和最新更新。
+## 后续 AI 直接写内容
 
-## 复刻口径
+后续 AI 只需替换变量与可见文字，不需要重做 UI、侧栏、时间线、主题、响应式或工具逻辑：
 
-- 首页恢复源模板 `tl-wrap`、`tl-hero`、`tl-filters`、`tl-spine`、`tl-node`、`tl-links`、`tl-foot` 的原始层级、类名和顺序。
-- 静态展开分类、精选节点、普通节点和常用链接；精选封面采用源模板的首字生成分支。
-- `public.css` 是军哥源库 `partials/style.css` 的原样副本；既有旧类仅作为静态套件样式兼容，不替代或改变源类结构。
-- Go 条件、循环、时间格式及动态链接已改为静态示例和本地链接；源模板之外的邀请码模块已移除。
+1. 全局替换变量；保留 `gl58-` 类名、`data-*` 属性、控件 id 和五个页面文件名。
+2. 新增首页记录时复制完整 `li.gl58-entry`，填写有效 `datetime`、状态、标题、摘要与来源字段。
+3. 文章正文可直接改写，但保留来源说明、核对路径和可复制编辑摘要。
+4. 工具可增减时区选项；`option value` 必须是相对 UTC 的小时数，现有逻辑允许 -12 至 +14。
+5. 不写未经一手来源确认的比例、资格或活动期限，不承诺收益。
 
-## 页面与文件
+## 变量
 
-`index.html` / `article.html` / `tool.html` / `legal.html` / `404.html` / `robots.txt` / `sitemap.xml` / `TEMPLATE.md`，以及 `public.css`、`css/line.css`、`line.js`。
+`__lang__`、`__site_name__`、`__brand_en__`、`__site_domain__`、`__site_tagline__`、`__site_desc__`、`__seo_title__`、`__hero_eyebrow__`、`__hero_title__`、`__hero_description__`、`__home_featured_label__`、`__home_latest_label__`、`__home_links_label__`、`__contact_email__`。
 
-## 首页占位符
+`__contact_email__` 用于更正与联系，应替换为真实可收信地址；不需要邮箱时改成可用联系路径，不删除责任说明。
 
-`__site_name__`、`__brand_en__`、`__site_domain__`、`__site_tagline__`、`__site_desc__`、`__seo_title__`、`__hero_eyebrow__`、`__hero_title__`、`__hero_description__`、`__home_featured_label__`、`__home_latest_label__`、`__home_links_label__`、`__lang__`。
+## 时区工具规则
 
-## 可调项
+- 日期必须是 2000-01-01 至 2099-12-31 内真实存在的公历日期；时间必须为 00:00–23:59。
+- 来源和目标时区从固定选项选择；计算基于 UTC，不读取浏览器本地时区。
+- 输出来源时间、UTC、目标时间与前一日/同一日/次日标记；结果仅用于转录，发布前仍需核对公告原文。
+- 动态输出使用 `textContent`，不得改成 `innerHTML`。
 
-- 可增减 `tl-chip`、`tl-node` 和 `tl-link`，但应保留时间轴语义和源类名。
+## 完整审计
+
+运行 `node tools/audit-template.js templates/058-graphite-line`、`node tools/validate.js` 与全库逐对相似度检查；再在 1440×1000 和 390×844 下验收五页、主题、移动导航、文章进度/复制、工具空态/无效日期/闰日/跨日/预设/失效/复制/重置和 404 安全检索，确保控制台无错误。

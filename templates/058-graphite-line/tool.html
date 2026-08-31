@@ -1,157 +1,29 @@
-<!DOCTYPE html>
-<html lang='__lang__'>
+<!doctype html>
+<html lang="__lang__" data-theme="light">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta name='theme-color' content='#f2f3f4'>
-  <title>费率档位速查 — __site_name__</title>
-  <meta name='description' content='输入 30 天交易量，速查演示费率档位并估算返佣。'>
-  <link rel='canonical' href='https://__site_domain__/tool.html'>
-  <meta property='og:type' content='website'>
-  <meta property='og:site_name' content='__site_name__'>
-  <meta property='og:title' content='费率档位速查 — __site_name__'>
-  <meta property='og:description' content='输入 30 天交易量，速查演示费率档位并估算返佣。'>
-  <meta property='og:url' content='https://__site_domain__/tool.html'>
-  <meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='css/line.css'>
-  <script type='application/ld+json'>
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "费率档位速查",
-    "url": "https://__site_domain__/tool.html"
-  }
-  </script>
-  <style>
-    /* tool page extras */
-    .gauge { max-width: 620px; margin: 0 auto; padding: 48px 24px 80px; }
-    .gauge-card {
-      background: var(--sheet8);
-      border-radius: var(--bend8);
-      box-shadow: var(--veil8-hi);
-      border-top: 4px solid var(--slate8);
-      padding: 40px 46px;
-    }
-    .gauge-card h1 { font-family: var(--serif8); font-size: 1.5rem; }
-    .gauge-card > p { color: var(--mist8); margin: 6px 0 10px; }
-    .gauge-card label {
-      display: block;
-      margin: 17px 0 6px;
-      font-family: var(--mono8);
-      font-size: .82rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      color: var(--slate8);
-    }
-    .gauge-card input {
-      width: 100%;
-      min-height: 48px;
-      padding: 10px 16px;
-      border: 1.5px solid var(--rim8);
-      border-radius: 10px;
-      background: var(--fog8);
-      color: var(--coal8);
-      font: inherit;
-      font-family: var(--mono8);
-      font-variant-numeric: tabular-nums;
-      transition: border-color var(--tick8), box-shadow var(--tick8);
-    }
-    .gauge-card input:focus {
-      outline: none;
-      border-color: var(--ember8);
-      box-shadow: 0 0 0 4px color-mix(in srgb, var(--ember8) 18%, transparent);
-    }
-    .gauge-card input[aria-invalid='true'] {
-      border-color: #b94b32;
-      box-shadow: 0 0 0 4px color-mix(in srgb, #b94b32 16%, transparent);
-    }
-    .gauge-run {
-      margin-top: 26px;
-      width: 100%;
-      min-height: 52px;
-      border: 0;
-      border-radius: 10px;
-      background: var(--ember8);
-      color: #fff6ee;
-      font: inherit;
-      font-size: 1rem;
-      font-weight: 800;
-      letter-spacing: .06em;
-      cursor: pointer;
-      box-shadow: 0 10px 24px color-mix(in srgb, var(--ember8) 36%, transparent);
-      transition: transform var(--tick8), background var(--tick8);
-    }
-    .gauge-run:hover { transform: translateY(-2px); background: var(--ember8-deep); }
-    .gauge-out {
-      display: block;
-      margin-top: 18px;
-      min-height: 26px;
-      padding: 15px 19px;
-      border-radius: 10px;
-      background: var(--tint8);
-      line-height: 1.75;
-      font-variant-numeric: tabular-nums;
-    }
-    .gauge-out b { color: var(--ember8-deep); }
-    .gauge-tiers { margin-top: 26px; overflow-x: auto; border-radius: 10px; box-shadow: inset 0 0 0 1px var(--rim8); }
-    .gauge-tiers table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-    .gauge-tiers th, .gauge-tiers td { text-align: left; padding: 10px 15px; border-bottom: 1px solid var(--rim8); font-size: .88rem; white-space: nowrap; }
-    .gauge-tiers thead th { background: var(--tint8); color: var(--slate8); font-family: var(--mono8); font-size: .78rem; border-bottom: 0; }
-    .gauge-tiers tbody tr:last-child td { border-bottom: 0; }
-    @media (max-width: 720px) {
-      .gauge-card { padding: 28px 22px; }
-    }
-  </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e9e9e5">
+  <title>公告时区换算器 — __site_name__</title><meta name="description" content="把公告日期与时间从来源时区转换到 UTC 和目标发布时区。"><link rel="canonical" href="https://__site_domain__/tool.html">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="__site_name__"><meta property="og:title" content="公告时区换算器 — __site_name__"><meta property="og:description" content="把公告日期与时间从来源时区转换到 UTC 和目标发布时区。"><meta property="og:url" content="https://__site_domain__/tool.html"><meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="css/line.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"公告时区换算器","applicationCategory":"UtilitiesApplication","url":"https://__site_domain__/tool.html"}</script>
 </head>
 <body>
-  <header class='crest'>
-    <div class='crest-in'>
-      <a class='crest-mark' href='index.html'>__brand_en__</a>
-      <button type='button' class='crest-burger' id='crest-burger' aria-label='主导航' aria-expanded='false' aria-controls='crest-nav'>
-        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
-      </button>
-      <nav class='crest-nav' id='crest-nav' aria-label='主导航'>
-        <a href='index.html'>时间线</a>
-        <a href='article.html'>文章</a>
-        <a href='tool.html' aria-current='page'>费率速查</a>
-        <a href='legal.html'>披露</a>
-      </nav>
+  <a class="gl58-skip" href="#gl58-main">跳到主要内容</a>
+  <header class="gl58-rail"><div class="gl58-brand"><a href="index.html"><b>G</b><span>__brand_en__</span></a><small>CHANGE DESK / 058</small></div><button class="gl58-nav-button" type="button" aria-expanded="false" aria-controls="gl58-nav"><span aria-hidden="true">＋</span><i class="gl58-sr">打开导航</i></button><nav class="gl58-nav" id="gl58-nav" aria-label="主导航"><a href="index.html"><em>01</em>记录线</a><a href="article.html"><em>02</em>拆解页</a><a aria-current="page" href="tool.html"><em>03</em>时区换算</a><a href="legal.html"><em>04</em>披露</a></nav><div class="gl58-rail-end"><button type="button" data-theme-toggle aria-label="切换深浅主题">DARK</button><p>一条变更<br>一套证据</p></div></header>
+  <main class="gl58-converter" id="gl58-main">
+    <header><p>TIME TRANSFER / UTC</p><h1>公告时区换算器</h1><span>保留原时区，再生成 UTC 与目标发布时间；全部在浏览器本地计算。</span></header>
+    <div class="gl58-converter-grid">
+      <form id="gl58-time-form" novalidate>
+        <div class="gl58-field"><label for="gl58-date">公告日期</label><input id="gl58-date" type="text" inputmode="numeric" autocomplete="off" placeholder="2026-01-19" aria-describedby="gl58-time-help gl58-time-message"></div>
+        <div class="gl58-field"><label for="gl58-time">公告时间</label><input id="gl58-time" type="text" inputmode="numeric" autocomplete="off" placeholder="23:30" aria-describedby="gl58-time-help gl58-time-message"></div>
+        <div class="gl58-field"><label for="gl58-source-zone">来源时区</label><select id="gl58-source-zone" aria-describedby="gl58-time-help"><option value="-5">UTC−05:00</option><option value="0">UTC±00:00</option><option value="8" selected>UTC+08:00</option><option value="9">UTC+09:00</option></select></div>
+        <div class="gl58-field"><label for="gl58-target-zone">目标时区</label><select id="gl58-target-zone" aria-describedby="gl58-time-help"><option value="-5">UTC−05:00</option><option value="0" selected>UTC±00:00</option><option value="8">UTC+08:00</option><option value="9">UTC+09:00</option></select></div>
+        <p id="gl58-time-help">日期范围 2000-01-01 至 2099-12-31；时间使用 24 小时制。</p><p id="gl58-time-message" role="status" aria-live="polite">填写日期和时间后开始换算。</p>
+        <div class="gl58-time-presets" aria-label="换算预设"><button type="button" data-time-preset="2026-01-19,23:30,8,0">东八区 → UTC</button><button type="button" data-time-preset="2026-01-19,00:15,0,8">UTC → 东八区</button><button type="button" data-time-preset="2024-02-29,23:45,-5,9">闰日跨日</button></div>
+        <div class="gl58-time-actions"><button type="submit">画出时间线</button><button type="button" data-time-reset>清空</button></div>
+      </form>
+      <section class="gl58-time-output" aria-labelledby="gl58-time-result-title"><header><span>TRANSFER RESULT</span><b data-time-state>等待输入</b></header><ol><li><span>来源记录</span><time data-source-time>—</time></li><li><span>UTC 基准</span><time data-utc-time>—</time></li><li><span>目标发布</span><time data-target-time>—</time></li></ol><h2 id="gl58-time-result-title" data-day-shift>尚未生成日期关系</h2><p>结果用于转录公告时间；发布前仍需核对原文的时区标识与夏令时规则。</p><button type="button" data-copy-time disabled>复制换算结果</button><small data-time-copy-status role="status" aria-live="polite"></small></section>
     </div>
-  </header>
-
-  <main class='gauge'>
-    <form class='gauge-card' id='tq-form' novalidate>
-      <h1>费率档位速查</h1>
-      <p>填 30 天交易量，返回演示档位费率并估算返佣。本地计算，不上传。</p>
-      <label for='tq-vol'>30 天交易量</label>
-      <input type='number' id='tq-vol' step='any' min='0' placeholder='如 500000' aria-describedby='tq-out'>
-      <label for='tq-cut'>返佣比例（%，默认 30）</label>
-      <input type='number' id='tq-cut' step='any' min='0' max='100' placeholder='30' aria-describedby='tq-out'>
-      <button type='submit' class='gauge-run' id='tq-run'>速查</button>
-      <output class='gauge-out' id='tq-out' role='status' aria-live='polite'></output>
-
-      <div class='gauge-tiers'>
-        <table>
-          <thead>
-            <tr><th scope='col'>30 天量（演示）</th><th scope='col'>吃单</th><th scope='col'>挂单</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>&lt; 10 万</td><td>0.060%</td><td>0.020%</td></tr>
-            <tr><td>10 万 - 100 万</td><td>0.050%</td><td>0.016%</td></tr>
-            <tr><td>100 万 - 1000 万</td><td>0.040%</td><td>0.012%</td></tr>
-            <tr><td>&ge; 1000 万</td><td>0.030%</td><td>0.008%</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </form>
   </main>
-
-  <footer class='keel'>
-    <div class='keel-in'>
-      <p class='keel-fine'>表内为演示档位，实际以平台档位页与结算为准。</p>
-    </div>
-  </footer>
-
-  <script src='line.js'></script>
+  <script src="line.js"></script>
 </body>
 </html>

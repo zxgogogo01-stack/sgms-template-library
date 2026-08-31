@@ -1,126 +1,28 @@
-<!DOCTYPE html>
-<html lang='__lang__'>
+<!doctype html>
+<html lang="__lang__" data-theme="light">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta name='theme-color' content='#f2f3f4'>
-  <title>记录样板 — __site_name__</title>
-  <meta name='description' content='时间线站记录页样板。'>
-  <link rel='canonical' href='https://__site_domain__/article.html'>
-  <meta property='og:type' content='article'>
-  <meta property='og:site_name' content='__site_name__'>
-  <meta property='og:title' content='记录样板 — __site_name__'>
-  <meta property='og:description' content='时间线站记录页样板。'>
-  <meta property='og:url' content='https://__site_domain__/article.html'>
-  <meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='css/line.css'>
-  <script type='application/ld+json'>
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "记录样板",
-    "datePublished": "2026-01-19",
-    "mainEntityOfPage": "https://__site_domain__/article.html"
-  }
-  </script>
-  <style>
-    /* article page extras */
-    .dossier { max-width: 760px; margin: 0 auto; padding: 44px 24px 80px; }
-    .dossier-card {
-      background: var(--sheet8);
-      border-radius: var(--bend8);
-      box-shadow: var(--veil8-hi);
-      border-top: 4px solid var(--ember8);
-      padding: 44px 50px;
-    }
-    .dossier-crumb { font-family: var(--mono8); font-size: .82rem; color: var(--mist8); margin-bottom: 12px; }
-    .dossier-crumb a { color: var(--ember8-deep); font-weight: 700; }
-    .dossier-card h1 {
-      font-family: var(--serif8);
-      font-size: clamp(1.5rem, 3.4vw, 2rem);
-      line-height: 1.33;
-    }
-    .dossier-meta { margin: 12px 0 0; font-family: var(--mono8); font-variant-numeric: tabular-nums; font-size: .84rem; color: var(--mist8); }
-    .dossier-gist {
-      margin: 26px 0;
-      padding: 16px 22px;
-      border-radius: 10px;
-      background: var(--tint8);
-      border-left: 4px solid var(--slate8);
-    }
-    .dossier-card h2 {
-      font-family: var(--serif8);
-      font-size: 1.24rem;
-      margin: 32px 0 12px;
-    }
-    .dossier-card h2::before { content: '— '; color: var(--ember8); }
-    .dossier-card p { margin: 0 0 14px; }
-    .dossier-roll { overflow-x: auto; border-radius: 10px; box-shadow: inset 0 0 0 1px var(--rim8); margin: 14px 0 8px; }
-    .dossier-card table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-    .dossier-card th, .dossier-card td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--rim8); font-size: .9rem; white-space: nowrap; }
-    .dossier-card thead th { background: var(--tint8); color: var(--slate8); font-family: var(--mono8); font-size: .8rem; letter-spacing: .08em; border-bottom: 0; }
-    .dossier-card tbody tr:nth-child(even) { background: color-mix(in srgb, var(--tint8) 45%, transparent); }
-    .dossier-card tbody tr:last-child td { border-bottom: 0; }
-    .dossier-fine { font-size: .84rem; color: var(--mist8); }
-    @media (max-width: 720px) {
-      .dossier-card { padding: 28px 22px; }
-      .dossier-card th, .dossier-card td { white-space: normal; }
-    }
-  </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e9e9e5">
+  <title>文章样板 — __site_name__</title><meta name="description" content="用变更登记线拆解规则范围、时间和到账核对路径。"><link rel="canonical" href="https://__site_domain__/article.html">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="__site_name__"><meta property="og:title" content="文章样板 — __site_name__"><meta property="og:description" content="用变更登记线拆解规则范围、时间和到账核对路径。"><meta property="og:url" content="https://__site_domain__/article.html"><meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="css/line.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"文章样板","datePublished":"2026-01-19","dateModified":"2026-01-19","mainEntityOfPage":"https://__site_domain__/article.html"}</script>
 </head>
 <body>
-  <header class='crest'>
-    <div class='crest-in'>
-      <a class='crest-mark' href='index.html'>__brand_en__</a>
-      <button type='button' class='crest-burger' id='crest-burger' aria-label='主导航' aria-expanded='false' aria-controls='crest-nav'>
-        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
-      </button>
-      <nav class='crest-nav' id='crest-nav' aria-label='主导航'>
-        <a href='index.html'>时间线</a>
-        <a href='article.html' aria-current='page'>文章</a>
-        <a href='tool.html'>费率速查</a>
-        <a href='legal.html'>披露</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class='dossier'>
-    <article class='dossier-card'>
-      <p class='dossier-crumb'><a href='index.html'>时间线</a> / 费率调档</p>
-      <h1>示例平台A 挂单档位调整：返佣基数怎么跟着变</h1>
-      <p class='dossier-meta'>发布 2026-01-19 · 口径核对 2026-01-19</p>
-
-      <div class='dossier-gist'><b>先说结论：</b>费率档位变化会沿着手续费基数传导到返佣金额；核对时应同时确认产品线、账户档位与生效时间。</div>
-
-      <h2>变了什么</h2>
-      <p>先记录调整覆盖的产品、账户层级和生效时间，并把时区统一到自己的账单时区；随后保存规则页版本，便于到账后逐项复核。</p>
-
-      <h2>对返佣的传导</h2>
-      <p>计算顺序是成交额乘手续费率得到手续费，再乘可返比例得到预计返佣。若存在抵扣、上限或排除产品，应先从计佣基数中剔除。</p>
-      <div class='dossier-roll'>
-        <table>
-          <thead>
-            <tr><th scope='col'>项目</th><th scope='col'>调整前</th><th scope='col'>调整后</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>挂单费率（基础档）</td><td>0.0X%</td><td>0.0X%</td></tr>
-            <tr><td>演示返佣（每万元）</td><td>X.XX</td><td>X.XX</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class='dossier-fine'>表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
-
-      <h2>要不要动</h2>
-      <p>判断时不要只看返佣比例，还要核对费率、产品范围、结算门槛与到账周期。规则可能调整，正式决策应以账户页面的最新显示为准。</p>
+  <div class="gl58-progress" aria-hidden="true"><span data-reading-progress></span></div>
+  <a class="gl58-skip" href="#gl58-main">跳到主要内容</a>
+  <header class="gl58-rail"><div class="gl58-brand"><a href="index.html"><b>G</b><span>__brand_en__</span></a><small>CHANGE DESK / 058</small></div><button class="gl58-nav-button" type="button" aria-expanded="false" aria-controls="gl58-nav"><span aria-hidden="true">＋</span><i class="gl58-sr">打开导航</i></button><nav class="gl58-nav" id="gl58-nav" aria-label="主导航"><a href="index.html"><em>01</em>记录线</a><a aria-current="page" href="article.html"><em>02</em>拆解页</a><a href="tool.html"><em>03</em>时区换算</a><a href="legal.html"><em>04</em>披露</a></nav><div class="gl58-rail-end"><button type="button" data-theme-toggle aria-label="切换深浅主题">DARK</button><p>一条变更<br>一套证据</p></div></header>
+  <main class="gl58-sheet" id="gl58-main">
+    <nav class="gl58-breadcrumb" aria-label="面包屑"><a href="index.html">记录线</a><span>/</span><b>登记 0019</b></nav>
+    <article>
+      <header class="gl58-article-head"><p>CHANGE NOTE / 0019</p><h1>挂单档位调整后，返佣基数怎样沿规则线变化</h1><dl><div><dt>发布</dt><dd><time datetime="2026-01-19">2026-01-19</time></dd></div><div><dt>复核</dt><dd>第二编辑已核</dd></div><div><dt>范围</dt><dd>演示口径</dd></div></dl></header>
+      <p class="gl58-summary"><b>结论。</b>先固定产品、账户档位、生效时区和规则版本，再从手续费基数向到账倒推；缺少任何一项，都不能把示例比例当作实际资格。</p>
+      <section><h2><span>01</span>确定规则覆盖面</h2><p>记录公告或规则页的主体、页面版本和核对日期，再逐项确认产品线、账户层级、地区与活动资格。账户页面与公开页面不一致时，应保留两者的显示并向官方支持确认。</p></section>
+      <figure class="gl58-diagram"><figcaption>CHANGE PATH / 从规则到到账</figcaption><ol><li><b>规则版本</b><small>一手页面与存档</small></li><li><b>适用范围</b><small>产品、账户、地区</small></li><li><b>费用基数</b><small>参与计佣的费用</small></li><li><b>到账记录</b><small>周期、币种、时间</small></li></ol></figure>
+      <section><h2><span>02</span>统一生效时间</h2><p>公告时间应连同原时区一起保存，再转换到本站采用的发布时区。只写“今晚生效”会让跨地区读者产生不同理解；可用本站工具生成可核对的 UTC 与目标时间。</p><p><a class="gl58-inline-link" href="tool.html">打开公告时区换算器 →</a></p></section>
+      <section><h2><span>03</span>沿费用路径对账</h2><p>先按适用成交额和费率得到手续费，再确认抵扣、排除产品或上限是否改变计佣基数，最后应用实际返还规则。保留中间口径，比只保存最终金额更容易定位差异。</p></section>
+      <aside class="gl58-copy-block"><header><span>EDITOR HANDOFF</span><h2>交给下一位编辑的摘要</h2></header><p>先固定规则主体、适用范围、版本与原始时区，再沿费用基数核到账；任何未经确认的资格、比例或期限都标为待核实。</p><button type="button" data-copy-note>复制编辑摘要</button><small data-note-status role="status" aria-live="polite"></small></aside>
+      <footer class="gl58-article-foot"><span>最后核对 2026-01-19</span><a href="legal.html">阅读利益披露</a></footer>
     </article>
   </main>
-
-  <footer class='keel'>
-    <div class='keel-in'>
-      <p class='keel-fine'>内容为信息整理，以各平台官方页面为准；不构成投资建议。</p>
-    </div>
-  </footer>
-
-  <script src='line.js'></script>
+  <script src="line.js"></script>
 </body>
 </html>
