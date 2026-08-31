@@ -49,7 +49,9 @@ button, input { font: inherit; }
 .code-bar { padding: 20px 22px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px 18px; align-items: center; color: #f8eee0; background: #3a2e26; border-top: 6px solid var(--copper-soft); box-shadow: var(--shadow); }
 .code-bar label { font-weight: 800; }
 .code-bar input { min-width: 0; min-height: 46px; padding: 9px 13px; color: #fff; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); font-family: ui-monospace, Consolas, monospace; }
-.code-bar button, .delta-box button { min-height: 46px; padding: 9px 22px; color: #fff; background: var(--copper); border: 0; cursor: pointer; }
+.code-bar button, .delta-box button { min-height: 46px; padding: 9px 22px; color: #fff; background: var(--copper); border: 0; box-shadow: 0 0 0 rgba(36, 29, 23, 0); cursor: pointer; transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
+.code-bar button:hover, .delta-box button:hover { background: #bf6a35; box-shadow: 0 7px 14px rgba(36, 29, 23, 0.2); transform: translateY(-2px); }
+.code-bar button:active, .delta-box button:active { box-shadow: none; transform: translateY(1px); }
 .code-law { grid-column: 1 / -1; margin: 0; color: #baa999; font-size: 0.8rem; }
 
 .items { display: grid; gap: 12px; }
@@ -79,6 +81,7 @@ button, input { font: inherit; }
 .delta-box output.is-error { color: var(--error); background: color-mix(in srgb, var(--copper) 14%, var(--sheet)); }
 
 .tail { margin-top: auto; padding-top: 18px; color: var(--muted); border-top: 1px solid var(--line); font-size: 0.82rem; }
+.tail a, .lost-issue a { display: inline-flex; align-items: center; min-height: 36px; }
 .lost-issue { width: min(680px, calc(100% - 32px)); min-height: 100vh; margin: 0 auto; padding: 70px 0; display: grid; place-content: center; }
 .lost-card { padding: clamp(36px, 8vw, 72px); color: #fff7ec; background: var(--night); border-left: 8px solid var(--copper); box-shadow: var(--shadow); }
 .lost-code { color: var(--copper-soft); font: 800 0.72rem ui-monospace, Consolas, monospace; letter-spacing: 0.15em; }
@@ -89,7 +92,7 @@ button, input { font: inherit; }
 @media (max-width: 800px) {
     .lay { flex-direction: column; }
     .bin { flex-basis: auto; padding: 18px 16px 10px; }
-    .head-tag { margin-bottom: 10px; }
+    .head-tag { min-height: 44px; margin-bottom: 10px; display: flex; align-items: center; }
     .head-tag::before { display: inline; margin: 0 10px 0 0; }
     .vols { flex-direction: row; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x proximity; scrollbar-color: var(--copper-soft) rgba(255,255,255,0.08); border-top: 0; }
     .vols a { flex: 1 0 auto; border: 0; border-bottom: 3px solid transparent; scroll-snap-align: start; }
