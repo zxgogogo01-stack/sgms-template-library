@@ -46,7 +46,9 @@ button, input { font: inherit; }
 .invite-chip { width: min(610px, 100%); padding: 18px 20px; color: #eef0e7; background: var(--olive-deep); border: 1px dashed #9aa77b; box-shadow: 5px 5px 0 rgba(41,45,32,0.08); }
 .invite-chip p:first-child { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; }
 .invite-chip code { min-width: 0; padding: 10px 13px; color: #fff; background: rgba(255,255,255,0.1); overflow-wrap: anywhere; }
-.invite-chip button { min-height: 46px; padding: 9px 20px; color: #fff; background: var(--brass); border: 0; cursor: pointer; }
+.invite-chip button { min-height: 46px; padding: 9px 20px; color: #fff; background: var(--brass); border: 0; box-shadow: 0 0 0 rgba(41,45,32,0); cursor: pointer; transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
+.invite-chip button:hover, .calc-btn:hover { background: #c58d4e; box-shadow: 0 7px 14px rgba(41,45,32,0.2); transform: translateY(-2px); }
+.invite-chip button:active, .calc-btn:active { box-shadow: none; transform: translateY(1px); }
 .chip-note { margin: 10px 0 0; color: #b7c09f; font-size: 0.78rem; }
 
 .kit h2, .usage h2 { margin-bottom: 16px; font-size: 1.5rem; }
@@ -79,7 +81,7 @@ button, input { font: inherit; }
 .tool-panel input[aria-invalid='true'] { border-color: var(--brass); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brass) 24%, transparent); }
 .form-grid { display: grid; grid-template-columns: minmax(120px, 0.55fr) minmax(0, 1fr); gap: 10px 16px; align-items: center; }
 .form-grid label { margin: 0; }
-.calc-btn { min-height: 46px; margin-top: 20px; padding: 9px 20px; color: #fff; background: var(--brass); border: 0; cursor: pointer; }
+.calc-btn { min-height: 46px; margin-top: 20px; padding: 9px 20px; color: #fff; background: var(--brass); border: 0; box-shadow: 0 0 0 rgba(41,45,32,0); cursor: pointer; transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
 .calc-out { min-height: 58px; margin-top: 16px; padding: 16px 18px; display: block; background: var(--wash); border-left: 5px solid var(--olive); font-weight: 800; }
 .calc-out:empty::before { content: "等待输入并计算"; color: var(--muted); font-weight: 400; }
 .calc-out.is-error { color: #7d2c1d; background: color-mix(in srgb, var(--brass) 15%, var(--sheet)); border-left-color: var(--brass); }
@@ -88,6 +90,7 @@ button, input { font: inherit; }
 .guide .tip { margin-top: 26px; padding: 18px 20px; background: var(--wash); border-left: 5px solid var(--olive); }
 
 .legs { margin-top: auto; padding-top: 18px; color: var(--muted); border-top: 1px solid var(--line); font-size: 0.82rem; }
+.legs a, .empty-drawer a { display: inline-flex; align-items: center; min-height: 36px; }
 .empty-drawer { width: min(680px, calc(100% - 32px)); min-height: 100vh; margin: 0 auto; padding: 70px 0; display: grid; place-content: center; }
 .empty-card { padding: clamp(36px, 8vw, 72px); color: #f8f5e9; background: var(--walnut); border-left: 8px solid var(--brass); box-shadow: var(--shadow); }
 .empty-code { color: #d6a771; font: 800 0.7rem ui-monospace, Consolas, monospace; letter-spacing: 0.15em; }
@@ -98,7 +101,7 @@ button, input { font: inherit; }
 @media (max-width: 740px) {
     .desk { flex-direction: column; }
     .drawer { flex-basis: auto; padding: 18px 16px 10px; border-right: 0; border-bottom: 7px solid #6b4b33; }
-    .plate { margin-bottom: 10px; }
+    .plate { min-height: 44px; margin-bottom: 10px; display: flex; align-items: center; }
     .plate::before { display: inline; margin: 0 10px 0 0; }
     .kinds { flex-direction: row; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x proximity; scrollbar-color: var(--brass) rgba(255,255,255,0.08); border-top: 0; }
     .kinds a { flex: 1 0 auto; border: 0; border-bottom: 3px solid transparent; scroll-snap-align: start; }
