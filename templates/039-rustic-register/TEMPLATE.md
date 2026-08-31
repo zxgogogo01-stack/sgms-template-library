@@ -18,9 +18,17 @@
 
 `__SITE_NAME__`、`__SITE_DOMAIN__`、`__SITE_TAGLINE__`、`__SITE_DESC__`、`__INVITE_CODE__`、`__COMPLIANCE_NOTE__`、`__CONTACT_EMAIL__`、`__LANG__`
 
+## 后续 AI 的文字接入顺序
+
+1. 先替换全部占位符，再改写名录条目、卷宗正文、校订批次与规则文字；现有五页结构、`data-*` 属性、表单 `id`、按钮和脚本引用不要改名或删除。
+2. 首页新增记录时复制完整的 `[data-entry]` 表格行，填写唯一编号、`data-category`、`data-search`、名称、类别、地点和状态；类别值必须与筛选按钮的 `data-filter` 完全一致，并同步更新按钮数量。
+3. `article.html` 已提供一套完整卷宗框架，直接替换元数据、到访笔记、无障碍说明、复核记录和证据索引即可。`legal.html` 只写站点真实治理规则、版本与联系方式，不要重搭 UI。
+4. 校对台与 404 搜索已包含输入限制、重复/近似判定、错误态、结果失效、复制和恢复流程。后续 AI 只改帮助文字与样例内容，不要为换文案重写 `app.js`。
+5. 所有 UI 类名已使用 `rr39-` 专属命名空间。内容接入后运行 `node tools/audit-template.js templates/039-rustic-register`，并在 1440px 与 390px 视口检查五页；其他 AI 可直接交付文字与数据，不再消耗时间重做模板框架。
+
 ## 可删区块
 
-- 不需要邀请码时，删除首页 `.credential` 整段，并移除 `__INVITE_CODE__`、`__COMPLIANCE_NOTE__` 两个占位符。
+- 不需要邀请码时，删除首页 `.rr39-credential` 整段，并移除 `__INVITE_CODE__`、`__COMPLIANCE_NOTE__` 两个占位符。
 - 不需要本地校对工具时，可删除 `tool.html`，并同步移除各页导航与 `sitemap.xml` 中对应链接。
 - 名录行使用 `[data-entry]`，可按需增删；类别值需与筛选按钮的 `data-filter` 保持一致。
 - 首页统计、校订批次和本期新录均可独立替换，不影响筛选与查重功能。

@@ -9,31 +9,31 @@
 </head>
 <body>
   <a href="#main" data-skip>跳到主要内容</a>
-  <header class="site-header">
-    <div class="shell topbar">
-      <a class="brand" href="index.html" aria-label="__SITE_NAME__ 首页"><span class="brand-mark">RR / 039</span><span class="brand-name">__SITE_NAME__</span></a>
-      <nav class="site-nav" aria-label="主要导航"><a href="index.html">地方名录</a><a href="article.html">本期卷宗</a><a href="tool.html">校对工具</a><a href="legal.html">收录规则</a></nav>
-      <p class="edition"><strong>空白卷页</strong>Folio 404</p>
+  <header class="rr39-site-header">
+    <div class="rr39-shell rr39-topbar">
+      <a class="rr39-brand" href="index.html" aria-label="__SITE_NAME__ 首页"><span class="rr39-brand-mark">RR / 039</span><span class="rr39-brand-name">__SITE_NAME__</span></a>
+      <nav class="rr39-site-nav" aria-label="主要导航"><a href="index.html">地方名录</a><a href="article.html">本期卷宗</a><a href="tool.html">校对工具</a><a href="legal.html">收录规则</a></nav>
+      <p class="rr39-edition"><strong>空白卷页</strong>Folio 404</p>
     </div>
   </header>
 
-  <main id="main" class="shell error-main">
-    <section class="error-hero" aria-labelledby="error-title">
+  <main id="main" class="rr39-shell rr39-error-main">
+    <section class="rr39-error-hero" aria-labelledby="error-title">
       <div>
-        <p class="eyebrow">Blank folio · 404</p>
+        <p class="rr39-eyebrow">Blank folio · 404</p>
         <h1 id="error-title">未在册。</h1>
       </div>
-      <div class="error-copy">
+      <div class="rr39-error-copy">
         <h2>这张卷页没有对应记录。</h2>
         <p>可能是编号写错、条目已迁移，或页面尚未归档。可以尝试在示例名录中搜索一个名称。</p>
-        <form class="folio-search" data-folio-search>
-          <label class="field-label" for="folio-query">搜索示例名录</label>
-          <input id="folio-query" type="search" placeholder="例如：榆木、陶器、客舍" autocomplete="off" aria-describedby="folio-status">
-          <div class="button-row">
-            <button class="action-button" type="submit">查找条目</button>
-            <a class="quiet-button" href="index.html" style="text-decoration:none">返回完整名录</a>
+        <form class="rr39-folio-search" data-folio-search>
+          <label class="rr39-field-label" for="folio-query">搜索示例名录</label>
+          <input id="folio-query" type="search" maxlength="80" placeholder="例如：榆木、陶器、客舍" autocomplete="off" aria-describedby="folio-status">
+          <div class="rr39-button-row">
+            <button class="rr39-action-button" type="submit">查找条目</button>
+            <a class="rr39-quiet-button" href="index.html" style="text-decoration:none">返回完整名录</a>
           </div>
-          <p id="folio-status" class="form-message" data-folio-status role="status" aria-live="polite"></p>
+          <p id="folio-status" class="rr39-form-message" data-folio-status role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>

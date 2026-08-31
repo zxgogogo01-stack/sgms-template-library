@@ -11,16 +11,23 @@
   }
 
   function fallbackCopy(text) {
-    var area = document.createElement('textarea');
-    area.value = text;
-    area.setAttribute('readonly', '');
-    area.style.position = 'fixed';
-    area.style.opacity = '0';
-    document.body.appendChild(area);
-    area.select();
-    document.execCommand('copy');
-    area.remove();
-    return Promise.resolve();
+    return new Promise(function (resolve, reject) {
+      var area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      try {
+        if (document.execCommand('copy')) resolve();
+        else reject(new Error('copy command returned false'));
+      } catch (error) {
+        reject(error);
+      } finally {
+        area.remove();
+      }
+    });
   }
 
   function initTargetCopies() {
@@ -32,6 +39,9 @@
         copyText(target.textContent.trim()).then(function () {
           button.textContent = (button.getAttribute('data-copy-label') || '内容') + '已复制';
           window.setTimeout(function () { button.textContent = original; }, 1800);
+        }).catch(function () {
+          button.textContent = '复制失败，请手动选择';
+          window.setTimeout(function () { button.textContent = original; }, 2200);
         });
       });
     });
@@ -49,11 +59,12 @@
     var activeCategory = 'all';
 
     function applyRegisterFilter() {
-      var query = search.value.trim().toLocaleLowerCase();
+      var query = search.value.trim().normalize('NFKC').toLocaleLowerCase('zh-CN');
       var shown = 0;
       rows.forEach(function (row) {
         var categoryMatch = activeCategory === 'all' || row.getAttribute('data-category') === activeCategory;
-        var queryMatch = !query || row.getAttribute('data-search').toLocaleLowerCase().indexOf(query) !== -1;
+        var haystack = (row.getAttribute('data-search') || row.textContent).normalize('NFKC').toLocaleLowerCase('zh-CN');
+        var queryMatch = !query || haystack.indexOf(query) !== -1;
         var visible = categoryMatch && queryMatch;
         row.hidden = !visible;
         if (visible) shown += 1;
@@ -74,7 +85,7 @@
 
     search.addEventListener('input', applyRegisterFilter);
     var initialQuery = new URLSearchParams(window.location.search).get('query');
-    if (initialQuery) search.value = initialQuery;
+    if (initialQuery) search.value = Array.from(initialQuery).slice(0, 80).join('');
     applyRegisterFilter();
   }
 
@@ -87,19 +98,22 @@
       copyText(summary).then(function () {
         status.textContent = '卷宗摘要已复制。';
         status.setAttribute('data-tone', 'success');
+      }).catch(function () {
+        status.textContent = '复制失败，请手动记录卷宗摘要。';
+        status.setAttribute('data-tone', 'error');
       });
     });
   }
 
   function normalizeName(value) {
-    return value.toLocaleLowerCase().replace(/[\s·•・—–\-_.,，。:：;；'"“”‘’()（）\[\]【】]/g, '');
+    return value.normalize('NFKC').toLocaleLowerCase('zh-CN').replace(/[\p{P}\p{Z}\s]+/gu, '');
   }
 
   function renderList(list, groups, emptyText, labeler) {
     list.replaceChildren();
     if (!groups.length) {
       var empty = document.createElement('li');
-      empty.className = 'result-empty';
+      empty.className = 'rr39-result-empty';
       empty.textContent = emptyText;
       list.appendChild(empty);
       return;
@@ -140,11 +154,51 @@
     }
 
     input.addEventListener('input', function () {
-      if (input.value.trim()) input.removeAttribute('aria-invalid');
+      input.removeAttribute('aria-invalid');
+      message.textContent = '';
+      message.removeAttribute('data-tone');
+      resetResults();
     });
 
     function runCheck() {
-      var names = input.value.split(/\r?\n/).map(function (name) { return name.trim(); }).filter(Boolean);
+      if (input.value.length > 20000) {
+        input.setAttribute('aria-invalid', 'true');
+        message.textContent = '单次输入不得超过 20,000 个字符。';
+        message.setAttribute('data-tone', 'error');
+        resetResults();
+        input.focus();
+        return;
+      }
+      var rows = input.value.split(/\r?\n/).map(function (name, index) {
+        return { value: name.trim(), line: index + 1 };
+      }).filter(function (row) { return row.value; });
+      if (rows.length > 500) {
+        input.setAttribute('aria-invalid', 'true');
+        message.textContent = '单次最多校对 500 个有效名称，请分批处理。';
+        message.setAttribute('data-tone', 'error');
+        resetResults();
+        input.focus();
+        return;
+      }
+      var overlong = rows.find(function (row) { return Array.from(row.value).length > 120; });
+      if (overlong) {
+        input.setAttribute('aria-invalid', 'true');
+        message.textContent = '第 ' + overlong.line + ' 行超过 120 个字符，请缩短后重试。';
+        message.setAttribute('data-tone', 'error');
+        resetResults();
+        input.focus();
+        return;
+      }
+      var emptyNormalized = rows.find(function (row) { return !normalizeName(row.value); });
+      if (emptyNormalized) {
+        input.setAttribute('aria-invalid', 'true');
+        message.textContent = '第 ' + emptyNormalized.line + ' 行只有空格或标点，无法作为有效名称。';
+        message.setAttribute('data-tone', 'error');
+        resetResults();
+        input.focus();
+        return;
+      }
+      var names = rows.map(function (row) { return row.value; });
       if (names.length < 2) {
         input.setAttribute('aria-invalid', 'true');
         message.textContent = '请至少输入两个有效名称后再校对。';
@@ -158,7 +212,7 @@
       var exactMap = new Map();
       var nearMap = new Map();
       names.forEach(function (name) {
-        var exactKey = name.toLocaleLowerCase();
+        var exactKey = name.normalize('NFC');
         var normalizedKey = normalizeName(name);
         if (!exactMap.has(exactKey)) exactMap.set(exactKey, []);
         exactMap.get(exactKey).push(name);
@@ -173,7 +227,12 @@
 
       var nearGroups = [];
       nearMap.forEach(function (values, key) {
-        var unique = Array.from(new Set(values));
+        var canonical = new Map();
+        values.forEach(function (value) {
+          var canonicalKey = value.normalize('NFC');
+          if (!canonical.has(canonicalKey)) canonical.set(canonicalKey, value);
+        });
+        var unique = Array.from(canonical.values());
         if (unique.length > 1) nearGroups.push({ values: unique, meta: key });
       });
 
@@ -218,6 +277,7 @@
       input.removeAttribute('aria-invalid');
       message.textContent = '示例已载入，可以开始校对。';
       message.setAttribute('data-tone', 'success');
+      resetResults();
       input.focus();
     });
 
@@ -249,11 +309,13 @@
     var status = document.querySelector('[data-folio-status]');
     var terms = ['榆木', '食集', '泥丘', '陶器', '松影', '客舍', '麦田', '白桦', '渡口', '慢行'];
     input.addEventListener('input', function () {
-      if (input.value.trim()) input.removeAttribute('aria-invalid');
+      input.removeAttribute('aria-invalid');
+      status.textContent = '';
+      status.removeAttribute('data-tone');
     });
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      var query = input.value.trim();
+      var query = input.value.trim().normalize('NFKC');
       if (!query) {
         input.setAttribute('aria-invalid', 'true');
         status.textContent = '请先输入一个名称或关键词。';

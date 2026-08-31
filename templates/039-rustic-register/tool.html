@@ -22,79 +22,79 @@
 </head>
 <body>
   <a href="#main" data-skip>跳到主要内容</a>
-  <header class="site-header">
-    <div class="shell topbar">
-      <a class="brand" href="index.html" aria-label="__SITE_NAME__ 首页"><span class="brand-mark">RR / 039</span><span class="brand-name">__SITE_NAME__</span></a>
-      <nav class="site-nav" aria-label="主要导航">
+  <header class="rr39-site-header">
+    <div class="rr39-shell rr39-topbar">
+      <a class="rr39-brand" href="index.html" aria-label="__SITE_NAME__ 首页"><span class="rr39-brand-mark">RR / 039</span><span class="rr39-brand-name">__SITE_NAME__</span></a>
+      <nav class="rr39-site-nav" aria-label="主要导航">
         <a href="index.html">地方名录</a>
         <a href="article.html">本期卷宗</a>
         <a href="tool.html" aria-current="page">校对工具</a>
         <a href="legal.html">收录规则</a>
       </nav>
-      <p class="edition"><strong>本地校对台</strong>不上传输入内容</p>
+      <p class="rr39-edition"><strong>本地校对台</strong>不上传输入内容</p>
     </div>
   </header>
 
-  <main id="main" class="page-main">
-    <header class="shell page-intro">
+  <main id="main" class="rr39-page-main">
+    <header class="rr39-shell rr39-page-intro">
       <div>
-        <p class="eyebrow">Duplicate desk · local utility</p>
+        <p class="rr39-eyebrow">Duplicate desk · local utility</p>
         <h1>把重名和近似项，在入册前找出来。</h1>
       </div>
-      <div class="intro-note">
+      <div class="rr39-intro-note">
         <p>每行输入一个名称。校对台会分别列出完全重复项，以及忽略空格、标点和大小写后的近似项。</p>
-        <span class="status-chip" data-tone="verified">仅在当前浏览器计算</span>
+        <span class="rr39-status-chip" data-tone="verified">仅在当前浏览器计算</span>
       </div>
     </header>
 
-    <section class="shell workbench" aria-labelledby="workbench-title">
-      <div class="workbench-grid">
-        <form class="workbench-panel" data-duplicate-form novalidate>
-          <p class="section-kicker">Input register</p>
+    <section class="rr39-shell rr39-workbench" aria-labelledby="workbench-title">
+      <div class="rr39-workbench-grid">
+        <form class="rr39-workbench-panel" data-duplicate-form novalidate>
+          <p class="rr39-section-kicker">Input register</p>
           <h2 id="workbench-title">待校对名册</h2>
-          <div class="form-field">
+          <div class="rr39-form-field">
             <label for="duplicate-input">登记名称，每行一项</label>
-            <textarea id="duplicate-input" rows="12" placeholder="榆木巷子手作食集&#10;泥丘陶器所&#10;榆木巷子 · 手作食集" aria-describedby="duplicate-help duplicate-message"></textarea>
-            <p id="duplicate-help" class="form-help">空行会被忽略；至少需要两个有效名称。</p>
+            <textarea id="duplicate-input" rows="12" maxlength="20000" placeholder="榆木巷子手作食集&#10;泥丘陶器所&#10;榆木巷子 · 手作食集" aria-describedby="duplicate-help duplicate-message"></textarea>
+            <p id="duplicate-help" class="rr39-form-help">空行会被忽略；至少 2 个、最多 500 个有效名称，单条不超过 120 个字符，总输入不超过 20,000 字符。</p>
           </div>
-          <div class="button-row">
-            <button class="action-button" type="submit">开始校对</button>
-            <button class="quiet-button" type="button" data-tool-sample>载入示例</button>
-            <button class="quiet-button" type="button" data-tool-clear>清空</button>
+          <div class="rr39-button-row">
+            <button class="rr39-action-button" type="submit">开始校对</button>
+            <button class="rr39-quiet-button" type="button" data-tool-sample>载入示例</button>
+            <button class="rr39-quiet-button" type="button" data-tool-clear>清空</button>
           </div>
-          <p id="duplicate-message" class="form-message" data-tool-message role="status" aria-live="polite"></p>
+          <p id="duplicate-message" class="rr39-form-message" data-tool-message role="status" aria-live="polite"></p>
         </form>
 
-        <section class="workbench-panel" aria-labelledby="result-title" tabindex="-1" data-result-panel>
-          <p class="section-kicker">Review result</p>
+        <section class="rr39-workbench-panel" aria-labelledby="result-title" tabindex="-1" data-result-panel>
+          <p class="rr39-section-kicker">Review result</p>
           <h2 id="result-title">校对结果</h2>
-          <div class="result-summary" aria-label="结果摘要">
+          <div class="rr39-result-summary" aria-label="结果摘要">
             <div><strong data-count-total>0</strong><span>有效名称</span></div>
             <div><strong data-count-exact>0</strong><span>完全重复组</span></div>
             <div><strong data-count-near>0</strong><span>近似名称组</span></div>
           </div>
 
-          <div class="result-group">
+          <div class="rr39-result-group">
             <h3>完全重复</h3>
-            <ul class="result-list" data-exact-results><li class="result-empty">运行校对后显示结果。</li></ul>
+            <ul class="rr39-result-list" data-exact-results><li class="rr39-result-empty">运行校对后显示结果。</li></ul>
           </div>
-          <div class="result-group">
+          <div class="rr39-result-group">
             <h3>标准化近似项</h3>
-            <ul class="result-list" data-near-results><li class="result-empty">会忽略空格、间隔点、连字符与大小写。</li></ul>
+            <ul class="rr39-result-list" data-near-results><li class="rr39-result-empty">会忽略空格、间隔点、连字符与大小写。</li></ul>
           </div>
-          <p class="result-note">近似项只用于提示人工复核，不等同于判定两个条目相同。</p>
-          <div class="button-row">
-            <button class="quiet-button" type="button" data-copy-results disabled>复制结果</button>
+          <p class="rr39-result-note">近似项只用于提示人工复核，不等同于判定两个条目相同。</p>
+          <div class="rr39-button-row">
+            <button class="rr39-quiet-button" type="button" data-copy-results disabled>复制结果</button>
           </div>
         </section>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="shell footer-grid">
+  <footer class="rr39-site-footer">
+    <div class="rr39-shell rr39-footer-grid">
       <p>校对结果不会自动改写名录。最终合并、保留或拆分决定应结合地点、经营主体与来源证据人工完成。</p>
-      <nav class="utility-links" aria-label="页脚导航"><a href="index.html">查看名录</a><a href="legal.html">了解入册规则</a><a href="article.html">查看卷宗结构</a></nav>
+      <nav class="rr39-utility-links" aria-label="页脚导航"><a href="index.html">查看名录</a><a href="legal.html">了解入册规则</a><a href="article.html">查看卷宗结构</a></nav>
     </div>
   </footer>
   <script src="app.js"></script>
