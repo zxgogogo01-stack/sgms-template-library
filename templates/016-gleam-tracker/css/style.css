@@ -182,8 +182,10 @@ table { width: 100%; border-collapse: collapse; }
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.04em;
+    transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
-.invite-pane button:hover, .span-calc button:hover, .primary-link:hover { background: var(--cyan-dark); }
+.invite-pane button:hover, .span-calc button:hover, .primary-link:hover { background: var(--cyan-dark); box-shadow: 0 8px 18px rgba(16, 39, 41, 0.18); transform: translateY(-2px); }
+.invite-pane button:active, .span-calc button:active, .primary-link:active { box-shadow: none; transform: translateY(1px); }
 .copy-status { position: absolute; right: 28px; bottom: -28px; color: var(--cyan-dark); font-size: 11px; }
 
 .metrics { padding: 112px 0 78px; }
@@ -192,14 +194,16 @@ table { width: 100%; border-collapse: collapse; }
 .section-head p:not(.eyebrow) { margin-top: 14px; color: var(--muted); font-size: 13px; }
 .filter-pills { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px; }
 .filter-pills button {
-    min-height: 40px;
+    min-height: 44px;
     padding: 8px 15px;
     border: 1px solid var(--line);
     background: transparent;
     color: var(--muted);
     font-size: 11px;
+    transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
 }
 .filter-pills button:hover, .filter-pills button[aria-pressed='true'] { border-color: var(--mast); background: var(--mast); color: #ffffff; }
+.filter-pills button:active { transform: translateY(1px); }
 .roll { max-width: 100%; overflow-x: auto; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line-strong); background: var(--surface-strong); box-shadow: var(--shadow); }
 .roll table { min-width: 840px; }
 th, td { padding: 18px 20px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
@@ -226,6 +230,7 @@ tbody td strong { font-family: var(--mono); font-size: 16px; }
 .method-card h2 { max-width: 560px; margin-top: 14px; font-size: clamp(28px, 3.7vw, 46px); }
 .method-card > p { color: #a1b7b5; font-size: 13px; }
 .method-card a { padding-bottom: 6px; border-bottom: 1px solid var(--cyan); color: var(--cyan); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.method-card a, .document-nav a, .waiver a, .stern a { display: inline-flex; align-items: center; min-height: 36px; }
 
 .page-head { max-width: 970px; min-height: 320px; padding: 60px 0 54px; border-bottom: 1px solid var(--line-strong); }
 .page-head h1 { margin-top: 28px; font-size: clamp(58px, 7vw, 96px); text-wrap: balance; }

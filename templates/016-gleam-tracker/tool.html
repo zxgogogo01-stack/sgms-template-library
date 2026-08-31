@@ -103,17 +103,19 @@
 
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
-                var now = parseFloat(nowInput.value);
-                var aim = parseFloat(aimInput.value);
+                var nowText = nowInput.value.trim();
+                var aimText = aimInput.value.trim();
+                var now = Number(nowText);
+                var aim = Number(aimText);
                 nowInput.removeAttribute('aria-invalid');
                 aimInput.removeAttribute('aria-invalid');
                 output.removeAttribute('data-state');
 
-                if (isNaN(now) || now === 0) {
+                if (nowText === '' || !Number.isFinite(now) || now === 0) {
                     invalidate(nowInput, '请输入不等于 0 的当前值。');
                     return;
                 }
-                if (isNaN(aim)) {
+                if (aimText === '' || !Number.isFinite(aim)) {
                     invalidate(aimInput, '请输入有效的目标值。');
                     return;
                 }
@@ -127,6 +129,12 @@
                 } else {
                     output.textContent = '当前值已经等于目标值，距离为 0.00%。';
                 }
+            });
+
+            [nowInput, aimInput].forEach(function (input) {
+                input.addEventListener('input', function () {
+                    input.removeAttribute('aria-invalid');
+                });
             });
         }());
     </script>
