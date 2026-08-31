@@ -156,3 +156,11 @@
   .contrast-panel div:first-child { background: #302720; }
   .entry-field__term, .next-term { color: var(--ink); }
 }
+
+/* 2026-08 final QA: complete local-tool feedback and footer targets */
+.entry-field__empty button,.draw-stage__go,.draw-stage__reveal{transition:background 180ms ease,color 180ms ease,box-shadow 180ms ease,transform 180ms ease}
+.entry-field__empty button:hover,.draw-stage__go:hover{box-shadow:0 8px 22px rgba(112,42,31,.22);transform:translateY(-2px)}
+.draw-stage__reveal:not(:disabled):hover{color:#fff;background:var(--red);transform:translateY(-2px)}
+.entry-field__empty button:active,.draw-stage__go:active,.draw-stage__reveal:not(:disabled):active{box-shadow:none;transform:translateY(1px)}
+.lantern-foot__words a{display:inline-flex;align-items:center;min-height:36px;border-bottom:1px solid rgba(243,229,213,.42);transition:color 180ms ease,border-color 180ms ease}
+.lantern-foot__words a:hover{border-color:var(--gold);color:var(--gold)}
