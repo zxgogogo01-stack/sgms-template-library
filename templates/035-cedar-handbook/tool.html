@@ -13,13 +13,14 @@
   <script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebApplication","name":"Unicode 字符核验台","url":"https://__SITE_DOMAIN__/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
 </head>
 <body>
+  <a data-skip href='#main'>跳到主要内容</a>
   <header data-site-header><div><a href='index.html' data-brand aria-label='返回手册索引'><b>H/35</b><span><strong>__SITE_NAME__</strong><small>Cedar field handbook · rev 3.4</small></span></a><nav data-nav aria-label='主导航'><a href='index.html'>章节索引</a><a href='article.html'>执行章节</a><a href='tool.html' aria-current='page'>字符核验</a><a href='legal.html'>使用说明</a></nav></div></header>
 
-  <main data-page='tool'>
+  <main id='main' data-page='tool'>
     <header><div><p data-kicker>Appendix tool · local processing</p><h1>看清每一个字符背后的码点。</h1><p data-lede>粘贴最多 40 个字符，核对 Unicode 码点、十进制编号和字符类型，避免全角空格、不可见字符与相似符号混入正式手册。</p></div><aside><p data-label>Tool metadata</p><p>编号：H35-T01<br>版本：1.2<br>输入：最多 40 字符<br>数据：不离开本机<br>状态：现行</p></aside></header>
 
     <div data-tool-layout>
-      <section data-tool-card aria-labelledby='tool-title'><p data-kicker>Character inspector</p><h2 id='tool-title'>Unicode 字符核验</h2><p>换行与空格会作为独立字符显示；组合字符可能由多个码点构成。</p><form id='codepoint-form' novalidate><div data-field><label for='codepoint-input'>待核验字符</label><textarea id='codepoint-input' maxlength='40' placeholder='例如：发布 A/B · 全角　空格' aria-describedby='codepoint-error codepoint-limit'></textarea><small id='codepoint-limit'>最多 40 个字符；当前 <span id='char-count'>0</span> 个。</small></div><div data-tool-actions><button type='submit' data-button='primary'>开始核验</button><button type='button' id='load-code-sample'>载入示例</button><button type='reset' id='clear-codepoints'>清空</button></div><p id='codepoint-error' data-error role='alert' aria-live='assertive'></p></form>
+      <section data-tool-card aria-labelledby='tool-title'><p data-kicker>Character inspector</p><h2 id='tool-title'>Unicode 字符核验</h2><p>换行与空格会作为独立字符显示；组合字符可能由多个码点构成。</p><form id='codepoint-form' novalidate><div data-field><label for='codepoint-input'>待核验字符</label><textarea id='codepoint-input' maxlength='80' placeholder='例如：发布 A/B · 全角　空格' aria-describedby='codepoint-error codepoint-limit'></textarea><small id='codepoint-limit'>最多 40 个 Unicode 码点；当前 <span id='char-count'>0</span> 个。</small></div><div data-tool-actions><button type='submit' data-button='primary'>开始核验</button><button type='button' id='load-code-sample'>载入示例</button><button type='reset' id='clear-codepoints'>清空</button></div><p id='codepoint-error' data-error role='alert' aria-live='assertive'></p></form>
         <section data-result id='codepoint-result' tabindex='-1' hidden aria-labelledby='result-title'><header><strong id='result-title'>核验结果</strong><span id='result-count'>0 个码点</span></header><div><table><thead><tr><th scope='col'>字符</th><th scope='col'>Unicode</th><th scope='col'>十进制</th><th scope='col'>类型</th></tr></thead><tbody id='codepoint-rows'></tbody></table></div><footer><span id='codepoint-status' aria-live='polite'>结果仅在当前页面生成。</span><button type='button' id='copy-codepoints'>复制结果</button></footer></section>
       </section>
       <aside data-tool-aside>

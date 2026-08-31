@@ -83,20 +83,29 @@
         if (status) status.textContent = '结果仅在当前页面生成。';
       }, 1600);
     };
+    var operation;
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, done);
+      operation = navigator.clipboard.writeText(text);
     } else {
-      var area = document.createElement('textarea');
-      area.value = text;
-      area.setAttribute('readonly', '');
-      area.style.position = 'fixed';
-      area.style.opacity = '0';
-      document.body.appendChild(area);
-      area.select();
-      try { document.execCommand('copy'); } catch (error) { /* selection remains as fallback */ }
-      area.remove();
-      done();
+      operation = new Promise(function (resolve, reject) {
+        var area = document.createElement('textarea');
+        area.value = text;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        try {
+          if (!document.execCommand('copy')) throw new Error('copy command failed');
+          resolve();
+        } catch (error) {
+          reject(error);
+        } finally {
+          area.remove();
+        }
+      });
     }
+    return operation.then(done);
   }
 
   var codepointForm = document.getElementById('codepoint-form');
@@ -137,7 +146,21 @@
     if (count > 40) codepointInput.value = Array.from(codepointInput.value).slice(0, 40).join('');
   }
 
-  codepointInput.addEventListener('input', updateCharacterCount);
+  function invalidateCodepointResult() {
+    codepointError.textContent = '';
+    codepointInput.removeAttribute('aria-invalid');
+    codepointRows.replaceChildren();
+    resultCount.textContent = '0 个码点';
+    codepointResult.hidden = true;
+    codepointStatus.textContent = '结果仅在当前页面生成。';
+    var copyButton = document.getElementById('copy-codepoints');
+    copyButton.textContent = '复制结果';
+  }
+
+  codepointInput.addEventListener('input', function () {
+    updateCharacterCount();
+    invalidateCodepointResult();
+  });
 
   codepointForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -173,18 +196,14 @@
   document.getElementById('load-code-sample').addEventListener('click', function () {
     codepointInput.value = '发布 A/B · 全角　空格';
     updateCharacterCount();
-    codepointError.textContent = '';
-    codepointInput.removeAttribute('aria-invalid');
+    invalidateCodepointResult();
     codepointInput.focus();
   });
 
   codepointForm.addEventListener('reset', function () {
     window.setTimeout(function () {
       charCount.textContent = '0';
-      codepointError.textContent = '';
-      codepointInput.removeAttribute('aria-invalid');
-      codepointRows.replaceChildren();
-      codepointResult.hidden = true;
+      invalidateCodepointResult();
       codepointInput.focus();
     }, 0);
   });
@@ -193,6 +212,8 @@
     var lines = Array.prototype.slice.call(codepointRows.querySelectorAll('tr')).map(function (row) {
       return Array.prototype.slice.call(row.cells).map(function (cell) { return cell.textContent; }).join(' · ');
     });
-    copyText(lines.join('\n'), event.currentTarget, '结果已复制', codepointStatus);
+    copyText(lines.join('\n'), event.currentTarget, '结果已复制', codepointStatus).catch(function () {
+      codepointStatus.textContent = '复制失败，请手动记录核验结果。';
+    });
   });
 })();
