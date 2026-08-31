@@ -25,6 +25,14 @@
 - `__CONTACT_EMAIL__`：联系邮箱
 - `__LANG__`：页面语言，如 `zh-CN`
 
+## 后续 AI 的文字接入顺序
+
+1. 先替换全部占位变量，再改写服务名称、状态说明、事件内容和政策文字；保留五页结构、`data-*` 属性、表单 `id`、按钮及 `app.js` 引用，不要重新设计终端 UI。
+2. 首页新增服务时复制完整的 `data-service`，只填写名称、说明、命令式状态和 `data-status`。状态限定为 `operational`、`degraded`、`maintenance` 或 `outage`，并同步更新筛选按钮与运行摘要中的数量文字。
+3. 事件记录直接复制原生 `details`，更新 `time` 的可读文字与 `datetime`、标题、状态和影响说明。`article.html` 只替换真实采集口径，`legal.html` 只替换真实边界、版本和联系方式。
+4. 可用率分析台已覆盖输入校验、边界值、结果失效、示例、清空和复制反馈。后续 AI 可以换帮助文字与默认样例，但不要为内容接入改写计算逻辑或控件结构。
+5. 内容接入后运行 `node tools/audit-template.js templates/038-quiet-terminal`，并在 1440px 与 390px 视口检查五页。这样其他 AI 只需写文字和数据，不再消耗时间重搭网站框架。
+
 ## 可选调整
 
 - 首页服务条目使用 `data-service` 与 `data-status`，支持 `operational`、`degraded`、`maintenance` 三种筛选状态。

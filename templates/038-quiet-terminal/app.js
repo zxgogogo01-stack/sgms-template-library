@@ -13,8 +13,8 @@
       document.body.appendChild(helper);
       helper.select();
       try {
-        document.execCommand('copy');
-        resolve();
+        if (document.execCommand('copy')) resolve();
+        else reject(new Error('copy command returned false'));
       } catch (error) {
         reject(error);
       } finally {
@@ -96,6 +96,13 @@
     var remainingBudget = document.getElementById('remaining-budget');
     var copy = document.getElementById('copy-uptime');
 
+    function formatNumber(number, minimumDigits, maximumDigits) {
+      return number.toLocaleString('zh-CN', {
+        minimumFractionDigits: minimumDigits,
+        maximumFractionDigits: maximumDigits
+      });
+    }
+
     function resetResult() {
       value.textContent = '—.—%';
       status.textContent = '输入参数后运行分析，结果会显示在这里。';
@@ -112,19 +119,26 @@
       feedback.textContent = '';
     }
 
-    downtime.addEventListener('input', clearInvalid);
-    days.addEventListener('input', clearInvalid);
+    function invalidateResult() {
+      clearInvalid();
+      resetResult();
+    }
+
+    downtime.addEventListener('input', invalidateResult);
+    days.addEventListener('input', invalidateResult);
 
     run.addEventListener('click', function () {
-      var down = Number(downtime.value);
-      var dayCount = Number(days.value);
-      var downValid = downtime.value !== '' && Number.isFinite(down) && down >= 0;
-      var daysValid = days.value !== '' && Number.isInteger(dayCount) && dayCount >= 1 && dayCount <= 366;
+      var downRaw = downtime.value.trim();
+      var daysRaw = days.value.trim();
+      var down = Number(downRaw);
+      var dayCount = Number(daysRaw);
+      var downValid = /^(?:\d+(?:\.\d{1,3})?|\.\d{1,3})$/.test(downRaw) && Number.isFinite(down) && down >= 0 && down <= 527040;
+      var daysValid = /^\d+$/.test(daysRaw) && Number.isInteger(dayCount) && dayCount >= 1 && dayCount <= 366;
 
       downtime.setAttribute('aria-invalid', String(!downValid));
       days.setAttribute('aria-invalid', String(!daysValid));
       if (!downValid || !daysValid) {
-        feedback.textContent = '请填写有效参数：停机分钟不能为负数，统计窗口需为 1—366 的整数。';
+        feedback.textContent = '请填写有效参数：停机分钟为非负数且最多三位小数，统计窗口为 1—366 的整数。';
         resetResult();
         (downValid ? days : downtime).focus();
         return;
@@ -146,9 +160,9 @@
       value.textContent = pct.toFixed(3) + '%';
       status.textContent = band;
       windowMinutes.textContent = total.toLocaleString('zh-CN') + ' 分钟';
-      downtimeMinutes.textContent = down.toLocaleString('zh-CN') + ' 分钟';
-      dailyAverage.textContent = (down / dayCount).toFixed(2) + ' 分钟';
-      remainingBudget.textContent = budget >= 0 ? budget.toFixed(1) + ' 分钟' : '超出 ' + Math.abs(budget).toFixed(1) + ' 分钟';
+      downtimeMinutes.textContent = formatNumber(down, 0, 3) + ' 分钟';
+      dailyAverage.textContent = formatNumber(down / dayCount, 2, 2) + ' 分钟';
+      remainingBudget.textContent = budget >= 0 ? formatNumber(budget, 1, 1) + ' 分钟' : '超出 ' + formatNumber(Math.abs(budget), 1, 1) + ' 分钟';
       feedback.textContent = '分析完成。';
       copy.disabled = false;
       result.focus();
@@ -158,6 +172,7 @@
       downtime.value = '7.8';
       days.value = '30';
       clearInvalid();
+      resetResult();
       feedback.textContent = '示例已载入，可直接运行分析。';
       downtime.focus();
     });

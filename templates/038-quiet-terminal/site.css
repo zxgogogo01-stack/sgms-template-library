@@ -60,6 +60,7 @@ details:focus-within {
   white-space: nowrap;
   color: var(--signal-ink);
   background: var(--signal);
+  pointer-events: none;
 }
 
 [data-skip]:focus-visible {
@@ -68,6 +69,7 @@ details:focus-within {
   padding: 0.65rem 0.9rem;
   overflow: visible;
   clip-path: none;
+  pointer-events: auto;
 }
 
 body > header,
@@ -95,6 +97,7 @@ body > header {
   align-items: center;
   gap: 0.7rem;
   width: fit-content;
+  min-height: 2.75rem;
   text-decoration: none;
   letter-spacing: 0.04em;
 }
@@ -109,6 +112,11 @@ nav {
 }
 
 nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  justify-content: center;
   position: relative;
   color: var(--muted);
   font-size: 0.76rem;
@@ -226,6 +234,9 @@ h1 {
 [data-filter-row] button,
 [data-button],
 [data-secondary-button] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 2.75rem;
   padding: 0.55rem 0.9rem;
   color: var(--ink);
@@ -342,6 +353,14 @@ body > footer {
 
 body > footer p { margin: 0; }
 body > footer div { display: flex; flex-wrap: wrap; gap: 1.2rem; }
+body > footer a,
+[data-policy-grid] a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
 
 /* Article */
 [data-doc-shell] {
@@ -354,7 +373,7 @@ body > footer div { display: flex; flex-wrap: wrap; gap: 1.2rem; }
 [data-doc-nav] { position: sticky; top: 1.5rem; align-self: start; }
 [data-doc-nav] p { color: var(--muted); font-size: 0.72rem; }
 [data-doc-nav] ol { margin: 1.4rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line-strong); }
-[data-doc-nav] a { display: block; padding: 0.7rem 0; color: var(--muted); border-bottom: 1px solid var(--line); font-size: 0.72rem; text-decoration: none; }
+[data-doc-nav] a { display: flex; align-items: center; min-height: 3rem; padding: 0.7rem 0; color: var(--muted); border-bottom: 1px solid var(--line); font-size: 0.72rem; text-decoration: none; }
 [data-doc-nav] a:hover { color: var(--signal); }
 
 [data-doc-content] { max-width: 50rem; }
