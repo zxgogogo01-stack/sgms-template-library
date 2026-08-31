@@ -1,37 +1,9 @@
-<!DOCTYPE html>
-<html lang='%%LANG%%'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>失联 — %%SITE_NAME%%</title>
-    <meta name='robots' content='noindex'>
-    <link rel='stylesheet' href='style.css'>
-    <style>
-        /* 404 补充样式 */
-        .adrift61 { max-width: 460px; margin: 15vh auto; padding: 0 26px; text-align: center; }
-        .adrift61-card {
-            background: var(--hull);
-            border: 1px solid var(--weld);
-            border-radius: var(--domeL);
-            padding: 52px 40px;
-        }
-        .adrift61-card h1 {
-            font-family: var(--monoL);
-            font-size: 3.2rem;
-            letter-spacing: .14em;
-            color: var(--signal);
-            text-shadow: 0 0 26px color-mix(in srgb, var(--signal) 55%, transparent);
-        }
-        .adrift61-card p { color: var(--dust); margin: 8px 0 24px; }
-    </style>
-</head>
+<!doctype html>
+<html lang="%%LANG%%" data-theme="dark">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#08131f"><title>页面不存在 — %%SITE_NAME%%</title><link rel="stylesheet" href="style.css"></head>
 <body>
-    <div class='adrift61'>
-        <div class='adrift61-card'>
-            <h1>404</h1>
-            <p>信号失联——这条轨道上没有页面。</p>
-            <a class='torch torch-go' href='index.html'>返回发射台</a>
-        </div>
-    </div>
+  <a class="ol61-skip" href="#ol61-main">跳到主要内容</a><header class="ol61-command"><div><a class="ol61-ident" href="index.html"><b>O61</b><span>%%BRAND_EN%%</span></a><button class="ol61-menu-button" type="button" aria-expanded="false" aria-controls="ol61-menu"><span aria-hidden="true">MENU</span><i class="ol61-sr">打开导航</i></button><nav id="ol61-menu" class="ol61-menu" aria-label="主导航"><a href="index.html">控制舱</a><a href="article.html">任务简报</a><a href="tool.html">抽样器</a><a href="legal.html">披露</a><button type="button" data-theme-toggle aria-label="切换深浅主题">LIGHT MODE</button></nav></div></header>
+  <main class="ol61-lost" id="ol61-main"><figure aria-hidden="true"><div><b>404</b><i></i><span>SIGNAL LOST</span></div></figure><section><p>OFF-ORBIT / 404</p><h1>这条航线没有对应页面。</h1><span>输入任务词，控制舱会给出最近的本地航点。</span><form data-mission-search novalidate><label for="ol61-query">搜索任务</label><div><input id="ol61-query" type="search" maxlength="80" autocomplete="off" placeholder="如：来源、抽样、披露" aria-describedby="ol61-search-help ol61-search-result"><button type="submit">定位航点</button></div><small id="ol61-search-help">最多 80 个字符，只查询本站页面。</small><p id="ol61-search-result" data-mission-result role="status" aria-live="polite">也可以返回<a href="index.html">任务控制舱</a>。</p></form></section></main>
+  <script src="ignite.js"></script>
 </body>
 </html>
