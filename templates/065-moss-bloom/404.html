@@ -1,35 +1,10 @@
-<!DOCTYPE html>
-<html lang='{LANG}'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>页面不存在 — {SITE_NAME}</title>
-    <meta name='robots' content='noindex'>
-    <link rel='stylesheet' href='petal.css'>
-    <style>
-        /* 404 补充样式 */
-        .wilted { max-width: 460px; margin: 15vh auto; padding: 0 24px; text-align: center; }
-        .wilted-card {
-            background: var(--blossom);
-            border-radius: 52% 48% 46% 54% / 34px 40px 36px 32px;
-            box-shadow: var(--shade65-hi);
-            padding: 54px 42px;
-        }
-        .wilted-card h1 {
-            font-family: var(--serif65);
-            font-size: 3.2rem;
-            color: var(--moss65);
-        }
-        .wilted-card p { color: var(--sage65); margin: 8px 0 22px; }
-    </style>
-</head>
+<!doctype html>
+<html lang="%%LANG%%" data-paper="day">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#203a2e"><title>标本未入藏 — %%SITE_NAME%%</title><link rel="stylesheet" href="herbarium.css"></head>
 <body>
-    <div class='wilted'>
-        <div class='wilted-card'>
-            <h1>404</h1>
-            <p>这一株没种活——页面不存在或已移栽。</p>
-            <a class='bud bud-full' href='index.html'>回花园</a>
-        </div>
-    </div>
+  <a class="hb65-skip" href="#hb65-main">跳到主要内容</a>
+  <aside class="hb65-cabinet"><a class="hb65-brand" href="index.html"><b>H</b><span>%%BRAND_EN%%</span><small>SPECIMEN 065</small></a><button class="hb65-drawer-button" type="button" aria-controls="hb65-drawer" aria-expanded="false"><i aria-hidden="true"></i><span>目录</span></button><nav class="hb65-drawer" id="hb65-drawer" aria-label="主导航"><a href="index.html"><span>01</span>标本总览</a><a href="article.html"><span>02</span>主张解剖</a><a href="tool.html"><span>03</span>扫描台</a><a href="legal.html"><span>04</span>公开说明</a><button type="button" data-paper-toggle>夜藏</button></nav><p>EDITORIAL<br>HERBARIUM</p></aside>
+  <main class="hb65-missing" id="hb65-main"><figure aria-hidden="true"><div><span>404</span><i></i><i></i><i></i><b>DRAWER EMPTY</b></div></figure><section><p>SPECIMEN NOT CATALOGUED</p><h1>这张标本没有入藏。</h1><span>输入一个标签，本地目录会指出最近的馆藏页。</span><form data-cabinet-search novalidate><label for="hb65-query">检索馆藏</label><div><input id="hb65-query" type="search" maxlength="80" autocomplete="off" placeholder="如：来源、极值、披露" aria-describedby="hb65-search-help hb65-search-result"><button type="submit">检索</button></div><small id="hb65-search-help">最多 80 个字符，不向外部发送内容。</small><p id="hb65-search-result" data-cabinet-result role="status" aria-live="polite">也可以返回<a href="index.html">标本总览</a>。</p></form></section></main>
+  <script src="specimen.js"></script>
 </body>
 </html>

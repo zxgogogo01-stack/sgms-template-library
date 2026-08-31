@@ -1,133 +1,20 @@
-<!DOCTYPE html>
-<html lang='{LANG}'>
+<!doctype html>
+<html lang="%%LANG%%" data-paper="day">
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta name='theme-color' content='#f5f7ef'>
-    <title>文章样板 — {SITE_NAME}</title>
-    <meta name='description' content='花园站文章页样板。'>
-    <link rel='canonical' href='https://{SITE_DOMAIN}/article.html'>
-    <meta property='og:type' content='article'>
-    <meta property='og:site_name' content='{SITE_NAME}'>
-    <meta property='og:title' content='文章样板 — {SITE_NAME}'>
-    <meta property='og:description' content='花园站文章页样板。'>
-    <meta property='og:url' content='https://{SITE_DOMAIN}/article.html'>
-    <meta name='twitter:card' content='summary'>
-    <link rel='stylesheet' href='petal.css'>
-    <script type='application/ld+json'>
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "文章样板",
-        "datePublished": "2026-01-19",
-        "mainEntityOfPage": "https://{SITE_DOMAIN}/article.html"
-    }
-    </script>
-    <style>
-        /* 文章页补充样式 */
-        .petalpage { max-width: 740px; margin: 0 auto; padding: 46px 24px 84px; }
-        .petalpage-card {
-            background: var(--blossom);
-            border-radius: 34px 20px 34px 20px;
-            box-shadow: var(--shade65-hi);
-            padding: 46px 52px;
-        }
-        .petalpage-crumb { font-size: .84rem; color: var(--sage65); margin-bottom: 12px; }
-        .petalpage-crumb a { color: var(--moss65-deep); font-weight: 700; }
-        .petalpage-card h1 {
-            font-family: var(--serif65);
-            font-size: clamp(1.5rem, 3.4vw, 2rem);
-            line-height: 1.34;
-        }
-        .petalpage-meta { margin: 10px 0 0; font-size: .84rem; color: var(--sage65); font-variant-numeric: tabular-nums; }
-        .petalpage-gist {
-            margin: 26px 0;
-            padding: 16px 22px;
-            border-radius: 18px;
-            background: var(--dapple);
-            border-left: 4px solid var(--rose65);
-        }
-        .petalpage-card h2 {
-            font-family: var(--serif65);
-            font-size: 1.24rem;
-            margin: 32px 0 12px;
-        }
-        .petalpage-card h2::before {
-            content: '';
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            margin-right: 9px;
-            border-radius: 50% 50% 50% 0;
-            background: var(--moss65);
-            transform: rotate(-45deg);
-        }
-        .petalpage-card p { margin: 0 0 14px; }
-        .petalpage-roll { overflow-x: auto; border-radius: 16px; box-shadow: inset 0 0 0 1px var(--twig); margin: 14px 0 8px; }
-        .petalpage-card table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-        .petalpage-card th, .petalpage-card td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--twig); font-size: .9rem; white-space: nowrap; }
-        .petalpage-card thead th { background: var(--dapple); color: var(--moss65-deep); font-size: .82rem; letter-spacing: .08em; border-bottom: 0; }
-        .petalpage-card tbody tr:last-child td { border-bottom: 0; }
-        .petalpage-fine { font-size: .84rem; color: var(--sage65); }
-        @media (max-width: 640px) {
-            .petalpage-card { padding: 30px 22px; border-radius: 24px; }
-            .petalpage-card th, .petalpage-card td { white-space: normal; }
-        }
-    </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#203a2e">
+  <title>主张解剖笔记 — %%SITE_NAME%%</title><meta name="description" content="用主体、动作、范围、时间与证据位置拆解一条待发布主张。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/article.html">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="%%SITE_NAME%%"><meta property="og:title" content="主张解剖笔记 — %%SITE_NAME%%"><meta property="og:description" content="一页可核验、可交接的主张解剖方法。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/article.html"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="herbarium.css">
 </head>
 <body>
-    <header class='arbor'>
-        <div class='arbor-in'>
-            <a class='arbor-brand' href='index.html'>{BRAND_EN}</a>
-            <button type='button' class='arbor-btn' id='arbor-btn' aria-label='主导航' aria-expanded='false' aria-controls='arbor-nav'>
-                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
-            </button>
-            <nav class='arbor-nav' id='arbor-nav' aria-label='主导航'>
-                <a href='index.html'>花园</a>
-                <a href='article.html' aria-current='page'>文章</a>
-                <a href='tool.html'>定投算账</a>
-                <a href='legal.html'>披露</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class='petalpage'>
-        <article class='petalpage-card'>
-            <p class='petalpage-crumb'><a href='index.html'>花园</a> / 费率与返佣</p>
-            <h1>示例平台A 挂单档位调整：返佣基数怎么跟着变</h1>
-            <p class='petalpage-meta'>发布 2026-01-19 · 口径核对 2026-01-19</p>
-
-            <div class='petalpage-gist'><b>先说结论：</b>费率档位变化会沿着手续费基数传导到返佣金额；核对时应同时确认产品线、账户档位与生效时间。</div>
-
-            <h2>变了什么</h2>
-            <p>先记录调整覆盖的产品、账户层级和生效时间，并把时区统一到自己的账单时区；随后保存规则页版本，便于到账后逐项复核。</p>
-
-            <h2>对返佣的传导</h2>
-            <p>计算顺序是成交额乘手续费率得到手续费，再乘可返比例得到预计返佣。若存在抵扣、上限或排除产品，应先从计佣基数中剔除。</p>
-            <div class='petalpage-roll'>
-                <table>
-                    <thead>
-                        <tr><th scope='col'>项目</th><th scope='col'>调整前</th><th scope='col'>调整后</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>挂单费率（基础档）</td><td>0.0X%</td><td>0.0X%</td></tr>
-                        <tr><td>演示返佣（每万元）</td><td>X.XX</td><td>X.XX</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class='petalpage-fine'>表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
-
-            <h2>要不要动</h2>
-            <p>判断时不要只看返佣比例，还要核对费率、产品范围、结算门槛与到账周期。规则可能调整，正式决策应以账户页面的最新显示为准。</p>
-        </article>
-    </main>
-
-    <footer class='mulch'>
-        <div class='mulch-in'>
-            <p class='mulch-fine'>内容为信息整理，以各平台官方页面为准；不构成投资建议。</p>
-        </div>
-    </footer>
-
-    <script src='petal.js'></script>
+  <a class="hb65-skip" href="#hb65-main">跳到主要内容</a>
+  <aside class="hb65-cabinet"><a class="hb65-brand" href="index.html"><b>H</b><span>%%BRAND_EN%%</span><small>SPECIMEN 065</small></a><button class="hb65-drawer-button" type="button" aria-controls="hb65-drawer" aria-expanded="false"><i aria-hidden="true"></i><span>目录</span></button><nav class="hb65-drawer" id="hb65-drawer" aria-label="主导航"><a href="index.html"><span>01</span>标本总览</a><a aria-current="page" href="article.html"><span>02</span>主张解剖</a><a href="tool.html"><span>03</span>扫描台</a><a href="legal.html"><span>04</span>公开说明</a><button type="button" data-paper-toggle>夜藏</button></nav><p>EDITORIAL<br>HERBARIUM</p></aside>
+  <div class="hb65-reading" aria-hidden="true"><i data-reading-progress></i></div>
+  <main class="hb65-monograph" id="hb65-main"><nav class="hb65-crumb" aria-label="面包屑"><a href="index.html">标本总览</a><span>/</span><span>主张解剖</span></nav><article><header class="hb65-monograph-head"><div><p>MONOGRAPH / S-065-01</p><h1>把一句“看起来正确”拆成可核验的编辑主张</h1><span>不是把语气写弱，而是先找出结论依赖的主体、动作、范围、时间和证据。</span></div><dl><div><dt>文档类型</dt><dd>编辑方法</dd></div><div><dt>状态</dt><dd>已二审</dd></div><div><dt>更新</dt><dd>2026-01-22</dd></div></dl></header><aside class="hb65-label"><b>SPECIMEN LABEL</b><dl><div><dt>原始对象</dt><dd>公开页面或账户内页面</dd></div><div><dt>采集字段</dt><dd>标题、主体、地区、访问时间</dd></div><div><dt>判断边界</dt><dd>只覆盖已保存证据</dd></div><div><dt>未知项</dt><dd>明确保留，不用猜测补齐</dd></div></dl></aside>
+      <section class="hb65-folio-section" id="source"><aside><b>01</b><span>COLLECT</span></aside><div><h2>先保存原物，不要只留结论</h2><p>打开目标地区和账户主体对应的官方页面，记录页面标题、发布主体、访问日期与可见条件。只有登录后出现的规则，应同时说明账户类型与地区。</p><ul><li>截图或归档不能替代可访问的原始地址。</li><li>页面没有版本号时，用访问日期保留时间线索。</li><li>第三方转述可以提供入口，但不能充当最终证据。</li></ul></div></section>
+      <section class="hb65-folio-section"><aside><b>02</b><span>DISSECT</span></aside><div><h2>把一句话拆成四个可回答的问题</h2><div class="hb65-anatomy"><dl><div><dt>主体</dt><dd>谁发布或执行这条规则？</dd></div><div><dt>动作</dt><dd>具体发生什么，而非“更好”或“更快”？</dd></div><div><dt>范围</dt><dd>哪些产品、账户、地区和条件适用？</dd></div><div><dt>时间</dt><dd>何时生效，信息何时被访问？</dd></div></dl></div><blockquote>如果其中一项只能靠推测回答，就把它写进待核实，而不是藏在确定语气里。</blockquote></div></section>
+      <section class="hb65-folio-section"><aside><b>03</b><span>TAG</span></aside><div><h2>给每类词配一张证据标签</h2><p>承诺词需要证明能够覆盖全部适用情况；极值词需要明确比较范围；“当前、最新、实时”需要访问日期和更新机制；带单位数字需要口径、币种、周期或样本说明。</p><div class="hb65-table-wrap"><table><thead><tr><th scope="col">词类</th><th scope="col">至少需要</th><th scope="col">无法确认时</th></tr></thead><tbody><tr><td>承诺</td><td>规则依据与例外</td><td>改为条件描述</td></tr><tr><td>极值</td><td>比较范围与日期</td><td>删除排序结论</td></tr><tr><td>时效</td><td>访问时间与维护方式</td><td>标注具体日期</td></tr><tr><td>数字</td><td>单位、口径与来源</td><td>保留待核实</td></tr></tbody></table></div></div></section>
+      <section class="hb65-folio-section"><aside><b>04</b><span>HAND OFF</span></aside><div><h2>让下一位编辑从证据继续，而不是从猜测重来</h2><p>交接记录应短到能复制，完整到能复核。不要把“我认为”伪装成来源，也不要用自动扫描结果代替人工判断。</p></div></section>
+      <aside class="hb65-handoff"><div><p>PORTABLE LABEL</p><h2>可复制的标本标签</h2><span>方括号内容需按实际资料填写。</span></div><pre data-handoff-text>主张：[待核对句子]&#10;主体：[发布或执行主体]&#10;范围：[产品 / 账户 / 地区 / 条件]&#10;时间：[生效日期 / 访问日期]&#10;证据：[原始页面与具体位置]&#10;状态：[已核对 / 待核实 / 存在冲突]&#10;下一步：[负责人 / 所需证据 / 复核触发]</pre><button type="button" data-copy-handoff>复制标本标签</button><p data-handoff-status role="status" aria-live="polite"></p></aside><footer class="hb65-monograph-foot"><p>扫描台只定位文字特征，不判断主张真实与否。</p><a href="tool.html">前往风险词扫描台</a></footer></article></main>
+  <script src="specimen.js"></script>
 </body>
 </html>
