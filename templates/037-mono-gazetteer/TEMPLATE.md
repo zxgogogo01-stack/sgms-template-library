@@ -25,6 +25,14 @@
 - `__CONTACT_EMAIL__`：联系邮箱
 - `__LANG__`：页面语言，如 `zh-CN`
 
+## 后续 AI 的文字接入顺序
+
+1. 先只替换上面的占位变量，再按页面改写标题、说明、条目资料与政策文字；现有五页结构、`data-*` 属性、表单 `id`、按钮和脚本引用不要改名或删除。
+2. 首页新增地名时，复制现有的 `data-place` 条目，填写唯一档案编号、`data-region`、`data-search`、名称、简介、坐标和标签；需要新字母段时再复制完整的 `data-directory-group`，并给字母导航添加与其 `id` 一致的链接。
+3. `article.html` 用来承载一条完整样例档案；可直接替换释义、沿革、字段、关联条目与引用文字，不要重做档案页 UI。`legal.html` 只改站点真实规则与联系方式。
+4. 编目台的输入限制、去重、排序、分组、错误态和复制反馈已经完整实现。后续 AI 只改帮助文字或样例内容，不要为了换文案重写 `app.js`。
+5. 内容接入后运行 `node tools/audit-template.js templates/037-mono-gazetteer`，并在 1440px 与 390px 视口检查五个页面；这样可直接交付文字，不再消耗时间重搭模板框架。
+
 ## 可选调整
 
 - 在 `index.html` 中复制或删除带 `data-place` 的条目，并同步修改 `data-region` 与 `data-search`。

@@ -76,10 +76,12 @@ summary:focus-visible,
   color: #fff;
   background: var(--signal);
   transform: translateY(-180%);
+  pointer-events: none;
 }
 
 [data-skip]:focus {
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 body > header {
@@ -102,6 +104,7 @@ body > header {
   align-items: center;
   gap: 0.8rem;
   width: fit-content;
+  min-height: 2.75rem;
   text-decoration: none;
 }
 
@@ -129,6 +132,9 @@ nav[aria-label='主导航'] {
 }
 
 nav[aria-label='主导航'] a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   padding: 0.6rem 0.75rem;
   color: var(--muted);
   text-decoration: none;
@@ -304,6 +310,9 @@ h3 {
 [data-filter-row] button,
 [data-secondary-button],
 [data-primary-button] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 2.75rem;
   padding: 0.55rem 1rem;
   color: var(--ink);
@@ -337,8 +346,8 @@ h3 {
 }
 
 [data-alpha-rail] a {
-  min-width: 2.2rem;
-  min-height: 2.2rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   display: grid;
   place-items: center;
   color: var(--muted);
@@ -402,6 +411,9 @@ h3 {
 }
 
 [data-place] h3 a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
   text-decoration: none;
 }
 
@@ -470,6 +482,15 @@ body > footer nav {
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 1.2rem;
+}
+
+body > footer nav a,
+[data-entry-layout] > aside a,
+[data-entry-article] a,
+[data-policy-grid] a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
 }
 
 /* Inner-page header */

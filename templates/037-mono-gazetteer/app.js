@@ -17,8 +17,8 @@
       document.body.appendChild(helper);
       helper.select();
       try {
-        document.execCommand('copy');
-        resolve();
+        if (document.execCommand('copy')) resolve();
+        else reject(new Error('copy command returned false'));
       } catch (error) {
         reject(error);
       } finally {
@@ -112,9 +112,12 @@
     var copyButton = document.getElementById('copy-catalog');
 
     function getRows() {
-      return input.value.split(/\r?\n/).map(function (row) {
-        return row.trim();
-      }).filter(Boolean);
+      return input.value.split(/\r?\n/).map(function (row, index) {
+        return {
+          line: index + 1,
+          value: row.trim().replace(/\s+/gu, ' ')
+        };
+      }).filter(function (row) { return row.value; });
     }
 
     function updateCount() {
@@ -131,6 +134,7 @@
       input.removeAttribute('aria-invalid');
       feedback.textContent = '';
       updateCount();
+      resetResult();
     });
 
     sampleButton.addEventListener('click', function () {
@@ -138,6 +142,7 @@
       input.removeAttribute('aria-invalid');
       feedback.textContent = '示例已载入，可直接生成分组。';
       updateCount();
+      resetResult();
       input.focus();
     });
 
@@ -152,6 +157,13 @@
 
     groupButton.addEventListener('click', function () {
       var rows = getRows();
+      if (input.value.length > 20000) {
+        input.setAttribute('aria-invalid', 'true');
+        feedback.textContent = '单次输入不得超过 20,000 个字符。';
+        resetResult();
+        input.focus();
+        return;
+      }
       if (!rows.length) {
         input.setAttribute('aria-invalid', 'true');
         feedback.textContent = '请先录入至少一个地名，每行一条。';
@@ -159,20 +171,37 @@
         input.focus();
         return;
       }
+      if (rows.length > 500) {
+        input.setAttribute('aria-invalid', 'true');
+        feedback.textContent = '单次最多编目 500 条记录，请分批整理。';
+        resetResult();
+        input.focus();
+        return;
+      }
+      var overlong = rows.find(function (row) { return Array.from(row.value).length > 120; });
+      if (overlong) {
+        input.setAttribute('aria-invalid', 'true');
+        feedback.textContent = '第 ' + overlong.line + ' 行超过 120 个字符，请缩短后重试。';
+        resetResult();
+        input.focus();
+        return;
+      }
 
       var seen = Object.create(null);
       var unique = rows.filter(function (row) {
-        var key = row.toLocaleLowerCase('zh-CN');
+        var key = row.value.normalize('NFKC').toLocaleLowerCase('zh-CN');
         if (seen[key]) return false;
         seen[key] = true;
         return true;
+      }).map(function (row) {
+        return row.value;
       }).sort(function (a, b) {
-        return a.localeCompare(b, 'zh-CN', { sensitivity: 'base' });
+        return a.localeCompare(b, 'zh-CN', { sensitivity: 'base', numeric: true });
       });
 
       var buckets = Object.create(null);
       unique.forEach(function (row) {
-        var first = row.charAt(0).toUpperCase();
+        var first = row.normalize('NFKD').replace(/\p{M}/gu, '').charAt(0).toUpperCase();
         var bucket = /^[A-Z]$/.test(first) ? first : '#';
         if (!buckets[bucket]) buckets[bucket] = [];
         buckets[bucket].push(row);
