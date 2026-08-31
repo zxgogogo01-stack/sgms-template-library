@@ -51,7 +51,9 @@ th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--li
 .invite-slip { padding: 22px 24px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px 18px; align-items: center; color: #f1f3ec; background: var(--forest-deep); border-top: 6px solid var(--leaf); box-shadow: var(--shadow); }
 .invite-slip span { font-weight: 800; }
 .invite-slip code { padding: 10px 14px; background: rgba(255,255,255,0.1); font-family: Consolas, monospace; font-size: 1.12rem; overflow-wrap: anywhere; }
-.invite-slip button { min-height: 46px; padding: 9px 20px; color: #fff; background: var(--bark); border: 0; cursor: pointer; }
+.invite-slip button { min-height: 46px; padding: 9px 20px; color: #fff; background: var(--bark); border: 0; box-shadow: 0 0 0 rgba(23, 51, 40, 0); cursor: pointer; transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
+.invite-slip button:hover { background: #d47a48; box-shadow: 0 7px 14px rgba(23, 51, 40, 0.2); transform: translateY(-2px); }
+.invite-slip button:active { box-shadow: none; transform: translateY(1px); }
 .invite-slip small { grid-column: 1 / -1; color: #a9bcb1; }
 
 .entries { display: grid; gap: 12px; }
@@ -72,11 +74,12 @@ th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--li
 .sheet h1, .notice h1, .check-pad h1 { font-size: clamp(2.5rem, 6vw, 4.8rem); letter-spacing: -0.055em; }
 .sheet .define { margin: 24px 0 30px; padding: 20px 24px; background: var(--wash); border-left: 5px solid var(--forest); }
 .sheet h2, .notice h2 { margin: 32px 0 10px; color: var(--accent-text); font-size: 1.3rem; }
+.sheet a, .endcap a, .torn a { display: inline-flex; align-items: center; min-height: 36px; }
 .revision { color: var(--muted); font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: 0.76rem; }
 
 .check-intro, .notice-intro { margin: 16px 0 28px; color: var(--muted); }
 .check-pad label { min-height: 58px; display: flex; gap: 14px; align-items: center; border-bottom: 1px dashed var(--line); cursor: pointer; }
-.check-pad input[type='checkbox'] { width: 22px; height: 22px; accent-color: var(--forest); }
+.check-pad input[type='checkbox'] { width: 24px; height: 24px; flex: 0 0 auto; accent-color: var(--forest); }
 .check-pad .tally { margin-top: 24px; padding: 16px 18px; background: var(--wash); border-left: 5px solid var(--forest); font-weight: 800; }
 
 .endcap { margin-top: auto; padding-top: 18px; color: var(--muted); border-top: 1px solid var(--line); font-size: 0.82rem; }
@@ -90,7 +93,7 @@ th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--li
 @media (max-width: 860px) {
     .wrap { grid-template-columns: 1fr; }
     .rail { min-height: 0; padding: 18px 16px 10px; }
-    .logo { margin-bottom: 10px; }
+    .logo { min-height: 44px; margin-bottom: 10px; display: flex; align-items: center; }
     .logo::before { display: inline; margin: 0 10px 0 0; }
     .toc { flex-direction: row; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x proximity; scrollbar-color: var(--bark) rgba(255,255,255,0.08); }
     .toc-part { display: none; }
