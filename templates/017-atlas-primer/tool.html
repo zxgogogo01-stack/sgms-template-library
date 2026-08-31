@@ -56,7 +56,7 @@
                         <div class='field'>
                             <label for='lesson-count'>课程课时数</label>
                             <input id='lesson-count' name='lesson-count' type='number' min='1' max='60' step='1' value='4' inputmode='numeric' aria-describedby='lesson-error'>
-                            <span class='field-error' id='lesson-error'></span>
+                            <span class='route-error' id='lesson-error'></span>
                         </div>
                         <div class='field'>
                             <label for='days-week'>每周学习天数</label>
@@ -70,13 +70,13 @@
                                 <option value='6'>每周 6 天</option>
                                 <option value='7'>每天</option>
                             </select>
-                            <span class='field-error' id='days-error'></span>
+                            <span class='route-error' id='days-error'></span>
                         </div>
                     </div>
                     <div class='field'>
                         <label for='session-minutes'>单次可学习时长（分钟）</label>
                         <input id='session-minutes' name='session-minutes' type='number' min='10' max='180' step='5' value='30' inputmode='numeric' aria-describedby='minutes-error'>
-                        <span class='field-error' id='minutes-error'></span>
+                        <span class='route-error' id='minutes-error'></span>
                     </div>
                     <button type='submit'>生成学习航线</button>
                 </form>
@@ -129,7 +129,7 @@
                 var invalid = null;
                 if (!Number.isInteger(lessonValue) || lessonValue < 1 || lessonValue > 60) { showError(lesson, 'lesson-error', '请输入 1–60 的整数。'); invalid = lesson; }
                 if (!daysValue) { showError(days, 'days-error', '请选择每周学习天数。'); if (!invalid) invalid = days; }
-                if (!Number.isFinite(minuteValue) || minuteValue < 10 || minuteValue > 180) { showError(minutes, 'minutes-error', '请输入 10–180 分钟。'); if (!invalid) invalid = minutes; }
+                if (!Number.isInteger(minuteValue) || minuteValue < 10 || minuteValue > 180 || minuteValue % 5 !== 0) { showError(minutes, 'minutes-error', '请输入 10–180 且为 5 的倍数。'); if (!invalid) invalid = minutes; }
                 if (invalid) { invalid.focus(); document.getElementById('result-code').textContent = 'CHECK'; return; }
                 var lessonsPerSession = Math.max(1, Math.floor(minuteValue / 25));
                 var sessions = Math.ceil(lessonValue / lessonsPerSession);
@@ -140,6 +140,9 @@
                 document.getElementById('result-code').textContent = 'ROUTE ' + String(weeks).padStart(2, '0');
             }
             form.addEventListener('submit', calculate);
+            lesson.addEventListener('input', function () { clearError(lesson, 'lesson-error'); });
+            days.addEventListener('change', function () { clearError(days, 'days-error'); });
+            minutes.addEventListener('input', function () { clearError(minutes, 'minutes-error'); });
         }());
     </script>
 </body>
