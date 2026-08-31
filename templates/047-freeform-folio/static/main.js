@@ -1,8 +1,10 @@
 (function () {
   'use strict';
   var root = document.documentElement;
+  var themeKey = 'freeform-folio-047-theme';
+  function normalize(value) { return String(value || '').normalize('NFKC').trim(); }
   var saved = null;
-  try { saved = localStorage.getItem('folio-theme'); } catch (error) { saved = null; }
+  try { saved = localStorage.getItem(themeKey); } catch (error) { saved = null; }
   var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   applyTheme(theme);
 
@@ -16,7 +18,7 @@
     button.addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       applyTheme(next);
-      try { localStorage.setItem('folio-theme', next); } catch (error) { /* theme remains active */ }
+      try { localStorage.setItem(themeKey, next); } catch (error) { /* theme remains active */ }
     });
   });
 
@@ -64,11 +66,11 @@
   var activeFilter = 'all';
   function updateProjects() {
     if (!projects.length) return;
-    var term = search ? search.value.trim().toLowerCase() : '';
+    var term = search ? normalize(search.value).toLocaleLowerCase() : '';
     var visible = 0;
     projects.forEach(function (project) {
       var filterMatch = activeFilter === 'all' || project.getAttribute('data-kind') === activeFilter;
-      var haystack = ((project.getAttribute('data-search') || '') + ' ' + project.textContent).toLowerCase();
+      var haystack = normalize((project.getAttribute('data-search') || '') + ' ' + project.textContent).toLocaleLowerCase();
       project.hidden = !(filterMatch && (!term || haystack.indexOf(term) !== -1));
       if (!project.hidden) visible += 1;
     });
@@ -118,20 +120,26 @@
     var copyRatio = document.querySelector('[data-copy-ratio]');
     var copyStatus = document.querySelector('[data-ratio-copy]');
     var ratioFields = [widthInput, heightInput];
-    message.id = 'ratio-message';
+    message.id = 'ff47-ratio-message';
     message.setAttribute('role', 'alert');
     message.setAttribute('aria-atomic', 'true');
-    ratioFields.forEach(function (field) {
-      field.setAttribute('aria-describedby', 'ratio-message');
-      field.addEventListener('input', function () { field.removeAttribute('aria-invalid'); });
-    });
-    function gcd(a, b) { while (b) { var next = a % b; a = b; b = next; } return Math.abs(a) || 1; }
+    function parseDimension(field) {
+      var raw = normalize(field.value);
+      if (!/^(?:\d+|\d*\.\d+)$/.test(raw)) return null;
+      var parts = raw.split('.');var fraction = parts[1] || '';
+      if (fraction.length > 6) return null;
+      var numeric = Number(raw);
+      if (!Number.isFinite(numeric) || numeric < 0.000001 || numeric > 1000000000) return null;
+      return { numeric: numeric, integer: BigInt((parts[0] || '0') + fraction), scale: fraction.length };
+    }
+    function gcd(a, b) { while (b !== 0n) { var next = a % b; a = b; b = next; } return a < 0n ? -a : a; }
     function nearestName(ratio) {
       var presets = [{ name: '1:1 方形', value: 1 }, { name: '4:5 竖版', value: .8 }, { name: '3:2 横版', value: 1.5 }, { name: '16:9 横屏', value: 16 / 9 }, { name: 'A 系列纸张', value: 1 / Math.sqrt(2) }];
       var best = presets[0];
       presets.forEach(function (preset) { if (Math.abs(preset.value - ratio) < Math.abs(best.value - ratio)) best = preset; });
-      return best.name;
+      return Math.abs(best.value - ratio) / best.value <= .12 ? best.name : '自定义比例';
     }
+    function formatDecimal(ratio) { return ratio < .0001 || ratio >= 100000 ? ratio.toExponential(4) : ratio.toFixed(4); }
     function resetResult() {
       message.textContent = '';
       valueNode.textContent = '— : —';
@@ -142,39 +150,44 @@
       copyRatio.disabled = true; copyStatus.textContent = ''; lastRatio = '';
       ratioFields.forEach(function (field) { field.removeAttribute('aria-invalid'); });
     }
+    function invalidateResult(event) {
+      event.currentTarget.removeAttribute('aria-invalid');message.textContent = '';
+      if (lastRatio) { resetResult();stateNode.textContent = '尺寸已修改，请重新计算'; }
+    }
+    ratioFields.forEach(function (field) { field.addEventListener('input', invalidateResult); });
     ratioForm.addEventListener('submit', function (event) {
       event.preventDefault();
-      var width = Number(widthInput.value);
-      var height = Number(heightInput.value);
+      var parsedWidth = parseDimension(widthInput);
+      var parsedHeight = parseDimension(heightInput);
       ratioFields.forEach(function (field) { field.removeAttribute('aria-invalid'); });
-      var invalidFields = ratioFields.filter(function (field) {
-        var value = Number(field.value);
-        return !field.value.trim() || !Number.isFinite(value) || value <= 0;
-      });
+      var invalidFields = ratioFields.filter(function (field) { return parseDimension(field) === null; });
       if (invalidFields.length) {
-        resetResult(); invalidFields.forEach(function (field) { field.setAttribute('aria-invalid', 'true'); }); message.textContent = '宽度和高度都必须是大于 0 的有效数字。'; invalidFields[0].focus(); return;
+        resetResult(); invalidFields.forEach(function (field) { field.setAttribute('aria-invalid', 'true'); }); message.textContent = '宽高须为 0.000001–1,000,000,000 的普通十进制数，最多 6 位小数。'; invalidFields[0].focus(); return;
       }
       message.textContent = '';
       ratioFields.forEach(function (field) { field.removeAttribute('aria-invalid'); });
-      var roundedW = Math.round(width); var roundedH = Math.round(height); var divisor = gcd(roundedW, roundedH);
-      var simpleW = roundedW / divisor; var simpleH = roundedH / divisor; var ratio = width / height;
+      var scale = Math.max(parsedWidth.scale, parsedHeight.scale);
+      var widthInteger = parsedWidth.integer * (10n ** BigInt(scale - parsedWidth.scale));
+      var heightInteger = parsedHeight.integer * (10n ** BigInt(scale - parsedHeight.scale));
+      var divisor = gcd(widthInteger, heightInteger) || 1n;
+      var simpleW = widthInteger / divisor; var simpleH = heightInteger / divisor; var ratio = parsedWidth.numeric / parsedHeight.numeric;
       var orientation = ratio > 1.02 ? '横向' : ratio < .98 ? '纵向' : '方形';
-      var nearest = nearestName(ratio);
+      var nearest = nearestName(ratio); var decimal = formatDecimal(ratio);
       var max = 235; var min = 62; var pw; var ph;
       if (ratio >= 1) { pw = max; ph = Math.max(min, max / ratio); } else { ph = max; pw = Math.max(min, max * ratio); }
       preview.style.width = pw.toFixed(1) + 'px'; preview.style.height = ph.toFixed(1) + 'px';
-      valueNode.textContent = simpleW + ' : ' + simpleH;
+      valueNode.textContent = simpleW.toString() + ' : ' + simpleH.toString();
       description.textContent = '这是一个' + orientation + '画面，最接近“' + nearest + '”。输出前仍要结合安全边距和裁切方式。';
       orientationNode.textContent = orientation;
-      decimalNode.textContent = ratio.toFixed(4);
+      decimalNode.textContent = decimal;
       nearestNode.textContent = nearest;
       stateNode.textContent = '计算完成';
-      lastRatio = '构图比例：' + simpleW + ':' + simpleH + '；方向：' + orientation + '；小数比：' + ratio.toFixed(4) + '；接近规格：' + nearest + '。';
+      lastRatio = '构图比例：' + simpleW.toString() + ':' + simpleH.toString() + '；方向：' + orientation + '；小数比：' + decimal + '；接近规格：' + nearest + '。';
       copyRatio.disabled = false; copyStatus.textContent = '';
     });
     document.querySelectorAll('[data-ratio-preset]').forEach(function (button) {
       button.addEventListener('click', function () {
-        var values = button.getAttribute('data-ratio-preset').split(','); widthInput.value = values[0]; heightInput.value = values[1]; ratioFields.forEach(function (field) { field.removeAttribute('aria-invalid'); }); message.textContent = '规格已载入，可以开始计算。';
+        var values = button.getAttribute('data-ratio-preset').split(','); widthInput.value = values[0]; heightInput.value = values[1]; resetResult();message.textContent = '规格已载入，可以开始计算。';
       });
     });
     ratioForm.addEventListener('reset', function () { window.setTimeout(resetResult, 0); });
@@ -190,20 +203,23 @@
 
   var archiveSearch = document.querySelector('[data-archive-search]');
   if (archiveSearch) {
+    var archiveInput = archiveSearch.elements.query;
+    var archiveFeedback = document.querySelector('[data-archive-feedback]');
     var routes = [
       { terms: ['作品', '品牌', '编辑', '数字', '目录'], label: '作品目录', url: 'index.html' },
       { terms: ['案例', 'common', 'ground', '记录'], label: '案例记录', url: 'article.html' },
       { terms: ['比例', '构图', '尺寸', '实验室'], label: '比例实验室', url: 'tool.html' },
       { terms: ['出版', '说明', '授权', '隐私'], label: '出版说明', url: 'legal.html' }
     ];
+    archiveInput.addEventListener('input', function () { archiveInput.removeAttribute('aria-invalid');archiveFeedback.textContent = '可搜索作品、案例记录、比例实验室与出版说明。'; });
     archiveSearch.addEventListener('submit', function (event) {
       event.preventDefault();
-      var query = archiveSearch.elements.query.value.trim().toLowerCase();
-      var feedback = document.querySelector('[data-archive-feedback]');
-      if (!query) { feedback.textContent = '先输入一个关键词，例如“案例”或“比例”。'; archiveSearch.elements.query.focus(); return; }
-      var hit = routes.find(function (route) { return route.terms.some(function (term) { return term.indexOf(query) !== -1 || query.indexOf(term) !== -1; }); });
-      if (hit) feedback.innerHTML = '找到“' + hit.label + '”。<a href="' + hit.url + '">前往页面</a>';
-      else feedback.textContent = '没有匹配“' + query + '”。试试“作品”“案例”“比例”或“出版”。';
+      var query = normalize(archiveInput.value).toLocaleLowerCase();
+      archiveFeedback.textContent = '';
+      if (!query) { archiveInput.setAttribute('aria-invalid', 'true');archiveFeedback.textContent = '先输入一个关键词，例如“案例”或“比例”。'; archiveInput.focus(); return; }
+      var hit = routes.find(function (route) { return route.terms.some(function (term) { var normalizedTerm=normalize(term).toLocaleLowerCase();return normalizedTerm.indexOf(query) !== -1 || query.indexOf(normalizedTerm) !== -1; }); });
+      if (hit) { archiveFeedback.append(document.createTextNode('找到“' + hit.label + '”。'));var link=document.createElement('a');link.href=hit.url;link.textContent='前往页面';archiveFeedback.appendChild(link); }
+      else archiveFeedback.textContent = '没有匹配“' + query + '”。试试“作品”“案例”“比例”或“出版”。';
     });
   }
 }());
