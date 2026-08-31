@@ -2,8 +2,11 @@
   'use strict';
 
   var root = document.documentElement;
+  var themeKey = 'layered-lookout-046-theme';
+  function normalize(value) { return String(value || '').normalize('NFKC').trim(); }
+  function unicodeLength(value) { return Array.from(value).length; }
   var storedTheme = null;
-  try { storedTheme = localStorage.getItem('lookout-theme'); } catch (error) { storedTheme = null; }
+  try { storedTheme = localStorage.getItem(themeKey); } catch (error) { storedTheme = null; }
   var initialTheme = storedTheme || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   applyTheme(initialTheme);
 
@@ -21,7 +24,7 @@
     button.addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       applyTheme(next);
-      try { localStorage.setItem('lookout-theme', next); } catch (error) { /* theme still works */ }
+      try { localStorage.setItem(themeKey, next); } catch (error) { /* theme still works */ }
     });
   });
 
@@ -71,7 +74,7 @@
   if (clock) {
     var refreshClock = function () {
       var now = new Date();
-      clock.textContent = now.toLocaleTimeString('zh-CN', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' CST';
+      clock.textContent = now.toLocaleTimeString('zh-CN', { timeZone: 'Asia/Shanghai', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' CST';
     };
     refreshClock();
     window.setInterval(refreshClock, 1000);
@@ -85,11 +88,11 @@
   var activeFilter = 'all';
   function updateWatchlist() {
     if (!watchCards.length) return;
-    var term = search ? search.value.trim().toLowerCase() : '';
+    var term = search ? normalize(search.value).toLocaleLowerCase() : '';
     var visible = 0;
     watchCards.forEach(function (card) {
       var matchesFilter = activeFilter === 'all' || card.getAttribute('data-state') === activeFilter;
-      var matchesSearch = !term || (card.getAttribute('data-search') || '').toLowerCase().indexOf(term) !== -1 || card.textContent.toLowerCase().indexOf(term) !== -1;
+      var matchesSearch = !term || normalize(card.getAttribute('data-search') || '').toLocaleLowerCase().indexOf(term) !== -1 || normalize(card.textContent).toLocaleLowerCase().indexOf(term) !== -1;
       card.hidden = !(matchesFilter && matchesSearch);
       if (!card.hidden) visible += 1;
     });
@@ -133,7 +136,7 @@
   var checklistButton = document.querySelector('[data-copy-checklist]');
   if (checklistButton) {
     checklistButton.addEventListener('click', function () {
-      var items = Array.prototype.map.call(document.querySelectorAll('.checklist li'), function (item, index) { return (index + 1) + '. ' + item.textContent.trim(); });
+      var items = Array.prototype.map.call(document.querySelectorAll('.lo46-checklist li'), function (item, index) { return (index + 1) + '. ' + item.textContent.trim(); });
       var feedback = document.querySelector('[data-checklist-status]');
       copyText(items.join('\n'), function () { checklistButton.textContent = '七项已复制'; if (feedback) feedback.textContent = '可直接粘贴到复核记录'; }, function () { if (feedback) feedback.textContent = '复制失败，请手动选择清单'; });
     });
@@ -154,15 +157,21 @@
     var resultAlarm = document.querySelector('[data-result-alarm]');
     var copyResult = document.querySelector('[data-copy-result]');
     var resultCopy = document.querySelector('[data-result-copy]');
-    var thresholdFields = [valueInput, warnInput, alarmInput];
-    message.id = 'threshold-message';
+    var directionInputs = Array.prototype.slice.call(thresholdForm.querySelectorAll('input[name=direction]'));
+    var thresholdFields = [valueInput, warnInput, alarmInput, unitInput];
+    message.id = 'lo46-threshold-message';
     message.setAttribute('role', 'alert');
     message.setAttribute('aria-atomic', 'true');
-    thresholdFields.forEach(function (field) {
-      field.setAttribute('aria-describedby', 'threshold-message');
-      field.addEventListener('input', function () { field.removeAttribute('aria-invalid'); });
-    });
-    function direction() { return thresholdForm.querySelector('input[name=direction]:checked').value; }
+    function direction() { var selected = thresholdForm.querySelector('input[name=direction]:checked'); return selected ? selected.value : ''; }
+    function parseDecimal(field) {
+      var raw = normalize(field.value);
+      if (!/^-?(?:\d+|\d*\.\d+)$/.test(raw)) return null;
+      var fraction = raw.split('.')[1] || '';
+      if (fraction.length > 6) return null;
+      var number = Number(raw);
+      return Number.isFinite(number) && Math.abs(number) <= 1000000000000 ? number : null;
+    }
+    function formatDifference(value) { return Math.abs(value).toFixed(6).replace(/\.?0+$/, ''); }
     function clearResult() {
       message.textContent = '';
       panel.setAttribute('data-state', 'idle');
@@ -174,29 +183,41 @@
       copyResult.disabled = true;
       resultCopy.textContent = '';
       lastResult = '';
-      thresholdFields.forEach(function (field) { field.removeAttribute('aria-invalid'); });
+      thresholdFields.concat(directionInputs).forEach(function (field) { field.removeAttribute('aria-invalid'); });
     }
+    function invalidateResult(event) {
+      event.currentTarget.removeAttribute('aria-invalid');
+      message.textContent = '';
+      if (lastResult || panel.getAttribute('data-state') !== 'idle') { clearResult(); label.textContent = '参数已修改，请重新检查'; }
+    }
+    thresholdFields.forEach(function (field) { field.addEventListener('input', invalidateResult); field.addEventListener('change', invalidateResult); });
+    directionInputs.forEach(function (field) { field.addEventListener('change', invalidateResult); });
     function relation(value, line, highRisk) {
       var crossed = highRisk ? value >= line : value <= line;
-      return crossed ? '已越 ' + Math.abs(value - line).toFixed(1) : '还差 ' + Math.abs(value - line).toFixed(1);
+      return crossed ? '已越 ' + formatDifference(value - line) : '还差 ' + formatDifference(value - line);
     }
     thresholdForm.addEventListener('submit', function (event) {
       event.preventDefault();
-      var value = Number(valueInput.value);
-      var warn = Number(warnInput.value);
-      var alarm = Number(alarmInput.value);
-      var unit = unitInput.value.trim() || '单位';
-      var highRisk = direction() === 'high';
-      thresholdFields.forEach(function (field) { field.removeAttribute('aria-invalid'); });
-      var invalidFields = thresholdFields.filter(function (field) {
-        return !field.value.trim() || !Number.isFinite(Number(field.value));
-      });
+      var value = parseDecimal(valueInput);
+      var warn = parseDecimal(warnInput);
+      var alarm = parseDecimal(alarmInput);
+      var selectedDirection = direction();
+      var unit = String(unitInput.value || '').normalize('NFC').trim() || '单位';
+      var highRisk = selectedDirection === 'high';
+      thresholdFields.concat(directionInputs).forEach(function (field) { field.removeAttribute('aria-invalid'); });
+      var invalidFields = [valueInput, warnInput, alarmInput].filter(function (field) { return parseDecimal(field) === null; });
       if (invalidFields.length) {
         clearResult();
         invalidFields.forEach(function (field) { field.setAttribute('aria-invalid', 'true'); });
-        message.textContent = '请完整填写当前值、提醒线和告警线。';
+        message.textContent = '请完整填写普通十进制数；每项最多 6 位小数，绝对值不超过一万亿。';
         invalidFields[0].focus();
         return;
+      }
+      if (['high', 'low'].indexOf(selectedDirection) === -1) {
+        clearResult();directionInputs.forEach(function (field) { field.setAttribute('aria-invalid', 'true'); });message.textContent = '请选择列表中的风险方向。';if (directionInputs[0]) directionInputs[0].focus();return;
+      }
+      if (unicodeLength(unit) > 12 || /[<>\u0000-\u001f]/.test(unit)) {
+        clearResult();unitInput.setAttribute('aria-invalid', 'true');message.textContent = '单位应为 1–12 个普通字符。';unitInput.focus();return;
       }
       if ((highRisk && warn >= alarm) || (!highRisk && warn <= alarm)) {
         clearResult();
@@ -207,7 +228,7 @@
         return;
       }
       message.textContent = '';
-      thresholdFields.forEach(function (field) { field.removeAttribute('aria-invalid'); });
+      thresholdFields.concat(directionInputs).forEach(function (field) { field.removeAttribute('aria-invalid'); });
       var state = highRisk ? (value >= alarm ? 'alert' : value >= warn ? 'review' : 'normal') : (value <= alarm ? 'alert' : value <= warn ? 'review' : 'normal');
       var titles = { normal: '正常观察', review: '进入复核', alert: '触发告警' };
       var actions = { normal: '尚未越过提醒线，继续按既定窗口采样并保留背景。', review: '已越过提醒线，先核对来源、口径和已知事件。', alert: '已越过告警线，进入预设处理流程并记录恢复条件。' };
@@ -224,7 +245,7 @@
       resultCopy.textContent = '';
     });
     var sampleButton = document.querySelector('[data-load-sample]');
-    if (sampleButton) sampleButton.addEventListener('click', function () { valueInput.value = '74.8'; warnInput.value = '78'; alarmInput.value = '86'; unitInput.value = '分'; thresholdFields.forEach(function (field) { field.removeAttribute('aria-invalid'); }); message.textContent = '示例已载入，可以开始检查。'; });
+    if (sampleButton) sampleButton.addEventListener('click', function () { valueInput.value = '74.8'; warnInput.value = '78'; alarmInput.value = '86'; unitInput.value = '分';directionInputs[0].checked = true;clearResult();message.textContent = '示例已载入，可以开始检查。'; });
     thresholdForm.addEventListener('reset', function () { window.setTimeout(clearResult, 0); });
     copyResult.addEventListener('click', function () { copyText(lastResult, function () { resultCopy.textContent = '判定已复制'; }, function () { resultCopy.textContent = '复制失败，请手动记录'; }); });
   }
@@ -240,20 +261,23 @@
 
   var finder = document.querySelector('[data-site-finder]');
   if (finder) {
+    var finderInput = finder.elements.query;
+    var finderFeedback = document.querySelector('[data-finder-feedback]');
     var routes = [
       { terms: ['总览', '首页', '观察窗', '信号'], label: '总览', url: 'index.html' },
       { terms: ['方法', '文章', '读数', '背景'], label: '观察方法', url: 'article.html' },
       { terms: ['阈值', '校准', '提醒', '告警'], label: '阈值校准', url: 'tool.html' },
       { terms: ['守则', '规则', '隐私', '权限'], label: '瞭望守则', url: 'legal.html' }
     ];
+    finderInput.addEventListener('input', function () { finderInput.removeAttribute('aria-invalid'); finderFeedback.textContent = '可搜索：总览、观察方法、阈值校准、瞭望守则。'; });
     finder.addEventListener('submit', function (event) {
       event.preventDefault();
-      var query = finder.elements.query.value.trim().toLowerCase();
-      var feedback = document.querySelector('[data-finder-feedback]');
-      if (!query) { feedback.textContent = '先输入一个关键词，例如“阈值”或“守则”。'; finder.elements.query.focus(); return; }
-      var hit = routes.find(function (route) { return route.terms.some(function (term) { return term.toLowerCase().indexOf(query) !== -1 || query.indexOf(term.toLowerCase()) !== -1; }); });
-      if (hit) feedback.innerHTML = '找到“' + hit.label + '”。<a class="text-link" href="' + hit.url + '">前往页面</a>';
-      else feedback.textContent = '没有匹配“' + query + '”。试试“方法”“阈值”或“守则”。';
+      var query = normalize(finderInput.value).toLocaleLowerCase();
+      finderFeedback.textContent = '';
+      if (!query) { finderInput.setAttribute('aria-invalid', 'true'); finderFeedback.textContent = '先输入一个关键词，例如“阈值”或“守则”。'; finderInput.focus(); return; }
+      var hit = routes.find(function (route) { return route.terms.some(function (term) { var normalizedTerm = normalize(term).toLocaleLowerCase();return normalizedTerm.indexOf(query) !== -1 || query.indexOf(normalizedTerm) !== -1; }); });
+      if (hit) { finderFeedback.append(document.createTextNode('找到“' + hit.label + '”。'));var link = document.createElement('a');link.className = 'lo46-text-link';link.href = hit.url;link.textContent = '前往页面';finderFeedback.appendChild(link); }
+      else finderFeedback.textContent = '没有匹配“' + query + '”。试试“方法”“阈值”或“守则”。';
     });
   }
 }());
