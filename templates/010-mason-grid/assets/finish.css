@@ -157,3 +157,10 @@
   .brick-yard__brick:hover { box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.42); }
   .code-plate { color: #f4efe3; background: #0f1110; }
 }
+
+/* 2026-08 final QA: complete copy/filter feedback and compact-link targets */
+.code-plate__copy,.kindset__bar button{transition:background 180ms ease,color 180ms ease,box-shadow 180ms ease,transform 180ms ease}
+.code-plate__copy:hover,.kindset__bar button:hover{box-shadow:0 7px 0 rgba(23,26,25,.14);transform:translateY(-2px)}
+.code-plate__copy:active,.kindset__bar button:active{box-shadow:none;transform:translateY(1px)}
+.ground__line a,.hole a{display:inline-flex;align-items:center;min-height:36px;border-bottom:1px solid currentColor;transition:color 180ms ease,border-color 180ms ease,transform 180ms ease}
+.ground__line a:hover,.hole a:hover{border-color:var(--yellow);color:var(--yellow);transform:translateX(3px)}
