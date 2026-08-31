@@ -16,3 +16,23 @@
 /* Boutique QA refinements — complete interaction and content states */
 .filter-bar__reset{min-height:46px;padding:8px 14px;border:0;border-bottom:1px solid var(--ink);background:transparent;color:var(--ink);font-size:10px;font-weight:750;letter-spacing:.1em}.rate-board__empty{margin:18px 0 0;padding:16px 18px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 8%,transparent);color:var(--ink);font-size:12px}.page-well .essay>h1{font-size:clamp(44px,5vw,66px);text-wrap:balance}.page-well .essay>.essay__lead{margin-bottom:48px;padding-left:22px;border-left:3px solid var(--accent);font-family:var(--serif);font-size:21px;line-height:1.7}.page-well .legal-sheet__date{margin:22px 0 55px;color:var(--muted);font-family:var(--mono);font-size:10px}.page-well .calc-box__out[data-state=success]{border-left-color:var(--green)}.page-well .calc-box__out[data-state=error]{background:color-mix(in srgb,var(--accent) 8%,transparent);color:var(--accent-dark)}
 @media(max-width:880px){.filter-bar__reset{margin-left:auto}.page-well .essay>h1{font-size:43px}.page-well .essay>.essay__lead{font-size:18px}}
+
+/* 2026-08 final QA: richer feedback and comfortable mobile targets */
+.invite-strip__copy,.page-well .calc-box__go{transition:background .18s,transform .18s,box-shadow .18s}
+.invite-strip__copy:hover,.page-well .calc-box__go:hover{background:var(--accent-dark);box-shadow:0 9px 24px rgba(0,0,0,.2);transform:translateY(-2px)}
+.invite-strip__copy:active,.page-well .calc-box__go:active{box-shadow:none;transform:translateY(1px)}
+.filter-bar__reset{transition:color .18s,border-color .18s,transform .18s}
+.filter-bar__reset:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+.filter-bar__reset:active{transform:translateY(1px)}
+.spec-card{transition:background .2s,transform .2s}
+.spec-card:hover{background:color-mix(in srgb,var(--accent) 5%,transparent);transform:translateY(-3px)}
+.site-foot__link{transition:color .18s,transform .18s}
+.site-foot__link:hover{transform:translateX(3px)}
+.lost a{display:inline-flex;align-items:center;min-height:44px;padding:5px 0;transition:color .18s,border-color .18s,transform .18s}
+.lost a:hover{border-color:var(--accent);color:var(--accent);transform:translateX(3px)}
+@media(max-width:880px){
+  .top-line__brand,.top-line__link,.site-foot__link{display:flex;align-items:center;min-height:44px}
+  .top-line__brand{padding-bottom:12px}
+  .top-line__link{padding-top:12px;padding-bottom:12px}
+  .site-foot__link{padding-top:8px;padding-bottom:8px}
+}
