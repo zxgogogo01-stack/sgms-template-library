@@ -1,36 +1,9 @@
-<!DOCTYPE html>
-<html lang='~LANG~'>
-<head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>页面不存在 — ~SITE_NAME~</title>
-  <meta name='robots' content='noindex'>
-  <link rel='stylesheet' href='assets/deckset.css'>
-  <style>
-    /* 404 extras */
-    .mislaid { max-width: 460px; margin: 15vh auto; padding: 0 24px; text-align: center; }
-    .mislaid-card {
-      background: var(--vellum2);
-      border-radius: var(--bow);
-      box-shadow: var(--murk-hi);
-      border-top: 4px solid var(--straw2);
-      padding: 50px 40px;
-    }
-    .mislaid-card h1 {
-      font-family: var(--serif62);
-      font-size: 3.2rem;
-      color: var(--straw2-deep);
-    }
-    .mislaid-card p { color: var(--faint2); margin: 8px 0 22px; }
-  </style>
-</head>
+<!doctype html>
+<html lang="%%LANG%%" data-theme="straw">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#ead7ae"><title>页面未收录 — %%SITE_NAME%%</title><link rel="stylesheet" href="style.css"></head>
 <body>
-  <div class='mislaid'>
-    <div class='mislaid-card'>
-      <h1>404</h1>
-      <p>这张卡不在牌堆里——可能已经抽走了。</p>
-      <a class='knurl knurl-hot' href='index.html'>回卡组</a>
-    </div>
-  </div>
+  <a class="sf62-skip" href="#sf62-main">跳到主要内容</a><header class="sf62-mast"><div><a class="sf62-brand" href="index.html"><span>拾贰</span><b>%%BRAND_EN%%</b></a><button class="sf62-menu-button" type="button" aria-controls="sf62-menu" aria-expanded="false"><i aria-hidden="true"></i><span>目录</span></button><nav class="sf62-menu" id="sf62-menu" aria-label="主导航"><a href="index.html">展册</a><a href="article.html">编纂札记</a><a href="tool.html">锚点工坊</a><a href="legal.html">编辑公约</a><button type="button" data-palette-toggle aria-label="切换色彩主题">夜读</button></nav></div></header>
+  <main class="sf62-missing" id="sf62-main"><figure aria-hidden="true"><div><i></i><i></i><i></i><i></i><b>404</b></div></figure><section><p>LOOSE LEAF / 404</p><h1>这一页没有装订进展册。</h1><span>输入一个编辑词，我们会从本地目录指出最近的页签。</span><form data-folio-search novalidate><label for="sf62-query">查找页签</label><div><input id="sf62-query" type="search" maxlength="80" autocomplete="off" placeholder="如：来源、锚点、披露" aria-describedby="sf62-search-help sf62-search-result"><button type="submit">查找</button></div><small id="sf62-search-help">最多 80 个字符，不向外部发送内容。</small><p id="sf62-search-result" data-folio-result role="status" aria-live="polite">也可以直接返回<a href="index.html">展册首页</a>。</p></form></section></main>
+  <script src="crease.js"></script>
 </body>
 </html>

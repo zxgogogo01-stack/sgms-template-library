@@ -1,125 +1,35 @@
-<!DOCTYPE html>
-<html lang='~LANG~'>
+<!doctype html>
+<html lang="%%LANG%%" data-theme="straw">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta name='theme-color' content='#f6f1e3'>
-  <title>文章样板 — ~SITE_NAME~</title>
-  <meta name='description' content='卡组站文章页样板。'>
-  <link rel='canonical' href='https://~SITE_DOMAIN~/article.html'>
-  <meta property='og:type' content='article'>
-  <meta property='og:site_name' content='~SITE_NAME~'>
-  <meta property='og:title' content='文章样板 — ~SITE_NAME~'>
-  <meta property='og:description' content='卡组站文章页样板。'>
-  <meta property='og:url' content='https://~SITE_DOMAIN~/article.html'>
-  <meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='assets/deckset.css'>
-  <script type='application/ld+json'>
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "文章样板",
-    "datePublished": "2026-01-19",
-    "mainEntityOfPage": "https://~SITE_DOMAIN~/article.html"
-  }
-  </script>
-  <style>
-    /* article extras */
-    .quire { max-width: 740px; margin: 0 auto; padding: 46px 24px 84px; }
-    .quire-card {
-      background: var(--vellum2);
-      border-radius: var(--bow);
-      box-shadow: var(--murk-hi);
-      padding: 44px 50px;
-    }
-    .quire-crumb { font-size: .84rem; color: var(--faint2); margin-bottom: 12px; }
-    .quire-crumb a { color: var(--straw2-deep); font-weight: 700; }
-    .quire-card h1 {
-      font-family: var(--serif62);
-      font-size: clamp(1.5rem, 3.4vw, 2rem);
-      line-height: 1.33;
-    }
-    .quire-meta { margin: 11px 0 0; font-family: var(--mono62); font-variant-numeric: tabular-nums; font-size: .84rem; color: var(--faint2); }
-    .quire-gist {
-      margin: 26px 0;
-      padding: 16px 22px;
-      border-radius: 11px;
-      background: var(--haze2);
-      border-left: 4px solid var(--straw2);
-    }
-    .quire-card h2 {
-      font-family: var(--serif62);
-      font-size: 1.24rem;
-      margin: 32px 0 12px;
-      padding-left: 13px;
-      border-left: 4px solid var(--straw2);
-    }
-    .quire-card p { margin: 0 0 14px; }
-    .quire-roll { overflow-x: auto; border-radius: 11px; box-shadow: inset 0 0 0 1px var(--thread2); margin: 14px 0 8px; }
-    .quire-card table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-    .quire-card th, .quire-card td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--thread2); font-size: .9rem; white-space: nowrap; }
-    .quire-card thead th { background: var(--haze2); color: var(--straw2-deep); font-size: .82rem; letter-spacing: .08em; border-bottom: 0; }
-    .quire-card tbody tr:last-child td { border-bottom: 0; }
-    .quire-fine { font-size: .84rem; color: var(--faint2); }
-    @media (max-width: 680px) {
-      .quire-card { padding: 28px 22px; }
-      .quire-card th, .quire-card td { white-space: normal; }
-    }
-  </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ead7ae">
+  <title>编纂札记 — %%SITE_NAME%%</title><meta name="description" content="用入口、边界、证据与交接四片折页整理公开规则。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/article.html">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="%%SITE_NAME%%"><meta property="og:title" content="编纂札记 — %%SITE_NAME%%"><meta property="og:description" content="一份可复核、可交接的公开规则编纂方法。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/article.html"><meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class='visor'>
-    <div class='visor-in'>
-      <a class='visor-brand' href='index.html'>~BRAND_EN~</a>
-      <button type='button' class='visor-btn' id='visor-btn' aria-label='主导航' aria-expanded='false' aria-controls='visor-nav'>
-        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
-      </button>
-      <nav class='visor-nav' id='visor-nav' aria-label='主导航'>
-        <a href='index.html'>卡组</a>
-        <a href='article.html' aria-current='page'>文章</a>
-        <a href='tool.html'>年费估算</a>
-        <a href='legal.html'>披露</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class='quire'>
-    <article class='quire-card'>
-      <p class='quire-crumb'><a href='index.html'>卡组</a> / 费率观察</p>
-      <h1>示例平台A 挂单档位调整：返佣基数怎么跟着变</h1>
-      <p class='quire-meta'>发布 2026-01-19 · 口径核对 2026-01-19</p>
-
-      <div class='quire-gist'><b>先说结论：</b>费率档位变化会沿着手续费基数传导到返佣金额；核对时应同时确认产品线、账户档位与生效时间。</div>
-
-      <h2>变了什么</h2>
-      <p>先记录调整覆盖的产品、账户层级和生效时间，并把时区统一到自己的账单时区；随后保存规则页版本，便于到账后逐项复核。</p>
-
-      <h2>对返佣的传导</h2>
-      <p>计算顺序是成交额乘手续费率得到手续费，再乘可返比例得到预计返佣。若存在抵扣、上限或排除产品，应先从计佣基数中剔除。</p>
-      <div class='quire-roll'>
-        <table>
-          <thead>
-            <tr><th scope='col'>项目</th><th scope='col'>调整前</th><th scope='col'>调整后</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>挂单费率（基础档）</td><td>0.0X%</td><td>0.0X%</td></tr>
-            <tr><td>演示返佣（每万元）</td><td>X.XX</td><td>X.XX</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class='quire-fine'>表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
-
-      <h2>要不要动</h2>
-      <p>判断时不要只看返佣比例，还要核对费率、产品范围、结算门槛与到账周期。规则可能调整，正式决策应以账户页面的最新显示为准。</p>
+  <a class="sf62-skip" href="#sf62-main">跳到主要内容</a>
+  <header class="sf62-mast"><div><a class="sf62-brand" href="index.html"><span>拾贰</span><b>%%BRAND_EN%%</b></a><button class="sf62-menu-button" type="button" aria-controls="sf62-menu" aria-expanded="false"><i aria-hidden="true"></i><span>目录</span></button><nav class="sf62-menu" id="sf62-menu" aria-label="主导航"><a href="index.html">展册</a><a aria-current="page" href="article.html">编纂札记</a><a href="tool.html">锚点工坊</a><a href="legal.html">编辑公约</a><button type="button" data-palette-toggle aria-label="切换色彩主题">夜读</button></nav></div></header>
+  <div class="sf62-progress" aria-hidden="true"><i data-reading-progress></i></div>
+  <main class="sf62-note" id="sf62-main">
+    <nav class="sf62-crumb" aria-label="面包屑"><a href="index.html">展册</a><span>／</span><span aria-current="page">编纂札记</span></nav>
+    <article>
+      <header class="sf62-note-head"><aside><b>FOLIO</b><span>062—A</span><i>20 JAN 2026</i></aside><div><p>EDITORIAL FIELD NOTE</p><h1>把一条公开规则，编成别人能复核的页面</h1><span>目标不是把文字写得像结论，而是让每个判断都能回到来源、范围、时间与未决问题。</span></div></header>
+      <div class="sf62-opening"><b>先定骨架</b><p>正式写作前，先建立四个独立章节：入口、边界、证据和交接。无法确认的内容保留“待核实”，不要用经验补齐。</p></div>
+      <section class="sf62-note-section" id="entry"><aside><b>壹</b><span>ENTRY</span></aside><div><h2>从规则主体的正式入口开始</h2><p>优先使用与目标地区和账户主体对应的官方帮助中心、费率页、活动条款或登录后页面。第三方截图和转述可以提供线索，但不应成为最终依据。</p><ul><li>记录页面标题、发行主体、地区或语言。</li><li>保存发布日期、更新时间或实际访问时间。</li><li>若页面需要登录，注明可见资格和账户条件。</li></ul></div><small>页边注 01<br>入口本身也是证据。</small></section>
+      <section class="sf62-note-section" id="boundary"><aside><b>贰</b><span>BOUNDARY</span></aside><div><h2>把适用边界写成显式字段</h2><p>同一平台可能对不同产品、账户等级、邀请关系和时间窗口采用不同口径。把这些条件拆开，能防止读者把局部规则外推成全站承诺。</p><div class="sf62-boundary"><dl><div><dt>产品</dt><dd>现货 / 合约 / 其他</dd></div><div><dt>账户</dt><dd>新户 / 既有用户 / 等级</dd></div><div><dt>地区</dt><dd>主体与语言版本</dd></div><div><dt>时间</dt><dd>生效、截止与时区</dd></div><div><dt>排除</dt><dd>活动、品类与资格</dd></div><div><dt>状态</dt><dd>已确认 / 待核实</dd></div></dl></div></div><small>页边注 02<br>字段空缺比假精确更诚实。</small></section>
+      <figure class="sf62-fold-map" aria-labelledby="sf62-fold-caption"><div><span>入口</span><i></i><span>边界</span><i></i><span>证据</span><i></i><span>交接</span></div><figcaption id="sf62-fold-caption">四片折页按顺序展开，也能从结论反向折回来源。</figcaption></figure>
+      <section class="sf62-note-section" id="evidence"><aside><b>叁</b><span>EVIDENCE</span></aside><div><h2>让目录和引用在改稿后仍然稳定</h2><p>章节标题会随着编辑变化，手写 id 容易重复或失联。可以先用<a href="tool.html">锚点工坊</a>生成稳定草稿，再把页面目录、脚注和内部链接统一到同一组锚点。</p><blockquote>工具只负责规范化与去重；发布前仍要检查成品页面内是否已有相同 id。</blockquote></div><small>页边注 03<br>链接可达是交接的一部分。</small></section>
+      <section class="sf62-note-section" id="handoff"><aside><b>肆</b><span>HANDOFF</span></aside><div><h2>把未决问题一起交给下一位编辑</h2><p>完成页不等于没有未知。交接记录应说明已经核对了什么、哪些条件仍缺证据、下一次应从哪里继续，以及内容何时需要重新打开官方来源。</p><ol><li>列出已确认的来源和适用边界。</li><li>逐条写出待核实项，不把它们藏在正文语气里。</li><li>设定复核触发条件：日期、规则更新或读者反馈。</li></ol></div><small>页边注 04<br>未知项必须有下一步。</small></section>
+      <aside class="sf62-handoff" aria-labelledby="sf62-handoff-title"><div><p>EDITORIAL SLIP</p><h2 id="sf62-handoff-title">可复制的编纂交接单</h2><span>方括号内容需按具体页面补齐。</span></div><pre data-handoff-text>页面：[标题 / 路径]
+正式入口：[页面标题 / 访问日期]
+适用边界：[产品 / 账户 / 地区 / 时间]
+已确认：[结论与对应证据]
+待核实：[问题与下一步]
+复核触发：[日期 / 规则更新 / 反馈]</pre><button type="button" data-copy-handoff>复制交接单</button><p data-handoff-status role="status" aria-live="polite"></p></aside>
+      <footer class="sf62-note-foot"><p>编纂方法仅用于信息整理，不构成投资、税务或法律建议。</p><a href="legal.html">阅读编辑公约</a></footer>
     </article>
   </main>
-
-  <footer class='stern'>
-    <div class='stern-in'>
-      <p class='stern-fine'>内容为信息整理，以各平台官方页面为准；不构成投资建议。</p>
-    </div>
-  </footer>
-
-  <script src='assets/deckset.js'></script>
+  <footer class="sf62-footer"><p><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span></p><small>FOLIO 062 · 信息整理，不构成投资建议</small></footer>
+  <script src="crease.js"></script>
 </body>
 </html>
