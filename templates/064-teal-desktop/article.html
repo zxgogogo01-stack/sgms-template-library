@@ -1,133 +1,35 @@
-<!DOCTYPE html>
-<html lang='[[LANG]]'>
+<!doctype html>
+<html lang="%%LANG%%" data-theme="teal">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta name='theme-color' content='#2f6b66'>
-  <title>文档样板 — [[SITE_NAME]]</title>
-  <meta name='description' content='工作台站文档页样板。'>
-  <link rel='canonical' href='https://[[SITE_DOMAIN]]/article.html'>
-  <meta property='og:type' content='article'>
-  <meta property='og:site_name' content='[[SITE_NAME]]'>
-  <meta property='og:title' content='文档样板 — [[SITE_NAME]]'>
-  <meta property='og:description' content='工作台站文档页样板。'>
-  <meta property='og:url' content='https://[[SITE_DOMAIN]]/article.html'>
-  <meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='static/os.css'>
-  <script type='application/ld+json'>
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "文档样板",
-    "datePublished": "2026-01-19",
-    "mainEntityOfPage": "https://[[SITE_DOMAIN]]/article.html"
-  }
-  </script>
-  <style>
-    .readpane { max-width: 760px; margin: 0 auto; padding: 44px 24px 80px; }
-    .readpane-win {
-      border-radius: var(--nub64);
-      background: var(--chassis-2);
-      border: 1.5px solid var(--bezel);
-      box-shadow: var(--drop64-hi);
-      overflow: hidden;
-    }
-    .readpane-body { padding: 36px 46px 44px; }
-    .readpane-crumb { font-family: var(--mono64); font-size: .8rem; color: var(--etch-dim); margin-bottom: 12px; }
-    .readpane-crumb a { color: var(--keytone); font-weight: 700; }
-    .readpane-body h1 {
-      font-family: var(--serif64);
-      font-size: clamp(1.45rem, 3.3vw, 1.95rem);
-      line-height: 1.34;
-    }
-    .readpane-meta { margin: 10px 0 0; font-family: var(--mono64); font-variant-numeric: tabular-nums; font-size: .82rem; color: var(--etch-dim); }
-    .readpane-gist {
-      margin: 24px 0;
-      padding: 15px 20px;
-      border-radius: 8px;
-      background: var(--wellx);
-      border-left: 4px solid var(--amberled);
-    }
-    .readpane-body h2 {
-      font-family: var(--serif64);
-      font-size: 1.2rem;
-      margin: 30px 0 11px;
-      padding-left: 12px;
-      border-left: 4px solid var(--keytone);
-    }
-    .readpane-body p { margin: 0 0 13px; }
-    .readpane-roll { overflow-x: auto; border-radius: 8px; border: 1.5px solid var(--bezel); margin: 14px 0 8px; }
-    .readpane-body table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-    .readpane-body th, .readpane-body td { text-align: left; padding: 10px 15px; border-bottom: 1px solid var(--bezel); font-size: .89rem; white-space: nowrap; }
-    .readpane-body thead th { background: var(--wellx); color: var(--keytone); font-family: var(--mono64); font-size: .76rem; letter-spacing: .1em; border-bottom: 0; }
-    .readpane-body tbody tr:nth-child(even) { background: color-mix(in srgb, var(--wellx) 45%, transparent); }
-    .readpane-body tbody tr:last-child td { border-bottom: 0; }
-    .readpane-fine { font-size: .83rem; color: var(--etch-dim); }
-    @media (max-width: 640px) {
-      .readpane-body { padding: 26px 20px 32px; }
-      .readpane-body th, .readpane-body td { white-space: normal; }
-    }
-  </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0f4c4b">
+  <title>核对笔记 — %%SITE_NAME%%</title><meta name="description" content="用来源护照、范围字段、证据状态与未决问题整理公开规则。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/article.html">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="%%SITE_NAME%%"><meta property="og:title" content="核对笔记 — %%SITE_NAME%%"><meta property="og:description" content="一份可追溯、可交接的公开规则核对笔记。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/article.html"><meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class='menubar'>
-    <div class='menubar-in'>
-      <a class='menubar-brand' href='index.html'>[[BRAND_EN]]</a>
-      <button type='button' class='menubar-btn' id='menubar-btn' aria-label='主导航' aria-expanded='false' aria-controls='menubar-nav'>
-        <svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
-      </button>
-      <nav class='menubar-nav' id='menubar-nav' aria-label='主导航'>
-        <a href='index.html'>工作台</a>
-        <a href='article.html' aria-current='page'>文档</a>
-        <a href='tool.html'>比例还原</a>
-        <a href='legal.html'>披露</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class='readpane'>
-    <article class='readpane-win'>
-      <div class='winbar'>
-        <span class='lamps' aria-hidden='true'><i class='lamp lamp-r'></i><i class='lamp lamp-y'></i><i class='lamp lamp-g'></i></span>
-        <span class='winbar-name'>费率观察.txt</span>
-      </div>
-      <div class='readpane-body'>
-        <p class='readpane-crumb'><a href='index.html'>工作台</a> \ 费率与返佣</p>
-        <h1>示例平台A 挂单档位调整：返佣基数怎么跟着变</h1>
-        <p class='readpane-meta'>发布 2026-01-19 · 口径核对 2026-01-19</p>
-
-        <div class='readpane-gist'><b>先说结论：</b>费率档位变化会沿着手续费基数传导到返佣金额；核对时应同时确认产品线、账户档位与生效时间。</div>
-
-        <h2>变了什么</h2>
-        <p>先记录调整覆盖的产品、账户层级和生效时间，并把时区统一到自己的账单时区；随后保存规则页版本，便于到账后逐项复核。</p>
-
-        <h2>对返佣的传导</h2>
-        <p>计算顺序是成交额乘手续费率得到手续费，再乘可返比例得到预计返佣。若存在抵扣、上限或排除产品，应先从计佣基数中剔除。</p>
-        <div class='readpane-roll'>
-          <table>
-            <thead>
-              <tr><th scope='col'>项目</th><th scope='col'>调整前</th><th scope='col'>调整后</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>挂单费率（基础档）</td><td>0.0X%</td><td>0.0X%</td></tr>
-              <tr><td>演示返佣（每万元）</td><td>X.XX</td><td>X.XX</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class='readpane-fine'>表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
-
-        <h2>要不要动</h2>
-        <p>判断时不要只看返佣比例，还要核对费率、产品范围、结算门槛与到账周期。规则可能调整，正式决策应以账户页面的最新显示为准。</p>
-      </div>
+  <a class="td64-skip" href="#td64-main">跳到主要内容</a>
+  <header class="td64-console"><div><a class="td64-wordmark" href="index.html"><b>64</b><span>%%BRAND_EN%%</span></a><button class="td64-menu-button" type="button" aria-controls="td64-menu" aria-expanded="false"><i aria-hidden="true"></i><span>资料夹</span></button><nav class="td64-menu" id="td64-menu" aria-label="主导航"><a href="index.html">研究桌</a><a aria-current="page" href="article.html">核对笔记</a><a href="tool.html">表格检查</a><a href="legal.html">公开说明</a><button type="button" data-desk-toggle aria-label="切换桌面主题">夜班</button></nav></div></header>
+  <div class="td64-progress" aria-hidden="true"><i data-reading-progress></i></div>
+  <main class="td64-memo" id="td64-main">
+    <nav class="td64-crumb" aria-label="面包屑"><a href="index.html">研究桌</a><span>/</span><span aria-current="page">核对笔记</span></nav>
+    <article>
+      <header class="td64-memo-head"><div><p>FIELD NOTE · R-064-01</p><h1>把公开规则整理成一份可追溯、可接手的核对笔记</h1><span>笔记不提供具体平台比例，而展示如何分离原始来源、适用范围、编辑判断和待核实项。</span></div><dl><div><dt>状态</dt><dd>SECOND PASS</dd></div><div><dt>建立</dt><dd>2026-01-22</dd></div><div><dt>复核</dt><dd>2026-02-22</dd></div><div><dt>负责人</dt><dd>EDITORIAL DESK</dd></div></dl></header>
+      <aside class="td64-passport" aria-label="来源护照"><b>SOURCE PASSPORT</b><dl><div><dt>主体</dt><dd>待填正式发行主体</dd></div><div><dt>页面</dt><dd>待填官方页面标题</dd></div><div><dt>地区</dt><dd>待填适用地区与语言</dd></div><div><dt>访问</dt><dd>2026-01-22 14:30 UTC</dd></div></dl></aside>
+      <section class="td64-memo-section" id="source"><aside><b>01</b><span>RAW SOURCE</span></aside><div><h2>先保存原始来源，再写编辑摘要</h2><p>优先从目标地区和账户主体对应的官方主站、帮助中心、费率页、活动条款或登录后页面开始。第三方转述只能提供线索，不能代替规则原文。</p><ul><li>记录页面标题、发行主体、发布日期与访问时间。</li><li>保留版本线索；无版本号时至少保留日期。</li><li>登录可见页面注明账户资格和访问条件。</li></ul></div></section>
+      <section class="td64-memo-section" id="scope"><aside><b>02</b><span>SCOPE FIELDS</span></aside><div><h2>把适用范围拆成独立字段</h2><p>产品、账户、地区、时间和排除项应分别记录。任何一个字段缺失，都可能使局部规则被误读为全站承诺。</p><div class="td64-scope-grid"><dl><div><dt>产品</dt><dd>目标品类 / 排除项</dd></div><div><dt>账户</dt><dd>等级 / 资格 / 邀请关系</dd></div><div><dt>地区</dt><dd>主体 / 语言 / 法域</dd></div><div><dt>时间</dt><dd>生效 / 截止 / 时区</dd></div></dl></div></div></section>
+      <figure class="td64-evidence-map" aria-labelledby="td64-evidence-caption"><div><span>原文</span><i></i><span>范围</span><i></i><span>判断</span><i></i><span>未知</span></div><figcaption id="td64-evidence-caption">四类资料分开存放，结论才能反向回到证据。</figcaption></figure>
+      <section class="td64-memo-section" id="judgement"><aside><b>03</b><span>EDITOR NOTE</span></aside><div><h2>用证据强度决定正文语气</h2><p>主体、版本和范围均完整时，可以标记“已核对”；缺少任何关键条件时，应标记“待核实”，并把需要补充的证据写出来。</p><blockquote>不知道时保留空白，比用熟悉的数字补齐更可靠。</blockquote></div></section>
+      <section class="td64-memo-section" id="open"><aside><b>04</b><span>OPEN QUESTION</span></aside><div><h2>每个未知项都要带下一步</h2><p>交接记录应说明已经确认了什么、哪些问题仍未解决、由谁继续，以及在什么日期或规则变化后重新打开来源。</p><ol><li>列出待核实问题及所需证据。</li><li>指定下一位负责人或处理角色。</li><li>设定日期、规则更新或读者反馈触发。</li></ol></div></section>
+      <aside class="td64-handoff" aria-labelledby="td64-handoff-title"><div><p>DESK HANDOFF</p><h2 id="td64-handoff-title">可复制的研究交接记录</h2><span>方括号内容需按具体资料补齐。</span></div><pre data-handoff-text>资料：[标题 / 路径]
+来源护照：[主体 / 页面 / 地区 / 访问日期]
+适用范围：[产品 / 账户 / 地区 / 时间]
+已核对：[结论与证据]
+待核实：[问题 / 所需证据 / 负责人]
+复核触发：[日期 / 规则更新 / 反馈]</pre><button type="button" data-copy-handoff>复制交接记录</button><p data-handoff-status role="status" aria-live="polite"></p></aside>
+      <footer class="td64-memo-foot"><p>核对方法仅用于信息整理，不构成投资、税务或法律建议。</p><a href="legal.html">查看公开说明</a></footer>
     </article>
   </main>
-
-  <footer class='powerdown'>
-    <div class='powerdown-in'>
-      <p class='powerdown-fine'>内容为信息整理，以各平台官方页面为准；不构成投资建议。</p>
-    </div>
-  </footer>
-
-  <script src='static/os.js'></script>
+  <footer class="td64-footer"><p><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span></p><small>DESK 064 · 信息整理，不构成投资建议</small></footer>
+  <script src="workbench.js"></script>
 </body>
 </html>

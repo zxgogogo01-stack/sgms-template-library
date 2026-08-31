@@ -1,43 +1,9 @@
-<!DOCTYPE html>
-<html lang='[[LANG]]'>
-<head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>文件未找到 — [[SITE_NAME]]</title>
-  <meta name='robots' content='noindex'>
-  <link rel='stylesheet' href='static/os.css'>
-  <style>
-    .notfound64 { max-width: 480px; margin: 14vh auto; padding: 0 24px; }
-    .notfound64-win {
-      border-radius: var(--nub64);
-      background: var(--chassis-2);
-      border: 1.5px solid var(--bezel);
-      box-shadow: var(--drop64-hi);
-      overflow: hidden;
-    }
-    .notfound64-body { padding: 40px 38px; text-align: center; }
-    .notfound64-body h1 {
-      font-family: var(--mono64);
-      font-size: 2.9rem;
-      letter-spacing: .1em;
-      color: var(--keytone);
-    }
-    .notfound64-body p { color: var(--etch-dim); margin: 8px 0 22px; }
-  </style>
-</head>
+<!doctype html>
+<html lang="%%LANG%%" data-theme="teal">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#0f4c4b"><title>资料未登记 — %%SITE_NAME%%</title><link rel="stylesheet" href="style.css"></head>
 <body>
-  <div class='notfound64'>
-    <div class='notfound64-win'>
-      <div class='winbar'>
-        <span class='lamps' aria-hidden='true'><i class='lamp lamp-r'></i><i class='lamp lamp-y'></i><i class='lamp lamp-g'></i></span>
-        <span class='winbar-name'>错误 404</span>
-      </div>
-      <div class='notfound64-body'>
-        <h1>404</h1>
-        <p>文件未找到——可能已移动、重命名或删除。</p>
-        <a class='osbtn osbtn-go' href='index.html'>返回工作台</a>
-      </div>
-    </div>
-  </div>
+  <a class="td64-skip" href="#td64-main">跳到主要内容</a><header class="td64-console"><div><a class="td64-wordmark" href="index.html"><b>64</b><span>%%BRAND_EN%%</span></a><button class="td64-menu-button" type="button" aria-controls="td64-menu" aria-expanded="false"><i aria-hidden="true"></i><span>资料夹</span></button><nav class="td64-menu" id="td64-menu" aria-label="主导航"><a href="index.html">研究桌</a><a href="article.html">核对笔记</a><a href="tool.html">表格检查</a><a href="legal.html">公开说明</a><button type="button" data-desk-toggle aria-label="切换桌面主题">夜班</button></nav></div></header>
+  <main class="td64-unfiled" id="td64-main"><figure aria-hidden="true"><div><span>404</span><i></i><b>UNFILED</b></div></figure><section><p>RECORD NOT FOUND / 404</p><h1>这份资料没有登记在桌面上。</h1><span>输入一个研究词，本地索引会指出最近的资料夹。</span><form data-desk-search novalidate><label for="td64-query">搜索资料夹</label><div><input id="td64-query" type="search" maxlength="80" autocomplete="off" placeholder="如：来源、表格、披露" aria-describedby="td64-search-help td64-search-result"><button type="submit">搜索</button></div><small id="td64-search-help">最多 80 个字符，不向外部发送内容。</small><p id="td64-search-result" data-desk-result role="status" aria-live="polite">也可以返回<a href="index.html">研究桌首页</a>。</p></form></section></main>
+  <script src="workbench.js"></script>
 </body>
 </html>
