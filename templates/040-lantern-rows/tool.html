@@ -6,32 +6,32 @@
   <meta property="og:title" content="行号工房 · __SITE_NAME__"><meta property="og:description" content="为逐行文本添加编号与前缀。"><meta property="og:url" content="https://__SITE_DOMAIN__/tool.html"><link rel="stylesheet" href="site.css">
 </head>
 <body data-page="tool">
-  <a class="skip-link" href="#main">跳到主要内容</a><div class="signal-bar"><span>040 / LANTERN ROWS</span><span>LOCAL TYPESETTING TOOL</span><span>不上传内容</span></div>
-  <header class="site-header"><div class="shell header-inner"><a class="brand" href="index.html" aria-label="__SITE_NAME__ 首页"><span class="brand-lantern" aria-hidden="true"><i></i></span><span><strong>__SITE_NAME__</strong><small>把一天的信号整理成行</small></span></a><button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav">目录</button><nav class="site-nav" id="site-nav" data-site-nav aria-label="主要导航"><a href="index.html">夜行索引</a><a href="article.html">本夜长读</a><a href="tool.html" aria-current="page">行号工房</a><a href="legal.html">编辑约定</a></nav><button class="theme-toggle" type="button" data-theme-toggle aria-label="切换深浅主题"><span aria-hidden="true">◐</span><span data-theme-label>夜色</span></button></div></header>
+  <a class="lr40-skip-link" href="#main">跳到主要内容</a><div class="lr40-signal-bar"><span>040 / LANTERN ROWS</span><span>LOCAL TYPESETTING TOOL</span><span>不上传内容</span></div>
+  <header class="lr40-site-header"><div class="lr40-shell lr40-header-inner"><a class="lr40-brand" href="index.html" aria-label="__SITE_NAME__ 首页"><span class="lr40-brand-lantern" aria-hidden="true"><i></i></span><span><strong>__SITE_NAME__</strong><small>把一天的信号整理成行</small></span></a><button class="lr40-menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav">目录</button><nav class="lr40-site-nav" id="site-nav" data-site-nav aria-label="主要导航"><a href="index.html">夜行索引</a><a href="article.html">本夜长读</a><a href="tool.html" aria-current="page">行号工房</a><a href="legal.html">编辑约定</a></nav><button class="lr40-theme-toggle" type="button" data-theme-toggle aria-label="切换深浅主题"><span aria-hidden="true">◐</span><span data-theme-label>夜色</span></button></div></header>
 
-  <main id="main" class="tool-page">
-    <section class="shell page-intro"><div><p class="eyebrow"><span></span>ROW NUMBERING DESK</p><h1>让每一行，<br><em>都有准确的位置。</em></h1></div><p>粘贴逐行文本，设定起始号、位数与前缀，即时生成适合校对、采访记录和内容迁移的编号版本。处理完全在本地浏览器完成。</p></section>
-    <section class="shell tool-workbench" aria-labelledby="workbench-title">
-      <div class="bench-title"><div><p>WORKBENCH / 01</p><h2 id="workbench-title">行号排版台</h2></div><span class="privacy-badge"><i></i> 本地处理</span></div>
+  <main id="main" class="lr40-tool-page">
+    <section class="lr40-shell lr40-page-intro"><div><p class="lr40-eyebrow"><span></span>ROW NUMBERING DESK</p><h1>让每一行，<br><em>都有准确的位置。</em></h1></div><p>粘贴逐行文本，设定起始号、位数与前缀，即时生成适合校对、采访记录和内容迁移的编号版本。处理完全在本地浏览器完成。</p></section>
+    <section class="lr40-shell lr40-tool-workbench" aria-labelledby="workbench-title">
+      <div class="lr40-bench-title"><div><p>WORKBENCH / 01</p><h2 id="workbench-title">行号排版台</h2></div><span class="lr40-privacy-badge"><i></i> 本地处理</span></div>
       <form data-line-form novalidate>
-        <div class="tool-columns">
-          <section class="tool-panel input-panel"><div class="panel-head"><label for="line-input">原始文本</label><span data-input-count>0 行 · 0 字</span></div><textarea id="line-input" rows="13" maxlength="12000" placeholder="把需要整理的逐行文本粘贴到这里……" aria-describedby="tool-message"></textarea><div class="panel-actions"><button class="text-button" type="button" data-load-sample>载入示例</button><button class="text-button" type="button" data-clear-lines>清空内容</button></div></section>
-          <section class="tool-panel output-panel"><div class="panel-head"><span>编号结果</span><span data-output-count>等待生成</span></div><pre id="line-output" tabindex="0" aria-label="编号结果" data-line-output>01  第一行会显示在这里
-02  结果可直接复制使用</pre><div class="panel-actions"><button class="text-button" type="button" data-copy-lines disabled>复制结果</button><span data-copy-status role="status" aria-live="polite"></span></div></section>
+        <div class="lr40-tool-columns">
+          <section class="lr40-tool-panel lr40-input-panel"><div class="lr40-panel-head"><label for="line-input">原始文本</label><span data-input-count>0 行 · 0 字</span></div><textarea id="line-input" rows="13" maxlength="12000" placeholder="把需要整理的逐行文本粘贴到这里……" aria-describedby="tool-message"></textarea><div class="lr40-panel-actions"><button class="lr40-text-button" type="button" data-load-sample>载入示例</button><button class="lr40-text-button" type="button" data-clear-lines>清空内容</button></div></section>
+          <section class="lr40-tool-panel lr40-output-panel"><div class="lr40-panel-head"><span>编号结果</span><span data-output-count>等待生成</span></div><pre id="line-output" tabindex="0" aria-label="编号结果" data-line-output>01  第一行会显示在这里
+02  结果可直接复制使用</pre><div class="lr40-panel-actions"><button class="lr40-text-button" type="button" data-copy-lines disabled>复制结果</button><span data-copy-status role="status" aria-live="polite"></span></div></section>
         </div>
-        <div class="tool-settings">
-          <label>起始编号<input id="line-start" type="number" min="0" max="999" value="1" inputmode="numeric" aria-describedby="tool-message"></label>
-          <label>编号位数<select id="line-digits"><option value="2">两位 01</option><option value="3">三位 001</option><option value="4">四位 0001</option></select></label>
-          <label>行前缀<input id="line-prefix" type="text" maxlength="12" placeholder="例如：L-"></label>
-          <label class="check-control"><input id="keep-empty" type="checkbox"><span>保留空白行</span></label>
-          <button class="button button-primary" type="submit">生成编号</button>
+        <div class="lr40-tool-settings">
+          <label for="line-start">起始编号<input id="line-start" type="number" min="0" max="999" step="1" value="1" inputmode="numeric" aria-describedby="tool-message"></label>
+          <label for="line-digits">编号位数<select id="line-digits" aria-describedby="tool-message"><option value="2">两位 01</option><option value="3">三位 001</option><option value="4">四位 0001</option></select></label>
+          <label for="line-prefix">行前缀<input id="line-prefix" type="text" maxlength="12" placeholder="例如：L-" aria-describedby="tool-message"></label>
+          <label class="lr40-check-control" for="keep-empty"><input id="keep-empty" type="checkbox" aria-describedby="tool-message"><span>保留空白行</span></label>
+          <button class="lr40-button lr40-button-primary" type="submit">生成编号</button>
         </div>
-        <p class="tool-message" id="tool-message" data-tool-message role="alert"></p>
+        <p class="lr40-tool-message" id="tool-message" data-tool-message role="alert"></p>
       </form>
     </section>
-    <section class="shell tool-notes"><div><p class="section-number">02 / NOTES</p><h2>适合这些时刻</h2></div><ol><li><span>01</span><div><strong>采访逐字稿校对</strong><p>用稳定行号标记修改位置，减少来回确认。</p></div></li><li><span>02</span><div><strong>内容迁移核对</strong><p>为旧稿与新稿建立可比较的逐行参照。</p></div></li><li><span>03</span><div><strong>现场观察整理</strong><p>把零散记录转换成易引用的编号条目。</p></div></li></ol></section>
+    <section class="lr40-shell lr40-tool-notes"><div><p class="lr40-section-number">02 / NOTES</p><h2>适合这些时刻</h2></div><ol><li><span>01</span><div><strong>采访逐字稿校对</strong><p>用稳定行号标记修改位置，减少来回确认。</p></div></li><li><span>02</span><div><strong>内容迁移核对</strong><p>为旧稿与新稿建立可比较的逐行参照。</p></div></li><li><span>03</span><div><strong>现场观察整理</strong><p>把零散记录转换成易引用的编号条目。</p></div></li></ol></section>
   </main>
-  <footer class="site-footer"><div class="shell footer-grid"><div><span class="footer-mark">L / 040</span><p>__SITE_NAME__<br><small>独立编辑的夜间信号索引</small></p></div><p>工具不会上传或保存输入内容。<br>关闭页面后，本次文本即被清除。</p><nav aria-label="页脚导航"><a href="legal.html">编辑约定</a><a href="index.html">夜行索引</a><a href="sitemap.xml">站点地图</a></nav></div><div class="shell footer-bottom"><span>© 2026 __SITE_NAME__</span><span>ISSN LANTERN-040</span></div></footer>
+  <footer class="lr40-site-footer"><div class="lr40-shell lr40-footer-grid"><div><span class="lr40-footer-mark">L / 040</span><p>__SITE_NAME__<br><small>独立编辑的夜间信号索引</small></p></div><p>工具不会上传或保存输入内容。<br>关闭页面后，本次文本即被清除。</p><nav aria-label="页脚导航"><a href="legal.html">编辑约定</a><a href="index.html">夜行索引</a><a href="sitemap.xml">站点地图</a></nav></div><div class="lr40-shell lr40-footer-bottom"><span>© 2026 __SITE_NAME__</span><span>ISSN LANTERN-040</span></div></footer>
   <script src="app.js"></script>
 </body>
 </html>

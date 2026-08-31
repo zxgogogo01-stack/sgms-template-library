@@ -9,16 +9,23 @@
   }
 
   function fallbackCopy(text) {
-    var area = document.createElement('textarea');
-    area.value = text;
-    area.setAttribute('readonly', '');
-    area.style.position = 'fixed';
-    area.style.opacity = '0';
-    document.body.appendChild(area);
-    area.select();
-    document.execCommand('copy');
-    area.remove();
-    return Promise.resolve();
+    return new Promise(function (resolve, reject) {
+      var area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      try {
+        if (document.execCommand('copy')) resolve();
+        else reject(new Error('copy command returned false'));
+      } catch (error) {
+        reject(error);
+      } finally {
+        area.remove();
+      }
+    });
   }
 
   function initTheme() {
@@ -26,7 +33,7 @@
     if (!button) return;
     var root = document.documentElement;
     var saved = null;
-    try { saved = localStorage.getItem('lantern-theme'); } catch (error) { saved = null; }
+    try { saved = localStorage.getItem('lantern-rows-040-theme'); } catch (error) { saved = null; }
     var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
     function apply(next) {
@@ -40,7 +47,7 @@
     apply(theme);
     button.addEventListener('click', function () {
       apply(theme === 'dark' ? 'light' : 'dark');
-      try { localStorage.setItem('lantern-theme', theme); } catch (error) { /* storage is optional */ }
+      try { localStorage.setItem('lantern-rows-040-theme', theme); } catch (error) { /* storage is optional */ }
     });
   }
 
@@ -94,11 +101,12 @@ function initMenu() {
     var category = 'all';
 
     function update() {
-      var query = search.value.trim().toLocaleLowerCase();
+      var query = search.value.trim().normalize('NFKC').toLocaleLowerCase('zh-CN');
       var count = 0;
       rows.forEach(function (row) {
         var categoryMatch = category === 'all' || row.getAttribute('data-category') === category;
-        var queryMatch = !query || row.getAttribute('data-search').toLocaleLowerCase().indexOf(query) !== -1;
+        var haystack = (row.getAttribute('data-search') || row.textContent).normalize('NFKC').toLocaleLowerCase('zh-CN');
+        var queryMatch = !query || haystack.indexOf(query) !== -1;
         var visible = categoryMatch && queryMatch;
         row.hidden = !visible;
         if (visible) count += 1;
@@ -136,7 +144,7 @@ function initMenu() {
     if (!button || !status) return;
     button.addEventListener('click', function () {
       var citation = '林序：《末班车之后，谁还在为城市留一盏灯？》，__SITE_NAME__，2026-08-01，https://__SITE_DOMAIN__/article.html';
-      copyText(citation).then(function () { status.textContent = '引用信息已复制。'; });
+      copyText(citation).then(function () { status.textContent = '引用信息已复制。'; }).catch(function () { status.textContent = '复制失败，请手动记录引用信息。'; });
     });
   }
 
@@ -160,7 +168,7 @@ function initMenu() {
 
     function countInput() {
       var lines = input.value ? input.value.split(/\r?\n/).length : 0;
-      inputCount.textContent = lines + ' 行 · ' + input.value.length + ' 字';
+      inputCount.textContent = lines + ' 行 · ' + input.value.length + ' 字符';
     }
 
     function resetResult() {
@@ -172,20 +180,25 @@ function initMenu() {
       message.textContent = '';
       input.removeAttribute('aria-invalid');
       start.removeAttribute('aria-invalid');
+      digits.removeAttribute('aria-invalid');
+      prefix.removeAttribute('aria-invalid');
     }
 
     input.addEventListener('input', function () {
       countInput();
-      if (input.value.trim()) input.removeAttribute('aria-invalid');
+      resetResult();
     });
     start.addEventListener('input', function () {
-      start.removeAttribute('aria-invalid');
+      resetResult();
     });
+    digits.addEventListener('change', resetResult);
+    prefix.addEventListener('input', resetResult);
+    keepEmpty.addEventListener('change', resetResult);
     sampleButton.addEventListener('click', function () {
       input.value = '末班车离开江湾路站\n站台保留两盏暖光\n下一盏路灯仍然可见\n街角便利店照亮了入口';
       countInput();
-      message.textContent = '';
-      input.removeAttribute('aria-invalid');
+      resetResult();
+      message.textContent = '示例已载入，可直接生成行号。';
       input.focus();
     });
     clearButton.addEventListener('click', function () {
@@ -196,21 +209,38 @@ function initMenu() {
     });
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      message.textContent = '';
-      input.removeAttribute('aria-invalid');
-      start.removeAttribute('aria-invalid');
+      resetResult();
       var raw = input.value;
+      if (raw.length > 12000) {
+        input.setAttribute('aria-invalid', 'true');
+        message.textContent = '单次输入不得超过 12,000 个字符。';
+        input.focus();
+        return;
+      }
       if (!raw.trim()) {
         input.setAttribute('aria-invalid', 'true');
         message.textContent = '请先输入至少一行需要编号的文本。';
         input.focus();
         return;
       }
-      var startNumber = Number(start.value);
-      if (!Number.isInteger(startNumber) || startNumber < 0 || startNumber > 999) {
+      var startRaw = start.value.trim();
+      var startNumber = Number(startRaw);
+      if (!/^\d+$/.test(startRaw) || !Number.isInteger(startNumber) || startNumber < 0 || startNumber > 999) {
         start.setAttribute('aria-invalid', 'true');
         message.textContent = '起始编号需为 0 到 999 之间的整数。';
         start.focus();
+        return;
+      }
+      if (!/^(2|3|4)$/.test(digits.value)) {
+        digits.setAttribute('aria-invalid', 'true');
+        message.textContent = '编号位数只能选择两位、三位或四位。';
+        digits.focus();
+        return;
+      }
+      if (Array.from(prefix.value).length > 12 || /[\r\n\t]/.test(prefix.value)) {
+        prefix.setAttribute('aria-invalid', 'true');
+        message.textContent = '行前缀不得超过 12 个字符，也不能包含换行或制表符。';
+        prefix.focus();
         return;
       }
       var lines = raw.split(/\r?\n/);
@@ -254,7 +284,7 @@ function initMenu() {
     if (!button || !status) return;
     button.addEventListener('click', function () {
       var summary = '__SITE_NAME__ 编辑约定 V2.4｜生效：2026-08-01｜范围：收录、核对、修订、隐私与使用边界｜https://__SITE_DOMAIN__/legal.html';
-      copyText(summary).then(function () { status.textContent = '版本摘要已复制。'; });
+      copyText(summary).then(function () { status.textContent = '版本摘要已复制。'; }).catch(function () { status.textContent = '复制失败，请手动记录版本摘要。'; });
     });
   }
 
@@ -271,11 +301,13 @@ function initMenu() {
       { terms: '夜行 索引 设计 文化 城市', title: '今晚夜行索引', href: 'index.html' }
     ];
     input.addEventListener('input', function () {
-      if (input.value.trim()) input.removeAttribute('aria-invalid');
+      input.removeAttribute('aria-invalid');
+      status.textContent = '';
+      results.replaceChildren();
     });
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      var query = input.value.trim().toLocaleLowerCase();
+      var query = input.value.trim().normalize('NFKC').toLocaleLowerCase('zh-CN');
       results.replaceChildren();
       if (!query) {
         input.setAttribute('aria-invalid', 'true');
@@ -284,7 +316,7 @@ function initMenu() {
         return;
       }
       input.removeAttribute('aria-invalid');
-      var matched = entries.filter(function (entry) { return entry.terms.toLocaleLowerCase().indexOf(query) !== -1 || entry.title.toLocaleLowerCase().indexOf(query) !== -1; });
+      var matched = entries.filter(function (entry) { return entry.terms.normalize('NFKC').toLocaleLowerCase('zh-CN').indexOf(query) !== -1 || entry.title.normalize('NFKC').toLocaleLowerCase('zh-CN').indexOf(query) !== -1; });
       status.textContent = matched.length ? '找到 ' + matched.length + ' 条相关信号。' : '没有找到相关信号，试试“城市”“排版”或“隐私”。';
       matched.forEach(function (entry) {
         var item = document.createElement('li');
