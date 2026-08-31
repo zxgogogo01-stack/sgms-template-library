@@ -8,32 +8,42 @@
   <link rel="stylesheet" href="css/tone.css">
   <style>
     /* 404 extras */
-    .offband {
+    .bp54-offband {
       max-width: 460px;
       margin: 14vh auto;
       padding: 0 24px;
       text-align: center;
     }
-    .offband-card {
+    .bp54-offband-card {
       background: linear-gradient(160deg, var(--slate-deep), var(--slate) 160%);
       border-radius: var(--rd);
       box-shadow: var(--sh-hi);
       color: #e7edf4;
       padding: 52px 40px;
     }
-    .offband-card h1 { font-family: var(--serx); font-size: 3.2rem; color: var(--copper-2); }
-    .offband-card p { color: #aebccd; }
-    .offband-card .stud { margin-top: 10px; background: var(--copper); border-color: var(--copper); color: #fff; }
-    .offband-card .stud:hover { background: var(--copper-2); border-color: var(--copper-2); }
+    .bp54-offband-card h1 { font-family: var(--serx); font-size: 3.2rem; color: var(--copper-2); }
+    .bp54-offband-card p { color: #aebccd; }
+    .bp54-offband-card .bp54-stud { margin-top: 10px; background: var(--copper); border-color: var(--copper); color: #fff; }
+    .bp54-offband-card .bp54-stud:hover { background: var(--copper-2); border-color: var(--copper-2); }
   </style>
 </head>
 <body>
-  <div class="offband">
-    <div class="offband-card">
+  <a class="bp54-skip" href="#bp54-main">跳到主要内容</a>
+  <header class="bp54-cap">
+    <div class="bp54-cap-in">
+      <a class="bp54-markrow" href="index.html">[[BRAND_EN]]</a>
+      <button type="button" class="bp54-cap-btn" id="bp54-cap-btn" aria-label="主导航" aria-expanded="false" aria-controls="bp54-cap-nav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <nav class="bp54-cap-nav" id="bp54-cap-nav" aria-label="主导航"><a href="index.html">入门带</a><a href="article.html">读物</a><a href="tool.html">工具</a><a href="legal.html">披露</a><button type="button" class="bp54-theme" id="bp54-theme-button" aria-label="切换到夜间模式">夜间</button></nav>
+    </div>
+  </header>
+  <main class="bp54-offband" id="bp54-main">
+    <div class="bp54-offband-card">
       <h1>404</h1>
       <p>这一页在色带之外——不存在或已移动。</p>
-      <a class="stud" href="index.html">回入门带</a>
+      <a class="bp54-stud" href="index.html">回入门带</a>
+      <form class="bp54-band-search" data-band-search novalidate><label for="bp54-band-query">查找课程色带</label><div><input id="bp54-band-query" name="query" type="search" maxlength="80" autocomplete="off" aria-describedby="bp54-band-help bp54-band-feedback" placeholder="如：资金流、学习计划、披露"><button type="submit">查找</button></div><small id="bp54-band-help">最多 80 个字符，只检索这套模板的主要页面。</small><p id="bp54-band-feedback" data-band-feedback role="status" aria-live="polite">可搜索入门、资金流、学习计划和披露。</p></form>
     </div>
-  </div>
+  </main>
+  <script src="lift.js"></script>
 </body>
 </html>

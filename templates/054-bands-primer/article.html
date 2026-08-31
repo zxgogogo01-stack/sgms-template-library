@@ -25,15 +25,15 @@
   </script>
   <style>
     /* article page extras */
-    .leaf { max-width: 740px; margin: 0 auto; padding: 44px 24px 80px; }
-    .leaf-band {
+    .bp54-leaf { max-width: 740px; margin: 0 auto; padding: 44px 24px 80px; }
+    .bp54-leaf-band {
       background: var(--card);
       border: 1px solid var(--edge);
       border-radius: var(--rd);
       box-shadow: var(--sh);
       padding: 44px 50px;
     }
-    .leaf-kick {
+    .bp54-leaf-kick {
       margin: 0 0 10px;
       font-size: .76rem;
       font-weight: 800;
@@ -41,64 +41,67 @@
       text-transform: uppercase;
       color: var(--copper);
     }
-    .leaf-band h1 { font-family: var(--serx); font-size: clamp(1.5rem, 3.2vw, 2.15rem); }
-    .leaf-meta { margin: 12px 0 0; font-size: .84rem; color: var(--dus); }
-    .leaf-band h2 {
+    .bp54-leaf-band h1 { font-family: var(--serx); font-size: clamp(1.5rem, 3.2vw, 2.15rem); }
+    .bp54-leaf-meta { margin: 12px 0 0; font-size: .84rem; color: var(--dus); }
+    .bp54-leaf-band h2 {
       font-family: var(--serx);
       font-size: 1.28rem;
       margin: 32px 0 12px;
       padding-bottom: 8px;
       border-bottom: 2px solid var(--copper-wash);
     }
-    .leaf-band p { margin: 0 0 14px; color: var(--inkc-2); }
-    .leaf-first {
+    .bp54-leaf-band p { margin: 0 0 14px; color: var(--inkc-2); }
+    .bp54-leaf-first {
       background: var(--copper-wash);
       border-radius: var(--rd);
       padding: 16px 22px;
       margin: 20px 0;
     }
-    .leaf-scroll { overflow-x: auto; border: 1px solid var(--edge); border-radius: var(--rd); margin: 14px 0 8px; }
-    .leaf-band table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-    .leaf-band th, .leaf-band td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--edge); font-size: .92rem; white-space: nowrap; }
-    .leaf-band thead th { background: var(--slate); color: #eef2f7; border-bottom: 0; }
-    .leaf-band tbody tr:hover { background: var(--copper-wash); }
-    .leaf-band tbody tr:last-child td { border-bottom: 0; }
-    .leaf-note { font-size: .84rem; color: var(--dus); }
+    .bp54-leaf-scroll { overflow-x: auto; border: 1px solid var(--edge); border-radius: var(--rd); margin: 14px 0 8px; }
+    .bp54-leaf-band table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+    .bp54-leaf-band th, .bp54-leaf-band td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--edge); font-size: .92rem; white-space: nowrap; }
+    .bp54-leaf-band thead th { background: var(--slate); color: #eef2f7; border-bottom: 0; }
+    .bp54-leaf-band tbody tr:hover { background: var(--copper-wash); }
+    .bp54-leaf-band tbody tr:last-child td { border-bottom: 0; }
+    .bp54-leaf-note { font-size: .84rem; color: var(--dus); }
     @media (max-width: 620px) {
-      .leaf-band { padding: 26px 22px; }
-      .leaf-band th, .leaf-band td { white-space: normal; }
+      .bp54-leaf-band { padding: 26px 22px; }
+      .bp54-leaf-band th, .bp54-leaf-band td { white-space: normal; }
     }
   </style>
 </head>
 <body>
-  <header class="cap">
-    <div class="cap-in">
-      <a class="markrow" href="index.html">[[BRAND_EN]]</a>
-      <button type="button" class="cap-btn" id="cap-btn" aria-label="主导航" aria-expanded="false" aria-controls="cap-nav">
+  <div class="bp54-reading-progress" data-reading-progress aria-hidden="true"></div>
+  <a class="bp54-skip" href="#bp54-main">跳到主要内容</a>
+  <header class="bp54-cap">
+    <div class="bp54-cap-in">
+      <a class="bp54-markrow" href="index.html">[[BRAND_EN]]</a>
+      <button type="button" class="bp54-cap-btn" id="bp54-cap-btn" aria-label="主导航" aria-expanded="false" aria-controls="bp54-cap-nav">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
-      <nav class="cap-nav" id="cap-nav" aria-label="主导航">
+      <nav class="bp54-cap-nav" id="bp54-cap-nav" aria-label="主导航">
         <a href="index.html">入门带</a>
         <a href="article.html" aria-current="page">读物</a>
         <a href="tool.html">工具</a>
         <a href="legal.html">披露</a>
+        <button type="button" class="bp54-theme" id="bp54-theme-button" aria-label="切换到夜间模式">夜间</button>
       </nav>
     </div>
   </header>
 
-  <main class="leaf">
-    <article class="leaf-band">
-      <p class="leaf-kick">资金流</p>
+  <main class="bp54-leaf" id="bp54-main">
+    <article class="bp54-leaf-band">
+      <p class="bp54-leaf-kick">资金流</p>
       <h1>返佣的钱到底从哪来，到哪去</h1>
-      <p class="leaf-meta">发布 <time datetime="2026-01-19">2026-01-19</time> · 口径核对 <time datetime="2026-01-19">2026-01-19</time></p>
+      <p class="bp54-leaf-meta">发布 <time datetime="2026-01-19">2026-01-19</time> · 口径核对 <time datetime="2026-01-19">2026-01-19</time></p>
 
-      <div class="leaf-first"><b>一句话答案：</b>返佣来自交易手续费按规则分配后的份额，不是额外收益；最终金额取决于实际成交、费率与结算口径。</div>
+      <div class="bp54-leaf-first"><b>一句话答案：</b>返佣来自交易手续费按规则分配后的份额，不是额外收益；最终金额取决于实际成交、费率与结算口径。</div>
 
       <h2>链路拆开看</h2>
       <p>一笔成交先产生手续费，平台按产品与账户规则确认可计佣部分，再依据有效邀请关系计算分成，达到结算条件后进入账单。</p>
 
       <h2>三家平台的口径差异</h2>
-      <div class="leaf-scroll">
+      <div class="bp54-leaf-scroll">
         <table>
           <thead>
             <tr><th scope="col">平台</th><th scope="col">计佣基数</th><th scope="col">结算</th><th scope="col">核对</th></tr>
@@ -110,15 +113,17 @@
           </tbody>
         </table>
       </div>
-      <p class="leaf-note">表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
+      <p class="bp54-leaf-note">表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
 
       <h2>提醒</h2>
       <p>返佣只会降低部分已发生的交易成本，不构成收益保证。比例、范围和结算条件都可能调整，应以平台官方规则与账户页面为准。</p>
+
+      <aside class="bp54-portable-note"><h2>带走本课核对顺序</h2><p>先确认计佣基数，再核对适用产品、邀请关系、生效时间、结算状态与账单币种；所有公开数字都应附官方来源和核对日期。</p><button type="button" data-copy-lesson>复制核对顺序</button><span data-lesson-status role="status" aria-live="polite"></span></aside>
     </article>
   </main>
 
-  <footer class="base">
-    <p class="base-line">内容以各平台官方页面为准；不构成投资建议。</p>
+  <footer class="bp54-base">
+    <p class="bp54-base-line">内容以各平台官方页面为准；不构成投资建议。</p>
   </footer>
 
   <script src="lift.js"></script>

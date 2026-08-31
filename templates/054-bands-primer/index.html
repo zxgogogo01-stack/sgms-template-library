@@ -13,87 +13,106 @@
   <meta property="og:description" content="[[SITE_DESC]]">
   <meta property="og:url" content="https://[[SITE_DOMAIN]]/">
   <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="public.css">
   <link rel="stylesheet" href="css/tone.css">
 </head>
 <body>
-  <header class="cap">
-    <div class="cap-in">
-      <a class="markrow" href="index.html">[[BRAND_EN]]</a>
-      <button type="button" class="cap-btn" id="cap-btn" aria-label="主导航" aria-expanded="false" aria-controls="cap-nav">
+  <a class="bp54-skip" href="#bp54-main">跳到主要内容</a>
+  <header class="bp54-cap">
+    <div class="bp54-cap-in">
+      <a class="bp54-markrow" href="index.html">[[BRAND_EN]]</a>
+      <button type="button" class="bp54-cap-btn" id="bp54-cap-btn" aria-label="主导航" aria-expanded="false" aria-controls="bp54-cap-nav">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
-      <nav class="cap-nav" id="cap-nav" aria-label="主导航">
+      <nav class="bp54-cap-nav" id="bp54-cap-nav" aria-label="主导航">
         <a href="index.html" aria-current="page">入门带</a><a href="article.html">读物</a><a href="tool.html">工具</a><a href="legal.html">披露</a>
+        <button type="button" class="bp54-theme" id="bp54-theme-button" aria-label="切换到夜间模式">夜间</button>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="bands-band bands-hero">
-      <div class="bands-in">
-        <p class="bands-eyebrow">[[HERO_EYEBROW]]</p>
-        <h1 class="bands-h1">[[HERO_TITLE]]</h1>
-        <p class="bands-lede">[[HERO_DESCRIPTION]]</p>
-        <div class="bands-cta">
-          <a class="btn btn-primary" href="article.html">从第一课开始 <span class="arrow">→</span></a>
-          <a class="btn" href="legal.html">了解本站</a>
+  <main id="bp54-main">
+    <section class="bp54-bands-band bp54-bands-hero">
+      <div class="bp54-bands-in">
+        <p class="bp54-bands-eyebrow">[[HERO_EYEBROW]]</p>
+        <h1 class="bp54-bands-h1">[[HERO_TITLE]]</h1>
+        <p class="bp54-bands-lede">[[HERO_DESCRIPTION]]</p>
+        <div class="bp54-bands-cta">
+          <a class="bp54-btn bp54-btn-primary" href="article.html">从第一课开始 <span class="bp54-arrow">→</span></a>
+          <a class="bp54-btn" href="legal.html">了解本站</a>
         </div>
       </div>
     </section>
 
-    <section class="bands-band bands-featured">
-      <div class="bands-in">
-        <p class="bands-kicker">[[HOME_FEATURED_LABEL]]</p>
-        <article class="bands-feat">
-          <a class="bands-feat-cover" href="article.html" aria-label="打开精选文章">
+    <section class="bp54-bands-band bp54-bands-featured">
+      <div class="bp54-bands-in">
+        <p class="bp54-bands-kicker">[[HOME_FEATURED_LABEL]]</p>
+        <article class="bp54-bands-feat">
+          <a class="bp54-bands-feat-cover" href="article.html" aria-label="打开精选文章">
             <svg viewBox="0 0 460 300" role="img" aria-label="返佣资金流示意" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
               <rect width="460" height="300" fill="#33465c"/><path d="M60 220 C140 120 200 250 280 150 S420 90 420 90" fill="none" stroke="#c77b3f" stroke-width="9" stroke-linecap="round"/><circle cx="60" cy="220" r="11" fill="#e8ecf1"/><circle cx="420" cy="90" r="11" fill="#c77b3f"/><rect x="60" y="52" width="120" height="12" rx="6" fill="#5a7290"/><rect x="60" y="76" width="84" height="12" rx="6" fill="#48607e"/>
             </svg>
           </a>
-          <div class="bands-feat-body">
-            <div class="meta"><span class="tag">资金流</span><span class="sep">·</span><time datetime="2026-01-19">2026-01-19</time></div>
+          <div class="bp54-bands-feat-body">
+            <div class="bp54-meta"><span class="bp54-tag">资金流</span><span class="bp54-sep">·</span><time datetime="2026-01-19">2026-01-19</time></div>
             <h2><a href="article.html">返佣的资金从哪里来，又流向哪里</a></h2>
             <p>把“手续费、平台分成、返佣到账”的链路逐步展开，并说明核对实际金额时要看的字段。</p>
-            <a class="btn" href="article.html">读全文 <span class="arrow">→</span></a>
+            <a class="bp54-btn" href="article.html">读全文 <span class="bp54-arrow">→</span></a>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="bands-band bands-links">
-      <div class="bands-in">
-        <p class="bands-kicker">[[HOME_LINKS_LABEL]]</p>
-        <div class="bands-link-grid">
-          <a class="bands-link" href="tool.html"><span class="bands-link-ic"><b>净</b></span><span class="bands-link-t">净费率计算 <span class="arrow" aria-hidden="true">→</span></span><span class="bands-link-d">从名义费率换算真实成本</span></a>
-          <a class="bands-link" href="article.html"><span class="bands-link-ic"><b>新</b></span><span class="bands-link-t">新手三课 <span class="arrow" aria-hidden="true">→</span></span><span class="bands-link-d">注册、认证与第一笔交易</span></a>
-          <a class="bands-link" href="article.html"><span class="bands-link-ic"><b>比</b></span><span class="bands-link-t">平台对照 <span class="arrow" aria-hidden="true">→</span></span><span class="bands-link-d">逐项核对费率和结算口径</span></a>
-          <a class="bands-link" href="legal.html"><span class="bands-link-ic"><b>披</b></span><span class="bands-link-t">披露与免责 <span class="arrow" aria-hidden="true">→</span></span><span class="bands-link-d">数据来源、更新方式与商业关系</span></a>
+    <section class="bp54-bands-band bp54-bands-links">
+      <div class="bp54-bands-in">
+        <p class="bp54-bands-kicker">[[HOME_LINKS_LABEL]]</p>
+        <div class="bp54-bands-link-grid">
+          <a class="bp54-bands-link" href="tool.html"><span class="bp54-bands-link-ic"><b>排</b></span><span class="bp54-bands-link-t">学习计划 <span class="bp54-arrow" aria-hidden="true">→</span></span><span class="bp54-bands-link-d">把课程量拆成每天可执行的节奏</span></a>
+          <a class="bp54-bands-link" href="article.html"><span class="bp54-bands-link-ic"><b>新</b></span><span class="bp54-bands-link-t">新手三课 <span class="bp54-arrow" aria-hidden="true">→</span></span><span class="bp54-bands-link-d">注册、认证与第一笔交易</span></a>
+          <a class="bp54-bands-link" href="article.html"><span class="bp54-bands-link-ic"><b>比</b></span><span class="bp54-bands-link-t">平台对照 <span class="bp54-arrow" aria-hidden="true">→</span></span><span class="bp54-bands-link-d">逐项核对费率和结算口径</span></a>
+          <a class="bp54-bands-link" href="legal.html"><span class="bp54-bands-link-ic"><b>披</b></span><span class="bp54-bands-link-t">披露与免责 <span class="bp54-arrow" aria-hidden="true">→</span></span><span class="bp54-bands-link-d">数据来源、更新方式与商业关系</span></a>
         </div>
       </div>
     </section>
 
-    <section class="bands-band bands-latest">
-      <div class="bands-in">
-        <div class="bands-head"><p class="bands-kicker">[[HOME_LATEST_LABEL]]</p><a href="article.html">查看全部 <span class="arrow">→</span></a></div>
-        <div class="bands-list">
-          <a class="bands-row" href="article.html"><span class="bands-n">01</span><span class="bands-rt">档位评估日是哪一天，错过后怎样处理？</span><span class="bands-rm">费率</span><span class="bands-rd"><time datetime="2026-01-18">01-18</time></span></a>
-          <a class="bands-row" href="article.html"><span class="bands-n">02</span><span class="bands-rt">邀请关系绑定失败的四种常见情形</span><span class="bands-rm">新手</span><span class="bands-rd"><time datetime="2026-01-16">01-16</time></span></a>
-          <a class="bands-row" href="article.html"><span class="bands-n">03</span><span class="bands-rt">返佣入账时间和时区有什么关系？</span><span class="bands-rm">结算</span><span class="bands-rd"><time datetime="2026-01-13">01-13</time></span></a>
-          <a class="bands-row" href="article.html"><span class="bands-n">04</span><span class="bands-rt">两步验证丢失后的账户恢复流程</span><span class="bands-rm">安全</span><span class="bands-rd"><time datetime="2026-01-10">01-10</time></span></a>
-          <a class="bands-row" href="article.html"><span class="bands-n">05</span><span class="bands-rt">挂单与吃单费率应当怎样分别计算？</span><span class="bands-rm">费率</span><span class="bands-rd"><time datetime="2026-01-07">01-07</time></span></a>
+    <section class="bp54-route-band" aria-labelledby="bp54-route-title">
+      <div class="bp54-bands-in">
+        <header class="bp54-route-head"><p>LEARNING PASSPORT / LOCAL ONLY</p><h2 id="bp54-route-title">四条色带，走完一条入门路线。</h2><output data-route-count aria-live="polite">0 / 4 已完成</output></header>
+        <form class="bp54-route-form" data-route-checklist>
+          <fieldset>
+            <legend>勾选已经核对过的课程；进度只保留在当前页面。</legend>
+            <ol>
+              <li><label><input type="checkbox" value="规则" aria-label="完成规则与适用范围课程"><span><b>01</b> 先看规则与适用范围</span><small>确认资格、产品和生效时间。</small></label></li>
+              <li><label><input type="checkbox" value="成本" aria-label="完成手续费与减免课程"><span><b>02</b> 再拆手续费与减免</span><small>区分名义费率和实际成本。</small></label></li>
+              <li><label><input type="checkbox" value="账单" aria-label="完成账单回查课程"><span><b>03</b> 学会从账单回查</span><small>保存时间、币种和结算状态。</small></label></li>
+              <li><label><input type="checkbox" value="风险" aria-label="完成风险边界课程"><span><b>04</b> 最后补齐风险边界</span><small>不把成本减免写成收益承诺。</small></label></li>
+            </ol>
+          </fieldset>
+          <footer><progress max="4" value="0" data-route-progress>0 / 4</progress><button type="reset">清空进度</button></footer>
+        </form>
+      </div>
+    </section>
+
+    <section class="bp54-bands-band bp54-bands-latest">
+      <div class="bp54-bands-in">
+        <div class="bp54-bands-head"><p class="bp54-bands-kicker">[[HOME_LATEST_LABEL]]</p><a href="article.html">查看全部 <span class="bp54-arrow">→</span></a></div>
+        <div class="bp54-bands-list">
+          <a class="bp54-bands-row" href="article.html"><span class="bp54-bands-n">01</span><span class="bp54-bands-rt">档位评估日是哪一天，错过后怎样处理？</span><span class="bp54-bands-rm">费率</span><span class="bp54-bands-rd"><time datetime="2026-01-18">01-18</time></span></a>
+          <a class="bp54-bands-row" href="article.html"><span class="bp54-bands-n">02</span><span class="bp54-bands-rt">邀请关系绑定失败的四种常见情形</span><span class="bp54-bands-rm">新手</span><span class="bp54-bands-rd"><time datetime="2026-01-16">01-16</time></span></a>
+          <a class="bp54-bands-row" href="article.html"><span class="bp54-bands-n">03</span><span class="bp54-bands-rt">返佣入账时间和时区有什么关系？</span><span class="bp54-bands-rm">结算</span><span class="bp54-bands-rd"><time datetime="2026-01-13">01-13</time></span></a>
+          <a class="bp54-bands-row" href="article.html"><span class="bp54-bands-n">04</span><span class="bp54-bands-rt">两步验证丢失后的账户恢复流程</span><span class="bp54-bands-rm">安全</span><span class="bp54-bands-rd"><time datetime="2026-01-10">01-10</time></span></a>
+          <a class="bp54-bands-row" href="article.html"><span class="bp54-bands-n">05</span><span class="bp54-bands-rt">挂单与吃单费率应当怎样分别计算？</span><span class="bp54-bands-rm">费率</span><span class="bp54-bands-rd"><time datetime="2026-01-07">01-07</time></span></a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="base">
-    <div class="base-in">
-      <div><p class="markrow base-mark">[[BRAND_EN]]</p><p class="base-dim">[[SITE_TAGLINE]]</p></div>
-      <div class="base-col"><h4>读物</h4><a href="article.html">新手三课</a><a href="article.html">费率与结算</a><a href="article.html">安全</a></div>
-      <div class="base-col"><h4>站务</h4><a href="tool.html">净费率计算</a><a href="legal.html">披露与免责</a><p class="base-dim">[[CONTACT_EMAIL]]</p></div>
+  <footer class="bp54-base">
+    <div class="bp54-base-in">
+      <div><p class="bp54-markrow bp54-base-mark">[[BRAND_EN]]</p><p class="bp54-base-dim">[[SITE_TAGLINE]]</p></div>
+      <div class="bp54-base-col"><h4>读物</h4><a href="article.html">新手三课</a><a href="article.html">费率与结算</a><a href="article.html">安全</a></div>
+      <div class="bp54-base-col"><h4>站务</h4><a href="tool.html">学习计划</a><a href="legal.html">披露与免责</a><p class="bp54-base-dim">[[CONTACT_EMAIL]]</p></div>
     </div>
-    <p class="base-line">内容以各平台官方页面为准，不构成投资建议。</p>
+    <p class="bp54-base-line">内容以各平台官方页面为准，不构成投资建议。</p>
   </footer>
   <script src="lift.js"></script>
 </body>
