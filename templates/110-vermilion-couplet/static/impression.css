@@ -1,0 +1,231 @@
+:root{font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;font-synthesis:none;--vc110-paper:#e9dfcd;--vc110-sheet:#f7f0e3;--vc110-ink:#171b1a;--vc110-red:#c83c2f;--vc110-darkred:#7b1f1c;--vc110-teal:#1f6b68;--vc110-gold:#d4a63e;--vc110-muted:#6f706a;--vc110-line:rgba(23,27,26,.23);--vc110-shadow:rgba(35,25,18,.22);color:var(--vc110-ink);background:var(--vc110-paper)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{min-width:320px;margin:0;overflow-x:hidden;background:var(--vc110-paper);color:var(--vc110-ink)}
+a{color:inherit}
+button,input,textarea{font:inherit}
+.vc110-skip{position:fixed;z-index:100;left:16px;top:-70px;padding:13px 18px;background:var(--vc110-teal);color:#fff}
+.vc110-skip:focus{top:12px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--vc110-gold);outline-offset:3px}
+.vc110-mast{position:relative;z-index:60;min-height:94px;display:grid;grid-template-columns:285px 1fr 150px;align-items:stretch;background:var(--vc110-sheet);border-bottom:1px solid var(--vc110-line)}
+.vc110-mark{display:grid;align-content:center;gap:9px;padding:14px 30px;border-right:1px solid var(--vc110-line);text-decoration:none}
+.vc110-mark span{color:var(--vc110-red);letter-spacing:.24em;font:900 8px/1 Arial,sans-serif}
+.vc110-mark b{max-width:225px;overflow:hidden;white-space:nowrap;letter-spacing:.12em;font:900 12px/1 Arial,sans-serif}
+.vc110-mast nav{display:flex;justify-content:flex-end}
+.vc110-mast nav a,.vc110-mast nav button{min-width:120px;min-height:44px;padding:0 18px;display:flex;align-items:center;justify-content:center;border:0;border-left:1px solid var(--vc110-line);background:transparent;color:inherit;text-decoration:none;cursor:pointer;letter-spacing:.1em;font:900 9px/1 Arial,sans-serif}
+.vc110-mast nav a[aria-current=page]{background:var(--vc110-ink);color:var(--vc110-sheet)}
+.vc110-mast nav button{color:var(--vc110-red)}
+.vc110-mast>p{margin:0;display:grid;place-items:center;border-left:1px solid var(--vc110-line)}
+.vc110-mast>p b{color:var(--vc110-red);font:900 30px/1 ui-monospace,monospace}
+.vc110-mast>p span{letter-spacing:.15em;font:900 7px/1 Arial,sans-serif}
+.vc110-menu{display:none}
+html[data-vc110-theme=ink]{--vc110-paper:#121918;--vc110-sheet:#192321;--vc110-ink:#f1e8d8;--vc110-muted:#b9b7ae;--vc110-line:rgba(241,232,216,.23);--vc110-shadow:rgba(0,0,0,.42);background:#121918;color:#f1e8d8}
+html[data-vc110-theme=ink] .vc110-mast{background:#192321}
+html[data-vc110-theme=ink] .vc110-report,html[data-vc110-theme=ink] .vc110-policy article{color:#f1e8d8}
+html[data-vc110-theme=ink] .vc110-mast nav a[aria-current=page]{background:var(--vc110-red);color:#fff}
+.vc110-progress{position:sticky;z-index:80;top:0;height:5px;background:var(--vc110-ink)}
+.vc110-progress i{display:block;width:var(--vc110-read,0);height:100%;background:linear-gradient(90deg,var(--vc110-red),var(--vc110-gold))}
+.vc110-opening{min-height:880px;display:grid;grid-template-columns:46% 54%}
+.vc110-intro{padding:105px clamp(30px,7vw,115px);display:flex;flex-direction:column;justify-content:center;background:var(--vc110-sheet)}
+.vc110-intro>p,.vc110-proof>header>span,.vc110-process>header>p,.vc110-story-head>p,.vc110-tool-head>p,.vc110-policy>header>p,.vc110-lost>section>p{margin:0 0 30px;color:var(--vc110-teal);letter-spacing:.2em;font:900 8px/1 Arial,sans-serif}
+.vc110-intro h1{margin:0;font:500 clamp(68px,7.4vw,112px)/.86 Georgia,"Songti SC",serif;letter-spacing:-.075em}
+.vc110-intro h1 em{font-style:normal;color:var(--vc110-red)}
+.vc110-intro>div{margin-top:55px;padding:18px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-block:1px solid var(--vc110-line);color:var(--vc110-muted);letter-spacing:.12em;font:900 8px/1 Arial,sans-serif}
+.vc110-intro>a{width:max-content;min-height:48px;margin-top:42px;display:flex;align-items:center;border-bottom:3px solid var(--vc110-red);text-decoration:none;font-weight:900}
+.vc110-opening>figure{position:relative;margin:0;overflow:hidden;display:grid;place-items:center;background:var(--vc110-red)}
+.vc110-opening>figure:before,.vc110-opening>figure:after{position:absolute;content:"";width:22px;height:22px;border-color:rgba(255,255,255,.55);border-style:solid}
+.vc110-opening>figure:before{left:7%;top:7%;border-width:2px 0 0 2px}
+.vc110-opening>figure:after{right:7%;bottom:7%;border-width:0 2px 2px 0}
+.vc110-paste{width:min(80%,680px);height:680px;display:flex;align-items:center;justify-content:center;gap:34px;transform:rotate(-2deg)}
+.vc110-paste span{width:150px;height:610px;padding:42px 0;display:flex;align-items:center;justify-content:center;background:var(--vc110-sheet);box-shadow:18px 20px 0 var(--vc110-darkred);color:var(--vc110-ink);text-align:center;font:500 43px/1.23 "Songti SC",Georgia,serif}
+.vc110-paste b{width:110px;padding:25px 0;background:var(--vc110-ink);color:var(--vc110-sheet);text-align:center;font:500 28px/1.3 "Songti SC",Georgia,serif}
+.vc110-opening figcaption{position:absolute;right:6%;bottom:4%;color:#fff;letter-spacing:.17em;font:900 8px/1 Arial,sans-serif}
+.vc110-proof{padding:125px clamp(28px,7vw,120px);background:var(--vc110-paper)}
+.vc110-proof>header{margin-bottom:70px;display:grid;grid-template-columns:.55fr 1.45fr;gap:50px}
+.vc110-proof h2{margin:0;font:500 clamp(54px,6.4vw,92px)/.92 Georgia,"Songti SC",serif;letter-spacing:-.06em}
+.vc110-proof>div{display:grid;grid-template-columns:repeat(3,1fr)}
+.vc110-proof article{min-height:390px;padding:38px;position:relative;border:1px solid var(--vc110-line);background:var(--vc110-sheet)}
+.vc110-proof article>b{color:var(--vc110-red);font:900 44px/1 ui-monospace,monospace}
+.vc110-proof article>small{display:block;margin-top:20px;color:var(--vc110-teal);letter-spacing:.16em;font:900 8px/1 Arial,sans-serif}
+.vc110-proof h3{margin:105px 0 20px;font:500 32px/1.1 Georgia,"Songti SC",serif}
+.vc110-proof article p{color:var(--vc110-muted);line-height:1.8}
+.vc110-proof article:after{content:"校";position:absolute;right:25px;top:25px;width:48px;height:48px;display:grid;place-items:center;border:2px solid var(--vc110-red);border-radius:50%;color:var(--vc110-red);transform:rotate(-12deg);font:900 17px/1 "Songti SC",serif}
+.vc110-process{min-height:780px;display:grid;grid-template-columns:1fr 1.1fr;background:var(--vc110-ink);color:var(--vc110-sheet)}
+.vc110-process>header{align-self:center;padding:90px clamp(30px,7vw,110px)}
+.vc110-process>header>p{color:#70c7c1}
+.vc110-process h2{margin:0;font:500 clamp(50px,5.7vw,82px)/.94 Georgia,"Songti SC",serif;letter-spacing:-.055em}
+.vc110-process header>a{width:max-content;min-height:48px;margin-top:50px;display:flex;align-items:center;border-bottom:3px solid var(--vc110-red);text-decoration:none;font-weight:900}
+.vc110-process ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);background:var(--vc110-red)}
+.vc110-process li{min-height:390px;padding:40px;display:flex;flex-direction:column;border:1px solid rgba(255,255,255,.35)}
+.vc110-process li i{width:90px;height:90px;border-radius:50%;background:var(--vc110-gold);box-shadow:0 0 0 18px rgba(255,255,255,.12)}
+.vc110-process li b{margin-top:auto;font:900 36px/1 ui-monospace,monospace}
+.vc110-process li span{margin-top:10px;font:500 31px/1 Georgia,"Songti SC",serif}
+.vc110-process li small{margin-top:12px;letter-spacing:.12em;font:900 8px/1 Arial,sans-serif}
+.vc110-tool-call{padding:55px clamp(28px,7vw,120px);display:grid;grid-template-columns:.7fr 1.3fr 2fr auto;gap:38px;align-items:center;background:var(--vc110-gold);color:#171b1a}
+.vc110-tool-call span{letter-spacing:.15em;font:900 8px/1 Arial,sans-serif}
+.vc110-tool-call h3{margin:0;font:500 31px/1.1 Georgia,"Songti SC",serif}
+.vc110-tool-call p{line-height:1.7}
+.vc110-tool-call a{min-height:48px;display:flex;align-items:center;border-bottom:3px solid;text-decoration:none;font-weight:900}
+.vc110-register{padding:38px clamp(28px,7vw,120px);display:grid;grid-template-columns:.7fr 3.3fr;gap:38px;background:var(--vc110-sheet);border-top:1px solid var(--vc110-line)}
+.vc110-register h2{margin:0;font:500 28px/1 Georgia,"Songti SC",serif}
+.vc110-register dl{margin:0;display:grid;grid-template-columns:repeat(2,1fr)}
+.vc110-register dl div{display:grid;grid-template-columns:85px 1fr;border-left:1px solid var(--vc110-line)}
+.vc110-register dt,.vc110-register dd{margin:0;padding:12px 18px;border-bottom:1px solid var(--vc110-line)}
+.vc110-register dt{color:var(--vc110-red);font-weight:900}
+.vc110-register dd{overflow-wrap:anywhere;letter-spacing:.1em;font:900 9px/1.4 Arial,sans-serif}
+.vc110-foot{min-height:200px;padding:45px clamp(28px,6vw,100px);display:grid;grid-template-columns:1fr 1.4fr auto;gap:35px;align-items:center;background:#111514;color:#fff}
+.vc110-foot strong{color:#ef7768;letter-spacing:.14em;font:900 9px/1 Arial,sans-serif}
+.vc110-foot p{line-height:1.7}
+.vc110-foot nav{display:flex;gap:14px}
+.vc110-foot nav a{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.vc110-foot small{grid-column:1/4;color:#9da7a4;overflow-wrap:anywhere;letter-spacing:.12em;font:8px/1.6 Arial,sans-serif}
+.vc110-story,.vc110-tool,.vc110-policy{max-width:1460px;margin:auto;padding:110px clamp(28px,7vw,110px) 135px}
+.vc110-story-head,.vc110-tool-head,.vc110-policy>header{padding-bottom:70px;border-bottom:8px solid var(--vc110-red)}
+.vc110-story-head h1,.vc110-tool-head h1,.vc110-policy>header h1,.vc110-lost h1{margin:0;font:500 clamp(68px,8vw,120px)/.85 Georgia,"Songti SC",serif;letter-spacing:-.075em}
+.vc110-story-head>div{margin-top:40px;display:flex;gap:40px;color:var(--vc110-muted);letter-spacing:.12em;font:900 8px/1 Arial,sans-serif}
+.vc110-story-head output{margin-left:auto;color:var(--vc110-red);font:900 18px/1 ui-monospace,monospace}
+.vc110-story-body{padding-top:85px;display:grid;grid-template-columns:190px minmax(0,820px);gap:clamp(60px,9vw,150px);justify-content:center}
+.vc110-story-body>aside{position:sticky;top:30px;align-self:start}
+.vc110-story-body>aside>span{width:145px;height:145px;display:grid;place-items:center;border:5px double var(--vc110-red);border-radius:50%;color:var(--vc110-red);transform:rotate(-8deg);font:500 60px/1 "Songti SC",Georgia,serif}
+.vc110-story-body>aside nav{margin-top:40px;display:grid;border-top:1px solid var(--vc110-line)}
+.vc110-story-body>aside nav a{min-height:50px;display:flex;align-items:center;border-bottom:1px solid var(--vc110-line);text-decoration:none;font-weight:900}
+.vc110-story-body>article{min-width:0}
+.vc110-lead{margin:0 0 80px;font:500 29px/1.7 Georgia,"Songti SC",serif}
+.vc110-story-body section{scroll-margin-top:30px;margin-bottom:75px;padding-bottom:75px;border-bottom:1px solid var(--vc110-line)}
+.vc110-story-body section>b{color:var(--vc110-teal);letter-spacing:.14em;font:900 8px/1 Arial,sans-serif}
+.vc110-story-body h2{margin:18px 0 30px;font:500 clamp(39px,4.2vw,58px)/1.03 Georgia,"Songti SC",serif}
+.vc110-story-body section p{color:var(--vc110-muted);font:17px/2 Georgia,"Songti SC",serif}
+.vc110-story-body blockquote{margin:40px -55px;padding:38px 55px;background:var(--vc110-red);color:#fff;font:500 25px/1.7 Georgia,"Songti SC",serif}
+.vc110-story-body details{margin-top:36px;border:1px solid var(--vc110-line);background:var(--vc110-sheet)}
+.vc110-story-body summary{min-height:58px;padding:18px 22px;cursor:pointer;font-weight:900}
+.vc110-story-body details ul{margin:0;padding:15px 52px 36px;line-height:1.9}
+.vc110-handoff{padding:42px;background:var(--vc110-teal);color:#fff}
+.vc110-handoff p{line-height:1.8}
+.vc110-handoff button,.vc110-policy>footer button{min-height:46px;padding:0 19px;border:2px solid currentColor;background:transparent;color:inherit;cursor:pointer;font-weight:900}
+.vc110-handoff output,.vc110-policy>footer output{display:block;min-height:27px;padding-top:9px}
+.vc110-tool-head{display:grid;grid-template-columns:1.4fr 370px;gap:50px}
+.vc110-tool-head>p,.vc110-tool-head h1{grid-column:1}
+.vc110-tool-head aside{grid-column:2;grid-row:1/3;align-self:end;padding:30px;background:var(--vc110-red);color:#fff;line-height:1.8}
+.vc110-tool>form{margin:70px 0;padding:clamp(28px,5vw,62px);display:grid;grid-template-columns:1.4fr .6fr;gap:0 46px;background:var(--vc110-ink);color:var(--vc110-sheet)}
+.vc110-tool label>span,.vc110-tool legend{display:block;margin-bottom:14px;letter-spacing:.14em;font:900 9px/1 Arial,sans-serif}
+.vc110-tool textarea{width:100%;min-height:405px;padding:21px;display:block;resize:vertical;border:0;background:#282b28;color:#fff;font:14px/1.75 ui-monospace,monospace}
+.vc110-tool form>div>p{line-height:1.75}
+.vc110-tool fieldset{margin:34px 0 0;padding:25px 0 10px;border:0;border-top:1px solid rgba(255,255,255,.35)}
+.vc110-tool fieldset button,.vc110-tool form>footer button{min-height:46px;margin:0 8px 9px 0;padding:0 16px;border:2px solid #fff;background:transparent;color:#fff;cursor:pointer;font:900 9px/1 Arial,sans-serif}
+.vc110-tool form>footer button:first-child{border-color:var(--vc110-gold);background:var(--vc110-gold);color:#171b1a}
+.vc110-tool [data-vc110-error]{grid-column:1/3;min-height:38px;color:#ff968a;font-weight:900}
+.vc110-tool form>footer{grid-column:1/3;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.vc110-tool form>footer output{min-height:24px;margin-left:auto;font-weight:900}
+.vc110-report{border:1px solid var(--vc110-line);background:var(--vc110-sheet)}
+.vc110-report>header{padding:44px clamp(24px,5vw,62px);border-bottom:1px solid var(--vc110-line)}
+.vc110-report>header>div{display:flex;align-items:center;justify-content:space-between}
+.vc110-report>header span{color:var(--vc110-teal);letter-spacing:.15em;font:900 8px/1 Arial,sans-serif}
+.vc110-report>header b{padding:9px 12px;background:var(--vc110-red);color:#fff;font:900 9px/1 Arial,sans-serif}
+.vc110-report>header h2{margin:18px 0 0;font:500 clamp(50px,5.7vw,82px)/.94 Georgia,"Songti SC",serif}
+.vc110-report>dl{margin:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.vc110-report>dl div{padding:28px;border-right:1px solid var(--vc110-line);border-bottom:1px solid var(--vc110-line)}
+.vc110-report dt{color:var(--vc110-muted);letter-spacing:.12em;font:900 8px/1 Arial,sans-serif}
+.vc110-report dd{margin:16px 0 0;color:var(--vc110-red);font:900 clamp(28px,3vw,44px)/1 ui-monospace,monospace}
+.vc110-flags,.vc110-sheets{padding:40px clamp(24px,5vw,62px);border-bottom:1px solid var(--vc110-line)}
+.vc110-flags>header,.vc110-sheets>header{padding-bottom:17px;display:flex;justify-content:space-between;border-bottom:3px solid var(--vc110-red);letter-spacing:.13em;font:900 8px/1 Arial,sans-serif}
+.vc110-flags ul{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:9px}
+.vc110-flags li{min-height:62px;padding:18px;background:rgba(200,60,47,.1);line-height:1.6}
+.vc110-sheets>[data-vc110-sheet-list]{max-height:980px;overflow:auto;display:grid;grid-template-columns:repeat(2,1fr)}
+.vc110-sheets article{min-width:0;min-height:310px;padding:25px;display:grid;grid-template-columns:1fr 65px 1fr;gap:15px;border:1px solid var(--vc110-line)}
+.vc110-sheets article>span{overflow-wrap:anywhere;writing-mode:vertical-rl;justify-self:center;font:500 23px/1.4 "Songti SC",Georgia,serif}
+.vc110-sheets article>div{display:flex;flex-direction:column;align-items:center;gap:14px}
+.vc110-sheets article b{color:var(--vc110-red);font:900 11px/1 ui-monospace,monospace}
+.vc110-sheets article strong{padding:12px 8px;background:var(--vc110-ink);color:var(--vc110-sheet);writing-mode:vertical-rl;font:500 16px/1.3 "Songti SC",Georgia,serif}
+.vc110-sheets article small{margin-top:auto;color:var(--vc110-muted);font:900 8px/1 Arial,sans-serif}
+.vc110-report>aside{padding:38px clamp(24px,5vw,62px);background:var(--vc110-gold);color:#171b1a}
+.vc110-report>aside p{line-height:1.75}
+.vc110-report>aside button{min-height:46px;padding:0 18px;border:2px solid currentColor;background:transparent;color:inherit;cursor:pointer;font-weight:900}
+.vc110-report>aside button:disabled{opacity:.45;cursor:not-allowed}
+.vc110-report>aside output{display:block;min-height:27px;padding-top:9px}
+.vc110-policy>header{position:relative}
+.vc110-policy>header>span{position:absolute;right:0;bottom:25px;color:var(--vc110-red);letter-spacing:.14em;font:900 9px/1 Arial,sans-serif}
+.vc110-policy>ol{list-style:none;margin:70px 0 0;padding:0;border-top:1px solid var(--vc110-line)}
+.vc110-policy>ol>li{display:grid;grid-template-columns:100px 1fr;border-bottom:1px solid var(--vc110-line)}
+.vc110-policy data{padding:38px 0;color:var(--vc110-red);font:500 40px/1 "Songti SC",Georgia,serif}
+.vc110-policy article{padding:38px;display:grid;grid-template-columns:150px 1fr;gap:20px;background:var(--vc110-sheet)}
+.vc110-policy article small{color:var(--vc110-teal);letter-spacing:.14em;font:900 8px/1 Arial,sans-serif}
+.vc110-policy article h2{margin:0;font:500 30px/1.1 Georgia,"Songti SC",serif}
+.vc110-policy article p{grid-column:2;margin:0;color:var(--vc110-muted);line-height:1.8}
+.vc110-policy article a{min-height:44px;display:inline-flex;align-items:center;overflow-wrap:anywhere}
+.vc110-policy>footer{margin-top:52px;padding:42px;background:var(--vc110-red);color:#fff}
+.vc110-policy>footer p{line-height:1.8}
+.vc110-lost{min-height:calc(100vh - 94px);display:grid;grid-template-columns:1fr 1fr}
+.vc110-lost>figure{position:relative;margin:0;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:32px;background:var(--vc110-red)}
+.vc110-lost>figure span{width:150px;height:580px;padding:45px 0;background:var(--vc110-sheet);color:#171b1a;text-align:center;box-shadow:18px 18px 0 var(--vc110-darkred);font:500 48px/1.35 "Songti SC",Georgia,serif}
+.vc110-lost>figure b{width:105px;height:105px;display:grid;place-items:center;border:4px double #fff;border-radius:50%;color:#fff;font:500 47px/1 "Songti SC",Georgia,serif}
+.vc110-lost>figure i{position:absolute;right:7%;bottom:6%;color:#fff;font:900 62px/1 ui-monospace,monospace}
+.vc110-lost>section{align-self:center;padding:80px clamp(30px,7vw,108px)}
+.vc110-lost>section>span{margin:38px 0;display:block;color:var(--vc110-muted);line-height:1.8}
+.vc110-lost form{padding-top:30px;border-top:3px solid var(--vc110-red)}
+.vc110-lost label{min-height:44px;display:flex;align-items:center;font-weight:900}
+.vc110-lost form>div{display:flex}
+.vc110-lost input{height:56px;min-width:0;flex:1;padding:0 16px;border:1px solid var(--vc110-line);background:var(--vc110-sheet);color:var(--vc110-ink)}
+.vc110-lost form button{min-height:56px;padding:0 18px;border:0;background:var(--vc110-red);color:#fff;cursor:pointer;font-weight:900}
+.vc110-lost form p{min-height:48px;line-height:1.7}
+.vc110-lost form p a{min-height:44px;display:inline-flex;align-items:center;font-weight:900}
+
+@media(max-width:940px){.vc110-mast{min-height:72px;grid-template-columns:1fr 72px}
+.vc110-mark{padding:10px 14px}
+.vc110-menu{grid-column:2;grid-row:1;width:72px;display:block;border:0;background:var(--vc110-red);color:#fff}
+.vc110-menu:before,.vc110-menu:after,.vc110-menu i{content:"";display:block;width:27px;margin:6px auto;border-top:2px solid}
+.vc110-menu span{font-size:0}
+.vc110-mast nav{display:none;position:absolute;z-index:75;left:0;right:0;top:72px;background:var(--vc110-sheet);box-shadow:0 24px 40px var(--vc110-shadow)}
+body[data-vc110-menu=open] .vc110-mast nav{display:grid}
+.vc110-mast nav a,.vc110-mast nav button{min-height:56px}
+.vc110-mast>p{display:none}
+.vc110-opening{min-height:0;grid-template-columns:1fr}
+.vc110-intro{padding:78px 20px}
+.vc110-intro h1{font-size:clamp(58px,16vw,78px)}
+.vc110-intro>div{grid-template-columns:1fr}
+.vc110-opening>figure{min-height:720px}
+.vc110-paste{height:620px;gap:20px}
+.vc110-paste span{width:115px;height:550px;font-size:36px}
+.vc110-paste b{width:78px;font-size:22px}
+.vc110-proof{padding:85px 20px}
+.vc110-proof>header{grid-template-columns:1fr}
+.vc110-proof h2{font-size:50px}
+.vc110-proof>div{grid-template-columns:1fr}
+.vc110-proof article{min-height:310px}
+.vc110-proof h3{margin-top:78px}
+.vc110-process{grid-template-columns:1fr}
+.vc110-process>header{padding:78px 20px}
+.vc110-process h2{font-size:50px}
+.vc110-process ol{grid-template-columns:1fr 1fr}
+.vc110-process li{min-height:270px;padding:25px}
+.vc110-process li i{width:65px;height:65px}
+.vc110-tool-call{grid-template-columns:1fr;padding:50px 20px}
+.vc110-register{grid-template-columns:1fr;padding:35px 20px}
+.vc110-register dl{grid-template-columns:1fr}
+.vc110-foot{grid-template-columns:1fr;padding:44px 20px}
+.vc110-foot nav{flex-wrap:wrap}
+.vc110-foot small{grid-column:1}
+.vc110-story,.vc110-tool,.vc110-policy{padding:78px 20px 105px}
+.vc110-story-head h1,.vc110-tool-head h1,.vc110-policy>header h1,.vc110-lost h1{font-size:clamp(55px,14.5vw,78px)}
+.vc110-story-head>div{flex-wrap:wrap}
+.vc110-story-head output{margin-left:0}
+.vc110-story-body{grid-template-columns:1fr;padding-top:58px}
+.vc110-story-body>aside{position:static}
+.vc110-story-body blockquote{margin:36px 0;padding:30px 22px}
+.vc110-tool-head{display:block}
+.vc110-tool-head aside{margin-top:36px}
+.vc110-tool>form{grid-template-columns:1fr;margin:52px 0;padding:26px 18px}
+.vc110-tool [data-vc110-error],.vc110-tool form>footer{grid-column:1}
+.vc110-tool form>footer output{width:100%;margin-left:0}
+.vc110-report>dl{grid-template-columns:repeat(2,1fr)}
+.vc110-sheets>[data-vc110-sheet-list]{grid-template-columns:1fr}
+.vc110-policy>header>span{position:static;margin-top:35px;display:block}
+.vc110-policy>ol>li{grid-template-columns:60px 1fr}
+.vc110-policy data{font-size:27px}
+.vc110-policy article{grid-template-columns:1fr;padding:30px 20px}
+.vc110-policy article p{grid-column:1}
+.vc110-lost{min-height:0;grid-template-columns:1fr}
+.vc110-lost>figure{min-height:620px}
+.vc110-lost>figure span{height:500px;width:120px;font-size:40px}
+.vc110-lost>section{padding:72px 20px}
+.vc110-lost form>div{display:grid}
+}

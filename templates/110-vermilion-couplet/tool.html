@@ -1,1 +1,136 @@
-<!DOCTYPE html><html lang="[[LANG]]"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#a52e31"><title>择联台 · [[SITE_NAME]]</title><meta name="description" content="按空间、时节和祝愿选择示例楹联。"><link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html"><meta property="og:type" content="website"><meta property="og:title" content="择联台"><meta property="og:description" content="按空间、时节和祝愿选择示例楹联。"><meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html"><link rel="stylesheet" href="public.css"><link rel="stylesheet" href="static/couplet.css"></head><body><header class="cplbar"><div class="cplbar-in"><a class="cplbar-brand" href="index.html">[[BRAND_EN]]</a><button class="cplbar-btn" id="cplbar-btn" type="button" aria-label="主导航" aria-expanded="false" aria-controls="cplbar-nav">堂目</button><nav class="cplbar-nav" id="cplbar-nav"><a href="index.html">横批</a><a href="article.html">堂记</a><a href="tool.html" aria-current="page">择联</a><a href="legal.html">落款</a></nav></div></header><main class="couplet-page"><nav class="couplet-crumb"><a href="index.html">横批</a><span>/</span><span>择联台</span></nav><header class="couplet-tool-head"><p>COUPLET · 03</p><h1>为一处空间择一副联</h1><span>按空间、时节或祝愿切换三副预置楹联。</span></header><section class="couplet-tool"><div class="couplet-modes" role="tablist"><button class="couplet-mode is-active" type="button" role="tab" aria-selected="true" data-mode="space"><b>堂</b><span>按空间</span></button><button class="couplet-mode" type="button" role="tab" aria-selected="false" data-mode="season"><b>时</b><span>按时节</span></button><button class="couplet-mode" type="button" role="tab" aria-selected="false" data-mode="wish"><b>愿</b><span>按祝愿</span></button></div><div class="couplet-result"><p id="couplet-result-mark">SPACE · HALL</p><h2 id="couplet-result-title">清风满堂</h2><div><span id="couplet-result-left">檐收远岫千重雨</span><b>清风入座</b><span id="couplet-result-right">门迎清风一院春</span></div></div></section></main><footer class="cplfoot"><div class="cplfoot-in"><p>[[BRAND_EN]] · [[SITE_TAGLINE]]</p><small>择联台只切换浏览器内预置内容。</small></div></footer><script src="static/couplet.js"></script></body></html>
+<!doctype html>
+<html lang="%%LANG%%" data-vc110-theme="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#e9dfcd">
+<title>批量楹联结构预检台｜%%SITE_NAME%%</title>
+<meta name="description" content="在本地浏览器预检多副楹联的字数、标点位置、重复行和编号。">
+<link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="批量楹联结构预检台">
+<meta property="og:description" content="预检楹联字数、标点位置、重复行和编号。">
+<meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="static/impression.css">
+</head>
+<body>
+<a class="vc110-skip" href="#vc110-main">跳到主要内容</a>
+<header class="vc110-mast">
+<a class="vc110-mark" href="index.html" aria-label="%%SITE_NAME%% 首页">
+<span>VERMILION</span>
+<b>%%BRAND_EN%%</b>
+</a>
+<nav id="vc110-nav" aria-label="主导航">
+<a href="index.html">刊刻所</a>
+<a href="article.html">纸上堂记</a>
+<a href="tool.html" aria-current="page">结构预检</a>
+<a href="legal.html">题款边界</a>
+<button type="button" data-vc110-theme-toggle aria-pressed="false">切换墨版</button>
+</nav>
+<button class="vc110-menu" type="button" aria-expanded="false" aria-controls="vc110-nav">
+<i>
+</i>
+<span>展开印房目录</span>
+</button>
+<p>
+<b>02</b>
+<span>PROOF TABLE</span>
+</p>
+</header>
+<main id="vc110-main" class="vc110-tool">
+<header class="vc110-tool-head">
+<p>LOCAL TYPESET / STRUCTURE</p>
+<h1>先校字面，<br>再谈声律。</h1>
+<aside>把多副校样按行装入。工具只检查可数结构，不替代对平仄、词性、语义、典故、作者与出处的人工复核。</aside>
+</header>
+<form data-vc110-proof-form novalidate>
+<label for="vc110-rows">
+<span>楹联校样</span>
+<textarea id="vc110-rows" rows="13" spellcheck="false" aria-describedby="vc110-format vc110-error" placeholder="L-01 | 檐收远岫千重雨 | 门迎清风一院春 | 清风入座">
+</textarea>
+</label>
+<div>
+<p id="vc110-format">每行：校样 ID | 上联 | 下联 | 横批。接受 2–60 副，总输入最多 12000 个 Unicode 字符。</p>
+<fieldset>
+<legend>装入校样</legend>
+<button type="button" data-vc110-preset="clean">结构齐整</button>
+<button type="button" data-vc110-preset="length">字数不等</button>
+<button type="button" data-vc110-preset="punctuation">标点错位</button>
+<button type="button" data-vc110-preset="mixed">复合复核</button>
+</fieldset>
+</div>
+<p id="vc110-error" data-vc110-error role="alert">
+</p>
+<footer>
+<button type="submit">压出结构报告</button>
+<button type="reset">清空校样台</button>
+<output data-vc110-form-status aria-live="polite">等待至少两副楹联。</output>
+</footer>
+</form>
+<section class="vc110-report" data-ready="false" aria-labelledby="vc110-report-title">
+<header>
+<div>
+<span>TYPESET REPORT</span>
+<b data-vc110-report-state>UNSET</b>
+</div>
+<h2 id="vc110-report-title">校样结构</h2>
+</header>
+<dl>
+<div>
+<dt>楹联</dt>
+<dd data-vc110-count>0</dd>
+</div>
+<div>
+<dt>结构齐整</dt>
+<dd data-vc110-balanced>0</dd>
+</div>
+<div>
+<dt>字数提示</dt>
+<dd data-vc110-length>0</dd>
+</div>
+<div>
+<dt>标点提示</dt>
+<dd data-vc110-punctuation>0</dd>
+</div>
+</dl>
+<section class="vc110-flags">
+<header>
+<span>PROOF FLAGS</span>
+<b data-vc110-finding-summary>等待计算</b>
+</header>
+<ul data-vc110-finding-list>
+<li>报告生成后在此显示字数、标点或重复行提示。</li>
+</ul>
+</section>
+<section class="vc110-sheets">
+<header>
+<span>COUPLET SHEETS</span>
+<b data-vc110-sheet-summary>等待计算</b>
+</header>
+<div data-vc110-sheet-list>
+<p>等待楹联校样。</p>
+</div>
+</section>
+<aside>
+<p data-vc110-note>机械预检不判断平仄、词性、声律、语义、典故、书法、文化适切性、作者、出处、原创性、许可或刊刻质量。</p>
+<button type="button" data-vc110-copy-report disabled>复制完整结构报告</button>
+<output data-vc110-copy-status aria-live="polite">
+</output>
+</aside>
+</section>
+</main>
+<footer class="vc110-foot">
+<strong>%%BRAND_EN%% / TYPESET REPORT</strong>
+<p>把机械提示留在校样层，把文化判断交给可靠的人与来源。</p>
+<nav aria-label="页脚导航">
+<a href="index.html">刊刻所</a>
+<a href="article.html">堂记</a>
+<a href="legal.html">边界</a>
+</nav>
+<small>%%SITE_DOMAIN%% · ALL INPUT STAYS IN THIS BROWSER</small>
+</footer>
+<script src="static/impression.js">
+</script>
+</body>
+</html>
