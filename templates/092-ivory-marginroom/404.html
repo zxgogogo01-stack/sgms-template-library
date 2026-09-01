@@ -1,1 +1,19 @@
-<!DOCTYPE html><html lang='[[LANG]]'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>书页未找到｜[[SITE_NAME]]</title><meta name='robots' content='noindex'><link rel='stylesheet' href='public.css'><link rel='stylesheet' href='static/margin.css'></head><body><header class='marginbar'><div class='marginbar-in'><a class='marginbar-brand' href='index.html'>[[BRAND_EN]]</a></div></header><main class='margin-lost'><section class='margin-lost-card'><p class='margin-lost-code'>404</p><h1>这一页不在当前书目中</h1><p>页面可能已移动、归档或尚未收录。</p><a class='margin-primary' href='index.html'>返回阅览室</a></section></main></body></html>
+<!doctype html>
+<html lang="%%LANG%%" data-im92-room="day">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#eee9dd"><meta name="robots" content="noindex,follow">
+  <title>这一页从书中脱落了｜%%SITE_NAME%%</title><meta name="description" content="页面不存在，请重新检索阅览室路径。"><link rel="stylesheet" href="marginroom.css">
+</head>
+<body>
+  <a class="im92-skip" href="#im92-main">跳到主要内容</a>
+  <header class="im92-mast"><a class="im92-mark" href="index.html" aria-label="%%SITE_NAME%% 首页"><b>M<sup>92</sup></b><span>%%BRAND_EN%%</span></a><p><i></i>THE MARGIN ROOM <small>VOL. 092</small></p><nav id="im92-nav" aria-label="主导航"><a href="index.html">阅览室</a><a href="article.html">批注方法</a><a href="tool.html">引文锚定</a><a href="legal.html">编辑守则</a><button type="button" data-im92-room-toggle aria-pressed="false">点亮桌灯</button></nav><button class="im92-menu" type="button" aria-expanded="false" aria-controls="im92-nav"><span>展开目录</span><i aria-hidden="true"></i></button></header>
+  <main id="im92-main" class="im92-lost">
+    <div aria-hidden="true"><span>4</span><figure><i></i><b>PAGE<br>REMOVED</b><em>?</em></figure><span>4</span></div>
+    <section><p>UNBOUND LEAF / ERROR 404</p><h1>这一页，<br>从书脊里脱落了。</h1><span>地址可能已经修订，或者从未被编入本期。输入主题，我们会把你带到最接近的公开栏目。</span>
+      <form data-im92-search novalidate><label for="im92-query">检索阅览室</label><div><input id="im92-query" maxlength="81" autocomplete="off" placeholder="例如：语境、引文、守则"><button type="submit">重新装订</button></div><p data-im92-search-result role="status" aria-live="polite">也可以直接返回 <a href="index.html">阅览室首页</a>。</p></form>
+    </section>
+  </main>
+  <footer class="im92-foot"><p><b>%%BRAND_EN%%</b><span>每一次修订，都应留下可理解的路径。</span></p><nav aria-label="页脚导航"><a href="index.html">首页</a><a href="article.html">方法</a><a href="tool.html">工具</a></nav><small>%%SITE_DOMAIN%% · UNBOUND 404</small></footer>
+  <script src="marginalia.js"></script>
+</body>
+</html>
