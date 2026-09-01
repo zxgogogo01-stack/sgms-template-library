@@ -1,29 +1,56 @@
-# 070-broadsheet-gazette（忠实静态化自军哥 home_gazette）
+# 070 Broadsheet Gazette · 内容接入说明
 
-## 适合什么站
+本模板已经搭好十二栏大报视觉、桌面与移动导航、主题、头版、调查长稿、引语工具、披露和 404。后续 AI 或编辑只需要替换变量与文字，不需要重新设计 UI，也不要改动 `bg70-` 类名、`broadsheet.css` 或 `proofroom.js`。
 
-适合新闻、公告、专题和知识库站点：巨型报头、粗细双线、版面导航、头条与简报、多栏报道和版权尾组成完整报纸头版。
+## 文件
 
-## 复刻说明
+- `index.html`：头版、主调查、今日编辑台、新闻线和三入口。
+- `article.html`：调查长稿、页内目录、双栏正文、阅读进度与交接。
+- `tool.html`：引语归属清单，本地检查说话者、长度与完全重复。
+- `legal.html`：利益、内容、工具、更正四项公示和简短披露。
+- `404.html`：`noindex` 缺页和本地版面检索。
+- `broadsheet.css`：唯一视觉系统；`proofroom.js`：主题、菜单、复制、工具与检索。
 
-- 首页完整保留军哥 `home_gazette` 的 `gz-*` 类名、嵌套和区域顺序：刊头、版面导航、头条、简报、报道多栏与版权尾。
-- `public.css` 是军哥公共样式原样副本；`css/press.css` 继续提供报纸黑白与藏青视觉，旧类名仅作兼容样式钩子。
-- 桌面维持三栏与分栏线，中屏降为两栏，手机端改为单栏并完整显示刊头、头条、简报和报道。
+## 必须替换的变量
 
-## 静态化边界
+`%%LANG%%`、`%%SITE_NAME%%`、`%%SITE_DOMAIN%%`、`%%BRAND_EN%%`、`%%SEO_TITLE%%`、`%%SITE_DESC%%`、`%%SITE_TAGLINE%%`、`%%CONTACT_EMAIL%%`、`%%HERO_EYEBROW%%`、`%%HERO_TITLE%%`、`%%HERO_DESCRIPTION%%`、`%%HOME_FEATURED_LABEL%%`、`%%HOME_LATEST_LABEL%%`、`%%HOME_LINKS_LABEL%%`。
 
-- 不加入源模板不存在的邀请码、复制按钮或分类广告卡。
-- 示例链接均指向套件内页面；生产接入时可替换版面、头条、简报和报道，但不改变报纸骨架。
+域名变量不带协议；邮箱必须可正常收信；标题、描述、OG 与正文必须反映真实内容。
 
-## 页面与文件
+## 接入顺序
 
-`index.html` / `article.html` / `tool.html` / `legal.html` / `404.html` / `robots.txt` / `sitemap.xml`；样式为 `public.css` 与 `css/press.css`，交互为 `press.js`。
+1. 替换全站变量、canonical、OG、邮箱、`robots.txt` 和 `sitemap.xml`。
+2. 保持首页一条主调查、三张编辑卡和三条新闻线的数量，只改文字。
+3. 用真实调查方法改写文章四节，保留主张、材料、引语、边界四项职责。
+4. 根据真实关系调整公示，但不可删除利益、内容、工具、更正四项。
+5. 工具固定使用一行一条的“说话者 | 引语”协议，不修改校验边界。
 
-## 占位符清单（`{X}` 单花括号语法）
+## 给后续 AI 的硬约束
 
-`{SITE_NAME}`、`{BRAND_EN}`、`{SITE_DOMAIN}`、`{SITE_TAGLINE}`、`{SITE_DESC}`、`{CONTACT_EMAIL}`、`{LANG}`
-（JSON-LD 内花括号为 JSON 语法，替换时按整词精确匹配）
+- 只替换变量和文字，不重搭 UI，不复用其他模板的导航、卡片、页脚或工具。
+- 不引入公共站群样式、外链字体、跟踪脚本、远程图片、隐藏链接或虚构数据。
+- 不使用 `innerHTML`、`outerHTML`、`insertAdjacentHTML`、`eval` 或字符串生成可执行 DOM。
+- 不写保证收益、最高比例、固定结果、官方背书等不可核实承诺。
+- 工具边界保持为：10,000 Unicode 字符、100 条记录、说话者 40 字符、单条引语 500 字符。
+- 发布前检查五页各一个 `h1`、无坏链、无页面级横向溢出、移动触控目标至少 44px。
 
-## 可调项
+## 工具示例
 
-- 多栏正文按真实报道铺开，期号和日期戳按建站时间更新。
+```text
+编辑甲 | 日期字段必须说明口径。
+研究员乙 | 未知项应留在正文。
+复核员丙 | 原始材料优先于二次转述。
+```
+
+完全重复使用 NFKC 与不区分大小写的键判断；重复只表示文字一致，不代表引语虚假、转述或抄袭。
+
+## 发布前验收
+
+```bash
+node --check templates/070-broadsheet-gazette/proofroom.js
+node tools/audit-template.js templates/070-broadsheet-gazette
+node tools/check-similarity.js templates/070-broadsheet-gazette templates/071-plum-inbox
+node tools/validate.js
+```
+
+还必须在 1440×1000 和 390×844 真视口测试五页、主题持久化、移动菜单首链聚焦与 Escape、复制、阅读进度、工具空态/错误态/成功态/失效态/重置态、404 精确命中与安全无结果，并确认控制台为空。
