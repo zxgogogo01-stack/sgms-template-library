@@ -1,1 +1,156 @@
-<!DOCTYPE html><html lang='[[LANG]]'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>访谈提纲｜[[SITE_NAME]]</title><meta name='description' content='按访谈目标生成三步提纲。'><link rel='canonical' href='https://[[SITE_DOMAIN]]/tool.html'><link rel='stylesheet' href='public.css'><link rel='stylesheet' href='static/portrait.css'></head><body><header class='portraitbar'><div class='portraitbar-in'><a class='portraitbar-brand' href='index.html'>[[BRAND_EN]]</a><button class='portraitbar-btn' id='portraitbar-btn' type='button' aria-label='主导航' aria-expanded='false' aria-controls='portraitbar-nav'>菜单</button><nav class='portraitbar-nav' id='portraitbar-nav' aria-label='主导航'><a href='index.html'>人物</a><a href='article.html'>访谈</a><a href='tool.html' aria-current='page'>访谈提纲</a><a href='legal.html'>说明</a></nav></div></header><main class='portrait-subpage'><nav class='portrait-crumb' aria-label='面包屑'><a href='index.html'>人物</a> ／ 访谈提纲</nav><p class='portrait-kicker'>Interview outline</p><h1 class='portrait-heading'>选一个方向，组织一场不空泛的访谈</h1><p class='portrait-lead'>提纲不是固定脚本，而是帮助问题从经历落到方法，再回到真实判断。</p><div class='portrait-tool-grid'><div class='portrait-choice-list'><button type='button' class='portrait-choice is-active' data-portrait='origin'>起点与转折<span>经历、选择和关键变化</span></button><button type='button' class='portrait-choice' data-portrait='method'>方法与习惯<span>步骤、反例和实际细节</span></button><button type='button' class='portrait-choice' data-portrait='future'>判断与未来<span>未知、边界和下一步</span></button></div><section class='portrait-result' aria-live='polite'><p class='portrait-kicker'>Outline</p><h2 id='portrait-result-label'>起点与转折</h2><ol id='portrait-result-list'><li><strong>01</strong><span>从最早的选择开始</span></li><li><strong>02</strong><span>追问一次关键转折</span></li><li><strong>03</strong><span>确认今天仍坚持什么</span></li></ol><p class='portrait-note'>尊重受访者边界，公开前应核对事实、引语和必要的匿名信息。</p></section></div></main><footer class='portraitfoot'><div class='portraitfoot-in'><p>[[BRAND_EN]] · [[SITE_TAGLINE]]</p><nav aria-label='页脚导航'><a href='article.html'>访谈</a><a href='tool.html'>访谈提纲</a><a href='legal.html'>说明</a></nav><small>人物内容基于公开资料与编辑访谈整理，引用请核对原始语境。</small></div></footer><script src='static/portrait.js'></script></body></html>
+<!doctype html>
+<html lang="%%LANG%%" data-pj90-proof="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#efe6dc">
+<title>受访者匿名化预检台｜%%SITE_NAME%%</title>
+<meta name="description" content="在本地按明确映射替换采访稿中的直接身份标识，并报告未命中项。">
+<link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="受访者匿名化预检台">
+<meta property="og:description" content="单次、最长标识优先的采访稿匿名替换预检。">
+<meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="journal.css">
+</head>
+<body>
+<a class="pj90-skip" href="#pj90-main">跳到主要内容</a>
+<header class="pj90-mast">
+<a class="pj90-mark" href="index.html" aria-label="%%SITE_NAME%% 首页">
+<span>PJ</span>
+<b>%%BRAND_EN%%</b>
+<small>PORTRAIT JOURNAL · 090</small>
+</a>
+<nav id="pj90-nav" aria-label="主导航">
+<a href="index.html">本期肖像</a>
+<a href="article.html">人物访谈</a>
+<a href="tool.html" aria-current="page">匿名预检</a>
+<a href="legal.html">编辑约定</a>
+<button type="button" data-pj90-proof-toggle aria-pressed="false">切换梅紫印样</button>
+</nav>
+<button class="pj90-menu" type="button" aria-expanded="false" aria-controls="pj90-nav">
+<span>展开本期目录</span>
+<i aria-hidden="true">
+</i>
+</button>
+<p>
+<data value="090">ISSUE 090</data>
+<span>LOCAL REDACTION DESK</span>
+</p>
+</header>
+<main id="pj90-main" class="pj90-redactor">
+<header>
+<p>IDENTITY REPLACEMENT PROOF / LOCAL ONLY</p>
+<h1>在公开之前，<br>先遮住<em>直接身份线索。</em>
+</h1>
+<aside>工具只按你提供的明确映射替换文字，不上传采访稿，也不会自动识别职业、地点、关系或叙事细节中的间接身份线索。</aside>
+</header>
+<div class="pj90-redact-board">
+<form data-pj90-redact-form novalidate>
+<section>
+<label for="pj90-transcript">
+<b>采访稿</b>
+<span>20–12,000 Unicode 字符</span>
+</label>
+<textarea id="pj90-transcript" rows="15" maxlength="12001" aria-describedby="pj90-transcript-help pj90-redact-error" placeholder="张三在东港研究所工作。&#10;张三团队于周二提交了研究记录。">
+</textarea>
+<small id="pj90-transcript-help">处理前会对整份文本执行 NFKC；换行保留，全角兼容字符与标点可能被归一。</small>
+</section>
+<section>
+<label for="pj90-mappings">
+<b>替换映射</b>
+<span>原标识 || 公开代称</span>
+</label>
+<textarea id="pj90-mappings" rows="10" maxlength="3300" aria-describedby="pj90-mappings-help pj90-redact-error" placeholder="张三团队 || 受访团队&#10;张三 || 受访者甲&#10;东港研究所 || 某研究机构">
+</textarea>
+<small id="pj90-mappings-help">1–20 个非空行；两侧各 2–80 字符；大小写不敏感；最长原标识优先且每段原文只替换一次。</small>
+</section>
+<p id="pj90-redact-error" data-pj90-redact-error>
+</p>
+<fieldset>
+<legend>装载校样</legend>
+<button type="button" data-pj90-redact-preset="people">人物与机构</button>
+<button type="button" data-pj90-redact-preset="overlap">重叠标识</button>
+<button type="button" data-pj90-redact-preset="fullwidth">全角英文</button>
+<button type="button" data-pj90-redact-preset="unmatched">未命中项</button>
+</fieldset>
+<footer>
+<button type="submit">生成匿名印样</button>
+<button type="reset">清空校样台</button>
+</footer>
+<p data-pj90-redact-status role="status" aria-live="polite">等待采访稿与替换映射。</p>
+</form>
+<section class="pj90-redact-proof" data-ready="false" aria-labelledby="pj90-proof-title">
+<header>
+<div>
+<span>REDACTION PROOF</span>
+<h2 id="pj90-proof-title">匿名化校样</h2>
+</div>
+<b data-pj90-redact-state>UNSET</b>
+</header>
+<dl>
+<div>
+<dt>映射</dt>
+<dd data-pj90-map-total>0</dd>
+</div>
+<div>
+<dt>已命中</dt>
+<dd data-pj90-map-hit>0</dd>
+</div>
+<div>
+<dt>替换次数</dt>
+<dd data-pj90-replace-total>0</dd>
+</div>
+<div>
+<dt>未命中</dt>
+<dd data-pj90-map-miss>0</dd>
+</div>
+</dl>
+<ol data-pj90-map-report>
+<li>
+<b>—</b>
+<span>生成后显示每条映射的命中次数与原始行号。</span>
+</li>
+</ol>
+<figure>
+<figcaption>ANONYMIZED TRANSCRIPT / NFKC PROOF</figcaption>
+<pre data-pj90-redacted-output>匿名化后的采访稿将在这里显示。</pre>
+</figure>
+<aside>
+<p data-pj90-redact-note>直接字符串替换不能发现间接身份线索；发布前必须人工通读并核对同意范围。</p>
+<button type="button" data-pj90-copy-redacted disabled>复制完整匿名稿</button>
+<output data-pj90-copy-status aria-live="polite">
+</output>
+</aside>
+</section>
+</div>
+<section class="pj90-redact-rule">
+<span>NFKC</span>
+<i>
+</i>
+<span>LONGEST FIRST</span>
+<i>
+</i>
+<span>SINGLE PASS</span>
+<i>
+</i>
+<b>HUMAN REVIEW</b>
+</section>
+</main>
+<footer class="pj90-footer">
+<p>
+<b>%%BRAND_EN%%</b>
+<span>%%SITE_DESC%%</span>
+</p>
+<nav aria-label="页脚导航">
+<a href="article.html">访谈</a>
+<a href="tool.html">工具</a>
+<a href="legal.html">约定</a>
+</nav>
+<small>%%SITE_DOMAIN%% · PORTRAIT JOURNAL 090</small>
+</footer>
+<script src="editor.js">
+</script>
+</body>
+</html>
