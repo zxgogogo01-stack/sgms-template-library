@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang='[[LANG]]'>
-<head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>路线中断｜[[SITE_NAME]]</title>
-  <meta name='robots' content='noindex'>
-  <link rel='stylesheet' href='public.css'>
-  <link rel='stylesheet' href='static/route.css'>
-</head>
-<body>
-  <header class='routebar'><div class='routebar-in'><a class='routebar-brand' href='index.html'>[[BRAND_EN]]</a><nav class='routebar-nav' aria-label='主导航'><a href='index.html'>返回路线图</a></nav></div></header>
-  <main class='route-lost'><section class='route-lost-card'><p class='route-lost-code'>404</p><h1>这条路线暂时中断了</h1><p>页面可能已经移动、改名，或尚未绘制。回到路线图重新选择入口即可。</p><a class='route-primary' href='index.html'>返回路线图</a></section></main>
-</body>
-</html>
+<!doctype html><html lang="%%LANG%%" data-ca87-palette="paper"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f2eadb"><title>这片区域尚未测绘｜%%SITE_NAME%%</title><meta name="robots" content="noindex,follow"><link rel="stylesheet" href="cartograph.css"></head>
+<body><a class="ca87-skip" href="#ca87-main">跳到主要内容</a><header class="ca87-mast"><a class="ca87-mark" href="index.html" aria-label="%%SITE_NAME%% 首页"><strong>CA</strong><span>%%BRAND_EN%%</span><small>ROUTE ATLAS · SHEET 087</small></a><nav id="ca87-nav" aria-label="主导航"><a href="index.html">图谱</a><a href="article.html">测绘方法</a><a href="tool.html">时间盒</a><a href="legal.html">图例说明</a><button type="button" data-ca87-palette-toggle aria-pressed="false">切换夜航图</button></nav><button class="ca87-menu" type="button" aria-expanded="false" aria-controls="ca87-nav"><span>展开图谱目录</span><i aria-hidden="true"></i></button><p><b>UNCHARTED</b><span>GRID · 404</span></p></header>
+<main id="ca87-main" class="ca87-lost"><figure aria-hidden="true"><div><span>N</span><i></i><i></i><i></i><b>404</b><small>NO ROUTE</small></div><figcaption>COORDINATE OUTSIDE CURRENT SHEET</figcaption></figure><section><p>UNCHARTED AREA / 404</p><h1>这片区域，<br>尚未<em>测绘。</em></h1><span>页面可能改名、移位或撤下。输入主题，在本地图谱中寻找最近的已知坐标。</span><form data-ca87-search novalidate><label for="ca87-query">搜索本地图谱</label><div><input id="ca87-query" type="search" maxlength="80" autocomplete="off" placeholder="如：来源、时间、分岔" aria-describedby="ca87-search-help ca87-search-result"><button type="submit">定位最近坐标</button></div><small id="ca87-search-help">最多 80 个 Unicode 字符，不发送到外部。</small><p id="ca87-search-result" data-ca87-search-result role="status" aria-live="polite">也可以返回<a href="index.html">路线图谱</a>。</p></form></section></main><script src="navigator.js"></script></body></html>
