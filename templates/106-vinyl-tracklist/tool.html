@@ -1,1 +1,39 @@
-<!DOCTYPE html><html lang="[[LANG]]"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#191817"><title>选曲台 · [[SITE_NAME]]</title><meta name="description" content="按时段、场景和节奏选择示例曲目。"><link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html"><meta property="og:type" content="website"><meta property="og:title" content="选曲台"><meta property="og:description" content="按时段、场景和节奏选择示例曲目。"><meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html"><link rel="stylesheet" href="public.css"><link rel="stylesheet" href="static/tracklist.css"></head><body><header class="trackbar"><div class="trackbar-in"><a class="trackbar-brand" href="index.html">[[BRAND_EN]]</a><button class="trackbar-btn" id="trackbar-btn" type="button" aria-label="主导航" aria-expanded="false" aria-controls="trackbar-nav">曲目</button><nav class="trackbar-nav" id="trackbar-nav"><a href="index.html">专辑</a><a href="article.html">单曲</a><a href="tool.html" aria-current="page">选曲</a><a href="legal.html">内页</a></nav></div></header><main class="track-page"><nav class="track-crumb"><a href="index.html">专辑</a><span>/</span><span>选曲台</span></nav><header class="track-tool-head"><p>SELECTOR · 03 MODES</p><h1>给这一刻选一面唱片</h1><span>选择时段、场景或节奏，在当前页面切换三首预置曲目。</span></header><section class="track-tool"><div class="track-modes" role="tablist"><button class="track-mode is-active" type="button" role="tab" aria-selected="true" data-mode="hour"><b>时</b><span>按时段</span></button><button class="track-mode" type="button" role="tab" aria-selected="false" data-mode="scene"><b>景</b><span>按场景</span></button><button class="track-mode" type="button" role="tab" aria-selected="false" data-mode="tempo"><b>拍</b><span>按节奏</span></button></div><div class="track-result"><p id="track-result-mark">HOUR · AFTER MIDNIGHT</p><h2 id="track-result-title">午夜以后</h2><ol id="track-result-list"><li><strong>01</strong><span>城市熄灯以后</span><time>04:18</time></li><li><strong>02</strong><span>凌晨两点的自动售货机</span><time>03:42</time></li><li><strong>03</strong><span>沿河散步的人没有影子</span><time>05:06</time></li></ol></div></section></main><footer class="trackfoot"><div class="trackfoot-in"><p>[[BRAND_EN]] · [[SITE_TAGLINE]]</p><small>选曲台只在浏览器内切换预置曲目。</small></div></footer><script src="static/tracklist.js"></script></body></html>
+<!doctype html>
+<html lang="%%LANG%%" data-vt106-mode="studio">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b1018">
+  <title>专辑分面时长校验器｜%%SITE_NAME%%</title>
+  <meta name="description" content="在本地浏览器校验曲号、曲名、A/B 分面、时长、重复标题与分面时长差。">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="专辑分面时长校验器"><meta property="og:description" content="在本地浏览器校验曲目信息与 A/B 分面时长差。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html"><meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="static/tracklist.css">
+</head>
+<body>
+  <a class="vt106-skip" href="#vt106-main">跳到主要内容</a>
+  <header class="vt106-head"><a class="vt106-brand" href="index.html" aria-label="%%SITE_NAME%% 首页"><span>33⅓</span><b>%%BRAND_EN%%</b><small>MASTER ROOM / 106</small></a><button class="vt106-menu" type="button" aria-expanded="false" aria-controls="vt106-nav"><i></i><span>展开唱片目录</span></button><nav id="vt106-nav" aria-label="主导航"><a href="index.html">试听室</a><a href="article.html">母带笔记</a><a href="tool.html" aria-current="page">分面校验</a><a href="legal.html">唱片内页</a><button type="button" data-vt106-mode-toggle aria-pressed="false">切换日光监听</button></nav><p><i></i> REFERENCE SIGNAL</p></header>
+  <main id="vt106-main" class="vt106-tool">
+    <header class="vt106-tool-head"><p>LOCAL CUTTING DESK / 01</p><h1>在落针以前，<br><em>先校准每一面。</em></h1><aside>数据仅在当前浏览器处理。结果是编辑提示，不代表母带、切片、沟槽密度、音质或物理载体已经通过制作审核。</aside></header>
+    <form data-vt106-balance-form novalidate>
+      <div class="vt106-input-grid">
+        <label for="vt106-rows"><span>曲目清单</span><textarea id="vt106-rows" rows="12" spellcheck="false" aria-describedby="vt106-format vt106-error" placeholder="01 | 河面开始播放月光 | A | 04:18"></textarea></label>
+        <div>
+          <label for="vt106-threshold"><span>允许的两面时长差（秒）</span><input id="vt106-threshold" type="number" inputmode="numeric" min="0" max="1800" step="1" value="120"></label>
+          <p id="vt106-format">每行：曲号 | 曲名 | 分面(A/B) | 时长(MM:SS)。接受 2–80 首，总输入最多 10000 个 Unicode 字符。</p>
+          <fieldset><legend>装载测试盘</legend><button type="button" data-vt106-preset="balanced">平衡双面</button><button type="button" data-vt106-preset="longside">B 面过长</button><button type="button" data-vt106-preset="duplicate">重复标题</button><button type="button" data-vt106-preset="single">单面试排</button></fieldset>
+        </div>
+      </div>
+      <p id="vt106-error" data-vt106-error role="alert"></p>
+      <footer><button type="submit">生成分面报告</button><button type="reset">清空校验台</button><output data-vt106-form-status aria-live="polite">等待至少两首曲目。</output></footer>
+    </form>
+    <section class="vt106-report" data-ready="false" aria-labelledby="vt106-report-title">
+      <header><div><p>CUT SHEET / LOCAL RESULT</p><b data-vt106-report-state>UNSET</b></div><h2 id="vt106-report-title">分面报告</h2></header>
+      <dl><div><dt>曲目</dt><dd data-vt106-count>0</dd></div><div><dt>总时长</dt><dd data-vt106-total-time>00:00</dd></div><div><dt>A 面</dt><dd data-vt106-a-time>00:00</dd></div><div><dt>B 面</dt><dd data-vt106-b-time>00:00</dd></div><div><dt>时长差</dt><dd data-vt106-difference>00:00</dd></div></dl>
+      <section class="vt106-findings"><header><span>EDITORIAL FLAGS</span><b data-vt106-finding-summary>等待计算</b></header><ul data-vt106-finding-list><li>报告生成后在此显示重复标题、单面试排或时长失衡。</li></ul></section>
+      <section class="vt106-cuts"><header><span>CUT ORDER</span><b data-vt106-cut-summary>等待计算</b></header><div data-vt106-cut-list><p>等待曲目输入。</p></div></section>
+      <aside><p data-vt106-note>机械校验不验证母带版本、响度、音质、沟槽密度、载体容量、曲序艺术性、版权、署名或最终音频。</p><button type="button" data-vt106-copy-report disabled>复制完整分面报告</button><output data-vt106-copy-status aria-live="polite"></output></aside>
+    </section>
+  </main>
+  <footer class="vt106-foot"><strong>%%BRAND_EN%% / CUTTING DESK</strong><p>先确认数据，再交给耳朵与制作系统。</p><nav aria-label="页脚导航"><a href="index.html">试听室</a><a href="article.html">笔记</a><a href="legal.html">内页</a></nav><small>%%SITE_DOMAIN%% · ALL INPUT STAYS IN THIS BROWSER</small></footer>
+  <script src="static/tracklist.js"></script>
+</body>
+</html>
