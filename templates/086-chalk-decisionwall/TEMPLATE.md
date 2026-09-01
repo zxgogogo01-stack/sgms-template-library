@@ -1,26 +1,39 @@
-# 086-chalk-decisionwall
+# 086-chalk-decisionwall｜粉笔决策墙
 
-## 来源
+## 模板定位
 
-- 军哥动态模板：`home_decision_wall`
-- 静态化原则：保留原版页面骨架、原始类名、Web3 Guides 页头/页脚结构与公共样式。
-- 动态的 `if`、`with`、`range` 数据已展开为静态示例内容。
+适合方法站、团队知识库、产品研究和需要公开判断过程的内容站。完整 UI 已搭建为夜间黑板/日光板双主题的决策墙，包含五页独立构图、移动目录、阅读进度、复制反馈、加权矩阵、声明和 404 寻路。
+
+后续 AI 只需替换真实文字和站点变量，不需要重做墙面、便签、长文、矩阵报告、声明或响应式 UI，也不要套回通用卡片站。
 
 ## 文件
 
-- `index.html`：忠实静态化的 Decision Wall 首页
-- `article.html`：文章页
-- `tool.html`：返佣后净手续费计算器
-- `legal.html`：利益披露与风险提示
-- `404.html`、`robots.txt`、`sitemap.xml`
-- `assets/public.css`：军哥模板库原始公共样式的原样副本
-- `assets/wall.css`：原包未提供 Decision Wall 专属 CSS，因此仅补充该布局所需样式
-- `assets/wall.js`：移动导航和静态计算器交互
+- `index.html`：决策墙、三张问题便签、四轮工作流
+- `article.html`：决策方法长文、目录、进度与交接复制
+- `tool.html`：标准、权重、候选项和评分矩阵
+- `legal.html`：边界、来源、披露、隐私与更正
+- `404.html`：本地墙面寻路
+- `decisionwall.css`：完整视觉、双主题、响应式和无障碍样式
+- `wallroom.js`：目录、主题、进度、复制、矩阵与寻路
+- `robots.txt`、`sitemap.xml`：抓取入口
 
-## 占位符
+## 全局占位符
 
-`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_DESC%%`、`%%SEO_TITLE%%`、`%%HERO_EYEBROW%%`、`%%HERO_TITLE%%`、`%%HERO_DESCRIPTION%%`、`%%HOME_FEATURED_LABEL%%`、`%%HOME_LATEST_LABEL%%`、`%%ALL_CONTENT_TITLE%%`、`%%FOOTER_NOTE%%`、`%%YEAR%%`
+`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_TAGLINE%%`、`%%SITE_DESC%%`、`%%CONTACT_EMAIL%%`
 
-## 注意
+## AI 文字接入顺序
 
-军哥压缩包只包含一个旧版通用 `style.css`，没有 `dw-*`、`wg-*` 等新布局专属 CSS。本模板已原样带入该公共样式，并以 `wall.css` 补全缺失规则；未对原版布局和类名进行重设计。
+1. 全局替换七个占位符，统一 canonical、Open Graph、JSON-LD、robots 和 sitemap 域名。
+2. 只改标题、摘要、正文、日期、版本和真实声明；保留 `dw86-` 类名、`data-dw86-*` 属性、ID、文件名与页面骨架。
+3. 首页问题便签与四轮工作流可换主题，但保留“问题—标准—证据—复盘”的认知顺序。
+4. 工具可换样例，不改变标准 2–8、候选项 2–6、权重 1–100、评分 1–5 的合同；改变规则须同步重写脚本、文案和完整测试。
+5. 按真实业务更新商业关系、数据处理与联系渠道，不保留不真实示例承诺。
+6. 发布前运行严格审计，用 1440×1000 与 390×844 复核五页、菜单、主题、进度、复制、工具和 404。
+
+## 禁止与验收
+
+- 不引入远程字体、图片、框架、统计或 CDN；不合并跨站公共样式。
+- 不使用 `innerHTML` 输出输入；不声称矩阵分数验证了事实、替代硬性门槛或自动给出正确决定。
+- 每页一个可见 `h1`，404 保持 `noindex,follow`。
+- 工具覆盖空值、分隔格式、重复名、名称 60/61、标准 2/8/9、候选项 2/6/7、权重 1/100、评分 1/5、错列数、并列、全角、XSS、失效、复制与重置。
+- 移动目录首链聚焦、Escape 回焦；控件至少 44×44px；无横向溢出、坏链和控制台错误。

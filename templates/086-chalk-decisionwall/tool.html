@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<html lang="%%LANG%%">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>返佣后净手续费计算器 — %%SITE_NAME%%</title>
-  <meta name="description" content="根据交易额、手续费率和返佣比例估算净手续费。">
-  <link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
-  <link rel="stylesheet" href="assets/public.css">
-  <link rel="stylesheet" href="assets/wall.css">
-</head>
-<body>
-  <header class="site-header wg-site-header wg-decision-wall-header">
-    <div class="wg-header-grid">
-      <div class="wg-header-brand"><a class="brand" href="index.html">%%BRAND_EN%%</a></div>
-      <button type="button" class="menu-toggle" aria-label="主导航" aria-expanded="false" aria-controls="site-nav">菜单</button>
-      <nav class="nav wg-main-nav" id="site-nav"><a href="index.html">首页</a><a href="article.html">指南</a><a href="tool.html" aria-current="page">工具</a><a href="legal.html">披露</a></nav>
-    </div>
-  </header>
-  <main class="template-shell">
-    <article class="article">
-      <header class="article-head"><p class="meta">静态前端工具</p><h1>返佣后净手续费计算器</h1><p class="lead">输入示例数据，结果仅用于比较成本口径。</p></header>
-      <form class="tool-card" id="tool-form" aria-labelledby="tool-title" novalidate>
-        <h2 id="tool-title">输入参数</h2>
-        <div class="tool-grid">
-          <label>交易额<input id="trade-volume" type="number" min="0" step="0.01" value="100000" aria-describedby="tool-result"></label>
-          <label>手续费率（%）<input id="fee-rate" type="number" min="0" step="0.001" value="0.1" aria-describedby="tool-result"></label>
-          <label>返佣比例（%）<input id="rebate-rate" type="number" min="0" max="100" step="0.1" value="20" aria-describedby="tool-result"></label>
-        </div>
-        <button class="tool-action" id="tool-run" type="submit">计算</button>
-        <div class="tool-result" id="tool-result" role="status" aria-live="polite">填写参数后点击“计算”。</div>
-      </form>
-    </article>
-  </main>
-  <footer class="site-footer wg-footer"><div class="wg-footer-row"><p>计算结果为演示值，以实际账单为准。</p><nav><a href="legal.html">披露与免责</a></nav></div></footer>
-  <script src="assets/wall.js"></script>
-</body>
-</html>
+<!doctype html><html lang="%%LANG%%" data-dw86-board="night"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#1d3731"><title>加权决策矩阵｜%%SITE_NAME%%</title><meta name="description" content="输入 2–8 项标准与权重、2–6 个候选项及 1–5 分评分，在本地计算加权结果与并列情况。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html"><meta property="og:type" content="website"><meta property="og:site_name" content="%%SITE_NAME%%"><meta property="og:title" content="加权决策矩阵"><meta property="og:description" content="以相同标准计算候选项的加权分数并保留完整输入记录。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="decisionwall.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"加权决策矩阵","url":"https://%%SITE_DOMAIN%%/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script></head>
+<body><a class="dw86-skip" href="#dw86-main">跳到主要内容</a><header class="dw86-bar"><a class="dw86-brand" href="index.html" aria-label="%%SITE_NAME%% 首页"><b>DW</b><span>%%BRAND_EN%%</span><small>DECISION WALL · 086</small></a><button class="dw86-menu" type="button" aria-expanded="false" aria-controls="dw86-nav"><span>展开墙面目录</span><i aria-hidden="true"></i></button><nav id="dw86-nav" aria-label="主导航"><a href="index.html">决策墙</a><a href="article.html">推敲方法</a><a href="tool.html" aria-current="page">加权矩阵</a><a href="legal.html">墙面说明</a><button type="button" data-dw86-board-toggle aria-pressed="false">切换日光板</button></nav><p><span>MATRIX 086-C</span><b>LOCAL ONLY</b></p></header>
+<main id="dw86-main" class="dw86-tool"><header><span>CRITERIA × WEIGHT × SCORE</span><h1>加权决策<br><em>矩阵</em></h1><p>先输入标准与权重，再让每个候选项按相同顺序给出 1–5 分。工具只执行算术与格式检查，不替你判断标准是否正确。</p></header><div class="dw86-matrixdesk"><form data-dw86-matrix-form novalidate><label for="dw86-criteria"><b>标准与权重</b><span>2–8 行；格式：标准 | 权重</span></label><textarea id="dw86-criteria" rows="9" maxlength="3001" aria-describedby="dw86-matrix-help dw86-matrix-error" placeholder="可维护性 | 40&#10;无障碍 | 35&#10;交付速度 | 25"></textarea><label for="dw86-options"><b>候选项与评分</b><span>2–6 行；评分顺序与标准一致</span></label><textarea id="dw86-options" rows="10" maxlength="5001" aria-describedby="dw86-matrix-help dw86-matrix-error" placeholder="方案 A | 5 | 4 | 3&#10;方案 B | 3 | 5 | 4"></textarea><small id="dw86-matrix-help">名称 1–60 字符；权重为 1–100 整数；评分为 1–5 整数；每行须使用竖线分隔。</small><p id="dw86-matrix-error" data-dw86-matrix-error></p><fieldset><legend>装载矩阵样例</legend><button type="button" data-dw86-preset="clear">清晰差异</button><button type="button" data-dw86-preset="tie">并列结果</button><button type="button" data-dw86-preset="fullwidth">全角输入</button></fieldset><footer><button type="submit">计算矩阵</button><button type="reset">清空墙面</button></footer><p data-dw86-matrix-status role="status" aria-live="polite">等待输入标准与候选项。</p></form><section class="dw86-matrix-report" data-ready="false" aria-labelledby="dw86-report-title"><header><div><span>MATRIX REPORT</span><h2 id="dw86-report-title">加权结果</h2></div><b data-dw86-matrix-state>UNSET</b></header><dl><div><dt>标准</dt><dd data-dw86-criterion-count>0</dd></div><div><dt>权重合计</dt><dd data-dw86-weight-total>0</dd></div><div><dt>候选项</dt><dd data-dw86-option-count>0</dd></div><div><dt>并列组</dt><dd data-dw86-tie-count>0</dd></div></dl><ol data-dw86-matrix-items><li><b>—</b><span>计算后按加权分从高到低显示候选项。</span></li></ol><aside><p data-dw86-report-note>分数只反映当前输入；硬性门槛、证据质量与不确定性需另行记录。</p><button type="button" data-dw86-copy-report disabled>复制完整矩阵</button><span data-dw86-report-status role="status" aria-live="polite"></span></aside></section></div><aside class="dw86-formula"><span>WEIGHTED SCORE</span><b>Σ(权重 × 评分) ÷ Σ权重</b><i></i><b>评分范围 1–5</b><i></i><b>保持输入顺序处理同分</b></aside></main>
+<footer class="dw86-footer"><div><b>%%BRAND_EN%%</b><span>本地计算，不上传输入。</span></div><nav aria-label="页脚导航"><a href="index.html">首页</a><a href="article.html">方法</a><a href="legal.html">说明</a></nav><p>%%SITE_DOMAIN%% · WALL 086</p></footer><script src="wallroom.js"></script></body></html>
