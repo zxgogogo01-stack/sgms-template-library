@@ -1,25 +1,31 @@
-# 078-khaki-fieldledger（军哥 home_field_ledger 忠实静态化）
+# 078-khaki-fieldledger（赭石考古记录所）
 
-## 适合什么站
+## 定位
 
-适合研究记录、调查简报和高密度资料站：三格刊头、分类信号条、置顶记录、编号台账行与实时索引侧栏组成完整首页。
+适合证据档案、研究记录、内容台账、知识库和编辑资料库。完整框架包含首页、长文、编号工具、披露、404、双主题、移动目录、复制反馈、SEO 与结构化数据；后续 AI 只替换文字、日期和编号，不需要重做网站 UI。
 
-## 复刻说明
+## 页面与资产
 
-- 首页沿用 `home_field_ledger` 的 `field-ledger-page`、`fl-mast`、`fl-signals`、`fl-content`、`fl-stream` 和 `fl-index` 原始骨架、类名与顺序。
-- Go 循环已静态化为三个分类信号、一个置顶记录、五条台账行和五条实时索引，编号、分类与日期均对应源字段。
-- `public.css` 是军哥公共样式表的原样副本；`css/field.css` 仅承担现有外壳、卡其配色、粗线框与响应式适配。
-- 原旧版邀请码通行条及复制逻辑已删除，首页不再添加源模板之外的转换组件。
+- `index.html`：窄幅编号书脊、探方网格、地层条、标本抽屉和入藏记录。
+- `article.html`：阅读进度、固定剖面目录、表格、引文和入藏交接清单。
+- `tool.html`：记录编号缺口检查器，检查统一前缀、数字位宽、重复与缺号。
+- `legal.html`：来源层级、商业关系、工具隐私、信息边界和更正流程。
+- `404.html`：`noindex` 本地目录搜索。
+- `excavation.css`、`registrar.js`：078 独占视觉与交互。
 
-## 页面与文件
+## 占位符
 
-`index.html`、`article.html`、`tool.html`、`legal.html`、`404.html`、`robots.txt`、`sitemap.xml`、`TEMPLATE.md`、`public.css`、`css/field.css`、`field.js`。
+按整词替换：`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_DESC%%`、`%%SITE_TAGLINE%%`、`%%HERO_DESCRIPTION%%`、`%%CURRENT_YEAR%%`、`%%PUBLISHED_DATE%%`、`%%UPDATED_DATE%%`、`%%CONTACT_EMAIL%%`。
 
-## 占位符清单（`__x__` 小写双下划线语法）
+## AI 内容接入约束
 
-`__site_name__`、`__brand_en__`、`__site_domain__`、`__site_tagline__`、`__site_desc__`、`__contact_email__`、`__lang__`
+1. 保留 `ka78-` 类名、`data-ka78-*` 属性、ID、ARIA 与脚本引用，只替换文字、日期和列表数据。
+2. 编号格式固定为 `PREFIX-001`：前缀 2–12 位，以 ASCII 字母开头，其余为大写字母或数字；数字部分固定 3–6 位。同一批输入必须使用相同前缀和位宽。
+3. 工具接受 1–500 个非空编号，总输入最多 10,000 个 Unicode 字符，数字跨度不超过 10,000；NFKC 归一并转为大写。不要自动复用已撤销编号。
+4. 文章保留唯一 `h1`，目录链接对应真实章节 ID；增减正文后复查阅读进度与双视口。
+5. `legal.html` 按真实关系填写；新增统计、表单或第三方服务时补充隐私说明。
+6. 不引入外部字体、公共 CSS、第三方脚本、追踪像素或跨模板共享组件。
 
-## 可调项
+## 使用顺序与验收
 
-- 台账行、分类信号和实时索引可按真实内容增删，计数窗数字应同步为真实总数。
-- 侧栏默认显示最近五条记录，深浅色模式保持可用。
+先替换变量，再更新首页抽屉和文章，随后修改真实披露，最后替换 robots 与 sitemap 域名。运行 `node tools/audit-template.js templates/078-khaki-fieldledger`，并在 1440×1000 与 390×844 检查五页、主题、菜单、复制、阅读进度、编号边界、404、控制台与横向溢出。
