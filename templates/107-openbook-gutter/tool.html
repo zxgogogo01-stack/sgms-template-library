@@ -1,1 +1,34 @@
-<!DOCTYPE html><html lang="[[LANG]]"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#e7dcc6"><title>翻页索引 · [[SITE_NAME]]</title><meta name="description" content="按主题、书页和批注浏览示例内容。"><link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html"><meta property="og:type" content="website"><meta property="og:title" content="翻页索引"><meta property="og:description" content="按主题、书页和批注浏览示例内容。"><meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html"><link rel="stylesheet" href="public.css"><link rel="stylesheet" href="static/gutter.css"></head><body><header class="gutbar"><div class="gutbar-in"><a class="gutbar-brand" href="index.html">[[BRAND_EN]]</a><button class="gutbar-btn" id="gutbar-btn" type="button" aria-label="主导航" aria-expanded="false" aria-controls="gutbar-nav">目录</button><nav class="gutbar-nav" id="gutbar-nav"><a href="index.html">展开书</a><a href="article.html">正文</a><a href="tool.html" aria-current="page">索引</a><a href="legal.html">版权页</a></nav></div></header><main class="gutter-page"><nav class="gutter-crumb"><a href="index.html">展开书</a><span>/</span><span>翻页索引</span></nav><header class="gutter-tool-head"><p>BOOK INDEX · 03</p><h1>从一条书缝进入</h1><span>选择主题、页码或批注，当前页会切换三条预置索引。</span></header><section class="gutter-tool"><div class="gutter-modes" role="tablist"><button class="gutter-mode is-active" type="button" role="tab" aria-selected="true" data-mode="topic"><b>题</b><span>按主题</span></button><button class="gutter-mode" type="button" role="tab" aria-selected="false" data-mode="page"><b>页</b><span>按页码</span></button><button class="gutter-mode" type="button" role="tab" aria-selected="false" data-mode="note"><b>注</b><span>按批注</span></button></div><div class="gutter-result"><p id="gutter-result-mark">TOPIC · READING</p><h2 id="gutter-result-title">阅读痕迹</h2><ol id="gutter-result-list"><li><strong>018</strong><span>藏书票上的旧名字</span></li><li><strong>073</strong><span>装订沟里的干花</span></li><li><strong>126</strong><span>页边铅笔批注</span></li></ol></div></section></main><footer class="gutfoot"><div class="gutfoot-in"><p>[[BRAND_EN]] · [[SITE_TAGLINE]]</p><small>索引工具只切换浏览器内预置内容。</small></div></footer><script src="static/gutter.js"></script></body></html>
+<!doctype html>
+<html lang="%%LANG%%" data-ob107-mode="folio">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f0e6d3">
+  <title>书帖页码连续性校验器｜%%SITE_NAME%%</title><meta name="description" content="在本地浏览器检查书帖起止页、断页、重叠与非四页倍数提示。">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html"><meta property="og:type" content="website"><meta property="og:title" content="书帖页码连续性校验器"><meta property="og:description" content="检查书帖起止页、断页、重叠与配页提示。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html"><meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="static/gutter.css">
+</head>
+<body>
+  <a class="ob107-skip" href="#ob107-main">跳到主要内容</a>
+  <header class="ob107-case"><a class="ob107-mark" href="index.html" aria-label="%%SITE_NAME%% 首页"><b>%%BRAND_EN%%</b><span>OPEN FOLIO</span><small>NO. 107</small></a><button class="ob107-menu" type="button" aria-expanded="false" aria-controls="ob107-nav"><i></i><span>展开装帧目录</span></button><nav id="ob107-nav" aria-label="主导航"><a href="index.html">展开书</a><a href="article.html">纸页札记</a><a href="tool.html" aria-current="page">书帖校验</a><a href="legal.html">版权页</a><button type="button" data-ob107-mode-toggle aria-pressed="false">切换蓝晒校样</button></nav><p>HAND BOUND <i>●</i> 107</p></header>
+  <main id="ob107-main" class="ob107-tool">
+    <header class="ob107-tool-head"><span>COLLATION DESK / LOCAL</span><h1>让每一页，<br>都能在书帖里<br><em>找到前后。</em></h1><p>输入书帖编号与起止页。数据只在当前浏览器处理；报告是配页提示，不替代印厂拼版、实物点页与装帧确认。</p></header>
+    <div class="ob107-desk">
+      <form data-ob107-signature-form novalidate>
+        <label for="ob107-rows"><span>书帖范围</span><textarea id="ob107-rows" rows="14" spellcheck="false" aria-describedby="ob107-format ob107-error" placeholder="S01 | 1 | 16"></textarea></label>
+        <p id="ob107-format">每行：书帖编号 | 起页 | 止页。接受 2–80 个书帖，总输入最多 8000 个 Unicode 字符；单帖最多 64 页。</p>
+        <fieldset><legend>装载校样</legend><button type="button" data-ob107-preset="continuous">连续书帖</button><button type="button" data-ob107-preset="gap">断页样本</button><button type="button" data-ob107-preset="overlap">重叠样本</button><button type="button" data-ob107-preset="irregular">非标准配页</button></fieldset>
+        <p id="ob107-error" data-ob107-error role="alert"></p>
+        <footer><button type="submit">生成配页报告</button><button type="reset">清空校样台</button><output data-ob107-form-status aria-live="polite">等待至少两个书帖。</output></footer>
+      </form>
+      <section class="ob107-report" data-ready="false" aria-labelledby="ob107-report-title">
+        <header><span>COLLATION REPORT</span><b data-ob107-report-state>UNSET</b><h2 id="ob107-report-title">书帖总览</h2></header>
+        <dl><div><dt>书帖</dt><dd data-ob107-count>0</dd></div><div><dt>版心范围</dt><dd data-ob107-span>0</dd></div><div><dt>断页</dt><dd data-ob107-gap-pages>0</dd></div><div><dt>重叠页</dt><dd data-ob107-overlap-pages>0</dd></div></dl>
+        <section class="ob107-flags"><header><span>COLLATION FLAGS</span><b data-ob107-flag-summary>等待计算</b></header><ul data-ob107-flag-list><li>报告生成后在此显示断页、重叠与非四页倍数书帖。</li></ul></section>
+        <section class="ob107-signatures"><header><span>SIGNATURE ORDER</span><b data-ob107-signature-summary>等待计算</b></header><table><thead><tr><th>书帖</th><th>范围</th><th>页数</th><th>配页</th></tr></thead><tbody data-ob107-signature-list><tr><td colspan="4">等待书帖输入。</td></tr></tbody></table></section>
+        <aside><p data-ob107-note>机械校验不验证印刷拼版、折手方式、纸张方向、装订结构、空白页、版本对应、实物完整性、来源或权利。</p><button type="button" data-ob107-copy-report disabled>复制完整配页报告</button><output data-ob107-copy-status aria-live="polite"></output></aside>
+      </section>
+    </div>
+  </main>
+  <footer class="ob107-foot"><p>%%BRAND_EN%% / COLLATION DESK</p><strong>连续页码是开始，不是成书的全部。</strong><nav aria-label="页脚导航"><a href="index.html">展开书</a><a href="article.html">札记</a><a href="legal.html">版权</a></nav><small>%%SITE_DOMAIN%% · ALL INPUT STAYS IN THIS BROWSER</small></footer>
+  <script src="static/gutter.js"></script>
+</body>
+</html>
