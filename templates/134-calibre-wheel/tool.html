@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="{{LANG}}" data-cw134-light="night">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#071019">
+  <meta name="description" content="用整数分数校核多级轮系传动比、旋向、接触循环与文档状态。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html"><meta property="og:title" content="轮系校核台｜{{SITE_NAME}}"><meta property="og:description" content="一套保留精确分数并公开机械文档边界的本地轮系工具。"><meta property="og:type" content="website"><meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <title>轮系校核台｜{{SITE_NAME}}</title><link rel="stylesheet" href="static/calibre.css"><script src="static/calibre.js" defer></script>
+</head>
+<body class="cw134-tool-page">
+  <a class="cw134-skip" href="#cw134-main">跳到主要内容</a>
+  <header class="cw134-mast"><a class="cw134-sign" href="index.html" aria-label="{{SITE_NAME}} 首页"><span>134</span><b>{{BRAND_EN}}</b><small>CALIBRE ARCHIVE</small></a><nav class="cw134-track" aria-label="主导航"><a href="index.html">轮系</a><a href="article.html">札记</a><a aria-current="page" href="tool.html">校核</a><a href="legal.html">边界</a></nav><button class="cw134-lamp" type="button" data-cw134-light-toggle aria-pressed="false">开启检修光</button></header>
+  <main id="cw134-main">
+    <header class="cw134-tool-lead"><div><p class="cw134-eyebrow"><i></i> TRAIN AUDITOR / LOCAL</p><h1>轮系传动<br><em>精确校核台</em></h1></div><p>输入级位、齿数、啮合与状态。计算只在浏览器本地完成，不上传记录。</p><div class="cw134-tool-orbit" aria-hidden="true"><span>RATIO</span><b>÷</b><i>DIRECTION</i></div></header>
+    <section class="cw134-tool-workbench" aria-labelledby="cw134-input-title">
+      <form class="cw134-train-form" data-cw134-train-form novalidate>
+        <header><span>INPUT / 01</span><h2 id="cw134-input-title">级位记录</h2></header>
+        <p class="cw134-format"><code>级位 | 主动齿 | 从动齿 | 啮合 | 状态</code></p>
+        <label for="cw134-rows">每行一组轮系级位</label>
+        <textarea id="cw134-rows" rows="12" spellcheck="false">发条至中心 | 17 | 43 | 外啮合 | 锁定
+中心至三轮 | 19 | 47 | 外啮合 | 锁定</textarea>
+        <div class="cw134-presets" aria-label="示例数据"><button type="button" data-cw134-preset="coprime">互素齿列</button><button type="button" data-cw134-preset="contact">重复接触</button><button type="button" data-cw134-preset="reverse">单次反向</button><button type="button" data-cw134-preset="review">复合复核</button></div>
+        <p class="cw134-error" data-cw134-error role="alert"></p>
+        <div class="cw134-form-actions"><button class="cw134-key" type="submit">生成校核报告</button><button class="cw134-quiet" type="reset">清空报告</button></div>
+        <p data-cw134-form-status role="status" aria-live="polite">等待至少两条轮系级位记录。</p>
+      </form>
+      <section class="cw134-report" data-ready="false" aria-labelledby="cw134-report-title">
+        <header><span>OUTPUT / 02</span><div><h2 id="cw134-report-title">校核报告</h2><strong data-cw134-report-state>UNSET</strong></div></header>
+        <dl class="cw134-gauges"><div><dt>级位</dt><dd data-cw134-stage-count>0</dd></div><div><dt>外啮合</dt><dd data-cw134-external-count>0</dd></div><div><dt>接触提示</dt><dd data-cw134-contact-count>0</dd></div><div><dt>状态提示</dt><dd data-cw134-status-count>0</dd></div></dl>
+        <div class="cw134-ratio-display"><span>TOTAL SPEED</span><strong data-cw134-ratio>—</strong><small data-cw134-direction>等待计算</small></div>
+        <div class="cw134-findings"><h3 data-cw134-finding-summary>等待计算</h3><ul data-cw134-finding-list><li>报告生成后在此显示接触循环与文档状态提示。</li></ul></div>
+        <div class="cw134-stage-output"><h3 data-cw134-stage-summary>等待计算</h3><div data-cw134-stage-list><p>等待级位记录。</p></div></div>
+        <p class="cw134-limit" data-cw134-note>本工具只计算文字齿数关系、名义旋向、公因数接触提示与文档状态；不验证模数、中心距、齿形、强度、材料、润滑、公差、装配、计时表现、制造安全或发布批准。</p>
+        <div class="cw134-report-actions"><button type="button" class="cw134-key" data-cw134-copy-report disabled>复制完整报告</button><span data-cw134-copy-status role="status" aria-live="polite"></span></div>
+      </section>
+    </section>
+    <section class="cw134-method"><p class="cw134-index">METHOD / EXACT</p><div><h2>为什么保留分数？</h2><p>每一级以“主动齿 ÷ 从动齿”表示，并在相乘后用最大公约数约分。这样即使输入 120 级，也不会把中间结果提前舍入。</p></div><div><h2>接触提示是什么？</h2><p>当主动齿与从动齿的最大公约数大于 1，工具提示可能重复的齿接触组。它是交接线索，不是故障诊断。</p></div></section>
+  </main>
+  <footer class="cw134-footer"><div><a class="cw134-footer-mark" href="index.html">{{BRAND_EN}} <span>134</span></a><p>{{SITE_DESC}}</p></div><div><b>方法</b><a href="article.html">机芯札记</a><a href="legal.html">详细边界</a></div><div><b>联系</b><span>{{CONTACT_CHANNEL}}</span><a href="404.html">档案检索</a></div><p class="cw134-fine">工具在本地运行，不保存输入；所有实物尺寸、材料与性能结论须由相应专业人员另行确认。</p></footer>
+</body>
+</html>
