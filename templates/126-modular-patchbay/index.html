@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="%%LANG%%" data-mp126-signal="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#121416" />
+    <title>%%SITE_NAME%%｜模块合成器接线档案 126</title>
+    <meta name="description" content="%%SITE_DESC%%" />
+    <link rel="canonical" href="https://%%SITE_DOMAIN%%/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="%%SITE_NAME%%" />
+    <meta property="og:title" content="模块合成器接线档案 126" />
+    <meta property="og:description" content="%%SITE_DESC%%" />
+    <meta property="og:url" content="https://%%SITE_DOMAIN%%/" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="static/patchbay.css" />
+  </head>
+  <body>
+    <a class="mp126-skip" href="#mp126-main">跳到主要内容</a>
+    <header class="mp126-console">
+      <a class="mp126-brand" href="index.html" aria-label="%%SITE_NAME%% 首页"
+        ><b>MP/126</b
+        ><span>%%BRAND_EN%%<small>MODULAR SIGNAL ARCHIVE</small></span></a
+      >
+      <nav class="mp126-jack-nav" aria-label="主导航">
+        <a href="index.html" aria-current="page"
+          ><i></i><span>面板</span><small>01</small></a
+        ><a href="article.html"><i></i><span>信号</span><small>02</small></a
+        ><a href="tool.html"><i></i><span>接线</span><small>03</small></a
+        ><a href="legal.html"><i></i><span>边界</span><small>04</small></a>
+      </nav>
+      <button type="button" data-mp126-signal-toggle aria-pressed="false">
+        台灯模式
+      </button>
+    </header>
+    <main id="mp126-main">
+      <section class="mp126-hero">
+        <article>
+          <p>%%SITE_TAGLINE%% / PATCH FILE 126</p>
+          <h1>声音从一根<br /><i>线</i>开始。</h1>
+          <div>
+            <b>%%HERO_DESCRIPTION%%</b
+            ><a href="article.html">追踪信号路径 <span>↗</span></a>
+          </div>
+        </article>
+        <mp126-rack aria-label="抽象模块合成器面板"
+          ><mp126-module data-module="OSC"
+            ><b>01</b><span>VCO</span><i></i><i></i><em>440</em></mp126-module
+          ><mp126-module data-module="FILTER"
+            ><b>02</b><span>VCF</span><i></i><i></i><em>2.4K</em></mp126-module
+          ><mp126-module data-module="ENV"
+            ><b>03</b><span>ADSR</span><i></i><i></i
+            ><em>A D S R</em></mp126-module
+          ><mp126-module data-module="OUT"
+            ><b>04</b><span>VCA</span><i></i><i></i><em>-12</em></mp126-module
+          ><mp126-cable data-color="pink"></mp126-cable
+          ><mp126-cable data-color="yellow"></mp126-cable
+          ><mp126-scope
+            ><i></i><span>0.84 V / 118 Hz</span></mp126-scope
+          ><mp126-memory aria-hidden="true"
+            ><mp126-meter></mp126-meter><mp126-diode></mp126-diode
+            ><mp126-trim></mp126-trim><mp126-gate></mp126-gate
+            ><mp126-buffer></mp126-buffer><mp126-bus></mp126-bus
+            ><mp126-clock></mp126-clock><mp126-cv></mp126-cv
+            ><mp126-audio></mp126-audio><mp126-ground></mp126-ground
+          ></mp126-memory></mp126-rack
+        >
+      </section>
+      <section class="mp126-status">
+        <p><i></i><span>CLOCK</span><b>120 BPM</b></p>
+        <p><i></i><span>VOICES</span><b>04 MONO</b></p>
+        <p><i></i><span>CABLES</span><b>11 PATCHED</b></p>
+        <p><i></i><span>STATE</span><b>REV. 06</b></p>
+      </section>
+      <section class="mp126-patches">
+        <header>
+          <p>PATCH STUDIES / 03</p>
+          <h2>同一组模块，<br />三条声音路径。</h2>
+          <span
+            >信号方向、端口、增益、监听与版本分别记录，不用接线图替代真实设备检查。</span
+          >
+        </header>
+        <div>
+          <a href="article.html"
+            ><small>PATCH / A</small
+            ><mp126-mini><i></i><b></b><span></span></mp126-mini><b>缓慢脉冲</b
+            ><span>OSC → FILTER → VCA</span></a
+          ><a href="article.html"
+            ><small>PATCH / B</small
+            ><mp126-mini><i></i><b></b><span></span></mp126-mini><b>金属回声</b
+            ><span>FM → DELAY → MIX</span></a
+          ><a href="article.html"
+            ><small>PATCH / C</small
+            ><mp126-mini><i></i><b></b><span></span></mp126-mini><b>受控反馈</b
+            ><span>OUT ↺ FILTER</span></a
+          >
+        </div>
+      </section>
+      <section class="mp126-flow">
+        <div>
+          <p>SIGNAL CHECK / 04</p>
+          <h2>先关监听，<br />再追每一条线。</h2>
+        </div>
+        <ol>
+          <li>
+            <b>01</b><span>命名</span>
+            <p>模块、端口和版本指向真实面板。</p>
+          </li>
+          <li>
+            <b>02</b><span>方向</span>
+            <p>输出到输入的每条连接单独记录。</p>
+          </li>
+          <li>
+            <b>03</b><span>环路</span>
+            <p>反馈只作为图结构提示，不作听觉判断。</p>
+          </li>
+          <li>
+            <b>04</b><span>签样</span>
+            <p>增益、监听、设备和现场另行确认。</p>
+          </li>
+        </ol>
+      </section>
+      <section class="mp126-graph-call">
+        <p>LOCAL GRAPH DESK / NO DEVICE ACCESS</p>
+        <h2>A → B → A</h2>
+        <div>
+          <span
+            >把接线记录构成有向图，批量查找反馈环路与未锁定状态，不连接任何设备。</span
+          ><a href="tool.html">打开接线图审计 <i>→</i></a>
+        </div>
+      </section>
+    </main>
+    <footer class="mp126-output">
+      <b>%%BRAND_EN%% / PATCH 126</b>
+      <p>%%SITE_DESC%%</p>
+      <span>%%SITE_DOMAIN%% · %%CONTACT_CHANNEL%%</span
+      ><i>MONITOR LEVEL DOWN BEFORE PATCHING</i>
+    </footer>
+    <script src="static/patchbay.js"></script>
+  </body>
+</html>
