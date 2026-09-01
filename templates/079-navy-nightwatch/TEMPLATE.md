@@ -1,25 +1,32 @@
-# 079-navy-nightwatch（军哥 home_night_watch 忠实静态化）
+# 079-navy-nightwatch（靛蓝夜航观测站）
 
-## 适合什么站
+## 定位
 
-适合监测、快讯和持续更新型内容站：夜航 Hero、现场便签、脉冲快讯、值守面板和派报侧栏构成完整首页。
+适合持续更新、监测简报、状态档案、调查日志和编辑值守站。框架包含观测首页、巡夜长文、时间线连续性工具、信号披露、404、本地搜索、双主题、移动导航、复制反馈、SEO 与结构化数据；后续 AI 只需替换内容，不必重做 UI。
 
-## 复刻说明
+## 页面与资产
 
-- 首页沿用 `home_night_watch` 的 `night-watch-page`、`nw-hero`、`nw-pulse`、`nw-board`、`nw-row` 和 `nw-dispatch` 原始骨架、类名与顺序。
-- Go 循环已静态化为三条脉冲快讯、五条值守记录和一个派报侧栏；分类、编号、摘要及日期均保留。
-- `public.css` 是军哥公共样式表的原样副本；`static/watch.css` 仅承担现有夜航外壳、深浅色配色、叠角便签与响应式适配。
-- 原旧版邀请码灯牌及复制逻辑已删除，首页不再添加源模板之外的转换组件。
+- `index.html`：航标横栏、夜航雷达、四路确认频道、事件日志和连续性入口。
+- `article.html`：纵向阅读进度、值守卡、四段巡夜手册和交接格式。
+- `tool.html`：事件时间线连续性审计器，检查倒序、重复时间戳和超阈值断档。
+- `legal.html`：信号灯含义、来源、关系、隐私、信息边界与更正通道。
+- `404.html`：`noindex` 本地航标搜索。
+- `nightwatch.css`、`observer.js`：079 独占视觉与交互。
 
-## 页面与文件
+## 占位符
 
-`index.html`、`article.html`、`tool.html`、`legal.html`、`404.html`、`robots.txt`、`sitemap.xml`、`TEMPLATE.md`、`public.css`、`static/watch.css`、`static/watch.js`。
+按整词替换：`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_DESC%%`、`%%SITE_TAGLINE%%`、`%%HERO_DESCRIPTION%%`、`%%CURRENT_YEAR%%`、`%%PUBLISHED_DATE%%`、`%%UPDATED_DATE%%`、`%%CONTACT_EMAIL%%`。
 
-## 占位符清单（`[[X]]` 语法）
+## AI 内容接入约束
 
-`[[SITE_NAME]]`、`[[BRAND_EN]]`、`[[SITE_DOMAIN]]`、`[[SITE_TAGLINE]]`、`[[SITE_DESC]]`、`[[CONTACT_EMAIL]]`、`[[LANG]]`
+1. 保留 `nw79-` 类名、`data-nw79-*` 属性、ID、ARIA 和脚本引用，只替换文案、日期与记录数据。
+2. 工具每个非空行使用 `YYYY-MM-DD HH:MM | 事件`，时间按 UTC 解释；年份限 2000–2099，事件文字 1–100 Unicode 字符。
+3. 输入 1–200 行，总量最多 10,000 个 Unicode 字符；可选 15、30、60 或 120 分钟阈值。相同时间为重复，后项早于前项为倒序，间隔严格大于阈值才算断档。
+4. 首页的示例信号、日期和状态必须替换为真实内容，不编造“实时”数据；无人值守时把 `WATCH ACTIVE` 改为准确状态。
+5. 文章保留唯一 `h1` 和四个目录锚点。重要变化同时写明材料、观察时间、适用范围与下一复核点。
+6. `legal.html` 必须按真实关系填写；新增统计、表单或第三方服务时补充隐私说明。
+7. 不引入外部字体、公共 CSS、第三方脚本、追踪像素或跨模板共享组件。
 
-## 可调项
+## 使用顺序与验收
 
-- 值守记录与脉冲条可按真实内容增删，现场便签与派报内容可替换。
-- 深浅色模式保持可用，派报侧栏可固定为最新或重点内容。
+先替换全局变量，再更新信号日志和长文，随后写真实披露，最后替换 robots 与 sitemap 域名。运行 `node tools/audit-template.js templates/079-navy-nightwatch`，并在 1440×1000 与 390×844 检查五页、主题、菜单、复制、纵向进度、全部工具边界、404、控制台与横向溢出。
