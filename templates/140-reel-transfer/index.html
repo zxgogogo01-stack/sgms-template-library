@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="{{LANG}}" data-tp140-side="oxide">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#381d17">
+  <meta name="description" content="一套以开盘磁带、卷轴和走带路径为视觉语言的声音转录档案模板。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}｜开盘磁带转录档案">
+  <meta property="og:description" content="记录来源、速度、时长、转录与交接边界的完整静态站。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <title>{{SITE_NAME}}｜开盘磁带转录档案</title>
+  <link rel="stylesheet" href="static/tape-room.css">
+  <script src="static/tape-room.js" defer></script>
+</head>
+<body class="tp140-home">
+  <a class="tp140-skip" href="#tp140-main">跳到主要内容</a>
+  <header class="tp140-mast">
+    <a class="tp140-brand" href="index.html" aria-label="{{SITE_NAME}} 首页">
+      <b>{{BRAND_EN}}</b>
+      <span>TRANSFER ROOM · 140</span>
+    </a>
+    <p><i></i> ARCHIVE SIGNAL / READY</p>
+    <button type="button" data-tp140-side-toggle aria-pressed="true">翻到纸盒</button>
+  </header>
+
+  <main id="tp140-main">
+    <section class="tp140-deck" aria-labelledby="tp140-hero-title">
+      <div class="tp140-hero-copy">
+        <p class="tp140-eyebrow">MAGNETIC MEMORY / ¼ INCH</p>
+        <h1 id="tp140-hero-title">让声音<br>在磁带上<br><em>保留呼吸。</em></h1>
+        <p>{{HERO_DESCRIPTION}}</p>
+        <div>
+          <a class="tp140-record-button" href="article.html">打开转录札记</a>
+          <span>{{SITE_TAGLINE}}</span>
+        </div>
+      </div>
+      <figure class="tp140-machine" aria-label="抽象双卷盘开盘磁带机">
+        <div class="tp140-reel tp140-reel-a"><i></i></div>
+        <div class="tp140-reel tp140-reel-b"><i></i></div>
+        <div class="tp140-tape-path"><i></i><i></i><i></i></div>
+        <div class="tp140-head-block"><span>HEAD</span><b>02</b></div>
+        <figcaption>
+          <span>REEL A</span>
+          <b>19.05</b>
+          <small>CM / SEC</small>
+        </figcaption>
+      </figure>
+    </section>
+
+    <nav class="tp140-transport" aria-label="主导航">
+      <a aria-current="page" href="index.html"><kbd>◀◀</kbd><span>REWIND</span><b>首页</b></a>
+      <a href="article.html"><kbd>▶</kbd><span>PLAY</span><b>札记</b></a>
+      <a href="tool.html"><kbd>●</kbd><span>RECORD</span><b>时长表</b></a>
+      <a href="legal.html"><kbd>■</kbd><span>STOP</span><b>边界</b></a>
+    </nav>
+
+    <section class="tp140-signal" aria-labelledby="tp140-signal-title">
+      <header>
+        <p class="tp140-eyebrow">SIDE A / SIGNAL</p>
+        <h2 id="tp140-signal-title">先写清来源，<br>再让卷盘转动。</h2>
+      </header>
+      <ol>
+        <li><span>01</span><b>来源</b><p>记录载体、卷标、录制背景和可验证的权利信息，不让文件名替代事实。</p></li>
+        <li><span>02</span><b>速度</b><p>速度决定容量计算；实际设备、校准和走带状态必须另行确认。</p></li>
+        <li><span>03</span><b>交接</b><p>保存原始文件、转录版本、校验记录和责任人，网页只承接已确认内容。</p></li>
+      </ol>
+    </section>
+
+    <aside class="tp140-band" aria-label="磁带走带提示">
+      <span>LEADER</span><i></i><b>NO SIGNAL IS STILL INFORMATION</b><i></i><span>TAIL</span>
+    </aside>
+
+    <section class="tp140-program" aria-labelledby="tp140-program-title">
+      <div class="tp140-program-label">
+        <span>SIDE B</span>
+        <h2 id="tp140-program-title">一条完整的<br>转录路径</h2>
+        <p>五页框架已经搭好；替换变量、文字和演示数据即可形成独立站点。</p>
+      </div>
+      <article>
+        <span>TRACK 01</span>
+        <h3>听见之前</h3>
+        <p>先保留原载体状态、标记、盒签与历史，不把清洁、修复或回放当作无风险动作。</p>
+        <a href="article.html#tp140-source">阅读来源记录 →</a>
+      </article>
+      <article>
+        <span>TRACK 02</span>
+        <h3>计算之后</h3>
+        <p>本地时长表只比较用户输入的长度、速度、节目秒数、预留秒数和状态。</p>
+        <a href="tool.html">打开卷盘时长表 →</a>
+      </article>
+      <article>
+        <span>TRACK 03</span>
+        <h3>发布以前</h3>
+        <p>确认设备、校准、版权、隐私、文件完整性、存储和现场安全责任。</p>
+        <a href="legal.html">查看转录边界 →</a>
+      </article>
+    </section>
+
+    <section class="tp140-label-maker" aria-labelledby="tp140-label-title">
+      <div>
+        <p class="tp140-eyebrow">LOCAL CALCULATOR</p>
+        <h2 id="tp140-label-title">给每只卷盘<br>一张可复核的标签。</h2>
+      </div>
+      <a href="tool.html">
+        <span>CAPACITY / PROGRAM / LEADER</span>
+        <b>计算时长与占用率</b>
+        <i>140</i>
+      </a>
+    </section>
+  </main>
+
+  <footer class="tp140-footer">
+    <section><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></section>
+    <nav aria-label="页脚导航"><strong>转录室</strong><a href="article.html">转录札记</a><a href="tool.html">卷盘时长表</a><a href="404.html">标签检索</a></nav>
+    <address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>LOCAL / NO UPLOAD</small></address>
+    <p>本模板不构成介质修复、设备校准、音频工程、版权、隐私、存储或安全批准。</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="{{LANG}}" data-tp140-side="oxide">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#381d17">
+  <meta name="description" content="使用整数换算卷长、走带速度、节目与预留秒数，生成本地卷盘容量报告。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="卷盘时长表｜{{SITE_NAME}}">
+  <meta property="og:description" content="精确比较卷盘容量、计划时长、90% 复核线与文档状态。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <title>卷盘时长表｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/tape-room.css">
+  <script src="static/tape-room.js" defer></script>
+</head>
+<body class="tp140-tool-page">
+  <a class="tp140-skip" href="#tp140-main">跳到主要内容</a>
+  <header class="tp140-mast">
+    <a class="tp140-brand" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>TRANSFER ROOM · 140</span></a>
+    <p><i></i> RECORD / LOCAL</p>
+    <button type="button" data-tp140-side-toggle aria-pressed="true">翻到纸盒</button>
+  </header>
+  <nav class="tp140-transport" aria-label="主导航">
+    <a href="index.html"><kbd>◀◀</kbd><span>REWIND</span><b>首页</b></a>
+    <a href="article.html"><kbd>▶</kbd><span>PLAY</span><b>札记</b></a>
+    <a aria-current="page" href="tool.html"><kbd>●</kbd><span>RECORD</span><b>时长表</b></a>
+    <a href="legal.html"><kbd>■</kbd><span>STOP</span><b>边界</b></a>
+  </nav>
+
+  <main id="tp140-main">
+    <header class="tp140-tool-cover">
+      <div>
+        <p class="tp140-eyebrow">REEL CAPACITY / INTEGER PATH</p>
+        <h1>卷盘<br>时长表</h1>
+        <p>逐卷比较卷长、走带速度、节目秒数、预留秒数与文档状态；输入不离开当前浏览器。</p>
+      </div>
+      <figure aria-hidden="true">
+        <div><i></i></div><span>REC</span><b>140</b>
+      </figure>
+    </header>
+
+    <section class="tp140-console" aria-labelledby="tp140-input-title">
+      <form class="tp140-reel-form" data-tp140-reel-form novalidate>
+        <header><span>INPUT / REELS</span><h2 id="tp140-input-title">卷盘清单</h2></header>
+        <p class="tp140-format"><code>卷标 | 长度m | 速度cm/s | 节目s | 预留s | 状态</code></p>
+        <label for="tp140-rows">每行一只卷盘</label>
+        <textarea id="tp140-rows" rows="12" spellcheck="false">母带 A | 550.0 | 19.05 | 1200 | 120 | 锁定
+访谈 B | 366.0 | 9.53 | 1800 | 60 | 锁定</textarea>
+        <div class="tp140-presets" aria-label="示例数据">
+          <button type="button" data-tp140-preset="clear">余量充足</button>
+          <button type="button" data-tp140-preset="near">接近容量</button>
+          <button type="button" data-tp140-preset="multi">多项提示</button>
+          <button type="button" data-tp140-preset="review">复合复核</button>
+        </div>
+        <p class="tp140-error" data-tp140-error role="alert"></p>
+        <fieldset>
+          <legend>本地操作</legend>
+          <button class="tp140-record-button" type="submit">生成容量报告</button>
+          <button class="tp140-eject" type="reset">弹出并重置</button>
+        </fieldset>
+        <p data-tp140-form-status role="status" aria-live="polite">等待至少两只卷盘记录。</p>
+      </form>
+
+      <section class="tp140-reel-report" data-ready="false" aria-labelledby="tp140-report-title">
+        <header>
+          <span>OUTPUT / TAKE-UP</span>
+          <h2 id="tp140-report-title">容量报告</h2>
+          <strong data-tp140-report-state>UNSET</strong>
+        </header>
+        <figure class="tp140-capacity-dial">
+          <div data-tp140-dial style="--tp140-turn:0deg"><i></i><span>PEAK USE</span><b data-tp140-peak>—</b></div>
+          <figcaption data-tp140-peak-label>等待计算</figcaption>
+        </figure>
+        <dl class="tp140-totals">
+          <div><dt>卷盘</dt><dd data-tp140-reel-count>0</dd></div>
+          <div><dt>计划秒数</dt><dd data-tp140-planned-total>0</dd></div>
+          <div><dt>容量提示</dt><dd data-tp140-duration-count>0</dd></div>
+          <div><dt>状态提示</dt><dd data-tp140-status-count>0</dd></div>
+        </dl>
+        <div class="tp140-findings">
+          <h3 data-tp140-finding-summary>等待计算</h3>
+          <ul data-tp140-finding-list><li>报告生成后显示接近/超出容量和文档状态提示。</li></ul>
+        </div>
+        <div class="tp140-reel-output">
+          <h3 data-tp140-reel-summary>等待计算</h3>
+          <div data-tp140-reel-list><p>等待卷盘记录。</p></div>
+        </div>
+        <p class="tp140-limit">容量只由用户输入的卷长和速度换算；工具不识别介质、卷径、轨制、方向、设备、校准、节目真实性、权利或安全状态。</p>
+        <footer>
+          <button class="tp140-record-button" type="button" data-tp140-copy-report disabled>复制完整报告</button>
+          <output data-tp140-copy-status aria-live="polite"></output>
+        </footer>
+      </section>
+    </section>
+
+    <aside class="tp140-equation" aria-label="容量计算方法">
+      <span>01 / LENGTH × 100</span><b>米转厘米</b>
+      <i>÷</i>
+      <span>02 / CM PER SECOND</span><b>除以走带速度</b>
+      <i>=</i>
+      <span>03 / CAPACITY</span><b>得到可用秒数</b>
+    </aside>
+  </main>
+
+  <footer class="tp140-footer">
+    <section><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></section>
+    <nav aria-label="页脚导航"><strong>方法</strong><a href="article.html">转录札记</a><a href="legal.html">转录边界</a><a href="404.html">标签检索</a></nav>
+    <address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>LOCAL / INTEGER MATH</small></address>
+    <p>计算结果不构成介质、设备、校准、转录、版权、隐私、存储或现场安全批准。</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="{{LANG}}" data-tp140-side="oxide">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#381d17">
+  <meta name="description" content="从来源、速度、检查、转录到交接，建立可复核的开盘磁带记录。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html">
+  <meta property="og:title" content="开盘磁带转录札记｜{{SITE_NAME}}">
+  <meta property="og:description" content="五段面向内容接入的磁带转录与归档札记。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
+  <title>开盘磁带转录札记｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/tape-room.css">
+  <script src="static/tape-room.js" defer></script>
+</head>
+<body class="tp140-article-page">
+  <a class="tp140-skip" href="#tp140-main">跳到主要内容</a>
+  <progress class="tp140-read-progress" max="100" value="0" aria-label="文章阅读进度"></progress>
+  <header class="tp140-mast">
+    <a class="tp140-brand" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>TRANSFER ROOM · 140</span></a>
+    <p><i></i> READING / SIDE A</p>
+    <button type="button" data-tp140-side-toggle aria-pressed="true">翻到纸盒</button>
+  </header>
+  <nav class="tp140-transport" aria-label="主导航">
+    <a href="index.html"><kbd>◀◀</kbd><span>REWIND</span><b>首页</b></a>
+    <a aria-current="page" href="article.html"><kbd>▶</kbd><span>PLAY</span><b>札记</b></a>
+    <a href="tool.html"><kbd>●</kbd><span>RECORD</span><b>时长表</b></a>
+    <a href="legal.html"><kbd>■</kbd><span>STOP</span><b>边界</b></a>
+  </nav>
+
+  <main id="tp140-main">
+    <article class="tp140-notes">
+      <header class="tp140-notes-cover">
+        <div>
+          <p class="tp140-eyebrow">TRANSFER NOTES / FIVE TRACKS</p>
+          <h1>把声音移走，<br>把证据留下。</h1>
+          <p>页面提供的是记录框架，不是对未知介质、设备或权利状态的判断。{{ARTICLE_META}}</p>
+        </div>
+        <figure aria-hidden="true">
+          <i></i><i></i><i></i>
+          <span>PLAY</span>
+          <b>00:00</b>
+        </figure>
+      </header>
+
+      <nav class="tp140-track-index" aria-label="文章段落">
+        <a href="#tp140-source"><span>01</span>来源</a>
+        <a href="#tp140-speed"><span>02</span>速度</a>
+        <a href="#tp140-inspect"><span>03</span>检查</a>
+        <a href="#tp140-transfer"><span>04</span>转录</a>
+        <a href="#tp140-handoff"><span>05</span>交接</a>
+      </nav>
+
+      <div class="tp140-note-body">
+        <section id="tp140-source">
+          <header><span>TRACK 01</span><h2>来源不是盒子上的一行字</h2><time>ORIGIN</time></header>
+          <p class="tp140-drop">卷标、盒签、铅笔批注、领袖带、拼接、录制日期、地点和保管流转都可能是来源线索。它们需要被如实记录，也需要与可核实的档案相互印证。不要因为标签整洁，就推断里面的节目、速度、声道格式或权利状态。</p>
+          <blockquote>描述你真正看见和确认的内容；把未知保留为未知。</blockquote>
+          <p>若后续内容需要呈现人物、机构、演出、访谈或历史事件，应在发布前单独确认姓名、事实、隐私与授权。模板中的演示标签不能作为事实来源。</p>
+        </section>
+        <section id="tp140-speed">
+          <header><span>TRACK 02</span><h2>速度是容量计算的分母</h2><time>SPEED</time></header>
+          <p>本模板时长表把卷长换算为厘米，再除以用户输入的厘米每秒。为了避免中途浮点误差，长度保存为十分之一米，速度保存为百分之一厘米每秒，比较和比例计算使用整数。</p>
+          <aside><b>重要</b><p>页面不会根据盒型、卷径、品牌或节目名称猜测速度，也不会建议回放速度。实际速度必须来自可靠标记、测试与负责人的确认。</p></aside>
+          <p>变速、反向、双向、不同轨制、拼接和中途换速会改变实际工作流，不能被一个总时长字段完整表达。</p>
+        </section>
+        <section id="tp140-inspect">
+          <header><span>TRACK 03</span><h2>检查先于播放，也独立于网页</h2><time>INSPECT</time></header>
+          <p>介质可能存在变形、粘连、脱落、污染、脆化、拼接失效、霉变或不明历史。是否开盒、清洁、烘烤、修复、张紧和回放，属于材料与设备层面的专业判断。</p>
+          <ul><li>记录外观与标识，不在页面里自动诊断介质。</li><li>记录设备、磁头、速度、轨制和校准依据，不把默认值当成事实。</li><li>分开记录原始载体、采集文件、处理版本和发布版本。</li></ul>
+        </section>
+        <section id="tp140-transfer">
+          <header><span>TRACK 04</span><h2>转录不是一次“播放并保存”</h2><time>TRANSFER</time></header>
+          <p>采集链可能包括回放机、磁头、放大、转换、时钟、采样、监听与存储。页面不核验这些环节，也不判断噪声、失真、方位角、磁平、均衡、声道关系或文件质量。</p>
+          <blockquote>保留原始采集；把处理写成可追踪的版本，而不是覆盖历史。</blockquote>
+          <p>任何降噪、修复、剪辑、增益、重采样、声道变换或内容删改，都应在交接记录中说明方法、理由、责任人和输出文件。</p>
+        </section>
+        <section id="tp140-handoff">
+          <header><span>TRACK 05</span><h2>交接应能让下一位重建过程</h2><time>HANDOFF</time></header>
+          <p>交接包可包含来源记录、卷标照片、设备与校准记录、采集参数、文件命名、校验值、版本关系、异常说明、权利限制、存储位置和联系人。具体字段由项目制度决定。</p>
+          <aside><b>页面边界</b><p>卷盘时长表只做容量数学和文档状态提示；90% 是固定界面复核线，不是设备、介质或项目建议。</p></aside>
+          <footer class="tp140-note-end">
+            <span>END OF SIDE A</span>
+            <button class="tp140-record-button" type="button" data-tp140-copy-note>复制转录摘要</button>
+            <output data-tp140-copy-status aria-live="polite"></output>
+          </footer>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer class="tp140-footer">
+    <section><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></section>
+    <nav aria-label="页脚导航"><strong>下一步</strong><a href="tool.html">卷盘时长表</a><a href="legal.html">转录边界</a><a href="404.html">标签检索</a></nav>
+    <address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>ARTICLE / FIVE TRACKS</small></address>
+    <p>文章用于信息组织，不替代介质检查、修复、设备校准、采集工程、版权审查或存储制度。</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="{{LANG}}" data-tp140-side="oxide">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#381d17">
+  <meta name="robots" content="noindex,follow">
+  <meta property="og:title" content="卷标未找到｜{{SITE_NAME}}">
+  <meta property="og:description" content="使用本地线索返回最接近的转录页面。">
+  <meta property="og:type" content="website">
+  <title>卷标未找到｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/tape-room.css">
+  <script src="static/tape-room.js" defer></script>
+</head>
+<body class="tp140-missing-page">
+  <a class="tp140-skip" href="#tp140-main">跳到主要内容</a>
+  <header class="tp140-mast">
+    <a class="tp140-brand" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>TRANSFER ROOM · 140</span></a>
+    <p><i></i> TAPE OUT / 404</p>
+    <button type="button" data-tp140-side-toggle aria-pressed="true">翻到纸盒</button>
+  </header>
+  <nav class="tp140-transport" aria-label="主导航">
+    <a href="index.html"><kbd>◀◀</kbd><span>REWIND</span><b>首页</b></a>
+    <a href="article.html"><kbd>▶</kbd><span>PLAY</span><b>札记</b></a>
+    <a href="tool.html"><kbd>●</kbd><span>RECORD</span><b>时长表</b></a>
+    <a href="legal.html"><kbd>■</kbd><span>STOP</span><b>边界</b></a>
+  </nav>
+
+  <main class="tp140-missing" id="tp140-main">
+    <figure aria-label="抽象断开的磁带">
+      <div class="tp140-broken-reel"><i></i></div>
+      <span>404</span>
+      <svg viewBox="0 0 500 260" role="img" aria-label="断开的走带路径">
+        <path d="M20 80 C110 15 175 180 245 110 S390 20 480 95" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+        <path d="M20 210 C125 125 155 250 230 185" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+        <path d="M305 183 C380 125 430 228 486 175" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+      </svg>
+      <figcaption>NO TAKE-UP / END OF TAPE</figcaption>
+    </figure>
+    <section>
+      <p class="tp140-eyebrow">LABEL MISSING</p>
+      <h1>这只卷盘，<br>不在当前架位。</h1>
+      <p>页面可能已移动、改名或尚未编目。输入线索，本地目录会打开最接近的转录档案。</p>
+      <form class="tp140-search" data-tp140-search novalidate>
+        <label for="tp140-clue">卷盘线索</label>
+        <div><input id="tp140-clue" type="search" maxlength="81" autocomplete="off" placeholder="例如：来源、时长或版权"><button type="submit">扫描卷标</button></div>
+        <p data-tp140-search-status role="status" aria-live="polite"></p>
+      </form>
+      <a class="tp140-text-link" href="index.html">回到转录室 <span>◀◀</span></a>
+    </section>
+  </main>
+
+  <footer class="tp140-footer">
+    <section><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></section>
+    <nav aria-label="页脚导航"><strong>快速入口</strong><a href="article.html">转录札记</a><a href="tool.html">卷盘时长表</a><a href="legal.html">转录边界</a></nav>
+    <address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>404 / NOINDEX</small></address>
+    <p>404 页面不参与索引；输入只用于当前页面的本地关键词路由。</p>
+  </footer>
+</body>
+</html>
