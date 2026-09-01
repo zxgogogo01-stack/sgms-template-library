@@ -1,26 +1,32 @@
-# 080-ochre-papercurrent（军哥 home_paper_current 忠实静态化）
+# 080-ochre-papercurrent（赤陶折页编辑室）
 
-## 适合什么站
+## 定位
 
-适合期刊、专栏和深度内容站：双栏 Hero、置顶边注、正文流、编号目次和衬线排版组成完整的纸刊式首页。
+适合专题期刊、深度专栏、编辑方法、研究简报和知识出版站。框架包含折页首页、长文样张、脚注对照器、刊物说明、404、本地搜索、双主题、移动导航、复制反馈、SEO 与结构化数据；后续 AI 只需写内容，不需要重新设计 UI。
 
-## 复刻说明
+## 页面与资产
 
-- 首页沿用 `home_paper_current` 的 `paper-current-page`、`pc-hero`、`pc-main`、`pc-feature`、`pc-stream` 与 `pc-toc` 原始骨架、类名和顺序。
-- Go 条件与循环已静态化为一条置顶稿、五条正文流和五项目次；标题、栏目、摘要、日期及“查看全部”入口均保留。
-- `public.css` 是军哥公共样式表的原样副本；`css/current.css` 负责现有赭石纸刊外壳、书脊竖标、深浅色和响应式适配。
-- 旧版邀请码纸条及复制逻辑已删除，首页不再添加源模板之外的转化组件。
+- `index.html`：四联折页、编辑状态条、三页内容、可展开目录和装帧说明。
+- `article.html`：横向阅读进度、四段长文、材料关系图、表格、旁注与交接格式。
+- `tool.html`：脚注引用对照器，检查正文引用、缺失定义、未使用定义和重复定义。
+- `legal.html`：来源、解释、商业关系、隐私、信息边界与更正流程。
+- `404.html`：`noindex` 本地页序搜索。
+- `paperfold.css`、`folio.js`：080 独占视觉与交互。
 
-## 页面与文件
+## 占位符
 
-`index.html`、`article.html`、`tool.html`、`legal.html`、`404.html`、`robots.txt`、`sitemap.xml`、`TEMPLATE.md`、`public.css`、`css/current.css`、`current.js`
+按整词替换：`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_DESC%%`、`%%SITE_TAGLINE%%`、`%%HERO_DESCRIPTION%%`、`%%CURRENT_YEAR%%`、`%%PUBLISHED_DATE%%`、`%%UPDATED_DATE%%`、`%%CONTACT_EMAIL%%`。
 
-## 占位符清单（`{X}` 单花括号语法）
+## AI 内容接入约束
 
-`{SITE_NAME}`、`{BRAND_EN}`、`{SITE_DOMAIN}`、`{SITE_TAGLINE}`、`{SITE_DESC}`、`{CONTACT_EMAIL}`、`{LANG}`
-（JSON-LD 内花括号为 JSON 语法，替换时按整词精确匹配）
+1. 保留 `pc80-` 类名、`data-pc80-*` 属性、ID、ARIA 和脚本引用，只替换文案、日期、目录与示例记录。
+2. 正文脚注使用 `[^1]`，同一编号可重复引用；定义区每个非空行使用 `1 | 来源说明`，编号 1–999 且无前导零。
+3. 正文 1–6,000 个 Unicode 字符；脚注定义 1–100 行且最多 4,000 字符；每条说明 1–200 字符。正文与定义都会 NFKC 归一。
+4. 首页折页和展开目录是完整 UI，替换文字时保留四联页序。`details` 可按真实章节修改，但每个 `summary` 和链接须保持可用。
+5. 长文保留唯一 `h1`、四个锚点、材料关系图和交接区。引用材料时写明发布者、版本或日期、适用范围与核对日。
+6. `legal.html` 按真实关系填写；新增统计、表单或第三方服务时更新隐私说明。
+7. 不引入外部字体、公共 CSS、第三方脚本、追踪像素或跨模板共享组件。
 
-## 可调项
+## 使用顺序与验收
 
-- 正文流和目次可按真实内容同步增删；书脊字、刊期及收录篇数按站点更新。
-- 深浅色模式均可用；若启用封面分支，应同步填写真实图片尺寸、替代文本与链接。
+先替换变量，再更新四联折页与长文，随后填写真实脚注和披露，最后替换 robots 与 sitemap 域名。运行 `node tools/audit-template.js templates/080-ochre-papercurrent`，并在 1440×1000 与 390×844 检查五页、主题、菜单、展开目录、复制、进度、脚注边界、404、控制台与横向溢出。
