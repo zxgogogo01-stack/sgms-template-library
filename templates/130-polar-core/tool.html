@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="%%LANG%%" data-pc130-light="polar">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e8f0f2">
+  <title>冰芯深度区间登记台｜%%SITE_NAME%% 130</title><meta name="description" content="在浏览器本地检查冰芯文字区间的顺序、重叠、间隙与封存状态。">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html"><meta property="og:type" content="website"><meta property="og:title" content="冰芯深度区间登记台"><meta property="og:description" content="只核对文字区间，不解读真实冰芯。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="static/core.css">
+</head>
+<body>
+  <a class="pc130-skip" href="#pc130-main">跳到主要内容</a>
+  <header class="pc130-mast"><a class="pc130-wordmark" href="index.html" aria-label="%%SITE_NAME%% 首页"><b>%%BRAND_EN%%</b><span>POLAR CORE ARCHIVE / 130</span></a><nav aria-label="主导航"><a href="index.html">FIELD</a><a href="article.html">SECTION</a><a href="tool.html" aria-current="page">REGISTER</a><a href="legal.html">CUSTODY</a></nav><button type="button" data-pc130-light-toggle aria-pressed="false">切入极夜</button></header>
+  <main id="pc130-main" class="pc130-lab">
+    <header class="pc130-lab-head"><p>DEPTH REGISTER / LOCAL ONLY</p><h1>连续、间隙、<br><span>重叠都要被看见。</span></h1><div><b>只检查文字芯段、十进制深度、年代标签与档案状态。</b><small>2–120 行 · 最多 6000 个 Unicode 字符<br>保留每个芯段的原始输入顺序</small></div></header>
+    <form class="pc130-register" data-pc130-register-form novalidate>
+      <div class="pc130-register-label"><span>INPUT / CORE SEGMENTS</span><b>芯段 | 起始米 | 结束米 | 年代标签 | 状态</b></div>
+      <label for="pc130-rows">深度区间记录</label>
+      <textarea id="pc130-rows" rows="10" spellcheck="false">CORE A | 0 | 12.5 | SURFACE | 封存
+CORE A | 12.5 | 29 | FIRN | 封存
+CORE A | 29 | 51.25 | BUBBLE | 封存</textarea>
+      <p class="pc130-format">深度 0–5000 米，最多 2 位小数且起始小于结束；状态：草录、复核、封存。</p>
+      <fieldset><legend>示例数据</legend><button type="button" data-pc130-preset="continuous">连续封存</button><button type="button" data-pc130-preset="reverse">深度回退</button><button type="button" data-pc130-preset="overlap">芯段重叠</button><button type="button" data-pc130-preset="review">复合复核</button></fieldset>
+      <p class="pc130-error" data-pc130-error role="alert" aria-live="assertive"></p>
+      <div class="pc130-actions"><button type="submit">生成区间报告 →</button><button type="reset">清空重置</button></div>
+      <p class="pc130-form-status" data-pc130-form-status role="status" aria-live="polite">等待至少两条深度记录。</p>
+    </form>
+    <section class="pc130-output" data-ready="false" aria-labelledby="pc130-output-title">
+      <header><p>OUTPUT / DEPTH CONTINUITY</p><h2 id="pc130-output-title">深度区间机械报告</h2><b data-pc130-report-state>UNSET</b></header>
+      <div class="pc130-totals"><p><span>芯段</span><b data-pc130-core-count>0</b></p><p><span>记录</span><b data-pc130-row-count>0</b></p><p><span>区间</span><b data-pc130-interval-count>0</b></p><p><span>待定</span><b data-pc130-status-count>0</b></p></div>
+      <div class="pc130-output-body"><div><h3>机械提示</h3><b data-pc130-finding-summary>等待计算</b><ol data-pc130-finding-list><li>报告生成后在此显示回退、间隙、重叠与状态提示。</li></ol></div><div><h3>芯段索引</h3><b data-pc130-core-summary>等待计算</b><div data-pc130-core-list><p>等待深度记录。</p></div></div></div>
+      <p class="pc130-note" data-pc130-note>本工具只分析文字芯段、十进制深度、输入顺序、年代标签与档案状态，不读取真实样品、坐标、冷链、实验数据或现场；报告不是地层、年代、气候、实验、安全、权利或发布批准。</p>
+      <button type="button" data-pc130-copy-report disabled>复制完整报告</button><span data-pc130-copy-status role="status" aria-live="polite"></span>
+    </section>
+  </main>
+  <footer class="pc130-foot"><b>%%BRAND_EN%% / CORE 130</b><p>%%SITE_DESC%%</p><span>%%SITE_DOMAIN%% · %%CONTACT_CHANNEL%%</span><i>KEEP THE ORIGINAL DEPTH</i></footer>
+  <script src="static/core.js"></script>
+</body>
+</html>

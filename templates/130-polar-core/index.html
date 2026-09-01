@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="%%LANG%%" data-pc130-light="polar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#e8f0f2">
+  <title>%%SITE_NAME%%｜极地冰芯档案 130</title>
+  <meta name="description" content="一套以冰芯剖面、深度区间与封存状态为视觉语言的原创静态站模板。">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="%%SITE_NAME%%｜极地冰芯档案">
+  <meta property="og:description" content="沿深度阅读气候时间，用文字台账核对芯段区间。">
+  <meta property="og:url" content="https://%%SITE_DOMAIN%%/">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="static/core.css">
+</head>
+<body>
+  <a class="pc130-skip" href="#pc130-main">跳到主要内容</a>
+  <header class="pc130-mast">
+    <a class="pc130-wordmark" href="index.html" aria-label="%%SITE_NAME%% 首页"><b>%%BRAND_EN%%</b><span>POLAR CORE ARCHIVE / 130</span></a>
+    <nav aria-label="主导航"><a href="index.html" aria-current="page">FIELD</a><a href="article.html">SECTION</a><a href="tool.html">REGISTER</a><a href="legal.html">CUSTODY</a></nav>
+    <button type="button" data-pc130-light-toggle aria-pressed="false">切入极夜</button>
+  </header>
+  <main id="pc130-main" class="pc130-front">
+    <section class="pc130-hero">
+      <div class="pc130-hero-copy">
+        <p>CORE 130 / LAT. 79°N / TEXT ARCHIVE</p>
+        <h1>时间没有消失，<br><span>只是被冻在更深处。</span></h1>
+        <div class="pc130-variable"><b>%%SITE_TAGLINE%%</b><span>%%HERO_DESCRIPTION%%</span></div>
+        <a href="article.html">沿剖面下潜 <i>↓</i></a>
+      </div>
+      <pc130-core-column aria-label="抽象极地冰芯剖面">
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+        <b>00.00 M</b><b>16.40 M</b><b>42.80 M</b><b>73.10 M</b>
+        <em>CORE<br>130</em>
+      </pc130-core-column>
+      <aside class="pc130-coordinates" aria-label="档案坐标">
+        <p><b>79° 00' N</b><span>FIELD LATITUDE</span></p>
+        <p><b>73.10 M</b><span>TEXT DEPTH</span></p>
+        <p><b>04 / 04</b><span>SEGMENTS SEALED</span></p>
+      </aside>
+    </section>
+    <section class="pc130-strata" aria-labelledby="pc130-strata-title">
+      <header><p>DEPTH INDEX / FOUR STRATA</p><h2 id="pc130-strata-title">四段剖面，<br>四种阅读尺度。</h2></header>
+      <ol>
+        <li><b>00–12 M</b><span>SNOW</span><strong>表层年轮</strong><p>以采集批次、起止深度与当前状态建立可追溯索引。</p></li>
+        <li><b>12–29 M</b><span>FIRN</span><strong>压实带</strong><p>阶段名称只是编辑标签，不代替实验室层位判读。</p></li>
+        <li><b>29–51 M</b><span>BUBBLE</span><strong>气泡层</strong><p>记录保留原始输入顺序，不自动重排或推断年代。</p></li>
+        <li><b>51–73 M</b><span>BLUE ICE</span><strong>深蓝层</strong><p>深度区间可检查连续、间隙与重叠，地质意义仍由专业人员确认。</p></li>
+      </ol>
+    </section>
+    <section class="pc130-register-call">
+      <div><p>LOCAL REGISTER / NO UPLOAD</p><h2>把芯段放回<br>正确的深度。</h2></div>
+      <pc130-ruler aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></pc130-ruler>
+      <p>核对文字芯段的起止数字、输入顺序、区间重叠、间隙与封存状态；不上传数据，不解读真实冰芯。</p>
+      <a href="tool.html">打开深度登记台 <span>→</span></a>
+    </section>
+  </main>
+  <footer class="pc130-foot"><b>%%BRAND_EN%% / CORE 130</b><p>%%SITE_DESC%%</p><span>%%SITE_DOMAIN%% · %%CONTACT_CHANNEL%%</span><i>KEEP THE ORIGINAL DEPTH</i></footer>
+  <script src="static/core.js"></script>
+</body>
+</html>
