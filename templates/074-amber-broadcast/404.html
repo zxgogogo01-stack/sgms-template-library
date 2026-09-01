@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang='[[LANG]]'>
-<head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>无信号 — [[SITE_NAME]]</title>
-  <meta name='robots' content='noindex'>
-  <link rel='stylesheet' href='radio.css'>
-  <style>
-    /* 404 extras */
-    .staticnoise { max-width: 460px; margin: 15vh auto; padding: 0 24px; text-align: center; }
-    .staticnoise-card {
-      background: var(--walnut);
-      border: 1px solid var(--grille);
-      border-radius: calc(var(--dialR) + 4px);
-      padding: 50px 40px;
-    }
-    .staticnoise-card h1 {
-      font-family: var(--mono74);
-      font-size: 3.1rem;
-      letter-spacing: .12em;
-      color: var(--amberdial);
-      text-shadow: 0 0 26px color-mix(in srgb, var(--amberdial) 50%, transparent);
-    }
-    .staticnoise-card p { color: var(--khaki74); margin: 8px 0 22px; }
-  </style>
-</head>
-<body>
-  <div class='staticnoise'>
-    <div class='staticnoise-card'>
-      <h1>404</h1>
-      <p>这个频率只有沙沙声——节目不存在或已停播。</p>
-      <a class='fader fader-hot' href='index.html'>调回主频道</a>
-    </div>
-  </div>
-</body>
-</html>
+<!doctype html><html lang="%%LANG%%" data-studio="night"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#18130f"><meta name="robots" content="noindex,follow"><title>频道未调谐 — %%SITE_NAME%%</title><meta name="description" content="请求的广播页未调谐，可用本地频道索引返回相关页面。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/404.html"><link rel="stylesheet" href="broadcast-console.css"></head><body>
+<a class="ab74-skip" href="#ab74-main">跳到主要内容</a><header class="ab74-consolebar"><a class="ab74-brand" href="index.html"><b>74</b><span>%%BRAND_EN%%</span><small>AMBER BROADCAST UNIT</small></a><button class="ab74-menu-button" type="button" aria-controls="ab74-menu" aria-expanded="false"><i aria-hidden="true"></i><span>频道</span></button><nav id="ab74-menu" aria-label="主导航"><a href="index.html">直播台</a><a href="article.html">逐字稿</a><a href="tool.html">计时尺</a><a href="legal.html">台规</a><button type="button" data-studio-toggle>日班</button></nav></header>
+<main class="ab74-missing" id="ab74-main"><figure aria-hidden="true"><div><b>404</b><i></i><span>NO SIGNAL</span></div><figcaption>88 · 92 · 96 · 100 · 104 · 108</figcaption></figure><section><p>CHANNEL SEARCH / OFF AIR</p><h1>这个频道还没有调谐。</h1><span>输入一个节目词，本地频道表会指向最近页面。</span><form data-channel-search novalidate><label for="ab74-query">搜索频道表</label><div><input id="ab74-query" type="search" maxlength="80" autocomplete="off" placeholder="如：逐字稿、计时、台规" aria-describedby="ab74-search-help ab74-search-result"><button type="submit">调谐</button></div><small id="ab74-search-help">最多 80 个字符，不向外部发送内容。</small><p id="ab74-search-result" data-channel-result role="status" aria-live="polite">也可以返回<a href="index.html">直播台</a>。</p></form></section></main>
+<footer class="ab74-footer"><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span><small>OFF AIR · 404</small></footer><script src="announcer.js"></script></body></html>
