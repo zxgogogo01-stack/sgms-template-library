@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="{{LANG}}" data-kp141-service="open">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3ead8">
+  <meta name="robots" content="noindex,follow">
+  <meta property="og:title" content="服务单据未找到｜{{SITE_NAME}}">
+  <meta property="og:description" content="使用本地线索返回最接近的服务页面。">
+  <meta property="og:type" content="website">
+  <title>服务单据未找到｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/kitchen-pass.css">
+  <script src="static/kitchen-pass.js" defer></script>
+</head>
+<body class="kp141-missing-page">
+  <a class="kp141-skip" href="#kp141-main">跳到主要内容</a>
+  <header class="kp141-passbar">
+    <a class="kp141-wordmark" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>THE PASS / 141</span></a>
+    <nav class="kp141-ticket-nav" aria-label="主导航"><a href="index.html"><span>01</span><b>出菜口</b></a><a href="article.html"><span>02</span><b>服务札记</b></a><a href="tool.html"><span>03</span><b>排程板</b></a><a href="legal.html"><span>04</span><b>责任单</b></a></nav>
+    <button type="button" data-kp141-service-toggle aria-pressed="true">熄灭出菜灯</button>
+  </header>
+
+  <main class="kp141-missing" id="kp141-main">
+    <section>
+      <p class="kp141-label">ORDER LOST / 404</p>
+      <h1>这张单据，<br>没有挂上出菜口。</h1>
+      <p>页面可能已移动、改名或撤下。输入线索，本地目录会打开最接近的服务档案。</p>
+      <form class="kp141-search" data-kp141-search novalidate>
+        <label for="kp141-clue">服务线索</label>
+        <div><input id="kp141-clue" type="search" maxlength="81" autocomplete="off" placeholder="例如：节奏、排程或过敏"><button type="submit">寻找单据</button></div>
+        <p data-kp141-search-status role="status" aria-live="polite"></p>
+      </form>
+      <a class="kp141-return" href="index.html">返回出菜口 <span>↩</span></a>
+    </section>
+    <figure aria-label="抽象空餐盘与作废单据">
+      <div class="kp141-empty-plate"><i></i></div>
+      <aside><span>VOID</span><b>404</b><p>NO TICKET<br>NO ASSUMPTION</p></aside>
+      <figcaption>CHECK THE RAIL / CHECK THE NAME</figcaption>
+    </figure>
+  </main>
+  <footer class="kp141-footer"><div><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></div><nav aria-label="页脚导航"><strong>快速入口</strong><a href="article.html">服务札记</a><a href="tool.html">排程板</a><a href="legal.html">责任单</a></nav><address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>404 / NOINDEX</small></address><p>404 页面不参与索引；输入只用于当前页面的本地关键词路由。</p></footer>
+</body>
+</html>

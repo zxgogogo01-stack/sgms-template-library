@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="{{LANG}}" data-kp141-service="open">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3ead8">
+  <meta name="description" content="一套以厨师出菜口、餐盘、手写单据和服务节奏为视觉语言的完整静态模板。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}｜厨师出菜口档案">
+  <meta property="og:description" content="记录服务节奏、出菜时间与责任边界的原创五页站点框架。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <title>{{SITE_NAME}}｜厨师出菜口档案</title>
+  <link rel="stylesheet" href="static/kitchen-pass.css">
+  <script src="static/kitchen-pass.js" defer></script>
+</head>
+<body class="kp141-home">
+  <a class="kp141-skip" href="#kp141-main">跳到主要内容</a>
+  <header class="kp141-passbar">
+    <a class="kp141-wordmark" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>THE PASS / 141</span></a>
+    <nav class="kp141-ticket-nav" aria-label="主导航">
+      <a aria-current="page" href="index.html"><span>01</span><b>出菜口</b></a>
+      <a href="article.html"><span>02</span><b>服务札记</b></a>
+      <a href="tool.html"><span>03</span><b>排程板</b></a>
+      <a href="legal.html"><span>04</span><b>责任单</b></a>
+    </nav>
+    <button type="button" data-kp141-service-toggle aria-pressed="true">熄灭出菜灯</button>
+  </header>
+
+  <main id="kp141-main">
+    <section class="kp141-hero" aria-labelledby="kp141-hero-title">
+      <div class="kp141-hero-copy">
+        <p class="kp141-label">CHEF'S PASS · SERVICE 141</p>
+        <h1 id="kp141-hero-title">今晚的每道菜，<br>都在同一条<br><em>时间线上。</em></h1>
+        <p>{{HERO_DESCRIPTION}}</p>
+        <div><a class="kp141-primary" href="tool.html">打开服务排程板</a><span>{{SITE_TAGLINE}}</span></div>
+      </div>
+      <figure class="kp141-plate-stage" aria-label="抽象餐盘与出菜单">
+        <div class="kp141-plate"><i></i><b></b><span></span></div>
+        <aside>
+          <span>ORDER / 0141</span>
+          <b>TABLE {{TABLE_SAMPLE}}</b>
+          <p>START 18:30<br>COURSE 01—07<br>PASS / READY</p>
+          <i>✓</i>
+        </aside>
+        <figcaption>PLATE HOT · EDGE CLEAN · WORDS CLEAR</figcaption>
+      </figure>
+    </section>
+
+    <section class="kp141-docket" aria-labelledby="kp141-docket-title">
+      <header><p class="kp141-label">THREE TICKETS / ONE HANDOFF</p><h2 id="kp141-docket-title">服务不是<br>一串猜测。</h2></header>
+      <article><span>MISE / 01</span><h3>先把事实备齐</h3><p>记录菜单版本、桌号、入座时间、道数、节奏、最晚收尾和确认状态。</p><a href="article.html#kp141-mise">打开备料札记 →</a></article>
+      <article><span>PACE / 02</span><h3>让时间可复核</h3><p>本地工具只按用户输入的分钟推进课程，并与用户给出的最晚时间比较。</p><a href="tool.html">计算服务窗口 →</a></article>
+      <article><span>CALL / 03</span><h3>把边界喊清楚</h3><p>预订、菜单、过敏、食安、人员、支付与现场决定必须留给对应责任人。</p><a href="legal.html">查看责任单 →</a></article>
+    </section>
+
+    <aside class="kp141-call" aria-label="出菜口口令">
+      <span>BEHIND</span><b>热盘向前，事实优先。</b><span>HANDS</span>
+    </aside>
+
+    <section class="kp141-rhythm" aria-labelledby="kp141-rhythm-title">
+      <div>
+        <p class="kp141-label">PACE / NOT PRESSURE</p>
+        <h2 id="kp141-rhythm-title">节奏有数字，<br>判断有主人。</h2>
+        <p>15 分钟只是界面上的固定复核线，不是服务承诺、厨房容量或质量标准。</p>
+      </div>
+      <ol>
+        <li><span>00</span><b>入座</b><small>START</small></li>
+        <li><span>01</span><b>首道</b><small>COURSE</small></li>
+        <li><span>···</span><b>间隔</b><small>PACE</small></li>
+        <li><span>07</span><b>收尾</b><small>FINISH</small></li>
+      </ol>
+    </section>
+
+    <section class="kp141-service-board" aria-labelledby="kp141-board-title">
+      <header><span>LOCAL / NO BOOKING</span><h2 id="kp141-board-title">把每张单据的余量<br>放到同一块板上。</h2></header>
+      <a href="tool.html">
+        <strong>18:30</strong><i></i><strong>20:10</strong>
+        <span>桌号 · 入座 · 道数 · 间隔 · 最晚 · 状态</span>
+        <b>进入排程板 ↗</b>
+      </a>
+    </section>
+  </main>
+
+  <footer class="kp141-footer">
+    <div><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></div>
+    <nav aria-label="页脚导航"><strong>服务台</strong><a href="article.html">服务札记</a><a href="tool.html">排程板</a><a href="404.html">单据检索</a></nav>
+    <address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>LOCAL / NO RESERVATION</small></address>
+    <p>模板不处理真实预订、菜单、过敏、食安、厨房能力、人员、支付、隐私或现场安全决定。</p>
+  </footer>
+</body>
+</html>

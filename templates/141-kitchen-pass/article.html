@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="{{LANG}}" data-kp141-service="open">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3ead8">
+  <meta name="description" content="从备料、起点、节奏、口令到交接，建立可复核的服务札记。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html">
+  <meta property="og:title" content="厨师出菜口服务札记｜{{SITE_NAME}}">
+  <meta property="og:description" content="五段完整服务记录框架，便于后续 AI 直接接入内容。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
+  <title>厨师出菜口服务札记｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/kitchen-pass.css">
+  <script src="static/kitchen-pass.js" defer></script>
+</head>
+<body class="kp141-article-page">
+  <a class="kp141-skip" href="#kp141-main">跳到主要内容</a>
+  <progress class="kp141-progress" max="100" value="0" aria-label="文章阅读进度"></progress>
+  <header class="kp141-passbar">
+    <a class="kp141-wordmark" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>THE PASS / 141</span></a>
+    <nav class="kp141-ticket-nav" aria-label="主导航">
+      <a href="index.html"><span>01</span><b>出菜口</b></a><a aria-current="page" href="article.html"><span>02</span><b>服务札记</b></a><a href="tool.html"><span>03</span><b>排程板</b></a><a href="legal.html"><span>04</span><b>责任单</b></a>
+    </nav>
+    <button type="button" data-kp141-service-toggle aria-pressed="true">熄灭出菜灯</button>
+  </header>
+
+  <main id="kp141-main">
+    <article class="kp141-notebook">
+      <header class="kp141-article-cover">
+        <div><p class="kp141-label">SERVICE NOTES / FIVE CALLS</p><h1>每一次出菜，<br>都应知道<br>依据在哪里。</h1><p>{{ARTICLE_META}} · 页面提供记录语言，不替代真实服务制度。</p></div>
+        <figure aria-hidden="true"><div><i></i></div><span>PASS</span><b>05</b><small>CALLS</small></figure>
+      </header>
+      <menu class="kp141-course-index">
+        <li><a href="#kp141-mise"><span>01</span>备料</a></li><li><a href="#kp141-start"><span>02</span>起点</a></li><li><a href="#kp141-pace"><span>03</span>节奏</a></li><li><a href="#kp141-call"><span>04</span>口令</a></li><li><a href="#kp141-handoff"><span>05</span>交接</a></li>
+      </menu>
+      <div class="kp141-prose">
+        <section id="kp141-mise"><header><span>CALL 01</span><h2>备料从版本与事实开始</h2><time>MISE</time></header><p class="kp141-drop">菜单名称、菜品组成、供应状态、桌号、时间、道数与负责人都可能变化。页面上的演示数据不是预订，也不是对菜品、库存或服务能力的承诺。先确认当前事实，再把它们放进公开内容。</p><blockquote>一张整洁的单据，不等于信息已经被确认。</blockquote><p>涉及客人、员工、供应商或活动时，还应分别确认隐私、合同、图片与发布权限。</p></section>
+        <section id="kp141-start"><header><span>CALL 02</span><h2>入座时间只是计划起点</h2><time>START</time></header><p>本地排程板把用户输入的入座时间视为第 0 分钟，随后按“道数减一”乘以间隔分钟，得到计划收尾。它不会读取真实预订系统，也不会知道客人是否到店、第一道何时出菜或中途是否暂停。</p><aside><b>跨日</b><p>若最晚时间早于入座时间，工具把它解释为次日；单个计划窗口始终限制在 24 小时以内。</p></aside></section>
+        <section id="kp141-pace"><header><span>CALL 03</span><h2>间隔是输入，不是推荐</h2><time>PACE</time></header><p>菜单复杂度、客人节奏、厨房负荷、团队分工和现场变化都可能改变真实间隔。工具不按菜名、道数或桌号推荐分钟数，只执行用户给定的整数加法。</p><ul><li>最晚时间由用户提供，页面不生成服务承诺。</li><li>15 分钟是固定界面复核触发线，不代表质量或容量标准。</li><li>任何时间变化后都应重新生成并复核交接记录。</li></ul></section>
+        <section id="kp141-call"><header><span>CALL 04</span><h2>口令要短，责任要完整</h2><time>CALL</time></header><p>出菜口口令不能替代过敏信息、食安流程、桌况确认、菜品核对或负责人判断。公开页面更不能成为真实厨房控制系统。</p><blockquote>清楚地说“未知”，比自信地补全事实更可靠。</blockquote><p>若站点展示菜单、价格、可订时间或特殊饮食信息，应从真实业务系统和当前政策核验，而不是从模板示例推断。</p></section>
+        <section id="kp141-handoff"><header><span>CALL 05</span><h2>交接要能解释每一次改动</h2><time>HANDOFF</time></header><p>交接记录可包含菜单版本、服务日期、桌号、时间假设、变更原因、确认状态、异常、责任人与公开内容更新时间。实际字段由项目制度决定。</p><aside><b>边界</b><p>排程板只计算计划收尾与用户最晚时间之间的分钟差；不决定接单、催菜、暂停、补偿或任何现场动作。</p></aside><footer class="kp141-note-end"><span>END / CHECK THE PASS</span><button class="kp141-primary" type="button" data-kp141-copy-note>复制服务摘要</button><output data-kp141-copy-status aria-live="polite"></output></footer></section>
+      </div>
+    </article>
+  </main>
+
+  <footer class="kp141-footer"><div><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></div><nav aria-label="页脚导航"><strong>下一步</strong><a href="tool.html">服务排程板</a><a href="legal.html">责任单</a><a href="404.html">单据检索</a></nav><address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>ARTICLE / FIVE CALLS</small></address><p>札记用于信息组织，不替代预订、菜单、过敏、食安、人员、支付或现场制度。</p></footer>
+</body>
+</html>

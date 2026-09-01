@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="{{LANG}}" data-kp141-service="open">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3ead8">
+  <meta name="description" content="按入座时间、道数、间隔和用户最晚时间生成精确到分钟的本地服务排程。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="服务排程板｜{{SITE_NAME}}">
+  <meta property="og:description" content="包含跨日处理、15 分钟复核线与单据状态审计的本地工具。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <title>服务排程板｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/kitchen-pass.css">
+  <script src="static/kitchen-pass.js" defer></script>
+</head>
+<body class="kp141-tool-page">
+  <a class="kp141-skip" href="#kp141-main">跳到主要内容</a>
+  <header class="kp141-passbar">
+    <a class="kp141-wordmark" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>THE PASS / 141</span></a>
+    <nav class="kp141-ticket-nav" aria-label="主导航"><a href="index.html"><span>01</span><b>出菜口</b></a><a href="article.html"><span>02</span><b>服务札记</b></a><a aria-current="page" href="tool.html"><span>03</span><b>排程板</b></a><a href="legal.html"><span>04</span><b>责任单</b></a></nav>
+    <button type="button" data-kp141-service-toggle aria-pressed="true">熄灭出菜灯</button>
+  </header>
+
+  <main id="kp141-main">
+    <header class="kp141-tool-hero">
+      <div><p class="kp141-label">LOCAL TIMELINE / NO BOOKING</p><h1>服务<br>排程板</h1><p>从入座时间按固定分钟推进课程，只与用户输入的最晚时间和单据状态比较。</p></div>
+      <figure aria-hidden="true"><span>18</span><i>:</i><span>30</span><b>PASS</b><small>READY</small></figure>
+    </header>
+
+    <section class="kp141-planner" aria-labelledby="kp141-input-title">
+      <form class="kp141-schedule-form" data-kp141-schedule-form novalidate>
+        <header><span>INPUT / TICKETS</span><h2 id="kp141-input-title">服务单据</h2></header>
+        <p class="kp141-format"><code>桌号 | 入座HH:MM | 道数 | 间隔min | 最晚HH:MM | 状态</code></p>
+        <label for="kp141-rows">每行一张单据</label>
+        <textarea id="kp141-rows" rows="12" spellcheck="false">桌 A | 18:00 | 7 | 12 | 19:45 | 出单
+桌 B | 18:20 | 6 | 15 | 20:10 | 出单</textarea>
+        <menu class="kp141-presets" aria-label="示例数据"><li><button type="button" data-kp141-preset="clear">余量清楚</button></li><li><button type="button" data-kp141-preset="near">接近最晚</button></li><li><button type="button" data-kp141-preset="multi">多项提示</button></li><li><button type="button" data-kp141-preset="review">复合复核</button></li></menu>
+        <p class="kp141-error" data-kp141-error role="alert"></p>
+        <div class="kp141-form-actions"><button class="kp141-primary" type="submit">生成服务排程</button><button class="kp141-reset" type="reset">撤单并重置</button></div>
+        <p data-kp141-form-status role="status" aria-live="polite">等待至少两张服务单据。</p>
+      </form>
+
+      <section class="kp141-schedule-report" data-ready="false" aria-labelledby="kp141-report-title">
+        <header><span>OUTPUT / PASS</span><div><h2 id="kp141-report-title">排程交接</h2><strong data-kp141-report-state>UNSET</strong></div></header>
+        <div class="kp141-margin-clock"><span>TIGHTEST MARGIN</span><b data-kp141-tightest>—</b><p data-kp141-tightest-label>等待计算</p><i data-kp141-clock-hand></i></div>
+        <dl class="kp141-totals"><div><dt>单据</dt><dd data-kp141-ticket-count>0</dd></div><div><dt>总道数</dt><dd data-kp141-course-total>0</dd></div><div><dt>时限提示</dt><dd data-kp141-deadline-count>0</dd></div><div><dt>状态提示</dt><dd data-kp141-status-count>0</dd></div></dl>
+        <section class="kp141-findings"><h3 data-kp141-finding-summary>等待计算</h3><ul data-kp141-finding-list><li>报告生成后显示接近/超过用户最晚时间和单据状态提示。</li></ul></section>
+        <section class="kp141-ticket-output"><h3 data-kp141-ticket-summary>等待计算</h3><div data-kp141-ticket-list><p>等待服务单据。</p></div></section>
+        <p class="kp141-boundary">工具不读取预订、桌况、菜单、菜品、过敏、库存、厨房负荷、人员或支付，只执行用户输入的分钟加法和状态校核。</p>
+        <footer><button class="kp141-primary" type="button" data-kp141-copy-report disabled>复制完整交接</button><output data-kp141-copy-status aria-live="polite"></output></footer>
+      </section>
+    </section>
+    <aside class="kp141-method" aria-label="排程算法"><span>START</span><b>入座分钟</b><i>+</i><span>PACE</span><b>(道数−1) × 间隔</b><i>=</i><span>FINISH</span><b>计划收尾</b></aside>
+  </main>
+
+  <footer class="kp141-footer"><div><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></div><nav aria-label="页脚导航"><strong>方法</strong><a href="article.html">服务札记</a><a href="legal.html">责任单</a><a href="404.html">单据检索</a></nav><address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>LOCAL / MINUTE MATH</small></address><p>排程结果不构成预订、接单、服务、菜单、食安、人员、支付或现场批准。</p></footer>
+</body>
+</html>
