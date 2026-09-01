@@ -1,24 +1,47 @@
-# 099-red-tradeoffsheet
+# 099 · Red Tradeoff Sheet
 
-## 来源与静态化口径
+## 直接使用原则
 
-- 军哥动态模板：`home_tradeoff_sheet`
-- 忠实保留双栏 Hero、重点决定、全部视角与分类镜头、表格式最新清单。
-- 原始 `tradeoff-sheet-page`、全部 `ts-*` 与动画类名、模块顺序完整保留；Go 条件和循环展开为静态示例。
+这是已经完成五页信息架构、红线批注视觉、双主题、响应式布局、无障碍基础与完整 Pareto 工具状态的静态模板。后续 AI 或编辑只需替换变量、决定案例和正文，不要重做顶部决策带、对照纸、报告或 404 UI；把 token 用在事实来源、真实约束、代价承担者和撤回条件上。
 
-## 文件清单
+## 文件职责
 
-- `index.html`：Tradeoff Sheet 首页完整静态化。
-- `article.html`：约束、代价与可逆性决策札记。
-- `tool.html`：三步权衡器。
-- `legal.html`：依据、边界、隐私和修订说明。
-- `404.html`、`robots.txt`、`sitemap.xml`：静态站配套。
-- `public.css`：军哥公共 `style.css` 的原样副本。
-- `static/tradeoff.css`：补齐源包未提供的 `ts-*` 专属样式与内页样式。
-- `static/tradeoff.js`：移动导航及三步权衡器交互。
+- `index.html`：红线权衡首页，含 A/B 对照首屏、四镜头决策纸、三步方法和 Pareto 方法入口。
+- `article.html`：约束、收益、代价、可逆性四镜头长文，带目录、阅读进度、原生展开项和交接纸复制。
+- `tool.html`：收益/代价/可逆性三指标 Pareto 前沿审计台，支持严格校验、四预设、支配者清单、完整复制与失效状态。
+- `legal.html`：评分来源、负担、隐私、利益冲突和修订边界。
+- `404.html`：独立撤销决策纸场景与安全站内检索。
+- `redline.css`：099 独占的红/黑/蓝批注纸视觉和双视口布局。
+- `tradeoff.js`：099 独占的主题、移动导航、阅读进度、复制、Pareto 审计与 404 检索。
+- `robots.txt`、`sitemap.xml`：部署配套。
 
-## 可替换占位符
+## 必换变量
 
-`[[LANG]]`、`[[SITE_NAME]]`、`[[BRAND_EN]]`、`[[SITE_DOMAIN]]`、`[[SITE_DESC]]`、`[[SITE_TAGLINE]]`、`[[HERO_EYEBROW]]`、`[[HERO_TITLE]]`、`[[HERO_DESCRIPTION]]`、`[[HOME_FEATURED_LABEL]]`、`[[HOME_LATEST_LABEL]]`、`[[CONTACT_CHANNEL]]`
+- `%%LANG%%`：页面语言，例如 `zh-CN`。
+- `%%SITE_NAME%%`：站点名称。
+- `%%BRAND_EN%%`：短英文品牌名；移动端建议不超过 18 个字符。
+- `%%SITE_DOMAIN%%`：裸域名，不含协议和路径。
+- `%%SITE_TAGLINE%%`：一句短标语。
+- `%%SITE_DESC%%`：准确描述站点内容的摘要。
+- `%%CONTACT_EMAIL%%`：公开权利与纠错邮箱。
 
-模板不包含注册、邀请或导流组件；部署前应替换占位符与示例内容。
+## 内容替换顺序
+
+1. 全局替换上述变量，保持五页一致。
+2. 只改问题、约束、选项、收益、代价、可逆性、来源说明和正文；保留现有层级、类名、`data-rf99-*`、ARIA、表单 ID、脚本和报告 DOM。
+3. 首页 A/B 示例、文章方法、工具预设和法律边界应使用同一套比较口径。
+4. 工具样例可以替换，但必须保留 `方案 | 收益 | 代价 | 可逆性`、2–50 行、0–100 普通整数和“收益/可逆性越高越好、代价越低越好”的规则。
+5. 评分旁保存来源、日期、量纲、假设与误差；不要把 Pareto 前沿写成自动推荐或冠军名单。
+6. 不添加邀请码、返佣或未经披露的导流链接，不输入不必要的个人资料。
+
+## 不应改动
+
+- 不更名 `rf99-` 类、`data-rf99-*` 属性或工具字段 ID。
+- 不把安全动态节点改成 `innerHTML`，不引入远程字体、追踪脚本或第三方组件。
+- 不删除错误焦点、旧报告失效、空态、复制状态、移动菜单首链聚焦和 Escape 回焦。
+- 不把 `404.html` 加入 sitemap；保留 `noindex,follow`。
+- 普通换站点内容时不要重做 UI，也不要改成与其他模板相同的通用壳。
+
+## 发布前验收
+
+运行 `node tools/audit-template.js templates/099-red-tradeoffsheet`、`node tools/validate.js templates/099-red-tradeoffsheet`、`node --check templates/099-red-tradeoffsheet/tradeoff.js`、逐对全库相似度扫描和 `git diff --check`。在 1440×1000 与 390×844 验收五页、红线纸/蓝图纸持久化、移动导航首链聚焦与 Escape 回焦、文章进度/展开/复制、工具空值/格式/字符/行数/方案重复/三个分数边界/四预设/支配关系/同分组/50 方案最大输出/安全文本/输入失效/完整复制/重置，以及 404 四类命中、空值、80/81 字符与 XSS 文本化。确认零横向溢出、触控目标至少 44×44、控制台无错误。
