@@ -1,25 +1,32 @@
-# 081-slate-signalarchive（军哥 home_signal_archive 忠实静态化）
+# 081-slate-signalarchive（灰蓝微缩胶片信号库）
 
-## 适合什么站
+## 定位
 
-适合档案、研究和信息追踪站：统计 Hero、置顶卷宗、入档时间线、主题柜别和带分类导航的卷宗列表组成完整首页。
+适合版本档案、变更日志、研究材料、内容完整性记录和技术知识库。框架包含胶片库首页、解密长文、SHA-256 指纹登记册、库藏说明、404、本地搜索、双主题、移动导航、复制反馈、SEO 与结构化数据；后续 AI 只需替换文字和真实登记数据。
 
-## 复刻说明
+## 页面与资产
 
-- 首页沿用 `home_signal_archive` 的 `signal-archive-page`、`sa-hero`、`sa-stats`、`sa-feature`、`sa-timeline`、`sa-topics`、`sa-list` 与 `sa-row` 原始骨架、类名和顺序。
-- Go 条件与循环已静态化为三项统计、一条置顶卷宗、五条时间线、三个主题柜别和五条卷宗记录；日期、分类、摘要和“查看全部”入口均保留。
-- `public.css` 是军哥公共样式表的原样副本；`assets/archive.css` 只负责现有灰蓝档案外壳、火漆点缀、深浅色和响应式适配。
-- 旧版邀请码火漆条及复制逻辑已删除，首页不再增加源模板之外的转化组件。
+- `index.html`：穿孔胶片、纯 SVG 信号波形、四步保存流程、三格联片和开放胶卷登记。
+- `article.html`：纵向阅读进度、卷宗控制卡、版本边界、规范化、摘要与语境方法。
+- `tool.html`：内容 SHA-256 指纹登记册，检查格式、重复标题和重复内容摘要。
+- `legal.html`：捕获范围、哈希边界、商业关系、隐私、信息限制与更正。
+- `404.html`：`noindex` 本地信号搜索。
+- `microfilm.css`、`indexer.js`：081 独占视觉与交互。
 
-## 页面与文件
+## 占位符
 
-`index.html`、`article.html`、`tool.html`、`legal.html`、`404.html`、`robots.txt`、`sitemap.xml`、`TEMPLATE.md`、`public.css`、`assets/archive.css`、`assets/archive.js`
+按整词替换：`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_DESC%%`、`%%SITE_TAGLINE%%`、`%%HERO_DESCRIPTION%%`、`%%CURRENT_YEAR%%`、`%%PUBLISHED_DATE%%`、`%%UPDATED_DATE%%`、`%%CONTACT_EMAIL%%`。
 
-## 占位符清单（`%%X%%` 语法）
+## AI 内容接入约束
 
-`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_TAGLINE%%`、`%%SITE_DESC%%`、`%%CONTACT_EMAIL%%`、`%%LANG%%`
+1. 保留 `sa81-` 类名、`data-sa81-*` 属性、ID、ARIA 和脚本引用，只替换文案、日期与真实版本登记。
+2. 指纹记录每个非空行使用 `标题 | SHA-256`；标题 1–100 字符，摘要必须为 64 位十六进制。大写摘要转为小写，标题按 NFKC 后大小写不敏感比较。
+3. 工具接受 1–200 行，总输入最多 30,000 个 Unicode 字符。相同标题和相同哈希分别归组；工具不读取文件、不生成摘要，也不验证来源真实性。
+4. 只有在输入对象、编码和规范化方法相同时才比较哈希。正文不得把“摘要相同”写成“内容真实”或“发布者可信”。
+5. 首页示例摘要必须替换为真实或明确标注的演示值；长文保留唯一 `h1`、四个锚点和方法边界。
+6. `legal.html` 按真实关系填写；新增统计、表单或第三方服务时更新隐私说明。
+7. 不引入外部字体、公共 CSS、第三方脚本、追踪像素或跨模板共享组件。
 
-## 可调项
+## 使用顺序与验收
 
-- 卷宗列表、时间线和柜别可按真实内容同步增删，统计三联按真实数量更新。
-- 分类导航在静态站中指向对应归档页；启用封面分支时应填写真实尺寸、替代文本和链接。
+先替换变量，再更新胶片登记和长文，随后写真实披露，最后替换 robots 与 sitemap 域名。运行 `node tools/audit-template.js templates/081-slate-signalarchive`，并在 1440×1000 与 390×844 检查五页、主题、菜单、复制、进度、指纹边界、404、控制台与横向溢出。
