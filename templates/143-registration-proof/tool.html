@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="{{LANG}}" data-rp143-proof="day">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f1ecd9">
+  <meta name="description" content="本地套准偏移工具，以百分之一毫米整数平方精确比较 X/Y 偏移与用户容差。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="套准偏移测量尺｜{{SITE_NAME}}">
+  <meta property="og:description" content="零上传比较二维偏移、用户容差与文档状态。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <title>套准偏移测量尺｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/registration-proof.css">
+  <script src="static/registration-proof.js" defer></script>
+</head>
+<body class="rp143-tool-page">
+  <a class="rp143-skip" href="#rp143-main">跳到主要内容</a>
+  <header class="rp143-mast"><a class="rp143-logo" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>PROOF / 143</span></a><nav aria-label="主导航"><menu><li><a href="index.html">校样台</a></li><li><a href="article.html">套准札记</a></li><li><a aria-current="page" href="tool.html">偏移尺</a></li><li><a href="legal.html">责任页</a></li></menu></nav><button type="button" data-rp143-proof-toggle aria-pressed="true">切换夜间校样</button></header>
+
+  <main id="rp143-main">
+    <header class="rp143-tool-head"><div><span>VECTOR PROOF / LOCAL ONLY</span><h1>偏移<br>测量尺</h1><p>将 X/Y 小数变为百分之一毫米整数，用平方关系与用户输入容差比较。</p></div><figure aria-hidden="true"><div><i></i><i></i><b></b><span></span></div><figcaption>X² + Y² / T²</figcaption></figure></header>
+    <section class="rp143-workbench" aria-labelledby="rp143-input-title">
+      <form class="rp143-vector-form" data-rp143-vector-form novalidate>
+        <header><small>INPUT / PLATES</small><h2 id="rp143-input-title">印版坐标</h2></header>
+        <p><code>版位 | X偏移mm | Y偏移mm | 容差mm | 状态</code></p>
+        <label for="rp143-rows">每行一个版位</label>
+        <textarea id="rp143-rows" rows="12" spellcheck="false">青版 A | 0.02 | -0.01 | 0.05 | 锁版
+红版 B | -0.03 | 0.04 | 0.06 | 锁版</textarea>
+        <menu aria-label="示例数据"><li><button type="button" data-rp143-preset="clear">全部套准</button></li><li><button type="button" data-rp143-preset="edge">刚好压线</button></li><li><button type="button" data-rp143-preset="multi">多版超差</button></li><li><button type="button" data-rp143-preset="review">复合复核</button></li></menu>
+        <p data-rp143-error role="alert"></p>
+        <footer><button class="rp143-ink-button" type="submit">生成套准报告</button><button type="reset">撤下并恢复示例</button></footer>
+        <output data-rp143-form-status aria-live="polite">等待至少两个版位。</output>
+      </form>
+
+      <section class="rp143-vector-report" data-ready="false" aria-labelledby="rp143-report-title">
+        <header><small>OUTPUT / REGISTER</small><h2 id="rp143-report-title">校样交接</h2><strong data-rp143-report-state>UNSET</strong></header>
+        <figure class="rp143-register-dial"><span>HIGHEST UTILIZATION</span><b data-rp143-highest>—</b><p data-rp143-highest-label>等待测量</p><i data-rp143-x-mark></i><i data-rp143-y-mark></i></figure>
+        <table><thead><tr><th>版位</th><th>总版位</th><th>超差</th><th>状态</th></tr></thead><tbody><tr><td>汇总</td><td data-rp143-plate-count>0</td><td data-rp143-drift-count>0</td><td data-rp143-status-count>0</td></tr></tbody></table>
+        <section class="rp143-findings"><h3 data-rp143-finding-summary>等待测量</h3><ol data-rp143-finding-list><li>报告生成后显示超出用户容差与未锁版状态。</li></ol></section>
+        <section class="rp143-plates"><h3 data-rp143-plate-summary>等待测量</h3><div data-rp143-plate-list><p>等待印版坐标。</p></div></section>
+        <p class="rp143-boundary">工具不读取印刷机、相机、扫描仪、测量仪、文件、印版、纸张、油墨、颜色、设备、人员、成本或生产状态。</p>
+        <footer><button class="rp143-ink-button" type="button" data-rp143-copy-report disabled>复制完整校样交接</button><output data-rp143-copy-status aria-live="polite"></output></footer>
+      </section>
+    </section>
+  </main>
+
+  <footer class="rp143-footer"><div><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></div><nav aria-label="页脚导航"><strong>方法</strong><a href="article.html">套准札记</a><a href="legal.html">责任页</a><a href="404.html">错版检索</a></nav><address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>LOCAL / INTEGER SQUARES</small></address><p>结果不构成签样、调机、返工、报价、采购、生产、验收或交付批准。</p></footer>
+</body>
+</html>

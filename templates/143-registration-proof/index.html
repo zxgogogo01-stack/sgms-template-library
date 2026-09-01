@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="{{LANG}}" data-rp143-proof="day">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f1ecd9">
+  <meta name="description" content="一套以印刷套准、裁切标记、叠色油墨与校样纸为视觉语言的完整静态模板。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}｜套准校样工坊">
+  <meta property="og:description" content="记录印版偏移、用户容差与校样责任边界的原创五页站点框架。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <title>{{SITE_NAME}}｜套准校样工坊</title>
+  <link rel="stylesheet" href="static/registration-proof.css">
+  <script src="static/registration-proof.js" defer></script>
+</head>
+<body class="rp143-home">
+  <a class="rp143-skip" href="#rp143-main">跳到主要内容</a>
+  <header class="rp143-mast">
+    <a class="rp143-logo" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>PROOF / 143</span></a>
+    <nav aria-label="主导航"><menu><li><a aria-current="page" href="index.html">校样台</a></li><li><a href="article.html">套准札记</a></li><li><a href="tool.html">偏移尺</a></li><li><a href="legal.html">责任页</a></li></menu></nav>
+    <button type="button" data-rp143-proof-toggle aria-pressed="true">切换夜间校样</button>
+  </header>
+
+  <main id="rp143-main">
+    <article class="rp143-hero" aria-labelledby="rp143-hero-title">
+      <aside class="rp143-color-key" aria-label="四色印刷色标"><i>C</i><i>M</i><i>Y</i><i>K</i></aside>
+      <div class="rp143-hero-copy"><p>LETTERPRESS / REGISTRATION / 143</p><h1 id="rp143-hero-title">让每一种颜色，<br>落在同一个<br><em>事实坐标。</em></h1><blockquote>{{HERO_DESCRIPTION}}</blockquote></div>
+      <figure class="rp143-proof-sheet" aria-label="抽象三色套准校样纸">
+        <span class="rp143-crop rp143-crop-a"></span><span class="rp143-crop rp143-crop-b"></span><span class="rp143-crop rp143-crop-c"></span><span class="rp143-crop rp143-crop-d"></span>
+        <div class="rp143-overprint"><b>R</b><b>R</b><b>R</b></div>
+        <dl><div><dt>FORM</dt><dd>{{FORM_SAMPLE}}</dd></div><div><dt>PROOF</dt><dd>01 / 03</dd></div><div><dt>LIGHT</dt><dd>D50</dd></div></dl>
+        <figcaption>NOT APPROVED FOR PRESS</figcaption>
+      </figure>
+      <footer><a class="rp143-ink-button" href="tool.html">打开偏移测量尺</a><span>{{SITE_TAGLINE}}</span></footer>
+    </article>
+
+    <section class="rp143-proof-ledger" aria-labelledby="rp143-ledger-title">
+      <header><span>THREE PASSES</span><h2 id="rp143-ledger-title">校样不是结论，<br>而是一条可复核的路径。</h2></header>
+      <dl>
+        <div><dt>01 / SOURCE</dt><dd><h3>先确认版本</h3><p>文件、印版、纸张、油墨、色彩与测量口径都须来自当前项目资料。</p><a href="article.html#rp143-source">查看版本札记 ↗</a></dd></div>
+        <div><dt>02 / VECTOR</dt><dd><h3>再比较坐标</h3><p>本地工具以百分之一毫米整数比较 X/Y 偏移向量与用户输入容差。</p><a href="tool.html">测量套准偏移 ↗</a></dd></div>
+        <div><dt>03 / RELEASE</dt><dd><h3>最后明确责任</h3><p>颜色、材料、设备、安全、权利、成本与放行仍由对应责任人确认。</p><a href="legal.html">打开责任页 ↗</a></dd></div>
+      </dl>
+    </section>
+
+    <aside class="rp143-ticker" aria-label="校样提示"><div><span>REGISTER</span><b>坐标必须准确，判断必须有主人。</b><span>VERIFY</span><b>坐标必须准确，判断必须有主人。</b></div></aside>
+
+    <section class="rp143-process" aria-labelledby="rp143-process-title">
+      <div><p>THE IMPRESSION</p><h2 id="rp143-process-title">从文件到放行，<br>每一层都留下依据。</h2></div>
+      <table>
+        <thead><tr><th>层次</th><th>页面记录</th><th>页面不判断</th></tr></thead>
+        <tbody><tr><th>FILE</th><td>版本、命名、确认状态</td><td>文件是否适合生产</td></tr><tr><th>PLATE</th><td>X/Y 偏移与用户容差</td><td>设备与工艺能力</td></tr><tr><th>INK</th><td>公开说明的事实来源</td><td>颜色、材料与耐久</td></tr><tr><th>RELEASE</th><td>交接人与核对日期</td><td>报价、生产与交付批准</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="rp143-ticket" aria-labelledby="rp143-ticket-title">
+      <div><span>LOCAL PROOF NUMBER</span><h2 id="rp143-ticket-title">把校样号复制进<br>清楚的交接记录。</h2><p>演示号码不是生产单、合同、色彩标准、签样或放行凭据。</p></div>
+      <form><label for="rp143-code">校样编号</label><output id="rp143-code" data-rp143-proof-code>{{PROOF_CODE}}</output><button type="button" data-rp143-copy-code>复制校样编号</button><span data-rp143-copy-status aria-live="polite"></span></form>
+    </section>
+  </main>
+
+  <footer class="rp143-footer"><div><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></div><nav aria-label="页脚导航"><strong>校样目录</strong><a href="article.html">套准札记</a><a href="tool.html">偏移尺</a><a href="404.html">错版检索</a></nav><address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>LOCAL / NO PRESS RELEASE</small></address><p>模板不确认真实文件、颜色、材料、印版、设备、工艺、报价、生产、权利或交付。</p></footer>
+</body>
+</html>

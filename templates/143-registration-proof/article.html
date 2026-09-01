@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="{{LANG}}" data-rp143-proof="day">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f1ecd9">
+  <meta name="description" content="五段印刷套准札记，说明文件、坐标、容差、观察与放行边界。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html">
+  <meta property="og:title" content="套准校样札记｜{{SITE_NAME}}">
+  <meta property="og:description" content="从源文件到放行，逐段说明偏移记录能做什么、不能替代什么。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
+  <title>套准校样札记｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/registration-proof.css">
+  <script src="static/registration-proof.js" defer></script>
+</head>
+<body class="rp143-article-page">
+  <a class="rp143-skip" href="#rp143-main">跳到主要内容</a>
+  <progress class="rp143-progress" max="100" value="0" aria-label="文章阅读进度"></progress>
+  <header class="rp143-mast"><a class="rp143-logo" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>PROOF / 143</span></a><nav aria-label="主导航"><menu><li><a href="index.html">校样台</a></li><li><a aria-current="page" href="article.html">套准札记</a></li><li><a href="tool.html">偏移尺</a></li><li><a href="legal.html">责任页</a></li></menu></nav><button type="button" data-rp143-proof-toggle aria-pressed="true">切换夜间校样</button></header>
+
+  <main id="rp143-main">
+    <article class="rp143-reader">
+      <header class="rp143-cover"><div><p>FIELD NOTES / FIVE PASSES</p><h1>印痕可以重叠，<br>责任不能<br>彼此覆盖。</h1><span>{{ARTICLE_META}} · 页面提供记录语言，不构成生产或色彩意见。</span></div><figure aria-hidden="true"><b>套</b><b>套</b><b>套</b><i></i><small>05 / PASSES</small></figure></header>
+      <aside class="rp143-chapters" aria-label="文章章节"><a href="#rp143-source">01 源文件</a><a href="#rp143-axis">02 坐标</a><a href="#rp143-tolerance">03 容差</a><a href="#rp143-observe">04 观察</a><a href="#rp143-release">05 放行</a></aside>
+      <div class="rp143-copy-columns">
+        <section id="rp143-source"><header><data value="1">PASS 01 / SOURCE</data><h2>源文件先于所有漂亮印痕</h2></header><p class="rp143-drop">文件名、版本、页面、字体、图像、专色、出血、裁切与输出设置都可能变化。页面演示不能证明某个真实文件已被核对，也不能替项目负责人补全缺失信息。</p><blockquote>如果版本不清楚，后面的精确只是精确地重复错误。</blockquote><p>公开案例、图像、字体、商标或客户信息前，还应逐项确认许可、隐私、保密与发布范围。</p></section>
+        <section id="rp143-axis"><header><data value="2">PASS 02 / VECTOR</data><h2>X 与 Y 是输入，不是设备诊断</h2></header><p>偏移尺把用户输入的小数转换为百分之一毫米整数，再以 X²+Y² 与容差²进行精确比较。它不读取相机、扫描仪、印刷机或测量仪。</p><aside><strong>显示值</strong><p>径向偏移以“约”显示到两位小数；是否超差只由未舍入的整数平方比较决定。</p></aside></section>
+        <section id="rp143-tolerance"><header><data value="3">PASS 03 / TOLERANCE</data><h2>容差必须来自项目，不由页面推荐</h2></header><p>纸张、网点、印刷方式、设备、图像内容、观察距离和质量制度都可能影响真实容差。工具要求用户明确输入 0.01–99.99 mm，不提供默认行业标准。</p><ul><li>刚好落在用户容差圆上的记录视为未超差。</li><li>任何输入变化都会使旧报告立即失效。</li><li>文档状态与几何判断分别列示。</li></ul></section>
+        <section id="rp143-observe"><header><data value="4">PASS 04 / OBSERVE</data><h2>屏幕、纸面与现场光线不是同一件事</h2></header><p>颜色空间、显示器、照明、油墨、纸张、干燥、涂层与环境都会改变观察结果。CSS 叠色只是一种视觉语言，不是色彩证明或可生产色样。</p><blockquote>可见的色差，不等于已知道原因；看不见，也不等于没有风险。</blockquote></section>
+        <section id="rp143-release"><header><data value="5">PASS 05 / RELEASE</data><h2>放行要有人、有版本、有时间</h2></header><p>交接可记录文件版本、测量方法、坐标、用户容差、异常、状态、确认人与日期。真实字段与批准流程由项目制度决定。</p><aside><strong>边界</strong><p>本地报告不构成签样、调机、返工、报价、采购、生产、验收或交付决定。</p></aside><footer><span>END / CHECK THE IMPRESSION</span><button class="rp143-ink-button" type="button" data-rp143-copy-note>复制套准摘要</button><output data-rp143-copy-status aria-live="polite"></output></footer></section>
+      </div>
+    </article>
+  </main>
+
+  <footer class="rp143-footer"><div><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></div><nav aria-label="页脚导航"><strong>下一步</strong><a href="tool.html">偏移测量尺</a><a href="legal.html">责任页</a><a href="404.html">错版检索</a></nav><address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>ARTICLE / FIVE PASSES</small></address><p>札记用于信息组织，不替代印前、色彩、材料、设备、生产或权利审核。</p></footer>
+</body>
+</html>
