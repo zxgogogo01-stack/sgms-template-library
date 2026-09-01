@@ -1,34 +1,4 @@
-<!DOCTYPE html>
-<html lang="[[LANG]]">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#e24834">
-<title>封面排版台 · [[SITE_NAME]]</title>
-<meta name="description" content="按主故事、刊名与封面线快速检查本期封面层级。">
-<link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
-<meta property="og:type" content="website"><meta property="og:title" content="封面排版台 · [[SITE_NAME]]"><meta property="og:description" content="按主故事、刊名与封面线快速检查本期封面层级。"><meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html"><meta name="twitter:card" content="summary">
-<link rel="stylesheet" href="public.css"><link rel="stylesheet" href="static/cover.css">
-</head>
-<body>
-<header class="coverbar"><div class="coverbar-in"><a class="coverbar-brand" href="index.html">[[BRAND_EN]]</a><button class="coverbar-btn" id="coverbar-btn" type="button" aria-label="主导航" aria-expanded="false" aria-controls="coverbar-nav">目录</button><nav class="coverbar-nav" id="coverbar-nav"><a href="index.html">本期封面</a><a href="article.html">封面故事</a><a href="tool.html" aria-current="page">排版台</a><a href="legal.html">版权页</a></nav></div></header>
-<main class="cover-page">
-<nav class="cover-crumb" aria-label="面包屑"><a href="index.html">封面</a><span>/</span><span>排版台</span></nav>
-<header class="cover-tool-head"><p>EDITORIAL DESK / 024</p><h1>封面排版台</h1><span>从主故事、刊名与封面线三个层级检查一期封面的信息重心。</span></header>
-<section class="cover-tool" aria-labelledby="tool-preview-title">
-<div class="cover-modes" role="tablist" aria-label="排版层级">
-<button class="cover-mode is-active" type="button" role="tab" aria-selected="true" data-cover-mode="story"><b>01</b><span>主故事</span></button>
-<button class="cover-mode" type="button" role="tab" aria-selected="false" data-cover-mode="name"><b>02</b><span>刊名</span></button>
-<button class="cover-mode" type="button" role="tab" aria-selected="false" data-cover-mode="lines"><b>03</b><span>封面线</span></button>
-</div>
-<div class="cover-tool-result">
-<div class="cover-mini" aria-hidden="true"><span class="cover-mini-name">[[BRAND_EN]]</span><i></i><strong>城市<br>发光</strong><b>|||| |||</b></div>
-<div class="cover-tool-copy"><p id="tool-kicker">PRIMARY STORY</p><h2 id="tool-preview-title">先让读者看到本期唯一的主角</h2><ul id="tool-items"><li>主标题保持两行以内</li><li>图像承担封面中央的最大面积</li><li>日期与阅读入口放在故事脚部</li></ul></div>
-</div>
-</section>
-<aside class="cover-note"><strong>排版原则</strong><p>封面不是内容清单。视觉重心只能有一个，其余信息用字号、位置与留白建立明确次序。</p></aside>
-</main>
-<footer class="coverfoot"><div class="coverfoot-in"><b>[[SITE_NAME]]</b><p>[[SITE_TAGLINE]]</p><small>© 2026 [[SITE_NAME]] · [[CONTACT_CHANNEL]]</small></div></footer>
-<script src="static/cover.js"></script>
-</body>
-</html>
+<!doctype html>
+<html lang="%%LANG%%" data-mc112-proof="color">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#efb9cc"><title>批量封面文字适配审计器｜%%SITE_NAME%%</title><meta name="description" content="在本地浏览器检查封面文案层级、估算行数、字符容量与重复文案。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html"><meta property="og:type" content="website"><meta property="og:title" content="批量封面文字适配审计器"><meta property="og:description" content="检查唯一主标题、文案容量与估算行数。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="static/newsstand.css"></head>
+<body><a class="mc112-skip" href="#mc112-main">跳到主要内容</a><header class="mc112-top"><a class="mc112-brand" href="index.html" aria-label="%%SITE_NAME%% 首页"><b>%%BRAND_EN%%</b><span>EDITORIAL LAB</span></a><nav id="mc112-nav" aria-label="主导航"><a href="index.html">本期封面</a><a href="article.html">封面故事</a><a href="tool.html" aria-current="page">文字适配</a><a href="legal.html">版权页</a><button type="button" data-mc112-proof-toggle aria-pressed="false">切换黑白校样</button></nav><button class="mc112-menu" type="button" aria-expanded="false" aria-controls="mc112-nav"><i></i><span>展开编辑目录</span></button><p><b>024</b><span>COPY FIT</span></p></header><main id="mc112-main" class="mc112-tool"><header class="mc112-tool-head"><p>LOCAL COVER COPY / CAPACITY</p><h1>先算容量，<br>再进真实校样。</h1><aside>字符估算只用于提前发现明显溢出与层级冲突，不读取字体文件，也不代表真实排版一定适配。</aside></header><form data-mc112-copy-form novalidate><label for="mc112-rows"><span>封面文案</span><textarea id="mc112-rows" rows="13" spellcheck="false" aria-describedby="mc112-format mc112-error" placeholder="C-01 | 主标题 | 城市开始发光 | 8 | 2"></textarea></label><div><p id="mc112-format">每行：文案 ID | 层级(主标题/眉题/摘要/封面线) | 文字 | 每行字符 | 最大行数。接受 3–80 条，总输入最多 12000 个 Unicode 字符。</p><fieldset><legend>装入校样</legend><button type="button" data-mc112-preset="ready">层级适配</button><button type="button" data-mc112-preset="overflow">文案溢出</button><button type="button" data-mc112-preset="hierarchy">层级冲突</button><button type="button" data-mc112-preset="mixed">复合复核</button></fieldset></div><p id="mc112-error" data-mc112-error role="alert"></p><footer><button type="submit">生成适配报告</button><button type="reset">清空编辑台</button><output data-mc112-form-status aria-live="polite">等待至少三条文案。</output></footer></form><section class="mc112-report" data-ready="false" aria-labelledby="mc112-report-title"><header><div><span>COPY FIT REPORT</span><b data-mc112-report-state>UNSET</b></div><h2 id="mc112-report-title">封面文字层级</h2></header><dl><div><dt>文案</dt><dd data-mc112-count>0</dd></div><div><dt>适配</dt><dd data-mc112-fit>0</dd></div><div><dt>溢出</dt><dd data-mc112-overflow>0</dd></div><div><dt>层级提示</dt><dd data-mc112-hierarchy>0</dd></div></dl><section class="mc112-flags"><header><span>EDITORIAL FLAGS</span><b data-mc112-finding-summary>等待计算</b></header><ul data-mc112-finding-list><li>报告生成后在此显示溢出、主标题与重复文案提示。</li></ul></section><section class="mc112-slots"><header><span>COVER COPY SLOTS</span><b data-mc112-slot-summary>等待计算</b></header><div data-mc112-slot-list><p>等待封面文案。</p></div></section><aside><p data-mc112-note>机械估算不读取字体，不验证实际字宽、字号、字重、断行、语言排版、版心、输出尺寸、图片关系、设计质量、事实、署名、版权或刊发适切性。</p><button type="button" data-mc112-copy-report disabled>复制完整适配报告</button><output data-mc112-copy-status aria-live="polite"></output></aside></section></main><footer class="mc112-foot"><strong>%%BRAND_EN%% / COPY FIT</strong><p>字符容量只是进入真实字体校样之前的预检。</p><nav aria-label="页脚导航"><a href="index.html">封面</a><a href="article.html">故事</a><a href="legal.html">版权</a></nav><small>%%SITE_DOMAIN%% · ALL INPUT STAYS IN THIS BROWSER</small></footer><script src="static/newsstand.js"></script></body></html>
