@@ -1,25 +1,33 @@
-# 076-magenta-exhibit（军哥 home_exhibit 忠实静态化）
+# 076-magenta-exhibit（洋红印前校样室）
 
-## 适合什么站
+## 定位
 
-适合策展、作品集和精选内容站：展签式标题、展厅分区、非对称作品墙与编号观展指南共同构成完整首页。
+适合编辑研究站、方法型知识库、独立出版物和内容工作室。完整框架已经包含首页、长文、工具、披露、404、双主题、移动导航、复制反馈、SEO 与结构化数据；后续 AI 只替换文字和日期，不需要重建网站 UI。
 
-## 复刻说明
+## 页面与资产
 
-- 首页沿用 `home_exhibit` 的 `ex-wrap`、`ex-hero`、`ex-rooms`、`ex-show`、`ex-wall` 和 `ex-guide` 原始骨架、类名与信息顺序。
-- Go 循环已静态化为一个主展、四件普通作品和三条观展指南；编号、展签、分类、日期及箭头均保留。
-- `public.css` 为军哥公共样式表的原样副本；`assets/gallery.css` 只负责现有画廊外壳、配色、非对称栅格与响应式适配。
-- 原旧版邀请码访客证及复制逻辑已删除，首页不再添加源模板之外的转换组件。
+- `index.html`：套色十字 Hero、CMYK 色条、期号分区、三张内容校样和印前检查条。
+- `article.html`：阅读进度、固定批注索引、表格、引文与编辑签字清单。
+- `tool.html`：标题视觉宽度校样尺，估算多语种标题的视觉单位和预计行数。
+- `legal.html`：编辑、关系、隐私、边界、更正和可复制简短披露。
+- `404.html`：`noindex` 本地页码检索。
+- `proof-room.css`、`preflight.js`：076 独占视觉与交互，无共享 UI 资产。
 
-## 页面与文件
+## 占位符
 
-`index.html`、`article.html`、`tool.html`、`legal.html`、`404.html`、`robots.txt`、`sitemap.xml`、`TEMPLATE.md`、`public.css`、`assets/gallery.css`、`assets/gallery.js`。
+按整词替换：`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_DESC%%`、`%%SITE_TAGLINE%%`、`%%HERO_DESCRIPTION%%`、`%%CURRENT_YEAR%%`、`%%PUBLISHED_DATE%%`、`%%UPDATED_DATE%%`、`%%CONTACT_EMAIL%%`。
 
-## 占位符清单（`%%X%%` 语法）
+推荐顺序：先替换全局变量，再更新首页三张校样和文章正文，随后按真实关系修改 `legal.html`，最后替换 robots 与 sitemap 域名并运行审计。
 
-`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_TAGLINE%%`、`%%SITE_DESC%%`、`%%CONTACT_EMAIL%%`、`%%LANG%%`
+## AI 内容接入约束
 
-## 可调项
+1. 保留 `mp76-` 类名、`data-mp76-*` 属性、ID、ARIA 和脚本引用，只替换可见文字与日期。
+2. 文章必须保留唯一 `h1`；目录链接要对应真实章节 ID。可增减段落，但要复查阅读进度和双视口。
+3. 工具每个非空行是一条标题：1–30 条，单条最多 120 个 Unicode 字符，总输入最多 2,000 字符。宽度仅保留 24、32、40 三档；结果是排版估算，不是字体渲染结论。
+4. 中日韩统一表意文字、平假名、片假名、韩文和 emoji presentation 计 2 单位，空白计 0.5，其他码点计 1；实现和可见说明必须同步。
+5. 披露应写真实关系，不承诺收益或确定结果；新增第三方统计和表单时必须另补隐私说明。
+6. 不引入外部字体、公共 CSS、第三方脚本、追踪像素或跨模板共享组件。
 
-- 作品墙可按真实内容增删，主展跨位与普通画框比例可在现有栅格中调整。
-- 展期文案可按上线时间替换，深浅色模式保持可用。
+## 验收
+
+运行 `node tools/audit-template.js templates/076-magenta-exhibit`，并在 1440×1000 与 390×844 检查五页、主题、菜单、复制、阅读进度、工具边界、404 搜索、控制台和横向溢出。
