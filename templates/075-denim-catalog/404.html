@@ -1,36 +1,20 @@
-<!DOCTYPE html>
-<html lang="{LANG}">
+<!doctype html>
+<html lang="%%LANG%%" data-dc75-theme="indigo">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>缺货 — {SITE_NAME}</title>
-    <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="css/shelf.css">
-    <style>
-        .emptyshelf { max-width: 460px; margin: 15vh auto; padding: 0 24px; text-align: center; }
-        .emptyshelf-card {
-            background: var(--shelfwhite);
-            border: 1.5px dashed var(--threadline);
-            border-radius: calc(var(--crease) + 4px);
-            box-shadow: var(--drape-hi);
-            padding: 50px 40px;
-        }
-        .emptyshelf-card h1 {
-            font-family: var(--serif75);
-            font-size: 3.2rem;
-            color: var(--denim);
-            font-variant-numeric: tabular-nums;
-        }
-        .emptyshelf-card p { color: var(--slatemute); margin: 8px 0 22px; }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#142f52">
+  <title>纸样缺片｜%%SITE_NAME%%</title>
+  <meta name="robots" content="noindex,follow">
+  <link rel="stylesheet" href="atelier.css">
 </head>
 <body>
-    <div class="emptyshelf">
-        <div class="emptyshelf-card">
-            <h1>404</h1>
-            <p>这个货位是空的——商品不存在或已下架。</p>
-            <a class="stitch stitch-full" href="index.html">回货架</a>
-        </div>
-    </div>
+  <a class="dc75-skip" href="#dc75-main">跳到主要内容</a>
+  <header class="dc75-rail"><a class="dc75-brand" href="index.html"><span>75</span><strong>%%BRAND_EN%%</strong><small>DENIM PATTERN OFFICE</small></a><details class="dc75-menu"><summary><span>版型目录</span><i aria-hidden="true"></i></summary><nav aria-label="主导航"><a href="index.html">裁版台</a><a href="article.html">工艺单</a><a href="tool.html">配比尺</a><a href="legal.html">布边说明</a></nav></details><button class="dc75-theme" type="button" data-dc75-theme-toggle aria-pressed="false"><span aria-hidden="true"></span>浅色纸样</button></header>
+  <main class="dc75-missing" id="dc75-main">
+    <figure aria-hidden="true"><div><span>4</span><i></i><span>4</span></div><figcaption>MISSING PATTERN PIECE / 075</figcaption></figure>
+    <section><p>OFF-GRAIN / LOCAL INDEX</p><h1>这块纸样<br>没有入库。</h1><span>页面可能改名、移位或已经撤下。输入一个主题，在本地目录里找最近的工作区。</span><form data-dc75-search novalidate><label for="dc75-query">搜索本地版型目录</label><div><input id="dc75-query" type="search" maxlength="80" autocomplete="off" placeholder="如：方法、配比、说明" aria-describedby="dc75-search-help dc75-search-result"><button type="submit">寻找裁片</button></div><small id="dc75-search-help">最多 80 个字符；内容不会离开浏览器。</small><p id="dc75-search-result" data-dc75-search-result role="status" aria-live="polite">也可以直接回到<a href="index.html">裁版台</a>。</p></form></section>
+  </main>
+  <script src="pattern-room.js"></script>
 </body>
 </html>

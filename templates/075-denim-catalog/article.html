@@ -1,133 +1,34 @@
-<!DOCTYPE html>
-<html lang="{LANG}">
+<!doctype html>
+<html lang="%%LANG%%" data-dc75-theme="indigo">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f2f3f6">
-    <title>导购样板 — {SITE_NAME}</title>
-    <meta name="description" content="货架站导购页样板。">
-    <link rel="canonical" href="https://{SITE_DOMAIN}/article.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="{SITE_NAME}">
-    <meta property="og:title" content="导购样板 — {SITE_NAME}">
-    <meta property="og:description" content="货架站导购页样板。">
-    <meta property="og:url" content="https://{SITE_DOMAIN}/article.html">
-    <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="css/shelf.css">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "导购样板",
-        "datePublished": "2026-01-19",
-        "mainEntityOfPage": "https://{SITE_DOMAIN}/article.html"
-    }
-    </script>
-    <style>
-        .guidesheet { max-width: 740px; margin: 0 auto; padding: 44px 24px 80px; }
-        .guidesheet-card {
-            background: var(--shelfwhite);
-            border: 1.5px solid var(--threadline);
-            border-radius: calc(var(--crease) + 4px);
-            box-shadow: var(--drape-hi);
-            padding: 42px 48px;
-        }
-        .guidesheet-crumb { font-size: .84rem; color: var(--slatemute); margin-bottom: 12px; }
-        .guidesheet-crumb a { color: var(--denim); font-weight: 700; }
-        .guidesheet-card h1 {
-            font-family: var(--serif75);
-            font-size: clamp(1.45rem, 3.3vw, 1.95rem);
-            line-height: 1.35;
-        }
-        .guidesheet-meta { margin: 10px 0 0; font-size: .84rem; color: var(--slatemute); font-variant-numeric: tabular-nums; }
-        .guidesheet-gist {
-            margin: 24px 0;
-            padding: 15px 20px;
-            border-radius: 11px;
-            background: var(--palewash);
-            border-left: 4px solid var(--stitchgold);
-        }
-        .guidesheet-card h2 {
-            font-family: var(--serif75);
-            font-size: 1.2rem;
-            margin: 30px 0 11px;
-        }
-        .guidesheet-card h2::before {
-            content: "";
-            display: inline-block;
-            width: 16px;
-            height: 4px;
-            border-radius: 2px;
-            background: var(--denim);
-            margin-right: 10px;
-            vertical-align: .22em;
-        }
-        .guidesheet-card p { margin: 0 0 13px; }
-        .guidesheet-roll { overflow-x: auto; border-radius: 11px; border: 1.5px solid var(--threadline); margin: 14px 0 8px; }
-        .guidesheet-card table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-        .guidesheet-card th, .guidesheet-card td { text-align: left; padding: 10px 15px; border-bottom: 1px solid var(--threadline); font-size: .89rem; white-space: nowrap; }
-        .guidesheet-card thead th { background: var(--palewash); color: var(--denim-deep); font-size: .8rem; letter-spacing: .08em; border-bottom: 0; }
-        .guidesheet-card tbody tr:last-child td { border-bottom: 0; }
-        .guidesheet-fine { font-size: .83rem; color: var(--slatemute); }
-        @media (max-width: 640px) {
-            .guidesheet-card { padding: 28px 20px; }
-            .guidesheet-card th, .guidesheet-card td { white-space: normal; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#142f52">
+  <title>把一条结论裁成可复核的工艺单｜%%SITE_NAME%%</title>
+  <meta name="description" content="用来源、日期、范围和推断标签，把复杂判断整理成读者可以复核的内容工艺单。">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/article.html">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="%%SITE_NAME%%"><meta property="og:title" content="把一条结论裁成可复核的工艺单"><meta property="og:description" content="从原始出处到读者下一步，一张工艺单讲清内容核对方法。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/article.html"><meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="atelier.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"把一条结论裁成可复核的工艺单","datePublished":"%%PUBLISHED_DATE%%","dateModified":"%%UPDATED_DATE%%","mainEntityOfPage":"https://%%SITE_DOMAIN%%/article.html"}</script>
 </head>
 <body>
-    <header class="shopfront">
-        <div class="shopfront-in">
-            <a class="shopfront-brand" href="index.html">{BRAND_EN}</a>
-            <button type="button" class="shopfront-btn" id="shopfront-btn" aria-label="主导航" aria-expanded="false" aria-controls="shopfront-nav">
-                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-            </button>
-            <nav class="shopfront-nav" id="shopfront-nav" aria-label="主导航">
-                <a href="index.html">货架</a>
-                <a href="article.html" aria-current="page">导购</a>
-                <a href="tool.html">叠加计算</a>
-                <a href="legal.html">披露</a>
-            </nav>
-        </div>
-    </header>
+  <a class="dc75-skip" href="#dc75-main">跳到主要内容</a>
+  <header class="dc75-rail"><a class="dc75-brand" href="index.html"><span>75</span><strong>%%BRAND_EN%%</strong><small>DENIM PATTERN OFFICE</small></a><details class="dc75-menu"><summary><span>版型目录</span><i aria-hidden="true"></i></summary><nav aria-label="主导航"><a href="index.html">裁版台</a><a href="article.html" aria-current="page">工艺单</a><a href="tool.html">配比尺</a><a href="legal.html">布边说明</a></nav></details><button class="dc75-theme" type="button" data-dc75-theme-toggle aria-pressed="false"><span aria-hidden="true"></span>浅色纸样</button></header>
+  <div class="dc75-progress" aria-hidden="true"><i data-dc75-progress></i></div>
 
-    <main class="guidesheet">
-        <article class="guidesheet-card">
-            <p class="guidesheet-crumb"><a href="index.html">货架</a> / 费率与返佣</p>
-            <h1>示例平台A 挂单档位调整：返佣基数怎么跟着变</h1>
-            <p class="guidesheet-meta">上架 2026-01-19 · 口径核对 2026-01-19</p>
-
-            <div class="guidesheet-gist"><b>先说结论：</b>费率档位变化会沿着手续费基数传导到返佣金额；核对时应同时确认产品线、账户档位与生效时间。</div>
-
-            <h2>变了什么</h2>
-            <p>先记录调整覆盖的产品、账户层级和生效时间，并把时区统一到自己的账单时区；随后保存规则页版本，便于到账后逐项复核。</p>
-
-            <h2>对返佣的传导</h2>
-            <p>计算顺序是成交额乘手续费率得到手续费，再乘可返比例得到预计返佣。若存在抵扣、上限或排除产品，应先从计佣基数中剔除。</p>
-            <div class="guidesheet-roll">
-                <table>
-                    <thead>
-                        <tr><th scope="col">项目</th><th scope="col">调整前</th><th scope="col">调整后</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>挂单费率（基础档）</td><td>0.0X%</td><td>0.0X%</td></tr>
-                        <tr><td>演示返佣（每万元）</td><td>X.XX</td><td>X.XX</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="guidesheet-fine">表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
-
-            <h2>要不要动</h2>
-            <p>判断时不要只看返佣比例，还要核对费率、产品范围、结算门槛与到账周期。规则可能调整，正式决策应以账户页面的最新显示为准。</p>
-        </article>
-    </main>
-
-    <footer class="stockroom">
-        <div class="stockroom-in">
-            <p class="stockroom-fine">内容为信息整理，以各平台官方页面为准；不构成投资建议。</p>
-        </div>
-    </footer>
-
-    <script src="shelf.js"></script>
+  <main class="dc75-reading" id="dc75-main">
+    <aside class="dc75-chapters"><p>工艺编号<br><b>075—A</b></p><nav aria-label="本文目录"><a href="#dc75-source">01 来源</a><a href="#dc75-date">02 日期</a><a href="#dc75-scope">03 范围</a><a href="#dc75-inference">04 推断</a></nav><small>预计阅读 6 分钟</small></aside>
+    <article class="dc75-sheet">
+      <header><p>EDITORIAL PATTERN / REV. %%UPDATED_DATE%%</p><h1>把一条结论裁成<br>可复核的工艺单</h1><div><span>发布 %%PUBLISHED_DATE%%</span><span>复核 %%UPDATED_DATE%%</span><span>方法指南</span></div></header>
+      <section class="dc75-summary"><b>先看版型</b><p>可靠内容不是堆很多链接，而是让每个判断都能回到原始出处，并说明它在什么时间、什么范围内成立。</p></section>
+      <section id="dc75-source"><span>01</span><div><h2>把直接来源放进前袋</h2><p>先找能直接支持陈述的材料：规则原文、产品说明、公告、公开数据或当事方记录。二手解读可以帮助理解，但不能悄悄替代原始依据。</p><blockquote>读者不必相信作者的语气；他应当能够沿着标记回到事实本身。</blockquote><p>引用时写清支持的是哪一句，而不是只在段尾堆一排链接。若来源之间互相矛盾，就把冲突本身写出来。</p></div></section>
+      <section id="dc75-date"><span>02</span><div><h2>给会变化的信息缝上日期</h2><p>发布日期只能说明文章何时出现，不能说明其中每项信息何时核对。价格、规则、资格、人物与产品状态都应记录最近核对日。</p><table><thead><tr><th scope="col">字段</th><th scope="col">回答的问题</th></tr></thead><tbody><tr><td>发布日期</td><td>这篇内容何时首次公开</td></tr><tr><td>核对日期</td><td>这项事实最后何时确认</td></tr><tr><td>触发条件</td><td>什么变化发生后必须复查</td></tr></tbody></table></div></section>
+      <section id="dc75-scope"><span>03</span><div><h2>沿裁线写明适用范围</h2><p>一句话在某个地区、版本或用户层级成立，不代表它对所有人都成立。把地域、产品线、版本、资格和例外条件放在结论旁边。</p><p>范围说明越靠近结论，误读成本越低。不要让关键限制只出现在页面末尾的笼统免责声明里。</p></div></section>
+      <section id="dc75-inference"><span>04</span><div><h2>让推断和事实使用不同针脚</h2><p>当资料没有直接给出答案时，可以推断，但必须明确标记“据此推断”，并列出推断依赖的前提。事实更新后，推断也要重新检查。</p><ul><li>事实：来源明确写出的内容。</li><li>计算：输入、公式和舍入方式都可见。</li><li>推断：由事实延伸出的判断，可能存在其他解释。</li></ul></div></section>
+      <aside class="dc75-handoff"><div><small>EDITOR HANDOFF</small><h2>交给下一位编辑</h2><p>复核来源是否仍有效；确认日期与范围；把无法直接支持的句子标为推断。</p></div><button type="button" data-dc75-copy-brief>复制交接清单</button><span data-dc75-copy-status role="status" aria-live="polite"></span></aside>
+    </article>
+  </main>
+  <footer class="dc75-footer"><div><b>%%BRAND_EN%%</b><span>内容工艺单</span></div><nav aria-label="页脚导航"><a href="index.html">裁版台</a><a href="tool.html">配比尺</a><a href="legal.html">布边说明</a></nav><p>有更正材料？%%CONTACT_EMAIL%%</p></footer>
+  <script src="pattern-room.js"></script>
 </body>
 </html>

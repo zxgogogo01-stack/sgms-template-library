@@ -1,138 +1,44 @@
-<!DOCTYPE html>
-<html lang="{LANG}">
+<!doctype html>
+<html lang="%%LANG%%" data-dc75-theme="indigo">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f2f3f6">
-    <title>优惠叠加计算器 — {SITE_NAME}</title>
-    <meta name="description" content="基础费率乘上一层层减免，算出叠加后的最终费率。">
-    <link rel="canonical" href="https://{SITE_DOMAIN}/tool.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="{SITE_NAME}">
-    <meta property="og:title" content="优惠叠加计算器 — {SITE_NAME}">
-    <meta property="og:description" content="基础费率乘上一层层减免，算出叠加后的最终费率。">
-    <meta property="og:url" content="https://{SITE_DOMAIN}/tool.html">
-    <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="css/shelf.css">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "优惠叠加计算器",
-        "url": "https://{SITE_DOMAIN}/tool.html"
-    }
-    </script>
-    <style>
-        .tillbay { max-width: 540px; margin: 0 auto; padding: 46px 24px 80px; }
-        .tillbay-card {
-            background: var(--shelfwhite);
-            border: 1.5px solid var(--threadline);
-            border-top: 4px solid var(--denim);
-            border-radius: calc(var(--crease) + 4px);
-            box-shadow: var(--drape-hi);
-            padding: 40px 44px;
-        }
-        .tillbay-card h1 { font-family: var(--serif75); font-size: 1.48rem; }
-        .tillbay-card > p { color: var(--slatemute); margin: 6px 0 8px; }
-        .tillbay-card label {
-            display: block;
-            margin: 16px 0 6px;
-            font-size: .86rem;
-            font-weight: 800;
-            color: var(--denim-deep);
-        }
-        .tillbay-card input {
-            width: 100%;
-            min-height: 47px;
-            padding: 10px 15px;
-            border: 1.5px solid var(--threadline);
-            border-radius: 11px;
-            background: var(--linenfog);
-            color: var(--denimink);
-            font: inherit;
-            font-family: var(--mono75);
-            font-variant-numeric: tabular-nums;
-            transition: border-color var(--tug), box-shadow var(--tug);
-        }
-        .tillbay-card input:focus {
-            outline: none;
-            border-color: var(--denim);
-            box-shadow: 0 0 0 4px color-mix(in srgb, var(--denim) 15%, transparent);
-        }
-        .tillbay-card input[aria-invalid="true"] {
-            border-color: #b42318;
-            box-shadow: 0 0 0 4px color-mix(in srgb, #b42318 14%, transparent);
-        }
-        .tillbay-run {
-            margin-top: 26px;
-            width: 100%;
-            min-height: 52px;
-            border: 0;
-            border-radius: var(--crease);
-            background: var(--denim);
-            color: #f2f6fd;
-            font: inherit;
-            font-size: 1rem;
-            font-weight: 800;
-            letter-spacing: .06em;
-            cursor: pointer;
-            box-shadow: 0 10px 24px color-mix(in srgb, var(--denim) 34%, transparent);
-            transition: transform var(--tug), background var(--tug);
-        }
-        .tillbay-run:hover { transform: translateY(-2px); background: var(--denim-deep); }
-        .tillbay-out {
-            display: block;
-            margin-top: 18px;
-            min-height: 26px;
-            padding: 15px 19px;
-            border-radius: 11px;
-            background: var(--palewash);
-            line-height: 1.78;
-            font-variant-numeric: tabular-nums;
-        }
-        .tillbay-out b { color: var(--denim-deep); }
-        @media (max-width: 600px) {
-            .tillbay-card { padding: 26px 20px; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#142f52">
+  <title>栏目权重配比尺｜%%SITE_NAME%%</title>
+  <meta name="description" content="输入栏目与整数权重，本地换算百分比和 24 格内容版面配额。">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="%%SITE_NAME%%"><meta property="og:title" content="栏目权重配比尺"><meta property="og:description" content="把内容优先级换成可执行的 24 格版面配额。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html"><meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="atelier.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"栏目权重配比尺","url":"https://%%SITE_DOMAIN%%/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
 </head>
 <body>
-    <header class="shopfront">
-        <div class="shopfront-in">
-            <a class="shopfront-brand" href="index.html">{BRAND_EN}</a>
-            <button type="button" class="shopfront-btn" id="shopfront-btn" aria-label="主导航" aria-expanded="false" aria-controls="shopfront-nav">
-                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-            </button>
-            <nav class="shopfront-nav" id="shopfront-nav" aria-label="主导航">
-                <a href="index.html">货架</a>
-                <a href="article.html">导购</a>
-                <a href="tool.html" aria-current="page">叠加计算</a>
-                <a href="legal.html">披露</a>
-            </nav>
-        </div>
-    </header>
+  <a class="dc75-skip" href="#dc75-main">跳到主要内容</a>
+  <header class="dc75-rail"><a class="dc75-brand" href="index.html"><span>75</span><strong>%%BRAND_EN%%</strong><small>DENIM PATTERN OFFICE</small></a><details class="dc75-menu"><summary><span>版型目录</span><i aria-hidden="true"></i></summary><nav aria-label="主导航"><a href="index.html">裁版台</a><a href="article.html">工艺单</a><a href="tool.html" aria-current="page">配比尺</a><a href="legal.html">布边说明</a></nav></details><button class="dc75-theme" type="button" data-dc75-theme-toggle aria-pressed="false"><span aria-hidden="true"></span>浅色纸样</button></header>
 
-    <main class="tillbay">
-        <form class="tillbay-card" id="sd-form" novalidate>
-            <h1>优惠叠加计算器</h1>
-            <p>两层折扣不是简单相加。填三个数，看真正到手的费率。本地计算。</p>
-            <label for="sd-base">基础费率（%）</label>
-            <input type="number" id="sd-base" step="any" min="0" max="100" placeholder="如 0.1" aria-describedby="sd-out">
-            <label for="sd-d1">第一层减免（%，如邀请码 20）</label>
-            <input type="number" id="sd-d1" step="any" min="0" max="100" placeholder="如 20" aria-describedby="sd-out">
-            <label for="sd-d2">第二层减免（%，如活动，可留空）</label>
-            <input type="number" id="sd-d2" step="any" min="0" max="100" placeholder="如 10" aria-describedby="sd-out">
-            <button type="submit" class="tillbay-run" id="sd-run">算到手价</button>
-            <output class="tillbay-out" id="sd-out" role="status" aria-live="polite"></output>
-        </form>
-    </main>
+  <main class="dc75-cutting" id="dc75-main">
+    <header><p>PATTERN CALCULATOR / 24-GRID</p><h1>栏目权重配比尺</h1><span>每行输入“栏目名 | 权重”。工具在本地把优先级换算为占比，并用最大余数法分配 24 个版面格。</span></header>
+    <div class="dc75-cutting-table">
+      <form data-dc75-ratio-form novalidate>
+        <label for="dc75-ratios"><b>栏目与权重</b><span>2–12 行；权重为 1–1000 的整数</span></label>
+        <textarea id="dc75-ratios" rows="17" maxlength="1001" aria-describedby="dc75-ratio-help dc75-ratio-error" placeholder="深度方法 | 5&#10;案例拆解 | 3&#10;快速答疑 | 2"></textarea>
+        <small id="dc75-ratio-help">栏目名最多 80 个 Unicode 字符；总输入不超过 1,000 字符；权重合计不超过 10,000。</small>
+        <p id="dc75-ratio-error" data-dc75-ratio-error></p>
+        <fieldset><legend>装载样例</legend><button type="button" data-dc75-preset="balanced">均衡期刊</button><button type="button" data-dc75-preset="hero">重点专题</button><button type="button" data-dc75-preset="many">多栏目</button></fieldset>
+        <footer><button type="submit">开始裁版</button><button type="reset">清空工作台</button></footer>
+        <p data-dc75-ratio-status role="status" aria-live="polite">等待输入栏目。</p>
+      </form>
 
-    <footer class="stockroom">
-        <div class="stockroom-in">
-            <p class="stockroom-fine">结果仅供参考，能否叠加以平台规则为准。</p>
-        </div>
-    </footer>
-
-    <script src="shelf.js"></script>
+      <section class="dc75-ratio-report" data-ready="false" aria-labelledby="dc75-report-title">
+        <header><div><p>LAYOUT MARKER</p><h2 id="dc75-report-title">24 格配比纸样</h2></div><b data-dc75-ratio-state>UNMARKED</b></header>
+        <dl><div><dt>栏目</dt><dd data-dc75-item-count>0</dd></div><div><dt>权重合计</dt><dd data-dc75-weight-total>0</dd></div><div><dt>版面格</dt><dd>24</dd></div></dl>
+        <div class="dc75-grid-preview" data-dc75-grid-preview aria-label="24 格配比分布"></div>
+        <ol data-dc75-ratio-list><li>计算后显示每个栏目的占比、权重和格数。</li></ol>
+        <aside><p data-dc75-ratio-note>权重代表相对优先级，不代表访问量预测。</p><button type="button" data-dc75-copy-report disabled>复制配比结果</button><span data-dc75-report-copy-status role="status" aria-live="polite"></span></aside>
+      </section>
+    </div>
+    <aside class="dc75-tool-note"><b>分配规则</b><p>先取每项精确配额的整数部分，再按小数余数从大到小补足 24 格；余数相同时保留原输入顺序。</p><a href="article.html">阅读内容工艺方法</a></aside>
+  </main>
+  <footer class="dc75-footer"><div><b>%%BRAND_EN%%</b><span>本地工具，不上传输入</span></div><nav aria-label="页脚导航"><a href="index.html">裁版台</a><a href="article.html">工艺单</a><a href="legal.html">布边说明</a></nav><p>24 GRID / PATTERN 075</p></footer>
+  <script src="pattern-room.js"></script>
 </body>
 </html>

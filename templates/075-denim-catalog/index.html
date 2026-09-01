@@ -1,174 +1,68 @@
-<!DOCTYPE html>
-<html lang="{LANG}">
+<!doctype html>
+<html lang="%%LANG%%" data-dc75-theme="indigo">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f2f3f6">
-    <title>{SITE_NAME} — 返佣货架：好工具好文章都上架</title>
-    <meta name="description" content="{SITE_DESC}">
-    <link rel="canonical" href="https://{SITE_DOMAIN}/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="{SITE_NAME}">
-    <meta property="og:title" content="{SITE_NAME} — 返佣货架">
-    <meta property="og:description" content="{SITE_DESC}">
-    <meta property="og:url" content="https://{SITE_DOMAIN}/">
-    <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="public.css">
-    <link rel="stylesheet" href="css/shelf.css">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "{SITE_NAME}",
-        "url": "https://{SITE_DOMAIN}/"
-    }
-    </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#142f52">
+  <title>%%SITE_NAME%%｜把复杂内容裁成清楚版型</title>
+  <meta name="description" content="%%SITE_DESC%%">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="%%SITE_NAME%%">
+  <meta property="og:title" content="%%SITE_NAME%%｜丹宁内容裁版室">
+  <meta property="og:description" content="%%SITE_DESC%%">
+  <meta property="og:url" content="https://%%SITE_DOMAIN%%/">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="atelier.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"%%SITE_NAME%%","url":"https://%%SITE_DOMAIN%%/"}</script>
 </head>
 <body>
-    <header class="shopfront">
-        <div class="shopfront-in">
-            <a class="shopfront-brand" href="index.html">{BRAND_EN}</a>
-            <button type="button" class="shopfront-btn" id="shopfront-btn" aria-label="主导航" aria-expanded="false" aria-controls="shopfront-nav">
-                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-            </button>
-            <nav class="shopfront-nav" id="shopfront-nav" aria-label="主导航">
-                <a href="index.html" aria-current="page">货架</a>
-                <a href="article.html">导购</a>
-                <a href="tool.html">叠加计算</a>
-                <a href="legal.html">披露</a>
-            </nav>
-        </div>
-    </header>
+  <a class="dc75-skip" href="#dc75-main">跳到主要内容</a>
+  <header class="dc75-rail">
+    <a class="dc75-brand" href="index.html" aria-label="%%SITE_NAME%% 首页"><span>75</span><strong>%%BRAND_EN%%</strong><small>DENIM PATTERN OFFICE</small></a>
+    <details class="dc75-menu">
+      <summary><span>版型目录</span><i aria-hidden="true"></i></summary>
+      <nav aria-label="主导航"><a href="index.html" aria-current="page">裁版台</a><a href="article.html">工艺单</a><a href="tool.html">配比尺</a><a href="legal.html">布边说明</a></nav>
+    </details>
+    <button class="dc75-theme" type="button" data-dc75-theme-toggle aria-pressed="false"><span aria-hidden="true"></span>浅色纸样</button>
+  </header>
 
-    <div class="arcade ct-wrap">
+  <main class="dc75-home" id="dc75-main">
+    <section class="dc75-hero">
+      <div class="dc75-hero-copy">
+        <p><b>DROP 075</b><span>CONTENT CUTTING SYSTEM</span></p>
+        <h1>把复杂内容，<br>裁成清楚版型。</h1>
+        <div class="dc75-lede"><span>%%HERO_DESCRIPTION%%</span><small>每条线都对应来源、范围与下一步。</small></div>
+        <menu><li><a href="article.html">打开工艺单</a></li><li><a href="tool.html">规划栏目配比</a></li></menu>
+      </div>
+      <figure class="dc75-pattern" aria-label="抽象丹宁纸样裁片图">
+        <figcaption><b>PATTERN NO. 075</b><span>MASTER BLOCK / CONTENT EDITION</span></figcaption>
+        <div class="dc75-pattern-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><b>075</b><span>CUT<br>ON<br>GRAIN</span></div>
+      </figure>
+    </section>
 
-        <header class="fronthall ct-hero">
-            <div class="frontcopy ct-copy">
-                <p class="fronthall-brow ct-eyebrow">返佣货架</p>
-                <h1 class="fronthall-h1 ct-h1">把有用的都上架<br>没用的不占货位</h1>
-                <p class="fronthall-lede ct-lede">工具、算例、避坑档案按货架摆好；每件"商品"注明来源与口径核对时间，过期就下架。</p>
-                <div class="fronthall-acts ct-actions">
-                    <a class="stitch stitch-full btn btn-primary" href="article.html">逛 01 号货架 <span class="dartline arrow" aria-hidden="true">→</span></a>
-                    <a class="stitch btn" href="tool.html">算优惠叠加</a>
-                </div>
-            </div>
+    <aside class="dc75-tape" aria-label="内容方法刻度"><span>01 先标事实</span><span>02 再分层级</span><span>03 最后给路径</span><b>24 GRID</b></aside>
 
-            <a class="showwindow ct-window" href="article.html">
-                <span class="showwindow-label ct-window-label">本周橱窗</span>
-                <span class="showwindow-media ct-window-media ct-window-gen" aria-hidden="true"><b>费</b></span>
-                <span class="showwindow-foot ct-window-foot">
-                    <span class="showwindow-title ct-window-title">示例平台A 挂单档位调整：返佣基数怎么跟着变</span>
-                    <span class="showwindow-go ct-window-go arrow" aria-hidden="true">↗</span>
-                </span>
-            </a>
-        </header>
+    <section class="dc75-blocks" aria-labelledby="dc75-blocks-title">
+      <header><p>WORKING BLOCKS / 01—03</p><h2 id="dc75-blocks-title">三块已经锁边的内容组件</h2><a href="article.html">查看完整工艺</a></header>
+      <ol>
+        <li><a href="article.html"><em>01</em><div><small>REFERENCE POCKET</small><h3>来源口袋</h3><p>把出处、核对日期和适用范围放在读者一眼能看见的位置。</p></div><span aria-hidden="true">↗</span></a></li>
+        <li><a href="tool.html"><em>02</em><div><small>RATIO BLOCK</small><h3>栏目配比</h3><p>先分配内容权重，再决定首页该给每个主题多少空间。</p></div><span aria-hidden="true">↗</span></a></li>
+        <li><a href="legal.html"><em>03</em><div><small>SELVEDGE NOTE</small><h3>边界说明</h3><p>利益关系、方法边界和更正入口不藏在页脚的小字里。</p></div><span aria-hidden="true">↗</span></a></li>
+      </ol>
+    </section>
 
-        <nav class="deptline ct-depts" aria-label="部门">
-            <span class="deptline-label ct-depts-label">部门</span>
-            <a class="deptpill ct-dept is-all" href="article.html">全部</a>
-            <a class="deptpill ct-dept" href="article.html"><span>新手入门</span><small>6</small></a>
-            <a class="deptpill ct-dept" href="article.html"><span>费率与返佣</span><small>8</small></a>
-            <a class="deptpill ct-dept" href="article.html"><span>安全与合规</span><small>5</small></a>
-        </nav>
+    <section class="dc75-runway">
+      <header><span>FIELD NOTES</span><h2>最新工艺记录</h2></header>
+      <div class="dc75-runway-track">
+        <article><p>01 / 方法</p><h3>一条结论需要哪三种证据</h3><span>先区分直接来源、解释材料与自己的推断。</span><a href="article.html">展开记录</a></article>
+        <article><p>02 / 结构</p><h3>长页面怎样保留阅读方向</h3><span>标题、摘要、章节和下一步各自只承担一种任务。</span><a href="article.html">展开记录</a></article>
+        <article><p>03 / 维护</p><h3>发布日期不是有效期</h3><span>为会变化的信息同时保留核对日期与复查触发条件。</span><a href="article.html">展开记录</a></article>
+      </div>
+    </section>
+  </main>
 
-        <section class="shelfsec ct-section">
-            <div class="shelfsec-head ct-section-head">
-                <div><span class="shelfkick ct-section-kicker">01</span><h2>常备工具架</h2></div>
-                <a class="shelfsec-all" href="article.html">查看全部 <span class="dartline arrow" aria-hidden="true">→</span></a>
-            </div>
-            <div class="wares ct-products">
-                <a class="ware ct-product" href="tool.html">
-                    <span class="ware-media ct-product-media ct-product-gen" aria-hidden="true"><b>叠</b></span>
-                    <span class="ware-body ct-product-body">
-                        <span class="ware-cat ct-product-cat">工具</span>
-                        <span class="ware-title ct-product-title">优惠叠加计算器</span>
-                        <span class="ware-ex ct-product-ex">基础费率乘上一层层减免，算出最终到手价。</span>
-                        <span class="ware-link ct-product-link">去使用 <span class="dartline arrow" aria-hidden="true">↗</span></span>
-                    </span>
-                </a>
-                <a class="ware ct-product" href="article.html">
-                    <span class="ware-media ct-product-media ct-product-gen" aria-hidden="true"><b>核</b></span>
-                    <span class="ware-body ct-product-body">
-                        <span class="ware-cat ct-product-cat">档案</span>
-                        <span class="ware-title ct-product-title">口径核对记录</span>
-                        <span class="ware-ex ct-product-ex">每条信息的来源与核对时间，全部可查。</span>
-                        <span class="ware-link ct-product-link">去查看 <span class="dartline arrow" aria-hidden="true">↗</span></span>
-                    </span>
-                </a>
-                <a class="ware ct-product" href="legal.html">
-                    <span class="ware-media ct-product-media ct-product-gen" aria-hidden="true"><b>披</b></span>
-                    <span class="ware-body ct-product-body">
-                        <span class="ware-cat ct-product-cat">必读</span>
-                        <span class="ware-title ct-product-title">利益披露</span>
-                        <span class="ware-ex ct-product-ex">本店怎么运作，进门先看这张牌子。</span>
-                        <span class="ware-link ct-product-link">去阅读 <span class="dartline arrow" aria-hidden="true">↗</span></span>
-                    </span>
-                </a>
-            </div>
-        </section>
-
-        <section class="shelfsec ct-section ct-guides">
-            <div class="shelfsec-head ct-section-head">
-                <div><span class="shelfkick ct-section-kicker">02</span><h2>最新导购</h2></div>
-                <a class="shelfsec-all" href="article.html">查看全部 <span class="dartline arrow" aria-hidden="true">→</span></a>
-            </div>
-            <div class="picklist ct-guide-list">
-                <a class="pick ct-guide" href="article.html">
-                    <span class="pick-cover ct-guide-cover ct-product-gen" aria-hidden="true"><b>对</b></span>
-                    <span class="pick-main ct-guide-main">
-                        <span class="pick-meta ct-guide-meta">对照 · 2026-01-18</span>
-                        <span class="pick-title ct-guide-title">现货与合约的返佣口径差在哪</span>
-                    </span>
-                    <span class="pick-go ct-guide-go arrow" aria-hidden="true">→</span>
-                </a>
-                <a class="pick ct-guide" href="article.html">
-                    <span class="pick-cover ct-guide-cover ct-product-gen" aria-hidden="true"><b>安</b></span>
-                    <span class="pick-main ct-guide-main">
-                        <span class="pick-meta ct-guide-meta">安全 · 2026-01-17</span>
-                        <span class="pick-title ct-guide-title">仿冒邀请页出现新变种：域名多一个连字符</span>
-                    </span>
-                    <span class="pick-go ct-guide-go arrow" aria-hidden="true">→</span>
-                </a>
-                <a class="pick ct-guide" href="article.html">
-                    <span class="pick-cover ct-guide-cover ct-product-gen" aria-hidden="true"><b>算</b></span>
-                    <span class="pick-main ct-guide-main">
-                        <span class="pick-meta ct-guide-meta">算例 · 2026-01-15</span>
-                        <span class="pick-title ct-guide-title">月交易十万，返佣能覆盖多少成本：三档演示</span>
-                    </span>
-                    <span class="pick-go ct-guide-go arrow" aria-hidden="true">→</span>
-                </a>
-                <a class="pick ct-guide" href="article.html">
-                    <span class="pick-cover ct-guide-cover ct-product-gen" aria-hidden="true"><b>补</b></span>
-                    <span class="pick-main ct-guide-main">
-                        <span class="pick-meta ct-guide-meta">流程 · 2026-01-13</span>
-                        <span class="pick-title ct-guide-title">注册时漏填邀请码，事后还有救吗</span>
-                    </span>
-                    <span class="pick-go ct-guide-go arrow" aria-hidden="true">→</span>
-                </a>
-                <a class="pick ct-guide" href="article.html">
-                    <span class="pick-cover ct-guide-cover ct-product-gen" aria-hidden="true"><b>叠</b></span>
-                    <span class="pick-main ct-guide-main">
-                        <span class="pick-meta ct-guide-meta">费率 · 2026-01-11</span>
-                        <span class="pick-title ct-guide-title">VIP 等级和邀请返佣能不能叠加：口径梳理</span>
-                    </span>
-                    <span class="pick-go ct-guide-go arrow" aria-hidden="true">→</span>
-                </a>
-            </div>
-        </section>
-</div>
-
-    <footer class="stockroom">
-        <div class="stockroom-in">
-            <p class="stockroom-brand">{BRAND_EN} · {SITE_TAGLINE}</p>
-            <nav class="stockroom-nav" aria-label="页脚导航">
-                <a href="article.html">导购</a>
-                <a href="tool.html">叠加计算</a>
-                <a href="legal.html">披露与免责</a>
-            </nav>
-            <p class="stockroom-fine">* 减免比例以交易所页面实时显示为准。内容不构成投资建议。</p>
-        </div>
-    </footer>
-
-    <script src="shelf.js"></script>
+  <footer class="dc75-footer"><div><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span></div><nav aria-label="页脚导航"><a href="article.html">工艺单</a><a href="tool.html">配比尺</a><a href="legal.html">说明</a></nav><p>© %%CURRENT_YEAR%% %%SITE_NAME%%</p></footer>
+  <script src="pattern-room.js"></script>
 </body>
 </html>
