@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="{{LANG}}" data-ki144-room="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ebe4d5">
+  <meta name="description" content="五段器物修复札记，说明观察、片组、接缝、材料与交接边界。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html">
+  <meta property="og:title" content="器物金继修复札记｜{{SITE_NAME}}">
+  <meta property="og:description" content="从观察到交接，逐段说明拼片记录能做什么、不能替代什么。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
+  <title>器物金继修复札记｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/kintsugi-map.css">
+  <script src="static/kintsugi-map.js" defer></script>
+</head>
+<body class="ki144-article-page">
+  <a class="ki144-skip" href="#ki144-main">跳到主要内容</a>
+  <progress class="ki144-progress" max="100" value="0" aria-label="文章阅读进度"></progress>
+  <header class="ki144-head"><a class="ki144-sign" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>継 / 144</span></a><nav aria-label="主导航"><ol><li><a href="index.html"><i>壹</i>修复台</a></li><li><a aria-current="page" href="article.html"><i>贰</i>器物札记</a></li><li><a href="tool.html"><i>叁</i>拼片图</a></li><li><a href="legal.html"><i>肆</i>责任卷</a></li></ol></nav><button type="button" data-ki144-room-toggle aria-pressed="true">进入漆夜</button></header>
+  <main id="ki144-main"><article class="ki144-scroll">
+    <header class="ki144-scroll-cover"><div><p>FIVE TRACES / OBJECT NOTES</p><h1>每一道接缝，<br>都需要事实<br>托住它。</h1><span>{{ARTICLE_META}} · 本页提供记录框架，不构成鉴定或修复意见。</span></div><figure aria-hidden="true"><div><i></i><i></i><i></i><b></b></div><span>五</span><small>TRACES</small></figure></header>
+    <menu class="ki144-scroll-index"><li><a href="#ki144-observe">观察</a></li><li><a href="#ki144-pieces">片组</a></li><li><a href="#ki144-seams">接缝</a></li><li><a href="#ki144-material">材料</a></li><li><a href="#ki144-handoff">交接</a></li></menu>
+    <div class="ki144-scroll-body">
+      <section id="ki144-observe"><header><span>TRACE 01</span><h2>观察先于命名</h2><time>LOOK</time></header><p class="ki144-drop">器物名称、年代、窑口、材质、工艺、用途、裂损、旧修与来源都可能存在不确定性。网页图形和示例文字不能证明真实器物的身份。</p><blockquote>清楚记录“尚未确认”，也是一种可靠的修复语言。</blockquote><p>任何历史、稀有性、文化价值或所有权叙述都应有当前依据、确认人和核对日期。</p></section>
+      <section id="ki144-pieces"><header><span>TRACE 02</span><h2>片号只帮助追踪，不证明适配</h2><time>PIECES</time></header><p>拼片图把用户输入的两个片号视为一条无向关系，并计算连通片组。它不读取照片、轮廓、尺寸、断面或材质，也不会判断碎片是否真的属于同一器物。</p><aside><b>规范化</b><p>片号会执行 NFKC、合并空格并忽略大小写；同一条无向关系即使反向输入也会被拒绝。</p></aside></section>
+      <section id="ki144-seams"><header><span>TRACE 03</span><h2>闭环是图结构，不是工艺结论</h2><time>SEAMS</time></header><p>工具用 `接缝数 − 片数 + 连通片组数` 计算无向简单图的独立闭环数量。闭环本身不触发异常，也不表示拼合更牢固或修复更完整。</p><ul><li>分离片组会生成结构提示。</li><li>非“封存”的接缝会生成状态提示。</li><li>任何输入变化都会让旧报告立即失效。</li></ul></section>
+      <section id="ki144-material"><header><span>TRACE 04</span><h2>金色只是页面语言，不是材料配方</h2><time>MATERIAL</time></header><p>漆、胶、填料、金属粉、颜料、溶剂、清洁、固化、可逆性、稳定性、毒性、接触与使用环境都需要专业判断。CSS 金线不是处理建议，也不证明任何材料安全。</p><blockquote>可见的修复痕迹，不等于适合所有器物与用途。</blockquote></section>
+      <section id="ki144-handoff"><header><span>TRACE 05</span><h2>交接要保留每一次关系变化</h2><time>HANDOFF</time></header><p>交接可记录对象编号、照片版本、片号、接缝号、关系变化、观察、材料、状态、责任人与日期。真实字段由项目制度决定。</p><aside><b>责任边界</b><p>本地报告不构成鉴定、拼合、处理、价值、保险、运输、展陈、使用或验收决定。</p></aside><footer><span>END / KEEP THE TRACE</span><button class="ki144-gold-button" type="button" data-ki144-copy-note>复制修复摘要</button><output data-ki144-copy-status aria-live="polite"></output></footer></section>
+    </div>
+  </article></main>
+  <footer class="ki144-footer"><div><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></div><nav aria-label="页脚导航"><strong>下一步</strong><a href="tool.html">拼片关系图</a><a href="legal.html">责任卷</a><a href="404.html">档案检索</a></nav><address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>ARTICLE / FIVE TRACES</small></address><p>札记用于信息组织，不替代鉴定、材料、修复、价值、运输、展陈或安全意见。</p></footer>
+</body>
+</html>

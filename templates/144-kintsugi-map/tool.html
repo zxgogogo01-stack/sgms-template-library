@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{LANG}}" data-ki144-room="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ebe4d5">
+  <meta name="description" content="本地拼片关系工具，审计接缝唯一性、无向片组连通、闭环数量与文档状态。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="拼片关系图谱｜{{SITE_NAME}}">
+  <meta property="og:description" content="零上传计算连通片组、独立闭环与接缝状态。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <title>拼片关系图谱｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/kintsugi-map.css">
+  <script src="static/kintsugi-map.js" defer></script>
+</head>
+<body class="ki144-tool-page">
+  <a class="ki144-skip" href="#ki144-main">跳到主要内容</a>
+  <header class="ki144-head"><a class="ki144-sign" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>継 / 144</span></a><nav aria-label="主导航"><ol><li><a href="index.html"><i>壹</i>修复台</a></li><li><a href="article.html"><i>贰</i>器物札记</a></li><li><a aria-current="page" href="tool.html"><i>叁</i>拼片图</a></li><li><a href="legal.html"><i>肆</i>责任卷</a></li></ol></nav><button type="button" data-ki144-room-toggle aria-pressed="true">进入漆夜</button></header>
+  <main id="ki144-main">
+    <header class="ki144-tool-hero"><div><span>UNDIRECTED GRAPH / LOCAL ONLY</span><h1>拼片<br>关系图</h1><p>把每条接缝写成两个片号的无向关系，只计算片组连通、独立闭环与文档状态。</p></div><figure aria-hidden="true"><span>A</span><span>B</span><span>C</span><i></i><i></i><i></i><b>1</b></figure></header>
+    <section class="ki144-graph-bench" aria-labelledby="ki144-input-title">
+      <form class="ki144-graph-form" data-ki144-graph-form novalidate><header><small>INPUT / SEAMS</small><h2 id="ki144-input-title">接缝记录</h2></header><p><code>接缝号 | 片号 A | 片号 B | 状态</code></p><label for="ki144-rows">每行一条接缝</label><textarea id="ki144-rows" rows="12" spellcheck="false">接缝 01 | 瓷片 A | 瓷片 B | 封存
+接缝 02 | 瓷片 B | 瓷片 C | 封存</textarea><menu aria-label="示例数据"><li><button type="button" data-ki144-preset="clear">单组相连</button></li><li><button type="button" data-ki144-preset="split">分离片组</button></li><li><button type="button" data-ki144-preset="cycle">闭环记录</button></li><li><button type="button" data-ki144-preset="review">复合复核</button></li></menu><p data-ki144-error role="alert"></p><footer><button class="ki144-gold-button" type="submit">生成拼片图谱</button><button type="reset">撤下并恢复示例</button></footer><output data-ki144-form-status aria-live="polite">等待至少两条接缝。</output></form>
+      <section class="ki144-graph-report" data-ready="false" aria-labelledby="ki144-report-title"><header><small>OUTPUT / TRACE</small><h2 id="ki144-report-title">关系交接</h2><strong data-ki144-report-state>UNSET</strong></header><figure class="ki144-network-seal"><span>CONNECTED GROUPS</span><b data-ki144-component-total>—</b><p data-ki144-component-label>等待绘图</p><i></i><i></i><i></i></figure><dl><div><dt>接缝</dt><dd data-ki144-seam-count>0</dd></div><div><dt>片数</dt><dd data-ki144-piece-count>0</dd></div><div><dt>闭环</dt><dd data-ki144-cycle-count>0</dd></div><div><dt>状态提示</dt><dd data-ki144-status-count>0</dd></div></dl><section class="ki144-findings"><h3 data-ki144-finding-summary>等待绘图</h3><ul data-ki144-finding-list><li>报告生成后显示分离片组和未封存状态。</li></ul></section><section class="ki144-seams"><h3 data-ki144-seam-summary>等待绘图</h3><div data-ki144-seam-list><p>等待接缝记录。</p></div></section><p class="ki144-boundary">工具不读取照片、尺寸、轮廓、断面、材质、旧修、适配、处理、价值、所有权、运输、展陈或安全状态。</p><footer><button class="ki144-gold-button" type="button" data-ki144-copy-report disabled>复制完整关系交接</button><output data-ki144-copy-status aria-live="polite"></output></footer></section>
+    </section>
+  </main>
+  <footer class="ki144-footer"><div><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></div><nav aria-label="页脚导航"><strong>方法</strong><a href="article.html">器物札记</a><a href="legal.html">责任卷</a><a href="404.html">档案检索</a></nav><address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>LOCAL / SIMPLE GRAPH</small></address><p>图谱不构成鉴定、拼合、处理、保险、运输、展陈、使用、验收或放行批准。</p></footer>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="{{LANG}}" data-ki144-room="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ebe4d5">
+  <meta name="description" content="一套以金继修复、漆黑陶碗、金色接缝与和纸档案为视觉语言的完整静态模板。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}｜金继拼片档案">
+  <meta property="og:description" content="记录拼片关系、片组结构与修复责任边界的原创五页站点框架。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <title>{{SITE_NAME}}｜金继拼片档案</title>
+  <link rel="stylesheet" href="static/kintsugi-map.css">
+  <script src="static/kintsugi-map.js" defer></script>
+</head>
+<body class="ki144-home">
+  <a class="ki144-skip" href="#ki144-main">跳到主要内容</a>
+  <header class="ki144-head">
+    <a class="ki144-sign" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{BRAND_EN}}</b><span>継 / 144</span></a>
+    <nav aria-label="主导航"><ol><li><a aria-current="page" href="index.html"><i>壹</i>修复台</a></li><li><a href="article.html"><i>贰</i>器物札记</a></li><li><a href="tool.html"><i>叁</i>拼片图</a></li><li><a href="legal.html"><i>肆</i>责任卷</a></li></ol></nav>
+    <button type="button" data-ki144-room-toggle aria-pressed="true">进入漆夜</button>
+  </header>
+
+  <main id="ki144-main">
+    <section class="ki144-hero" aria-labelledby="ki144-hero-title">
+      <div class="ki144-hero-copy"><p>REPAIR ARCHIVE / OBJECT 144</p><h1 id="ki144-hero-title">裂痕不是<br>被掩盖的<br><em>那一部分。</em></h1><blockquote>{{HERO_DESCRIPTION}}</blockquote><footer><a class="ki144-gold-button" href="tool.html">展开拼片关系图</a><span>{{SITE_TAGLINE}}</span></footer></div>
+      <figure class="ki144-bowl-stage" aria-label="抽象黑漆陶碗与金色接缝">
+        <div class="ki144-bowl"><i></i><i></i><i></i><i></i><b></b><span></span></div>
+        <figcaption><dl><div><dt>OBJECT</dt><dd>{{OBJECT_SAMPLE}}</dd></div><div><dt>SEAMS</dt><dd>07</dd></div><div><dt>STATE</dt><dd>OBSERVE</dd></div></dl></figcaption>
+      </figure>
+      <aside aria-label="档案序号"><span>一四四</span><b>痕迹可见</b><small>TRACE / NOT PROOF</small></aside>
+    </section>
+
+    <section class="ki144-principles" aria-labelledby="ki144-principles-title">
+      <header><span>THREE JOINS</span><h2 id="ki144-principles-title">修复记录，<br>从承认未知开始。</h2></header>
+      <div>
+        <article><data value="1">01 / LOOK</data><h3>先看材料与来历</h3><p>器物身份、年代、材质、裂损、旧修、权利与环境须从当前资料核验。</p><a href="article.html#ki144-observe">阅读观察札记</a></article>
+        <article><data value="2">02 / MAP</data><h3>再画清拼片关系</h3><p>本地工具只审计用户输入的接缝、片号、连通片组、闭环数量与文档状态。</p><a href="tool.html">打开拼片关系图</a></article>
+        <article><data value="3">03 / CARE</data><h3>让判断回到责任人</h3><p>鉴定、材料、处理、安全、价值、运输、展陈与权利仍由对应责任人确认。</p><a href="legal.html">查看责任卷</a></article>
+      </div>
+    </section>
+
+    <aside class="ki144-gold-river" aria-label="金继提示"><span>VISIBLE SEAM</span><b>连接可以绘制，适配不能猜测。</b><i></i><span>VERIFIED HAND</span></aside>
+
+    <section class="ki144-map-preview" aria-labelledby="ki144-map-title">
+      <figure aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><i></i><i></i><i></i><b>01</b><b>02</b><b>03</b></figure>
+      <div><p>LOCAL GRAPH / NO TREATMENT</p><h2 id="ki144-map-title">把“哪一片与哪一片相连”<br>写成可追溯的图。</h2><p>连通片组和闭环只描述用户输入的关系，不代表碎片真的匹配、处理已经完成或器物可安全使用。</p><a href="tool.html">进入拼片图谱 ↗</a></div>
+    </section>
+
+    <section class="ki144-archive" aria-labelledby="ki144-archive-title">
+      <header><span>LOCAL ARCHIVE NUMBER</span><h2 id="ki144-archive-title">一枚编号，<br>只指向一份记录。</h2></header>
+      <div><small>REPAIR NOTE</small><strong data-ki144-archive>{{ARCHIVE_CODE}}</strong><button type="button" data-ki144-copy-archive>复制档案编号</button><output data-ki144-copy-status aria-live="polite"></output></div>
+      <p>演示编号不是鉴定、所有权、保险、处理、验收或展陈凭据。</p>
+    </section>
+  </main>
+
+  <footer class="ki144-footer"><div><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></div><nav aria-label="页脚导航"><strong>修复室</strong><a href="article.html">器物札记</a><a href="tool.html">拼片图</a><a href="404.html">档案检索</a></nav><address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>LOCAL / NO TREATMENT</small></address><p>模板不鉴定器物、不判断材料适配、处理方案、价值、所有权、运输、展陈或安全。</p></footer>
+</body>
+</html>
