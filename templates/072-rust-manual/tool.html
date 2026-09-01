@@ -1,136 +1,38 @@
-<!DOCTYPE html>
-<html lang="~LANG~">
+<!doctype html>
+<html lang="%%LANG%%" data-finish="paper">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f6f7f7">
-  <title>绑码自查清单 — ~SITE_NAME~</title>
-  <meta name="description" content="注册绑码前逐项自查，勾完看就绪度。">
-  <link rel="canonical" href="https://~SITE_DOMAIN~/tool.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="~SITE_NAME~">
-  <meta property="og:title" content="绑码自查清单 — ~SITE_NAME~">
-  <meta property="og:description" content="注册绑码前逐项自查，勾完看就绪度。">
-  <meta property="og:url" content="https://~SITE_DOMAIN~/tool.html">
-  <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="css/handbook.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "绑码自查清单",
-    "url": "https://~SITE_DOMAIN~/tool.html"
-  }
-  </script>
-  <style>
-    .checkhall { max-width: 620px; margin: 0 auto; padding: 46px 24px 80px; }
-    .checkhall-card {
-      background: var(--sheetpane);
-      border: 1px solid var(--seamgrey);
-      border-top: 4px solid var(--rustred);
-      border-radius: var(--notch);
-      box-shadow: var(--paperlift-hi);
-      padding: 40px 44px;
-    }
-    .checkhall-card h1 { font-family: var(--serif72); font-size: 1.5rem; }
-    .checkhall-card > p { color: var(--steelgrey); margin: 6px 0 18px; }
-    .checkline {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 13px 15px;
-      border: 1px solid var(--seamgrey);
-      border-radius: var(--notch);
-      margin-bottom: 9px;
-      cursor: pointer;
-      transition: border-color var(--snick), background var(--snick);
-    }
-    .checkline:hover { border-color: var(--rustred); background: var(--washgrey); }
-    .checkline input {
-      width: 19px;
-      height: 19px;
-      margin-top: 4px;
-      accent-color: var(--rustred);
-      cursor: pointer;
-    }
-    .checkline b { display: block; font-size: .95rem; }
-    .checkline small { color: var(--steelgrey); font-size: .84rem; line-height: 1.6; display: block; }
-    .ck-track {
-      margin-top: 20px;
-      height: 12px;
-      border-radius: 999px;
-      background: var(--washgrey);
-      overflow: hidden;
-    }
-    #ck-fill {
-      display: block;
-      height: 100%;
-      width: 0;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--rustred), var(--rustred-deep));
-      transition: width .3s ease;
-    }
-    .ck-readout {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-top: 12px;
-      gap: 14px;
-    }
-    #ck-pct {
-      font-family: var(--mono72);
-      font-variant-numeric: tabular-nums;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--rustred);
-    }
-    #ck-verdict { color: var(--steelgrey); font-size: .92rem; }
-    @media (max-width: 600px) {
-      .checkhall-card { padding: 26px 20px; }
-    }
-  </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e8ddca">
+  <title>步骤依赖校验台 — %%SITE_NAME%%</title><meta name="description" content="在本地检查步骤编号、缺失依赖、自依赖与循环依赖，并生成执行层级。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="%%SITE_NAME%%"><meta property="og:title" content="步骤依赖校验台 — %%SITE_NAME%%"><meta property="og:description" content="在本地检查步骤编号、缺失依赖、自依赖与循环依赖，并生成执行层级。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="field-manual.css">
 </head>
 <body>
-  <header class="ridgepole">
-    <div class="ridgepole-in">
-      <a class="ridgepole-brand" href="index.html">~BRAND_EN~</a>
-      <button type="button" class="ridgepole-btn" id="ridgepole-btn" aria-label="主导航" aria-expanded="false" aria-controls="ridgepole-nav">
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <nav class="ridgepole-nav" id="ridgepole-nav" aria-label="主导航">
-        <a href="index.html">手册</a>
-        <a href="article.html">条目</a>
-        <a href="tool.html" aria-current="page">自查清单</a>
-        <a href="legal.html">披露</a>
-      </nav>
+  <a class="rm72-skip" href="#rm72-main">跳到主要内容</a>
+  <header class="rm72-spine"><a class="rm72-brand" href="index.html"><span>072</span><b>%%BRAND_EN%%</b><small>FIELD MANUAL / REV. C</small></a><button class="rm72-menu-button" type="button" aria-controls="rm72-menu" aria-expanded="false"><i aria-hidden="true"></i><span>目录</span></button><nav id="rm72-menu" aria-label="主导航"><a href="index.html">总装图</a><a href="article.html">作业页</a><a href="tool.html" aria-current="page">依赖台</a><a href="legal.html">安全牌</a><button type="button" data-finish-toggle>碳页</button></nav></header>
+
+  <main class="rm72-rig" id="rm72-main">
+    <header class="rm72-rig-head"><div><p>DEPENDENCY RIG / LOCAL TOOL</p><h1>步骤依赖校验台</h1><span>每行使用 <code>ID | 依赖 ID | 标题</code>。根步骤的依赖写 <code>-</code>，多个依赖以逗号分隔。</span></div><dl><div><dt>记录上限</dt><dd>100</dd></div><div><dt>依赖/步</dt><dd>10</dd></div><div><dt>总输入</dt><dd>10,000</dd></div></dl></header>
+
+    <div class="rm72-rig-grid">
+      <form class="rm72-dependency-form" data-dependency-form novalidate>
+        <label for="rm72-steps"><b>步骤清单</b><span>ID 仅用英文字母、数字与短横线</span></label>
+        <textarea id="rm72-steps" rows="19" maxlength="20001" aria-describedby="rm72-dependency-help rm72-dependency-error" placeholder="PREP | - | 准备材料&#10;CHECK | PREP | 核对输入&#10;PUBLISH | CHECK | 发布并记录"></textarea>
+        <small id="rm72-dependency-help">ID 会按 NFKC 转为大写；标题最多 100 个 Unicode 字符。</small>
+        <p id="rm72-dependency-error" data-dependency-error></p>
+        <fieldset><legend>装载样例</legend><button type="button" data-dependency-preset="linear">顺序链</button><button type="button" data-dependency-preset="parallel">并行层</button><button type="button" data-dependency-preset="cycle">环路样例</button></fieldset>
+        <footer><button type="submit">校验依赖</button><button type="reset">清空</button></footer>
+        <p data-dependency-status role="status" aria-live="polite">等待输入步骤清单。</p>
+      </form>
+
+      <section class="rm72-dependency-report" data-ready="false" aria-labelledby="rm72-report-title">
+        <header><div><p>ASSEMBLY ORDER</p><h2 id="rm72-report-title">执行层级</h2></div><b data-dependency-state>STANDBY</b></header>
+        <dl><div><dt>步骤</dt><dd data-step-count>0</dd></div><div><dt>关系</dt><dd data-edge-count>0</dd></div><div><dt>根步骤</dt><dd data-root-count>0</dd></div><div><dt>层级</dt><dd data-level-count>0</dd></div></dl>
+        <ol data-dependency-list><li>校验后显示前 20 个步骤与所在层级。</li></ol>
+        <aside><p data-dependency-note>拓扑层级只描述编号关系，不代表真实操作安全。</p><button type="button" data-copy-dependency-report disabled>复制层级报告</button><span data-dependency-copy-status role="status" aria-live="polite"></span></aside>
+      </section>
     </div>
-  </header>
-
-  <main class="checkhall">
-    <section class="checkhall-card">
-      <h1>绑码自查清单</h1>
-      <p>注册绑码前把五项勾完，就绪度实时算。只在本地，不上传。</p>
-
-      <label class="checkline"><input type="checkbox"><span><b>核对了官方域名</b><small>从官网或官方公告进入注册页，不点陌生链接。</small></span></label>
-      <label class="checkline"><input type="checkbox"><span><b>检查了证书与页面细节</b><small>地址栏锁标、域名拼写、无多余连字符。</small></span></label>
-      <label class="checkline"><input type="checkbox"><span><b>确认了邀请码填写位置</b><small>注册表单里的邀请码栏位，而不是任何"代充"入口。</small></span></label>
-      <label class="checkline"><input type="checkbox"><span><b>读过返佣口径</b><small>比例、结算周期、是否与 VIP 叠加，规则页各看一遍。</small></span></label>
-      <label class="checkline"><input type="checkbox"><span><b>记下了核对日期</b><small>平台规则会变，标记这次核对的时间，方便日后复查。</small></span></label>
-
-      <div class="ck-track" id="ck-track" role="progressbar" aria-label="核对进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="ck-fill"></span></div>
-      <div class="ck-readout">
-        <span id="ck-pct" aria-live="polite">0%</span>
-        <span id="ck-verdict">先别急着注册，逐项核对完再动手。</span>
-      </div>
-    </section>
+    <aside class="rm72-rig-note"><b>校验范围</b><p>工具会检查格式、重复编号、缺失依赖、自依赖和环路；不会读取外部页面，也不会判断权限或操作风险。</p><a href="article.html">阅读作业页方法</a></aside>
   </main>
 
-  <footer class="baseplate">
-    <div class="baseplate-in">
-      <p class="baseplate-fine">清单为通用提醒，具体以各平台规则为准。</p>
-    </div>
-  </footer>
-
-  <script src="handbook.js"></script>
+  <footer class="rm72-footer"><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span><small>DEPENDENCY RIG · LOCAL ONLY</small></footer><script src="rigging.js"></script>
 </body>
 </html>

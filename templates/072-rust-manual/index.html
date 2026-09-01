@@ -1,199 +1,71 @@
-<!DOCTYPE html>
-<html lang="~LANG~">
+<!doctype html>
+<html lang="%%LANG%%" data-finish="paper">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f6f7f7">
-  <title>~SITE_NAME~ — 返佣手册：一步一步照着做</title>
-  <meta name="description" content="~SITE_DESC~">
-  <link rel="canonical" href="https://~SITE_DOMAIN~/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#e8ddca">
+  <title>%%SITE_NAME%% — %%SEO_TITLE%%</title>
+  <meta name="description" content="%%SITE_DESC%%">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="~SITE_NAME~">
-  <meta property="og:title" content="~SITE_NAME~ — 返佣手册">
-  <meta property="og:description" content="~SITE_DESC~">
-  <meta property="og:url" content="https://~SITE_DOMAIN~/">
+  <meta property="og:site_name" content="%%SITE_NAME%%">
+  <meta property="og:title" content="%%SITE_NAME%% — %%SEO_TITLE%%">
+  <meta property="og:description" content="%%SITE_DESC%%">
+  <meta property="og:url" content="https://%%SITE_DOMAIN%%/">
   <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="public.css">
-  <link rel="stylesheet" href="css/handbook.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "~SITE_NAME~",
-    "url": "https://~SITE_DOMAIN~/"
-  }
-  </script>
+  <link rel="stylesheet" href="field-manual.css">
 </head>
 <body>
-  <header class="ridgepole">
-    <div class="ridgepole-in">
-      <a class="ridgepole-brand" href="index.html">~BRAND_EN~</a>
-      <button type="button" class="ridgepole-btn" id="ridgepole-btn" aria-label="主导航" aria-expanded="false" aria-controls="ridgepole-nav">
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <nav class="ridgepole-nav" id="ridgepole-nav" aria-label="主导航">
-        <a href="index.html" aria-current="page">手册</a>
-        <a href="article.html">条目</a>
-        <a href="tool.html">自查清单</a>
-        <a href="legal.html">披露</a>
-      </nav>
-    </div>
+  <a class="rm72-skip" href="#rm72-main">跳到主要内容</a>
+  <header class="rm72-spine">
+    <a class="rm72-brand" href="index.html"><span>072</span><b>%%BRAND_EN%%</b><small>FIELD MANUAL / REV. C</small></a>
+    <button class="rm72-menu-button" type="button" aria-controls="rm72-menu" aria-expanded="false"><i aria-hidden="true"></i><span>目录</span></button>
+    <nav id="rm72-menu" aria-label="主导航">
+      <a href="index.html" aria-current="page">总装图</a><a href="article.html">作业页</a><a href="tool.html">依赖台</a><a href="legal.html">安全牌</a><button type="button" data-finish-toggle>碳页</button>
+    </nav>
   </header>
 
-  <div class="mn-wrap">
-  <div class="manualgrid mn-grid">
+  <main id="rm72-main">
+    <section class="rm72-hero">
+      <article>
+        <p>%%HERO_EYEBROW%% · MANUAL 072</p>
+        <h1>%%HERO_TITLE%%</h1>
+        <span>%%HERO_DESCRIPTION%%</span>
+        <footer><a href="article.html">打开作业页</a><a href="tool.html">校验步骤依赖</a></footer>
+      </article>
+      <figure class="rm72-exploded" aria-labelledby="rm72-diagram-caption">
+        <div class="rm72-plate rm72-plate-a"><b>01</b><i></i></div><div class="rm72-plate rm72-plate-b"><b>02</b><i></i></div><div class="rm72-plate rm72-plate-c"><b>03</b><i></i></div><div class="rm72-plate rm72-plate-d"><b>04</b><i></i></div><span class="rm72-axis" aria-hidden="true"></span>
+        <figcaption id="rm72-diagram-caption">四层拆解：目标、依据、步骤、复核</figcaption>
+      </figure>
+    </section>
 
-    <aside class="chapterrail mn-rail" aria-label="章节">
-      <p class="chapterrail-head mn-rail-head">章节</p>
-      <nav class="toclist mn-chapters">
-        <a class="tocline mn-chapter" href="article.html">
-          <span class="tocline-name mn-chapter-name">新手入门</span>
-          <span class="tocline-count mn-chapter-count">6</span>
-        </a>
-        <a class="tocline mn-chapter" href="article.html">
-          <span class="tocline-name mn-chapter-name">费率与返佣</span>
-          <span class="tocline-count mn-chapter-count">8</span>
-        </a>
-        <a class="tocline mn-chapter" href="article.html">
-          <span class="tocline-name mn-chapter-name">安全与合规</span>
-          <span class="tocline-count mn-chapter-count">5</span>
-        </a>
-        <a class="tocline tocline-all mn-chapter mn-chapter-all" href="article.html">
-          <span class="tocline-name mn-chapter-name">查看全部</span>
-          <span class="veer72 arrow" aria-hidden="true">→</span>
-        </a>
-      </nav>
-    </aside>
+    <menu class="rm72-tabs" aria-label="手册定位">
+      <li><a href="#rm72-protocols"><b>A</b><span>装配原则</span></a></li><li><a href="#rm72-sequence"><b>B</b><span>执行顺序</span></a></li><li><a href="tool.html"><b>C</b><span>依赖检查</span></a></li>
+    </menu>
 
-    <section class="docwell mn-doc">
-      <header class="docintro mn-intro">
-        <p class="docintro-brow mn-eyebrow">返佣手册 v2026.01</p>
-        <h1 class="docintro-h1 mn-h1">返佣不难<br>难的是没有一本手册</h1>
-        <p class="docintro-lede mn-lede">从注册绑码到对账到账，按章节写清每一步。每条注明来源与口径核对时间，改版即更新。</p>
-        <div class="docintro-acts mn-cta">
-          <a class="rivet rivet-hot btn btn-primary" href="article.html">从第一节开始 <span class="veer72 arrow" aria-hidden="true">→</span></a>
-          <a class="rivet btn" href="tool.html">先做自查清单</a>
-        </div>
-      </header>
-
-      <div class="secband mn-sec-head">
-        <span class="secband-title mn-sec-title">最近更新</span>
-        <a class="secband-link mn-sec-link" href="article.html">查看全部 <span class="veer72 arrow" aria-hidden="true">→</span></a>
+    <section class="rm72-protocols" id="rm72-protocols" aria-labelledby="rm72-protocol-title">
+      <header><p>%%HOME_FEATURED_LABEL%%</p><h2 id="rm72-protocol-title">把复杂说明拆成可以复核的部件</h2><span>每一页只解决一个明确问题，同时交代输入、依据、步骤与停止条件。</span></header>
+      <div>
+        <article><b>01 / AIM</b><h3>先写完成状态</h3><p>读者应当知道做完后能看到什么，以及哪些结果不在本页承诺范围内。</p><a href="article.html">查看写法</a></article>
+        <article><b>02 / SOURCE</b><h3>依据靠近动作</h3><p>规则、账户显示和编辑判断分开标记，避免一条来源替全部步骤背书。</p><a href="legal.html">查看边界</a></article>
+        <article><b>03 / ORDER</b><h3>依赖先于动作</h3><p>前置步骤、并行步骤与收尾步骤显式编号，防止读者跳过关键准备。</p><a href="tool.html">检查依赖</a></article>
       </div>
+    </section>
 
-      <ol class="stepslist mn-sections">
-        <li class="stepitem mn-section">
-          <a class="stepitem-in mn-section-in" href="article.html">
-            <span class="stepnum mn-num" aria-hidden="true"></span>
-            <span class="stepbody mn-section-body">
-              <span class="step-t mn-section-t">示例平台A 挂单档位调整：返佣基数怎么跟着变</span>
-              <span class="step-ex mn-section-ex">置顶条目——一句话讲清净影响，进文看演示算例。</span>
-              <span class="step-meta mn-section-meta"><span class="rustchip mn-chip">费率观察</span><time datetime="2026-01-19">2026-01-19</time></span>
-            </span>
-            <span class="step-go mn-section-go arrow" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li class="stepitem mn-section">
-          <a class="stepitem-in mn-section-in" href="article.html">
-            <span class="stepnum mn-num" aria-hidden="true"></span>
-            <span class="stepbody mn-section-body">
-              <span class="step-t mn-section-t">现货与合约的返佣口径差在哪</span>
-              <span class="step-ex mn-section-ex">同一家平台两套费率表，别拿错。</span>
-              <span class="step-meta mn-section-meta"><span class="rustchip mn-chip">对照</span><time datetime="2026-01-18">2026-01-18</time></span>
-            </span>
-            <span class="step-go mn-section-go arrow" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li class="stepitem mn-section">
-          <a class="stepitem-in mn-section-in" href="article.html">
-            <span class="stepnum mn-num" aria-hidden="true"></span>
-            <span class="stepbody mn-section-body">
-              <span class="step-t mn-section-t">仿冒邀请页出现新变种：域名多一个连字符</span>
-              <span class="step-ex mn-section-ex">域名、证书、公告，三步核验。</span>
-              <span class="step-meta mn-section-meta"><span class="rustchip mn-chip">安全</span><time datetime="2026-01-17">2026-01-17</time></span>
-            </span>
-            <span class="step-go mn-section-go arrow" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li class="stepitem mn-section">
-          <a class="stepitem-in mn-section-in" href="article.html">
-            <span class="stepnum mn-num" aria-hidden="true"></span>
-            <span class="stepbody mn-section-body">
-              <span class="step-t mn-section-t">月交易十万，返佣能覆盖多少成本：三档演示</span>
-              <span class="step-ex mn-section-ex">数字是演示的，方法是真的。</span>
-              <span class="step-meta mn-section-meta"><span class="rustchip mn-chip">算例</span><time datetime="2026-01-15">2026-01-15</time></span>
-            </span>
-            <span class="step-go mn-section-go arrow" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li class="stepitem mn-section">
-          <a class="stepitem-in mn-section-in" href="article.html">
-            <span class="stepnum mn-num" aria-hidden="true"></span>
-            <span class="stepbody mn-section-body">
-              <span class="step-t mn-section-t">注册时漏填邀请码，事后还有救吗</span>
-              <span class="step-ex mn-section-ex">各平台补绑规则不一样。</span>
-              <span class="step-meta mn-section-meta"><span class="rustchip mn-chip">流程</span><time datetime="2026-01-13">2026-01-13</time></span>
-            </span>
-            <span class="step-go mn-section-go arrow" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li class="stepitem mn-section">
-          <a class="stepitem-in mn-section-in" href="article.html">
-            <span class="stepnum mn-num" aria-hidden="true"></span>
-            <span class="stepbody mn-section-body">
-              <span class="step-t mn-section-t">返佣多久到账：各家结算节奏对照</span>
-              <span class="step-ex mn-section-ex">日结、周结、月结都有。</span>
-              <span class="step-meta mn-section-meta"><span class="rustchip mn-chip">流程</span><time datetime="2026-01-05">2026-01-05</time></span>
-            </span>
-            <span class="step-go mn-section-go arrow" aria-hidden="true">→</span>
-          </a>
-        </li>
+    <section class="rm72-sequence" id="rm72-sequence" aria-labelledby="rm72-sequence-title">
+      <header><p>%%HOME_LATEST_LABEL%%</p><h2 id="rm72-sequence-title">一条可交接的作业链</h2></header>
+      <ol>
+        <li><b>01</b><div><span>界定</span><h3>写清本次操作对象与范围</h3><p>对象、时间、地区或账户条件缺一项时，先停下来补材料。</p></div><em>INPUT</em></li>
+        <li><b>02</b><div><span>准备</span><h3>把依赖步骤列在动作之前</h3><p>使用稳定短编号，让文字改写后依赖关系仍然可读。</p></div><em>DEPEND</em></li>
+        <li><b>03</b><div><span>执行</span><h3>每步只保留一个主要动作</h3><p>把判断条件和异常分支写在相邻位置。</p></div><em>ACT</em></li>
+        <li><b>04</b><div><span>收尾</span><h3>记录证据与回退条件</h3><p>没有成功证据时，不把“已点击”写成“已完成”。</p></div><em>VERIFY</em></li>
       </ol>
     </section>
 
-    <aside class="refside mn-side">
-      <a class="refcallout mn-callout" href="article.html">
-        <span class="refcallout-k mn-callout-k">置顶条目</span>
-        <span class="refcallout-cover mn-callout-cover mn-callout-gen" aria-hidden="true"><b>费</b></span>
-        <span class="refcallout-t mn-callout-t">示例平台A 挂单档位调整：返佣基数怎么跟着变</span>
-        <span class="refcallout-ex mn-callout-ex">进文可看演示算例与逐项对照表。</span>
-        <span class="refcallout-meta mn-callout-meta"><span class="rustchip mn-chip">费率观察</span><time datetime="2026-01-19">2026-01-19</time></span>
-      </a>
+    <aside class="rm72-callout"><div><small>FIELD NOTE</small><b>%%SITE_TAGLINE%%</b><p>文字可以替换，层级、触控、状态与安全边界已经装配完成。</p></div><a href="tool.html">打开依赖校验台</a></aside>
+  </main>
 
-      <nav class="refquick mn-quick" aria-label="速查">
-        <p class="refquick-head mn-quick-head">速查</p>
-        <a class="refquick-link mn-quick-link" href="tool.html">
-          <span class="refquick-ic mn-quick-ic" aria-hidden="true"><b>查</b></span>
-          <span class="refquick-t mn-quick-t">绑码自查清单</span>
-          <span class="veer72 arrow" aria-hidden="true">→</span>
-        </a>
-        <a class="refquick-link mn-quick-link" href="article.html">
-          <span class="refquick-ic mn-quick-ic" aria-hidden="true"><b>核</b></span>
-          <span class="refquick-t mn-quick-t">口径核对记录</span>
-          <span class="veer72 arrow" aria-hidden="true">→</span>
-        </a>
-        <a class="refquick-link mn-quick-link" href="legal.html">
-          <span class="refquick-ic mn-quick-ic" aria-hidden="true"><b>披</b></span>
-          <span class="refquick-t mn-quick-t">利益披露</span>
-          <span class="veer72 arrow" aria-hidden="true">→</span>
-        </a>
-      </nav>
-    </aside>
-
-  </div>
-  </div>
-<footer class="baseplate">
-    <div class="baseplate-in">
-      <p class="baseplate-brand">~BRAND_EN~ · ~SITE_TAGLINE~</p>
-      <nav class="baseplate-nav" aria-label="页脚导航">
-        <a href="article.html">条目</a>
-        <a href="tool.html">自查清单</a>
-        <a href="legal.html">披露与免责</a>
-      </nav>
-      <p class="baseplate-fine">* 减免比例以交易所页面实时显示为准。内容不构成投资建议。</p>
-    </div>
-  </footer>
-
-  <script src="handbook.js"></script>
+  <footer class="rm72-footer"><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span><small>MANUAL 072 · 信息整理，不构成投资建议</small></footer>
+  <script src="rigging.js"></script>
 </body>
 </html>

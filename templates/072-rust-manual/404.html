@@ -1,38 +1,18 @@
-<!DOCTYPE html>
-<html lang="~LANG~">
+<!doctype html>
+<html lang="%%LANG%%" data-finish="paper">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>章节缺失 — ~SITE_NAME~</title>
-  <meta name="robots" content="noindex">
-  <link rel="stylesheet" href="css/handbook.css">
-  <style>
-    .lostpage72 { max-width: 460px; margin: 15vh auto; padding: 0 24px; text-align: center; }
-    .lostpage72-card {
-      background: var(--sheetpane);
-      border: 1px solid var(--seamgrey);
-      border-top: 4px solid var(--rustred);
-      border-radius: var(--notch);
-      box-shadow: var(--paperlift-hi);
-      padding: 50px 40px;
-    }
-    .lostpage72-card h1 {
-      font-family: var(--mono72);
-      font-size: 3rem;
-      letter-spacing: .1em;
-      color: var(--rustred);
-      font-variant-numeric: tabular-nums;
-    }
-    .lostpage72-card p { color: var(--steelgrey); margin: 8px 0 22px; }
-  </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e8ddca"><meta name="robots" content="noindex,follow">
+  <title>零件未编目 — %%SITE_NAME%%</title><meta name="description" content="请求的手册页未编目，可使用本地索引返回相关页面。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/404.html"><link rel="stylesheet" href="field-manual.css">
 </head>
 <body>
-  <div class="lostpage72">
-    <div class="lostpage72-card">
-      <h1>404</h1>
-      <p>这一章还没写——或者已经并入别的章节。</p>
-      <a class="rivet rivet-hot" href="index.html">回手册目录</a>
-    </div>
-  </div>
+  <a class="rm72-skip" href="#rm72-main">跳到主要内容</a>
+  <header class="rm72-spine"><a class="rm72-brand" href="index.html"><span>072</span><b>%%BRAND_EN%%</b><small>FIELD MANUAL / REV. C</small></a><button class="rm72-menu-button" type="button" aria-controls="rm72-menu" aria-expanded="false"><i aria-hidden="true"></i><span>目录</span></button><nav id="rm72-menu" aria-label="主导航"><a href="index.html">总装图</a><a href="article.html">作业页</a><a href="tool.html">依赖台</a><a href="legal.html">安全牌</a><button type="button" data-finish-toggle>碳页</button></nav></header>
+
+  <main class="rm72-missing" id="rm72-main">
+    <figure aria-hidden="true"><b>404</b><div><i></i><i></i><i></i></div><figcaption>PART NOT CATALOGUED</figcaption></figure>
+    <section><p>INDEX FAULT / 072-X</p><h1>这张作业页尚未编目。</h1><span>输入一个部件词，本地索引会指向最接近的手册页。</span><form data-manual-search novalidate><label for="rm72-query">检索手册</label><div><input id="rm72-query" type="search" maxlength="80" autocomplete="off" placeholder="如：作业、依赖、安全" aria-describedby="rm72-search-help rm72-search-result"><button type="submit">查找</button></div><small id="rm72-search-help">最多 80 个字符，不向外部发送内容。</small><p id="rm72-search-result" data-manual-result role="status" aria-live="polite">也可以返回<a href="index.html">总装图</a>。</p></form></section>
+  </main>
+
+  <footer class="rm72-footer"><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span><small>INDEX FAULT · 404</small></footer><script src="rigging.js"></script>
 </body>
 </html>
