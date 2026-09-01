@@ -1,24 +1,37 @@
-# 094-black-nightcorridor
+# 094 · Black Night Corridor
 
-## 来源与静态化口径
+高端电影感夜间值守模板。黑色透视走廊、橙色信号灯、房门编号、精确时间戳和窄幅值守记录构成独立视觉；首页、长文、工具、记录边界与 404 五页完整搭建。
 
-- 军哥动态模板：`home_night_corridor`
-- 忠实保留夜廊媒体、主叙事、五条导览、五个入口索引、三篇策展文章和四条资源链接。
-- 原始 `night-corridor-page`、全部 `nc-*` 与动画类名、模块顺序完整保留；Go 条件和循环展开为静态示例。
+## 给后续 AI 的直接使用规则
 
-## 文件清单
+模板 UI、响应式布局、廊灯主题、菜单、阅读进度、复制、恢复时序工具与安全路由已经完成。**只替换变量与业务文字，不要重做网站 UI，不要改变 `nx94-` 类名、ID、`data-nx94-*` 属性、文件名或工具边界。** 后续 AI 可直接写事件内容，无需再消耗 token 搭导航、页面骨架、表单或报告组件。
 
-- `index.html`：Night Corridor 首页完整静态化。
-- `article.html`：夜间告警三节点复盘。
-- `tool.html`：即时信号、交接与恢复清单。
-- `legal.html`：记录、隐私、修订与联系说明。
-- `404.html`、`robots.txt`、`sitemap.xml`：静态站配套。
-- `public.css`：军哥公共 `style.css` 的原样副本。
-- `static/night.css`：补齐源包未提供的 `nc-*` 专属样式与内页样式。
-- `static/night.js`：移动导航及值守清单交互。
+## 必换变量
 
-## 可替换占位符
+- `%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`
+- `%%SITE_DOMAIN%%`、`%%SITE_TAGLINE%%`、`%%SITE_DESC%%`
+- `%%CONTACT_EMAIL%%`
 
-`[[LANG]]`、`[[SITE_NAME]]`、`[[BRAND_EN]]`、`[[SITE_DOMAIN]]`、`[[SITE_DESC]]`、`[[SITE_TAGLINE]]`、`[[HERO_EYEBROW]]`、`[[HERO_TITLE]]`、`[[HERO_DESCRIPTION]]`、`[[HOME_FEATURED_LABEL]]`、`[[HOME_LATEST_LABEL]]`、`[[CONTACT_CHANNEL]]`
+## 页面内容槽位
 
-模板不包含注册、邀请或导流组件；部署前应替换占位符与示例内容。
+- `index.html`：夜廊首屏、四节点值守记录与交接原则
+- `article.html`：保存现场、限制影响、恢复观察、白天复盘四段长文
+- `tool.html`：UTC 恢复时序核验台；只改说明，不改验证和安全输出
+- `legal.html`：原始记录、推断、敏感信息、修订、联系边界
+- `404.html`：本地安全关键词路由
+- `nightshift.css`：完整视觉、廊灯主题与响应式系统
+- `watchclock.js`：主题、菜单、进度、复制、工具与 404 路由
+
+## 工具契约
+
+四个节点使用 UTC `YYYY-MM-DD HH:MM`，范围 2000-01-01 00:00 至 2099-12-31 23:59，必须是真实 Gregorian 时间且不得逆序。发现至观察结束总窗口不超过 44,640 分钟（31 天）。最小观察门槛为 0–1,440 的不带前导零普通整数。
+
+报告分别计算发现到处置、发现到恢复、恢复后观察和事件总窗。观察时长达到门槛为 `OBSERVED`，不足为 `KEEP WATCH`；时间顺序正确不代表监测可信、影响解除或根因修复，这条限制必须保留。
+
+## 上线前检查
+
+- 五页各一个 `h1`，全部交互目标至少 44×44px。
+- 桌面 1440×1000、移动 390×844 无页面级横向溢出和控制台错误。
+- 404 保留 `noindex,follow`；其余 canonical、邮箱、robots、sitemap 换成正式值。
+- 不公开秘密、凭据或无关身份信息；不把恢复、观察或预测写成结果保证。
+- 运行静态审计、模板验证、全库相似度与真实浏览器交互回归。

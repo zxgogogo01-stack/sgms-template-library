@@ -1,6 +1,126 @@
-<!DOCTYPE html><html lang='[[LANG]]'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><meta name='theme-color' content='#0b0f15'><title>[[SITE_NAME]] — 夜廊</title><meta name='description' content='[[SITE_DESC]]'><link rel='canonical' href='https://[[SITE_DOMAIN]]/'><meta property='og:type' content='website'><meta property='og:site_name' content='[[SITE_NAME]]'><meta property='og:title' content='[[SITE_NAME]] — 夜廊'><meta property='og:description' content='[[SITE_DESC]]'><meta property='og:url' content='https://[[SITE_DOMAIN]]/'><meta name='twitter:card' content='summary'><link rel='stylesheet' href='public.css'><link rel='stylesheet' href='static/night.css'><script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebSite","name":"[[SITE_NAME]]","url":"https://[[SITE_DOMAIN]]/"}</script></head><body>
-<header class='nightbar'><div class='nightbar-in'><a class='nightbar-brand' href='index.html'>[[BRAND_EN]]</a><button class='nightbar-btn' id='nightbar-btn' type='button' aria-label='主导航' aria-expanded='false' aria-controls='nightbar-nav'>☰</button><nav class='nightbar-nav' id='nightbar-nav' aria-label='主导航'><a href='index.html' aria-current='page'>夜廊</a><a href='article.html'>夜读</a><a href='tool.html'>值守清单</a><a href='legal.html'>说明</a></nav></div></header>
-<div class='night-corridor-page'>
-  <section class='nc-hero' data-fnav-hero='corridor'><div class='nc-hero-media'><div class='media-content-hero-anim'><div class='nc-anim' aria-hidden='true'><i></i><i></i><i></i><span>02:14</span></div></div></div><div class='nc-hero-copy'><p class='nc-eyebrow'>[[HERO_EYEBROW]]</p><h1>[[HERO_TITLE]]</h1><p class='nc-description'>[[HERO_DESCRIPTION]]</p><a class='nc-action' href='article.html'>进入夜读</a></div><aside class='nc-guide'><h2>[[HOME_LATEST_LABEL]]</h2><a href='article.html'><span><b>深夜里怎样快速核对一条异常记录</b><small>先确认时间、来源和影响范围。</small></span><strong>01</strong></a><a href='article.html'><span><b>告警出现后最先应该保留什么</b><small>保留原始状态而不是二次转述。</small></span><strong>02</strong></a><a href='article.html'><span><b>短时波动和真实异常如何区分</b><small>对照基线、持续时间和相关指标。</small></span><strong>03</strong></a><a href='article.html'><span><b>值守交接为什么必须写明未知项</b><small>避免把未确认情况变成既定事实。</small></span><strong>04</strong></a><a href='article.html'><span><b>夜间恢复后还需要做哪些复盘</b><small>确认原因、回退与再次触发条件。</small></span><strong>05</strong></a><a class='nc-guide-all' href='article.html'>查看全部</a></aside><nav class='nc-hero-index' aria-label='栏目导航'><a href='article.html'><strong>01</strong><span><b>即时信号</b><small>18 条</small></span></a><a href='article.html'><strong>02</strong><span><b>异常排查</b><small>14 条</small></span></a><a href='article.html'><strong>03</strong><span><b>夜间值守</b><small>12 条</small></span></a><a href='article.html'><strong>04</strong><span><b>恢复记录</b><small>09 条</small></span></a><a href='article.html'><strong>05</strong><span><b>交接复盘</b><small>11 条</small></span></a></nav></section>
-  <section class='nc-curation'><div class='nc-curation-articles'><header><h2>[[HOME_FEATURED_LABEL]]</h2><a href='article.html'>查看全部</a></header><a href='article.html'><strong>01</strong><span><b>凌晨两点的告警，如何在十五分钟内完成第一轮判断</b><small>从现象、影响范围到是否需要回退的值守记录。</small></span><time datetime='2026-01-22'>01-22</time></a><a href='article.html'><strong>02</strong><span><b>一次误报怎样暴露监测基线的问题</b><small>阈值不是越敏感越好，关键在于可解释。</small></span><time datetime='2026-01-20'>01-20</time></a><a href='article.html'><strong>03</strong><span><b>恢复正常之后，复盘才真正开始</b><small>将临时处理转成可以预防复发的系统改进。</small></span><time datetime='2026-01-18'>01-18</time></a></div><div class='nc-curation-links'><header><h2>夜间资源</h2></header><a href='article.html'><span><b>值守记录模板</b><small>时间、现象、动作与结果</small></span><em>工具</em></a><a href='tool.html'><span><b>第一轮排查清单</b><small>三步判断当前优先级</small></span><em>清单</em></a><a href='article.html'><span><b>交接说明样例</b><small>已知、未知与下一动作</small></span><em>文档</em></a><a href='legal.html'><span><b>夜间信息边界</b><small>来源、隐私与公开原则</small></span><em>说明</em></a></div></section>
-</div><footer class='nightfoot'><div class='nightfoot-in'><p>[[BRAND_EN]] · [[SITE_TAGLINE]]</p><nav><a href='article.html'>夜读</a><a href='tool.html'>值守清单</a><a href='legal.html'>说明</a></nav><small>夜廊内容用于信息核对与值守记录，不替代专业处置流程。</small></div></footer><script src='static/night.js'></script></body></html>
+<!doctype html>
+<html lang="%%LANG%%" data-nx94-light="blackout">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#080808" />
+    <title>%%SITE_NAME%%｜夜间值守走廊</title>
+    <meta name="description" content="%%SITE_DESC%%" />
+    <link rel="canonical" href="https://%%SITE_DOMAIN%%/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="%%SITE_NAME%%｜夜间值守走廊" />
+    <meta property="og:description" content="%%SITE_DESC%%" />
+    <meta property="og:url" content="https://%%SITE_DOMAIN%%/" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="nightshift.css" />
+  </head>
+  <body>
+    <a class="nx94-skip" href="#nx94-main">跳到主要内容</a>
+    <div class="nx94-head" role="banner">
+      <a class="nx94-brand" href="index.html" aria-label="%%SITE_NAME%% 首页"
+        ><b>N<sup>94</sup></b
+        ><span>%%BRAND_EN%%</span></a
+      >
+      <p><i></i>NIGHT CORRIDOR / UTC+08</p>
+      <nav id="nx94-nav" aria-label="主导航">
+        <a href="index.html" aria-current="page">值守走廊</a
+        ><a href="article.html">事件复盘</a><a href="tool.html">恢复时序</a
+        ><a href="legal.html">记录边界</a
+        ><button type="button" data-nx94-light-toggle aria-pressed="false">
+          打开廊灯
+        </button>
+      </nav>
+      <button
+        class="nx94-menu"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nx94-nav"
+      >
+        <span>展开夜间目录</span><i></i>
+      </button>
+    </div>
+    <main id="nx94-main">
+      <div class="nx94-corridor">
+        <article>
+          <p>%%SITE_TAGLINE%% / WATCH RECORD 02:14</p>
+          <h1>夜里先保留现场，<br /><em>再解释发生了什么。</em></h1>
+          <div>
+            <span
+              >每条记录分开原始信号、已执行动作、仍未知事项与下一次检查。恢复不是结尾，观察完成才进入复盘。</span
+            ><a href="article.html">进入 02:14 事件复盘</a>
+          </div>
+        </article>
+        <figure aria-label="一条由透视光带和编号房门组成的黑色夜间走廊">
+          <div class="nx94-perspective">
+            <i></i><i></i><i></i><i></i><span>02:14:07</span><b>LIVE</b
+            ><em>ROOM<br />07</em>
+          </div>
+          <figcaption>
+            <span>SIGNAL HELD / SOURCE CAPTURED</span><b>01—04</b>
+          </figcaption>
+        </figure>
+      </div>
+      <article class="nx94-log">
+        <header>
+          <p>ACTIVE WATCH / 4 CHECKPOINTS</p>
+          <h2>一次夜间处置，<br />沿四个节点留下证据。</h2>
+          <aside><span>OPEN UNKNOWN</span><b>02</b></aside>
+        </header>
+        <ol>
+          <li>
+            <time datetime="2026-09-01T02:14">02:14</time><span>DETECTED</span>
+            <article>
+              <h3>异常信号首次越过阈值</h3>
+              <p>保存原始图、来源、版本和影响范围；尚未推断根因。</p>
+            </article>
+            <b>CAPTURED</b>
+          </li>
+          <li>
+            <time datetime="2026-09-01T02:23">02:23</time><span>MITIGATED</span>
+            <article>
+              <h3>限制扩大范围并保留回退</h3>
+              <p>动作、执行者和预期影响写入同一记录。</p>
+            </article>
+            <b>+09 MIN</b>
+          </li>
+          <li>
+            <time datetime="2026-09-01T02:41">02:41</time><span>RECOVERED</span>
+            <article>
+              <h3>核心信号回到基线</h3>
+              <p>只标记“信号恢复”，不提前宣布根因解决。</p>
+            </article>
+            <b>+27 MIN</b>
+          </li>
+          <li>
+            <time datetime="2026-09-01T03:26">03:26</time><span>OBSERVED</span>
+            <article>
+              <h3>观察窗结束，转入白天复盘</h3>
+              <p>未再次触发；两个未知项保留给下一班。</p>
+            </article>
+            <b>45 MIN</b>
+          </li>
+        </ol>
+      </article>
+      <aside class="nx94-handoff">
+        <p>
+          <span>SHIFT HANDOFF / 06:00</span><b>已知</b><b>未知</b><b>已做</b
+          ><b>下一步</b>
+        </p>
+        <article>
+          <small>THE CORRIDOR RULE</small>
+          <h2>不要让交接班，把“尚未确认”变成“已经解决”。</h2>
+        </article>
+        <a href="tool.html">核验恢复时序 <b>↗</b></a>
+      </aside>
+    </main>
+    <div class="nx94-foot" role="contentinfo">
+      <p><b>%%BRAND_EN%%</b><span>%%SITE_DESC%%</span></p>
+      <nav aria-label="页脚导航">
+        <a href="article.html">复盘</a><a href="tool.html">工具</a
+        ><a href="legal.html">边界</a>
+      </nav>
+      <small>%%SITE_DOMAIN%% · NIGHT WATCH 094</small>
+    </div>
+    <script src="watchclock.js"></script>
+  </body>
+</html>
