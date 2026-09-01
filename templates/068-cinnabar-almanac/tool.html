@@ -1,138 +1,39 @@
-<!DOCTYPE html>
-<html lang='__lang__'>
+<!doctype html>
+<html lang="%%LANG%%" data-ink="day">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta name='theme-color' content='#f9f4ea'>
-  <title>日均摊算器 — __site_name__</title>
-  <meta name='description' content='把月手续费和返佣摊到每一天，看清日均净成本。'>
-  <link rel='canonical' href='https://__site_domain__/tool.html'>
-  <meta property='og:type' content='website'>
-  <meta property='og:site_name' content='__site_name__'>
-  <meta property='og:title' content='日均摊算器 — __site_name__'>
-  <meta property='og:description' content='把月手续费和返佣摊到每一天，看清日均净成本。'>
-  <meta property='og:url' content='https://__site_domain__/tool.html'>
-  <meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='style.css'>
-  <script type='application/ld+json'>
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "日均摊算器",
-    "url": "https://__site_domain__/tool.html"
-  }
-  </script>
-  <style>
-    .abacus { max-width: 540px; margin: 0 auto; padding: 50px 24px 84px; }
-    .abacus-card {
-      background: var(--leafwhite);
-      border: 1.5px solid var(--ruleline);
-      border-top: 4px double var(--sootink);
-      border-radius: var(--chamfer);
-      box-shadow: var(--inkshadow-hi);
-      padding: 42px 46px;
-    }
-    .abacus-card h1 { font-family: var(--serif68); font-size: 1.5rem; letter-spacing: .06em; }
-    .abacus-card > p { color: var(--fadedink); margin: 6px 0 8px; }
-    .abacus-card label {
-      display: block;
-      margin: 16px 0 6px;
-      font-size: .86rem;
-      font-weight: 800;
-      color: var(--cinnabar-deep);
-    }
-    .abacus-card input {
-      width: 100%;
-      min-height: 48px;
-      padding: 10px 16px;
-      border: 1.5px solid var(--ruleline);
-      border-radius: var(--chamfer);
-      background: var(--ricepaper);
-      color: var(--sootink);
-      font: inherit;
-      font-family: var(--mono68);
-      font-variant-numeric: tabular-nums;
-      transition: border-color var(--brush), box-shadow var(--brush);
-    }
-    .abacus-card input:focus {
-      outline: none;
-      border-color: var(--cinnabar);
-      box-shadow: 0 0 0 4px color-mix(in srgb, var(--cinnabar) 15%, transparent);
-    }
-    .abacus-card input[aria-invalid='true'] {
-      border-color: #b94436;
-      box-shadow: 0 0 0 4px color-mix(in srgb, #b94436 16%, transparent);
-    }
-    .abacus-run {
-      margin-top: 26px;
-      width: 100%;
-      min-height: 52px;
-      border: 0;
-      border-radius: var(--chamfer);
-      background: var(--cinnabar);
-      color: #fdf3ef;
-      font: inherit;
-      font-size: 1rem;
-      font-weight: 800;
-      letter-spacing: .1em;
-      cursor: pointer;
-      box-shadow: 0 10px 24px color-mix(in srgb, var(--cinnabar) 36%, transparent);
-      transition: transform var(--brush), background var(--brush);
-    }
-    .abacus-run:hover { transform: translateY(-2px); background: var(--cinnabar-deep); }
-    .abacus-out {
-      display: block;
-      margin-top: 18px;
-      min-height: 26px;
-      padding: 15px 19px;
-      border-radius: var(--chamfer);
-      background: var(--washtint);
-      line-height: 1.8;
-      font-variant-numeric: tabular-nums;
-    }
-    .abacus-out b { color: var(--cinnabar-deep); }
-    @media (max-width: 600px) {
-      .abacus-card { padding: 30px 22px; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4efe2">
+  <title>条目间隔校对尺 — %%SITE_NAME%%</title>
+  <meta name="description" content="在本地排序日期条目，检查同日记录、相邻间隔与最长空档。">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
+  <meta name="robots" content="index,follow">
+  <link rel="stylesheet" href="almanac.css">
 </head>
 <body>
-  <header class='eaves'>
-    <div class='eaves-in'>
-      <a class='eaves-brand' href='index.html'>__brand_en__</a>
-      <button type='button' class='eaves-btn' id='eaves-btn' aria-label='主导航' aria-expanded='false' aria-controls='eaves-nav'>
-        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
-      </button>
-      <nav class='eaves-nav' id='eaves-nav' aria-label='主导航'>
-        <a href='index.html'>年鉴</a>
-        <a href='article.html'>文章</a>
-        <a href='tool.html' aria-current='page'>日均摊算</a>
-        <a href='legal.html'>披露</a>
-      </nav>
+  <a class="ca68-skip" href="#ca68-main">跳到主要内容</a>
+  <header class="ca68-banner"><nav aria-label="主导航"><a class="ca68-brand" href="index.html"><b>朱</b><span>%%BRAND_EN%%</span><small>ALMANAC ROOM · 068</small></a><button class="ca68-menu-button" type="button" aria-expanded="false" aria-controls="ca68-menu"><i aria-hidden="true"></i><span>卷目</span></button><div class="ca68-menu" id="ca68-menu"><a href="index.html">今卷</a><a href="article.html">校历法</a><a aria-current="page" href="tool.html">间隔尺</a><a href="legal.html">边注</a><button type="button" data-ink-toggle>夜读</button></div></nav></header>
+  <main class="ca68-ruler" id="ca68-main">
+    <header class="ca68-ruler-head"><p>LOCAL DATE INTERVAL RULER</p><h1>条目间隔校对尺</h1><span>每行使用“YYYY-MM-DD | 题名”。工具只在当前浏览器排序和统计，不上传内容。</span><dl><div><dt>最大条目</dt><dd>120</dd></div><div><dt>题名长度</dt><dd>80 字符</dd></div><div><dt>日期范围</dt><dd>2000–2099</dd></div></dl></header>
+    <div class="ca68-ruler-board">
+      <form class="ca68-entry-form" data-entry-form novalidate>
+        <label for="ca68-entries"><b>日期条目</b><span>一行一条，仅使用一个竖线分隔</span></label>
+        <textarea id="ca68-entries" rows="16" maxlength="20001" placeholder="2026-01-03 | 栏目边界初校&#10;2026-01-10 | 来源字段补记&#10;2026-02-02 | 工具说明复核" aria-describedby="ca68-entry-help ca68-entry-error"></textarea>
+        <small id="ca68-entry-help">最多 10,000 个 Unicode 字符；日期按公历真实日校验。</small>
+        <p id="ca68-entry-error" data-entry-error></p>
+        <fieldset><legend>装载样例</legend><button type="button" data-entry-preset="steady">规律记录</button><button type="button" data-entry-preset="same-day">同日条目</button><button type="button" data-entry-preset="gaps">含长空档</button></fieldset>
+        <footer><button type="submit">校对时间线</button><button type="reset">清空</button></footer>
+        <p data-entry-status role="status" aria-live="polite">等待输入日期条目。</p>
+      </form>
+      <section class="ca68-ruler-report" aria-labelledby="ca68-report-title" data-ready="false">
+        <header><div><p>INTERVAL REPORT</p><h2 id="ca68-report-title">校对报告</h2></div><b data-entry-state>待笔</b></header>
+        <dl><div><dt>条目</dt><dd data-entry-count>0</dd></div><div><dt>日期</dt><dd data-date-count>0</dd></div><div><dt>同日多条</dt><dd data-same-count>0</dd></div><div><dt>最长间隔</dt><dd data-longest-gap>0 天</dd></div></dl>
+        <ol data-gap-list><li>校对后显示按日期排序的前 20 个相邻间隔。</li></ol>
+        <aside><p data-entry-note>间隔仅供编辑复查，不代表内容应按固定频率发布。</p><button type="button" data-copy-entry-report disabled>复制报告</button><span data-entry-copy-status role="status" aria-live="polite"></span></aside>
+      </section>
     </div>
-  </header>
-
-  <main class='abacus'>
-    <form class='abacus-card' id='da-form' novalidate>
-      <h1>日均摊算器</h1>
-      <p>把一个月的手续费摊到每天，数字就不吓人也不含糊了。本地计算。</p>
-      <label for='da-fee'>月手续费合计</label>
-      <input type='number' id='da-fee' step='any' min='0' placeholder='如 86' aria-describedby='da-out'>
-      <label for='da-back'>月返佣合计（可留空）</label>
-      <input type='number' id='da-back' step='any' min='0' placeholder='如 25' aria-describedby='da-out'>
-      <label for='da-days'>按多少天摊（如 30）</label>
-      <input type='number' id='da-days' step='1' min='1' placeholder='30' aria-describedby='da-out'>
-      <button type='submit' class='abacus-run' id='da-run'>摊一摊</button>
-      <output class='abacus-out' id='da-out' role='status' aria-live='polite'></output>
-    </form>
+    <aside class="ca68-ruler-boundary"><b>用尺须知</b><p>同日多条按一组标记；相邻间隔按唯一日期计算。报告不会合并、删除或改写任何输入条目。</p><a href="article.html">阅读人工判断方法</a></aside>
   </main>
-
-  <footer class='bindfoot'>
-    <div class='bindfoot-in'>
-      <p class='bindfoot-fine'>结果仅供参考，实际以平台结算为准。</p>
-    </div>
-  </footer>
-
-  <script src='turn.js'></script>
+  <script src="keeper.js"></script>
 </body>
 </html>

@@ -1,221 +1,97 @@
-<!DOCTYPE html>
-<html lang='__lang__'>
+<!doctype html>
+<html lang="%%LANG%%" data-ink="day">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta name='theme-color' content='#f9f4ea'>
-  <title>__site_name__ — 返佣年鉴：按日子记，按月翻</title>
-  <meta name='description' content='__site_desc__'>
-  <link rel='canonical' href='https://__site_domain__/'>
-  <meta property='og:type' content='website'>
-  <meta property='og:site_name' content='__site_name__'>
-  <meta property='og:title' content='__site_name__ — 返佣年鉴'>
-  <meta property='og:description' content='__site_desc__'>
-  <meta property='og:url' content='https://__site_domain__/'>
-  <meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='public.css'>
-  <link rel='stylesheet' href='style.css'>
-  <script type='application/ld+json'>
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "__site_name__",
-    "url": "https://__site_domain__/"
-  }
-  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4efe2">
+  <title>%%SITE_NAME%% — %%SEO_TITLE%%</title>
+  <meta name="description" content="%%SITE_DESC%%">
+  <link rel="canonical" href="https://%%SITE_DOMAIN%%/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="%%SITE_NAME%%">
+  <meta property="og:title" content="%%SITE_NAME%% — %%SEO_TITLE%%">
+  <meta property="og:description" content="%%SITE_DESC%%">
+  <meta property="og:url" content="https://%%SITE_DOMAIN%%/">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="almanac.css">
 </head>
 <body>
-  <header class='eaves'>
-    <div class='eaves-in'>
-      <a class='eaves-brand' href='index.html'>__brand_en__</a>
-      <button type='button' class='eaves-btn' id='eaves-btn' aria-label='主导航' aria-expanded='false' aria-controls='eaves-nav'>
-        <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
-      </button>
-      <nav class='eaves-nav' id='eaves-nav' aria-label='主导航'>
-        <a href='index.html' aria-current='page'>年鉴</a>
-        <a href='article.html'>文章</a>
-        <a href='tool.html'>日均摊算</a>
-        <a href='legal.html'>披露</a>
-      </nav>
-    </div>
+  <a class="ca68-skip" href="#ca68-main">跳到主要内容</a>
+  <header class="ca68-banner">
+    <nav aria-label="主导航">
+      <a class="ca68-brand" href="index.html"><b>朱</b><span>%%BRAND_EN%%</span><small>ALMANAC ROOM · 068</small></a>
+      <button class="ca68-menu-button" type="button" aria-expanded="false" aria-controls="ca68-menu"><i aria-hidden="true"></i><span>卷目</span></button>
+      <div class="ca68-menu" id="ca68-menu">
+        <a aria-current="page" href="index.html">今卷</a>
+        <a href="article.html">校历法</a>
+        <a href="tool.html">间隔尺</a>
+        <a href="legal.html">边注</a>
+        <button type="button" data-ink-toggle>夜读</button>
+      </div>
+    </nav>
   </header>
+  <main class="ca68-codex" id="ca68-main">
+    <article class="ca68-cover">
+      <header>
+        <p>%%HERO_EYEBROW%% / 朱砂校历第六十八卷</p>
+        <h1>%%HERO_TITLE%%</h1>
+        <span>%%HERO_DESCRIPTION%%</span>
+      </header>
+      <footer>
+        <a href="article.html">读校历方法</a>
+        <a href="tool.html">检查条目间隔</a>
+      </footer>
+      <aside class="ca68-cover-mark" aria-hidden="true"><b>戊</b><span>校</span><i></i></aside>
+    </article>
 
-  <div class='foliobed al-wrap'>
+    <dl class="ca68-four-rules" aria-label="四项编纂原则">
+      <div><dt>一 · 定日</dt><dd>记录真实发布日期</dd></div>
+      <div><dt>二 · 记变</dt><dd>说明本次改变什么</dd></div>
+      <div><dt>三 · 留据</dt><dd>附上来源与范围</dd></div>
+      <div><dt>四 · 复校</dt><dd>约定再次核对条件</dd></div>
+    </dl>
 
-    <header class='coverleaf al-masthead'>
-      <p class='coverleaf-brow al-eyebrow'>返佣年鉴 · 丙午年一月卷</p>
-      <h1 class='coverleaf-h1 al-h1'>返佣的事<br>按日子记下来</h1>
-      <p class='coverleaf-lede al-lede'>费率调档、比例变动、避坑提醒——记成年鉴，翻到哪天看哪天。每条注明来源与口径核对时间。</p>
-      <div class='coverleaf-acts al-cta'>
-        <a class='inkbtn inkbtn-red btn btn-primary' href='article.html'>翻到本月红字 <span class='glide arrow' aria-hidden='true'>→</span></a>
-        <a class='inkbtn btn' href='tool.html'>摊算日均成本</a>
-      </div>
+    <aside class="ca68-rednote">
+      <b>本卷题记</b>
+      <p>日期不是装饰。它告诉读者内容何时成立，也让维护者发现过密发布、长期空档与同日重复记录。</p>
+      <span>EDITORIAL NOTE / 068</span>
+    </aside>
 
-      <nav class='legendrow al-legend' aria-label='栏目'>
-        <a class='daychip al-chip' href='article.html'><span class='daychip-dot al-chip-dot' aria-hidden='true'></span><span class='daychip-name al-chip-name'>新手入门</span><b>6</b></a>
-        <a class='daychip al-chip' href='article.html'><span class='daychip-dot al-chip-dot' aria-hidden='true'></span><span class='daychip-name al-chip-name'>费率与返佣</span><b>8</b></a>
-        <a class='daychip al-chip' href='article.html'><span class='daychip-dot al-chip-dot' aria-hidden='true'></span><span class='daychip-name al-chip-name'>安全与合规</span><b>5</b></a>
-      </nav>
-    </header>
-
-    <a class='redletter al-hl' href='article.html'>
-      <span class='redletter-media al-hl-media al-hl-gen' aria-hidden='true'>
-        <b>费</b>
-        <span class='redletter-day al-hl-day'>19</span>
-      </span>
-      <span class='redletter-body al-hl-body'>
-        <span class='redletter-kicker al-hl-kicker'>本月红字</span>
-        <span class='redletter-meta al-hl-meta'><span class='catmark al-cat'>费率观察</span><time datetime='2026-01-19'>2026-01-19</time></span>
-        <span class='redletter-title al-hl-title'>示例平台A 挂单档位调整：返佣基数怎么跟着变</span>
-        <span class='redletter-ex al-hl-ex'>先统一费率基数与生效时间，再用演示算例逐项核对预计到账。</span>
-        <span class='redletter-more al-hl-more'>读全文 <span class='glide arrow' aria-hidden='true'>→</span></span>
-      </span>
-    </a>
-
-    <section class='lattice al-month' aria-label='本月更新'>
-      <div class='lattice-head al-month-head'>
-        <span class='lattice-label al-month-label'>本月更新</span>
-        <a class='lattice-all al-month-all' href='article.html'>查看全部 <span class='glide arrow' aria-hidden='true'>→</span></a>
-      </div>
-      <div class='lattice-grid al-grid'>
-        <a class='daycell al-cell' href='article.html'>
-          <span class='daycell-pin al-cell-pin' aria-hidden='true'></span>
-          <b class='daycell-day al-cell-day' aria-hidden='true'>18</b><span class='daycell-mo al-cell-mo' aria-hidden='true'>2026-01</span>
-          <span class='daycell-title al-cell-title'>现货与合约的返佣口径差在哪</span>
-        </a>
-        <a class='daycell al-cell' href='article.html'>
-          <span class='daycell-pin al-cell-pin' aria-hidden='true'></span>
-          <b class='daycell-day al-cell-day' aria-hidden='true'>17</b><span class='daycell-mo al-cell-mo' aria-hidden='true'>2026-01</span>
-          <span class='daycell-title al-cell-title'>仿冒邀请页出现新变种：域名多一个连字符</span>
-        </a>
-        <a class='daycell al-cell' href='article.html'>
-          <span class='daycell-pin al-cell-pin' aria-hidden='true'></span>
-          <b class='daycell-day al-cell-day' aria-hidden='true'>15</b><span class='daycell-mo al-cell-mo' aria-hidden='true'>2026-01</span>
-          <span class='daycell-title al-cell-title'>月交易十万，返佣能覆盖多少成本：三档演示</span>
-        </a>
-        <a class='daycell al-cell' href='article.html'>
-          <span class='daycell-pin al-cell-pin' aria-hidden='true'></span>
-          <b class='daycell-day al-cell-day' aria-hidden='true'>13</b><span class='daycell-mo al-cell-mo' aria-hidden='true'>2026-01</span>
-          <span class='daycell-title al-cell-title'>注册时漏填邀请码，事后还有救吗</span>
-        </a>
-        <a class='daycell al-cell' href='article.html'>
-          <span class='daycell-pin al-cell-pin' aria-hidden='true'></span>
-          <b class='daycell-day al-cell-day' aria-hidden='true'>11</b><span class='daycell-mo al-cell-mo' aria-hidden='true'>2026-01</span>
-          <span class='daycell-title al-cell-title'>VIP 等级和邀请返佣能不能叠加：口径梳理</span>
-        </a>
-        <a class='daycell al-cell' href='article.html'>
-          <span class='daycell-pin al-cell-pin' aria-hidden='true'></span>
-          <b class='daycell-day al-cell-day' aria-hidden='true'>09</b><span class='daycell-mo al-cell-mo' aria-hidden='true'>2026-01</span>
-          <span class='daycell-title al-cell-title'>挂单和吃单：为什么同一笔单费率不一样</span>
-        </a>
-        <a class='daycell al-cell' href='article.html'>
-          <span class='daycell-pin al-cell-pin' aria-hidden='true'></span>
-          <b class='daycell-day al-cell-day' aria-hidden='true'>05</b><span class='daycell-mo al-cell-mo' aria-hidden='true'>2026-01</span>
-          <span class='daycell-title al-cell-title'>返佣多久到账：各家结算节奏对照</span>
-        </a>
-      </div>
-    </section>
-
-    <section class='datebook al-agenda'>
-      <ol class='datebook-list al-agenda-list'>
-        <li class='lineitem al-item'>
-          <a class='lineitem-link al-item-link' href='article.html'>
-            <time class='lineitem-date al-item-date' datetime='2026-01-18'>01-18</time>
-            <span class='lineitem-title al-item-title'>现货与合约的返佣口径差在哪</span>
-            <span class='lineitem-leader al-item-leader' aria-hidden='true'></span>
-            <span class='catmark al-cat'>对照</span>
-            <span class='lineitem-arrow al-item-arrow arrow' aria-hidden='true'>→</span>
-          </a>
-        </li>
-        <li class='lineitem al-item'>
-          <a class='lineitem-link al-item-link' href='article.html'>
-            <time class='lineitem-date al-item-date' datetime='2026-01-17'>01-17</time>
-            <span class='lineitem-title al-item-title'>仿冒邀请页出现新变种：域名多一个连字符</span>
-            <span class='lineitem-leader al-item-leader' aria-hidden='true'></span>
-            <span class='catmark al-cat'>安全</span>
-            <span class='lineitem-arrow al-item-arrow arrow' aria-hidden='true'>→</span>
-          </a>
-        </li>
-        <li class='lineitem al-item'>
-          <a class='lineitem-link al-item-link' href='article.html'>
-            <time class='lineitem-date al-item-date' datetime='2026-01-15'>01-15</time>
-            <span class='lineitem-title al-item-title'>月交易十万，返佣能覆盖多少成本：三档演示</span>
-            <span class='lineitem-leader al-item-leader' aria-hidden='true'></span>
-            <span class='catmark al-cat'>算例</span>
-            <span class='lineitem-arrow al-item-arrow arrow' aria-hidden='true'>→</span>
-          </a>
-        </li>
-        <li class='lineitem al-item'>
-          <a class='lineitem-link al-item-link' href='article.html'>
-            <time class='lineitem-date al-item-date' datetime='2026-01-13'>01-13</time>
-            <span class='lineitem-title al-item-title'>注册时漏填邀请码，事后还有救吗</span>
-            <span class='lineitem-leader al-item-leader' aria-hidden='true'></span>
-            <span class='catmark al-cat'>流程</span>
-            <span class='lineitem-arrow al-item-arrow arrow' aria-hidden='true'>→</span>
-          </a>
-        </li>
-        <li class='lineitem al-item'>
-          <a class='lineitem-link al-item-link' href='article.html'>
-            <time class='lineitem-date al-item-date' datetime='2026-01-11'>01-11</time>
-            <span class='lineitem-title al-item-title'>VIP 等级和邀请返佣能不能叠加：口径梳理</span>
-            <span class='lineitem-leader al-item-leader' aria-hidden='true'></span>
-            <span class='catmark al-cat'>规则</span>
-            <span class='lineitem-arrow al-item-arrow arrow' aria-hidden='true'>→</span>
-          </a>
-        </li>
-        <li class='lineitem al-item'>
-          <a class='lineitem-link al-item-link' href='article.html'>
-            <time class='lineitem-date al-item-date' datetime='2026-01-09'>01-09</time>
-            <span class='lineitem-title al-item-title'>挂单和吃单：为什么同一笔单费率不一样</span>
-            <span class='lineitem-leader al-item-leader' aria-hidden='true'></span>
-            <span class='catmark al-cat'>费率</span>
-            <span class='lineitem-arrow al-item-arrow arrow' aria-hidden='true'>→</span>
-          </a>
-        </li>
-        <li class='lineitem al-item'>
-          <a class='lineitem-link al-item-link' href='article.html'>
-            <time class='lineitem-date al-item-date' datetime='2026-01-05'>01-05</time>
-            <span class='lineitem-title al-item-title'>返佣多久到账：各家结算节奏对照</span>
-            <span class='lineitem-leader al-item-leader' aria-hidden='true'></span>
-            <span class='catmark al-cat'>结算</span>
-            <span class='lineitem-arrow al-item-arrow arrow' aria-hidden='true'>→</span>
-          </a>
-        </li>
+    <section class="ca68-ledger" aria-labelledby="ca68-ledger-title">
+      <header>
+        <p>%%HOME_FEATURED_LABEL%%</p>
+        <h2 id="ca68-ledger-title">把内容当成可复查的日课</h2>
+        <span>一条记录只承担一种责任，让证据、变化与下一次复核都有落笔之处。</span>
+      </header>
+      <ol>
+        <li><b>初八</b><article><span>起笔</span><h3><a href="article.html">先确定日期字段究竟代表什么</a></h3><p>发布日期、事实发生日与最后核对日不可混用。</p></article></li>
+        <li><b>十五</b><article><span>校对</span><h3>把相邻条目排成时间线</h3><p>过短间隔检查重复，过长间隔检查维护缺口。</p></article></li>
+        <li><b>廿三</b><article><span>留白</span><h3>同日记录也要保留独立题名</h3><p>共享日期不代表两次变化属于同一件事。</p></article></li>
       </ol>
     </section>
 
-    <section class='margins al-notes' aria-label='页边笔记'>
-      <p class='margins-h al-notes-h'>页边笔记</p>
-      <div class='margins-row al-notes-row'>
-        <a class='sidenote al-note' href='tool.html'>
-          <span class='sidenote-ic al-note-ic' aria-hidden='true'><b>摊</b></span>
-          <span class='sidenote-t al-note-t'>日均摊算器</span>
-        </a>
-        <a class='sidenote al-note' href='article.html'>
-          <span class='sidenote-ic al-note-ic' aria-hidden='true'><b>核</b></span>
-          <span class='sidenote-t al-note-t'>口径核对记录</span>
-        </a>
-        <a class='sidenote al-note' href='legal.html'>
-          <span class='sidenote-ic al-note-ic' aria-hidden='true'><b>披</b></span>
-          <span class='sidenote-t al-note-t'>利益披露</span>
-        </a>
+    <section class="ca68-register" aria-labelledby="ca68-register-title">
+      <header><p>%%HOME_LATEST_LABEL%%</p><h2 id="ca68-register-title">校历登记</h2></header>
+      <div role="region" aria-label="登记表" tabindex="0">
+        <table>
+          <thead><tr><th>簿号</th><th>条目</th><th>应留字段</th><th>状态</th></tr></thead>
+          <tbody>
+            <tr><td>068-A</td><td><a href="article.html">内容日期的三种含义</a></td><td>口径 · 来源 · 复校</td><td>已校</td></tr>
+            <tr><td>068-B</td><td><a href="tool.html">日期条目间隔报告</a></td><td>日期 · 题名</td><td>可用</td></tr>
+            <tr><td>068-C</td><td><a href="legal.html">公开边界与更正路径</a></td><td>利益 · 限制</td><td>公开</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-  </div>
-
-  <footer class='bindfoot'>
-    <div class='bindfoot-in'>
-      <p class='bindfoot-brand'>__brand_en__ · __site_tagline__</p>
-      <nav class='bindfoot-nav' aria-label='页脚导航'>
-        <a href='article.html'>文章</a>
-        <a href='tool.html'>日均摊算</a>
-        <a href='legal.html'>披露与免责</a>
-      </nav>
-      <p class='bindfoot-fine'>* 减免比例以交易所页面实时显示为准。内容不构成投资建议。</p>
-    </div>
-  </footer>
-
-  <script src='turn.js'></script>
+    <nav class="ca68-portals" aria-label="%%HOME_LINKS_LABEL%%">
+      <p>%%HOME_LINKS_LABEL%%</p>
+      <a href="article.html"><b>法</b><span>校历方法</span><small>DATE METHOD</small></a>
+      <a href="tool.html"><b>尺</b><span>条目间隔</span><small>GAP RULER</small></a>
+      <a href="legal.html"><b>注</b><span>公开边注</span><small>BOUNDARY</small></a>
+    </nav>
+  </main>
+  <footer class="ca68-footer"><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span><small>卷 068 · 信息整理，不构成投资建议</small></footer>
+  <script src="keeper.js"></script>
 </body>
 </html>

@@ -1,35 +1,20 @@
-<!DOCTYPE html>
-<html lang='__lang__'>
+<!doctype html>
+<html lang="%%LANG%%" data-ink="day">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>缺页 — __site_name__</title>
-  <meta name='robots' content='noindex'>
-  <link rel='stylesheet' href='style.css'>
-  <style>
-    .tornleaf { max-width: 460px; margin: 15vh auto; padding: 0 24px; text-align: center; }
-    .tornleaf-card {
-      background: var(--leafwhite);
-      border-top: 4px double var(--sootink);
-      border-bottom: 4px double var(--sootink);
-      padding: 52px 40px;
-    }
-    .tornleaf-card h1 {
-      font-family: var(--serif68);
-      font-size: 3.4rem;
-      color: var(--cinnabar);
-      font-variant-numeric: tabular-nums;
-    }
-    .tornleaf-card p { color: var(--fadedink); margin: 8px 0 24px; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f4efe2">
+  <title>此页未入卷 — %%SITE_NAME%%</title>
+  <link rel="stylesheet" href="almanac.css">
 </head>
 <body>
-  <div class='tornleaf'>
-    <div class='tornleaf-card'>
-      <h1>404</h1>
-      <p>这一页从年鉴上撕掉了——日子对不上。</p>
-      <a class='inkbtn inkbtn-red' href='index.html'>翻回目录</a>
-    </div>
-  </div>
+  <a class="ca68-skip" href="#ca68-main">跳到主要内容</a>
+  <header class="ca68-banner"><nav aria-label="主导航"><a class="ca68-brand" href="index.html"><b>朱</b><span>%%BRAND_EN%%</span><small>ALMANAC ROOM · 068</small></a><button class="ca68-menu-button" type="button" aria-expanded="false" aria-controls="ca68-menu"><i aria-hidden="true"></i><span>卷目</span></button><div class="ca68-menu" id="ca68-menu"><a href="index.html">今卷</a><a href="article.html">校历法</a><a href="tool.html">间隔尺</a><a href="legal.html">边注</a><button type="button" data-ink-toggle>夜读</button></div></nav></header>
+  <main class="ca68-missing" id="ca68-main">
+    <aside aria-hidden="true"><b>四〇四</b><i></i><span>此页未入卷</span></aside>
+    <section><p>ENTRY NOT BOUND</p><h1>翻到了一页空白。</h1><span>输入一个卷内词，本地索引会指向最近的页面。</span><form data-index-search novalidate><label for="ca68-query">检索卷目</label><div><input id="ca68-query" type="search" maxlength="80" autocomplete="off" placeholder="如：日期、间隔、披露" aria-describedby="ca68-search-help ca68-search-result"><button type="submit">检索</button></div><small id="ca68-search-help">最多 80 个字符，不向外部发送内容。</small><p id="ca68-search-result" data-index-result role="status" aria-live="polite">也可以返回<a href="index.html">今卷首页</a>。</p></form></section>
+  </main>
+  <script src="keeper.js"></script>
 </body>
 </html>
