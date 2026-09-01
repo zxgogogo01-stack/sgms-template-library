@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="{{LANG}}" data-lx139-scene="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d0d0f">
+<meta name="description" content="在浏览器本地按照度、每日时数、展期与年度限额计算累计照度时数。">
+<link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+<meta property="og:title" content="照度时数预算表｜{{SITE_NAME}}">
+<meta property="og:description" content="一套使用精确十分之一小时计算展览光剂量的本地工具。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+<title>照度时数预算表｜{{SITE_NAME}}</title>
+<link rel="stylesheet" href="static/lux-gallery.css">
+<script src="static/lux-gallery.js" defer>
+</script>
+</head>
+<body class="lx139-tool-page">
+<a class="lx139-skip" href="#lx139-main">跳到主要内容</a>
+<header class="lx139-header">
+<a class="lx139-brand" href="index.html" aria-label="{{SITE_NAME}} 首页">
+<b>{{BRAND_EN}}</b>
+<span>LIGHT ARCHIVE / 139</span>
+</a>
+<nav class="lx139-room-nav" aria-label="主导航">
+<a href="index.html">
+<i>
+</i>
+<span>ROOM 01</span>展厅</a>
+<a href="article.html">
+<i>
+</i>
+<span>ROOM 02</span>备忘</a>
+<a aria-current="page" href="tool.html">
+<i>
+</i>
+<span>ROOM 03</span>光表</a>
+<a href="legal.html">
+<i>
+</i>
+<span>ROOM 04</span>边界</a>
+</nav>
+<button type="button" data-lx139-scene-toggle aria-pressed="true">开启工作灯</button>
+</header>
+<main id="lx139-main">
+<header class="lx139-tool-hero">
+<div>
+<p class="lx139-kicker">EXPOSURE BUDGET / LOCAL</p>
+<h1>照度时数<br>预算表</h1>
+<p>逐件输入照度、每日展示小时、展期、年度限额和文档状态；所有计算只在当前浏览器完成。</p>
+</div>
+<figure class="lx139-meter-face" aria-hidden="true">
+<span>0</span>
+<span>50</span>
+<span>100</span>
+<i>
+</i>
+<b>LX·H</b>
+</figure>
+</header>
+<section class="lx139-workbench" aria-labelledby="lx139-input-title">
+<form class="lx139-dose-form" data-lx139-dose-form novalidate>
+<header>
+<span>INPUT / OBJECTS</span>
+<h2 id="lx139-input-title">展品计划</h2>
+</header>
+<p class="lx139-format">
+<code>展签 | 照度lx | 每日h | 展期day | 年限额lx·h | 状态</code>
+</p>
+<label for="lx139-rows">每行一件展品</label>
+<textarea id="lx139-rows" rows="12" spellcheck="false">纸本 A | 50 | 8.0 | 30 | 150000 | 定稿
+织物 B | 30 | 6.0 | 30 | 100000 | 定稿</textarea>
+<div class="lx139-presets" aria-label="示例数据">
+<button type="button" data-lx139-preset="clear">低剂量</button>
+<button type="button" data-lx139-preset="near">接近限额</button>
+<button type="button" data-lx139-preset="multi">多项提示</button>
+<button type="button" data-lx139-preset="review">复合复核</button>
+</div>
+<p class="lx139-error" data-lx139-error role="alert">
+</p>
+<div class="lx139-form-actions">
+<button class="lx139-glow-button" type="submit">生成光剂量报告</button>
+<button class="lx139-quiet" type="reset">清空报告</button>
+</div>
+<p data-lx139-form-status role="status" aria-live="polite">等待至少两件展品记录。</p>
+</form>
+<section class="lx139-dose-report" data-ready="false" aria-labelledby="lx139-report-title">
+<header>
+<span>OUTPUT / LUX HOURS</span>
+<div>
+<h2 id="lx139-report-title">光剂量报告</h2>
+<strong data-lx139-report-state>UNSET</strong>
+</div>
+</header>
+<div class="lx139-budget-ring">
+<div data-lx139-ring style="--lx139-fill:0deg">
+<span>WEIGHTED USE</span>
+<b data-lx139-utilization>—</b>
+</div>
+<p data-lx139-total>等待计算</p>
+</div>
+<dl class="lx139-totals">
+<div>
+<dt>展品</dt>
+<dd data-lx139-object-count>0</dd>
+</div>
+<div>
+<dt>累计 lx·h</dt>
+<dd data-lx139-dose-total>0</dd>
+</div>
+<div>
+<dt>剂量提示</dt>
+<dd data-lx139-dose-count>0</dd>
+</div>
+<div>
+<dt>状态提示</dt>
+<dd data-lx139-status-count>0</dd>
+</div>
+</dl>
+<div class="lx139-findings">
+<h3 data-lx139-finding-summary>等待计算</h3>
+<ul data-lx139-finding-list>
+<li>报告生成后显示接近/超出用户限额和文档状态提示。</li>
+</ul>
+</div>
+<div class="lx139-object-output">
+<h3 data-lx139-object-summary>等待计算</h3>
+<div data-lx139-object-list>
+<p>等待展品记录。</p>
+</div>
+</div>
+<p class="lx139-limit">工具只计算用户输入的照度、每日小时、展期、照度时数、限额比例与文档状态；不鉴定材料，不推荐限额、灯具、光谱、测点、展期或保管方案。</p>
+<div class="lx139-report-actions">
+<button class="lx139-glow-button" type="button" data-lx139-copy-report disabled>复制完整报告</button>
+<span data-lx139-copy-status role="status" aria-live="polite">
+</span>
+</div>
+</section>
+</section>
+<menu class="lx139-method">
+<p class="lx139-kicker">INTEGER METHOD</p>
+<article>
+<span>01</span>
+<h2>十分之一小时</h2>
+<p>每日展示小时转换为整数十分之一小时，全程不使用中途小数舍入。</p>
+</article>
+<article>
+<span>02</span>
+<h2>逐件限额</h2>
+<p>每件展品的剂量只与用户为它输入的限额比较，不套用材料阈值。</p>
+</article>
+<article>
+<span>03</span>
+<h2>加权总览</h2>
+<p>总利用率为全部累计剂量除以全部输入限额，仅作计划摘要。</p>
+</article>
+</menu>
+</main>
+<footer class="lx139-footer">
+<div>
+<b>{{BRAND_EN}}</b>
+<p>{{SITE_DESC}}</p>
+</div>
+<nav aria-label="页脚导航">
+<strong>方法</strong>
+<a href="article.html">照明备忘</a>
+<a href="legal.html">责任边界</a>
+<a href="404.html">展厅检索</a>
+</nav>
+<address>
+<strong>联系</strong>
+<span>{{CONTACT_CHANNEL}}</span>
+<small>LOCAL / NO STORAGE</small>
+</address>
+<p>工具结果不构成材料、保管、照明、展览、借展、保险、安装或安全批准。</p>
+</footer>
+</body>
+</html>

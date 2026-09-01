@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="{{LANG}}" data-lx139-scene="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d0d0f">
+<meta name="description" content="阅读 {{SITE_NAME}} 关于藏品、光束、照度、剂量和交接的五段展厅照明备忘。">
+<link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html">
+<meta property="og:title" content="展厅照明备忘｜{{SITE_NAME}}">
+<meta property="og:description" content="从材料敏感性到闭馆交接的五段照明记录。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
+<title>展厅照明备忘｜{{SITE_NAME}}</title>
+<link rel="stylesheet" href="static/lux-gallery.css">
+<script src="static/lux-gallery.js" defer>
+</script>
+</head>
+<body class="lx139-article-page">
+<a class="lx139-skip" href="#lx139-main">跳到主要内容</a>
+<progress class="lx139-progress" max="100" value="0" aria-label="文章阅读进度">
+</progress>
+<header class="lx139-header">
+<a class="lx139-brand" href="index.html" aria-label="{{SITE_NAME}} 首页">
+<b>{{BRAND_EN}}</b>
+<span>LIGHT ARCHIVE / 139</span>
+</a>
+<nav class="lx139-room-nav" aria-label="主导航">
+<a href="index.html">
+<i>
+</i>
+<span>ROOM 01</span>展厅</a>
+<a aria-current="page" href="article.html">
+<i>
+</i>
+<span>ROOM 02</span>备忘</a>
+<a href="tool.html">
+<i>
+</i>
+<span>ROOM 03</span>光表</a>
+<a href="legal.html">
+<i>
+</i>
+<span>ROOM 04</span>边界</a>
+</nav>
+<button type="button" data-lx139-scene-toggle aria-pressed="true">开启工作灯</button>
+</header>
+<main id="lx139-main">
+<header class="lx139-article-hero">
+<div>
+<p class="lx139-kicker">CURATORIAL NOTE / 05</p>
+<h1>光让物被看见，<br>也让时间发生。</h1>
+<p>照明记录要同时写下可见性、材料敏感性、累计剂量、测量条件和仍待确认的责任。</p>
+</div>
+<aside>
+<span>EXHIBITION FILE</span>
+<b>05</b>
+<p>{{ARTICLE_META}}</p>
+</aside>
+</header>
+<div class="lx139-reading">
+<menu class="lx139-note-index" aria-label="文章目录">
+<a href="#lx139-object-note">
+<span>01</span>藏品</a>
+<a href="#lx139-source-note">
+<span>02</span>光源</a>
+<a href="#lx139-measure-note">
+<span>03</span>测量</a>
+<a href="#lx139-dose-note">
+<span>04</span>剂量</a>
+<a href="#lx139-handover-note">
+<span>05</span>交接</a>
+</menu>
+<article class="lx139-note-prose">
+<section id="lx139-object-note">
+<header>
+<span>01</span>
+<p>OBJECT</p>
+<time>A-139</time>
+</header>
+<h2>材料类别不能只靠展品名称猜测</h2>
+<p class="lx139-drop">纸张纤维、染料、颜料、照片工艺、织物、涂层和既往处理都可能改变光敏感性。若没有可靠鉴定或保管依据，页面应把年度限额写成待确认，而不是自动套用通用数字。</p>
+<blockquote>照明计划的第一束光，应该照向证据，而不是照向效果。</blockquote>
+</section>
+<section id="lx139-source-note">
+<header>
+<span>02</span>
+<p>SOURCE</p>
+<time>BEAM 15°</time>
+</header>
+<h2>光束之外，还有热、紫外与空间条件</h2>
+<p>灯具类型、光谱、调光、距离、角度、遮光、反射、热量与紫外控制会共同影响展示。视觉模拟只表达版面关系，不代表真实配光、均匀度或材料相容性。</p>
+<figure class="lx139-light-figure">
+<div>
+<i>
+</i>
+<span>OBJECT</span>
+<b>50 LX</b>
+</div>
+<figcaption>ABSTRACT BEAM / NOT A PHOTOMETRIC PLAN</figcaption>
+</figure>
+</section>
+<section id="lx139-measure-note">
+<header>
+<span>03</span>
+<p>MEASURE</p>
+<time>POINT / FACE</time>
+</header>
+<h2>一次读数必须连同位置和条件记录</h2>
+<p>照度计、校准、量程、测点、朝向、环境光、开灯状态和时间都会影响读数。网页只计算用户输入的照度，不证明测量值、仪器或取样方式可靠。</p>
+</section>
+<section id="lx139-dose-note">
+<header>
+<span>04</span>
+<p>DOSE</p>
+<time>LX × H</time>
+</header>
+<h2>照度乘时间，才是计划剂量</h2>
+<p>工具把每日小时保留到十分之一小时，以整数十分之一照度时数完成累计，并与用户输入的年度限额比较。达到 80% 只是复核提示，不是专业阈值建议。</p>
+<div class="lx139-formula">
+<b>LX</b>
+<i>×</i>
+<b>H / DAY</b>
+<i>×</i>
+<b>DAYS</b>
+<span>= LX·H</span>
+</div>
+</section>
+<section id="lx139-handover-note">
+<header>
+<span>05</span>
+<p>HANDOVER</p>
+<time>CLOSE / OPEN</time>
+</header>
+<h2>展期变化要回到同一张预算表</h2>
+<p>延长开放、加开夜场、移动展品、改变灯具或修改限额都会使旧报告失效。交接应保留数据来源、测量日期、审批状态和下一次复核条件。</p>
+</section>
+<footer class="lx139-note-end">
+<p>复制时保留输入口径、累计结果、未决状态与责任边界。</p>
+<button class="lx139-glow-button" type="button" data-lx139-copy-note>复制照明摘要</button>
+<span data-lx139-copy-status role="status" aria-live="polite">
+</span>
+</footer>
+</article>
+</div>
+</main>
+<footer class="lx139-footer">
+<div>
+<b>{{BRAND_EN}}</b>
+<p>{{SITE_DESC}}</p>
+</div>
+<nav aria-label="页脚导航">
+<strong>继续</strong>
+<a href="tool.html">光剂量表</a>
+<a href="legal.html">责任边界</a>
+<a href="404.html">展厅检索</a>
+</nav>
+<address>
+<strong>联系</strong>
+<span>{{CONTACT_CHANNEL}}</span>
+<small>{{ARTICLE_META}}</small>
+</address>
+<p>本文不提供材料鉴定、保管等级、灯具选择、照明设计、展示批准或安全建议。</p>
+</footer>
+</body>
+</html>

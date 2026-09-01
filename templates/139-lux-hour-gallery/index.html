@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="{{LANG}}" data-lx139-scene="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0d0d0f">
+<meta name="description" content="{{SITE_NAME}} 以展厅光束、展签与照度时数预算呈现完整的藏品照明档案模板。">
+<link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+<meta property="og:title" content="{{SITE_NAME}}｜展厅光剂量档案">
+<meta property="og:description" content="从藏品敏感度、光束到累计照度时数的完整展览叙事。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+<title>{{SITE_NAME}}｜展厅光剂量档案</title>
+<link rel="stylesheet" href="static/lux-gallery.css">
+<script src="static/lux-gallery.js" defer>
+</script>
+</head>
+<body class="lx139-home">
+<a class="lx139-skip" href="#lx139-main">跳到主要内容</a>
+<header class="lx139-header">
+<a class="lx139-brand" href="index.html" aria-label="{{SITE_NAME}} 首页">
+<b>{{BRAND_EN}}</b>
+<span>LIGHT ARCHIVE / 139</span>
+</a>
+<nav class="lx139-room-nav" aria-label="主导航">
+<a aria-current="page" href="index.html">
+<i>
+</i>
+<span>ROOM 01</span>展厅</a>
+<a href="article.html">
+<i>
+</i>
+<span>ROOM 02</span>备忘</a>
+<a href="tool.html">
+<i>
+</i>
+<span>ROOM 03</span>光表</a>
+<a href="legal.html">
+<i>
+</i>
+<span>ROOM 04</span>边界</a>
+</nav>
+<button type="button" data-lx139-scene-toggle aria-pressed="true">开启工作灯</button>
+</header>
+<main id="lx139-main">
+<section class="lx139-hero" aria-labelledby="lx139-title">
+<div class="lx139-hero-copy">
+<p class="lx139-kicker">EXHIBITION LIGHT / 139</p>
+<h1 id="lx139-title">让光停在<br>
+<em>刚好可见</em>
+<br>的位置。</h1>
+<p>{{HERO_DESCRIPTION}}</p>
+<div>
+<a class="lx139-glow-button" href="article.html">进入照明备忘</a>
+<a class="lx139-arrow-link" href="tool.html">计算照度时数 <span>↗</span>
+</a>
+</div>
+</div>
+<figure class="lx139-chamber">
+<div class="lx139-beam" aria-hidden="true">
+</div>
+<div class="lx139-artwork" aria-hidden="true">
+<span>
+</span>
+<i>
+</i>
+<b>139</b>
+</div>
+<figcaption>
+<span>OBJECT / A-139</span>
+<b>50 LX</b>
+<small>VISIBLE ≠ SAFE</small>
+</figcaption>
+</figure>
+<aside class="lx139-wall-label">
+<span>NOW SHOWING</span>
+<b>{{SITE_TAGLINE}}</b>
+<p>光照记录不是材料鉴定，也不是展示批准。</p>
+</aside>
+<menu class="lx139-room-sequence">
+<li>
+<span>01</span>
+<a href="#lx139-object">OBJECT</a>
+</li>
+<li>
+<span>02</span>
+<a href="#lx139-beam">BEAM</a>
+</li>
+<li>
+<span>03</span>
+<a href="#lx139-dose">DOSE</a>
+</li>
+<li>
+<span>04</span>
+<a href="#lx139-exit">EXIT</a>
+</li>
+</menu>
+</section>
+<section class="lx139-object" id="lx139-object" aria-labelledby="lx139-object-title">
+<header>
+<p class="lx139-kicker">01 / OBJECT</p>
+<h2 id="lx139-object-title">先辨认材料，<br>再决定它如何被看见。</h2>
+</header>
+<article>
+<span class="lx139-index">A</span>
+<p>纸本、织物、染料、照片、颜料、涂层和复合材料可能有不同的光敏感性。页面只承接经过确认的限额，不根据展品名称自动推荐照度。</p>
+<a class="lx139-arrow-link" href="article.html#lx139-object-note">阅读藏品记录 <span>→</span>
+</a>
+</article>
+<figure class="lx139-object-window" aria-hidden="true">
+<i>
+</i>
+<span>FRAGILE<br>VISIBLE</span>
+</figure>
+</section>
+<section class="lx139-beam-section" id="lx139-beam" aria-labelledby="lx139-beam-title">
+<div class="lx139-beam-diagram" aria-hidden="true">
+<span>15°</span>
+<i>
+</i>
+<b>Ø</b>
+<mark>50 LX</mark>
+</div>
+<article>
+<p class="lx139-kicker">02 / BEAM</p>
+<h2 id="lx139-beam-title">照度是一个瞬间，<br>剂量是时间留下的总和。</h2>
+<p>同样的照度会因每日开放时数和展期不同形成不同累计暴露。工具用十进制整数保存小时小数，避免中途舍入。</p>
+</article>
+</section>
+<section class="lx139-dose" id="lx139-dose" aria-labelledby="lx139-dose-title">
+<header>
+<p class="lx139-kicker">03 / LUX HOURS</p>
+<h2 id="lx139-dose-title">把每一道光，<br>放回年度预算。</h2>
+</header>
+<div class="lx139-dose-columns">
+<article>
+<span>Ⅰ</span>
+<b>LX</b>
+<p>用户输入的照度假设</p>
+</article>
+<i>×</i>
+<article>
+<span>Ⅱ</span>
+<b>H / DAY</b>
+<p>每天计划展示时数</p>
+</article>
+<i>×</i>
+<article>
+<span>Ⅲ</span>
+<b>DAYS</b>
+<p>计划展期天数</p>
+</article>
+<i>=</i>
+<article>
+<span>Σ</span>
+<b>LX·H</b>
+<p>累计照度时数</p>
+</article>
+</div>
+</section>
+<section class="lx139-exit" id="lx139-exit">
+<div>
+<p class="lx139-kicker">04 / HANDOVER</p>
+<h2>闭馆之前，<br>把假设留在展签背面。</h2>
+<p>五页框架、暗场与工作灯、照度时数工具、责任展签和本地检索均已搭好，后续只需替换变量、文字和演示数据。</p>
+</div>
+<a class="lx139-meter-link" href="tool.html">
+<span>EXPOSURE METER</span>
+<b>139</b>
+<i>
+</i>
+<small>OPEN TOOL →</small>
+</a>
+</section>
+</main>
+<footer class="lx139-footer">
+<div>
+<b>{{BRAND_EN}}</b>
+<p>{{SITE_DESC}}</p>
+</div>
+<nav aria-label="页脚导航">
+<strong>展厅</strong>
+<a href="article.html">照明备忘</a>
+<a href="tool.html">光剂量表</a>
+<a href="legal.html">责任边界</a>
+</nav>
+<address>
+<strong>联系</strong>
+<span>{{CONTACT_CHANNEL}}</span>
+<small>核对日期：2026-09-02</small>
+</address>
+<p>内容仅作展览照明档案与照度时数计算演示，不构成材料、保管、照明、展示、安装或安全批准。</p>
+</footer>
+</body>
+</html>
