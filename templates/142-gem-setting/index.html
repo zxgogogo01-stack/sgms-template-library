@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="{{LANG}}" data-gs142-lamp="bright">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101412">
+  <meta name="description" content="一套以珠宝镶嵌台、宝石切面与工坊配石记录为视觉语言的完整静态模板。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}｜珠宝镶嵌台档案">
+  <meta property="og:description" content="记录配石数量、镶位需求与责任边界的原创五页站点框架。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <title>{{SITE_NAME}}｜珠宝镶嵌台档案</title>
+  <link rel="stylesheet" href="static/gem-setting.css">
+  <script src="static/gem-setting.js" defer></script>
+</head>
+<body class="gs142-home">
+  <a class="gs142-skip" href="#gs142-main">跳到主要内容</a>
+  <header class="gs142-rail">
+    <a class="gs142-mark" href="index.html" aria-label="{{SITE_NAME}} 首页"><span>G/142</span><b>{{BRAND_EN}}</b></a>
+    <nav class="gs142-rail-nav" aria-label="主导航">
+      <a aria-current="page" href="index.html"><i>01</i><span>镶台</span></a>
+      <a href="article.html"><i>02</i><span>工坊札记</span></a>
+      <a href="tool.html"><i>03</i><span>配石台</span></a>
+      <a href="legal.html"><i>04</i><span>责任匣</span></a>
+    </nav>
+    <button type="button" data-gs142-lamp-toggle aria-pressed="true">调暗珠宝灯</button>
+  </header>
+
+  <main id="gs142-main">
+    <section class="gs142-hero" aria-labelledby="gs142-hero-title">
+      <div class="gs142-hero-copy">
+        <p class="gs142-kicker">SETTING ATELIER · ARCHIVE 142</p>
+        <h1 id="gs142-hero-title">每一枚光，<br>都有自己的<br><em>落座方式。</em></h1>
+        <p>{{HERO_DESCRIPTION}}</p>
+        <div class="gs142-hero-actions"><a class="gs142-solid" href="tool.html">打开配石工作台</a><span>{{SITE_TAGLINE}}</span></div>
+      </div>
+      <figure class="gs142-jewel-stage" aria-label="抽象祖母绿切面与镶爪">
+        <div class="gs142-loupe"><span></span></div>
+        <div class="gs142-gem"><i></i><b></b><span></span></div>
+        <div class="gs142-prongs"><i></i><i></i><i></i><i></i></div>
+        <figcaption><dl><div><dt>STONE</dt><dd>{{STONE_SAMPLE}}</dd></div><div><dt>SEAT</dt><dd>04</dd></div><div><dt>LIGHT</dt><dd>CHECKED</dd></div></dl></figcaption>
+      </figure>
+      <p class="gs142-vertical-note">FACET · SEAT · RESERVE · VERIFY</p>
+    </section>
+
+    <section class="gs142-bench" aria-labelledby="gs142-bench-title">
+      <header><p class="gs142-kicker">THREE VIEWS / ONE BENCH</p><h2 id="gs142-bench-title">看清切面，<br>也看清记录。</h2></header>
+      <div class="gs142-bench-grid">
+        <article><header><data value="1">LOUPE / 01</data><div class="gs142-mini-gem"><i></i></div><h3>先核对事实</h3></header><p>石种、尺寸、来源、证书、数量与工艺状态都须从当前项目资料核验。</p><a href="article.html#gs142-source">查看核对札记</a></article>
+        <article><header><data value="2">COUNT / 02</data><div class="gs142-mini-gem"><i></i></div><h3>把数量算明</h3></header><p>本地工具只比较可用、镶位、预留、复核线和用户输入的文档状态。</p><a href="tool.html">进入配石工作台</a></article>
+        <article><header><data value="3">SEAL / 03</data><div class="gs142-mini-gem"><i></i></div><h3>让责任归位</h3></header><p>鉴定、估值、采购、工艺、安全、权利与交易决定仍由对应责任人确认。</p><a href="legal.html">打开责任匣</a></article>
+      </div>
+    </section>
+
+    <aside class="gs142-inscription" aria-label="工坊铭文"><span>UNDER THE LOUPE</span><b>数字可以清点，价值不能猜测。</b><i></i><span>AT THE BENCH</span></aside>
+
+    <section class="gs142-facet-story" aria-labelledby="gs142-facet-title">
+      <div class="gs142-facet-copy"><p class="gs142-kicker">FOUR FACETS / NO ASSUMPTION</p><h2 id="gs142-facet-title">一枚宝石的边界，<br>不止轮廓。</h2><p>模板给信息留下明确位置，却不替真实鉴定、估值、采购、镶嵌与交付作结论。</p></div>
+      <menu>
+        <li><span>Ⅰ</span><b>来源</b><small>SOURCE</small></li>
+        <li><span>Ⅱ</span><b>数量</b><small>COUNT</small></li>
+        <li><span>Ⅲ</span><b>工艺</b><small>SETTING</small></li>
+        <li><span>Ⅳ</span><b>交接</b><small>HANDOFF</small></li>
+      </menu>
+    </section>
+
+    <section class="gs142-vault" aria-labelledby="gs142-vault-title">
+      <div><span>ARCHIVE / LOCAL COPY</span><h2 id="gs142-vault-title">把档案编号留在<br>可信的交接里。</h2><p>编号只用于当前模板展示，不代表证书、鉴定结果、库存锁定或所有权凭据。</p></div>
+      <div class="gs142-code-card"><dl><dt>ATELIER RECORD</dt><dd data-gs142-archive>{{ARCHIVE_CODE}}</dd></dl><button type="button" data-gs142-copy-archive>复制档案编号</button><output data-gs142-copy-status aria-live="polite"></output></div>
+    </section>
+  </main>
+
+  <footer class="gs142-footer">
+    <div><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></div>
+    <nav aria-label="页脚导航"><strong>工坊</strong><a href="article.html">工坊札记</a><a href="tool.html">配石台</a><a href="404.html">档案检索</a></nav>
+    <address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>LOCAL / NO VALUATION</small></address>
+    <p>模板不鉴定宝石、不估值、不确认来源、库存、工艺、证书、交易、保险或交付。</p>
+  </footer>
+</body>
+</html>

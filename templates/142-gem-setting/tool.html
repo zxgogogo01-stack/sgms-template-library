@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="{{LANG}}" data-gs142-lamp="bright">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101412">
+  <meta name="description" content="本地配石清点工具，精确比较可用数量、镶位、预留、复核线与文档状态。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="配石数量工作台｜{{SITE_NAME}}">
+  <meta property="og:description" content="零上传计算剩余数量、缺口、用户复核线与状态提示。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <title>配石数量工作台｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/gem-setting.css">
+  <script src="static/gem-setting.js" defer></script>
+</head>
+<body class="gs142-tool-page">
+  <a class="gs142-skip" href="#gs142-main">跳到主要内容</a>
+  <header class="gs142-rail">
+    <a class="gs142-mark" href="index.html" aria-label="{{SITE_NAME}} 首页"><span>G/142</span><b>{{BRAND_EN}}</b></a>
+    <nav class="gs142-rail-nav" aria-label="主导航"><a href="index.html"><i>01</i><span>镶台</span></a><a href="article.html"><i>02</i><span>工坊札记</span></a><a aria-current="page" href="tool.html"><i>03</i><span>配石台</span></a><a href="legal.html"><i>04</i><span>责任匣</span></a></nav>
+    <button type="button" data-gs142-lamp-toggle aria-pressed="true">调暗珠宝灯</button>
+  </header>
+
+  <main id="gs142-main">
+    <header class="gs142-tool-hero">
+      <div><p class="gs142-kicker">LOCAL COUNT / NO APPRAISAL</p><h1>配石<br>工作台</h1><p>从可用整数中扣除镶位与预留，只和用户给出的复核线、文档状态比较。</p></div>
+      <figure aria-hidden="true"><div class="gs142-scale"><i></i><span></span><b></b></div><small>COUNT</small><strong>142</strong></figure>
+    </header>
+
+    <section class="gs142-counter" aria-labelledby="gs142-input-title">
+      <form class="gs142-count-form" data-gs142-count-form novalidate>
+        <header><span>INPUT / LOTS</span><h2 id="gs142-input-title">配石批次</h2></header>
+        <p class="gs142-format"><code>托位 | 可用 | 镶位 | 预留 | 复核线 | 状态</code></p>
+        <label for="gs142-rows">每行一个托位</label>
+        <textarea id="gs142-rows" rows="12" spellcheck="false">戒托 A | 120 | 96 | 12 | 5 | 已封
+坠托 B | 84 | 64 | 10 | 4 | 已封</textarea>
+        <menu class="gs142-presets" aria-label="示例数据"><li><button type="button" data-gs142-preset="clear">余量清楚</button></li><li><button type="button" data-gs142-preset="near">触及复核线</button></li><li><button type="button" data-gs142-preset="multi">多项数量提示</button></li><li><button type="button" data-gs142-preset="review">复合复核</button></li></menu>
+        <p class="gs142-error" data-gs142-error role="alert"></p>
+        <div class="gs142-form-actions"><button class="gs142-solid" type="submit">生成配石清单</button><button class="gs142-reset" type="reset">清空并恢复示例</button></div>
+        <p data-gs142-form-status role="status" aria-live="polite">等待至少两个配石批次。</p>
+      </form>
+
+      <section class="gs142-count-report" data-ready="false" aria-labelledby="gs142-report-title">
+        <header><span>OUTPUT / SETTING</span><div><h2 id="gs142-report-title">工坊交接</h2><strong data-gs142-report-state>UNSET</strong></div></header>
+        <div class="gs142-balance-jewel"><span>TIGHTEST BALANCE</span><b data-gs142-tightest>—</b><p data-gs142-tightest-label>等待清点</p><i data-gs142-gauge></i></div>
+        <dl class="gs142-totals"><div><dt>批次</dt><dd data-gs142-lot-count>0</dd></div><div><dt>总镶位</dt><dd data-gs142-seat-total>0</dd></div><div><dt>数量提示</dt><dd data-gs142-balance-count>0</dd></div><div><dt>状态提示</dt><dd data-gs142-status-count>0</dd></div></dl>
+        <section class="gs142-findings"><h3 data-gs142-finding-summary>等待清点</h3><ul data-gs142-finding-list><li>报告生成后显示缺口、触线余量和未封状态。</li></ul></section>
+        <section class="gs142-lot-output"><h3 data-gs142-lot-summary>等待清点</h3><div data-gs142-lot-list><p>等待配石批次。</p></div></section>
+        <p class="gs142-boundary">工具不读取或判断宝石身份、尺寸、质量、处理、来源、证书、实际库存、适配、工艺、价格、保险、交易或交付。</p>
+        <footer><button class="gs142-solid" type="button" data-gs142-copy-report disabled>复制完整交接</button><output data-gs142-copy-status aria-live="polite"></output></footer>
+      </section>
+    </section>
+
+    <aside class="gs142-equation" aria-label="数量算法"><span>AVAILABLE</span><b>可用数量</b><i>−</i><span>SEATS</span><b>镶位 + 预留</b><i>=</i><span>BALANCE</span><b>剩余数量</b></aside>
+  </main>
+
+  <footer class="gs142-footer"><div><b>{{BRAND_EN}}</b><p>{{SITE_DESC}}</p></div><nav aria-label="页脚导航"><strong>方法</strong><a href="article.html">工坊札记</a><a href="legal.html">责任匣</a><a href="404.html">档案检索</a></nav><address><strong>联系</strong><span>{{CONTACT_CHANNEL}}</span><small>LOCAL / INTEGER COUNT</small></address><p>工具结果不构成库存锁定、鉴定、估值、采购、加工、保险、交易、验收或交付批准。</p></footer>
+</body>
+</html>
