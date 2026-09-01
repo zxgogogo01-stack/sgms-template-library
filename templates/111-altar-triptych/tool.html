@@ -1,1 +1,140 @@
-<!DOCTYPE html><html lang="[[LANG]]"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#263d46"><title>三联导览 · [[SITE_NAME]]</title><meta name="description" content="按叙事、色调和视角查看示例三联画。"><link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html"><meta property="og:type" content="website"><meta property="og:title" content="三联导览"><meta property="og:description" content="按叙事、色调和视角查看示例三联画。"><meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html"><link rel="stylesheet" href="public.css"><link rel="stylesheet" href="static/triptych.css"></head><body><header class="tripbar"><div class="tripbar-in"><a class="tripbar-brand" href="index.html">[[BRAND_EN]]</a><button class="tripbar-btn" id="tripbar-btn" type="button" aria-label="主导航" aria-expanded="false" aria-controls="tripbar-nav">三联</button><nav class="tripbar-nav" id="tripbar-nav"><a href="index.html">三联画</a><a href="article.html">中央画</a><a href="tool.html" aria-current="page">导览</a><a href="legal.html">铭牌</a></nav></div></header><main class="trip-page"><nav class="trip-crumb"><a href="index.html">三联画</a><span>/</span><span>导览</span></nav><header class="trip-tool-head"><p>GUIDE · 03</p><h1>从三种关系观看三联画</h1><span>按叙事、色调或视角切换三组预置导览。</span></header><section class="trip-tool"><div class="trip-modes" role="tablist"><button class="trip-mode is-active" type="button" role="tab" aria-selected="true" data-mode="story"><b>叙</b><span>按叙事</span></button><button class="trip-mode" type="button" role="tab" aria-selected="false" data-mode="tone"><b>色</b><span>按色调</span></button><button class="trip-mode" type="button" role="tab" aria-selected="false" data-mode="view"><b>视</b><span>按视角</span></button></div><div class="trip-result"><p id="trip-result-mark">STORY · SEQUENCE</p><h2 id="trip-result-title">海岸—等待—归航</h2><ol id="trip-result-list"><li><strong>左</strong><span>风暴后的海岸</span></li><li><strong>中</strong><span>灯塔里的等待</span></li><li><strong>右</strong><span>晨光中的归航</span></li></ol></div></section></main><footer class="tripfoot"><div class="tripfoot-in"><p>[[BRAND_EN]] · [[SITE_TAGLINE]]</p><small>导览只切换浏览器内预置内容。</small></div></footer><script src="static/triptych.js"></script></body></html>
+<!doctype html>
+<html lang="%%LANG%%" data-at111-view="gallery">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#121827">
+<title>三联画挂墙配组审计器｜%%SITE_NAME%%</title>
+<meta name="description" content="在本地浏览器检查三联画面板完整性、齐高误差与左右翼宽差。">
+<link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="三联画挂墙配组审计器">
+<meta property="og:description" content="检查左中右面板配组、尺寸和挂墙公差。">
+<meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="static/conservation.css">
+</head>
+<body>
+<a class="at111-skip" href="#at111-main">跳到主要内容</a>
+<header class="at111-rail">
+<a class="at111-brand" href="index.html" aria-label="%%SITE_NAME%% 首页">
+<b>%%BRAND_EN%%</b>
+<span>NIGHT GALLERY</span>
+</a>
+<button class="at111-menu" type="button" aria-expanded="false" aria-controls="at111-nav">
+<i>
+</i>
+<span>展开展厅目录</span>
+</button>
+<nav id="at111-nav" aria-label="主导航">
+<a href="index.html">三联展厅</a>
+<a href="article.html">修复笔记</a>
+<a href="tool.html" aria-current="page">挂墙审计</a>
+<a href="legal.html">作品铭牌</a>
+<button type="button" data-at111-view-toggle aria-pressed="false">切换紫外检视</button>
+</nav>
+<p>
+<strong>02</strong>
+<span>INSTALLATION</span>
+</p>
+</header>
+<main id="at111-main" class="at111-tool">
+<header class="at111-tool-head">
+<p>LOCAL INSTALLATION / PANEL GROUPING</p>
+<h1>先把三块画，<br>归回同一组。</h1>
+<aside>工具只检查当前清单的面板角色与标称尺寸，不读取图片，也不判断真伪、归属、材料状态、挂点或墙体安全。</aside>
+</header>
+<form data-at111-panel-form novalidate>
+<label for="at111-rows">
+<span>面板清单</span>
+<textarea id="at111-rows" rows="13" spellcheck="false" aria-describedby="at111-format at111-error" placeholder="T-03 | 左 | 潮线退去以后 | 72 | 118">
+</textarea>
+</label>
+<div>
+<label for="at111-tolerance">
+<span>挂墙公差（cm）</span>
+<input id="at111-tolerance" inputmode="decimal" value="1.0" aria-describedby="at111-format at111-error">
+</label>
+<p id="at111-format">每行：作品组号 | 面板(左/中/右) | 标题 | 宽(cm) | 高(cm)。接受 3–90 块，总输入最多 10000 个 Unicode 字符；公差 0–20 cm。</p>
+<fieldset>
+<legend>装入样本</legend>
+<button type="button" data-at111-preset="ready">配组齐整</button>
+<button type="button" data-at111-preset="missing">缺少面板</button>
+<button type="button" data-at111-preset="dimension">尺寸偏差</button>
+<button type="button" data-at111-preset="mixed">复合复核</button>
+</fieldset>
+</div>
+<p id="at111-error" data-at111-error role="alert">
+</p>
+<footer>
+<button type="submit">生成挂墙报告</button>
+<button type="reset">清空配组台</button>
+<output data-at111-form-status aria-live="polite">等待至少三块面板。</output>
+</footer>
+</form>
+<section class="at111-report" data-ready="false" aria-labelledby="at111-report-title">
+<header>
+<div>
+<span>INSTALLATION REPORT</span>
+<b data-at111-report-state>UNSET</b>
+</div>
+<h2 id="at111-report-title">配组与尺寸</h2>
+</header>
+<dl>
+<div>
+<dt>面板</dt>
+<dd data-at111-count>0</dd>
+</div>
+<div>
+<dt>作品组</dt>
+<dd data-at111-works>0</dd>
+</div>
+<div>
+<dt>完整三联</dt>
+<dd data-at111-complete>0</dd>
+</div>
+<div>
+<dt>尺寸提示</dt>
+<dd data-at111-dimensions>0</dd>
+</div>
+</dl>
+<section class="at111-flags">
+<header>
+<span>INSTALLATION FLAGS</span>
+<b data-at111-finding-summary>等待计算</b>
+</header>
+<ul data-at111-finding-list>
+<li>报告生成后在此显示缺件、齐高与左右翼宽差。</li>
+</ul>
+</section>
+<section class="at111-panels">
+<header>
+<span>PANEL REGISTER</span>
+<b data-at111-panel-summary>等待计算</b>
+</header>
+<div data-at111-panel-list>
+<p>等待面板输入。</p>
+</div>
+</section>
+<aside>
+<p data-at111-note>机械审计不读取图像，不验证实物、真伪、归属、作者、年代、媒材、病害、边框、挂点、墙体、承重、保险、许可或安装安全。</p>
+<button type="button" data-at111-copy-report disabled>复制完整挂墙报告</button>
+<output data-at111-copy-status aria-live="polite">
+</output>
+</aside>
+</section>
+</main>
+<footer class="at111-foot">
+<strong>%%BRAND_EN%% / INSTALLATION REGISTER</strong>
+<p>面板清单是安装前的第一道门槛，不是专业安装结论。</p>
+<nav aria-label="页脚导航">
+<a href="index.html">展厅</a>
+<a href="article.html">笔记</a>
+<a href="legal.html">铭牌</a>
+</nav>
+<small>%%SITE_DOMAIN%% · ALL INPUT STAYS IN THIS BROWSER</small>
+</footer>
+<script src="static/conservation.js">
+</script>
+</body>
+</html>
