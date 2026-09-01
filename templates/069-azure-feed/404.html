@@ -1,44 +1,9 @@
-<!DOCTYPE html>
-<html lang="[[LANG]]">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>动态不见了 — [[SITE_NAME]]</title>
-    <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="static/feed.css">
-    <style>
-        /* 404 补充样式 */
-        .ghostpost { max-width: 460px; margin: 15vh auto; padding: 0 24px; text-align: center; }
-        .ghostpost-card {
-            background: var(--foam69);
-            border-radius: var(--pebble69);
-            box-shadow: var(--mist69-hi);
-            padding: 50px 40px;
-        }
-        .ghostpost-face {
-            width: 74px;
-            height: 74px;
-            margin: 0 auto 14px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: var(--shallow);
-            color: var(--greyblue);
-            font-family: var(--serif69);
-            font-size: 1.8rem;
-        }
-        .ghostpost-card h1 { font-family: var(--serif69); font-size: 2.8rem; color: var(--azure-deep); }
-        .ghostpost-card p { color: var(--greyblue); margin: 6px 0 22px; }
-    </style>
-</head>
-<body>
-    <div class="ghostpost">
-        <div class="ghostpost-card">
-            <span class="ghostpost-face" aria-hidden="true">?</span>
-            <h1>404</h1>
-            <p>这条动态已删除或从未发布。</p>
-            <a class="wisp wisp-solid" href="index.html">回动态流</a>
-        </div>
-    </div>
-</body>
-</html>
+<!doctype html>
+<html lang="%%LANG%%" data-signal="light">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#e9f2f5"><title>信号未收到 — %%SITE_NAME%%</title><link rel="stylesheet" href="azure-wire.css"></head>
+<body><a class="af69-skip" href="#af69-main">跳到主要内容</a>
+  <aside class="af69-rail"><header><a class="af69-brand" href="index.html"><b>69</b><span>%%BRAND_EN%%</span><small>AZURE EDITION</small></a><button class="af69-menu-button" type="button" aria-controls="af69-menu" aria-expanded="false"><i aria-hidden="true"></i><span>频道</span></button></header><nav id="af69-menu" class="af69-menu" aria-label="主导航"><a href="index.html"><b>01</b>快讯台</a><a href="article.html"><b>02</b>长讯稿</a><a href="tool.html"><b>03</b>分段器</a><a href="legal.html"><b>04</b>公开台</a><button type="button" data-signal-toggle>深蓝</button></nav><footer><i aria-hidden="true"></i><span>LOCAL SIGNAL</span><small>文本优先 · 来源可追</small></footer></aside>
+  <div class="af69-stage"><header class="af69-topline"><span>NO SIGNAL / 404</span><b>本地频道检索</b><small>SAFE TEXT</small></header>
+    <main class="af69-missing" id="af69-main"><figure aria-hidden="true"><i></i><i></i><i></i><b>404</b><span>NO SIGNAL</span></figure><section><p>TRANSMISSION NOT FOUND</p><h1>这条信号没有到达。</h1><span>输入一个频道词，本地索引会指向最近的页面。</span><form data-signal-search novalidate><label for="af69-query">检索频道</label><div><input id="af69-query" type="search" maxlength="80" autocomplete="off" placeholder="如：来源、分段、披露" aria-describedby="af69-search-help af69-search-result"><button type="submit">检索</button></div><small id="af69-search-help">最多 80 个字符，不向外部发送内容。</small><p id="af69-search-result" data-signal-result role="status" aria-live="polite">也可以返回<a href="index.html">快讯台</a>。</p></form></section></main><footer class="af69-footer"><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span><small>NO SIGNAL 404</small></footer>
+  </div><script src="dispatcher.js"></script>
+</body></html>

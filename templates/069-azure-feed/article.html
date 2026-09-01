@@ -1,133 +1,25 @@
-<!DOCTYPE html>
-<html lang="[[LANG]]">
+<!doctype html>
+<html lang="%%LANG%%" data-signal="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f0f4f8">
-    <title>文章样板 — [[SITE_NAME]]</title>
-    <meta name="description" content="动态流站文章页样板。">
-    <link rel="canonical" href="https://[[SITE_DOMAIN]]/article.html">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="[[SITE_NAME]]">
-    <meta property="og:title" content="文章样板 — [[SITE_NAME]]">
-    <meta property="og:description" content="动态流站文章页样板。">
-    <meta property="og:url" content="https://[[SITE_DOMAIN]]/article.html">
-    <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="static/feed.css">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "文章样板",
-        "datePublished": "2026-01-19",
-        "mainEntityOfPage": "https://[[SITE_DOMAIN]]/article.html"
-    }
-    </script>
-    <style>
-        /* 文章页补充样式 */
-        .longpost { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
-        .longpost-card {
-            background: var(--foam69);
-            border-radius: var(--pebble69);
-            box-shadow: var(--mist69-hi);
-            padding: 40px 46px;
-        }
-        .longpost-byline { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-        .longpost-face {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: radial-gradient(circle at 32% 28%, var(--azure), var(--azure-deep) 80%);
-            color: #f2f8fe;
-            font-family: var(--serif69);
-            font-size: 1rem;
-        }
-        .longpost-who b { display: block; font-size: .95rem; }
-        .longpost-who span { font-size: .8rem; color: var(--greyblue); font-variant-numeric: tabular-nums; }
-        .longpost-card h1 {
-            font-family: var(--serif69);
-            font-size: clamp(1.45rem, 3.3vw, 1.95rem);
-            line-height: 1.34;
-        }
-        .longpost-gist {
-            margin: 22px 0;
-            padding: 15px 20px;
-            border-radius: 11px;
-            background: var(--shallow);
-            border-left: 4px solid var(--azure);
-        }
-        .longpost-card h2 { font-family: var(--serif69); font-size: 1.2rem; margin: 30px 0 11px; }
-        .longpost-card h2::before { content: "// "; font-family: var(--mono69); color: var(--azure); font-size: .85em; }
-        .longpost-card p { margin: 0 0 13px; }
-        .longpost-roll { overflow-x: auto; border-radius: 11px; box-shadow: inset 0 0 0 1px var(--seafoam); margin: 14px 0 8px; }
-        .longpost-card table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-        .longpost-card th, .longpost-card td { text-align: left; padding: 10px 15px; border-bottom: 1px solid var(--seafoam); font-size: .89rem; white-space: nowrap; }
-        .longpost-card thead th { background: var(--shallow); color: var(--azure-deep); font-size: .8rem; letter-spacing: .08em; border-bottom: 0; }
-        .longpost-card tbody tr:last-child td { border-bottom: 0; }
-        .longpost-fine { font-size: .83rem; color: var(--greyblue); }
-        @media (max-width: 640px) {
-            .longpost-card { padding: 26px 20px; }
-            .longpost-card th, .longpost-card td { white-space: normal; }
-        }
-    </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e9f2f5">
+  <title>动态编辑协议 — %%SITE_NAME%%</title><meta name="description" content="用变化、来源、范围与未知项编写可复核的短讯流。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/article.html">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="%%SITE_NAME%%"><meta property="og:title" content="动态编辑协议 — %%SITE_NAME%%"><meta property="og:description" content="一条动态只回答一个变化。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/article.html"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="azure-wire.css">
 </head>
 <body>
-    <header class="skybar">
-        <div class="skybar-in">
-            <a class="skybar-brand" href="index.html">[[BRAND_EN]]</a>
-            <button type="button" class="skybar-btn" id="skybar-btn" aria-label="主导航" aria-expanded="false" aria-controls="skybar-nav">
-                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-            </button>
-            <nav class="skybar-nav" id="skybar-nav" aria-label="主导航">
-                <a href="index.html">动态流</a>
-                <a href="article.html" aria-current="page">文章</a>
-                <a href="tool.html">小单成本</a>
-                <a href="legal.html">披露</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="longpost">
-        <article class="longpost-card">
-            <div class="longpost-byline">
-                <span class="longpost-face" aria-hidden="true">返</span>
-                <span class="longpost-who"><b>[[SITE_NAME]]</b><span>2026-01-19 · 费率观察 · 口径核对 2026-01-19</span></span>
-            </div>
-            <h1>示例平台A 挂单档位调整：返佣基数怎么跟着变</h1>
-
-            <div class="longpost-gist"><b>先说结论：</b>费率档位变化会沿着手续费基数传导到返佣金额；核对时应同时确认产品线、账户档位与生效时间。</div>
-
-            <h2>变了什么</h2>
-            <p>先记录调整覆盖的产品、账户层级和生效时间，并把时区统一到自己的账单时区；随后保存规则页版本，便于到账后逐项复核。</p>
-
-            <h2>对返佣的传导</h2>
-            <p>计算顺序是成交额乘手续费率得到手续费，再乘可返比例得到预计返佣。若存在抵扣、上限或排除产品，应先从计佣基数中剔除。</p>
-            <div class="longpost-roll">
-                <table>
-                    <thead>
-                        <tr><th scope="col">项目</th><th scope="col">调整前</th><th scope="col">调整后</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>挂单费率（基础档）</td><td>0.0X%</td><td>0.0X%</td></tr>
-                        <tr><td>演示返佣（每万元）</td><td>X.XX</td><td>X.XX</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="longpost-fine">表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
-
-            <h2>要不要动</h2>
-            <p>判断时不要只看返佣比例，还要核对费率、产品范围、结算门槛与到账周期。规则可能调整，正式决策应以账户页面的最新显示为准。</p>
-        </article>
-    </main>
-
-    <footer class="seabed">
-        <div class="seabed-in">
-            <p class="seabed-fine">内容为信息整理，以各平台官方页面为准；不构成投资建议。</p>
-        </div>
-    </footer>
-
-    <script src="static/feed.js"></script>
-</body>
-</html>
+  <a class="af69-skip" href="#af69-main">跳到主要内容</a>
+  <aside class="af69-rail"><header><a class="af69-brand" href="index.html"><b>69</b><span>%%BRAND_EN%%</span><small>AZURE EDITION</small></a><button class="af69-menu-button" type="button" aria-controls="af69-menu" aria-expanded="false"><i aria-hidden="true"></i><span>频道</span></button></header><nav id="af69-menu" class="af69-menu" aria-label="主导航"><a href="index.html"><b>01</b>快讯台</a><a aria-current="page" href="article.html"><b>02</b>长讯稿</a><a href="tool.html"><b>03</b>分段器</a><a href="legal.html"><b>04</b>公开台</a><button type="button" data-signal-toggle>深蓝</button></nav><footer><i aria-hidden="true"></i><span>LOCAL SIGNAL</span><small>文本优先 · 来源可追</small></footer></aside>
+  <div class="af69-stage"><div class="af69-progress" aria-hidden="true"><i data-reading-progress></i></div><header class="af69-topline"><span>LONG READ / 069-A</span><b>动态编辑协议</b><small>SECOND REVIEW</small></header>
+    <main class="af69-article" id="af69-main"><article>
+      <header class="af69-article-head"><p>EDITORIAL TRANSMISSION / 069—A</p><h1>一条动态，只回答一个变化</h1><span>快并不等于短。真正的短讯把变化、依据与限制压缩到读者仍然能够复核的程度。</span><dl><div><dt>文类</dt><dd>编辑协议</dd></div><div><dt>状态</dt><dd>第二校</dd></div><div><dt>复核</dt><dd>2026-02-16</dd></div></dl></header>
+      <nav class="af69-article-index" aria-label="本文目录"><a href="#af69-change">变化</a><a href="#af69-source">来源</a><a href="#af69-scope">范围</a><a href="#af69-unknown">未知</a></nav>
+      <div class="af69-copy">
+        <section id="af69-change"><aside><b>01</b><span>CHANGE</span></aside><div><h2>先写变化，不从背景故事起笔</h2><p>第一句应该让读者知道新增、删除、延期、修正或维持了什么。背景只有在解释影响时才进入正文，不能把核心变化埋在第三段。</p><blockquote>如果删掉第一句后仍然不知道发生了什么，这条动态还没有写完。</blockquote></div></section>
+        <section id="af69-source"><aside><b>02</b><span>SOURCE</span></aside><div><h2>来源要能回到具体页面位置</h2><p>“官方消息”不是完整来源。至少记录发布者、页面或文档名称、查看日期与适用范围；数字还要保留单位和计算口径。</p><ul><li>直接来源优先于二次转述。</li><li>截图不能替代可访问页面。</li><li>无法公开的来源需要解释限制。</li></ul></div></section>
+        <section id="af69-scope"><aside><b>03</b><span>SCOPE</span></aside><div><h2>说明谁会受到影响，谁不会</h2><p>地区、产品、账户类型、生效时间和资格条件决定一条信息的边界。没有证据覆盖的对象，不应被顺手写进结论。</p><table><thead><tr><th>字段</th><th>编辑问题</th></tr></thead><tbody><tr><td>对象</td><td>适用于哪些读者或账户</td></tr><tr><td>时间</td><td>何时开始、是否追溯</td></tr><tr><td>例外</td><td>哪些情况明确不适用</td></tr></tbody></table></div></section>
+        <section id="af69-unknown"><aside><b>04</b><span>UNKNOWN</span></aside><div><h2>未知项必须留在正文，不藏在草稿里</h2><p>来源冲突、页面尚未更新或关键资格不明时，直接写“待核实”，并约定下一次检查的触发条件。透明的不确定性比伪造确定性更有用。</p></div></section>
+      </div>
+      <aside class="af69-handoff"><header><p>STREAM HANDOFF</p><h2>可复制的动态交接</h2><span>方括号内容按真实资料补齐。</span></header><pre data-handoff-text>变化：[新增 / 删除 / 延期 / 修正 / 维持]&#10;来源：[发布者 / 页面 / 查看日期]&#10;范围：[地区 / 产品 / 账户 / 时间]&#10;未知项：[尚未确认的字段]&#10;更正记录：[旧表述 / 新依据]&#10;复核触发：[日期或来源变化]</pre><button type="button" data-copy-handoff>复制动态交接</button><p data-handoff-status role="status" aria-live="polite"></p></aside>
+      <footer class="af69-article-foot"><p>分段结果只检查文本结构，不判断事实、质量或搜索表现。</p><a href="tool.html">打开动态卡分段器</a></footer>
+    </article></main><footer class="af69-footer"><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span><small>LONG READ 069-A</small></footer>
+  </div><script src="dispatcher.js"></script>
+</body></html>
