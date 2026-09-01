@@ -1,133 +1,28 @@
-<!DOCTYPE html>
-<html lang='__lang__'>
+<!doctype html>
+<html lang="%%LANG%%" data-palette="cream">
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta name='theme-color' content='#faf7f8'>
-    <title>文章样板 — __site_name__</title>
-    <meta name='description' content='瀑布墙站文章页样板。'>
-    <link rel='canonical' href='https://__site_domain__/article.html'>
-    <meta property='og:type' content='article'>
-    <meta property='og:site_name' content='__site_name__'>
-    <meta property='og:title' content='文章样板 — __site_name__'>
-    <meta property='og:description' content='瀑布墙站文章页样板。'>
-    <meta property='og:url' content='https://__site_domain__/article.html'>
-    <meta name='twitter:card' content='summary'>
-    <link rel='stylesheet' href='static/flow.css'>
-    <script type='application/ld+json'>
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "文章样板",
-        "datePublished": "2026-01-19",
-        "mainEntityOfPage": "https://__site_domain__/article.html"
-    }
-    </script>
-    <style>
-        /* 文章页补充样式 */
-        .readpool { max-width: 740px; margin: 0 auto; padding: 44px 24px 80px; }
-        .readpool-card {
-            background: var(--cardmilk);
-            border-radius: calc(var(--roundel) + 4px);
-            box-shadow: var(--puff-hi);
-            padding: 42px 48px;
-        }
-        .readpool-crumb { font-size: .84rem; color: var(--mauve73); margin-bottom: 12px; }
-        .readpool-crumb a { color: var(--berry); font-weight: 700; }
-        .readpool-card h1 {
-            font-family: var(--serif73);
-            font-size: clamp(1.45rem, 3.3vw, 1.95rem);
-            line-height: 1.35;
-        }
-        .readpool-meta { margin: 10px 0 0; font-size: .84rem; color: var(--mauve73); font-variant-numeric: tabular-nums; }
-        .readpool-gist {
-            margin: 24px 0;
-            padding: 15px 20px;
-            border-radius: 13px;
-            background: var(--blushwash);
-            border-left: 4px solid var(--berry);
-        }
-        .readpool-card h2 {
-            font-family: var(--serif73);
-            font-size: 1.2rem;
-            margin: 30px 0 11px;
-        }
-        .readpool-card h2::before {
-            content: '';
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 9px;
-            border-radius: 3px;
-            background: var(--berry);
-            transform: rotate(45deg);
-        }
-        .readpool-card p { margin: 0 0 13px; }
-        .readpool-roll { overflow-x: auto; border-radius: 13px; box-shadow: inset 0 0 0 1px var(--petalline); margin: 14px 0 8px; }
-        .readpool-card table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
-        .readpool-card th, .readpool-card td { text-align: left; padding: 10px 15px; border-bottom: 1px solid var(--petalline); font-size: .89rem; white-space: nowrap; }
-        .readpool-card thead th { background: var(--blushwash); color: var(--berry-deep); font-size: .8rem; letter-spacing: .08em; border-bottom: 0; }
-        .readpool-card tbody tr:last-child td { border-bottom: 0; }
-        .readpool-fine { font-size: .83rem; color: var(--mauve73); }
-        @media (max-width: 640px) {
-            .readpool-card { padding: 28px 20px; }
-            .readpool-card th, .readpool-card td { white-space: normal; }
-        }
-    </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f2eddf">
+  <title>错落墙的清晰阅读顺序 — %%SITE_NAME%%</title><meta name="description" content="在视觉错落、内容长度和无障碍阅读顺序之间建立可复核的编辑方法。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/article.html">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="%%SITE_NAME%%"><meta property="og:title" content="错落墙的清晰阅读顺序 — %%SITE_NAME%%"><meta property="og:description" content="在视觉错落、内容长度和无障碍阅读顺序之间建立可复核的编辑方法。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/article.html"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="masonry-studio.css">
 </head>
 <body>
-    <header class='cornice'>
-        <div class='cornice-in'>
-            <a class='cornice-brand' href='index.html'>__brand_en__</a>
-            <button type='button' class='cornice-btn' id='cornice-btn' aria-label='主导航' aria-expanded='false' aria-controls='cornice-nav'>
-                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
-            </button>
-            <nav class='cornice-nav' id='cornice-nav' aria-label='主导航'>
-                <a href='index.html'>瀑布墙</a>
-                <a href='article.html' aria-current='page'>文章</a>
-                <a href='tool.html'>费率诊断</a>
-                <a href='legal.html'>披露</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class='readpool'>
-        <article class='readpool-card'>
-            <p class='readpool-crumb'><a href='index.html'>瀑布墙</a> / 费率与返佣</p>
-            <h1>示例平台A 挂单档位调整：返佣基数怎么跟着变</h1>
-            <p class='readpool-meta'>发布 2026-01-19 · 口径核对 2026-01-19</p>
-
-            <div class='readpool-gist'><b>先说结论：</b>费率档位变化会沿着手续费基数传导到返佣金额；核对时应同时确认产品线、账户档位与生效时间。</div>
-
-            <h2>变了什么</h2>
-            <p>先记录调整覆盖的产品、账户层级和生效时间，并把时区统一到自己的账单时区；随后保存规则页版本，便于到账后逐项复核。</p>
-
-            <h2>对返佣的传导</h2>
-            <p>计算顺序是成交额乘手续费率得到手续费，再乘可返比例得到预计返佣。若存在抵扣、上限或排除产品，应先从计佣基数中剔除。</p>
-            <div class='readpool-roll'>
-                <table>
-                    <thead>
-                        <tr><th scope='col'>项目</th><th scope='col'>调整前</th><th scope='col'>调整后</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>挂单费率（基础档）</td><td>0.0X%</td><td>0.0X%</td></tr>
-                        <tr><td>演示返佣（每万元）</td><td>X.XX</td><td>X.XX</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class='readpool-fine'>表内用于演示核对方法；正式使用时请以账户页面和平台最新规则为准。</p>
-
-            <h2>要不要动</h2>
-            <p>判断时不要只看返佣比例，还要核对费率、产品范围、结算门槛与到账周期。规则可能调整，正式决策应以账户页面的最新显示为准。</p>
-        </article>
-    </main>
-
-    <footer class='groundsill'>
-        <div class='groundsill-in'>
-            <p class='groundsill-fine'>内容为信息整理，以各平台官方页面为准；不构成投资建议。</p>
-        </div>
-    </footer>
-
-    <script src='static/flow.js'></script>
-</body>
-</html>
+  <a class="bm73-skip" href="#bm73-main">跳到主要内容</a>
+  <header class="bm73-bubblebar"><a class="bm73-brand" href="index.html"><b>73</b><span>%%BRAND_EN%%</span><small>CURATED WALL</small></a><button class="bm73-menu-button" type="button" aria-controls="bm73-menu" aria-expanded="false"><i aria-hidden="true"></i><span>展厅</span></button><nav id="bm73-menu" aria-label="主导航"><a href="index.html">瀑布墙</a><a href="article.html" aria-current="page">阅读间</a><a href="tool.html">分栏器</a><a href="legal.html">展签</a><button type="button" data-palette-toggle>墨莓</button></nav></header>
+  <div class="bm73-reading-track" aria-hidden="true"><i data-reading-progress></i></div>
+  <main class="bm73-story" id="bm73-main">
+    <aside class="bm73-story-index"><small>READING ROOM / 073-A</small><b>错落不是随机</b><nav aria-label="本文目录"><a href="#bm73-order">顺序</a><a href="#bm73-height">高度</a><a href="#bm73-proof">证据</a><a href="#bm73-handoff">交接</a></nav><span>LAST REVIEW<br>2026-02-24</span></aside>
+    <article><header class="bm73-story-head"><p>EDITORIAL SYSTEM / ACCESSIBLE MASONRY</p><h1>视觉可以错落，阅读顺序不能失踪</h1><span>一面成熟的瀑布墙，先保证 DOM、标题和键盘顺序，再用列高与色块组织视觉节奏。</span></header>
+      <section id="bm73-order"><small>01 / ORDER</small><h2>从线性文本开始，而不是从空位开始</h2><p>先在不看布局的情况下排列内容：最重要的入口在前，相关内容相邻。CSS 可以改变卡片分列，但不应让屏幕阅读器得到另一套故事。</p><blockquote>如果关闭样式后页面仍然说得通，错落布局才有可靠的底稿。</blockquote></section>
+      <section id="bm73-height"><small>02 / HEIGHT</small><h2>允许内容决定高度，同时控制摘要职责</h2><p>短卡表达单一提醒，长卡承载必要上下文。编辑需要限制摘要职责，而不是把所有卡片裁成同样字数。</p><div class="bm73-story-cards"><article><b>短卡</b><span>一个判断或入口</span></article><article><b>中卡</b><span>判断 + 一段依据</span></article><article><b>长卡</b><span>问题 + 依据 + 限制</span></article></div></section>
+      <section id="bm73-proof"><small>03 / PROOF</small><h2>在卡片内保留读者判断所需的证据线索</h2><p>摘要不必复制全文，但应告诉读者材料是谁发布、何时查看、适用于什么范围。无法确认时明确标成待核实。</p><ul><li>颜色之外有可读类别。</li><li>链接文字描述目标页面。</li><li>卡片只设一个主要入口。</li><li>移动端恢复自然单列顺序。</li></ul></section>
+      <aside class="bm73-handoff" id="bm73-handoff"><header><small>CURATOR HANDOFF</small><h2>卡片交接单</h2><p>按真实内容替换方括号。</p></header><pre data-handoff-text>卡片标题：[一个主要观点]
+类别：[文字标签]
+摘要职责：[提醒 / 依据 / 边界]
+直接来源：[发布者 / 页面 / 查看日期]
+主要入口：[目标页面]
+待核实项：[冲突 / 缺失 / 无]</pre><button type="button" data-copy-handoff>复制卡片交接</button><span data-handoff-status role="status" aria-live="polite"></span></aside>
+      <footer class="bm73-story-foot"><p>分栏器只模拟列高，不判断内容价值或真实像素高度。</p><a href="tool.html">打开分栏平衡器</a></footer>
+    </article>
+  </main>
+  <footer class="bm73-footer"><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span><small>READING ROOM 073-A</small></footer><script src="curator.js"></script>
+</body></html>

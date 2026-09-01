@@ -1,138 +1,24 @@
-<!DOCTYPE html>
-<html lang='__lang__'>
+<!doctype html>
+<html lang="%%LANG%%" data-palette="cream">
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta name='theme-color' content='#faf7f8'>
-    <title>实际费率诊断器 — __site_name__</title>
-    <meta name='description' content='用期间交易量和手续费反推实际费率，并对比口径。'>
-    <link rel='canonical' href='https://__site_domain__/tool.html'>
-    <meta property='og:type' content='website'>
-    <meta property='og:site_name' content='__site_name__'>
-    <meta property='og:title' content='实际费率诊断器 — __site_name__'>
-    <meta property='og:description' content='用期间交易量和手续费反推实际费率，并对比口径。'>
-    <meta property='og:url' content='https://__site_domain__/tool.html'>
-    <meta name='twitter:card' content='summary'>
-    <link rel='stylesheet' href='static/flow.css'>
-    <script type='application/ld+json'>
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "实际费率诊断器",
-        "url": "https://__site_domain__/tool.html"
-    }
-    </script>
-    <style>
-        /* 工具页补充样式 */
-        .clinic { max-width: 540px; margin: 0 auto; padding: 48px 24px 80px; }
-        .clinic-card {
-            background: var(--cardmilk);
-            border-radius: calc(var(--roundel) + 4px);
-            box-shadow: var(--puff-hi);
-            border-top: 4px solid var(--berry);
-            padding: 40px 44px;
-        }
-        .clinic-card h1 { font-family: var(--serif73); font-size: 1.48rem; }
-        .clinic-card > p { color: var(--mauve73); margin: 6px 0 8px; }
-        .clinic-card label {
-            display: block;
-            margin: 16px 0 6px;
-            font-size: .86rem;
-            font-weight: 800;
-            color: var(--berry-deep);
-        }
-        .clinic-card input {
-            width: 100%;
-            min-height: 47px;
-            padding: 10px 15px;
-            border: 1.5px solid var(--petalline);
-            border-radius: 13px;
-            background: var(--milktone);
-            color: var(--plumink);
-            font: inherit;
-            font-family: var(--mono73);
-            font-variant-numeric: tabular-nums;
-            transition: border-color var(--flit73), box-shadow var(--flit73);
-        }
-        .clinic-card input:focus {
-            outline: none;
-            border-color: var(--berry);
-            box-shadow: 0 0 0 4px color-mix(in srgb, var(--berry) 15%, transparent);
-        }
-        .clinic-card input[aria-invalid='true'] {
-            border-color: #b42318;
-            box-shadow: 0 0 0 4px color-mix(in srgb, #b42318 14%, transparent);
-        }
-        .clinic-run {
-            margin-top: 26px;
-            width: 100%;
-            min-height: 52px;
-            border: 0;
-            border-radius: 999px;
-            background: var(--berry);
-            color: #fdf0f3;
-            font: inherit;
-            font-size: 1rem;
-            font-weight: 800;
-            letter-spacing: .06em;
-            cursor: pointer;
-            box-shadow: 0 10px 24px color-mix(in srgb, var(--berry) 34%, transparent);
-            transition: transform var(--flit73), background var(--flit73);
-        }
-        .clinic-run:hover { transform: translateY(-2px); background: var(--berry-deep); }
-        .clinic-out {
-            display: block;
-            margin-top: 18px;
-            min-height: 26px;
-            padding: 15px 19px;
-            border-radius: 13px;
-            background: var(--blushwash);
-            line-height: 1.78;
-            font-variant-numeric: tabular-nums;
-        }
-        .clinic-out b { color: var(--berry-deep); }
-        @media (max-width: 600px) {
-            .clinic-card { padding: 26px 20px; }
-        }
-    </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f2eddf">
+  <title>卡片墙分栏平衡器 — %%SITE_NAME%%</title><meta name="description" content="按最短列规则在本地模拟 2–5 列卡片落点与列高差。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/tool.html">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="%%SITE_NAME%%"><meta property="og:title" content="卡片墙分栏平衡器 — %%SITE_NAME%%"><meta property="og:description" content="按最短列规则在本地模拟 2–5 列卡片落点与列高差。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/tool.html"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="masonry-studio.css">
 </head>
 <body>
-    <header class='cornice'>
-        <div class='cornice-in'>
-            <a class='cornice-brand' href='index.html'>__brand_en__</a>
-            <button type='button' class='cornice-btn' id='cornice-btn' aria-label='主导航' aria-expanded='false' aria-controls='cornice-nav'>
-                <svg width='21' height='21' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
-            </button>
-            <nav class='cornice-nav' id='cornice-nav' aria-label='主导航'>
-                <a href='index.html'>瀑布墙</a>
-                <a href='article.html'>文章</a>
-                <a href='tool.html' aria-current='page'>费率诊断</a>
-                <a href='legal.html'>披露</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class='clinic'>
-        <form class='clinic-card' id='dx-form' novalidate>
-            <h1>实际费率诊断器</h1>
-            <p>不看宣传页，用自己的账单算实际费率。本地计算，不上传。</p>
-            <label for='dx-vol'>期间交易量</label>
-            <input type='number' id='dx-vol' step='any' min='0' placeholder='如 100000' aria-describedby='dx-out'>
-            <label for='dx-fee'>期间手续费合计</label>
-            <input type='number' id='dx-fee' step='any' min='0' placeholder='如 52' aria-describedby='dx-out'>
-            <label for='dx-ref'>口径费率（%，可留空）</label>
-            <input type='number' id='dx-ref' step='any' min='0' max='100' placeholder='如 0.05' aria-describedby='dx-out'>
-            <button type='submit' class='clinic-run' id='dx-run'>诊断</button>
-            <output class='clinic-out' id='dx-out' role='status' aria-live='polite'></output>
-        </form>
-    </main>
-
-    <footer class='groundsill'>
-        <div class='groundsill-in'>
-            <p class='groundsill-fine'>结果仅供参考，实际以平台结算为准。</p>
-        </div>
-    </footer>
-
-    <script src='static/flow.js'></script>
-</body>
-</html>
+  <a class="bm73-skip" href="#bm73-main">跳到主要内容</a>
+  <header class="bm73-bubblebar"><a class="bm73-brand" href="index.html"><b>73</b><span>%%BRAND_EN%%</span><small>CURATED WALL</small></a><button class="bm73-menu-button" type="button" aria-controls="bm73-menu" aria-expanded="false"><i aria-hidden="true"></i><span>展厅</span></button><nav id="bm73-menu" aria-label="主导航"><a href="index.html">瀑布墙</a><a href="article.html">阅读间</a><a href="tool.html" aria-current="page">分栏器</a><a href="legal.html">展签</a><button type="button" data-palette-toggle>墨莓</button></nav></header>
+  <main class="bm73-balancer" id="bm73-main">
+    <header class="bm73-balancer-head"><p>MASONRY BALANCER / LOCAL PREVIEW</p><h1>卡片墙分栏平衡器</h1><span>每行使用 <code>标题 | 预估高度</code>。工具按输入顺序把卡片放入当前最短列，展示确定性预估。</span></header>
+    <div class="bm73-balancer-grid">
+      <form class="bm73-balance-form" data-balance-form novalidate>
+        <label for="bm73-cards"><b>卡片清单</b><span>每行一张，预估高度为 80–1200 的整数</span></label><textarea id="bm73-cards" rows="18" maxlength="16001" aria-describedby="bm73-balance-help bm73-balance-error" placeholder="阅读顺序 | 320&#10;来源边界 | 220&#10;移动复核 | 280"></textarea><small id="bm73-balance-help">标题最多 80 个 Unicode 字符；最多 60 张卡，总输入 8,000 字符。</small><p id="bm73-balance-error" data-balance-error></p>
+        <label class="bm73-column-field" for="bm73-columns"><span>预览列数</span><select id="bm73-columns"><option value="2">2 列</option><option value="3" selected>3 列</option><option value="4">4 列</option><option value="5">5 列</option></select></label>
+        <fieldset><legend>装载样例</legend><button type="button" data-balance-preset="even">均衡卡</button><button type="button" data-balance-preset="editorial">编辑墙</button><button type="button" data-balance-preset="skewed">偏斜墙</button></fieldset><footer><button type="submit">模拟分栏</button><button type="reset">清空</button></footer><p data-balance-status role="status" aria-live="polite">等待输入卡片清单。</p>
+      </form>
+      <section class="bm73-balance-report" data-ready="false" aria-labelledby="bm73-report-title"><header><div><p>PLACEMENT MAP</p><h2 id="bm73-report-title">落点报告</h2></div><b data-balance-state>STANDBY</b></header><dl><div><dt>卡片</dt><dd data-card-count>0</dd></div><div><dt>列数</dt><dd data-column-count>0</dd></div><div><dt>最高列</dt><dd data-tallest-height>0</dd></div><div><dt>列高差</dt><dd data-height-spread>0</dd></div></dl><ol data-balance-list><li>模拟后显示前 20 张卡的列号与累计高度。</li></ol><aside><p data-balance-note>高度是编辑预估，不是真实渲染像素。</p><button type="button" data-copy-balance-report disabled>复制落点报告</button><span data-balance-copy-status role="status" aria-live="polite"></span></aside></section>
+    </div>
+    <aside class="bm73-tool-note"><b>预估边界</b><p>最短列算法不读取字体、图片、媒体查询或真实卡片宽度；正式发布前仍需在目标视口检查。</p><a href="article.html">阅读错落墙方法</a></aside>
+  </main>
+  <footer class="bm73-footer"><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span><small>MASONRY BALANCER · LOCAL ONLY</small></footer><script src="curator.js"></script>
+</body></html>

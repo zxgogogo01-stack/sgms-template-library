@@ -1,36 +1,9 @@
-<!DOCTYPE html>
-<html lang='__lang__'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>这块砖掉了 — __site_name__</title>
-    <meta name='robots' content='noindex'>
-    <link rel='stylesheet' href='static/flow.css'>
-    <style>
-        /* 404 补充样式 */
-        .voidbrick { max-width: 440px; margin: 15vh auto; padding: 0 24px; text-align: center; }
-        .voidbrick-card {
-            background: var(--cardmilk);
-            border-radius: calc(var(--roundel) + 6px);
-            box-shadow: var(--puff-hi);
-            border: 1.5px dashed color-mix(in srgb, var(--berry) 40%, var(--petalline));
-            padding: 52px 40px;
-        }
-        .voidbrick-card h1 {
-            font-family: var(--serif73);
-            font-size: 3.2rem;
-            color: var(--berry);
-        }
-        .voidbrick-card p { color: var(--mauve73); margin: 8px 0 22px; }
-    </style>
-</head>
+<!doctype html>
+<html lang="%%LANG%%" data-palette="cream">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f2eddf"><meta name="robots" content="noindex,follow"><title>展位空缺 — %%SITE_NAME%%</title><meta name="description" content="请求的卡片未上墙，可用本地索引返回相关页面。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/404.html"><link rel="stylesheet" href="masonry-studio.css"></head>
 <body>
-    <div class='voidbrick'>
-        <div class='voidbrick-card'>
-            <h1>404</h1>
-            <p>这块砖从墙上掉了——页面不存在或已挪走。</p>
-            <a class='pipbtn pipbtn-hot' href='index.html'>回瀑布墙</a>
-        </div>
-    </div>
-</body>
-</html>
+  <a class="bm73-skip" href="#bm73-main">跳到主要内容</a>
+  <header class="bm73-bubblebar"><a class="bm73-brand" href="index.html"><b>73</b><span>%%BRAND_EN%%</span><small>CURATED WALL</small></a><button class="bm73-menu-button" type="button" aria-controls="bm73-menu" aria-expanded="false"><i aria-hidden="true"></i><span>展厅</span></button><nav id="bm73-menu" aria-label="主导航"><a href="index.html">瀑布墙</a><a href="article.html">阅读间</a><a href="tool.html">分栏器</a><a href="legal.html">展签</a><button type="button" data-palette-toggle>墨莓</button></nav></header>
+  <main class="bm73-missing" id="bm73-main"><figure aria-hidden="true"><span>4</span><i></i><span>4</span><b>EMPTY SLOT</b></figure><section><p>WALL INDEX / NOT FOUND</p><h1>这张卡片还没有上墙。</h1><span>输入一个展签词，本地索引会指向最近的页面。</span><form data-wall-search novalidate><label for="bm73-query">检索展墙</label><div><input id="bm73-query" type="search" maxlength="80" autocomplete="off" placeholder="如：阅读、分栏、披露" aria-describedby="bm73-search-help bm73-search-result"><button type="submit">查找</button></div><small id="bm73-search-help">最多 80 个字符，不向外部发送内容。</small><p id="bm73-search-result" data-wall-result role="status" aria-live="polite">也可以返回<a href="index.html">瀑布墙</a>。</p></form></section></main>
+  <footer class="bm73-footer"><b>%%BRAND_EN%%</b><span>%%SITE_TAGLINE%%</span><small>EMPTY SLOT · 404</small></footer><script src="curator.js"></script>
+</body></html>
