@@ -1,52 +1,8 @@
-<!DOCTYPE html>
-<html lang='[[LANG]]'>
-<head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta name='theme-color' content='#eef1e8'>
-  <title>[[SITE_NAME]] — 问题与答案工作台</title>
-  <meta name='description' content='[[SITE_DESC]]'>
-  <link rel='canonical' href='https://[[SITE_DOMAIN]]/'>
-  <meta property='og:type' content='website'><meta property='og:site_name' content='[[SITE_NAME]]'><meta property='og:title' content='[[SITE_NAME]] — Answer Desk'><meta property='og:description' content='[[SITE_DESC]]'><meta property='og:url' content='https://[[SITE_DOMAIN]]/'><meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='public.css'><link rel='stylesheet' href='static/answer.css'>
-  <script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebSite","name":"[[SITE_NAME]]","url":"https://[[SITE_DOMAIN]]/"}</script>
-</head>
-<body>
-  <header class='answerbar'><div class='answerbar-in'><a class='answerbar-brand' href='index.html'>[[BRAND_EN]]</a><button type='button' class='answerbar-btn' id='answerbar-btn' aria-label='主导航' aria-expanded='false' aria-controls='answerbar-nav'>＋</button><nav class='answerbar-nav' id='answerbar-nav' aria-label='主导航'><a href='index.html' aria-current='page'>问答台</a><a href='article.html'>解答</a><a href='tool.html'>问题分诊</a><a href='legal.html'>说明</a></nav></div></header>
-  <div class='answer-desk-page'>
-    <section class='ad-hero'>
-      <div class='ad-hero-copy'>
-        <p class='ad-eyebrow'>[[HERO_EYEBROW]]</p><h1>[[HERO_TITLE]]</h1><p class='ad-hero-description'>[[HERO_DESCRIPTION]]</p>
-        <form class='ad-search' action='article.html' method='get' role='search'><input type='search' name='q' placeholder='输入问题或关键词' aria-label='搜索问题'><button type='submit'>搜索</button></form>
-        <nav class='ad-suggestions' aria-label='栏目导航'><small>常见主题</small><a href='article.html'>费用</a><a href='article.html'>到账</a><a href='article.html'>安全</a><a href='article.html'>规则</a></nav>
-      </div>
-      <div class='ad-hero-media'><div class='ad-hero-embed' aria-hidden='true'><span>?</span><i>ANSWER<br>DESK</i></div></div>
-    </section>
-
-    <section class='ad-feature'>
-      <div class='ad-feature-title'><small>[[HOME_FEATURED_LABEL]]</small><h2><a href='article.html'>手续费为什么和费率表算出来的不一样？</a></h2><p>费用核对 · <time datetime='2026-01-24'>2026-01-24</time></p></div>
-      <div class='ad-feature-answer'><p>先统一订单类型、计价单位和成交时间，再按当时生效的费率版本复算；多数差异出现在比较条件不一致。</p><a href='article.html'>阅读全文 →</a></div>
-      <a class='ad-feature-cover' href='article.html' aria-label='阅读置顶解答'><span>Q<br><b>01</b></span></a>
-    </section>
-
-    <section class='ad-popular'>
-      <header><h2>[[HOME_LATEST_LABEL]]</h2><a href='article.html'>查看全部 →</a></header>
-      <div class='ad-question-head'><span>问题</span><span>类别</span><span>日期</span></div>
-      <a class='ad-question-row' href='article.html'><span><b>同一等级的实际费率为什么会变化？</b><em>需要同时检查订单类型、优惠状态和规则生效时间。</em></span><small>费用核对</small><time datetime='2026-01-22'>2026-01-22</time></a>
-      <a class='ad-question-row' href='article.html'><span><b>显示已结算但余额没有变化怎么办？</b><em>先核对结算批次、到账位置和页面更新时间。</em></span><small>到账记录</small><time datetime='2026-01-20'>2026-01-20</time></a>
-      <a class='ad-question-row' href='article.html'><span><b>如何判断一张规则截图是否可靠？</b><em>检查来源域名、发布日期以及是否能回到完整上下文。</em></span><small>来源辨识</small><time datetime='2026-01-18'>2026-01-18</time></a>
-      <a class='ad-question-row' href='article.html'><span><b>旧规则与新公告冲突时以哪个为准？</b><em>找到明确的生效时间和适用范围，再匹配实际行为时间。</em></span><small>规则变更</small><time datetime='2026-01-16'>2026-01-16</time></a>
-      <a class='ad-question-row' href='article.html'><span><b>异常登录记录应先保存哪些信息？</b><em>记录时间、设备、位置和权限变化，并立即检查安全设置。</em></span><small>账户安全</small><time datetime='2026-01-14'>2026-01-14</time></a>
-    </section>
-
-    <section class='ad-bottom'>
-      <div class='ad-topics'><h2>全部主题</h2><div>
-        <a href='article.html'><b>费用核对</b><span>费率、优惠与结算金额</span><strong>18 个问题</strong></a><a href='article.html'><b>到账记录</b><span>状态、批次与余额位置</span><strong>14 个问题</strong></a><a href='article.html'><b>来源辨识</b><span>页面、域名与原始上下文</span><strong>12 个问题</strong></a><a href='article.html'><b>规则变更</b><span>版本、生效时间与范围</span><strong>09 个问题</strong></a><a href='article.html'><b>账户安全</b><span>登录、设备与权限记录</span><strong>11 个问题</strong></a><a href='article.html'><b>核验方法</b><span>证据、时间线与交叉验证</span><strong>16 个问题</strong></a>
-      </div></div>
-      <aside class='ad-updates'><h2>最近更新</h2><a href='article.html'><span>费率核对需要哪三个字段</span><time datetime='2026-01-22'>01-22</time></a><a href='article.html'><span>到账状态的常见更新时间差</span><time datetime='2026-01-20'>01-20</time></a><a href='article.html'><span>页面来源的快速核验法</span><time datetime='2026-01-18'>01-18</time></a><a href='article.html'><span>新旧规则的适用边界</span><time datetime='2026-01-16'>01-16</time></a><a href='article.html'><span>异常登录记录的保留顺序</span><time datetime='2026-01-14'>01-14</time></a></aside>
-    </section>
-</div>
-  <footer class='answerfoot'><div class='answerfoot-in'><p>[[BRAND_EN]] · [[SITE_TAGLINE]]</p><nav aria-label='页脚导航'><a href='article.html'>解答</a><a href='tool.html'>问题分诊</a><a href='legal.html'>说明</a></nav><small>内容用于信息核对，不构成投资、法律或税务建议。</small></div></footer>
-  <script src='static/answer.js'></script>
-</body>
-</html>
+<!doctype html><html lang="%%LANG%%" data-sa89-signal="day"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#dfe5d8"><title>%%SITE_NAME%%｜把问题接到正确的答案线路</title><meta name="description" content="用问题边界、已知条件、来源与更新信号组织答案，让每次回应都有清晰线路。"><link rel="canonical" href="https://%%SITE_DOMAIN%%/"><meta property="og:type" content="website"><meta property="og:site_name" content="%%SITE_NAME%%"><meta property="og:title" content="把问题接到正确的答案线路"><meta property="og:description" content="一套围绕问题界定、答案来源和更新信号建立的鼠尾草问答交换台。"><meta property="og:url" content="https://%%SITE_DOMAIN%%/"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="switchboard.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"%%SITE_NAME%%","url":"https://%%SITE_DOMAIN%%/","description":"%%SITE_DESC%%"}</script></head>
+<body><a class="sa89-skip" href="#sa89-main">跳到主要内容</a><header class="sa89-console"><a class="sa89-brand" href="index.html" aria-label="%%SITE_NAME%% 首页"><b>89</b><span>%%BRAND_EN%%</span><small>ANSWER SWITCHBOARD</small></a><nav id="sa89-nav" aria-label="主导航"><a href="index.html" aria-current="page">交换台</a><a href="article.html">回答协议</a><a href="tool.html">问句去重</a><a href="legal.html">线路说明</a><button type="button" data-sa89-signal-toggle aria-pressed="false">切换夜间信号</button></nav><button class="sa89-menu" type="button" aria-expanded="false" aria-controls="sa89-nav"><span>展开线路目录</span><i aria-hidden="true"></i></button><p><i></i><span>LINE 089-A</span><b>RECEIVING</b></p></header>
+<main id="sa89-main"><section class="sa89-hero"><div class="sa89-call"><p>QUESTION ROUTING / OPEN CHANNEL</p><h1>答案之前，<br>先确认<em>问题。</em></h1><span>%%SITE_TAGLINE%%</span><footer><a href="article.html">阅读回答协议</a><a href="tool.html">整理重复问句</a></footer><dl><div><dt>01</dt><dd>问题边界</dd></div><div><dt>02</dt><dd>已知条件</dd></div><div><dt>03</dt><dd>来源状态</dd></div></dl></div><figure class="sa89-board"><svg viewBox="0 0 720 650" role="img" aria-labelledby="sa89-board-title sa89-board-desc"><title id="sa89-board-title">问答线路交换台</title><desc id="sa89-board-desc">三条彩色线路把输入问题连接到边界、来源与更新三个输出端口。</desc><defs><pattern id="sa89-dots" width="52" height="52" patternUnits="userSpaceOnUse"><circle cx="26" cy="26" r="11" fill="none" stroke="currentColor" stroke-opacity=".22"/><circle cx="26" cy="26" r="3" fill="currentColor" fill-opacity=".26"/></pattern></defs><rect x="25" y="25" width="670" height="600" rx="12" fill="url(#sa89-dots)"/><g class="sa89-wires" fill="none" stroke-linecap="round" stroke-width="10"><path d="M95 125C220 125 168 276 314 276S448 130 625 130"/><path d="M96 325C225 325 235 445 372 445s102-120 253-120"/><path d="M96 525c100 0 116-123 236-123s148 123 293 123"/></g><g class="sa89-ports"><g transform="translate(95 125)"><circle r="27"/><text y="7">Q</text></g><g transform="translate(95 325)"><circle r="27"/><text y="7">K</text></g><g transform="translate(95 525)"><circle r="27"/><text y="7">S</text></g><g transform="translate(625 130)"><circle r="27"/><text y="7">B</text></g><g transform="translate(625 325)"><circle r="27"/><text y="7">R</text></g><g transform="translate(625 525)"><circle r="27"/><text y="7">U</text></g></g><g class="sa89-board-labels"><text x="60" y="75">INPUT</text><text x="575" y="75">ROUTED</text><text x="270" y="605">SWITCHBOARD 089 / LIVE</text></g></svg><figcaption><b>THREE ROUTES CONNECTED</b><span>BOUNDARY · REFERENCE · UPDATE</span></figcaption></figure><aside class="sa89-meter"><header><span>SIGNAL</span><b>89.3</b></header><div><i></i><i></i><i></i><i></i><i></i></div><p>答案信号</p><strong>清晰</strong><small>等待下一次复核</small></aside></section>
+<section class="sa89-frequency"><span>QUESTION IN</span><i></i><b>BOUNDARY / SOURCE / UPDATE</b><i></i><span>ANSWER OUT</span></section>
+<section class="sa89-intake" aria-labelledby="sa89-intake-title"><header><p><span>INCOMING / 089</span><b>正在受理</b></p><h2 id="sa89-intake-title">先把来电记准确，<br>再决定接往哪条线路。</h2><p class="sa89-stamp"><ruby>接线<rp>（</rp><rt>ROUTING</rt><rp>）</rp></ruby><abbr title="Question Assurance">QA</abbr><time datetime="2026-09-01">本次记录</time></p></header><figure><blockquote><p>“我想知道这条建议现在是否仍然适用，以及它依据的是什么。”</p><footer><cite>匿名提问 · 线路 03</cite></footer></blockquote><figcaption><mark>已复述</mark><span>对象与时点已确认</span></figcaption></figure><details><summary><dfn>受理记录</dfn><span>展开本次接线摘要</span></summary><p>问题对象已确认，适用时间仍待补充。接线员按下 <kbd>HOLD</kbd>，在回答前补齐来源日期。</p><samp>HANDOFF / BOUNDARY → EVIDENCE → UPDATE</samp></details><dl><div><dt>问题清晰度</dt><dd><meter min="0" max="100" value="82">82%</meter><span>82 / 100</span></dd></div><div><dt>资料覆盖</dt><dd><progress max="4" value="3">3 / 4</progress><span>3 / 4</span></dd></div></dl><address><b>下一站：来源校验台</b><a href="article.html#sa89-evidence">查看接线规则</a></address></section>
+<section class="sa89-routing"><header><div><span>FOUR PATCHES / ONE ANSWER</span><h2>一条可靠回答，<br>至少接通四个插孔。</h2></div><p>回答不是把所有信息一次说完，而是让范围、依据、限制和更新时间都能被听见。</p></header><menu><li><b>Q1</b><span>BOUNDARY</span><h3>问题边界</h3><p>明确对象、时间、条件和不在本次回答中的部分。</p><a href="article.html#sa89-boundary">接通线路</a></li><li><b>Q2</b><span>EVIDENCE</span><h3>答案依据</h3><p>区分原始来源、转述、推断与仍待确认的信息。</p><a href="article.html#sa89-evidence">接通线路</a></li><li><b>Q3</b><span>LIMITS</span><h3>适用限制</h3><p>写清例外、前提和哪些情况需要专业判断。</p><a href="article.html#sa89-limits">接通线路</a></li><li><b>Q4</b><span>UPDATE</span><h3>更新信号</h3><p>标记版本、复查日期和会让答案失效的新条件。</p><a href="article.html#sa89-update">接通线路</a></li></menu></section>
+<section class="sa89-transcript"><aside><span>OPERATOR NOTE</span><b>好的回答，先复述问题。</b></aside><blockquote><p>“复述不是重复，它是在发送答案前确认双方连接的是同一条线路。”</p><footer>%%SITE_NAME%% · 回答协议</footer></blockquote><a href="tool.html"><strong>100</strong><span>最多一百个问句<br>检测重复线路</span></a></section></main>
+<footer class="sa89-footer"><p><b>%%BRAND_EN%%</b><span>%%SITE_DESC%%</span></p><nav aria-label="页脚导航"><a href="article.html">协议</a><a href="tool.html">工具</a><a href="legal.html">说明</a></nav><small>%%SITE_DOMAIN%% · SWITCHBOARD 089</small></footer><script src="operator.js"></script></body></html>

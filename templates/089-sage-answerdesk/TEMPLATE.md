@@ -1,24 +1,34 @@
 # 089-sage-answerdesk
 
-## 来源与静态化口径
+一套可直接替换文字使用的“鼠尾草问答交换台”静态站模板。五页 UI、桌面与移动布局、日间/夜间信号主题、无障碍菜单、阅读进度、复制反馈、404 本地搜索与 FAQ 问句规范化去重台均已搭建完整。
 
-- 军哥动态模板：`home_answer_desk`
-- 忠实保留 Hero 搜索、四个建议词、置顶答案、问题台账、六主题区和五条更新侧栏。
-- 原始 `answer-desk-page`、全部 `ad-*` 类名与模块顺序完整保留；Go 条件、循环和翻译字段展开为静态示例。
+## 后续 AI 直接使用
 
-## 文件清单
+**只替换变量、品牌文字、问题、答案和真实来源，不要重建 UI，不要改类名、页面骨架、视觉主题或交互结构。** 框架已经处理响应式、触控尺寸、状态反馈、安全 DOM 和去指纹；只写内容即可节省 token。
 
-- `index.html`：Answer Desk 首页完整静态化。
-- `article.html`：三步核对解答与字段表。
-- `tool.html`：三类问题可切换的分诊工具。
-- `legal.html`：问题收录、答案核验、更新与免责说明。
-- `404.html`、`robots.txt`、`sitemap.xml`：静态站配套文件。
-- `public.css`：军哥源库公共 `style.css` 的原样副本。
-- `static/answer.css`：补齐源包未提供的 `ad-*` 专属样式与内页样式。
-- `static/answer.js`：移动导航及问题分诊交互。
+可替换：`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_TAGLINE%%`、`%%SITE_DESC%%`、`%%CONTACT_EMAIL%%`，以及五页中的演示文字、日期、问题、答案、来源与限制。
 
-## 可替换占位符
+保持所有 `sa89-` 类名、`data-sa89-*` 属性、内联 SVG 交换台、区块顺序、菜单/主题/进度/复制/搜索结构、CSS 断点与辅助功能、`operator.js` 验证和安全输出不变。
 
-`[[LANG]]`、`[[SITE_NAME]]`、`[[BRAND_EN]]`、`[[SITE_DOMAIN]]`、`[[SITE_DESC]]`、`[[SITE_TAGLINE]]`、`[[HERO_EYEBROW]]`、`[[HERO_TITLE]]`、`[[HERO_DESCRIPTION]]`、`[[HOME_FEATURED_LABEL]]`、`[[HOME_LATEST_LABEL]]`、`[[CONTACT_CHANNEL]]`
+## 文件
 
-模板不包含注册、邀请或导流组件；部署前应替换占位符与示例问答数据。
+- `index.html`：问答交换台、模拟线路板、四路回答协议与值机札记
+- `article.html`：问题边界、依据、限制、更新与交接格式
+- `tool.html`：FAQ 问句规范化去重台
+- `legal.html`：问题收录、来源、限制、披露、隐私与更新
+- `404.html`：未接通线路与本地搜索
+- `switchboard.css`、`operator.js`、`robots.txt`、`sitemap.xml`
+
+## 去重规则
+
+- 2–100 个非空行，每行一个问句
+- 单句 2–200 Unicode 字符，总输入最多 10,000 Unicode 字符
+- 归组键依次执行 NFKC、转小写、移除全部空白、移除末尾连续 `?` 或 `？`
+- 归一后为空的问句拒绝
+- 保留每组第一个原句、出现次数和全部原始行号
+- 界面最多显示前 40 组，复制包含全部组
+- 用户输入只通过节点和 `textContent` 输出
+
+规范化相同不代表答案必然相同；合并前仍需检查意图、条件、版本与上下文。工具不做语义相似度、自动答案合并或事实验证。
+
+上线前替换全部占位符、示例问题、答案、来源与日期；修改 sitemap 域名；根据实际服务补充 Cookie、搜索、分析、表单、存储和商业关系披露。保留 UI 框架，只换文字后重新审计。
