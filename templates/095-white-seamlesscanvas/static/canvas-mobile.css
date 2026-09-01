@@ -1,6 +1,0 @@
-@media (max-width:650px){
-  .sc-latest,.sc-curation,.sc-curation>div,.sc-latest header,.sc-curation header,.sc-latest h2,.sc-curation h2{min-width:0}
-  .sc-latest header,.sc-curation header{gap:12px;align-items:flex-start}
-  .sc-latest h2,.sc-curation h2{overflow-wrap:anywhere}
-  .sc-latest header>a{flex:0 0 auto}
-}

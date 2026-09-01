@@ -1,24 +1,35 @@
-# 095-white-seamlesscanvas
+# 095 · White Seamless Canvas
 
-## 来源与静态化口径
+高端无边界白色策展模板。固定垂直轨道、漂浮框景、极细坐标网格与克制的钴蓝/珊瑚标记构成独立视觉；首页、长文、工具、策展说明和 404 完整搭建。
 
-- 军哥动态模板：`home_seamless_canvas`
-- 忠实保留媒体 Hero、主叙事、四项入口索引、重点内容、六条最新内容和 3+4 策展区。
-- 原始 `seamless-canvas-page`、全部 `sc-*` 与动画类名、模块顺序完整保留；Go 条件和循环展开为静态示例。
+## 给后续 AI 的直接使用规则
 
-## 文件清单
+UI、响应式布局、底纸主题、菜单、阅读进度、复制、比例预检与安全路由均已完成。**只替换变量和业务文字，不要重做网站 UI，不要改变 `ws95-` 类名、ID、`data-ws95-*` 属性、文件名或工具边界。** 其他 AI 可直接写材料、札记和说明，无需再次消耗 token 搭建页面骨架。
 
-- `index.html`：Seamless Canvas 首页完整静态化。
-- `article.html`：三阶段视觉编辑札记。
-- `tool.html`：收集、筛选、成组三步编排器。
-- `legal.html`：来源、隐私、修订和联系说明。
-- `404.html`、`robots.txt`、`sitemap.xml`：静态站配套。
-- `public.css`：军哥公共 `style.css` 的原样副本。
-- `static/canvas.css`：补齐源包未提供的 `sc-*` 专属样式与内页样式。
-- `static/canvas.js`：移动导航及三步编排器交互。
+## 必换变量
 
-## 可替换占位符
+`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_TAGLINE%%`、`%%SITE_DESC%%`、`%%CONTACT_EMAIL%%`
 
-`[[LANG]]`、`[[SITE_NAME]]`、`[[BRAND_EN]]`、`[[SITE_DOMAIN]]`、`[[SITE_DESC]]`、`[[SITE_TAGLINE]]`、`[[HERO_EYEBROW]]`、`[[HERO_TITLE]]`、`[[HERO_DESCRIPTION]]`、`[[HOME_FEATURED_LABEL]]`、`[[HOME_LATEST_LABEL]]`、`[[CONTACT_CHANNEL]]`
+## 页面内容槽位
 
-模板不包含注册、邀请或导流组件；部署前应替换占位符与示例内容。
+- `index.html`：画布首屏、三阶段研究与四项内容索引
+- `article.html`：收集、筛选、编排、复核四阶段札记
+- `tool.html`：cover 裁切与 contain 留边预检；只改说明，不改验证和安全输出
+- `legal.html`：来源、署名、裁切、替代文本、修订说明
+- `404.html`：本地安全关键词路由
+- `seamless.css`：完整视觉、底纸主题与响应式系统
+- `framer.js`：主题、菜单、进度、复制、工具与 404 路由
+
+## 工具契约
+
+原图宽高与展示框宽高均为 1–100,000 的不带前导零普通整数。`cover` 取较大缩放比并报告居中后横向或纵向裁切的原图占比；`contain` 取较小缩放比并报告展示框空白占比。同比例时两者均为 0%。
+
+工具不读取图片、不识别主体、不判断清晰度、许可或构图质量；人物、文字、图表和证据性图片仍须人工选择焦点。
+
+## 上线前检查
+
+- 五页各一个 `h1`，交互目标至少 44×44px。
+- 1440×1000 与 390×844 无页面级横向溢出、坏链接、坏图或控制台错误。
+- 404 保留 `noindex,follow`；替换 canonical、邮箱、robots 和 sitemap。
+- 不添加邀请码、返佣或未经披露的外链，不把署名误述为许可。
+- 运行静态审计、模板验证、全库相似度与真实浏览器交互回归。
