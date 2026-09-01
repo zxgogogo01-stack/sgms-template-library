@@ -1,26 +1,26 @@
-# 085-cobalt-briefingdesk（军哥 home_briefing_desk 忠实静态化）
+# 085-cobalt-briefingdesk｜钴蓝决策简报桌
 
-## 适合什么站
+适合晨报、指南、团队知识库和决策型内容站。完整框架包含钴蓝/纸本双主题、总览桌、长文、5W1H 检查器、公开说明、404、移动目录、阅读进度、复制反馈与 SEO。后续 AI 只需替换真实文字和变量，不要重做 UI 或套回通用卡片站。
 
-适合指南、晨报和知识简报站：简报横带、主导读区、编号栏目清单、双导读行和三卡最新区组成完整首页。
+## 文件与占位符
 
-## 复刻说明
+五页为 `index.html`、`article.html`、`tool.html`、`legal.html`、`404.html`；视觉与交互为 `dispatch.css`、`briefing.js`；另有 `robots.txt`、`sitemap.xml`。
 
-- 首页沿用 `home_briefing_desk` 的 `briefing-desk-page`、`bd-briefline`、`bd-lead`、`bd-lead-main`、`bd-lead-media`、`bd-feature-caption`、`bd-checks`、`bd-guides` 与 `bd-latest` 原始骨架、类名和顺序。
-- Go 条件与循环已静态化为四项栏目清单、两条导读和三张最近简报；眉标、标题、描述、日期、摘要及阅读入口均保留。
-- `public.css` 是军哥公共样式表的原样副本；`css/brief.css` 只负责现有钴蓝简报外壳、橙色强调、深浅色和响应式适配。
-- 旧版邀请码钴蓝条及复制逻辑已删除，首页不再增加源模板之外的转化组件。
+精确替换：`{LANG}`、`{SITE_NAME}`、`{BRAND_EN}`、`{SITE_DOMAIN}`、`{SITE_TAGLINE}`、`{SITE_DESC}`、`{CONTACT_EMAIL}`。
 
-## 页面与文件
+## AI 文字接入顺序
 
-`index.html`、`article.html`、`tool.html`、`legal.html`、`404.html`、`robots.txt`、`sitemap.xml`、`TEMPLATE.md`、`public.css`、`css/brief.css`、`brief.js`
+1. 全局替换七个变量，统一 canonical、Open Graph、JSON-LD、robots 与 sitemap 域名。
+2. 只改标题、摘要、正文、日期、版本、栏目和真实声明；保留 `bd85-` 类名、`data-bd85-*` 属性、ID、文件与页面骨架。
+3. 首页四道桌面可换成真实工作流；文章章节 ID 与目录同步。
+4. 工具可换样例，不改变六字段、单项 300、总计 1200、简洁线 120 的合同；改变规则须同步重写脚本、文案与测试。
+5. 按真实业务更新商业关系、外部服务、数据用途与联系信息。
+6. 用 1440×1000 和 390×844 复核五页、菜单、主题、进度、复制、工具和 404。
 
-## 占位符清单（`{X}` 单花括号语法）
+## 禁止与验收
 
-`{SITE_NAME}`、`{BRAND_EN}`、`{SITE_DOMAIN}`、`{SITE_TAGLINE}`、`{SITE_DESC}`、`{CONTACT_EMAIL}`、`{LANG}`
-（JSON-LD 内花括号为 JSON 语法，替换时按整词精确匹配）
-
-## 可调项
-
-- 场景导航器的推荐清单在 `brief.js` 的 `sceneMap` 中维护，并替换为真实文章链接。
-- 导读、最近简报与栏目清单可按真实内容同步更新；启用图片分支时填写真实尺寸、替代文本和链接。
+- 不引入远程字体、图片、框架、统计或 CDN；不合并跨站公共样式。
+- 不使用 `innerHTML` 输出输入；不宣称完整度等于事实正确或建议可行。
+- 每页一个可见 `h1`，404 保持 `noindex,follow`。
+- 工具覆盖六字段缺项、1/300/301 字符、总计 1200/1201、120/121 简洁线、Unicode、预设、失效、复制、清空与恶意文本。
+- 移动目录首链聚焦、Escape 回焦；控件至少 44×44px；无溢出、坏链和控制台错误。
