@@ -1,25 +1,31 @@
-# 077-fir-index（军哥 home_index 忠实静态化）
+# 077-fir-index（冷杉林地复查站）
 
-## 适合什么站
+## 定位
 
-适合资料库、知识索引和高密度内容站：Hero 文案配散点快捷入口，正文用编号、标题、栏目和日期组成四列表格。
+适合持续更新的知识库、编辑研究站、产品文档和内容维护门户。框架包含首页、长文、复查工具、披露、404、双主题、移动导航、复制反馈、SEO 与结构化数据；后续 AI 只替换文字、日期和项目数据，不需要重做网站 UI。
 
-## 复刻说明
+## 页面与资产
 
-- 首页沿用 `home_index` 的 `index-wrap`、`index-head`、`index-scatter`、`index-table` 和 `index-item` 原始骨架、类名与信息顺序。
-- Go 循环已静态化为五个散点入口和八条索引记录；首条精选内容、编号、栏目与日期均按源模板字段落位。
-- `public.css` 是军哥公共样式表的原样副本；本地 `style.css` 只保留现有站点外壳、散点布局、表格样式与响应式适配。
-- 原旧版邀请码条及复制逻辑已删除，首页不再添加源模板之外的转换组件。
+- `index.html`：年轮与等高线 Hero、四项维护路标、三块观察样地和最近记录。
+- `article.html`：阅读进度、固定路线目录、表格、引文与可复制交接清单。
+- `tool.html`：内容复查到期排序器，按参考日期生成逾期优先队列。
+- `legal.html`：来源维护、商业关系、工具隐私、信息边界、更正入口。
+- `404.html`：`noindex` 本地路线检索。
+- `field-station.css`、`ranger.js`：077 独占视觉和交互。
 
-## 页面与文件
+## 占位符
 
-`index.html`、`article.html`、`tool.html`、`legal.html`、`404.html`、`robots.txt`、`sitemap.xml`、`TEMPLATE.md`、`public.css`、`style.css`、`roster.js`。
+按整词替换：`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_DESC%%`、`%%SITE_TAGLINE%%`、`%%HERO_DESCRIPTION%%`、`%%CURRENT_YEAR%%`、`%%PUBLISHED_DATE%%`、`%%UPDATED_DATE%%`、`%%CONTACT_EMAIL%%`。
 
-## 占位符清单（`~X~` 语法）
+## AI 内容接入约束
 
-`~SITE_NAME~`、`~BRAND_EN~`、`~SITE_DOMAIN~`、`~SITE_TAGLINE~`、`~SITE_DESC~`、`~CONTACT_EMAIL~`、`~LANG~`
+1. 保留所有 `fr77-` 类名、`data-fr77-*` 属性、ID、ARIA 与脚本引用，只替换可见文字和日期。
+2. 工具格式固定为 `标题 | YYYY-MM-DD | 间隔天数`：1–40 项，标题最多 80 个 Unicode 字符，总输入最多 5,000 字符，间隔为 1–3650 的普通十进制整数。上次核对日不得晚于参考日期。
+3. 日期以 UTC 日历日计算；不要把逾期排序描述成风险、重要性或事实可靠度结论。
+4. 文章必须保留唯一 `h1`，目录链接对应真实章节 ID；增减正文后复查阅读进度与双视口。
+5. `legal.html` 应改为真实关系；新增统计、表单或第三方服务时补充隐私说明。
+6. 不引入外部字体、公共 CSS、第三方脚本、追踪像素或跨模板共享组件。
 
-## 可调项
+## 使用顺序与验收
 
-- 索引行和散点入口可按真实内容增删，新增静态行时需顺延编号。
-- 栏目和日期在窄屏会按既有规则收纳，深浅色模式保持可用。
+先替换变量，再更新首页和文章，随后修改真实披露，最后替换 robots 与 sitemap 域名。运行 `node tools/audit-template.js templates/077-fir-index`，并在 1440×1000 与 390×844 检查五页、主题、菜单、复制、阅读进度、日期边界、404、控制台和横向溢出。
