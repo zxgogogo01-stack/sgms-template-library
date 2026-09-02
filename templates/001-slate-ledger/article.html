@@ -1,83 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>理解挂单与吃单：先比较交易路径，再比较费率 — {{SITE_NAME}}</title>
-  <meta name="description" content="从成交路径、费率口径与档位规则三个维度，建立可复核的交易费用比较方法。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>专题记录目录 — {{SITE_NAME}}</title>
+  <meta name="description" content="12 份围绕费率、交易机制、风险、转账与账户安全的编辑专题目录。">
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html">
-  <meta property="og:title" content="理解挂单与吃单：先比较交易路径，再比较费率 — {{SITE_NAME}}">
-  <meta property="og:description" content="从成交路径、费率口径与档位规则三个维度，建立可复核的交易费用比较方法。">
+  <link rel="alternate" type="application/rss+xml" title="{{SITE_NAME}} RSS" href="feed.xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#1d2a32">
+  <meta property="og:title" content="专题记录目录 — {{SITE_NAME}}">
+  <meta property="og:description" content="12 份围绕费率、交易机制、风险、转账与账户安全的编辑专题目录。">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
-  <link rel="stylesheet" href="assets/base.css">
-  <link rel="stylesheet" href="assets/layout.css">
-  <link rel="stylesheet" href="assets/parts.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "理解挂单与吃单：先比较交易路径，再比较费率",
-    "datePublished": "2026-01-01",
-    "author": { "@type": "Organization", "name": "{{SITE_NAME}}" }
-  }
-  </script>
-  <style>
-    .essay {
-      max-width: 720px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 40px 32px;
-      border-radius: 6px;
-    }
-    .essay__meta {
-      color: #5a6b78;
-      font-size: 0.9rem;
-      margin-bottom: 24px;
-    }
-    .essay h2 {
-      margin-top: 32px;
-    }
-    @media (prefers-color-scheme: dark) {
-      .essay { background: #1e262d; }
-      .essay__meta { color: #93a4b1; }
-    }
-  </style>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="专题记录目录 — {{SITE_NAME}}">
+  <meta name="twitter:description" content="12 份围绕费率、交易机制、风险、转账与账户安全的编辑专题目录。">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/base.css?v=2">
+  <link rel="stylesheet" href="assets/layout.css?v=2">
+  <link rel="stylesheet" href="assets/parts.css?v=2">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"专题记录目录","description":"12 份围绕费率、交易机制、风险、转账与账户安全的编辑专题目录。","url":"https://{{SITE_DOMAIN}}/article.html","author":{"@type":"Person","name":"{{AUTHOR_NAME}}"},"dateModified":"{{UPDATED_DATE}}"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="assets/app.js?v=2" defer></script>
 </head>
-<body>
+<body class="index-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="top-line">
-    <a class="top-line__brand" href="index.html" aria-label="返回首页">{{SITE_NAME}}</a>
+    <a class="top-line__brand" href="index.html" aria-label="返回首页">{{BRAND_EN}}</a>
     <nav class="top-line__nav" aria-label="主导航">
-      <a class="top-line__link" href="index.html">费率总览</a>
-      <a class="top-line__link" href="article.html" aria-current="page">文章</a>
+      <a class="top-line__link" href="index.html">总览</a>
+      <a class="top-line__link" href="article.html" aria-current="page">专题</a>
       <a class="top-line__link" href="tool.html">工具</a>
-      <a class="top-line__link" href="legal.html">关于</a>
+      <a class="top-line__link" href="about.html">关于</a>
+      <a class="top-line__link" href="contact.html">联系</a>
     </nav>
   </header>
-
-  <main class="page-well">
-    <article class="essay">
-      <h1>理解挂单与吃单：先比较交易路径，再比较费率</h1>
-      <p class="essay__meta">方法说明 · 阅读约 4 分钟 · 上线时填写最近核对日期</p>
-      <p class="essay__lead">费率表只是比较的起点。真正影响费用的，是订单如何成交、当前账户落在哪个档位，以及平台如何定义统计周期。</p>
-      <h2>先确认订单如何进入市场</h2>
-      <p>挂单通常以限价委托进入订单簿，等待其他交易者成交；吃单则会立即匹配已有委托。两者对应的流动性角色不同，平台也往往采用不同费率。</p>
-      <p>比较时不要只摘录最低数字。应同时记录订单类型、适用市场与数据核对日期，避免把不同口径放进同一列。</p>
-      <h2>再核对账户档位</h2>
-      <p>平台常按近三十日成交量、资产余额或会员等级分档。展示费率时，应把档位条件和费率放在一起，并注明信息以官方页面为准。</p>
-      <ul>
-        <li>确认统计周期与时区</li>
-        <li>区分现货、合约等市场类型</li>
-        <li>记录优惠条件和失效规则</li>
-      </ul>
-      <h2>建立可复核的比较记录</h2>
-      <p>一份可靠的费率记录应保留来源、核对日期和适用条件。数字更新时只改数据层，解释文字仍保持同一口径，读者才能看懂变化来自哪里。</p>
-    </article>
-  </main>
-
+  <main id="main" class="page-well"><header class="index-hero"><p class="section-label">Editorial dossiers</p><h1>把复杂规则拆成<br>可复查的记录</h1><p>十二个内容位已经包含目录、正文层级、作者区、来源区、FAQ 变体和相关内容组件；接入时只需要写作和核实。</p></header><nav class="category-tabs" aria-label="专题分类"><a href="registers/cost-mechanics.html"><span>{{CATEGORY_01_NAME}}</span><small>4 篇</small></a><a href="registers/transfer-safety.html"><span>{{CATEGORY_02_NAME}}</span><small>4 篇</small></a><a href="registers/planning-records.html"><span>{{CATEGORY_03_NAME}}</span><small>4 篇</small></a></nav><section class="brief-grid" aria-label="专题列表"><article class="brief-card brief-card--0"><span>01</span><div><p>Onboarding record · 01</p><h2><a href="briefs/account-opening-ledger.html">{{ARTICLE_01_TITLE}}</a></h2><p>{{ARTICLE_01_DESC}}</p></div></article><article class="brief-card brief-card--1"><span>02</span><div><p>Reading note · 02</p><h2><a href="briefs/fee-schedule-reading.html">{{ARTICLE_02_TITLE}}</a></h2><p>{{ARTICLE_02_DESC}}</p></div></article><article class="brief-card brief-card--2"><span>03</span><div><p>Mechanics · 03</p><h2><a href="briefs/maker-taker-notes.html">{{ARTICLE_03_TITLE}}</a></h2><p>{{ARTICLE_03_DESC}}</p></div></article><article class="brief-card brief-card--0"><span>04</span><div><p>Decision map · 04</p><h2><a href="briefs/order-type-map.html">{{ARTICLE_04_TITLE}}</a></h2><p>{{ARTICLE_04_DESC}}</p></div></article><article class="brief-card brief-card--1"><span>05</span><div><p>Context sheet · 05</p><h2><a href="briefs/funding-rate-context.html">{{ARTICLE_05_TITLE}}</a></h2><p>{{ARTICLE_05_DESC}}</p></div></article><article class="brief-card brief-card--2"><span>06</span><div><p>Transfer route · 06</p><h2><a href="briefs/wallet-transfer-route.html">{{ARTICLE_06_TITLE}}</a></h2><p>{{ARTICLE_06_DESC}}</p></div></article><article class="brief-card brief-card--0"><span>07</span><div><p>Final review · 07</p><h2><a href="briefs/withdrawal-review.html">{{ARTICLE_07_TITLE}}</a></h2><p>{{ARTICLE_07_DESC}}</p></div></article><article class="brief-card brief-card--1"><span>08</span><div><p>Cornerstone · 08</p><h2><a href="briefs/risk-budget-framework.html">{{ARTICLE_08_TITLE}}</a></h2><p>{{ARTICLE_08_DESC}}</p></div></article><article class="brief-card brief-card--2"><span>09</span><div><p>Worked cases · 09</p><h2><a href="briefs/position-sizing-cases.html">{{ARTICLE_09_TITLE}}</a></h2><p>{{ARTICLE_09_DESC}}</p></div></article><article class="brief-card brief-card--0"><span>10</span><div><p>Routine · 10</p><h2><a href="briefs/recurring-plan-review.html">{{ARTICLE_10_TITLE}}</a></h2><p>{{ARTICLE_10_DESC}}</p></div></article><article class="brief-card brief-card--1"><span>11</span><div><p>Cornerstone · 11</p><h2><a href="briefs/account-security-review.html">{{ARTICLE_11_TITLE}}</a></h2><p>{{ARTICLE_11_DESC}}</p></div></article><article class="brief-card brief-card--2"><span>12</span><div><p>Archive · 12</p><h2><a href="briefs/recordkeeping-system.html">{{ARTICLE_12_TITLE}}</a></h2><p>{{ARTICLE_12_DESC}}</p></div></article></section></main>
   <footer class="site-foot">
-    <p class="site-foot__line">本站内容仅作信息整理，不构成任何投资建议。联系：{{CONTACT_EMAIL}}</p>
+    <div class="site-foot__cols">
+      <div><p class="site-foot__kicker">Independent reference</p><h2 class="site-foot__head">{{BRAND_EN}}</h2><p class="site-foot__text">{{SITE_TAGLINE}}</p></div>
+      <div><h2 class="site-foot__head">站点</h2><a class="site-foot__link" href="article.html">专题目录</a><a class="site-foot__link" href="tool.html">工具台</a><a class="site-foot__link" href="feed.xml">RSS 更新</a></div>
+      <div><h2 class="site-foot__head">规则</h2><a class="site-foot__link" href="about.html">关于我们</a><a class="site-foot__link" href="contact.html">联系我们</a><a class="site-foot__link" href="disclosure.html">推广披露</a><a class="site-foot__link" href="legal.html">免责声明</a><a class="site-foot__link" href="privacy.html">隐私说明</a><a class="site-foot__link" href="corrections.html">更正政策</a><a class="site-foot__link" href="editorial.html">编辑准则</a></div>
+    </div>
+    <p class="site-foot__disclosure">本站独立运营；指定内容页可能包含已明确标注的推广链接。<a href="disclosure.html">查看推广披露</a></p><p class="site-foot__line">内容仅作一般信息整理，不构成投资、法律或税务建议。最近复核：{{UPDATED_DATE}}</p>
   </footer>
-
-  <script src="assets/app.js"></script>
 </body>
 </html>

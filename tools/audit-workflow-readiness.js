@@ -49,6 +49,12 @@ function pngSize(file) {
   return { width: data.readUInt32BE(16), height: data.readUInt32BE(20) };
 }
 
+function icoValid(file) {
+  if (!fs.existsSync(file)) return false;
+  const data = fs.readFileSync(file);
+  return data.length >= 22 && data.readUInt16LE(0) === 0 && data.readUInt16LE(2) === 1 && data.readUInt16LE(4) >= 1;
+}
+
 function normalizedTarget(from, href) {
   if (!href || /^(?:https?:|mailto:|tel:|#|\/\/)/i.test(href) || href.includes("{{") || href.includes("[[") || href.includes("%%") || href.includes("__")) return null;
   const clean = href.split("#")[0].split("?")[0];
@@ -76,12 +82,15 @@ function audit(dir) {
   const common = {
     html: htmlFiles.length,
     feed: fs.existsSync(path.join(dir, "feed.xml")),
-    favicon: fs.existsSync(path.join(dir, "favicon.ico")) || fs.existsSync(path.join(dir, "favicon.svg")),
+    favicon: fs.existsSync(path.join(dir, "favicon.ico")),
     apple: fs.existsSync(path.join(dir, "apple-touch-icon.png")),
     security: fs.existsSync(path.join(dir, ".well-known", "security.txt")),
     twitterPages: htmlFiles.filter((file) => /twitter:card/i.test(text(file))).length,
     ogImagePages: htmlFiles.filter((file) => /property\s*=\s*["']og:image["']/i.test(text(file))).length,
     gaPages: htmlFiles.filter((file) => text(file).includes(GA_BLOCK)).length,
+    articleCoverPages: htmlFiles.filter((file) => /class=["'][^"']*\barticle-cover\b/i.test(text(file))).length,
+    categoryCandidates: htmlFiles.filter((file) => /(?:category|categories|tag|topic|register|collection)/i.test(relative(dir, file))).length,
+    independentDisclosurePages: htmlFiles.filter((file) => /(本站独立运营|independently operated)/i.test(stripMarkup(text(file)))).length,
     articleCandidates: htmlFiles.filter((file) => /article/i.test(relative(dir, file)) || /property\s*=\s*["']og:type["']\s+content\s*=\s*["']article["']/i.test(text(file))).length,
     toolCandidates: htmlFiles.filter((file) => /tool|calc|check|instrument/i.test(relative(dir, file))).length
   };
@@ -90,11 +99,14 @@ function audit(dir) {
     add(issues, "P0", "缺 workflow-ready-v2 角色表，后续 AI 无法确定页面职责与完整路径");
     if (common.html < 27) add(issues, "P0", `仅 ${common.html} 个 HTML；标准档完整框架至少需要首页、索引、12 文章、5 工具与 7 合规页`);
     if (common.articleCandidates < 12) add(issues, "P0", `文章槽位不足：识别到 ${common.articleCandidates}，要求至少 12`);
+    if (common.articleCoverPages < 12) add(issues, "P1", `文章封面框架不足：识别到 ${common.articleCoverPages}，要求至少 12`);
+    if (common.categoryCandidates < 2) add(issues, "P0", `分类落地页不足：识别到 ${common.categoryCandidates}，要求至少 2`);
     if (common.toolCandidates < 5) add(issues, "P0", `工具页不足：识别到 ${common.toolCandidates}，要求至少 5`);
     if (!common.feed) add(issues, "P1", "缺 feed.xml");
     if (!common.favicon) add(issues, "P1", "缺 favicon");
     if (!common.apple) add(issues, "P1", "缺 apple-touch-icon.png");
     if (!common.security) add(issues, "P1", "缺 .well-known/security.txt");
+    if (common.independentDisclosurePages < common.html) add(issues, "P1", `独立运营与推广披露覆盖 ${common.independentDisclosurePages}/${common.html}`);
     if (!common.ogImagePages) add(issues, "P1", "所有页面均缺 og:image");
     if (common.twitterPages < common.html) add(issues, "P1", `Twitter Card 覆盖 ${common.twitterPages}/${common.html}`);
     if (common.gaPages < common.html) add(issues, "P1", `GA4 注释占位覆盖 ${common.gaPages}/${common.html}`);
@@ -113,9 +125,13 @@ function audit(dir) {
   if (!Array.isArray(manifest.articles) || manifest.articles.length < 12) add(issues, "P0", "角色表 articles 必须至少 12 项");
   if (!Array.isArray(manifest.cornerstones) || manifest.cornerstones.length < 2) add(issues, "P0", "角色表 cornerstones 必须至少 2 项");
   if (!Array.isArray(manifest.tools) || manifest.tools.length < 5) add(issues, "P0", "角色表 tools 必须至少 5 项");
+  if (!Array.isArray(manifest.categories) || manifest.categories.length < 2) add(issues, "P0", "角色表 categories 必须至少 2 组");
   for (const key of LEGAL_KEYS) if (!manifest.legal || !manifest.legal[key]) add(issues, "P0", `角色表缺 legal.${key}`);
 
-  const roles = [manifest.home, manifest.articleIndex, ...(manifest.articles || []), manifest.toolIndex, ...(manifest.tools || []), ...LEGAL_KEYS.map((key) => manifest.legal && manifest.legal[key]), manifest.error404, manifest.robots, manifest.sitemap, manifest.feed, manifest.security, manifest.favicon, manifest.appleTouchIcon, manifest.socialImage].filter(Boolean);
+  const articleCovers = manifest.articleCovers && typeof manifest.articleCovers === "object" ? manifest.articleCovers : {};
+  const coverFiles = Object.values(articleCovers).flatMap((cover) => cover && typeof cover === "object" ? [cover.display, cover.og] : []).filter(Boolean);
+  const categoryPaths = (manifest.categories || []).map((category) => category && category.path).filter(Boolean);
+  const roles = [manifest.home, manifest.articleIndex, ...(manifest.articles || []), ...categoryPaths, manifest.toolIndex, ...(manifest.tools || []), ...LEGAL_KEYS.map((key) => manifest.legal && manifest.legal[key]), manifest.error404, manifest.robots, manifest.sitemap, manifest.feed, manifest.security, manifest.favicon, manifest.appleTouchIcon, manifest.socialImage, ...coverFiles].filter(Boolean);
   for (const item of roles) {
     if (item !== item.toLowerCase() || !/^[\x20-\x7e]+$/.test(item)) add(issues, "P0", `角色路径必须为小写 ASCII：${item}`);
     const file = path.join(dir, item);
@@ -127,11 +143,67 @@ function audit(dir) {
   for (const item of manifest.cornerstones || []) if (!articleSet.has(item)) add(issues, "P0", `cornerstone 未列入 articles：${item}`);
   if (!articleSet.has(manifest.registrationGuide)) add(issues, "P0", "registrationGuide 必须列入 articles");
   if (new Set(roles).size !== roles.length) add(issues, "P0", "角色表有重复路径");
+  for (const category of manifest.categories || []) {
+    if (!category || !category.path || !category.label || !Array.isArray(category.articles)) {
+      add(issues, "P0", "每个 categories 项必须有 path、label 与 articles");
+      continue;
+    }
+    if (category.articles.length < 3) add(issues, "P0", `${category.path}: 分类页至少需要 3 篇文章`);
+    for (const article of category.articles) if (!articleSet.has(article)) add(issues, "P0", `${category.path}: 包含未登记文章 ${article}`);
+    const categoryHtml = htmlByPath.get(category.path) || "";
+    const articleIndexHtml = htmlByPath.get(manifest.articleIndex) || "";
+    if (!linksIn(articleIndexHtml).some((href) => normalizedTarget(manifest.articleIndex, href) === category.path)) add(issues, "P1", `${manifest.articleIndex}: 缺分类入口 ${category.path}`);
+    for (const article of category.articles) if (!linksIn(categoryHtml).some((href) => normalizedTarget(category.path, href) === article)) add(issues, "P1", `${category.path}: 未链接分组文章 ${article}`);
+    for (const article of category.articles) {
+      const articleHtml = htmlByPath.get(article) || "";
+      if (!linksIn(articleHtml).some((href) => normalizedTarget(article, href) === category.path)) add(issues, "P1", `${article}: 缺返回分类页 ${category.path} 的入口`);
+    }
+  }
+  for (const article of articleSet) {
+    const memberships = (manifest.categories || []).filter((category) => category && Array.isArray(category.articles) && category.articles.includes(article)).length;
+    if (memberships === 0) add(issues, "P1", `${article}: 未归入任何分类角色`);
+  }
 
-  const indexable = [manifest.home, manifest.articleIndex, ...(manifest.articles || []), manifest.toolIndex, ...(manifest.tools || []), ...LEGAL_KEYS.map((key) => manifest.legal && manifest.legal[key])].filter(Boolean);
+  const articleOgFiles = [];
+  for (const article of manifest.articles || []) {
+    const cover = articleCovers[article];
+    if (!cover || !cover.display || !cover.og) {
+      add(issues, "P0", `${article}: 缺 articleCovers.display/og 角色`);
+      continue;
+    }
+    articleOgFiles.push(cover.og);
+    if (!cover.display.endsWith(".webp")) add(issues, "P1", `${article}: 页面封面必须为 WebP`);
+    const ogSize = pngSize(path.join(dir, cover.og));
+    if (!ogSize || ogSize.width !== 1200 || ogSize.height !== 630) add(issues, "P1", `${article}: 独立 og 图必须是真实 1200×630 PNG`);
+    const html = htmlByPath.get(article) || "";
+    const figure = (html.match(/<figure\b[^>]*class=["'][^"']*\barticle-cover\b[^"']*["'][^>]*>[\s\S]*?<\/figure>/i) || [""])[0];
+    if (!figure) {
+      add(issues, "P0", `${article}: 缺 figure.article-cover`);
+    } else {
+      const image = (figure.match(/<img\b[^>]*>/i) || [""])[0];
+      if (!image || normalizedTarget(article, attr(image, "src")) !== cover.display) add(issues, "P0", `${article}: article-cover img 未指向 display 角色`);
+      if (!attr(image, "alt")) add(issues, "P1", `${article}: article-cover 缺真实 alt`);
+      if (attr(image, "width") !== "1200" || attr(image, "height") !== "630") add(issues, "P1", `${article}: article-cover 缺 1200×630 尺寸属性`);
+      if (attr(image, "fetchpriority") !== "high") add(issues, "P1", `${article}: 首屏封面缺 fetchpriority=high`);
+    }
+    const preload = (html.match(/<link\b[^>]*rel=["']preload["'][^>]*>/gi) || []).find((tag) => normalizedTarget(article, attr(tag, "href")) === cover.display);
+    if (!preload || attr(preload, "as") !== "image") add(issues, "P1", `${article}: head 缺 article-cover 预加载`);
+    const ogTag = (html.match(/<meta\b[^>]*>/gi) || []).find((tag) => attr(tag, "property") === "og:image");
+    const twitterTag = (html.match(/<meta\b[^>]*>/gi) || []).find((tag) => attr(tag, "name") === "twitter:image");
+    if (!ogTag || !attr(ogTag, "content").endsWith("/" + cover.og)) add(issues, "P1", `${article}: og:image 未指向独立 PNG`);
+    if (!twitterTag || !attr(twitterTag, "content").endsWith("/" + cover.og)) add(issues, "P1", `${article}: twitter:image 未指向独立 PNG`);
+  }
+  if (articleOgFiles.length && new Set(articleOgFiles).size !== articleOgFiles.length) add(issues, "P1", "文章 og 图角色不得重复复用同一文件");
+
+  const vars = manifest.variables || {};
+  const indexable = [manifest.home, manifest.articleIndex, ...(manifest.articles || []), ...categoryPaths, manifest.toolIndex, ...(manifest.tools || []), ...LEGAL_KEYS.map((key) => manifest.legal && manifest.legal[key])].filter(Boolean);
   const socialPath = manifest.socialImage && path.join(dir, manifest.socialImage);
   const size = socialPath ? pngSize(socialPath) : null;
   if (!size || size.width !== 1200 || size.height !== 630) add(issues, "P1", "socialImage 必须是真实 1200×630 PNG");
+  if (manifest.favicon !== "favicon.ico" || !icoValid(path.join(dir, "favicon.ico"))) add(issues, "P1", "根目录 favicon.ico 必须是真实 ICO 文件");
+  if (!fs.existsSync(path.join(dir, "favicon.svg"))) add(issues, "P1", "根目录缺 favicon.svg");
+  const appleSize = pngSize(path.join(dir, manifest.appleTouchIcon || ""));
+  if (!appleSize || appleSize.width !== 180 || appleSize.height !== 180) add(issues, "P1", "apple-touch-icon 必须是真实 180×180 PNG");
 
   for (const page of indexable) {
     const html = htmlByPath.get(page);
@@ -140,7 +212,9 @@ function audit(dir) {
     const h1 = (html.match(/<h1\b/gi) || []).length;
     if (h1 !== 1) add(issues, "P0", prefix + `必须恰有 1 个 h1，当前 ${h1}`);
     if (!/<meta\b[^>]*name=["']description["'][^>]*content=["'][^"']+["']/i.test(html)) add(issues, "P1", prefix + "缺非空 description");
-    if (!/<link\b[^>]*rel=["']canonical["'][^>]*href=["']https:\/\//i.test(html)) add(issues, "P0", prefix + "缺 HTTPS canonical");
+    const canonicalTag = (html.match(/<link\b[^>]*>/gi) || []).find((tag) => attr(tag, "rel").split(/\s+/).includes("canonical"));
+    const expectedCanonical = `https://${vars.siteDomain}/${page === manifest.home ? "" : page}`;
+    if (!canonicalTag || attr(canonicalTag, "href") !== expectedCanonical) add(issues, "P0", prefix + "canonical 必须逐字自指");
     for (const property of ["og:title", "og:description", "og:type", "og:url", "og:image"]) if (!new RegExp(`property=["']${property}["']`, "i").test(html)) add(issues, "P1", prefix + `缺 ${property}`);
     for (const card of ["twitter:card", "twitter:title", "twitter:description", "twitter:image"]) if (!new RegExp(`name=["']${card}["']`, "i").test(html)) add(issues, "P1", prefix + `缺 ${card}`);
     if (!/type=["']application\/ld\+json["']/i.test(html)) add(issues, "P1", prefix + "缺结构化数据槽位");
@@ -151,9 +225,13 @@ function audit(dir) {
 
   const errorHtml = htmlByPath.get(manifest.error404) || "";
   if (!/name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(errorHtml)) add(issues, "P0", "404 缺 noindex");
+  for (const page of [...indexable, manifest.error404].filter(Boolean)) {
+    const html = htmlByPath.get(page) || "";
+    if (!/(本站独立运营|independently operated)/i.test(stripMarkup(html))) add(issues, "P1", `${page}: 缺独立运营声明`);
+    if (!linksIn(html).some((href) => normalizedTarget(page, href) === manifest.legal.disclosure)) add(issues, "P1", `${page}: 缺站内推广披露入口`);
+  }
 
   const home = htmlByPath.get(manifest.home) || "";
-  const vars = manifest.variables || {};
   for (const key of ["siteDomain", "siteName", "wordmark", "inviteCode", "benefitRate", "benefitDisclaimer", "affiliateUrl"]) if (!vars[key]) add(issues, "P0", `角色表缺 variables.${key}`);
   for (const key of ["inviteCode", "benefitRate", "benefitDisclaimer"]) if (vars[key] && !home.includes(vars[key])) add(issues, "P0", `首页缺变量 ${key}`);
   if (!/(data-[^=]*copy|复制)/i.test(home)) add(issues, "P0", "首页缺复制控件");
@@ -162,15 +240,15 @@ function audit(dir) {
   const registration = htmlByPath.get(manifest.registrationGuide) || "";
   if (vars.affiliateUrl) {
     const tags = [...registration.matchAll(/<a\b[^>]*>/gi)].map((match) => match[0]).filter((tag) => attr(tag, "href") === vars.affiliateUrl);
-    if (tags.length !== 1) add(issues, "P0", `注册教程必须恰有 1 个 affiliateUrl 链接槽位，当前 ${tags.length}`);
+    if (tags.length !== 1) add(issues, "P0", `registrationGuide 页面外壳必须恰有 1 个 affiliateUrl 链接槽位，当前 ${tags.length}`);
     else {
       const rel = new Set(attr(tags[0], "rel").split(/\s+/));
-      for (const token of ["sponsored", "nofollow", "noopener", "noreferrer"]) if (!rel.has(token)) add(issues, "P0", `注册教程链接缺 rel=${token}`);
-      if (attr(tags[0], "target") !== "_blank") add(issues, "P0", "注册教程链接缺 target=_blank");
+      for (const token of ["sponsored", "nofollow", "noopener", "noreferrer"]) if (!rel.has(token)) add(issues, "P0", `registrationGuide 链接槽位缺 rel=${token}`);
+      if (attr(tags[0], "target") !== "_blank") add(issues, "P0", "registrationGuide 链接槽位缺 target=_blank");
     }
   }
-  if (vars.inviteCode && !registration.includes(vars.inviteCode)) add(issues, "P0", "注册教程缺邀请码变量");
-  if (!/(推广链接|推荐链接|affiliate disclosure|sponsored link)/i.test(stripMarkup(registration))) add(issues, "P1", "注册教程缺可见的紧邻推广披露槽位");
+  if (vars.inviteCode && !registration.includes(vars.inviteCode)) add(issues, "P0", "registrationGuide 页面外壳缺邀请码变量");
+  if (!/(推广链接|推荐链接|affiliate disclosure|sponsored link)/i.test(stripMarkup(registration))) add(issues, "P1", "registrationGuide 页面外壳缺可见的紧邻推广披露槽位");
 
   for (const tool of manifest.tools || []) {
     const html = htmlByPath.get(tool) || "";
@@ -213,11 +291,17 @@ function audit(dir) {
     const xmllint = spawnSync("xmllint", ["--noout", path.join(dir, manifest.sitemap)], { encoding: "utf8" });
     if (xmllint.error && xmllint.error.code === "ENOENT") add(issues, "P2", "未找到 xmllint，需用等效 XML 检查补证");
     else if (xmllint.status !== 0) add(issues, "P0", "sitemap XML 不良构");
+    for (const page of indexable) {
+      const expected = `https://${vars.siteDomain}/${page === manifest.home ? "" : page}`;
+      if (!sitemap.includes(`<loc>${expected}</loc>`)) add(issues, "P0", `sitemap 未覆盖 ${page} 的自指 canonical`);
+    }
   }
   if (manifest.feed && fs.existsSync(path.join(dir, manifest.feed))) {
     const feed = text(path.join(dir, manifest.feed));
     const xmllint = spawnSync("xmllint", ["--noout", path.join(dir, manifest.feed)], { encoding: "utf8" });
     if (!/<rss\b[^>]*version=["']2\.0["']/i.test(feed)) add(issues, "P1", "feed 必须为 RSS 2.0");
+    const feedItems = (feed.match(/<item\b/gi) || []).length;
+    if (feedItems < 8 || feedItems > 18) add(issues, "P1", `feed 条目应为 8–18，当前 ${feedItems}`);
     if (xmllint.status !== 0 && !(xmllint.error && xmllint.error.code === "ENOENT")) add(issues, "P0", "feed XML 不良构");
     if ((vars.inviteCode && feed.includes(vars.inviteCode)) || (vars.affiliateUrl && feed.includes(vars.affiliateUrl))) add(issues, "P0", "feed 不得含邀请码或注册链接变量");
   }

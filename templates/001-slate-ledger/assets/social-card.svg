@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f1eee6"/>
+  <rect x="0" y="0" width="1200" height="86" fill="#1d2a32"/>
+  <rect x="86" y="150" width="8" height="345" fill="#d85a37"/>
+  <path d="M730 150h384M730 218h384M730 286h384M730 354h384M730 422h384M730 490h384" stroke="#c9c8c0"/>
+  <path d="M730 150v340M826 150v340M922 150v340M1018 150v340M1114 150v340" stroke="#c9c8c0"/>
+  <text x="86" y="54" fill="#f7f4ec" font-family="monospace" font-size="22" font-weight="700" letter-spacing="4">01 / SLATE LEDGER</text>
+  <text x="130" y="236" fill="#17262e" font-family="Georgia,serif" font-size="76">Independent</text>
+  <text x="130" y="326" fill="#17262e" font-family="Georgia,serif" font-size="76">rate notes</text>
+  <text x="130" y="386" fill="#657279" font-family="sans-serif" font-size="23">VERIFY SOURCES · MODEL COSTS · RECORD CHANGES</text>
+  <circle cx="922" cy="320" r="112" fill="#1d2a32"/>
+  <circle cx="922" cy="320" r="73" fill="#f1eee6"/>
+  <path d="M922 226v188M828 320h188" stroke="#d85a37" stroke-width="7"/>
+</svg>

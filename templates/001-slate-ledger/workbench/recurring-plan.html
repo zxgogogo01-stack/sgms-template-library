@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>定期投入分配器 — {{SITE_NAME}}</title>
+  <meta name="description" content="将总预算平均分配到指定执行次数并显示余量。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/workbench/recurring-plan.html">
+  <link rel="alternate" type="application/rss+xml" title="{{SITE_NAME}} RSS" href="../feed.xml">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <meta name="theme-color" content="#1d2a32">
+  <meta property="og:title" content="定期投入分配器 — {{SITE_NAME}}">
+  <meta property="og:description" content="将总预算平均分配到指定执行次数并显示余量。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/workbench/recurring-plan.html">
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="定期投入分配器 — {{SITE_NAME}}">
+  <meta name="twitter:description" content="将总预算平均分配到指定执行次数并显示余量。">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="../assets/base.css?v=2">
+  <link rel="stylesheet" href="../assets/layout.css?v=2">
+  <link rel="stylesheet" href="../assets/parts.css?v=2">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"定期投入分配器","description":"将总预算平均分配到指定执行次数并显示余量。","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"JavaScript"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="../assets/app.js?v=2" defer></script>
+  <script src="../assets/tools.js?v=2" defer></script>
+</head>
+<body class="tool-page tool-tone-2">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="top-line">
+    <a class="top-line__brand" href="../index.html" aria-label="返回首页">{{BRAND_EN}}</a>
+    <nav class="top-line__nav" aria-label="主导航">
+      <a class="top-line__link" href="../index.html">总览</a>
+      <a class="top-line__link" href="../article.html">专题</a>
+      <a class="top-line__link" href="../tool.html" aria-current="page">工具</a>
+      <a class="top-line__link" href="../about.html">关于</a>
+      <a class="top-line__link" href="../contact.html">联系</a>
+    </nav>
+  </header>
+  <main id="main" class="page-well"><section class="tool-hero"><p class="tool-hero__eyebrow">Local instrument · 03</p><h1>定期投入分配器</h1><p>将总预算平均分配到指定执行次数并显示余量。 结果只用于情景核对，不是建议或报价。</p></section>
+  <div class="workbench">
+    <nav class="tool-switcher" aria-label="工具切换"><a href="fee-impact.html">费率影响计算器</a><a href="risk-budget.html">风险预算仓位器</a><a href="recurring-plan.html" aria-current="page">定期投入分配器</a><a href="transfer-buffer.html">转账净额检查器</a><a href="breakeven-spread.html">往返盈亏平衡器</a></nav>
+    <section class="tool-panel" aria-label="定期投入分配器">
+      <form class="tool-form" data-tool="recurring" novalidate><div class="tool-form__field"><label for="recurring-budget">总预算</label><input id="recurring-budget" name="budget" type="number" inputmode="decimal" placeholder="1200" min="0.00000001" step="any" required><small>只在当前浏览器中参与计算。</small></div><div class="tool-form__field"><label for="recurring-periods">执行次数</label><input id="recurring-periods" name="periods" type="number" inputmode="decimal" placeholder="12" min="1" step="1" required><small>只在当前浏览器中参与计算。</small></div><div class="tool-form__actions"><button class="button button--primary" type="submit">生成分配</button><button class="button" type="reset">重置</button><button class="button" type="button" data-copy-output>复制结果</button></div></form>
+      <div class="tool-output" role="status" aria-live="polite" tabindex="-1"><span>等待输入</span><strong>完成字段后运行计算。</strong><small>工具不会保存或发送你的输入。</small></div>
+    </section>
+  </div>
+  <details class="tool-guide">
+    <summary>打开 定期投入分配器 Guide</summary>
+    <div class="tool-guide__grid"><section><h3>这个工具解决什么问题</h3><p>将总预算平均分配到指定执行次数并显示余量。 它把输入和结果放在同一张工作纸上，便于复核。</p></section><section><h3>输入怎样填写</h3><p>所有百分比都按页面标注的单位输入；金额与数量应使用同一情景下的数值。</p></section><section><h3>公式与结果</h3><p>结果采用透明的基础算术并显示主要步骤。小数会为阅读而舍入，不能代替实际账单。</p></section><section><h3>没有覆盖什么</h3><p>工具不覆盖价格波动、滑点、流动性、税费、规则变化或个人风险承受力。</p></section><section><h3>发布前怎样复核</h3><p>用手算样例、零值、极小值和异常输入逐项测试，再由编辑核对说明文字与公式一致。</p></section></div>
+  </details>
+  <section class="source-box"><h2>数据与隐私边界</h2><p>本工具不连接账户、不获取实时行情、不上传输入。任何页面数值都应在使用时另行核对。</p></section></main>
+  <footer class="site-foot">
+    <div class="site-foot__cols">
+      <div><p class="site-foot__kicker">Independent reference</p><h2 class="site-foot__head">{{BRAND_EN}}</h2><p class="site-foot__text">{{SITE_TAGLINE}}</p></div>
+      <div><h2 class="site-foot__head">站点</h2><a class="site-foot__link" href="../article.html">专题目录</a><a class="site-foot__link" href="../tool.html">工具台</a><a class="site-foot__link" href="../feed.xml">RSS 更新</a></div>
+      <div><h2 class="site-foot__head">规则</h2><a class="site-foot__link" href="../about.html">关于我们</a><a class="site-foot__link" href="../contact.html">联系我们</a><a class="site-foot__link" href="../disclosure.html">推广披露</a><a class="site-foot__link" href="../legal.html">免责声明</a><a class="site-foot__link" href="../privacy.html">隐私说明</a><a class="site-foot__link" href="../corrections.html">更正政策</a><a class="site-foot__link" href="../editorial.html">编辑准则</a></div>
+    </div>
+    <p class="site-foot__disclosure">本站独立运营；指定内容页可能包含已明确标注的推广链接。<a href="../disclosure.html">查看推广披露</a></p><p class="site-foot__line">内容仅作一般信息整理，不构成投资、法律或税务建议。最近复核：{{UPDATED_DATE}}</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>关于我们 — {{SITE_NAME}}</title>
+  <meta name="description" content="了解本站的编辑目标、内容边界与维护方式。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/about.html">
+  <link rel="alternate" type="application/rss+xml" title="{{SITE_NAME}} RSS" href="feed.xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#1d2a32">
+  <meta property="og:title" content="关于我们 — {{SITE_NAME}}">
+  <meta property="og:description" content="了解本站的编辑目标、内容边界与维护方式。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/about.html">
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="关于我们 — {{SITE_NAME}}">
+  <meta name="twitter:description" content="了解本站的编辑目标、内容边界与维护方式。">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/base.css?v=2">
+  <link rel="stylesheet" href="assets/layout.css?v=2">
+  <link rel="stylesheet" href="assets/parts.css?v=2">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"关于我们","description":"了解本站的编辑目标、内容边界与维护方式。","url":"https://{{SITE_DOMAIN}}/about.html","author":{"@type":"Person","name":"{{AUTHOR_NAME}}"},"dateModified":"{{UPDATED_DATE}}"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="assets/app.js?v=2" defer></script>
+</head>
+<body class="policy-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="top-line">
+    <a class="top-line__brand" href="index.html" aria-label="返回首页">{{BRAND_EN}}</a>
+    <nav class="top-line__nav" aria-label="主导航">
+      <a class="top-line__link" href="index.html">总览</a>
+      <a class="top-line__link" href="article.html">专题</a>
+      <a class="top-line__link" href="tool.html">工具</a>
+      <a class="top-line__link" href="about.html" aria-current="page">关于</a>
+      <a class="top-line__link" href="contact.html">联系</a>
+    </nav>
+  </header>
+  <main id="main" class="page-well"><article class="legal-sheet"><header><p class="section-label">Policy ledger</p><h1>关于我们</h1><p>了解本站的编辑目标、内容边界与维护方式。</p><dl><div><dt>生效日期</dt><dd>{{EFFECTIVE_DATE}}</dd></div><div><dt>最近复核</dt><dd>{{UPDATED_DATE}}</dd></div></dl></header><section><span>01</span><div><h2>我们整理什么</h2><p>{{SITE_NAME}} 以结构化核对表、解释文章和本地工具帮助读者理解公开规则。我们不代替平台官方页面，也不提供个性化投资建议。</p></div></section><section><span>02</span><div><h2>编辑方法</h2><p>内容从问题出发，优先查阅一手材料，标注核对日期，并把事实、计算与编辑判断分开呈现。</p></div></section><section><span>03</span><div><h2>如何使用本站</h2><p>先阅读解释文章，再使用工具做情景测算；任何关键决定都应回到最新官方规则并结合个人情况。</p></div></section></article></main>
+  <footer class="site-foot">
+    <div class="site-foot__cols">
+      <div><p class="site-foot__kicker">Independent reference</p><h2 class="site-foot__head">{{BRAND_EN}}</h2><p class="site-foot__text">{{SITE_TAGLINE}}</p></div>
+      <div><h2 class="site-foot__head">站点</h2><a class="site-foot__link" href="article.html">专题目录</a><a class="site-foot__link" href="tool.html">工具台</a><a class="site-foot__link" href="feed.xml">RSS 更新</a></div>
+      <div><h2 class="site-foot__head">规则</h2><a class="site-foot__link" href="about.html">关于我们</a><a class="site-foot__link" href="contact.html">联系我们</a><a class="site-foot__link" href="disclosure.html">推广披露</a><a class="site-foot__link" href="legal.html">免责声明</a><a class="site-foot__link" href="privacy.html">隐私说明</a><a class="site-foot__link" href="corrections.html">更正政策</a><a class="site-foot__link" href="editorial.html">编辑准则</a></div>
+    </div>
+    <p class="site-foot__disclosure">本站独立运营；指定内容页可能包含已明确标注的推广链接。<a href="disclosure.html">查看推广披露</a></p><p class="site-foot__line">内容仅作一般信息整理，不构成投资、法律或税务建议。最近复核：{{UPDATED_DATE}}</p>
+  </footer>
+</body>
+</html>

@@ -22,6 +22,7 @@ const ALLOWED_HOSTS = ["schema.org", "www.w3.org", "www.sitemaps.org"];
 const RESERVED = /^(con|prn|aux|nul|com[1-9]|lpt[1-9])(\..*)?$/i;
 const EXCHANGES = /(binance|okx|okex|bybit|coinbase|huobi|htx|gate\.io|kraken|bitget|kucoin|mexc|bitfinex)/i;
 const SCRIPT_EXT = /\.(sh|bat|ps1|py|cmd|exe)$/i;
+const GA_BLOCK = '<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag(\'js\',new Date());gtag(\'config\',\'G-XXXXXXXXXX\');</script> -->';
 
 function listTargets(argv) {
   if (argv.length) return argv.map((a) => path.resolve(ROOT, a));
@@ -86,12 +87,13 @@ function checkTemplate(tpl) {
   const textFiles = files.filter((f) => /\.(html|css|js|xml|txt|md|svg)$/i.test(f));
   for (const f of textFiles) {
     const text = fs.readFileSync(f, "utf8");
+    const externalUrlText = text.replace(GA_BLOCK, "");
     const relPath = rel(f);
 
     // 外部 URL：只允许 schema.org / w3.org 命名空间，或含占位符的 URL
     const urlRe = /https?:\/\/[^\s"'<>)]*/g;
     let m;
-    while ((m = urlRe.exec(text))) {
+    while ((m = urlRe.exec(externalUrlText))) {
       const url = m[0];
       if (hasPlaceholder(url)) continue;
       if (ALLOWED_HOSTS.some((h) => url.includes(h))) continue;
