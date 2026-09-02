@@ -1,66 +1,32 @@
-<!DOCTYPE html>
-<html lang="[[LANG]]">
+<!doctype html>
+<html lang="%LANG%">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>[[SITE_NAME]] - 复利与长期规划学习工坊</title>
-    <meta name="description" content="[[SITE_DESC]]">
-    <link rel="canonical" href="https://[[SITE_DOMAIN]]/">
-    <meta property="og:title" content="[[SITE_NAME]] - 复利与长期规划学习工坊">
-    <meta property="og:description" content="[[SITE_DESC]]">
-    <meta property="og:url" content="https://[[SITE_DOMAIN]]/">
-    <link rel="stylesheet" href="css/style.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"[[SITE_NAME]]","description":"[[SITE_DESC]]","provider":{"@type":"Organization","name":"[[SITE_NAME]]"}}</script>
-</head>
-<body>
-    <a class="ct-skip-link" href="#main">跳到主要内容</a>
-    <div class="ct-utility"><div class="ct-shell ct-utility-inner"><span>Financial literacy studio · 6 个单元 · 约 110 分钟</span><span>学习支持：<a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></span></div></div>
-    <header class="ct-site-header">
-        <div class="ct-shell ct-header-inner">
-            <a class="ct-brand" href="index.html">[[SITE_NAME]]<small>Clay tutor · foundations studio</small></a>
-            <nav class="ct-primary-nav" aria-label="主要导航"><a href="index.html" aria-current="page">课程总览</a><a href="#modules">学习路径</a><a href="article.html">章节示例</a><a href="tool.html">复利实验室</a><a href="legal.html">阅读须知</a></nav>
-        </div>
-    </header>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>%HOME_META_TITLE%</title>
+  <meta name="description" content="%HOME_META_DESC%">
+  <link rel="canonical" href="https://%SITE_DOMAIN%/">
+  <meta property="og:title" content="%HOME_META_TITLE%">
+  <meta property="og:description" content="%HOME_META_DESC%">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://%SITE_DOMAIN%/">
+  <meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="%HOME_META_TITLE%">
+  <meta name="twitter:description" content="%HOME_META_DESC%">
+  <meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
 
-    <main id="main">
-        <section class="ct-hero">
-            <div class="ct-shell ct-hero-grid">
-                <div class="ct-hero-copy"><p class="ct-eyebrow">Foundations course / 从零开始</p><h1>先看懂增长，<span>再谈长期。</span></h1><p>[[SITE_TAGLINE]]。这套课程把复利、时间、波动与持续投入拆成六个可操作单元；没有收益暗示，也不要求任何投资经验。</p><div class="ct-button-row"><a class="ct-button" href="article.html">开始第一课</a><a class="ct-button ct-button-secondary" href="tool.html">打开复利实验室</a></div><div class="ct-hero-meta"><span>难度：入门</span><span>形式：图文＋自测</span><span>建议节奏：每周 2 课</span></div></div>
-                <aside class="ct-course-card" aria-label="课程路径预览"><header><p class="ct-eyebrow">Your learning path</p><h2>四步完成一次完整理解。</h2></header><ol class="ct-path-list"><li><strong>建立直觉</strong><span>用重复乘法理解复利</span></li><li><strong>拆解变量</strong><span>辨认本金、费率与期数</span></li><li><strong>检查假设</strong><span>看见波动、费用与通胀</span></li><li><strong>亲手试算</strong><span>用不同情景验证结论</span></li></ol><footer>每章末尾都有自查题；答错不会阻断后续内容。</footer></aside>
-            </div>
-            <div class="ct-shell ct-learning-band" aria-label="课程摘要"><div><strong>6 MODULES</strong><span>从概念到实际情景</span></div><div><strong>110 MIN</strong><span>按推荐节奏完成</span></div><div><strong>4 CHECKS</strong><span>关键概念即时自查</span></div><div><strong>LOCAL TOOL</strong><span>试算内容不会上传</span></div></div>
-        </section>
-
-        <section class="ct-shell ct-modules" id="modules" aria-labelledby="modules-title">
-            <header class="ct-section-head"><div><p class="ct-eyebrow">Course map / 课程地图</p><h2 id="modules-title">六个单元，建立自己的判断顺序。</h2></div><p>课程从“为什么会增长”开始，逐步加入时间、持续投入、费用和不确定性。所有示例都明确标注为教学假设。</p></header>
-            <div class="ct-module-grid">
-                <article class="ct-module-card ct-featured"><span class="ct-module-number">MODULE 01 · 15 MIN</span><h3><a href="article.html">复利不是魔法，它只是重复的乘法。</a></h3><p>用三期的手算过程理解“上一期结果成为下一期起点”。</p><footer>概念课 · 含 1 道自查题</footer></article>
-                <article class="ct-module-card"><span class="ct-module-number">MODULE 02 · 18 MIN</span><h3>时间为什么比看起来更重要。</h3><p>比较相同费率下，不同期数如何改变结果。</p><footer>概念课 · 3 个情景</footer></article>
-                <article class="ct-module-card"><span class="ct-module-number">MODULE 03 · 20 MIN</span><h3>持续投入与单次投入的差别。</h3><p>理解每期投入的时点，以及它为什么影响最终值。</p><footer>方法课 · 含试算</footer></article>
-                <article class="ct-module-card"><span class="ct-module-number">MODULE 04 · 17 MIN</span><h3>费用会从哪里拿走增长。</h3><p>用净费率重新计算，并避免只看名义结果。</p><footer>风险课 · 费用敏感性</footer></article>
-                <article class="ct-module-card"><span class="ct-module-number">MODULE 05 · 22 MIN</span><h3>把波动和负收益放回模型。</h3><p>固定费率是学习工具，不是现实世界的承诺。</p><footer>边界课 · 负值情景</footer></article>
-                <article class="ct-module-card"><span class="ct-module-number">MODULE 06 · 18 MIN</span><h3>写下你的假设，再做一次完整试算。</h3><p>用清单核对本金、期数、费率、投入与遗漏成本。</p><footer>实践课 · 完成学习记录</footer></article>
-            </div>
-        </section>
-
-        <aside class="ct-shell ct-practice-band" aria-label="随课练习邀请"><div><p class="ct-eyebrow">Practice room / 随课练习</p><h2>把邀请码留在手边，进入配套练习页。</h2><p>邀请码只用于课程分组，不影响公开章节与复利实验室的使用。[[COMPLIANCE_NOTE]]</p></div><div class="ct-code-box"><label class="ct-eyebrow" for="invite-code">Course access code</label><input class="ct-invite-code" id="invite-code" type="text" readonly value="[[INVITE_CODE]]"><button class="ct-button ct-button-small" type="button" id="code-copy">复制邀请码</button><p class="ct-copy-status" id="code-copy-status" aria-live="polite"></p></div></aside>
-
-        <section class="ct-shell ct-fit-section" aria-labelledby="fit-title"><div class="ct-fit-grid"><div class="ct-fit-copy"><p class="ct-eyebrow">Before you begin</p><h2 id="fit-title">适合第一次系统理解复利的人。</h2><ul><li>不需要金融或数学背景，只需要基本百分比知识。</li><li>课程示例不会预测市场，也不推荐具体产品。</li><li>建议先手算三期，再使用实验室验证答案。</li><li>遇到不同结果时，先检查费率单位与投入时点。</li></ul></div><div class="ct-fit-faq"><details><summary>我需要先注册吗？</summary><p>公开课程、章节示例与试算工具无需注册。邀请码仅用于可选练习分组。</p></details><details><summary>课程里的费率是真实收益吗？</summary><p>不是。所有费率都是教学假设，用来说明变量之间的关系。</p></details><details><summary>可以直接把结果用于计划吗？</summary><p>不建议。真实计划还需要考虑费用、税费、通胀、波动与个人现金流。</p></details></div></div></section>
-    </main>
-
-    <footer class="ct-site-footer"><div class="ct-shell ct-footer-inner"><p>学习材料只用于知识整理，不构成投资、交易或收益建议。</p><nav class="ct-footer-links" aria-label="页脚导航"><a href="article.html">第一课</a><a href="tool.html">复利实验室</a><a href="legal.html">阅读须知</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
-
-    <script>
-        (function () {
-            var field = document.getElementById('invite-code');
-            var button = document.getElementById('code-copy');
-            var status = document.getElementById('code-copy-status');
-            button.addEventListener('click', function () {
-                function done() { status.textContent = '邀请码已复制。'; }
-                function fallback() { field.select(); try { document.execCommand('copy'); done(); } catch (error) { status.textContent = '复制失败，请手动选择邀请码。'; } }
-                if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(field.value).then(done, fallback); else fallback();
-            });
-        })();
-    </script>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%HOME_META_TITLE%","url":"https://%SITE_DOMAIN%/","publisher":{"@type":"Organization","name":"%SITE_NAME%"}}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="js/clay.js" defer></script>
+</head><body>
+<a class="clay-skip" href="#main">%SKIP_LINK%</a>
+<div class="clay-utility"><span>%COURSE_LEVEL%</span><span>%EDITION_DATE%</span><button type="button" data-clay-theme aria-pressed="false">%THEME_LABEL%</button></div>
+<header class="clay-header"><a class="clay-brand" href="index.html"><i aria-hidden="true"></i><span><b>%BRAND_EN%</b><small>%SITE_NAME%</small></span></a><nav aria-label="%NAV_LABEL%"><a href="index.html" aria-current="page">%NAV_HOME%</a><a href="article.html">%NAV_LESSONS%</a><a href="studios/foundation-wheel.html">%NAV_STUDIOS%</a><a href="tool.html">%NAV_WORKBENCH%</a><a href="about.html">%NAV_ABOUT%</a></nav></header><main id="main" class="clay-home"><section class="clay-hero"><aside class="clay-syllabus"><span>%HOME_SYLLABUS_LABEL%</span><ol><li>%HOME_STEP_01%</li><li>%HOME_STEP_02%</li><li>%HOME_STEP_03%</li><li>%HOME_STEP_04%</li></ol><a href="lessons/access-slip.html">%HOME_EDITORIAL_ENTRY%</a></aside><div class="clay-hero-copy"><p>%HOME_KICKER%</p><h1>%HOME_H1%</h1><strong>%HOME_LEDE%</strong><div class="clay-code"><span>%INVITE_LABEL%</span><code data-clay-code>%INVITE_CODE%</code><button type="button" data-clay-copy>%COPY_CODE%</button><i data-clay-copy-status aria-live="polite"></i><b>%BENEFIT_RATE%</b><small>%BENEFIT_DISCLAIMER%</small></div></div><div class="clay-orbit" aria-hidden="true"><i></i><i></i><i></i></div></section><section class="clay-studio-strip" aria-label="%HOME_STUDIOS_LABEL%"><article><span>01</span><h2>%STUDIO_FOUNDATION_TITLE%</h2><p>%STUDIO_FOUNDATION_DESC%</p><a href="studios/foundation-wheel.html">%ENTER_STUDIO%</a></article><article><span>02</span><h2>%STUDIO_KILN_TITLE%</h2><p>%STUDIO_KILN_DESC%</p><a href="studios/kiln-practice.html">%ENTER_STUDIO%</a></article><article><span>03</span><h2>%STUDIO_GLAZE_TITLE%</h2><p>%STUDIO_GLAZE_DESC%</p><a href="studios/glaze-review.html">%ENTER_STUDIO%</a></article></section><section class="clay-lesson-roll"><header><span>12 / hand-built lesson forms</span><h2>%HOME_LESSONS_TITLE%</h2><p>%HOME_LESSONS_DESC%</p></header><ol><li><span>02</span><a href="lessons/growth-intuition.html">%LESSON_02_TITLE%</a><em>%STUDIO_FOUNDATION_TITLE%</em></li><li><span>03</span><a href="lessons/rate-and-time.html">%LESSON_03_TITLE%</a><em>%STUDIO_FOUNDATION_TITLE%</em></li><li><span>04</span><a href="lessons/contribution-rhythm.html">%LESSON_04_TITLE%</a><em>%STUDIO_FOUNDATION_TITLE%</em></li><li><span>05</span><a href="lessons/cost-friction.html">%LESSON_05_TITLE%</a><em>%STUDIO_KILN_TITLE%</em></li><li><span>06</span><a href="lessons/negative-periods.html">%LESSON_06_TITLE%</a><em>%STUDIO_KILN_TITLE%</em></li><li><span>07</span><a href="lessons/scenario-reading.html">%LESSON_07_TITLE%</a><em>%STUDIO_KILN_TITLE%</em></li><li><span>08</span><a href="lessons/assumption-audit.html">%LESSON_08_TITLE%</a><em>%STUDIO_KILN_TITLE%</em></li><li><span>09</span><a href="lessons/comparison-practice.html">%LESSON_09_TITLE%</a><em>%STUDIO_GLAZE_TITLE%</em></li><li><span>10</span><a href="lessons/question-studio.html">%LESSON_10_TITLE%</a><em>%STUDIO_GLAZE_TITLE%</em></li><li><span>11</span><a href="lessons/calculation-notes.html">%LESSON_11_TITLE%</a><em>%STUDIO_GLAZE_TITLE%</em></li><li><span>12</span><a href="lessons/capstone-plan.html">%LESSON_12_TITLE%</a><em>%STUDIO_GLAZE_TITLE%</em></li></ol></section><section class="clay-service-map"><h2>%HOME_SERVICE_TITLE%</h2><div><a href="article.html">%ARTICLE_INDEX_TITLE%</a><a href="workbench/growth-path.html">%TOOL_01_TITLE%</a><a href="workbench/cadence-comparator.html">%TOOL_02_TITLE%</a><a href="workbench/fee-drag-lens.html">%TOOL_03_TITLE%</a><a href="workbench/real-value-lens.html">%TOOL_04_TITLE%</a><a href="workbench/target-rate-wheel.html">%TOOL_05_TITLE%</a><a href="about.html">%ABOUT_TITLE%</a><a href="contact.html">%CONTACT_TITLE%</a><a href="disclosure.html">%DISCLOSURE_TITLE%</a><a href="legal.html">%DISCLAIMER_TITLE%</a><a href="privacy.html">%PRIVACY_TITLE%</a><a href="corrections.html">%CORRECTIONS_TITLE%</a><a href="editorial.html">%EDITORIAL_TITLE%</a></div></section></main><footer class="clay-footer"><div><a class="clay-footer-brand" href="index.html">%BRAND_EN%</a><p>%FOOTER_NOTE%</p></div><div><p>本站独立运营。<a href="disclosure.html">%DISCLOSURE_LINK%</a></p><a href="feed.xml">%RSS_VISIBLE_LABEL%</a></div><details class="clay-directory"><summary>%DIRECTORY_LABEL%</summary><div><a href="index.html">%DIR_HOME%</a><a href="article.html">article</a><a href="lessons/growth-intuition.html">lessons / growth-intuition</a><a href="lessons/rate-and-time.html">lessons / rate-and-time</a><a href="lessons/contribution-rhythm.html">lessons / contribution-rhythm</a><a href="lessons/cost-friction.html">lessons / cost-friction</a><a href="lessons/negative-periods.html">lessons / negative-periods</a><a href="lessons/scenario-reading.html">lessons / scenario-reading</a><a href="lessons/assumption-audit.html">lessons / assumption-audit</a><a href="lessons/comparison-practice.html">lessons / comparison-practice</a><a href="lessons/question-studio.html">lessons / question-studio</a><a href="lessons/calculation-notes.html">lessons / calculation-notes</a><a href="lessons/capstone-plan.html">lessons / capstone-plan</a><a href="studios/foundation-wheel.html">studios / foundation-wheel</a><a href="studios/kiln-practice.html">studios / kiln-practice</a><a href="studios/glaze-review.html">studios / glaze-review</a><a href="tool.html">tool</a><a href="workbench/growth-path.html">workbench / growth-path</a><a href="workbench/cadence-comparator.html">workbench / cadence-comparator</a><a href="workbench/fee-drag-lens.html">workbench / fee-drag-lens</a><a href="workbench/real-value-lens.html">workbench / real-value-lens</a><a href="workbench/target-rate-wheel.html">workbench / target-rate-wheel</a><a href="about.html">about</a><a href="contact.html">contact</a><a href="disclosure.html">disclosure</a><a href="legal.html">legal</a><a href="privacy.html">privacy</a><a href="corrections.html">corrections</a><a href="editorial.html">editorial</a></div></details><small>© %CURRENT_YEAR% %SITE_NAME% · <a href="mailto:%CONTACT_EMAIL%">%CONTACT_EMAIL%</a></small></footer>
 </body>
 </html>

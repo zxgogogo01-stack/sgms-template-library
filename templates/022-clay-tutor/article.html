@@ -1,61 +1,32 @@
-<!DOCTYPE html>
-<html lang="[[LANG]]">
+<!doctype html>
+<html lang="%LANG%">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>复利不是魔法，它只是重复的乘法 - [[SITE_NAME]]</title>
-    <meta name="description" content="用三期手算理解本金、每期费率、期数与复利结果之间的关系。">
-    <link rel="canonical" href="https://[[SITE_DOMAIN]]/article.html">
-    <meta property="og:title" content="复利不是魔法，它只是重复的乘法 - [[SITE_NAME]]">
-    <meta property="og:description" content="用三期手算理解本金、每期费率、期数与复利结果之间的关系。">
-    <meta property="og:url" content="https://[[SITE_DOMAIN]]/article.html">
-    <link rel="stylesheet" href="css/style.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"复利不是魔法，它只是重复的乘法","educationalLevel":"Beginner","timeRequired":"PT15M","provider":{"@type":"Organization","name":"[[SITE_NAME]]"}}</script>
-</head>
-<body>
-    <a class="ct-skip-link" href="#main">跳到主要内容</a>
-    <div class="ct-utility"><div class="ct-shell ct-utility-inner"><span>Module 01 · 建立复利直觉</span><span>预计 15 分钟 · 含 1 道自查题</span></div></div>
-    <header class="ct-site-header"><div class="ct-shell ct-header-inner"><a class="ct-brand" href="index.html">[[SITE_NAME]]<small>Clay tutor · foundations studio</small></a><nav class="ct-primary-nav" aria-label="主要导航"><a href="index.html">课程总览</a><a href="article.html" aria-current="page">章节示例</a><a href="tool.html">复利实验室</a><a href="legal.html">阅读须知</a></nav></div></header>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>%ARTICLE_INDEX_META_TITLE%</title>
+  <meta name="description" content="%ARTICLE_INDEX_META_DESC%">
+  <link rel="canonical" href="https://%SITE_DOMAIN%/article.html">
+  <meta property="og:title" content="%ARTICLE_INDEX_META_TITLE%">
+  <meta property="og:description" content="%ARTICLE_INDEX_META_DESC%">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://%SITE_DOMAIN%/article.html">
+  <meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="%ARTICLE_INDEX_META_TITLE%">
+  <meta name="twitter:description" content="%ARTICLE_INDEX_META_DESC%">
+  <meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
 
-    <main id="main" class="ct-shell ct-page-main">
-        <header class="ct-page-head"><div><p class="ct-eyebrow">Module 01 / 建立直觉</p><h1>复利不是魔法，它只是重复的乘法。</h1><p>先不讨论真实市场，也不预测未来。本章只做一件事：把“上一期结果成为下一期起点”完整手算三遍。</p></div><aside class="ct-page-meta" aria-label="章节信息"><dl><div><dt>难度</dt><dd>入门</dd></div><div><dt>预计用时</dt><dd>15 分钟</dd></div><div><dt>前置知识</dt><dd>百分比</dd></div><div><dt>练习</dt><dd>1 道自查题</dd></div></dl></aside></header>
-
-        <div class="ct-lesson-layout">
-            <aside class="ct-lesson-rail" aria-label="章节进度与提示"><section class="ct-lesson-progress"><p class="ct-eyebrow">In this lesson</p><h2>你会完成四步</h2><ol><li>认出三个变量</li><li>手算三期</li><li>区分单利与复利</li><li>完成自查</li></ol></section><section class="ct-lesson-note"><p class="ct-eyebrow">Learning tip</p><strong>先写过程，再看公式。</strong><p>如果只记住最终公式，很容易在费率单位和期数上出错。</p></section></aside>
-            <article class="ct-lesson-body">
-                <div class="ct-goal-box"><strong>本章目标：</strong>读完后，你能解释本金、每期费率和期数如何共同决定复利结果，并能手算前三期。</div>
-                <p>假设把 1,000 元作为起点，每一期都按 5% 增长。第一期的 5% 只作用于 1,000 元；到了第二期，起点已经变成 1,050 元。因此第二期增加的不是 50 元，而是 52.50 元。</p>
-                <h2>先认出三个变量</h2>
-                <p>复利试算至少需要三个输入：最初的金额、每一期采用的费率，以及一共重复多少期。只要其中一个单位含糊，结果就可能完全不同。</p>
-                <div class="ct-definition-box"><strong>本金 P：</strong>最初的起点。<br><strong>每期费率 r：</strong>每一期重复使用的百分比，5% 写成小数是 0.05。<br><strong>期数 n：</strong>重复计算的次数，不一定等于自然年。</div>
-                <h2>把三期完整写出来</h2>
-                <p>每一期都把“上一期末的金额”乘以 1.05。这样写虽然比直接套公式慢，却能清楚看到复利发生在哪里。</p>
-                <table class="ct-worked-table"><thead><tr><th scope="col">时点</th><th scope="col">计算过程</th><th scope="col">期末金额</th></tr></thead><tbody><tr><td>起点</td><td>初始本金</td><td>1,000.00</td></tr><tr><td>第 1 期</td><td>1,000 × 1.05</td><td>1,050.00</td></tr><tr><td>第 2 期</td><td>1,050 × 1.05</td><td>1,102.50</td></tr><tr><td>第 3 期</td><td>1,102.50 × 1.05</td><td>1,157.63</td></tr></tbody></table>
-                <p>第三期末结果保留两位小数为 1,157.63 元。这里没有新增投入，也没有扣除费用；5% 只是为了学习而设置的固定假设。</p>
-                <h2>公式只是重复过程的缩写</h2>
-                <div class="ct-formula-card"><p class="ct-eyebrow">Compound formula</p><div class="ct-formula">期末金额 = P × (1 + r)<sup>n</sup></div><p>P 是本金，r 是小数形式的每期费率，n 是期数。对上面的例子来说，就是 1,000 × 1.05³。</p></div>
-                <p>公式不会自动替你判断费率是“每月”还是“每年”，也不会补上费用、税费和通胀。它只忠实执行你输入的假设。</p>
-                <div class="ct-mistake-box"><p class="ct-eyebrow">Common mistake / 常见误区</p><strong>把 5% 直接输入成 5。</strong><p>公式里的 r 必须使用小数 0.05；如果工具的输入框明确写着“%”，再输入数字 5。先看单位，再填数字。</p></div>
-
-                <section class="ct-quiz" aria-labelledby="quiz-title"><p class="ct-eyebrow">Quick check / 自查</p><h2 id="quiz-title">为什么第二期增加 52.50 元，而不是 50 元？</h2><div class="ct-quiz-options"><button type="button" data-answer="a" aria-pressed="false">A. 因为第二期的费率自动提高了</button><button type="button" data-answer="b" aria-pressed="false">B. 因为第二期的起点已经包含第一期增长</button><button type="button" data-answer="c" aria-pressed="false">C. 因为每一期都额外投入了 2.50 元</button></div><p class="ct-quiz-feedback" id="quiz-feedback" aria-live="polite">选择一个答案查看解释。</p></section>
-            </article>
-        </div>
-    </main>
-
-    <footer class="ct-site-footer"><div class="ct-shell ct-footer-inner"><p>固定费率仅用于教学，不代表任何真实或未来收益。</p><nav class="ct-footer-links" aria-label="页脚导航"><a href="index.html">课程总览</a><a href="tool.html">复利实验室</a><a href="legal.html">阅读须知</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
-
-    <script>
-        (function () {
-            var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-answer]'));
-            var feedback = document.getElementById('quiz-feedback');
-            buttons.forEach(function (button) {
-                button.addEventListener('click', function () {
-                    buttons.forEach(function (item) { item.setAttribute('aria-pressed', item === button ? 'true' : 'false'); });
-                    if (button.getAttribute('data-answer') === 'b') feedback.textContent = '回答正确。第二期按 1,050 元计算，因此 5% 是 52.50 元。';
-                    else feedback.textContent = '再想一次：费率没有变化，也没有新增投入；变化的是下一期的计算起点。';
-                });
-            });
-        })();
-    </script>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%ARTICLE_INDEX_META_TITLE%","url":"https://%SITE_DOMAIN%/article.html","publisher":{"@type":"Organization","name":"%SITE_NAME%"}}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="js/clay.js" defer></script>
+</head><body>
+<a class="clay-skip" href="#main">%SKIP_LINK%</a>
+<div class="clay-utility"><span>%COURSE_LEVEL%</span><span>%EDITION_DATE%</span><button type="button" data-clay-theme aria-pressed="false">%THEME_LABEL%</button></div>
+<header class="clay-header"><a class="clay-brand" href="index.html"><i aria-hidden="true"></i><span><b>%BRAND_EN%</b><small>%SITE_NAME%</small></span></a><nav aria-label="%NAV_LABEL%"><a href="index.html">%NAV_HOME%</a><a href="article.html" aria-current="page">%NAV_LESSONS%</a><a href="studios/foundation-wheel.html">%NAV_STUDIOS%</a><a href="tool.html">%NAV_WORKBENCH%</a><a href="about.html">%NAV_ABOUT%</a></nav></header><main id="main" class="clay-curriculum"><header><span>%CURRICULUM_KICKER%</span><h1>%ARTICLE_INDEX_TITLE%</h1><p>%ARTICLE_INDEX_DESC%</p></header><div class="clay-curriculum-grid"><aside><a href="studios/foundation-wheel.html"><b>01</b>%STUDIO_FOUNDATION_TITLE%</a><a href="studios/kiln-practice.html"><b>02</b>%STUDIO_KILN_TITLE%</a><a href="studios/glaze-review.html"><b>03</b>%STUDIO_GLAZE_TITLE%</a></aside><ol><li><a href="lessons/access-slip.html"><span>01</span><img src="assets/covers/access-slip.webp" alt="%COVER_ALT_01%" width="1200" height="630"><strong>%LESSON_01_TITLE%</strong><em>%STUDIO_FOUNDATION_TITLE%</em></a></li><li><a href="lessons/growth-intuition.html"><span>02</span><img src="assets/covers/growth-intuition.webp" alt="%COVER_ALT_02%" width="1200" height="630"><strong>%LESSON_02_TITLE%</strong><em>%STUDIO_FOUNDATION_TITLE%</em></a></li><li><a href="lessons/rate-and-time.html"><span>03</span><img src="assets/covers/rate-and-time.webp" alt="%COVER_ALT_03%" width="1200" height="630"><strong>%LESSON_03_TITLE%</strong><em>%STUDIO_FOUNDATION_TITLE%</em></a></li><li><a href="lessons/contribution-rhythm.html"><span>04</span><img src="assets/covers/contribution-rhythm.webp" alt="%COVER_ALT_04%" width="1200" height="630"><strong>%LESSON_04_TITLE%</strong><em>%STUDIO_FOUNDATION_TITLE%</em></a></li><li><a href="lessons/cost-friction.html"><span>05</span><img src="assets/covers/cost-friction.webp" alt="%COVER_ALT_05%" width="1200" height="630"><strong>%LESSON_05_TITLE%</strong><em>%STUDIO_KILN_TITLE%</em></a></li><li><a href="lessons/negative-periods.html"><span>06</span><img src="assets/covers/negative-periods.webp" alt="%COVER_ALT_06%" width="1200" height="630"><strong>%LESSON_06_TITLE%</strong><em>%STUDIO_KILN_TITLE%</em></a></li><li><a href="lessons/scenario-reading.html"><span>07</span><img src="assets/covers/scenario-reading.webp" alt="%COVER_ALT_07%" width="1200" height="630"><strong>%LESSON_07_TITLE%</strong><em>%STUDIO_KILN_TITLE%</em></a></li><li><a href="lessons/assumption-audit.html"><span>08</span><img src="assets/covers/assumption-audit.webp" alt="%COVER_ALT_08%" width="1200" height="630"><strong>%LESSON_08_TITLE%</strong><em>%STUDIO_KILN_TITLE%</em></a></li><li><a href="lessons/comparison-practice.html"><span>09</span><img src="assets/covers/comparison-practice.webp" alt="%COVER_ALT_09%" width="1200" height="630"><strong>%LESSON_09_TITLE%</strong><em>%STUDIO_GLAZE_TITLE%</em></a></li><li><a href="lessons/question-studio.html"><span>10</span><img src="assets/covers/question-studio.webp" alt="%COVER_ALT_10%" width="1200" height="630"><strong>%LESSON_10_TITLE%</strong><em>%STUDIO_GLAZE_TITLE%</em></a></li><li><a href="lessons/calculation-notes.html"><span>11</span><img src="assets/covers/calculation-notes.webp" alt="%COVER_ALT_11%" width="1200" height="630"><strong>%LESSON_11_TITLE%</strong><em>%STUDIO_GLAZE_TITLE%</em></a></li><li><a href="lessons/capstone-plan.html"><span>12</span><img src="assets/covers/capstone-plan.webp" alt="%COVER_ALT_12%" width="1200" height="630"><strong>%LESSON_12_TITLE%</strong><em>%STUDIO_GLAZE_TITLE%</em></a></li></ol></div></main><footer class="clay-footer"><div><a class="clay-footer-brand" href="index.html">%BRAND_EN%</a><p>%FOOTER_NOTE%</p></div><div><p>本站独立运营。<a href="disclosure.html">%DISCLOSURE_LINK%</a></p><a href="feed.xml">%RSS_VISIBLE_LABEL%</a></div><details class="clay-directory"><summary>%DIRECTORY_LABEL%</summary><div><a href="index.html">%DIR_HOME%</a><a href="article.html">article</a><a href="lessons/access-slip.html">lessons / access-slip</a><a href="lessons/growth-intuition.html">lessons / growth-intuition</a><a href="lessons/rate-and-time.html">lessons / rate-and-time</a><a href="lessons/contribution-rhythm.html">lessons / contribution-rhythm</a><a href="lessons/cost-friction.html">lessons / cost-friction</a><a href="lessons/negative-periods.html">lessons / negative-periods</a><a href="lessons/scenario-reading.html">lessons / scenario-reading</a><a href="lessons/assumption-audit.html">lessons / assumption-audit</a><a href="lessons/comparison-practice.html">lessons / comparison-practice</a><a href="lessons/question-studio.html">lessons / question-studio</a><a href="lessons/calculation-notes.html">lessons / calculation-notes</a><a href="lessons/capstone-plan.html">lessons / capstone-plan</a><a href="studios/foundation-wheel.html">studios / foundation-wheel</a><a href="studios/kiln-practice.html">studios / kiln-practice</a><a href="studios/glaze-review.html">studios / glaze-review</a><a href="tool.html">tool</a><a href="workbench/growth-path.html">workbench / growth-path</a><a href="workbench/cadence-comparator.html">workbench / cadence-comparator</a><a href="workbench/fee-drag-lens.html">workbench / fee-drag-lens</a><a href="workbench/real-value-lens.html">workbench / real-value-lens</a><a href="workbench/target-rate-wheel.html">workbench / target-rate-wheel</a><a href="about.html">about</a><a href="contact.html">contact</a><a href="disclosure.html">disclosure</a><a href="legal.html">legal</a><a href="privacy.html">privacy</a><a href="corrections.html">corrections</a><a href="editorial.html">editorial</a></div></details><small>© %CURRENT_YEAR% %SITE_NAME% · <a href="mailto:%CONTACT_EMAIL%">%CONTACT_EMAIL%</a></small></footer>
 </body>
 </html>

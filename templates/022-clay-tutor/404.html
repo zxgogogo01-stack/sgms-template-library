@@ -1,29 +1,30 @@
-<!DOCTYPE html>
-<html lang="[[LANG]]">
+<!doctype html>
+<html lang="%LANG%">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>课程页未找到 - [[SITE_NAME]]</title>
-    <meta name="description" content="当前课程页不存在，返回 [[SITE_NAME]] 课程总览或继续阅读复利基础章节。">
-    <meta name="robots" content="noindex,follow">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="ct-error-page">
-    <a class="ct-skip-link" href="#main">跳到主要内容</a>
-    <main id="main" class="ct-error-card">
-        <section class="ct-error-copy">
-            <p class="ct-eyebrow">Lesson not found / 路径提示</p>
-            <h1>这节内容不在当前课程里。</h1>
-            <p>链接可能已经调整，也可能是章节编号输入有误。你可以回到课程总览重新选择学习路径，或直接从“复利不是魔法”开始。</p>
-            <div class="ct-button-row">
-                <a class="ct-button" href="index.html">返回课程总览</a>
-                <a class="ct-button ct-button-secondary" href="article.html">阅读第一课</a>
-            </div>
-        </section>
-        <aside class="ct-error-code" aria-label="错误代码">
-            <strong>404</strong>
-            <span>COURSE PATH NOT FOUND</span>
-        </aside>
-    </main>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>%ERROR_META_TITLE%</title>
+  <meta name="description" content="%ERROR_META_DESC%">
+  <link rel="canonical" href="https://%SITE_DOMAIN%/404.html">
+  <meta property="og:title" content="%ERROR_META_TITLE%">
+  <meta property="og:description" content="%ERROR_META_DESC%">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://%SITE_DOMAIN%/404.html">
+  <meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="%ERROR_META_TITLE%">
+  <meta name="twitter:description" content="%ERROR_META_DESC%">
+  <meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%ERROR_META_TITLE%","url":"https://%SITE_DOMAIN%/404.html","publisher":{"@type":"Organization","name":"%SITE_NAME%"}}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="js/clay.js" defer></script>
+  <meta name="robots" content="noindex,follow">
+</head><body class="clay-error"><main id="main"><div class="clay-error-pot" aria-hidden="true"><i></i><b>404</b></div><section><span>Lesson misplaced</span><h1>%ERROR_TITLE%</h1><p>%ERROR_DESC%</p><nav><a href="index.html">%ERROR_HOME%</a><a href="article.html">%ERROR_LESSONS%</a><a href="tool.html">%ERROR_TOOLS%</a></nav><p>本站独立运营。<a href="disclosure.html">%DISCLOSURE_LINK%</a></p></section></main><footer class="clay-footer"><div><a class="clay-footer-brand" href="index.html">%BRAND_EN%</a><p>%FOOTER_NOTE%</p></div><div><p>本站独立运营。<a href="disclosure.html">%DISCLOSURE_LINK%</a></p><a href="feed.xml">%RSS_VISIBLE_LABEL%</a></div><details class="clay-directory"><summary>%DIRECTORY_LABEL%</summary><div><a href="index.html">%DIR_HOME%</a><a href="article.html">article</a><a href="lessons/access-slip.html">lessons / access-slip</a><a href="lessons/growth-intuition.html">lessons / growth-intuition</a><a href="lessons/rate-and-time.html">lessons / rate-and-time</a><a href="lessons/contribution-rhythm.html">lessons / contribution-rhythm</a><a href="lessons/cost-friction.html">lessons / cost-friction</a><a href="lessons/negative-periods.html">lessons / negative-periods</a><a href="lessons/scenario-reading.html">lessons / scenario-reading</a><a href="lessons/assumption-audit.html">lessons / assumption-audit</a><a href="lessons/comparison-practice.html">lessons / comparison-practice</a><a href="lessons/question-studio.html">lessons / question-studio</a><a href="lessons/calculation-notes.html">lessons / calculation-notes</a><a href="lessons/capstone-plan.html">lessons / capstone-plan</a><a href="studios/foundation-wheel.html">studios / foundation-wheel</a><a href="studios/kiln-practice.html">studios / kiln-practice</a><a href="studios/glaze-review.html">studios / glaze-review</a><a href="tool.html">tool</a><a href="workbench/growth-path.html">workbench / growth-path</a><a href="workbench/cadence-comparator.html">workbench / cadence-comparator</a><a href="workbench/fee-drag-lens.html">workbench / fee-drag-lens</a><a href="workbench/real-value-lens.html">workbench / real-value-lens</a><a href="workbench/target-rate-wheel.html">workbench / target-rate-wheel</a><a href="about.html">about</a><a href="contact.html">contact</a><a href="disclosure.html">disclosure</a><a href="legal.html">legal</a><a href="privacy.html">privacy</a><a href="corrections.html">corrections</a><a href="editorial.html">editorial</a></div></details><small>© %CURRENT_YEAR% %SITE_NAME% · <a href="mailto:%CONTACT_EMAIL%">%CONTACT_EMAIL%</a></small></footer>
 </body>
 </html>
