@@ -1,182 +1,48 @@
-<!DOCTYPE html>
-<html lang='%LANG%'>
+<!doctype html>
+<html lang="%LANG%" data-spectrum="dark">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>%SITE_NAME% — 指标观测台</title>
-    <meta name='description' content='%SITE_DESC%'>
-    <link rel='canonical' href='https://%SITE_DOMAIN%/'>
-    <meta property='og:title' content='%SITE_NAME%'>
-    <meta property='og:description' content='%SITE_DESC%'>
-    <meta property='og:url' content='https://%SITE_DOMAIN%/'>
-    <link rel='stylesheet' href='css/style.css'>
-    <script type='application/ld+json'>
-    {
-        "@context": "https://schema.org",
-        "@type": "Dataset",
-        "name": "%SITE_NAME%",
-        "url": "https://%SITE_DOMAIN%/"
-    }
-    </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>%HOME_META_TITLE%</title>
+<meta name="description" content="%HOME_META_DESC%">
+<link rel="canonical" href="https://%SITE_DOMAIN%/">
+<meta property="og:title" content="%HOME_META_TITLE%">
+<meta property="og:description" content="%HOME_META_DESC%">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://%SITE_DOMAIN%/">
+<meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="%HOME_META_TITLE%">
+<meta name="twitter:description" content="%HOME_META_DESC%">
+<meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
+
+<link rel="stylesheet" href="css/style.css?v=16.1">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%HOME_META_TITLE%","description":"%HOME_META_DESC%","url":"https://%SITE_DOMAIN%/","isPartOf":{"@type":"WebSite","name":"%SITE_NAME%","url":"https://%SITE_DOMAIN%/"}}</script>
+<script defer src="js/gleam.js?v=16.1"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 </head>
-<body>
-    <div class='rig'>
-        <aside class='mast'>
-            <div>
-                <p class='mast-kicker'>GLEAM / 016</p>
-                <a class='beacon' href='index.html' aria-label='返回指标首页'>%SITE_NAME%</a>
-                <nav class='picks' aria-label='主导航'>
-                    <a href='index.html' aria-current='page'>指标观测</a>
-                    <a href='article.html'>口径档案</a>
-                    <a href='tool.html'>距离计算</a>
-                    <a href='legal.html'>站点说明</a>
-                </nav>
-            </div>
-            <p class='mast-status'><span aria-hidden='true'></span>静态快照 · 本地运行</p>
-        </aside>
-
-        <main class='watch'>
-            <header class='glare'>
-                <div class='glare-copy'>
-                    <p class='eyebrow'>SIGNAL LEDGER / WEEKLY READ</p>
-                    <h1>把散落数据<br>整理成清晰信号</h1>
-                    <p class='glare-sub'>%SITE_TAGLINE%</p>
-                    <p class='glare-note'>示例数据用于展示结构，上线前请替换为核实数据并更新核对日期。</p>
-                </div>
-                <aside class='signal-card' aria-label='本期快照'>
-                    <p class='signal-card__label'>CURRENT SNAPSHOT</p>
-                    <p class='signal-card__date'>2026 / 08 / 01</p>
-                    <div class='signal-card__grid'>
-                        <div><span>收录指标</span><strong>04</strong></div>
-                        <div><span>上行信号</span><strong>02</strong></div>
-                        <div><span>最近核对</span><strong>08:30</strong></div>
-                        <div><span>数据状态</span><strong>DEMO</strong></div>
-                    </div>
-                </aside>
-            </header>
-
-            <section class='invite-pane' aria-label='邀请码'>
-                <span class='pane-word'>ACCESS CODE</span>
-                <div>
-                    <code id='pane-code'>%INVITE_CODE%</code>
-                    <small class='pane-law'>%COMPLIANCE_NOTE%</small>
-                </div>
-                <button type='button' id='pane-copy'>复制邀请码</button>
-                <span class='copy-status' id='copy-status' role='status' aria-live='polite' aria-atomic='true'></span>
-            </section>
-
-            <section class='metrics' aria-labelledby='metric-title'>
-                <div class='section-head'>
-                    <div>
-                        <p class='eyebrow'>PRIMARY BOARD</p>
-                        <h2 id='metric-title'>核心指标</h2>
-                        <p id='metric-note'>四项样例信号，按七日变化方向快速筛选。</p>
-                    </div>
-                    <div class='filter-pills' aria-label='按趋势筛选'>
-                        <button type='button' data-filter='all' aria-pressed='true'>全部</button>
-                        <button type='button' data-filter='rising' aria-pressed='false'>上行</button>
-                        <button type='button' data-filter='flat' aria-pressed='false'>持平</button>
-                        <button type='button' data-filter='declining' aria-pressed='false'>回落</button>
-                    </div>
-                </div>
-                <div class='roll'>
-                    <table aria-describedby='metric-note'>
-                        <thead>
-                            <tr><th scope='col'>指标</th><th scope='col'>最新值</th><th scope='col'>七日变化</th><th scope='col'>信号</th><th scope='col'>核对时间</th></tr>
-                        </thead>
-                        <tbody id='metric-body'>
-                            <tr data-trend='rising'><td><span class='metric-index'>01</span>活跃地址数</td><td><strong>184,260</strong></td><td><span class='delta delta--up'>+12.4%</span></td><td>连续上行</td><td>08-01 08:30</td></tr>
-                            <tr data-trend='declining'><td><span class='metric-index'>02</span>协议收入</td><td><strong>$2.84M</strong></td><td><span class='delta delta--down'>−3.1%</span></td><td>短期回落</td><td>08-01 08:30</td></tr>
-                            <tr data-trend='flat'><td><span class='metric-index'>03</span>日均交易额</td><td><strong>$418M</strong></td><td><span class='delta delta--flat'>+0.6%</span></td><td>区间持平</td><td>08-01 08:30</td></tr>
-                            <tr data-trend='rising'><td><span class='metric-index'>04</span>净流入强度</td><td><strong>68.4</strong></td><td><span class='delta delta--up'>+8.9%</span></td><td>动能增强</td><td>08-01 08:30</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class='filter-status' id='filter-status' role='status' aria-live='polite'>当前显示全部 4 项指标。</p>
-            </section>
-
-            <section class='readings' aria-label='观察摘要'>
-                <article class='reading reading--feature'>
-                    <p class='eyebrow'>01 / MOMENTUM</p>
-                    <h2>热度回升，但收入尚未同步</h2>
-                    <p>活跃地址与净流入同时增强，而协议收入小幅回落。当前更像参与度修复，而非完整增长周期。</p>
-                </article>
-                <article class='reading'>
-                    <p class='eyebrow'>02 / RANGE</p>
-                    <h3>交易额仍在窄幅区间</h3>
-                    <p>七日变化不足 1%，需继续观察量能能否跟随活跃度上行。</p>
-                </article>
-                <article class='reading'>
-                    <p class='eyebrow'>03 / NEXT CHECK</p>
-                    <h3>下次复核关注收入拐点</h3>
-                    <p>建议同步记录口径、时区与数据源，避免把统计变化误判为趋势。</p>
-                </article>
-            </section>
-
-            <section class='method-card'>
-                <div>
-                    <p class='eyebrow'>METHODOLOGY</p>
-                    <h2>每个数字都应有来源、窗口和更新时间</h2>
-                </div>
-                <p>口径档案页提供结构化说明模板，帮助读者判断不同指标能否直接比较。</p>
-                <a href='article.html'>查看口径档案</a>
-            </section>
-
-            <footer class='stern'>
-                <p>示例数据仅作结构演示，不构成投资建议。</p>
-                <p><a href='legal.html'>站点说明</a> · %CONTACT_EMAIL%</p>
-            </footer>
-        </main>
-    </div>
-
-    <script>
-        (function () {
-            'use strict';
-            var copyButton = document.getElementById('pane-copy');
-            var copyStatus = document.getElementById('copy-status');
-            var codeNode = document.getElementById('pane-code');
-
-            function copied() {
-                copyStatus.textContent = '已复制，可前往使用。';
-                copyButton.textContent = '复制完成';
-                window.setTimeout(function () { copyButton.textContent = '复制邀请码'; }, 1800);
-            }
-
-            function fallbackCopy() {
-                var range = document.createRange();
-                range.selectNodeContents(codeNode);
-                var selection = window.getSelection();
-                selection.removeAllRanges();
-                selection.addRange(range);
-                try { document.execCommand('copy'); copied(); } catch (error) { copyStatus.textContent = '请手动复制已选中的邀请码。'; }
-            }
-
-            copyButton.addEventListener('click', function () {
-                var value = codeNode.textContent.trim();
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(value).then(copied, fallbackCopy);
-                } else {
-                    fallbackCopy();
-                }
-            });
-
-            var filters = document.querySelectorAll('[data-filter]');
-            var rows = document.querySelectorAll('#metric-body tr');
-            var filterStatus = document.getElementById('filter-status');
-            for (var i = 0; i < filters.length; i += 1) {
-                filters[i].addEventListener('click', function () {
-                    var selected = this.getAttribute('data-filter');
-                    var shown = 0;
-                    for (var j = 0; j < filters.length; j += 1) filters[j].setAttribute('aria-pressed', filters[j] === this ? 'true' : 'false');
-                    for (var k = 0; k < rows.length; k += 1) {
-                        var visible = selected === 'all' || rows[k].getAttribute('data-trend') === selected;
-                        rows[k].hidden = !visible;
-                        if (visible) shown += 1;
-                    }
-                    filterStatus.textContent = '当前显示 ' + shown + ' 项指标。';
-                });
-            }
-        }());
-    </script>
-</body>
-</html>
+<body class="photon-shell"><a class="beam-skip" href="#main">跳到主要内容</a>
+<aside class="calibration-spine">
+  <a class="optic-mark" href="index.html" aria-label="%SITE_NAME% 首页"><i aria-hidden="true"></i><strong>%BRAND_EN%</strong><small>GLEAM / 016</small></a>
+  <nav class="spectrum-nav" aria-label="主要导航"><a href="index.html" aria-current="page"><span>观测</span></a><a href="article.html"><span>信号</span></a><a href="tool.html"><span>仪器</span></a><a href="editorial.html"><span>方法</span></a><a href="about.html"><span>站务</span></a></nav>
+  <button class="exposure-toggle" type="button" data-exposure aria-label="切换明暗主题" aria-pressed="false"><b aria-hidden="true"></b><span>曝光</span></button>
+</aside><main id="main" class="observatory-plane"><section class="spectral-stage">
+  <div class="beam-copy"><p class="lab-code">WEEKLY OBSERVATION · FILE 016</p><h1>%HOME_H1%</h1><p class="beam-lede">%HOME_LEDE%</p>
+    <a class="observatory-pick" href="signals/access-baseline.html"><small>%HOME_PICK_LABEL%</small><strong>%ARTICLE_01_TITLE%</strong><span>%HOME_PICK_NOTE%</span></a>
+  </div>
+  <aside class="aperture-visual" aria-label="%HERO_VISUAL_LABEL%"><div class="prism-orbit" aria-hidden="true"><i></i><i></i><i></i><i></i></div><dl><div><dt>%HERO_DATUM_01_LABEL%</dt><dd>%HERO_DATUM_01_VALUE%</dd></div><div><dt>%HERO_DATUM_02_LABEL%</dt><dd>%HERO_DATUM_02_VALUE%</dd></div><div><dt>%HERO_DATUM_03_LABEL%</dt><dd>%HERO_DATUM_03_VALUE%</dd></div></dl></aside>
+  <section class="access-console" aria-label="邀请码"><p>ACCESS REFERENCE</p><div class="access-line"><code data-invite-source>%INVITE_CODE%</code><button type="button" data-invite-copy>复制</button></div><strong>%BENEFIT_RATE%</strong><small>%BENEFIT_DISCLAIMER%</small><span role="status" aria-live="polite" data-invite-status></span></section>
+</section>
+<section class="live-strip" aria-labelledby="strip-title"><div><p>01 / SIGNAL BOARD</p><h2 id="strip-title">%SIGNAL_BOARD_TITLE%</h2><span>%SIGNAL_BOARD_DESC%</span></div><ol><li><span>%SIGNAL_01_LABEL%</span><strong>%SIGNAL_01_VALUE%</strong><small>%SIGNAL_01_NOTE%</small></li><li><span>%SIGNAL_02_LABEL%</span><strong>%SIGNAL_02_VALUE%</strong><small>%SIGNAL_02_NOTE%</small></li><li><span>%SIGNAL_03_LABEL%</span><strong>%SIGNAL_03_VALUE%</strong><small>%SIGNAL_03_NOTE%</small></li><li><span>%SIGNAL_04_LABEL%</span><strong>%SIGNAL_04_VALUE%</strong><small>%SIGNAL_04_NOTE%</small></li></ol></section>
+<section class="wave-register" aria-labelledby="wave-title"><header><p>02 / FIELD NOTES</p><h2 id="wave-title">%HOME_ARTICLES_TITLE%</h2><span>%HOME_ARTICLES_DESC%</span></header><div><a href="signals/benchmark-brief.html"><small>02</small><strong>%ARTICLE_02_TITLE%</strong><span>%ARTICLE_02_DESC%</span></a><a href="signals/source-map.html"><small>03</small><strong>%ARTICLE_03_TITLE%</strong><span>%ARTICLE_03_DESC%</span></a><a href="signals/analyst-dialogue.html"><small>04</small><strong>%ARTICLE_04_TITLE%</strong><span>%ARTICLE_04_DESC%</span></a><a href="signals/cadence-ledger.html"><small>05</small><strong>%ARTICLE_05_TITLE%</strong><span>%ARTICLE_05_DESC%</span></a><a href="signals/divergence-tree.html"><small>06</small><strong>%ARTICLE_06_TITLE%</strong><span>%ARTICLE_06_DESC%</span></a><a href="signals/noise-myths.html"><small>07</small><strong>%ARTICLE_07_TITLE%</strong><span>%ARTICLE_07_DESC%</span></a></div></section>
+<section class="instrument-rack" aria-labelledby="rack-title"><header><p>03 / LOCAL INSTRUMENTS</p><h2 id="rack-title">%HOME_TOOLS_TITLE%</h2><a href="tool.html">%HOME_TOOLS_LINK%</a></header><div><a href="instruments/z-score-bench.html"><i>01</i><strong>%TOOL_01_TITLE%</strong><span>%TOOL_01_DESC%</span></a><a href="instruments/moving-window.html"><i>02</i><strong>%TOOL_02_TITLE%</strong><span>%TOOL_02_DESC%</span></a><a href="instruments/sample-size-lens.html"><i>03</i><strong>%TOOL_03_TITLE%</strong><span>%TOOL_03_DESC%</span></a><a href="instruments/signal-consensus.html"><i>04</i><strong>%TOOL_04_TITLE%</strong><span>%TOOL_04_DESC%</span></a><a href="instruments/range-mapper.html"><i>05</i><strong>%TOOL_05_TITLE%</strong><span>%TOOL_05_DESC%</span></a></div></section>
+<section class="constellation-index" aria-labelledby="index-title"><header><p>04 / COMPLETE MAP</p><h2 id="index-title">%HOME_INDEX_TITLE%</h2><span>%HOME_INDEX_DESC%</span></header><div class="index-columns"><section><h3>全部信号</h3><a href="article.html">%ARTICLE_INDEX_TITLE%</a><a href="signals/anomaly-record.html">%ARTICLE_08_TITLE%</a><a href="signals/twin-lens.html">%ARTICLE_09_TITLE%</a><a href="signals/verification-sequence.html">%ARTICLE_10_TITLE%</a><a href="signals/metric-glossary.html">%ARTICLE_11_TITLE%</a><a href="signals/horizon-scan.html">%ARTICLE_12_TITLE%</a></section><section><h3>观察范围</h3><a href="ranges/instrument-basics.html">%RANGE_A_TITLE%</a><a href="ranges/signal-reading.html">%RANGE_B_TITLE%</a><a href="ranges/review-discipline.html">%RANGE_C_TITLE%</a><a href="tool.html">%TOOL_INDEX_TITLE%</a><a href="instruments/z-score-bench.html">%TOOL_01_TITLE%</a><a href="instruments/moving-window.html">%TOOL_02_TITLE%</a><a href="instruments/sample-size-lens.html">%TOOL_03_TITLE%</a><a href="instruments/signal-consensus.html">%TOOL_04_TITLE%</a><a href="instruments/range-mapper.html">%TOOL_05_TITLE%</a></section><section><h3>公开档案</h3><a href="about.html">%ABOUT_TITLE%</a><a href="contact.html">%CONTACT_TITLE%</a><a href="disclosure.html">%DISCLOSURE_TITLE%</a><a href="legal.html">%DISCLAIMER_TITLE%</a><a href="privacy.html">%PRIVACY_TITLE%</a><a href="corrections.html">%CORRECTIONS_TITLE%</a><a href="editorial.html">%EDITORIAL_TITLE%</a></section></div></section></main><footer class="baseplate">
+  <div><strong>%BRAND_EN%</strong><small>OBSERVATION FILE 016</small></div>
+  <p>本站独立运营，不隶属于相关平台；部分页面可能包含推广链接，详情见 <a href="disclosure.html">%DISCLOSURE_TITLE%</a>。</p>
+  <nav aria-label="站务链接"><a href="about.html">%ABOUT_TITLE%</a><a href="contact.html">%CONTACT_TITLE%</a><a href="disclosure.html">%DISCLOSURE_TITLE%</a><a href="legal.html">%DISCLAIMER_TITLE%</a><a href="privacy.html">%PRIVACY_TITLE%</a><a href="corrections.html">%CORRECTIONS_TITLE%</a><a href="editorial.html">%EDITORIAL_TITLE%</a><a href="feed.xml">%RSS_LABEL%</a></nav>
+  <small>%SITE_NAME% · %CONTACT_EMAIL% · %CURRENT_YEAR%</small>
+</footer></body></html>
