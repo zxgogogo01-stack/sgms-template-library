@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>事件归一仪 — {{SITE_NAME}}</title>
+  <meta name="description" content="把事件量换算为日均、人均与人日均。">
+
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/observatory/event-normalizer.html">
+  <link rel="alternate" type="application/rss+xml" title="{{BRAND_EN}} signal feed" href="../feed.xml">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+  <meta name="theme-color" content="#0b1720">
+  <meta property="og:title" content="事件归一仪 — {{SITE_NAME}}">
+  <meta property="og:description" content="把事件量换算为日均、人均与人日均。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/observatory/event-normalizer.html">
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="事件归一仪 — {{SITE_NAME}}">
+  <meta name="twitter:description" content="把事件量换算为日均、人均与人日均。">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="../assets/ground.css?v=4">
+  <link rel="stylesheet" href="../assets/shape.css?v=4">
+  <link rel="stylesheet" href="../assets/trim.css?v=4">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"事件归一仪","description":"把事件量换算为日均、人均与人日均。","url":"https://{{SITE_DOMAIN}}/observatory/event-normalizer.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head>
+<body>
+<header class="crest">
+  <a class="crest__brand" href="../index.html" aria-label="返回首页"><span class="crest__pulse" aria-hidden="true"></span>{{BRAND_EN}}</a>
+  <span class="crest__issue">SIGNAL / 003</span>
+  <nav class="crest__links" aria-label="主导航"><a class="crest__a" href="../index.html">本期</a><a class="crest__a" href="../article.html">信号库</a><a class="crest__a" href="../tool.html" aria-current="page">观测舱</a><a class="crest__a" href="../editorial.html">编发规约</a><a class="crest__a" href="../about.html">关于</a></nav>
+  <button class="crest__theme" type="button" data-theme-toggle aria-label="切换明暗主题">主题：跟随系统</button>
+</header>
+<main class="instrument-shell">
+  <header class="instrument-head"><span>OBSERVATORY / 04</span><h1>事件归一仪</h1><p>把事件量换算为日均、人均与人日均。</p></header>
+  <section class="instrument-console">
+    <form class="instrument-form" id="signal-tool" data-tool="normalize" novalidate>
+      <div class="instrument-form__fields"><label>事件总数<input name="events" type="number" min="0" step="1" value="360" required></label><label>观察人数<input name="people" type="number" min="1" step="1" value="120" required></label><label>观察天数<input name="days" type="number" min="1" step="1" value="14" required></label></div>
+      <div class="instrument-form__actions"><button type="submit">运行计算</button><button type="reset">清空面板</button><button type="button" data-copy-result disabled>复制结果</button></div>
+      <div class="instrument-output" data-tool-output role="status" aria-live="polite"><strong>等待输入</strong><span>填写参数后运行；结果只用于观察与记录。</span></div>
+    </form>
+    <aside class="instrument-console__readout"><span>LOCAL / STATIC</span><b>0.00</b><i>NO EXTERNAL FEED</i></aside>
+  </section>
+  <details class="instrument-guide"><summary>展开使用说明</summary><div><section><h3>这个工具解决什么问题</h3><p>{{TOOL_04_GUIDE_PURPOSE}}</p></section><section><h3>应该怎样输入</h3><p>{{TOOL_04_GUIDE_INPUT}}</p></section><section><h3>结果怎么读</h3><p>{{TOOL_04_GUIDE_OUTPUT}}</p></section><section><h3>计算依据是什么</h3><p>{{TOOL_04_GUIDE_METHOD}}</p></section><section><h3>有哪些限制</h3><p>{{TOOL_04_GUIDE_LIMITS}}</p></section></div></details>
+  <nav class="instrument-dock" aria-label="全部工具"><a href="window-scheduler.html"><span>01</span>观察窗排程器</a><a href="retention-drift.html"><span>02</span>留存漂移尺</a><a href="sample-interval.html"><span>03</span>样本区间台</a><a href="event-normalizer.html" aria-current="page"><span>04</span>事件归一仪</a><a href="signal-priority.html"><span>05</span>信号优先舱</a></nav>
+</main>
+<footer class="tail-bar">
+  <div class="tail-bar__grid">
+    <p class="tail-bar__signal"><strong>{{BRAND_EN}}</strong><br>本站独立运营，不是交易所，也不代管资金。部分内容含推广链接；加密资产价格波动大，可能损失全部本金。</p>
+    <nav class="tail-bar__links" aria-label="合规与联系">
+      <a href="../about.html">关于</a><a href="../contact.html">联系</a><a href="../disclosure.html">推广披露</a><a href="../legal.html">免责声明</a><a href="../privacy.html">隐私</a><a href="../corrections.html">更正</a><a href="../editorial.html">编辑规约</a><a href="../feed.xml">信号订阅</a>
+    </nav>
+  </div>
+</footer>
+<script src="../assets/run.js?v=4" defer></script>
+<script src="../assets/observatory.js?v=4" defer></script>
+</body>
+</html>

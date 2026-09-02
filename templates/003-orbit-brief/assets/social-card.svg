@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#06141b"/><g fill="none" stroke="#18323a" stroke-width="2">
+  <circle cx="940" cy="315" r="240"/><circle cx="940" cy="315" r="170"/><circle cx="940" cy="315" r="95"/>
+  <path d="M940 75V555M700 315H1180"/></g><path d="M940 315 1095 185" stroke="#59e1d1" stroke-width="7"/>
+  <circle cx="940" cy="315" r="11" fill="#e9f6f3"/><circle cx="1040" cy="230" r="9" fill="#ff9256"/>
+  <text x="70" y="260" fill="#e9f6f3" font-family="Arial,sans-serif" font-size="64" font-weight="700">{{SITE_NAME}}</text>
+  <text x="74" y="320" fill="#59e1d1" font-family="Arial,sans-serif" font-size="25" font-weight="700">SIGNAL-LED DECISION DESK</text>
+  <text x="74" y="415" fill="#88a3a5" font-family="Arial,sans-serif" font-size="20">VERIFY / COMPARE / RECORD</text></svg>

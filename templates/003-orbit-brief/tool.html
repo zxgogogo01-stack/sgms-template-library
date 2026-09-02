@@ -2,58 +2,51 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>观察窗倒计时 — {{SITE_NAME}}</title>
-  <meta name="description" content="为下一次复盘设定日期，计算剩余天数与建议检查点。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>观测舱 — {{SITE_NAME}}</title>
+  <meta name="description" content="五个无需上传数据的本地信号分析工具。">
+
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
-  <meta property="og:title" content="观察窗倒计时 — {{SITE_NAME}}">
-  <meta property="og:description" content="为下一次复盘设定日期，计算剩余天数与建议检查点。">
+  <link rel="alternate" type="application/rss+xml" title="{{BRAND_EN}} signal feed" href="feed.xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta name="theme-color" content="#0b1720">
+  <meta property="og:title" content="观测舱 — {{SITE_NAME}}">
+  <meta property="og:description" content="五个无需上传数据的本地信号分析工具。">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
-  <link rel="stylesheet" href="assets/ground.css">
-  <link rel="stylesheet" href="assets/shape.css">
-  <link rel="stylesheet" href="assets/trim.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "观察窗倒计时",
-    "url": "https://{{SITE_DOMAIN}}/tool.html"
-  }
-  </script>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="观测舱 — {{SITE_NAME}}">
+  <meta name="twitter:description" content="五个无需上传数据的本地信号分析工具。">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/ground.css?v=4">
+  <link rel="stylesheet" href="assets/shape.css?v=4">
+  <link rel="stylesheet" href="assets/trim.css?v=4">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"观测舱","url":"https://{{SITE_DOMAIN}}/tool.html"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 </head>
 <body>
-  <header class="crest">
-    <span class="crest__name">{{SITE_NAME}}</span>
-    <span class="crest__issue">工具</span>
-    <nav class="crest__links" aria-label="导航">
-      <a class="crest__a" href="index.html">本期</a>
-      <a class="crest__a" href="article.html">正文</a>
-      <a class="crest__a" href="tool.html" aria-current="page">倒计时</a>
-      <a class="crest__a" href="legal.html">说明</a>
+<header class="crest">
+  <a class="crest__brand" href="index.html" aria-label="返回首页"><span class="crest__pulse" aria-hidden="true"></span>{{BRAND_EN}}</a>
+  <span class="crest__issue">SIGNAL / 003</span>
+  <nav class="crest__links" aria-label="主导航"><a class="crest__a" href="index.html">本期</a><a class="crest__a" href="article.html">信号库</a><a class="crest__a" href="tool.html" aria-current="page">观测舱</a><a class="crest__a" href="editorial.html">编发规约</a><a class="crest__a" href="about.html">关于</a></nav>
+  <button class="crest__theme" type="button" data-theme-toggle aria-label="切换明暗主题">主题：跟随系统</button>
+</header>
+<main class="observatory-index">
+  <section class="observatory-beacon"><p>LOCAL INSTRUMENT BAY</p><h1>观测舱</h1><span>输入只参与当前页面计算；工具不读取账户，也不提供实时市场数据。</span></section>
+  <div class="instrument-rack"><a href="observatory/window-scheduler.html"><span>INSTRUMENT / 01</span><h2>观察窗排程器</h2><p>按起止日期与间隔，生成本地检查点。</p><b>OPEN BAY</b></a><a href="observatory/retention-drift.html"><span>INSTRUMENT / 02</span><h2>留存漂移尺</h2><p>比较两个百分比，区分百分点与相对变化。</p><b>OPEN BAY</b></a><a href="observatory/sample-interval.html"><span>INSTRUMENT / 03</span><h2>样本区间台</h2><p>用 Wilson 方法估算二项比例的 95% 区间。</p><b>OPEN BAY</b></a><a href="observatory/event-normalizer.html"><span>INSTRUMENT / 04</span><h2>事件归一仪</h2><p>把事件量换算为日均、人均与人日均。</p><b>OPEN BAY</b></a><a href="observatory/signal-priority.html"><span>INSTRUMENT / 05</span><h2>信号优先舱</h2><p>结合证据、影响、时效与工作量生成排序分。</p><b>OPEN BAY</b></a></div>
+</main>
+<footer class="tail-bar">
+  <div class="tail-bar__grid">
+    <p class="tail-bar__signal"><strong>{{BRAND_EN}}</strong><br>本站独立运营，不是交易所，也不代管资金。部分内容含推广链接；加密资产价格波动大，可能损失全部本金。</p>
+    <nav class="tail-bar__links" aria-label="合规与联系">
+      <a href="about.html">关于</a><a href="contact.html">联系</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私</a><a href="corrections.html">更正</a><a href="editorial.html">编辑规约</a><a href="feed.xml">信号订阅</a>
     </nav>
-  </header>
-
-  <main class="trunk">
-    <section class="issue-lead">
-      <h1 class="issue-lead__title">观察窗倒计时</h1>
-      <p class="issue-lead__sub">给复盘留出时间，也给中途检查留下坐标</p>
-    </section>
-
-    <form class="cd-panel" id="cd-form" novalidate>
-      <p class="cd-panel__intro">选择下一次正式复盘的日期。结果只在浏览器里计算，不会保存日程。</p>
-      <div class="cd-panel__row">
-        <label for="cd-date">目标日期</label>
-        <input type="date" id="cd-date" required>
-      </div>
-      <div class="cd-panel__actions"><button class="cd-panel__go" type="submit">计算窗口</button><button class="cd-panel__quick" id="cd-week" type="button">设为 7 天后</button></div>
-      <div class="cd-panel__show" id="cd-out" role="status" aria-live="polite">尚未设定观察窗口。</div>
-    </form>
-  </main>
-
-  <footer class="tail-bar">
-    <p class="tail-bar__msg">编辑信号，不追逐噪声 · <a class="tail-bar__a" href="legal.html">方法与说明</a></p>
-  </footer>
-
-  <script src="assets/run.js"></script>
+  </div>
+</footer>
+<script src="assets/run.js?v=4" defer></script>
 </body>
 </html>

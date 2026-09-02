@@ -2,112 +2,121 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{SITE_NAME}} — 每周产品信号简报</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{SITE_NAME}} — {{SITE_TAGLINE}}</title>
   <meta name="description" content="{{SITE_DESC}}">
+
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
-  <meta property="og:title" content="{{SITE_NAME}}">
+  <link rel="alternate" type="application/rss+xml" title="{{BRAND_EN}} signal feed" href="feed.xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta name="theme-color" content="#0b1720">
+  <meta property="og:title" content="{{SITE_NAME}} — {{SITE_TAGLINE}}">
   <meta property="og:description" content="{{SITE_DESC}}">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
-  <link rel="stylesheet" href="assets/ground.css">
-  <link rel="stylesheet" href="assets/shape.css">
-  <link rel="stylesheet" href="assets/trim.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Periodical",
-    "name": "{{SITE_NAME}}",
-    "url": "https://{{SITE_DOMAIN}}/"
-  }
-  </script>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{SITE_NAME}} — {{SITE_TAGLINE}}">
+  <meta name="twitter:description" content="{{SITE_DESC}}">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/ground.css?v=4">
+  <link rel="stylesheet" href="assets/shape.css?v=4">
+  <link rel="stylesheet" href="assets/trim.css?v=4">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Periodical","name":"{{SITE_NAME}}","alternateName":"{{BRAND_EN}}","url":"https://{{SITE_DOMAIN}}/","description":"{{SITE_DESC}}"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 </head>
 <body>
-  <header class="crest">
-    <span class="crest__name">{{SITE_NAME}}</span>
-    <span class="crest__issue">第 18 期 · 2026/07</span>
-    <nav class="crest__links" aria-label="导航">
-      <a class="crest__a" href="index.html" aria-current="page">本期</a>
-      <a class="crest__a" href="article.html">正文</a>
-      <a class="crest__a" href="tool.html">倒计时</a>
-      <a class="crest__a" href="legal.html">说明</a>
-    </nav>
-  </header>
-
-  <main class="trunk">
-    <section class="issue-lead">
-      <h1 class="issue-lead__title">{{SITE_NAME}}</h1>
-      <p class="issue-lead__sub">{{SITE_TAGLINE}} · 从上线热度到次周留存，把可见声量变成可复盘信号</p>
-      <p class="issue-lead__date">本期发布：2026-07-31 · 下一观察窗：2026-08-07</p>
-    </section>
-
-    <section class="point-trio" aria-label="本期要点">
-      <article class="point-trio__cell">
-        <span class="point-trio__no">01</span>
-        <span class="point-trio__tag">口径</span>
-        <h2 class="point-trio__head">先拆开“新增”与“回访”</h2>
-        <p class="point-trio__body">发布日的访问峰值只能说明有人到场。把首次访问、次日回访和主动完成的关键动作分开，才看得见真正留下的人。</p>
-      </article>
-      <article class="point-trio__cell">
-        <span class="point-trio__no">02</span>
-        <span class="point-trio__tag">窗口</span>
-        <h2 class="point-trio__head">发布日不是观察终点</h2>
-        <p class="point-trio__body">同一功能至少保留发布日、三日后与次周三个截面。热度消退以后仍然存在的行为，才值得写进下一期。</p>
-      </article>
-      <article class="point-trio__cell">
-        <span class="point-trio__no">03</span>
-        <span class="point-trio__tag">验证</span>
-        <h2 class="point-trio__head">把评论翻译成验证问题</h2>
-        <p class="point-trio__body">“不好用”不是结论。记录用户停在哪一步、原本想完成什么，再把抱怨改写成下次可以观察的具体问题。</p>
-      </article>
-    </section>
-
-    <section class="back-issues" aria-label="往期归档">
-      <h2 class="back-issues__cap">往期归档</h2>
-      <div class="back-issues__wall">
-        <a class="back-issues__card" href="article.html">
-          <span class="back-issues__num">第 17 期 · 07/24</span>
-          <span class="back-issues__line">功能上线后，先找第一处沉默</span>
-        </a>
-        <a class="back-issues__card" href="article.html">
-          <span class="back-issues__num">第 16 期 · 07/17</span>
-          <span class="back-issues__line">把“活跃”拆成四个可解释动作</span>
-        </a>
-        <a class="back-issues__card" href="article.html">
-          <span class="back-issues__num">第 15 期 · 07/10</span>
-          <span class="back-issues__line">一次回访，比十次曝光更接近答案</span>
-        </a>
-        <a class="back-issues__card" href="article.html">
-          <span class="back-issues__num">第 14 期 · 07/03</span>
-          <span class="back-issues__line">给每个指标补上一个反例</span>
-        </a>
-        <a class="back-issues__card" href="article.html">
-          <span class="back-issues__num">第 13 期 · 06/26</span>
-          <span class="back-issues__line">小样本里，哪些变化值得追问</span>
-        </a>
-        <a class="back-issues__card" href="article.html">
-          <span class="back-issues__num">方法档案 · 01</span>
-          <span class="back-issues__line">我们如何决定一条信号是否入刊</span>
-        </a>
+<header class="crest">
+  <a class="crest__brand" href="index.html" aria-label="返回首页"><span class="crest__pulse" aria-hidden="true"></span>{{BRAND_EN}}</a>
+  <span class="crest__issue">SIGNAL / 003</span>
+  <nav class="crest__links" aria-label="主导航"><a class="crest__a" href="index.html" aria-current="page">本期</a><a class="crest__a" href="article.html">信号库</a><a class="crest__a" href="tool.html">观测舱</a><a class="crest__a" href="editorial.html">编发规约</a><a class="crest__a" href="about.html">关于</a></nav>
+  <button class="crest__theme" type="button" data-theme-toggle aria-label="切换明暗主题">主题：跟随系统</button>
+</header>
+<main class="orbital-home">
+  <section class="flight-deck" aria-labelledby="home-title">
+    <div class="flight-deck__copy">
+      <p class="flight-deck__eyebrow">ISSUE {{ISSUE_NUMBER}} / {{UPDATED_DATE}}</p>
+      <h1 id="home-title">{{SITE_NAME}}</h1>
+      <p class="flight-deck__lead">{{SITE_TAGLINE}}</p>
+      <div class="access-vector" aria-label="邀请码">
+        <span class="access-vector__label">ACCESS SIGNAL</span>
+        <code class="access-vector__code" data-invite-code>{{INVITE_CODE}}</code>
+        <button class="access-vector__copy" type="button" data-copy-invite>复制邀请码</button>
+        <p class="access-vector__benefit">通过本站邀请码注册，有机会获得 {{BENEFIT_RATE}} 手续费减免*</p>
+        <small class="access-vector__note">* {{BENEFIT_DISCLAIMER}}</small>
+        <span class="access-vector__status" data-copy-status role="status" aria-live="polite"></span>
       </div>
-    </section>
+      <div class="flight-deck__actions"><a href="article.html">读取全部信号</a><a href="tool.html">打开观测工具</a></div>
+    </div>
+    <div class="flight-deck__visual" aria-hidden="true">
+      <span class="radar-orbit radar-orbit--a"></span><span class="radar-orbit radar-orbit--b"></span><span class="radar-orbit radar-orbit--c"></span>
+      <span class="radar-sweep"></span><span class="radar-node radar-node--one"></span><span class="radar-node radar-node--two"></span><span class="radar-node radar-node--three"></span>
+      <b>03</b><em>ORBITAL<br>SIGNAL</em>
+    </div>
+    <div class="flight-deck__rail"><span>LOCAL CALCULATION</span><span>NO LIVE PRICE FEED</span><span>TEXT-FIRST FRAME</span></div>
+  </section>
 
-    <aside class="jargon-pad" aria-label="名词小抄">
-      <h2 class="jargon-pad__cap">名词小抄</h2>
-      <dl class="jargon-pad__list">
-        <dt class="jargon-pad__term">激活事件</dt>
-        <dd class="jargon-pad__def">用户第一次完成产品核心价值动作。注册不是默认答案，关键在于“第一次真正得到结果”。</dd>
-        <dt class="jargon-pad__term">观察窗口</dt>
-        <dd class="jargon-pad__def">为同一行为划定一致的起止时间。比较两个数字前，先确认它们是否来自相同长度的窗口。</dd>
-        <dt class="jargon-pad__term">回访队列</dt>
-        <dd class="jargon-pad__def">按首次出现时间分组，再观察同一批人后续是否回来，避免被每天不同的新流量干扰。</dd>
-      </dl>
-    </aside>
-  </main>
+  <section class="current-scan" aria-labelledby="current-title">
+    <div class="section-call"><p>NEW TRANSMISSIONS</p><h2 id="current-title">本轮信号</h2><span>已预设三种文章开场结构；后续只填写文字。</span></div>
+    <div class="packet-wall"><a class="packet-card" href="transmissions/account-entry-telemetry.html" data-channel="1">
+    <span class="packet-card__index">TX-01</span>
+    <span class="packet-card__tag">ENTRY</span>
+    <strong>{{ARTICLE_01_TITLE}}</strong>
+    <span>{{ARTICLE_01_DESC}}</span>
+  </a><a class="packet-card" href="transmissions/fee-signal-baseline.html" data-channel="1">
+    <span class="packet-card__index">TX-02</span>
+    <span class="packet-card__tag">BASELINE</span>
+    <strong>{{ARTICLE_02_TITLE}}</strong>
+    <span>{{ARTICLE_02_DESC}}</span>
+  </a><a class="packet-card" href="transmissions/source-latency-check.html" data-channel="3">
+    <span class="packet-card__index">TX-03</span>
+    <span class="packet-card__tag">LATENCY</span>
+    <strong>{{ARTICLE_03_TITLE}}</strong>
+    <span>{{ARTICLE_03_DESC}}</span>
+  </a><a class="packet-card" href="transmissions/identity-friction-map.html" data-channel="1">
+    <span class="packet-card__index">TX-04</span>
+    <span class="packet-card__tag">IDENTITY</span>
+    <strong>{{ARTICLE_04_TITLE}}</strong>
+    <span>{{ARTICLE_04_DESC}}</span>
+  </a><a class="packet-card" href="transmissions/first-transfer-observation.html" data-channel="2">
+    <span class="packet-card__index">TX-05</span>
+    <span class="packet-card__tag">TRANSFER</span>
+    <strong>{{ARTICLE_05_TITLE}}</strong>
+    <span>{{ARTICLE_05_DESC}}</span>
+  </a><a class="packet-card" href="transmissions/account-recovery-drill.html" data-channel="3">
+    <span class="packet-card__index">TX-06</span>
+    <span class="packet-card__tag">RECOVERY</span>
+    <strong>{{ARTICLE_06_TITLE}}</strong>
+    <span>{{ARTICLE_06_DESC}}</span>
+  </a></div>
+  </section>
 
-  <footer class="tail-bar">
-    <p class="tail-bar__msg">编辑信号，不追逐噪声 · <a class="tail-bar__a" href="legal.html">方法与说明</a> · {{CONTACT_EMAIL}}</p>
-  </footer>
+  <section class="channel-array" aria-labelledby="channel-title">
+    <div class="section-call"><p>CHANNEL ARRAY</p><h2 id="channel-title">三条频道</h2><span>每条频道已接入四个文章槽位。</span></div>
+    <div class="channel-array__grid"><a href="channels/entry-signals.html"><span>01</span><h3>{{CHANNEL_01_NAME}}</h3><p>{{CHANNEL_01_DESC}}</p><b>4 TRANSMISSIONS</b></a><a href="channels/motion-window.html"><span>02</span><h3>{{CHANNEL_02_NAME}}</h3><p>{{CHANNEL_02_DESC}}</p><b>4 TRANSMISSIONS</b></a><a href="channels/evidence-relay.html"><span>03</span><h3>{{CHANNEL_03_NAME}}</h3><p>{{CHANNEL_03_DESC}}</p><b>4 TRANSMISSIONS</b></a></div>
+  </section>
 
-  <script src="assets/run.js"></script>
+  <section class="observatory-strip" aria-labelledby="observatory-title">
+    <div class="section-call section-call--inverse"><p>FIVE LOCAL INSTRUMENTS</p><h2 id="observatory-title">观测舱</h2><span>所有计算留在当前浏览器，不调用外部数据源。</span></div>
+    <div class="observatory-strip__list"><a href="observatory/window-scheduler.html"><span>O-1</span><strong>观察窗排程器</strong><small>按起止日期与间隔，生成本地检查点。</small></a><a href="observatory/retention-drift.html"><span>O-2</span><strong>留存漂移尺</strong><small>比较两个百分比，区分百分点与相对变化。</small></a><a href="observatory/sample-interval.html"><span>O-3</span><strong>样本区间台</strong><small>用 Wilson 方法估算二项比例的 95% 区间。</small></a><a href="observatory/event-normalizer.html"><span>O-4</span><strong>事件归一仪</strong><small>把事件量换算为日均、人均与人日均。</small></a><a href="observatory/signal-priority.html"><span>O-5</span><strong>信号优先舱</strong><small>结合证据、影响、时效与工作量生成排序分。</small></a></div>
+  </section>
+
+  <section class="wide-relay" aria-labelledby="relay-title">
+    <div class="section-call"><p>FULL ROUTE MAP</p><h2 id="relay-title">完整入口</h2><span>首页直接连接全部可索引页面，不让内容成为孤岛。</span></div>
+    <div class="wide-relay__matrix"><a href="transmissions/account-entry-telemetry.html"><span>01</span>{{ARTICLE_01_TITLE}}</a><a href="transmissions/fee-signal-baseline.html"><span>02</span>{{ARTICLE_02_TITLE}}</a><a href="transmissions/source-latency-check.html"><span>03</span>{{ARTICLE_03_TITLE}}</a><a href="transmissions/identity-friction-map.html"><span>04</span>{{ARTICLE_04_TITLE}}</a><a href="transmissions/first-transfer-observation.html"><span>05</span>{{ARTICLE_05_TITLE}}</a><a href="transmissions/account-recovery-drill.html"><span>06</span>{{ARTICLE_06_TITLE}}</a><a href="transmissions/order-routing-notes.html"><span>07</span>{{ARTICLE_07_TITLE}}</a><a href="transmissions/volatility-window.html"><span>08</span>{{ARTICLE_08_TITLE}}</a><a href="transmissions/custody-checklist.html"><span>09</span>{{ARTICLE_09_TITLE}}</a><a href="transmissions/recurring-review-cadence.html"><span>10</span>{{ARTICLE_10_TITLE}}</a><a href="transmissions/evidence-confidence-scale.html"><span>11</span>{{ARTICLE_11_TITLE}}</a><a href="transmissions/policy-change-log.html"><span>12</span>{{ARTICLE_12_TITLE}}</a><a href="channels/entry-signals.html"><span>C1</span>{{CHANNEL_01_NAME}}</a><a href="channels/motion-window.html"><span>C2</span>{{CHANNEL_02_NAME}}</a><a href="channels/evidence-relay.html"><span>C3</span>{{CHANNEL_03_NAME}}</a><a href="observatory/window-scheduler.html"><span>O1</span>观察窗排程器</a><a href="observatory/retention-drift.html"><span>O2</span>留存漂移尺</a><a href="observatory/sample-interval.html"><span>O3</span>样本区间台</a><a href="observatory/event-normalizer.html"><span>O4</span>事件归一仪</a><a href="observatory/signal-priority.html"><span>O5</span>信号优先舱</a><a href="article.html"><span>IX</span>全部信号</a><a href="tool.html"><span>LB</span>观测舱索引</a><a href="about.html"><span>L1</span>关于本站</a><a href="contact.html"><span>L2</span>联系编辑部</a><a href="disclosure.html"><span>L3</span>推广披露</a><a href="legal.html"><span>L4</span>免责声明</a><a href="privacy.html"><span>L5</span>隐私说明</a><a href="corrections.html"><span>L6</span>更正记录</a><a href="editorial.html"><span>L7</span>编辑规约</a></div>
+  </section>
+</main>
+<footer class="tail-bar">
+  <div class="tail-bar__grid">
+    <p class="tail-bar__signal"><strong>{{BRAND_EN}}</strong><br>本站独立运营，不是交易所，也不代管资金。部分内容含推广链接；加密资产价格波动大，可能损失全部本金。</p>
+    <nav class="tail-bar__links" aria-label="合规与联系">
+      <a href="about.html">关于</a><a href="contact.html">联系</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私</a><a href="corrections.html">更正</a><a href="editorial.html">编辑规约</a><a href="feed.xml">信号订阅</a>
+    </nav>
+  </div>
+</footer>
+<script src="assets/run.js?v=4" defer></script>
 </body>
 </html>

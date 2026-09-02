@@ -1,55 +1,46 @@
 (function () {
   "use strict";
-
-  var form = document.getElementById("cd-form");
-  if (!form) return;
-
-  var input = document.getElementById("cd-date");
-  var out = document.getElementById("cd-out");
-  var quick = document.getElementById("cd-week");
-
-  var isoDate = function (date) {
-    var local = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
-    return local.toISOString().slice(0, 10);
-  };
-
-  if (quick) {
-    quick.addEventListener("click", function () {
-      var target = new Date();
-      target.setDate(target.getDate() + 7);
-      input.value = isoDate(target);
-      input.focus();
-    });
+  var key = "orbit-brief-theme";
+  var button = document.querySelector("[data-theme-toggle]");
+  var states = ["system", "light", "dark"];
+  var labels = { system: "主题：跟随系统", light: "主题：浅色", dark: "主题：深色" };
+  function stored() { try { return localStorage.getItem(key) || "system"; } catch (error) { return "system"; } }
+  function apply(theme) {
+    if (theme === "system") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", theme);
+    if (button) button.textContent = labels[theme];
   }
-
-  form.addEventListener("submit", function (ev) {
-    ev.preventDefault();
-    if (!input.value) {
-      out.className = "cd-panel__show is-error";
-      out.textContent = "尚未计算：请先选择一个目标日期。";
-      input.setAttribute("aria-invalid", "true");
-      input.focus();
-      return;
-    }
-
-    input.removeAttribute("aria-invalid");
-    var target = new Date(input.value + "T00:00:00");
-    var diff = target.getTime() - Date.now();
-    if (isNaN(diff)) {
-      out.className = "cd-panel__show is-error";
-      out.textContent = "日期格式无法识别，请重新选择。";
-      return;
-    }
-    if (diff <= 0) {
-      out.className = "cd-panel__show is-error";
-      out.textContent = "这个日期已经过去，请设定下一次观察窗口。";
-      return;
-    }
-
-    var days = Math.floor(diff / 86400000);
-    var hours = Math.floor((diff % 86400000) / 3600000);
-    var checkDay = Math.max(1, Math.ceil(days / 2));
-    out.className = "cd-panel__show is-success";
-    out.innerHTML = "<strong>还剩 " + days + " 天 " + hours + " 小时</strong><span>建议在第 " + checkDay + " 天做一次中途检查，目标日再完成正式复盘。</span>";
+  var theme = states.indexOf(stored()) >= 0 ? stored() : "system";
+  apply(theme);
+  if (button) button.addEventListener("click", function () {
+    theme = states[(states.indexOf(theme) + 1) % states.length];
+    try { localStorage.setItem(key, theme); } catch (error) { /* storage is optional */ }
+    apply(theme);
   });
+
+  var copy = document.querySelector("[data-copy-invite]");
+  var code = document.querySelector("[data-invite-code]");
+  var status = document.querySelector("[data-copy-status]");
+  function copyText(value) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(value);
+    var area = document.createElement("textarea");
+    area.value = value; area.setAttribute("readonly", ""); area.style.position = "fixed"; area.style.opacity = "0";
+    document.body.appendChild(area); area.select(); document.execCommand("copy"); document.body.removeChild(area);
+    return Promise.resolve();
+  }
+  if (copy && code) copy.addEventListener("click", function () {
+    copyText(code.textContent.trim()).then(function () {
+      copy.textContent = "已复制";
+      if (status) status.textContent = "邀请码已复制。";
+      window.setTimeout(function () { copy.textContent = "复制邀请码"; }, 1800);
+    }).catch(function () { if (status) status.textContent = "复制失败，请手动选择邀请码。"; });
+  });
+
+  var filters = Array.prototype.slice.call(document.querySelectorAll("[data-channel-filter]"));
+  var cards = Array.prototype.slice.call(document.querySelectorAll("[data-channel]"));
+  filters.forEach(function (filter) { filter.addEventListener("click", function () {
+    var wanted = filter.getAttribute("data-channel-filter");
+    filters.forEach(function (item) { item.setAttribute("aria-pressed", item === filter ? "true" : "false"); });
+    cards.forEach(function (item) { item.hidden = wanted !== "all" && item.getAttribute("data-channel") !== wanted; });
+  }); });
 })();
