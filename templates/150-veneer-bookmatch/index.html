@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{LANG}}" data-ve150-mode="day">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e8dfcf">
+  <meta name="description" content="一套以木皮镜拼、黄铜接缝与工坊裁片为语言的完整原创静态模板。"><link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}｜木皮镜拼档案"><meta property="og:description" content="记录木皮宽度、朝向、成对关系与试拼状态的原创五页站点框架。"><meta property="og:type" content="website"><meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <title>{{SITE_NAME}}｜木皮镜拼档案</title><link rel="stylesheet" href="static/veneer-bookmatch.css"><script src="static/veneer-bookmatch.js" defer></script>
+</head>
+<body class="ve150-home">
+  <a class="ve150-skip" href="#ve150-main">跳到主要内容</a>
+  <header class="ve150-top"><a class="ve150-brand" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>{{ATELIER_MARK}}</b><span>VENEER STUDY · 150</span></a><nav aria-label="主导航"><a aria-current="page" href="index.html">镜拼册</a><a href="article.html">工坊记</a><a href="tool.html">试拼台</a><a href="legal.html">责任签</a></nav><button type="button" data-ve150-mode-toggle aria-pressed="true">点亮工坊灯</button></header>
+  <main id="ve150-main">
+    <section class="ve150-hero" aria-labelledby="ve150-title">
+      <figure class="ve150-leaf ve150-leaf-a" aria-hidden="true"><i></i><i></i><i></i></figure><figure class="ve150-leaf ve150-leaf-b" aria-hidden="true"><i></i><i></i><i></i></figure>
+      <div class="ve150-hero-copy"><p>BOOKMATCH / OPEN THE LEAVES</p><h1 id="ve150-title">把同一段纹理，<br><em>向两边打开。</em></h1><blockquote>{{HERO_DESCRIPTION}}</blockquote><a class="ve150-brass-link" href="tool.html">进入木皮试拼台 <span>↗</span></a></div>
+      <aside><span>LEAF 01</span><b>{{FEATURE_VENEER}}</b><span>LEAF 02</span></aside>
+      <footer><b>{{SITE_TAGLINE}}</b><i></i><span>{{BATCH_CODE}}</span></footer>
+    </section>
+
+    <section class="ve150-register" aria-label="镜拼检查顺序"><span>01 / 编号</span><span>02 / 宽度</span><span>03 / 朝向</span><span>04 / 接缝</span><span>05 / 状态</span></section>
+
+    <section class="ve150-craft" aria-labelledby="ve150-craft-title"><header><small>THE OPENING SEQUENCE</small><h2 id="ve150-craft-title">镜拼不是复制，<br>而是有顺序地翻开。</h2><p>从连续裁下的木皮中保留编号、宽度与朝向，先在记录里配对，再回到真实材料确认纹理。</p></header><dl><div><dt>01</dt><dd><b>连续编号</b><span>让每片木皮的前后关系可追溯。</span></dd></div><div><dt>02</dt><dd><b>反向配对</b><span>一正一反，构成镜拼的内部方向条件。</span></dd></div><div><dt>03</dt><dd><b>宽差复核</b><span>以用户设置的毫米容差筛出需再看接缝。</span></dd></div></dl></section>
+
+    <section class="ve150-seam" aria-labelledby="ve150-seam-title"><div><small>CENTRE SEAM</small><h2 id="ve150-seam-title">一条接缝，<br>分开记录与实物。</h2><p>页面可以核对输入顺序、数值与文档状态，但不能替代真实木皮的含水率、缺陷、色差、纹理与加工判断。</p><a href="article.html">阅读镜拼五记</a></div><figure aria-hidden="true"><span></span><b>∨</b><i></i><b>∨</b><span></span></figure></section>
+
+    <section class="ve150-drawer" aria-labelledby="ve150-drawer-title"><header><small>THREE DRAWERS</small><h2 id="ve150-drawer-title">把决定收进三个抽屉。</h2></header><ol><li><span>PAIR</span><b>相邻两片</b><p>按输入顺序，以 1–2、3–4 的方式成对。</p></li><li><span>TOLERANCE</span><b>宽度容差</b><p>差值等于容差时通过，严格大于才提示。</p></li><li><span>HANDOFF</span><b>完整交接</b><p>界面可截短，复制报告保留全部记录。</p></li></ol></section>
+
+    <section class="ve150-ticket" aria-labelledby="ve150-ticket-title"><p>KEEP WITH THE LEAVES / 150</p><h2 id="ve150-ticket-title">一张批次签，跟着木皮走。</h2><div><strong>{{BATCH_CODE}}</strong><button type="button" data-ve150-copy-code>复制批次编号</button><output data-ve150-copy-status aria-live="polite"></output></div></section>
+  </main>
+  <footer class="ve150-footer"><section><h2>{{ATELIER_MARK}}</h2><p>{{SITE_DESC}}</p></section><nav aria-label="页脚导航"><a href="article.html">镜拼五记</a><a href="tool.html">木皮试拼台</a><a href="legal.html">使用边界</a></nav><address>{{CONTACT_CHANNEL}}</address><p>发布品牌、材料、供应商、客户或项目资料前，请核实事实、许可、隐私与版权。</p></footer>
+</body>
+</html>
