@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://{{SITE_DOMAIN}}/</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://{{SITE_DOMAIN}}/article.html</loc></url>
-  <url><loc>https://{{SITE_DOMAIN}}/tool.html</loc></url>
-  <url><loc>https://{{SITE_DOMAIN}}/legal.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/article.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/answers/secure-access-path.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/answers/fee-display-decoder.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/answers/order-status-triage.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/answers/identity-review-prep.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/answers/transfer-state-map.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/answers/account-recovery-sequence.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/answers/charge-record-audit.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/answers/device-session-review.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/answers/withdrawal-hold-questions.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/answers/policy-change-reading.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/answers/support-evidence-bundle.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/answers/suspicious-message-triage.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/channels/access-desk.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/channels/transaction-desk.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/channels/evidence-desk.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/tool.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/desk/ticket-composer.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/desk/timezone-stamp.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/desk/reference-mask.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/desk/checklist-gap.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/desk/response-priority.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/about.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/contact.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/disclosure.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/legal.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/privacy.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/corrections.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/editorial.html</loc></url>
 </urlset>

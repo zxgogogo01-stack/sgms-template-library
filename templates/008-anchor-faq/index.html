@@ -1,79 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{LANG}}">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{SITE_NAME}} — 支持中心</title><meta name="description" content="{{SITE_DESC}}">
-  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
-  <link rel="stylesheet" href="assets/anchor.css"><link rel="stylesheet" href="assets/berth.css"><link rel="stylesheet" href="assets/rope.css"><link rel="stylesheet" href="assets/boutique.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"{{SITE_NAME}}","url":"https://{{SITE_DOMAIN}}/"}</script>
-</head>
-<body>
-  <header class="brow"><a class="brow__site" href="index.html">{{SITE_NAME}}</a><nav class="brow__lane" aria-label="主导航"><a class="brow__stop" href="index.html" aria-current="page">支持首页</a><a class="brow__stop" href="article.html">安全指南</a><a class="brow__stop" href="tool.html">工单助手</a><a class="brow__stop" href="legal.html">服务说明</a></nav></header>
-  <main class="cabin">
-    <section class="plain plain--desk">
-      <div class="plain__status"><span>KNOWLEDGE BASE / 008</span><strong><i aria-hidden="true"></i>内容已复核</strong></div>
-      <h1 class="plain__h">先找到答案，<br>再决定是否提交工单。</h1>
-      <p class="plain__p">{{SITE_TAGLINE}}</p>
-      <div class="support-search">
-        <label for="faq-search">搜索帮助内容</label>
-        <input type="search" id="faq-search" placeholder="例如：忘记密码、费率、邀请码" aria-controls="faq-groups" aria-describedby="faq-status">
-        <span id="faq-status" aria-live="polite">6 个常见问题</span>
-      </div>
-    </section>
-
-    <nav class="quick-jump" aria-label="问题分类">
-      <a class="quick-jump__chip" href="#qa-account"><span>01</span><strong>账户与安全</strong><em>2 个问题</em></a>
-      <a class="quick-jump__chip" href="#qa-fee"><span>02</span><strong>费用与结算</strong><em>3 个问题</em></a>
-      <a class="quick-jump__chip" href="#qa-invite"><span>03</span><strong>邀请码</strong><em>1 个问题</em></a>
-    </nav>
-
-    <div class="faq-layout" id="faq-groups">
-      <aside class="faq-rail"><p>SUPPORT INDEX</p><a href="#qa-account">账户与安全</a><a href="#qa-fee">费用与结算</a><a href="#qa-invite">邀请码</a><span>最近复核<br><strong>2026-07-22</strong></span></aside>
-      <div class="faq-main">
-        <section class="qa-block" id="qa-account" aria-labelledby="account-title">
-          <header class="qa-block__head"><div><p>01 / ACCOUNT</p><h2 class="qa-block__cap" id="account-title">账户与安全</h2></div><span>2 个问题</span></header>
-          <details class="qa-block__unit" open data-search="账户 安全 两步验证 验证码 密码">
-            <summary class="qa-block__ask"><span>01</span>如何保护账户安全？<em>3 分钟</em></summary>
-            <div class="qa-block__ans"><p>启用两步验证，使用独立且足够强的密码，并只从已确认的官方入口访问账户。任何客服都不应索要验证码、恢复码或完整密码。</p><aside><strong>先做这三件事</strong><span>核对域名 · 启用两步验证 · 保存恢复信息</span></aside><a href="article.html">查看完整安全检查 →</a></div>
-          </details>
-          <details class="qa-block__unit" data-search="忘记 密码 找回 登录 邮件 会话">
-            <summary class="qa-block__ask"><span>02</span>忘记密码怎么办？<em>2 分钟</em></summary>
-            <div class="qa-block__ans"><p>从官方登录页进入密码找回流程，核对域名和邮件发件人。完成重置后检查登录记录，并撤销不认识的设备与会话。</p></div>
-          </details>
-        </section>
-
-        <section class="qa-block" id="qa-fee" aria-labelledby="fee-title">
-          <header class="qa-block__head"><div><p>02 / BILLING</p><h2 class="qa-block__cap" id="fee-title">费用与结算</h2></div><span>3 个问题</span></header>
-          <details class="qa-block__unit" data-search="挂单 吃单 费率 流动性">
-            <summary class="qa-block__ask"><span>01</span>挂单和吃单费率为什么不同？<em>3 分钟</em></summary>
-            <div class="qa-block__ans"><p>挂单进入订单簿等待成交，通常被视为提供流动性；吃单会立即匹配现有委托，属于消耗流动性，因此计费方式可能不同。</p></div>
-          </details>
-          <details class="qa-block__unit" data-search="费率 档位 更新 周期 成交量">
-            <summary class="qa-block__ask"><span>02</span>费率档位多久更新一次？<em>2 分钟</em></summary>
-            <div class="qa-block__ans"><p>常见做法是按滚动周期评估成交量并定期更新。具体时间、时区、门槛与生效延迟，应以对应官方费率页为准。</p></div>
-          </details>
-          <details class="qa-block__unit" data-search="返佣 到账 结算 奖励 账单">
-            <summary class="qa-block__ask"><span>03</span>返佣什么时候到账？<em>2 分钟</em></summary>
-            <div class="qa-block__ans"><p>结算周期因规则而异，可在账户的奖励、返佣或账单记录中核对状态。超过公布周期仍未显示时，再准备订单号与时间提交工单。</p></div>
-          </details>
-        </section>
-
-        <section class="qa-block" id="qa-invite" aria-labelledby="invite-title">
-          <header class="qa-block__head"><div><p>03 / INVITE</p><h2 class="qa-block__cap" id="invite-title">邀请码</h2></div><span>1 个问题</span></header>
-          <details class="qa-block__unit" data-search="邀请码 推荐码 注册 填写">
-            <summary class="qa-block__ask"><span>01</span>邀请码在哪里填写？<em>1 分钟</em></summary>
-            <div class="qa-block__ans"><p>通常位于注册表单的“邀请码”或“推荐码”字段。填写前请确认它是否可选，并了解关联规则与生效条件。</p></div>
-          </details>
-          <aside class="invite-belt" aria-label="邀请码"><div><span class="invite-belt__word">本站邀请码</span><strong class="invite-belt__code" id="belt-code">{{INVITE_CODE}}</strong></div><button class="invite-belt__act" type="button">复制邀请码</button><em class="invite-belt__law">{{COMPLIANCE_NOTE}}</em></aside>
-        </section>
-
-        <div class="faq-empty" id="faq-empty" hidden><strong>没有匹配的问题</strong><p>尝试更短的关键词，或直接使用工单助手整理问题。</p><button type="button" id="faq-clear">清空搜索</button></div>
-      </div>
-    </div>
-
-    <section class="reach-out"><div><p>NEXT STEP</p><h2 class="reach-out__cap">还是没解决？</h2><p class="reach-out__txt">先准备问题、时间、错误提示和已尝试步骤，工单会更容易被准确处理。</p></div><a href="tool.html">开始整理工单 <span aria-hidden="true">→</span></a></section>
-  </main>
-  <footer class="keel"><p class="keel__row">帮助内容仅供参考，不构成投资建议 · <a href="legal.html">服务说明</a> · {{CONTACT_EMAIL}}</p></footer>
-  <script src="assets/moor.js"></script>
-</body>
-</html>
+<!DOCTYPE html><html lang="{{LANG}}"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>{{SITE_TAGLINE}} — {{SITE_NAME}}</title><meta name="description" content="{{SITE_DESC}}"><link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+<meta property="og:title" content="{{SITE_TAGLINE}} — {{SITE_NAME}}"><meta property="og:description" content="{{SITE_DESC}}"><meta property="og:type" content="website"><meta property="og:url" content="https://{{SITE_DOMAIN}}/"><meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{{SITE_TAGLINE}} — {{SITE_NAME}}"><meta name="twitter:description" content="{{SITE_DESC}}"><meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/anchor.css"><link rel="stylesheet" href="assets/berth.css"><link rel="stylesheet" href="assets/rope.css"><link rel="stylesheet" href="assets/boutique.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","name":"{{SITE_TAGLINE}}","url":"https://{{SITE_DOMAIN}}/"}</script><!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> --></head><body><header class="brow"><a class="brow__site" href="index.html"><span>08</span><strong>{{BRAND_EN}}</strong></a><nav class="brow__lane" aria-label="主导航"><a class="brow__stop" href="index.html" aria-current="page">响应总台</a><a class="brow__stop" href="article.html">问题索引</a><a class="brow__stop" href="tool.html">诊断工具</a><a class="brow__stop" href="editorial.html">内容公约</a></nav><button class="brow__mode" type="button" data-mode-toggle aria-label="切换显示主题"><i aria-hidden="true"></i><span data-mode-label>系统</span></button></header><main class="cabin">
+<section class="plain plain--control"><div class="plain__top"><p>ANCHOR SUPPORT / CONTROL 008</p><span><i></i> 模板状态：可接入内容</span></div><div class="plain__lead"><p>把问题分到正确的响应台</p><h1>{{SITE_NAME}}</h1><strong>{{SITE_TAGLINE}}</strong></div><aside class="invite-belt"><div><span>INVITE CODE</span><strong id="support-code">{{INVITE_CODE}}</strong></div><button type="button" data-copy-source="support-code" data-copy-status="support-copy-state">复制邀请码</button><p id="support-copy-state" aria-live="polite">代码仅供自行复制。</p><b>最高 {{BENEFIT_RATE}}</b><small>{{BENEFIT_DISCLAIMER}}</small></aside></section>
+<section class="support-search"><div><p>SEARCH QUEUE</p><h2>筛选问题外壳</h2></div><label for="faq-search">输入标题或摘要关键词</label><input id="faq-search" type="search" data-support-search placeholder="输入关键词" aria-describedby="faq-status"><p id="faq-status" aria-live="polite">共 12 个问题槽位</p></section>
+<nav class="quick-jump" aria-label="响应通道"><a class="quick-jump__chip" href="channels/access-desk.html"><span>01</span><strong>访问响应台</strong><em>{{CHANNEL_ACCESS_INTRO}}</em></a><a class="quick-jump__chip" href="channels/transaction-desk.html"><span>02</span><strong>状态响应台</strong><em>{{CHANNEL_TRANSACTION_INTRO}}</em></a><a class="quick-jump__chip" href="channels/evidence-desk.html"><span>03</span><strong>证据响应台</strong><em>{{CHANNEL_EVIDENCE_INTRO}}</em></a></nav>
+<section class="signal-grid" aria-label="问题外壳"><a class="signal-card" href="answers/secure-access-path.html" data-answer="{{Q01_TITLE}} {{Q01_DESC}}"><span>01</span><small>访问响应台</small><strong>{{Q01_TITLE}}</strong><p>{{Q01_DESC}}</p><i>CHECKLIST</i></a><a class="signal-card" href="answers/fee-display-decoder.html" data-answer="{{Q02_TITLE}} {{Q02_DESC}}"><span>02</span><small>访问响应台</small><strong>{{Q02_TITLE}}</strong><p>{{Q02_DESC}}</p><i>DECISION</i></a><a class="signal-card" href="answers/order-status-triage.html" data-answer="{{Q03_TITLE}} {{Q03_DESC}}"><span>03</span><small>访问响应台</small><strong>{{Q03_TITLE}}</strong><p>{{Q03_DESC}}</p><i>DIAGNOSTIC</i></a><a class="signal-card" href="answers/identity-review-prep.html" data-answer="{{Q04_TITLE}} {{Q04_DESC}}"><span>04</span><small>访问响应台</small><strong>{{Q04_TITLE}}</strong><p>{{Q04_DESC}}</p><i>CHECKLIST</i></a><a class="signal-card" href="answers/transfer-state-map.html" data-answer="{{Q05_TITLE}} {{Q05_DESC}}"><span>05</span><small>状态响应台</small><strong>{{Q05_TITLE}}</strong><p>{{Q05_DESC}}</p><i>DIAGNOSTIC</i></a><a class="signal-card" href="answers/account-recovery-sequence.html" data-answer="{{Q06_TITLE}} {{Q06_DESC}}"><span>06</span><small>状态响应台</small><strong>{{Q06_TITLE}}</strong><p>{{Q06_DESC}}</p><i>CHECKLIST</i></a><a class="signal-card" href="answers/charge-record-audit.html" data-answer="{{Q07_TITLE}} {{Q07_DESC}}"><span>07</span><small>状态响应台</small><strong>{{Q07_TITLE}}</strong><p>{{Q07_DESC}}</p><i>EVIDENCE</i></a><a class="signal-card" href="answers/device-session-review.html" data-answer="{{Q08_TITLE}} {{Q08_DESC}}"><span>08</span><small>状态响应台</small><strong>{{Q08_TITLE}}</strong><p>{{Q08_DESC}}</p><i>DIAGNOSTIC</i></a><a class="signal-card" href="answers/withdrawal-hold-questions.html" data-answer="{{Q09_TITLE}} {{Q09_DESC}}"><span>09</span><small>证据响应台</small><strong>{{Q09_TITLE}}</strong><p>{{Q09_DESC}}</p><i>EVIDENCE</i></a><a class="signal-card" href="answers/policy-change-reading.html" data-answer="{{Q10_TITLE}} {{Q10_DESC}}"><span>10</span><small>证据响应台</small><strong>{{Q10_TITLE}}</strong><p>{{Q10_DESC}}</p><i>DECISION</i></a><a class="signal-card" href="answers/support-evidence-bundle.html" data-answer="{{Q11_TITLE}} {{Q11_DESC}}"><span>11</span><small>证据响应台</small><strong>{{Q11_TITLE}}</strong><p>{{Q11_DESC}}</p><i>CHECKLIST</i></a><a class="signal-card" href="answers/suspicious-message-triage.html" data-answer="{{Q12_TITLE}} {{Q12_DESC}}"><span>12</span><small>证据响应台</small><strong>{{Q12_TITLE}}</strong><p>{{Q12_DESC}}</p><i>DIAGNOSTIC</i></a></section><p class="faq-empty" data-faq-empty hidden>没有匹配的问题槽位。清空关键词可恢复全部结果。</p>
+<section class="tool-callout"><header><p>LOCAL DIAGNOSTICS</p><h2>五件工具已接好状态</h2><span>下游只需写内容，不必再造表单和算法。</span></header><a href="desk/ticket-composer.html"><span>01</span><strong>工单信息编排器</strong></a><a href="desk/timezone-stamp.html"><span>02</span><strong>跨时区时间戳</strong></a><a href="desk/reference-mask.html"><span>03</span><strong>参考号遮罩尺</strong></a><a href="desk/checklist-gap.html"><span>04</span><strong>排查缺口计数器</strong></a><a href="desk/response-priority.html"><span>05</span><strong>响应优先级标尺</strong></a></section>
+</main><footer class="keel"><section class="keel__brief"><strong>{{BRAND_EN}} SUPPORT</strong><p>本站独立运营；帮助内容与工具只用于信息整理。<a href="disclosure.html">查看推广关系说明</a></p></section><details class="keel__map"><summary>完整支持地图</summary><div><b>问题</b><a href="answers/secure-access-path.html">01</a><a href="answers/fee-display-decoder.html">02</a><a href="answers/order-status-triage.html">03</a><a href="answers/identity-review-prep.html">04</a><a href="answers/transfer-state-map.html">05</a><a href="answers/account-recovery-sequence.html">06</a><a href="answers/charge-record-audit.html">07</a><a href="answers/device-session-review.html">08</a><a href="answers/withdrawal-hold-questions.html">09</a><a href="answers/policy-change-reading.html">10</a><a href="answers/support-evidence-bundle.html">11</a><a href="answers/suspicious-message-triage.html">12</a></div><div><b>通道</b><a href="channels/access-desk.html">访问响应台</a><a href="channels/transaction-desk.html">状态响应台</a><a href="channels/evidence-desk.html">证据响应台</a></div><div><b>工具</b><a href="desk/ticket-composer.html">工单信息编排器</a><a href="desk/timezone-stamp.html">跨时区时间戳</a><a href="desk/reference-mask.html">参考号遮罩尺</a><a href="desk/checklist-gap.html">排查缺口计数器</a><a href="desk/response-priority.html">响应优先级标尺</a></div><div><b>说明</b><a href="about.html">关于支持台</a><a href="contact.html">联系响应桌</a><a href="disclosure.html">推广关系说明</a><a href="legal.html">服务边界</a><a href="privacy.html">隐私与输入</a><a href="corrections.html">勘误队列</a><a href="editorial.html">支持内容公约</a></div><div><b>索引</b><a href="article.html">全部问题</a><a href="tool.html">全部工具</a></div></details><p class="keel__fine">© {{YEAR}} {{SITE_NAME}} · {{CONTACT_EMAIL}}</p></footer><script defer src="assets/moor.js"></script></body></html>

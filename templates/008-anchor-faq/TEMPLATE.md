@@ -1,52 +1,454 @@
 # 008-anchor-faq
 
-## 定位
+## 模板定位
 
-面向 FAQ、客户支持与产品帮助中心的精品静态模板。视觉以深海蓝服务台、信号橙与工程编号为识别系统，重点不是堆放问答，而是让访客沿着“检索答案 → 阅读指南 → 整理工单”的路径解决问题。
+深海蓝响应总台、信号橙状态标记与三条问题通道构成的高端支持中心。模板不包含可发布注册教程或平台事实；下游 AI 只替换站点变量、经核实正文和文章字段，无需重做 UI、页面体系、工具逻辑或通用视觉资产。
 
-## 页面套件
+## 使用顺序
 
-- `index.html`：支持中心首页，含内容状态、实时问答检索、分类锚点、六条原生折叠问答、无结果状态、邀请码区和工单入口
-- `article.html`：完整账户安全指南，含阅读元数据、操作前警示、四步流程、完成清单与危险信号
-- `tool.html`：本地问题报告生成器，含必填校验、错误反馈、结果生成、复制与重置；不上传或保存输入
-- `legal.html`：服务范围、更新时效、安全、隐私、邀请码和纠错方式说明
-- `404.html`：与支持中心视觉一致的断航状态页，提供两个明确出口
+1. 替换全站品牌、域名、语言、作者与联系变量。
+2. 按 Q01–Q12 逐页填写正文，保留 checklist、decision、diagnostic、evidence 四种结构。
+3. 只有 registrationGuide 角色页可使用唯一注册链接槽位；其他页面不得增加交易所转化直链。
+4. 核对来源、日期、问答和封面 alt 后运行三套静态审计与浏览器验收。
 
-## 视觉与交互
+## 核心变量
 
-- 保留原生 `<details>/<summary>`，支持键盘展开、可见焦点和加减号状态
-- FAQ 搜索会同步筛选问题、更新结果数量并显示可恢复的无结果状态
-- 工单助手会把首个缺失字段标为错误并聚焦；成功后可复制结果，也可一键清空
-- 桌面使用不对称服务台布局与粘性支持索引；移动端重排为单列，不产生横向溢出
-- 自动适配深色模式，并为减少动态效果偏好保留稳定体验
+- `{{SITE_NAME}}`、`{{SITE_DOMAIN}}`、`{{SITE_TAGLINE}}`、`{{SITE_DESC}}`、`{{BRAND_EN}}`、`{{LANG}}`、`{{YEAR}}`
+- `{{CONTACT_EMAIL}}`、`{{AUTHOR_NAME}}`、`{{AUTHOR_BIO}}`、`{{DATE_PUBLISHED}}`、`{{DATE_MODIFIED}}`
+- `{{INVITE_CODE}}`、`{{BENEFIT_RATE}}`、`{{BENEFIT_DISCLAIMER}}`、`{{AFFILIATE_URL}}`、`{{AFFILIATE_CTA}}`
+- 通道、关于、联系与修订字段以实际占位符清单为准。
 
-## 文件
+## 文章字段
 
-- `assets/anchor.css`：设计变量、基础排版与无障碍状态
-- `assets/berth.css`、`assets/rope.css`：原始页面骨架与组件
-- `assets/boutique.css`：精品复核后的页面系统、响应式与深色模式增强
-- `assets/moor.js`：检索、复制和工单生成交互
+- `Q01`：{{Q01_TITLE}}；包含 TITLE、DESC、LEAD、READING、COVER_ALT、COVER_CAPTION、版式专用正文和两组 FAQ 字段。
+- `Q02`：{{Q02_TITLE}}；包含 TITLE、DESC、LEAD、READING、COVER_ALT、COVER_CAPTION、版式专用正文和两组 FAQ 字段。
+- `Q03`：{{Q03_TITLE}}；包含 TITLE、DESC、LEAD、READING、COVER_ALT、COVER_CAPTION、版式专用正文和两组 FAQ 字段。
+- `Q04`：{{Q04_TITLE}}；包含 TITLE、DESC、LEAD、READING、COVER_ALT、COVER_CAPTION、版式专用正文和两组 FAQ 字段。
+- `Q05`：{{Q05_TITLE}}；包含 TITLE、DESC、LEAD、READING、COVER_ALT、COVER_CAPTION、版式专用正文和两组 FAQ 字段。
+- `Q06`：{{Q06_TITLE}}；包含 TITLE、DESC、LEAD、READING、COVER_ALT、COVER_CAPTION、版式专用正文和两组 FAQ 字段。
+- `Q07`：{{Q07_TITLE}}；包含 TITLE、DESC、LEAD、READING、COVER_ALT、COVER_CAPTION、版式专用正文和两组 FAQ 字段。
+- `Q08`：{{Q08_TITLE}}；包含 TITLE、DESC、LEAD、READING、COVER_ALT、COVER_CAPTION、版式专用正文和两组 FAQ 字段。
+- `Q09`：{{Q09_TITLE}}；包含 TITLE、DESC、LEAD、READING、COVER_ALT、COVER_CAPTION、版式专用正文和两组 FAQ 字段。
+- `Q10`：{{Q10_TITLE}}；包含 TITLE、DESC、LEAD、READING、COVER_ALT、COVER_CAPTION、版式专用正文和两组 FAQ 字段。
+- `Q11`：{{Q11_TITLE}}；包含 TITLE、DESC、LEAD、READING、COVER_ALT、COVER_CAPTION、版式专用正文和两组 FAQ 字段。
+- `Q12`：{{Q12_TITLE}}；包含 TITLE、DESC、LEAD、READING、COVER_ALT、COVER_CAPTION、版式专用正文和两组 FAQ 字段。
 
-## 占位符
+## 五个工具
 
-`{{SITE_NAME}}`、`{{SITE_DOMAIN}}`、`{{SITE_TAGLINE}}`、`{{SITE_DESC}}`、`{{INVITE_CODE}}`、`{{COMPLIANCE_NOTE}}`、`{{CONTACT_EMAIL}}`、`{{LANG}}`
+- `desk/ticket-composer.html`：工单信息编排器；把问题、期望、时间和已尝试步骤排成可复制的问题报告。
+- `desk/timezone-stamp.html`：跨时区时间戳；把一个本地时间换算成 UTC 与指定时区的提交记录。
+- `desk/reference-mask.html`：参考号遮罩尺；保留首尾字符并隐藏中间段，生成可分享的脱敏参考号。
+- `desk/checklist-gap.html`：排查缺口计数器；计算已完成步骤、关键缺口和剩余排查量。
+- `desk/response-priority.html`：响应优先级标尺；按影响、紧急度和范围形成透明的支持优先级读数。
 
-`assets/moor.js` 的工单结果中也包含 `{{SITE_DOMAIN}}`，部署替换占位符时必须同时处理 JavaScript 文件。
+每个工具均有正常、错误、边界、重置与复制状态，全部在本地运行。
 
-## 可裁剪区块
+## 链接治理
 
-- 不需要邀请码时，删除 `index.html` 的 `.invite-belt` 与对应问答，并同步删除 `legal.html` 的邀请码条款
-- 任一 `.qa-block` 分类和 `.qa-block__unit` 问答均可按业务增删；新增条目时补齐 `data-search`
-- 不需要工单功能时，可删除 `tool.html`，并移除各页导航及 CTA 中的对应入口
+- 首页为默认形态 A：显示并复制邀请码、最高利益比例与政策变化脚注，不含交易所直链。
+- `answers/secure-access-path.html` 为唯一 registrationGuide 外壳，恰有一个静态 `{{AFFILIATE_URL}}`，带 target 与完整 rel 四件套并紧邻推广披露。
+- 其他文章、索引、通道、工具、合规页、导航、页脚和 404 均为零转化直链。
+- 模板不写死费率、限额、确认数、收益、用户数、监管结论或平台可用性。
 
-## 后续 AI 的文字接入顺序
+## 实际占位符清单
 
-1. 全文替换八个 `{{X}}` 变量，并同步替换 `assets/moor.js` 工单结果中的 `{{SITE_DOMAIN}}`；不要修改类名、布局或交互 `id`。
-2. 在 `index.html` 只更新状态、搜索提示、分类锚点、FAQ、邀请码和工单入口；新增问题时复制完整 `.qa-block__unit` 并补齐 `data-search`。
-3. 在 `article.html` 替换安全指南、警示、步骤和完成清单；在 `tool.html` 只改字段说明，不改必填字段、结果区和复制按钮的 `id`。
-4. 在 `legal.html` 填写真实的服务范围、时效、安全、隐私、邀请码和纠错规则；`404.html` 两个出口保持即可。
-5. 文字完成后打开五页，复测 FAQ 命中/无结果/清空、原生折叠、邀请码复制，以及工单缺项、生成、复制和重置。UI 已完整，后续 AI 不需要重新设计。
+- `{{ABOUT_AUDIENCE}}`
+- `{{ABOUT_SCOPE}}`
+- `{{AFFILIATE_CTA}}`
+- `{{AFFILIATE_URL}}`
+- `{{AUTHOR_BIO}}`
+- `{{AUTHOR_NAME}}`
+- `{{BENEFIT_DISCLAIMER}}`
+- `{{BENEFIT_RATE}}`
+- `{{BRAND_EN}}`
+- `{{CHANNEL_ACCESS_INTRO}}`
+- `{{CHANNEL_EVIDENCE_INTRO}}`
+- `{{CHANNEL_TRANSACTION_INTRO}}`
+- `{{CONTACT_EMAIL}}`
+- `{{CONTACT_POLICY}}`
+- `{{CORRECTIONS_LOG}}`
+- `{{DATE_MODIFIED}}`
+- `{{DATE_PUBLISHED}}`
+- `{{INVITE_CODE}}`
+- `{{LANG}}`
+- `{{Q01_BOUNDARY}}`
+- `{{Q01_COVER_ALT}}`
+- `{{Q01_COVER_CAPTION}}`
+- `{{Q01_DESC}}`
+- `{{Q01_FAQ_A1}}`
+- `{{Q01_FAQ_A2}}`
+- `{{Q01_FAQ_Q1}}`
+- `{{Q01_FAQ_Q2}}`
+- `{{Q01_H2_1}}`
+- `{{Q01_LEAD}}`
+- `{{Q01_PREP_NOTE}}`
+- `{{Q01_PREP}}`
+- `{{Q01_READING}}`
+- `{{Q01_STEP_1}}`
+- `{{Q01_STEP_2}}`
+- `{{Q01_STEP_3}}`
+- `{{Q01_STEP_NOTE_1}}`
+- `{{Q01_STEP_NOTE_2}}`
+- `{{Q01_STEP_NOTE_3}}`
+- `{{Q01_TITLE}}`
+- `{{Q02_BODY_1}}`
+- `{{Q02_BODY_2}}`
+- `{{Q02_COVER_ALT}}`
+- `{{Q02_COVER_CAPTION}}`
+- `{{Q02_DESC}}`
+- `{{Q02_FAQ_A1}}`
+- `{{Q02_FAQ_A2}}`
+- `{{Q02_FAQ_Q1}}`
+- `{{Q02_FAQ_Q2}}`
+- `{{Q02_H2_1}}`
+- `{{Q02_H2_2}}`
+- `{{Q02_IF_A}}`
+- `{{Q02_IF_B}}`
+- `{{Q02_LEAD}}`
+- `{{Q02_QUOTE}}`
+- `{{Q02_READING}}`
+- `{{Q02_THEN_A}}`
+- `{{Q02_THEN_B}}`
+- `{{Q02_TITLE}}`
+- `{{Q03_BODY_1}}`
+- `{{Q03_BODY_2}}`
+- `{{Q03_COVER_ALT}}`
+- `{{Q03_COVER_CAPTION}}`
+- `{{Q03_DESC}}`
+- `{{Q03_ESCALATE}}`
+- `{{Q03_EXCLUDE}}`
+- `{{Q03_FAQ_A1}}`
+- `{{Q03_FAQ_A2}}`
+- `{{Q03_FAQ_Q1}}`
+- `{{Q03_FAQ_Q2}}`
+- `{{Q03_H2_1}}`
+- `{{Q03_H2_2}}`
+- `{{Q03_LEAD}}`
+- `{{Q03_READING}}`
+- `{{Q03_SIGNAL}}`
+- `{{Q03_TITLE}}`
+- `{{Q03_WARNING}}`
+- `{{Q04_BOUNDARY}}`
+- `{{Q04_COVER_ALT}}`
+- `{{Q04_COVER_CAPTION}}`
+- `{{Q04_DESC}}`
+- `{{Q04_FAQ_A1}}`
+- `{{Q04_FAQ_A2}}`
+- `{{Q04_FAQ_Q1}}`
+- `{{Q04_FAQ_Q2}}`
+- `{{Q04_H2_1}}`
+- `{{Q04_LEAD}}`
+- `{{Q04_PREP_NOTE}}`
+- `{{Q04_PREP}}`
+- `{{Q04_READING}}`
+- `{{Q04_STEP_1}}`
+- `{{Q04_STEP_2}}`
+- `{{Q04_STEP_3}}`
+- `{{Q04_STEP_NOTE_1}}`
+- `{{Q04_STEP_NOTE_2}}`
+- `{{Q04_STEP_NOTE_3}}`
+- `{{Q04_TITLE}}`
+- `{{Q05_BODY_1}}`
+- `{{Q05_BODY_2}}`
+- `{{Q05_COVER_ALT}}`
+- `{{Q05_COVER_CAPTION}}`
+- `{{Q05_DESC}}`
+- `{{Q05_ESCALATE}}`
+- `{{Q05_EXCLUDE}}`
+- `{{Q05_FAQ_A1}}`
+- `{{Q05_FAQ_A2}}`
+- `{{Q05_FAQ_Q1}}`
+- `{{Q05_FAQ_Q2}}`
+- `{{Q05_H2_1}}`
+- `{{Q05_H2_2}}`
+- `{{Q05_LEAD}}`
+- `{{Q05_READING}}`
+- `{{Q05_SIGNAL}}`
+- `{{Q05_TITLE}}`
+- `{{Q05_WARNING}}`
+- `{{Q06_BOUNDARY}}`
+- `{{Q06_COVER_ALT}}`
+- `{{Q06_COVER_CAPTION}}`
+- `{{Q06_DESC}}`
+- `{{Q06_FAQ_A1}}`
+- `{{Q06_FAQ_A2}}`
+- `{{Q06_FAQ_Q1}}`
+- `{{Q06_FAQ_Q2}}`
+- `{{Q06_H2_1}}`
+- `{{Q06_LEAD}}`
+- `{{Q06_PREP_NOTE}}`
+- `{{Q06_PREP}}`
+- `{{Q06_READING}}`
+- `{{Q06_STEP_1}}`
+- `{{Q06_STEP_2}}`
+- `{{Q06_STEP_3}}`
+- `{{Q06_STEP_NOTE_1}}`
+- `{{Q06_STEP_NOTE_2}}`
+- `{{Q06_STEP_NOTE_3}}`
+- `{{Q06_TITLE}}`
+- `{{Q07_BODY_1}}`
+- `{{Q07_BODY_2}}`
+- `{{Q07_COVER_ALT}}`
+- `{{Q07_COVER_CAPTION}}`
+- `{{Q07_DESC}}`
+- `{{Q07_EVIDENCE_1}}`
+- `{{Q07_EVIDENCE_2}}`
+- `{{Q07_EVIDENCE_3}}`
+- `{{Q07_EVIDENCE_NOTE_1}}`
+- `{{Q07_EVIDENCE_NOTE_2}}`
+- `{{Q07_EVIDENCE_NOTE_3}}`
+- `{{Q07_FAQ_A1}}`
+- `{{Q07_FAQ_A2}}`
+- `{{Q07_FAQ_Q1}}`
+- `{{Q07_FAQ_Q2}}`
+- `{{Q07_H2_1}}`
+- `{{Q07_H2_2}}`
+- `{{Q07_LEAD}}`
+- `{{Q07_READING}}`
+- `{{Q07_TITLE}}`
+- `{{Q08_BODY_1}}`
+- `{{Q08_BODY_2}}`
+- `{{Q08_COVER_ALT}}`
+- `{{Q08_COVER_CAPTION}}`
+- `{{Q08_DESC}}`
+- `{{Q08_ESCALATE}}`
+- `{{Q08_EXCLUDE}}`
+- `{{Q08_FAQ_A1}}`
+- `{{Q08_FAQ_A2}}`
+- `{{Q08_FAQ_Q1}}`
+- `{{Q08_FAQ_Q2}}`
+- `{{Q08_H2_1}}`
+- `{{Q08_H2_2}}`
+- `{{Q08_LEAD}}`
+- `{{Q08_READING}}`
+- `{{Q08_SIGNAL}}`
+- `{{Q08_TITLE}}`
+- `{{Q08_WARNING}}`
+- `{{Q09_BODY_1}}`
+- `{{Q09_BODY_2}}`
+- `{{Q09_COVER_ALT}}`
+- `{{Q09_COVER_CAPTION}}`
+- `{{Q09_DESC}}`
+- `{{Q09_EVIDENCE_1}}`
+- `{{Q09_EVIDENCE_2}}`
+- `{{Q09_EVIDENCE_3}}`
+- `{{Q09_EVIDENCE_NOTE_1}}`
+- `{{Q09_EVIDENCE_NOTE_2}}`
+- `{{Q09_EVIDENCE_NOTE_3}}`
+- `{{Q09_FAQ_A1}}`
+- `{{Q09_FAQ_A2}}`
+- `{{Q09_FAQ_Q1}}`
+- `{{Q09_FAQ_Q2}}`
+- `{{Q09_H2_1}}`
+- `{{Q09_H2_2}}`
+- `{{Q09_LEAD}}`
+- `{{Q09_READING}}`
+- `{{Q09_TITLE}}`
+- `{{Q10_BODY_1}}`
+- `{{Q10_BODY_2}}`
+- `{{Q10_COVER_ALT}}`
+- `{{Q10_COVER_CAPTION}}`
+- `{{Q10_DESC}}`
+- `{{Q10_FAQ_A1}}`
+- `{{Q10_FAQ_A2}}`
+- `{{Q10_FAQ_Q1}}`
+- `{{Q10_FAQ_Q2}}`
+- `{{Q10_H2_1}}`
+- `{{Q10_H2_2}}`
+- `{{Q10_IF_A}}`
+- `{{Q10_IF_B}}`
+- `{{Q10_LEAD}}`
+- `{{Q10_QUOTE}}`
+- `{{Q10_READING}}`
+- `{{Q10_THEN_A}}`
+- `{{Q10_THEN_B}}`
+- `{{Q10_TITLE}}`
+- `{{Q11_BOUNDARY}}`
+- `{{Q11_COVER_ALT}}`
+- `{{Q11_COVER_CAPTION}}`
+- `{{Q11_DESC}}`
+- `{{Q11_FAQ_A1}}`
+- `{{Q11_FAQ_A2}}`
+- `{{Q11_FAQ_Q1}}`
+- `{{Q11_FAQ_Q2}}`
+- `{{Q11_H2_1}}`
+- `{{Q11_LEAD}}`
+- `{{Q11_PREP_NOTE}}`
+- `{{Q11_PREP}}`
+- `{{Q11_READING}}`
+- `{{Q11_STEP_1}}`
+- `{{Q11_STEP_2}}`
+- `{{Q11_STEP_3}}`
+- `{{Q11_STEP_NOTE_1}}`
+- `{{Q11_STEP_NOTE_2}}`
+- `{{Q11_STEP_NOTE_3}}`
+- `{{Q11_TITLE}}`
+- `{{Q12_BODY_1}}`
+- `{{Q12_BODY_2}}`
+- `{{Q12_COVER_ALT}}`
+- `{{Q12_COVER_CAPTION}}`
+- `{{Q12_DESC}}`
+- `{{Q12_ESCALATE}}`
+- `{{Q12_EXCLUDE}}`
+- `{{Q12_FAQ_A1}}`
+- `{{Q12_FAQ_A2}}`
+- `{{Q12_FAQ_Q1}}`
+- `{{Q12_FAQ_Q2}}`
+- `{{Q12_H2_1}}`
+- `{{Q12_H2_2}}`
+- `{{Q12_LEAD}}`
+- `{{Q12_READING}}`
+- `{{Q12_SIGNAL}}`
+- `{{Q12_TITLE}}`
+- `{{Q12_WARNING}}`
+- `{{SECURITY_EXPIRES}}`
+- `{{SITE_DESC}}`
+- `{{SITE_DOMAIN}}`
+- `{{SITE_NAME}}`
+- `{{SITE_TAGLINE}}`
+- `{{YEAR}}`
 
-## 验收基线
+## 页面角色表
 
-2026-08-31 最终逐套复核已覆盖首页、文章、工具、服务说明与 404 的桌面、390px 手机和深色样式；FAQ 展开、检索匹配、无结果、邀请码复制、工单缺项/生成/复制/重置、键盘焦点、控制台、同源度与横向溢出均已检查。
+```json workflow-ready-v2
+{
+  "version": 2,
+  "home": "index.html",
+  "articleIndex": "article.html",
+  "articles": [
+    "answers/secure-access-path.html",
+    "answers/fee-display-decoder.html",
+    "answers/order-status-triage.html",
+    "answers/identity-review-prep.html",
+    "answers/transfer-state-map.html",
+    "answers/account-recovery-sequence.html",
+    "answers/charge-record-audit.html",
+    "answers/device-session-review.html",
+    "answers/withdrawal-hold-questions.html",
+    "answers/policy-change-reading.html",
+    "answers/support-evidence-bundle.html",
+    "answers/suspicious-message-triage.html"
+  ],
+  "cornerstones": [
+    "answers/fee-display-decoder.html",
+    "answers/charge-record-audit.html"
+  ],
+  "registrationGuide": "answers/secure-access-path.html",
+  "articleCovers": {
+    "answers/secure-access-path.html": {
+      "display": "assets/covers/secure-access-path.webp",
+      "og": "assets/covers/secure-access-path.png"
+    },
+    "answers/fee-display-decoder.html": {
+      "display": "assets/covers/fee-display-decoder.webp",
+      "og": "assets/covers/fee-display-decoder.png"
+    },
+    "answers/order-status-triage.html": {
+      "display": "assets/covers/order-status-triage.webp",
+      "og": "assets/covers/order-status-triage.png"
+    },
+    "answers/identity-review-prep.html": {
+      "display": "assets/covers/identity-review-prep.webp",
+      "og": "assets/covers/identity-review-prep.png"
+    },
+    "answers/transfer-state-map.html": {
+      "display": "assets/covers/transfer-state-map.webp",
+      "og": "assets/covers/transfer-state-map.png"
+    },
+    "answers/account-recovery-sequence.html": {
+      "display": "assets/covers/account-recovery-sequence.webp",
+      "og": "assets/covers/account-recovery-sequence.png"
+    },
+    "answers/charge-record-audit.html": {
+      "display": "assets/covers/charge-record-audit.webp",
+      "og": "assets/covers/charge-record-audit.png"
+    },
+    "answers/device-session-review.html": {
+      "display": "assets/covers/device-session-review.webp",
+      "og": "assets/covers/device-session-review.png"
+    },
+    "answers/withdrawal-hold-questions.html": {
+      "display": "assets/covers/withdrawal-hold-questions.webp",
+      "og": "assets/covers/withdrawal-hold-questions.png"
+    },
+    "answers/policy-change-reading.html": {
+      "display": "assets/covers/policy-change-reading.webp",
+      "og": "assets/covers/policy-change-reading.png"
+    },
+    "answers/support-evidence-bundle.html": {
+      "display": "assets/covers/support-evidence-bundle.webp",
+      "og": "assets/covers/support-evidence-bundle.png"
+    },
+    "answers/suspicious-message-triage.html": {
+      "display": "assets/covers/suspicious-message-triage.webp",
+      "og": "assets/covers/suspicious-message-triage.png"
+    }
+  },
+  "categories": [
+    {
+      "path": "channels/access-desk.html",
+      "label": "访问响应台",
+      "articles": [
+        "answers/secure-access-path.html",
+        "answers/fee-display-decoder.html",
+        "answers/order-status-triage.html",
+        "answers/identity-review-prep.html"
+      ]
+    },
+    {
+      "path": "channels/transaction-desk.html",
+      "label": "状态响应台",
+      "articles": [
+        "answers/transfer-state-map.html",
+        "answers/account-recovery-sequence.html",
+        "answers/charge-record-audit.html",
+        "answers/device-session-review.html"
+      ]
+    },
+    {
+      "path": "channels/evidence-desk.html",
+      "label": "证据响应台",
+      "articles": [
+        "answers/withdrawal-hold-questions.html",
+        "answers/policy-change-reading.html",
+        "answers/support-evidence-bundle.html",
+        "answers/suspicious-message-triage.html"
+      ]
+    }
+  ],
+  "toolIndex": "tool.html",
+  "tools": [
+    "desk/ticket-composer.html",
+    "desk/timezone-stamp.html",
+    "desk/reference-mask.html",
+    "desk/checklist-gap.html",
+    "desk/response-priority.html"
+  ],
+  "legal": {
+    "about": "about.html",
+    "contact": "contact.html",
+    "disclosure": "disclosure.html",
+    "disclaimer": "legal.html",
+    "privacy": "privacy.html",
+    "corrections": "corrections.html",
+    "editorial": "editorial.html"
+  },
+  "error404": "404.html",
+  "robots": "robots.txt",
+  "sitemap": "sitemap.xml",
+  "feed": "feed.xml",
+  "security": ".well-known/security.txt",
+  "favicon": "favicon.ico",
+  "appleTouchIcon": "apple-touch-icon.png",
+  "socialImage": "assets/social-card.png",
+  "variables": {
+    "siteDomain": "{{SITE_DOMAIN}}",
+    "siteName": "{{SITE_NAME}}",
+    "wordmark": "{{BRAND_EN}}",
+    "inviteCode": "{{INVITE_CODE}}",
+    "benefitRate": "{{BENEFIT_RATE}}",
+    "benefitDisclaimer": "{{BENEFIT_DISCLAIMER}}",
+    "affiliateUrl": "{{AFFILIATE_URL}}"
+  }
+}
+```
