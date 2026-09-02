@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{LANG}}" data-ac160-mode="dark">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#121214"><meta name="description" content="在当前浏览器本地核对频率次序、左右声道平衡、目标偏离、房间采样深度与草测状态。"><link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html"><meta property="og:title" content="响应漂移校样台｜{{SITE_NAME}}"><meta property="og:description" content="不上传记录的本地频率响应清单工具。"><meta property="og:type" content="website"><meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html"><title>响应漂移校样台｜{{SITE_NAME}}</title><link rel="stylesheet" href="static/anechoic-ledger.css"><script src="static/anechoic-ledger.js" defer></script></head>
+<body>
+  <a class="ac160-skip" href="#ac160-main">跳到主要内容</a>
+  <header class="ac160-ruler"><a class="ac160-wordmark" href="index.html"><strong>{{STUDIO_MARK}}</strong><span>ANECHOIC / 160</span></a><div class="ac160-scale" aria-hidden="true"><span>20</span><i></i><span>63</span><i></i><span>250</span><i></i><span>1K</span><i></i><span>4K</span><i></i><span>20K</span></div><nav aria-label="主要导航"><a href="index.html">响应室</a><a href="article.html">六段听位</a><a class="is-active" href="tool.html">漂移台</a><a href="legal.html">边界</a></nav><button type="button" data-ac160-mode-toggle aria-pressed="false">明场</button></header>
+  <main id="ac160-main" class="ac160-console">
+    <header><div><p>LOCAL RESPONSE DESK / NO UPLOAD</p><h1>响应漂移<br><em>校样台</em></h1></div><aside><b>结构与算术检查</b><span>不读取音频，不生成频响曲线，不判断设备、房间、听感或听力安全。</span></aside></header>
+    <section class="ac160-presets" aria-label="示例记录"><strong>PATCH A POSITION</strong><button type="button" data-ac160-preset="clear">基准通过</button><button type="button" data-ac160-preset="balance">左右漂移</button><button type="button" data-ac160-preset="target">目标偏离</button><button type="button" data-ac160-preset="order">频率倒序</button><button type="button" data-ac160-preset="mixed">混合复核</button></section>
+    <section class="ac160-workbench">
+      <form data-ac160-form novalidate>
+        <div class="ac160-formhead"><span>INPUT</span><h2>频响记录</h2><p>每行：房间 | 频率Hz | 左dB | 右dB | 目标dB | 状态</p></div>
+        <textarea data-ac160-records aria-label="频响记录" rows="10" spellcheck="false">ROOM A | 63 | -18.0 | -17.5 | -18.0 | 锁定
+ROOM A | 250 | -17.0 | -17.5 | -18.0 | 锁定
+ROOM A | 1000 | -18.5 | -18.0 | -18.0 | 复核
+ROOM B | 63 | -18.0 | -18.0 | -18.0 | 锁定
+ROOM B | 500 | -17.5 | -18.0 | -18.0 | 复核
+ROOM B | 2000 | -18.0 | -17.0 | -18.0 | 锁定</textarea>
+        <div class="ac160-thresholds"><label for="ac160-balance">左右差上限 dB<input id="ac160-balance" data-ac160-balance value="1.0" inputmode="decimal"></label><label for="ac160-target">目标偏离上限 dB<input id="ac160-target" data-ac160-target value="3.0" inputmode="decimal"></label><label for="ac160-depth">每房间最低频带数<input id="ac160-depth" data-ac160-depth value="3" inputmode="numeric"></label></div>
+        <output class="ac160-error" data-ac160-error tabindex="-1" aria-live="assertive"></output>
+        <div class="ac160-formactions"><button type="submit">生成响应报告</button><button type="reset">清空控制台</button></div><p data-ac160-form-status aria-live="polite">等待生成响应报告。</p>
+      </form>
+      <aside class="ac160-meter" data-ac160-report data-ac160-ready="false"><div class="ac160-meterhead"><small>REFERENCE VERDICT</small><strong data-ac160-state>UNSET</strong></div><div class="ac160-plot" data-ac160-plot><em>等待频响记录</em></div><div class="ac160-readouts"><div><span>记录</span><b data-ac160-metric="count">0</b></div><div><span>房间</span><b data-ac160-metric="rooms">0</b></div><div><span>最高频率</span><b data-ac160-metric="maxfreq">0</b></div><div><span>最大左右差</span><b data-ac160-metric="maxbalance">0</b></div><div><span>最大目标偏离</span><b data-ac160-metric="maxdeviation">0</b></div><div><span>次序</span><b data-ac160-metric="order">0</b></div><div><span>左右</span><b data-ac160-metric="balance">0</b></div><div><span>目标</span><b data-ac160-metric="target">0</b></div><div><span>深度</span><b data-ac160-metric="depth">0</b></div><div><span>草测</span><b data-ac160-metric="drafts">0</b></div></div><button type="button" data-ac160-copy-report disabled>复制完整报告</button><output data-ac160-copy-status aria-live="polite"></output></aside>
+    </section>
+    <section class="ac160-flags"><header><p>DRIFT FLAGS</p><h2 data-ac160-findings-summary>尚未校样</h2></header><ol data-ac160-findings><li>生成后将列出频率次序、左右平衡、目标偏离、采样深度与草测提示。</li></ol><div data-ac160-record-list></div></section>
+    <section class="ac160-boundary"><b>NO AUDIO ANALYSIS</b><p>工具只处理当前页面中的文本和十进制算术；不上传、不保存、不读取声音文件，也不判断频响平滑、相位、声压级、设备性能、房间声学、主观听感或听力安全。</p></section>
+  </main>
+  <footer class="ac160-footer"><section><a href="index.html">{{STUDIO_MARK}}</a><p>{{SITE_DESC}}</p></section><nav aria-label="页脚导航"><a href="index.html">响应室</a><a href="article.html">六段听位</a><a href="legal.html">测量边界</a><a href="404.html">静音示例</a></nav><address>{{CONTACT_CHANNEL}}</address><p>最近核对：{{REVIEW_DATE}} · 输入和结果只存在于当前页面，刷新或关闭后可能丢失。</p></footer>
+</body>
+</html>
