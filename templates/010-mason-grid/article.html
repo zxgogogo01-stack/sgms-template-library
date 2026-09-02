@@ -2,61 +2,48 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>编辑精选 — {{SITE_NAME}}</title>
-  <meta name="description" content="三项经过人工核对的资源与使用说明。">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>文章库｜{{SITE_NAME}}</title>
+  <meta name="description" content="浏览 {{SITE_NAME}} 的十二个文章写作位置与三片编辑分区。">
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html">
-  <meta property="og:title" content="编辑精选 — {{SITE_NAME}}">
-  <meta property="og:description" content="三项经过人工核对的资源与使用说明。">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="{{SITE_NAME}} 砖墙订阅" href="feed.xml">
+  <meta property="og:title" content="文章库｜{{SITE_NAME}}">
+  <meta property="og:description" content="浏览 {{SITE_NAME}} 的十二个文章写作位置与三片编辑分区。">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
-  <link rel="stylesheet" href="assets/mortar.css">
-  <link rel="stylesheet" href="assets/blocks.css">
-  <link rel="stylesheet" href="assets/finish.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "编辑精选",
-    "datePublished": "2026-01-18"
-  }
-  </script>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="文章库｜{{SITE_NAME}}">
+  <meta name="twitter:description" content="浏览 {{SITE_NAME}} 的十二个文章写作位置与三片编辑分区。">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/mortar.css?v=2">
+  <link rel="stylesheet" href="assets/blocks.css?v=2">
+  <link rel="stylesheet" href="assets/finish.css?v=2">
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 </head>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"{{SITE_NAME}} 文章库","url":"https://{{SITE_DOMAIN}}/article.html"}</script>
 <body>
+  <a class="skip-joint" href="#main">跳到正文</a>
   <header class="cap-bar">
-    <a class="cap-bar__brand" href="index.html" aria-label="返回 {{SITE_NAME}} 首页">{{SITE_NAME}}</a>
-    <nav class="cap-bar__nav" aria-label="主导航">
-      <a class="cap-bar__link" href="index.html">资源墙</a>
-      <a class="cap-bar__link" href="article.html" aria-current="page">编辑精选</a>
-      <a class="cap-bar__link" href="tool.html">快速筛选</a>
-      <a class="cap-bar__link" href="legal.html">声明</a>
-    </nav>
+    <a class="cap-bar__brand" href="index.html" aria-label="返回 {{SITE_NAME}} 首页"><span class="cap-bar__stamp">MG/010</span><span>{{BRAND_EN}}</span></a>
+    <nav class="cap-bar__nav" aria-label="主导航"><a class="cap-bar__link" href="index.html">资源墙</a><a class="cap-bar__link" href="article.html" aria-current="page">文章库</a><a class="cap-bar__link" href="tool.html">工具间</a><a class="cap-bar__link" href="legal.html">边界</a><a class="cap-bar__link" href="disclosure.html">披露</a></nav>
+    <button class="cap-bar__theme" type="button" data-theme-cycle aria-label="切换显示主题">系统</button>
   </header>
-
-  <main class="yard">
-    <article class="pick-sheet">
-      <p class="page-kicker">EDITOR PICKS / JAN 2026</p>
-      <h1>三项真正能用起来的资源</h1>
-      <p class="pick-sheet__lead">这不是“最好用”榜单，而是本期经过阅读、试用和来源核对后，最值得先打开的三项。</p>
-      <div class="pick-sheet__grid">
-        <section class="pick-sheet__item">
-          <h2>信息源核对清单</h2>
-          <p>适合写作与研究前的快速自检。维护方公开修订记录；本站最后核对于 2026-01-18。</p>
-        </section>
-        <section class="pick-sheet__item">
-          <h2>公开数据入口索引</h2>
-          <p>只收录官方或一手数据入口，并标注更新时间与下载格式，适合先确认口径再分析。</p>
-        </section>
-        <section class="pick-sheet__item">
-          <h2>网页存档与差异检查</h2>
-          <p>用于保留关键页面版本并查看改动；涉及隐私或版权内容时，先确认是否适合存档。</p>
-        </section>
-      </div>
-    </article>
+  <main class="yard" id="main">
+    <section class="dispatch-head"><div><p class="page-kicker">DISPATCH LEDGER / 12</p><h1>十二个文章位置，不共用一套叙事</h1></div><p>这里已经分好长文、时间线、清单、问答、案例与记录式骨架。填写内容时只需遵守对应位置的写作职责。</p></section>
+    <section class="bay-tabs" aria-label="文章分类"><a href="bays/source-bay.html"><span>01</span><strong>来源料场</strong><small>把资料出处、变动记录与阅读顺序放进同一片可检索墙面。</small></a><a href="bays/action-bay.html"><span>02</span><strong>行动工位</strong><small>用于承载步骤、核对点与异常分支的编辑作业区。</small></a><a href="bays/record-bay.html"><span>03</span><strong>记录仓</strong><small>保存判断依据、会话边界、争议材料与周期性复盘。</small></a></section>
+    <ol class="dispatch-ledger"><li><span class="dispatch-ledger__no">01</span><div><small>行动工位 / PERMIT</small><h2><a href="dispatches/access-entry-brief.html">{{ARTICLE_TITLE_01}}</a></h2><p>{{ARTICLE_DESC_01}}</p></div><a class="dispatch-ledger__arrow" href="dispatches/access-entry-brief.html" aria-label="打开 {{ARTICLE_TITLE_01}}">↗</a></li><li><span class="dispatch-ledger__no">02</span><div><small>来源料场 / BLUEPRINT</small><h2><a href="dispatches/fee-source-map.html">{{ARTICLE_TITLE_02}}</a></h2><p>{{ARTICLE_DESC_02}}</p></div><a class="dispatch-ledger__arrow" href="dispatches/fee-source-map.html" aria-label="打开 {{ARTICLE_TITLE_02}}">↗</a></li><li><span class="dispatch-ledger__no">03</span><div><small>来源料场 / TIMELINE</small><h2><a href="dispatches/policy-change-log.html">{{ARTICLE_TITLE_03}}</a></h2><p>{{ARTICLE_DESC_03}}</p></div><a class="dispatch-ledger__arrow" href="dispatches/policy-change-log.html" aria-label="打开 {{ARTICLE_TITLE_03}}">↗</a></li><li><span class="dispatch-ledger__no">04</span><div><small>行动工位 / KIT</small><h2><a href="dispatches/identity-evidence-kit.html">{{ARTICLE_TITLE_04}}</a></h2><p>{{ARTICLE_DESC_04}}</p></div><a class="dispatch-ledger__arrow" href="dispatches/identity-evidence-kit.html" aria-label="打开 {{ARTICLE_TITLE_04}}">↗</a></li><li><span class="dispatch-ledger__no">05</span><div><small>记录仓 / ROUTE</small><h2><a href="dispatches/custody-route-board.html">{{ARTICLE_TITLE_05}}</a></h2><p>{{ARTICLE_DESC_05}}</p></div><a class="dispatch-ledger__arrow" href="dispatches/custody-route-board.html" aria-label="打开 {{ARTICLE_TITLE_05}}">↗</a></li><li><span class="dispatch-ledger__no">06</span><div><small>行动工位 / CHECK</small><h2><a href="dispatches/transfer-checklist.html">{{ARTICLE_TITLE_06}}</a></h2><p>{{ARTICLE_DESC_06}}</p></div><a class="dispatch-ledger__arrow" href="dispatches/transfer-checklist.html" aria-label="打开 {{ARTICLE_TITLE_06}}">↗</a></li><li><span class="dispatch-ledger__no">07</span><div><small>行动工位 / CALL</small><h2><a href="dispatches/recovery-contact-sheet.html">{{ARTICLE_TITLE_07}}</a></h2><p>{{ARTICLE_DESC_07}}</p></div><a class="dispatch-ledger__arrow" href="dispatches/recovery-contact-sheet.html" aria-label="打开 {{ARTICLE_TITLE_07}}">↗</a></li><li><span class="dispatch-ledger__no">08</span><div><small>记录仓 / POSTER</small><h2><a href="dispatches/session-safety-poster.html">{{ARTICLE_TITLE_08}}</a></h2><p>{{ARTICLE_DESC_08}}</p></div><a class="dispatch-ledger__arrow" href="dispatches/session-safety-poster.html" aria-label="打开 {{ARTICLE_TITLE_08}}">↗</a></li><li><span class="dispatch-ledger__no">09</span><div><small>来源料场 / WINDOW</small><h2><a href="dispatches/quote-window-notes.html">{{ARTICLE_TITLE_09}}</a></h2><p>{{ARTICLE_DESC_09}}</p></div><a class="dispatch-ledger__arrow" href="dispatches/quote-window-notes.html" aria-label="打开 {{ARTICLE_TITLE_09}}">↗</a></li><li><span class="dispatch-ledger__no">10</span><div><small>记录仓 / DOCKET</small><h2><a href="dispatches/dispute-record-pack.html">{{ARTICLE_TITLE_10}}</a></h2><p>{{ARTICLE_DESC_10}}</p></div><a class="dispatch-ledger__arrow" href="dispatches/dispute-record-pack.html" aria-label="打开 {{ARTICLE_TITLE_10}}">↗</a></li><li><span class="dispatch-ledger__no">11</span><div><small>来源料场 / SEQUENCE</small><h2><a href="dispatches/proof-reading-sequence.html">{{ARTICLE_TITLE_11}}</a></h2><p>{{ARTICLE_DESC_11}}</p></div><a class="dispatch-ledger__arrow" href="dispatches/proof-reading-sequence.html" aria-label="打开 {{ARTICLE_TITLE_11}}">↗</a></li><li><span class="dispatch-ledger__no">12</span><div><small>记录仓 / LEDGER</small><h2><a href="dispatches/monthly-wall-reset.html">{{ARTICLE_TITLE_12}}</a></h2><p>{{ARTICLE_DESC_12}}</p></div><a class="dispatch-ledger__arrow" href="dispatches/monthly-wall-reset.html" aria-label="打开 {{ARTICLE_TITLE_12}}">↗</a></li></ol>
   </main>
-
-  <footer class="ground">
-    <p class="ground__line">人工整理，仅供参考，不构成投资建议</p>
+<footer class="ground">
+    <div class="ground__grid">
+      <p class="ground__mark">{{BRAND_EN}} / EDITED RESOURCE WORKS</p>
+      <nav class="ground__nav" aria-label="页脚信息"><a href="about.html">关于</a><a href="contact.html">联系</a><a href="privacy.html">隐私</a><a href="corrections.html">更正</a><a href="editorial.html">编辑准则</a><a href="feed.xml">RSS 砖讯</a></nav>
+      <p class="ground__line">本站独立运营，不是任何交易平台的官方网站；部分内容可能含推广链接。加密资产波动较大，决策前请自行核实。<a href="disclosure.html">阅读推广披露</a></p>
+    </div>
   </footer>
-  <script src="assets/site.js"></script>
+  <script defer src="assets/yard.js?v=2"></script>
 </body>
 </html>

@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://{{SITE_DOMAIN}}/</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://{{SITE_DOMAIN}}/</loc></url>
   <url><loc>https://{{SITE_DOMAIN}}/article.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/dispatches/access-entry-brief.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/dispatches/fee-source-map.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/dispatches/policy-change-log.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/dispatches/identity-evidence-kit.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/dispatches/custody-route-board.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/dispatches/transfer-checklist.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/dispatches/recovery-contact-sheet.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/dispatches/session-safety-poster.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/dispatches/quote-window-notes.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/dispatches/dispute-record-pack.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/dispatches/proof-reading-sequence.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/dispatches/monthly-wall-reset.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/bays/source-bay.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/bays/action-bay.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/bays/record-bay.html</loc></url>
   <url><loc>https://{{SITE_DOMAIN}}/tool.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/instruments/date-span.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/instruments/weight-balance.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/instruments/text-fingerprint.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/instruments/review-cadence.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/instruments/sample-budget.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/about.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/contact.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/disclosure.html</loc></url>
   <url><loc>https://{{SITE_DOMAIN}}/legal.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/privacy.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/corrections.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/editorial.html</loc></url>
 </urlset>

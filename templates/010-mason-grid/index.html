@@ -2,113 +2,80 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{SITE_NAME}} — 人工筛选的资源墙</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>{{SITE_NAME}}｜人工砌筑的研究资源墙</title>
   <meta name="description" content="{{SITE_DESC}}">
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
-  <meta property="og:title" content="{{SITE_NAME}}">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="{{SITE_NAME}} 砖墙订阅" href="feed.xml">
+  <meta property="og:title" content="{{SITE_NAME}}｜人工砌筑的研究资源墙">
   <meta property="og:description" content="{{SITE_DESC}}">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
-  <link rel="stylesheet" href="assets/mortar.css">
-  <link rel="stylesheet" href="assets/blocks.css">
-  <link rel="stylesheet" href="assets/finish.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "{{SITE_NAME}}",
-    "url": "https://{{SITE_DOMAIN}}/"
-  }
-  </script>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{SITE_NAME}}｜人工砌筑的研究资源墙">
+  <meta name="twitter:description" content="{{SITE_DESC}}">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/mortar.css?v=2">
+  <link rel="stylesheet" href="assets/blocks.css?v=2">
+  <link rel="stylesheet" href="assets/finish.css?v=2">
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 </head>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"{{SITE_NAME}}","url":"https://{{SITE_DOMAIN}}/","description":"{{SITE_DESC}}"}</script>
 <body>
+  <a class="skip-joint" href="#main">跳到正文</a>
   <header class="cap-bar">
-    <a class="cap-bar__brand" href="index.html" aria-label="返回 {{SITE_NAME}} 首页">{{SITE_NAME}}</a>
-    <nav class="cap-bar__nav" aria-label="主导航">
-      <a class="cap-bar__link" href="index.html" aria-current="page">资源墙</a>
-      <a class="cap-bar__link" href="article.html">编辑精选</a>
-      <a class="cap-bar__link" href="tool.html">快速筛选</a>
-      <a class="cap-bar__link" href="legal.html">声明</a>
-    </nav>
+    <a class="cap-bar__brand" href="index.html" aria-label="返回 {{SITE_NAME}} 首页"><span class="cap-bar__stamp">MG/010</span><span>{{BRAND_EN}}</span></a>
+    <nav class="cap-bar__nav" aria-label="主导航"><a class="cap-bar__link" href="index.html" aria-current="page">资源墙</a><a class="cap-bar__link" href="article.html">文章库</a><a class="cap-bar__link" href="tool.html">工具间</a><a class="cap-bar__link" href="legal.html">边界</a><a class="cap-bar__link" href="disclosure.html">披露</a></nav>
+    <button class="cap-bar__theme" type="button" data-theme-cycle aria-label="切换显示主题">系统</button>
   </header>
-
-  <main class="yard">
+  <main class="yard" id="main">
     <section class="banner" aria-labelledby="wall-title">
-      <p class="banner__eyebrow">CURATED WALL / 08 RESOURCES</p>
-      <h1 class="banner__title" id="wall-title">把可靠资源砌成一面墙</h1>
-      <p class="banner__sub">{{SITE_TAGLINE}} · 所有条目均由人工阅读、标注用途并定期复查。</p>
+      <div class="banner__measure" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="banner__eyebrow">{{HOME_KICKER}} / 12 DISPATCHES</p>
+      <h1 class="banner__title" id="wall-title">{{HOME_TITLE}}</h1>
+      <p class="banner__sub">{{SITE_TAGLINE}}</p>
+      <a class="banner__route" href="article.html">查看本期上墙文章</a>
     </section>
-
-    <section class="code-plate" aria-label="邀请码">
-      <div class="code-plate__face">
-        <span class="code-plate__k">ACCESS PLATE / INVITE</span>
-        <code class="code-plate__v" id="plate-code">{{INVITE_CODE}}</code>
-        <button class="code-plate__copy" type="button" aria-label="复制邀请码" aria-live="polite">复制代码</button>
-      </div>
-      <p class="code-plate__small">{{COMPLIANCE_NOTE}}</p>
+    <section class="code-plate" aria-label="邀请码与政策提示">
+      <span class="code-plate__k">ACCESS PLATE / INVITE</span>
+      <code class="code-plate__v" id="plate-code">{{INVITE_CODE}}</code>
+      <button class="code-plate__copy" type="button" data-copy-target="plate-code" data-copy-label="代码已复制。">复制代码</button>
+      <p class="code-plate__benefit">通过本站邀请码注册，有机会获得最高 {{BENEFIT_RATE}} 手续费减免<sup>*</sup></p>
+      <p class="code-plate__small"><sup>*</sup>{{BENEFIT_DISCLAIMER}}</p>
     </section>
-
-    <h2 class="wall-cap">本期上墙 / Current selection</h2>
-    <section class="brick-yard" aria-label="资源列表">
-      <a class="brick-yard__brick brick-yard__brick--wide" href="article.html">
-        <span class="brick-yard__kind">GUIDE · 已核对 01/18</span>
-        <strong class="brick-yard__head">信息源核对清单</strong>
-        <span class="brick-yard__blurb">从发布日期、原始链接到利益关系，十分钟完成一次基础核验。</span>
-        <span class="brick-yard__no">01</span>
-      </a>
-      <a class="brick-yard__brick" href="article.html">
-        <span class="brick-yard__kind">DATA</span>
-        <strong class="brick-yard__head">公开数据入口索引</strong>
-        <span class="brick-yard__blurb">按主题整理的官方数据入口。</span>
-        <span class="brick-yard__no">02</span>
-      </a>
-      <a class="brick-yard__brick" href="article.html">
-        <span class="brick-yard__kind">TOOL</span>
-        <strong class="brick-yard__head">网页存档与差异检查</strong>
-        <span class="brick-yard__blurb">追踪页面更新，保存关键版本。</span>
-        <span class="brick-yard__no">03</span>
-      </a>
-      <a class="brick-yard__brick brick-yard__brick--tall" href="article.html">
-        <span class="brick-yard__kind">READ · LONGFORM</span>
-        <strong class="brick-yard__head">如何读懂一份方法说明</strong>
-        <span class="brick-yard__blurb">先找样本、口径和限制，再看结论。适合需要快速判断研究质量的读者。</span>
-        <span class="brick-yard__no">04</span>
-      </a>
-      <a class="brick-yard__brick" href="article.html">
-        <span class="brick-yard__kind">GUIDE</span>
-        <strong class="brick-yard__head">访谈记录模板</strong>
-        <span class="brick-yard__blurb">把原话、观察与推断分栏记录。</span>
-        <span class="brick-yard__no">05</span>
-      </a>
-      <a class="brick-yard__brick" href="article.html">
-        <span class="brick-yard__kind">DATA</span>
-        <strong class="brick-yard__head">常用指标口径表</strong>
-        <span class="brick-yard__blurb">避免同名指标被误当成一回事。</span>
-        <span class="brick-yard__no">06</span>
-      </a>
-      <a class="brick-yard__brick brick-yard__brick--wide" href="article.html">
-        <span class="brick-yard__kind">TOOL · UPDATED</span>
-        <strong class="brick-yard__head">证据卡片生成器</strong>
-        <span class="brick-yard__blurb">把出处、摘录、核对日期与不确定性放进同一张卡片。</span>
-        <span class="brick-yard__no">07</span>
-      </a>
-      <a class="brick-yard__brick" href="article.html">
-        <span class="brick-yard__kind">READ</span>
-        <strong class="brick-yard__head">编辑部每月复盘</strong>
-        <span class="brick-yard__blurb">本月新增、移除与更正记录。</span>
-        <span class="brick-yard__no">08</span>
-      </a>
+    <section class="wall-filter" aria-labelledby="wall-filter-title">
+      <div><p class="wall-filter__eyebrow">LIVE MORTAR</p><h2 id="wall-filter-title">按工位看砖</h2></div>
+      <div class="wall-filter__buttons" data-brick-filters><button type="button" data-filter="all" aria-pressed="true">全部</button><button type="button" data-filter="source-bay" aria-pressed="false">来源</button><button type="button" data-filter="action-bay" aria-pressed="false">行动</button><button type="button" data-filter="record-bay" aria-pressed="false">记录</button></div>
+      <p class="wall-filter__count" id="brick-count" aria-live="polite">当前显示 12 块</p>
     </section>
-
-    <section class="submit-note">
-      <h2 class="submit-note__cap">推荐一块好砖</h2>
-      <p class="submit-note__txt">请把链接、适用人群和推荐理由发至 {{CONTACT_EMAIL}}。不接受付费上墙；被收录不代表本站背书。</p>
-    </section>
+    <section class="brick-yard" aria-label="文章入口"><a class="brick-yard__brick brick-yard__brick--wide" href="dispatches/access-entry-brief.html" data-brick-kind="action-bay"><span class="brick-yard__kind">行动工位 · 01</span><strong class="brick-yard__head">{{ARTICLE_TITLE_01}}</strong><span class="brick-yard__blurb">{{ARTICLE_DESC_01}}</span><span class="brick-yard__no">01</span></a>
+<a class="brick-yard__brick brick-yard__brick--plain" href="dispatches/fee-source-map.html" data-brick-kind="source-bay"><span class="brick-yard__kind">来源料场 · 02</span><strong class="brick-yard__head">{{ARTICLE_TITLE_02}}</strong><span class="brick-yard__blurb">{{ARTICLE_DESC_02}}</span><span class="brick-yard__no">02</span></a>
+<a class="brick-yard__brick brick-yard__brick--plain" href="dispatches/policy-change-log.html" data-brick-kind="source-bay"><span class="brick-yard__kind">来源料场 · 03</span><strong class="brick-yard__head">{{ARTICLE_TITLE_03}}</strong><span class="brick-yard__blurb">{{ARTICLE_DESC_03}}</span><span class="brick-yard__no">03</span></a>
+<a class="brick-yard__brick brick-yard__brick--tall" href="dispatches/identity-evidence-kit.html" data-brick-kind="action-bay"><span class="brick-yard__kind">行动工位 · 04</span><strong class="brick-yard__head">{{ARTICLE_TITLE_04}}</strong><span class="brick-yard__blurb">{{ARTICLE_DESC_04}}</span><span class="brick-yard__no">04</span></a>
+<a class="brick-yard__brick brick-yard__brick--plain" href="dispatches/custody-route-board.html" data-brick-kind="record-bay"><span class="brick-yard__kind">记录仓 · 05</span><strong class="brick-yard__head">{{ARTICLE_TITLE_05}}</strong><span class="brick-yard__blurb">{{ARTICLE_DESC_05}}</span><span class="brick-yard__no">05</span></a>
+<a class="brick-yard__brick brick-yard__brick--wide" href="dispatches/transfer-checklist.html" data-brick-kind="action-bay"><span class="brick-yard__kind">行动工位 · 06</span><strong class="brick-yard__head">{{ARTICLE_TITLE_06}}</strong><span class="brick-yard__blurb">{{ARTICLE_DESC_06}}</span><span class="brick-yard__no">06</span></a>
+<a class="brick-yard__brick brick-yard__brick--plain" href="dispatches/recovery-contact-sheet.html" data-brick-kind="action-bay"><span class="brick-yard__kind">行动工位 · 07</span><strong class="brick-yard__head">{{ARTICLE_TITLE_07}}</strong><span class="brick-yard__blurb">{{ARTICLE_DESC_07}}</span><span class="brick-yard__no">07</span></a>
+<a class="brick-yard__brick brick-yard__brick--tall" href="dispatches/session-safety-poster.html" data-brick-kind="record-bay"><span class="brick-yard__kind">记录仓 · 08</span><strong class="brick-yard__head">{{ARTICLE_TITLE_08}}</strong><span class="brick-yard__blurb">{{ARTICLE_DESC_08}}</span><span class="brick-yard__no">08</span></a>
+<a class="brick-yard__brick brick-yard__brick--wide" href="dispatches/quote-window-notes.html" data-brick-kind="source-bay"><span class="brick-yard__kind">来源料场 · 09</span><strong class="brick-yard__head">{{ARTICLE_TITLE_09}}</strong><span class="brick-yard__blurb">{{ARTICLE_DESC_09}}</span><span class="brick-yard__no">09</span></a>
+<a class="brick-yard__brick brick-yard__brick--plain" href="dispatches/dispute-record-pack.html" data-brick-kind="record-bay"><span class="brick-yard__kind">记录仓 · 10</span><strong class="brick-yard__head">{{ARTICLE_TITLE_10}}</strong><span class="brick-yard__blurb">{{ARTICLE_DESC_10}}</span><span class="brick-yard__no">10</span></a>
+<a class="brick-yard__brick brick-yard__brick--plain" href="dispatches/proof-reading-sequence.html" data-brick-kind="source-bay"><span class="brick-yard__kind">来源料场 · 11</span><strong class="brick-yard__head">{{ARTICLE_TITLE_11}}</strong><span class="brick-yard__blurb">{{ARTICLE_DESC_11}}</span><span class="brick-yard__no">11</span></a>
+<a class="brick-yard__brick brick-yard__brick--wide" href="dispatches/monthly-wall-reset.html" data-brick-kind="record-bay"><span class="brick-yard__kind">记录仓 · 12</span><strong class="brick-yard__head">{{ARTICLE_TITLE_12}}</strong><span class="brick-yard__blurb">{{ARTICLE_DESC_12}}</span><span class="brick-yard__no">12</span></a></section>
+    <section class="plant-map" aria-labelledby="plant-title"><div><p class="page-kicker">THREE BAYS</p><h2 id="plant-title">编辑部平面图</h2><p>三片料场承担不同类型的内容，不把所有文章塞进同一套顺序。</p></div><a class="plant-map__bay" href="bays/source-bay.html"><span>01</span><strong>来源料场</strong><small>把资料出处、变动记录与阅读顺序放进同一片可检索墙面。</small></a><a class="plant-map__bay" href="bays/action-bay.html"><span>02</span><strong>行动工位</strong><small>用于承载步骤、核对点与异常分支的编辑作业区。</small></a><a class="plant-map__bay" href="bays/record-bay.html"><span>03</span><strong>记录仓</strong><small>保存判断依据、会话边界、争议材料与周期性复盘。</small></a></section>
+    <section class="machine-row" aria-labelledby="machine-title"><div class="machine-row__cap"><p class="page-kicker">WORKING MACHINES</p><h2 id="machine-title">五件本地工具</h2><a href="tool.html">打开工具间</a></div><a href="instruments/date-span.html"><span>01</span><strong>日期跨度尺</strong><small>计算两个日期之间的自然日跨度，并给出先后关系。</small></a><a href="instruments/weight-balance.html"><span>02</span><strong>权重调配板</strong><small>把三项原始权重归一化，快速检查结构是否偏斜。</small></a><a href="instruments/text-fingerprint.html"><span>03</span><strong>文本指纹牌</strong><small>用本地 FNV-1a 生成短标记，便于对照两段文本是否改变。</small></a><a href="instruments/review-cadence.html"><span>04</span><strong>复核节奏排砖器</strong><small>按起始日、间隔与轮次数生成一组复核日期。</small></a><a href="instruments/sample-budget.html"><span>05</span><strong>抽样预算尺</strong><small>按总体量与允许误差估算一个基础抽样数。</small></a></section>
+    <section class="wide-index" aria-label="全站可索引页面"><a href="bays/source-bay.html">来源料场</a><a href="bays/action-bay.html">行动工位</a><a href="bays/record-bay.html">记录仓</a><a href="article.html">全部文章</a><a href="tool.html">工具总表</a><a href="instruments/date-span.html">日期跨度尺</a><a href="instruments/weight-balance.html">权重调配板</a><a href="instruments/text-fingerprint.html">文本指纹牌</a><a href="instruments/review-cadence.html">复核节奏排砖器</a><a href="instruments/sample-budget.html">抽样预算尺</a><a href="about.html">关于编辑墙</a><a href="contact.html">联系与反馈</a><a href="disclosure.html">推广披露</a><a href="legal.html">风险与使用边界</a><a href="privacy.html">隐私说明</a><a href="corrections.html">更正记录</a><a href="editorial.html">编辑准则</a></section>
+    <section class="submit-note"><h2 class="submit-note__cap">推荐一块好砖</h2><p class="submit-note__txt">{{HOME_SUBMISSION_TEXT}} 联系邮箱：<a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></p></section>
   </main>
-
-  <footer class="ground">
-    <p class="ground__line">人工整理，仅供参考，不构成投资建议 · <a href="legal.html">收录标准与声明</a></p>
+<footer class="ground">
+    <div class="ground__grid">
+      <p class="ground__mark">{{BRAND_EN}} / EDITED RESOURCE WORKS</p>
+      <nav class="ground__nav" aria-label="页脚信息"><a href="about.html">关于</a><a href="contact.html">联系</a><a href="privacy.html">隐私</a><a href="corrections.html">更正</a><a href="editorial.html">编辑准则</a><a href="feed.xml">RSS 砖讯</a></nav>
+      <p class="ground__line">本站独立运营，不是任何交易平台的官方网站；部分内容可能含推广链接。加密资产波动较大，决策前请自行核实。<a href="disclosure.html">阅读推广披露</a></p>
+    </div>
   </footer>
-  <script src="assets/site.js"></script>
+  <script defer src="assets/yard.js?v=2"></script>
 </body>
 </html>

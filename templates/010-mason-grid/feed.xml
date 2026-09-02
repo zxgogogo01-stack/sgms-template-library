@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>{{SITE_NAME}} 砖墙订阅</title><link>https://{{SITE_DOMAIN}}/</link><description>{{SITE_DESC}}</description><language>{{LANG}}</language><ttl>720</ttl>
+<item><title>{{ARTICLE_TITLE_01}}</title><guid isPermaLink="false">access-entry-brief</guid><description>{{ARTICLE_DESC_01}}</description></item>
+<item><title>{{ARTICLE_TITLE_02}}</title><guid isPermaLink="false">fee-source-map</guid><description>{{ARTICLE_DESC_02}}</description></item>
+<item><title>{{ARTICLE_TITLE_03}}</title><guid isPermaLink="false">policy-change-log</guid><description>{{ARTICLE_DESC_03}}</description></item>
+<item><title>{{ARTICLE_TITLE_04}}</title><guid isPermaLink="false">identity-evidence-kit</guid><description>{{ARTICLE_DESC_04}}</description></item>
+<item><title>{{ARTICLE_TITLE_05}}</title><guid isPermaLink="false">custody-route-board</guid><description>{{ARTICLE_DESC_05}}</description></item>
+<item><title>{{ARTICLE_TITLE_06}}</title><guid isPermaLink="false">transfer-checklist</guid><description>{{ARTICLE_DESC_06}}</description></item>
+<item><title>{{ARTICLE_TITLE_07}}</title><guid isPermaLink="false">recovery-contact-sheet</guid><description>{{ARTICLE_DESC_07}}</description></item>
+<item><title>{{ARTICLE_TITLE_08}}</title><guid isPermaLink="false">session-safety-poster</guid><description>{{ARTICLE_DESC_08}}</description></item>
+<item><title>{{ARTICLE_TITLE_09}}</title><guid isPermaLink="false">quote-window-notes</guid><description>{{ARTICLE_DESC_09}}</description></item>
+<item><title>{{ARTICLE_TITLE_10}}</title><guid isPermaLink="false">dispute-record-pack</guid><description>{{ARTICLE_DESC_10}}</description></item>
+</channel></rss>

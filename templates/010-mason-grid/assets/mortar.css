@@ -1,56 +1,108 @@
-/* Mason Grid — mortar (tokens and base) */
 :root {
   color-scheme: light dark;
-  --concrete: #e9e5db;
-  --concrete-deep: #d8d1c4;
-  --brick-paper: #f8f4ea;
-  --ink: #171a19;
-  --muted: #66675f;
-  --brick: #b9452e;
-  --brick-dark: #7f2f22;
-  --yellow: #d9b542;
-  --line: #aca89c;
-  --shadow: 8px 8px 0 rgba(23, 26, 25, 0.12);
+  --concrete: #ded9ce;
+  --concrete-deep: #c8c0b2;
+  --paper: #f7f0e3;
+  --ink: #171817;
+  --muted: #65645d;
+  --brick: #b4422c;
+  --brick-deep: #762a20;
+  --signal: #e2bd42;
+  --chalk: #fffaf0;
+  --line: #9d978c;
+  --shadow: 8px 8px 0 rgba(23, 24, 23, 0.13);
+  --font-narrow: "Arial Narrow", "Aptos Narrow", "Microsoft YaHei", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
 }
 
-* { box-sizing: border-box; }
+:root[data-theme="dark"] {
+  --concrete: #181a19;
+  --concrete-deep: #292b28;
+  --paper: #262722;
+  --ink: #f0eadf;
+  --muted: #b6b1a7;
+  --brick: #dc674d;
+  --brick-deep: #ff957b;
+  --signal: #e2bd42;
+  --chalk: #fffaf0;
+  --line: #50514b;
+  --shadow: 8px 8px 0 rgba(0, 0, 0, 0.38);
+}
 
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
+  min-width: 320px;
   min-height: 100vh;
-  font-family: "Arial Narrow", "Roboto Condensed", "Microsoft YaHei", sans-serif;
-  font-size: 15px;
-  line-height: 1.6;
+  overflow-x: hidden;
   color: var(--ink);
-  background: var(--concrete);
+  background:
+    linear-gradient(90deg, transparent 0 49.8%, rgba(23,24,23,.035) 50%, transparent 50.2%) 0 0 / 42px 42px,
+    linear-gradient(0deg, transparent 0 49.8%, rgba(23,24,23,.028) 50%, transparent 50.2%) 0 0 / 42px 42px,
+    var(--concrete);
+  font-family: var(--font-narrow);
+  font-size: 16px;
+  line-height: 1.65;
 }
-
-h1, h2, h3 { margin: 0; line-height: 1.08; text-wrap: balance; }
+h1, h2, h3 { margin: 0; color: var(--ink); line-height: 1.04; text-wrap: balance; }
 p { margin: 0 0 1em; }
-a { color: var(--brick-dark); text-underline-offset: 0.2em; }
-code { font-family: Consolas, "Courier New", monospace; }
-button { font: inherit; }
+a { color: var(--brick-deep); text-underline-offset: .2em; }
+button, input, textarea, select { font: inherit; }
+button { touch-action: manipulation; }
+code { font-family: var(--font-mono); }
+img { display: block; max-width: 100%; height: auto; }
 [hidden] { display: none !important; }
-
 ::selection { color: #fff; background: var(--brick); }
+:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
 
-:focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
-
+.skip-joint {
+  position: fixed;
+  inset-block-start: 8px;
+  inset-inline-start: -999px;
+  z-index: 30;
+  min-height: 44px;
+  padding: 10px 14px;
+  color: #171817;
+  background: var(--signal);
+}
+.skip-joint:focus { inset-inline-start: 8px; }
+.page-kicker {
+  margin: 0 0 14px;
+  color: var(--brick-deep);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+input, textarea {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 8px;
+  padding: 12px 13px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0;
+}
+textarea { resize: vertical; }
 @media (prefers-color-scheme: dark) {
-  :root {
-    --concrete: #171918;
-    --concrete-deep: #242625;
-    --brick-paper: #252622;
-    --ink: #f0ece1;
-    --muted: #b3b1a7;
-    --brick: #e16a4f;
-    --brick-dark: #ff9a7f;
-    --yellow: #e0bd52;
-    --line: #4a4c47;
+  :root:not([data-theme="light"]) {
+    --concrete: #181a19;
+    --concrete-deep: #292b28;
+    --paper: #262722;
+    --ink: #f0eadf;
+    --muted: #b6b1a7;
+    --brick: #dc674d;
+    --brick-deep: #ff957b;
+    --line: #50514b;
     --shadow: 8px 8px 0 rgba(0, 0, 0, 0.38);
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }

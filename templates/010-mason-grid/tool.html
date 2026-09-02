@@ -2,66 +2,47 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>快速筛选 — {{SITE_NAME}}</title>
-  <meta name="description" content="按指南、数据和工具分类筛选资源。">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>工具间｜{{SITE_NAME}}</title>
+  <meta name="description" content="五件纯前端工具，用于日期、权重、文本、节奏与抽样的本地计算。">
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
-  <meta property="og:title" content="快速筛选 — {{SITE_NAME}}">
-  <meta property="og:description" content="按指南、数据和工具分类筛选资源。">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="{{SITE_NAME}} 砖墙订阅" href="feed.xml">
+  <meta property="og:title" content="工具间｜{{SITE_NAME}}">
+  <meta property="og:description" content="五件纯前端工具，用于日期、权重、文本、节奏与抽样的本地计算。">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
-  <link rel="stylesheet" href="assets/mortar.css">
-  <link rel="stylesheet" href="assets/blocks.css">
-  <link rel="stylesheet" href="assets/finish.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "快速筛选",
-    "url": "https://{{SITE_DOMAIN}}/tool.html"
-  }
-  </script>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="工具间｜{{SITE_NAME}}">
+  <meta name="twitter:description" content="五件纯前端工具，用于日期、权重、文本、节奏与抽样的本地计算。">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/mortar.css?v=2">
+  <link rel="stylesheet" href="assets/blocks.css?v=2">
+  <link rel="stylesheet" href="assets/finish.css?v=2">
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 </head>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"{{SITE_NAME}} 工具间","url":"https://{{SITE_DOMAIN}}/tool.html"}</script>
 <body>
+  <a class="skip-joint" href="#main">跳到正文</a>
   <header class="cap-bar">
-    <a class="cap-bar__brand" href="index.html" aria-label="返回 {{SITE_NAME}} 首页">{{SITE_NAME}}</a>
-    <nav class="cap-bar__nav" aria-label="主导航">
-      <a class="cap-bar__link" href="index.html">资源墙</a>
-      <a class="cap-bar__link" href="article.html">编辑精选</a>
-      <a class="cap-bar__link" href="tool.html" aria-current="page">快速筛选</a>
-      <a class="cap-bar__link" href="legal.html">声明</a>
-    </nav>
+    <a class="cap-bar__brand" href="index.html" aria-label="返回 {{SITE_NAME}} 首页"><span class="cap-bar__stamp">MG/010</span><span>{{BRAND_EN}}</span></a>
+    <nav class="cap-bar__nav" aria-label="主导航"><a class="cap-bar__link" href="index.html">资源墙</a><a class="cap-bar__link" href="article.html">文章库</a><a class="cap-bar__link" href="tool.html" aria-current="page">工具间</a><a class="cap-bar__link" href="legal.html">边界</a><a class="cap-bar__link" href="disclosure.html">披露</a></nav>
+    <button class="cap-bar__theme" type="button" data-theme-cycle aria-label="切换显示主题">系统</button>
   </header>
-
-  <main class="yard">
-    <section class="kindset" aria-labelledby="filter-title">
-      <div>
-        <div class="kindset__intro">
-          <p class="banner__eyebrow">QUICK FILTER / RESOURCE TYPE</p>
-          <h1 id="filter-title">找到需要的那一块</h1>
-          <p>按资源类型缩小范围，筛选不会离开当前页面。</p>
-        </div>
-        <div class="kindset__bar" id="kind-bar" role="group" aria-label="资源分类筛选">
-          <button type="button" data-kind="all" aria-pressed="true">全部资源</button>
-          <button type="button" data-kind="guide" aria-pressed="false">指南</button>
-          <button type="button" data-kind="data" aria-pressed="false">数据</button>
-          <button type="button" data-kind="tool" aria-pressed="false">工具</button>
-        </div>
-        <p class="kindset__count" id="kind-count" aria-live="polite">当前显示 6 项资源</p>
-      </div>
-      <ul class="kindset__list" id="kind-list">
-        <li data-kind="guide"><span class="kindset__tagword">GUIDE · 01</span>信息源核对清单</li>
-        <li data-kind="data"><span class="kindset__tagword">DATA · 02</span>公开数据入口索引</li>
-        <li data-kind="tool"><span class="kindset__tagword">TOOL · 03</span>网页存档与差异检查</li>
-        <li data-kind="guide"><span class="kindset__tagword">GUIDE · 04</span>访谈记录模板</li>
-        <li data-kind="data"><span class="kindset__tagword">DATA · 05</span>常用指标口径表</li>
-        <li data-kind="tool"><span class="kindset__tagword">TOOL · 06</span>证据卡片生成器</li>
-      </ul>
-    </section>
+  <main class="yard" id="main">
+    <section class="machine-head"><div><p class="page-kicker">FIVE WORKING MACHINES</p><h1>不是摆设，每件都能在浏览器里干活</h1></div><p>数据只在当前页面处理。每件工具都有错误提示、边界状态、重置与结果复制。</p></section>
+    <section class="machine-catalog" aria-label="工具列表"><a href="instruments/date-span.html"><span class="machine-catalog__id">M-01</span><div><h2>日期跨度尺</h2><p>计算两个日期之间的自然日跨度，并给出先后关系。</p></div><span class="machine-catalog__go">启动 →</span></a><a href="instruments/weight-balance.html"><span class="machine-catalog__id">M-02</span><div><h2>权重调配板</h2><p>把三项原始权重归一化，快速检查结构是否偏斜。</p></div><span class="machine-catalog__go">启动 →</span></a><a href="instruments/text-fingerprint.html"><span class="machine-catalog__id">M-03</span><div><h2>文本指纹牌</h2><p>用本地 FNV-1a 生成短标记，便于对照两段文本是否改变。</p></div><span class="machine-catalog__go">启动 →</span></a><a href="instruments/review-cadence.html"><span class="machine-catalog__id">M-04</span><div><h2>复核节奏排砖器</h2><p>按起始日、间隔与轮次数生成一组复核日期。</p></div><span class="machine-catalog__go">启动 →</span></a><a href="instruments/sample-budget.html"><span class="machine-catalog__id">M-05</span><div><h2>抽样预算尺</h2><p>按总体量与允许误差估算一个基础抽样数。</p></div><span class="machine-catalog__go">启动 →</span></a></section>
   </main>
-
-  <footer class="ground">
-    <p class="ground__line">筛选仅作用于当前资源列表 · <a href="index.html">返回完整资源墙</a></p>
+<footer class="ground">
+    <div class="ground__grid">
+      <p class="ground__mark">{{BRAND_EN}} / EDITED RESOURCE WORKS</p>
+      <nav class="ground__nav" aria-label="页脚信息"><a href="about.html">关于</a><a href="contact.html">联系</a><a href="privacy.html">隐私</a><a href="corrections.html">更正</a><a href="editorial.html">编辑准则</a><a href="feed.xml">RSS 砖讯</a></nav>
+      <p class="ground__line">本站独立运营，不是任何交易平台的官方网站；部分内容可能含推广链接。加密资产波动较大，决策前请自行核实。<a href="disclosure.html">阅读推广披露</a></p>
+    </div>
   </footer>
-  <script src="assets/site.js"></script>
+  <script defer src="assets/yard.js?v=2"></script>
 </body>
 </html>
