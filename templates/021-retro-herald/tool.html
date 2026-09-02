@@ -1,135 +1,48 @@
-<!DOCTYPE html>
-<html lang="[[LANG]]">
+<!doctype html>
+<html lang="%LANG%">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>交易成本试算台 - [[SITE_NAME]]</title>
-    <meta name="description" content="按成交金额、费率与最低费用试算单笔交易成本，结果仅供核对。">
-    <link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
-    <meta property="og:title" content="交易成本试算台 - [[SITE_NAME]]">
-    <meta property="og:description" content="按成交金额、费率与最低费用试算单笔交易成本，结果仅供核对。">
-    <meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html">
-    <link rel="stylesheet" href="css/style.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"交易成本试算台","url":"https://[[SITE_DOMAIN]]/tool.html","applicationCategory":"FinanceApplication"}</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>%TOOL_INDEX_META_TITLE%</title>
+  <meta name="description" content="%TOOL_INDEX_META_DESC%">
+  <link rel="canonical" href="https://%SITE_DOMAIN%/tool.html">
+  <meta property="og:title" content="%TOOL_INDEX_META_TITLE%">
+  <meta property="og:description" content="%TOOL_INDEX_META_DESC%">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://%SITE_DOMAIN%/tool.html">
+  <meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="%TOOL_INDEX_META_TITLE%">
+  <meta name="twitter:description" content="%TOOL_INDEX_META_DESC%">
+  <meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="%SITE_NAME% RSS" href="feed.xml">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%TOOL_INDEX_META_TITLE%","url":"https://%SITE_DOMAIN%/tool.html","publisher":{"@type":"Organization","name":"%SITE_NAME%"}}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="js/herald.js" defer></script>
 </head>
 <body>
-    <a class="rh-skip-link" href="#main">跳到主要内容</a>
-    <div class="rh-market-tape"><div class="rh-shell rh-market-tape-inner"><span><strong>本地试算</strong> · 输入内容不会上传</span><span>规则版本 2026.08 · 结果仅供核对</span></div></div>
-    <header class="rh-masthead rh-shell"><div class="rh-masthead-row"><div><p class="rh-masthead-kicker">The Retro Herald · Metropolitan business edition</p><a class="rh-publication" href="index.html">[[SITE_NAME]]</a></div><div class="rh-issue-stamp"><span>Readers' service</span><strong>费用试算</strong><span>本地处理</span></div></div></header>
-    <nav class="rh-primary-nav" aria-label="主要栏目"><div class="rh-shell rh-primary-nav-inner"><a href="index.html">今日头版</a><a href="article.html">封面故事</a><a href="tool.html" aria-current="page">交易成本试算</a><a href="legal.html">刊务与更正</a></div></nav>
-
-    <main id="main" class="rh-shell rh-page-main">
-        <header class="rh-page-head">
-            <div><p class="rh-eyebrow">Readers' service / Fee estimator</p><h1>把费率换算成一笔看得懂的成本。</h1><p>输入成交金额、费率和最低费用，试算台会比较按比例费用与最低费用，并给出买入总支出或卖出净回收。它不接入账户，也不会保存输入。</p></div>
-            <aside class="rh-page-meta" aria-label="工具说明"><dl><div><dt>处理位置</dt><dd>浏览器本地</dd></div><div><dt>金额精度</dt><dd>0.01</dd></div><div><dt>费率范围</dt><dd>0%–100%</dd></div><div><dt>规则版本</dt><dd>2026.08</dd></div></dl></aside>
-        </header>
-
-        <section class="rh-tool-layout" aria-label="交易成本试算工具">
-            <form class="rh-tool-panel" id="fee-form" novalidate>
-                <p class="rh-eyebrow">Input slip</p><h2>填写试算条件</h2><p>请按真实交易规则填写；若平台没有最低费用，可填 0。</p>
-                <div class="rh-tool-options" role="radiogroup" aria-label="交易方向"><label><input type="radio" name="side" value="buy" aria-label="买入" checked> 买入</label><label><input type="radio" name="side" value="sell" aria-label="卖出"> 卖出</label></div>
-                <div class="rh-field-grid">
-                    <div class="rh-field"><label for="trade-amount">成交金额</label><input id="trade-amount" type="number" min="0" max="1000000000000000" step="0.01" inputmode="decimal" aria-describedby="amount-help form-error"><p class="rh-field-help" id="amount-help">必须大于 0，例如 12500.00</p></div>
-                    <div class="rh-field"><label for="fee-rate">费率（%）</label><input id="fee-rate" type="number" min="0" max="100" step="0.0001" inputmode="decimal" aria-describedby="rate-help form-error"><p class="rh-field-help" id="rate-help">0.025 表示万分之 2.5</p></div>
-                    <div class="rh-field"><label for="minimum-fee">最低费用</label><input id="minimum-fee" type="number" min="0" max="1000000000000000" step="0.01" inputmode="decimal" value="5" aria-describedby="minimum-help form-error"><p class="rh-field-help" id="minimum-help">没有最低费用时填写 0</p></div>
-                    <div class="rh-field"><label for="currency">显示币种</label><select id="currency"><option value="CNY">人民币 CNY</option><option value="USD">美元 USD</option><option value="HKD">港币 HKD</option></select><p class="rh-field-help">仅改变币种标签，不换算汇率</p></div>
-                </div>
-                <p class="rh-form-error" id="form-error" role="alert"></p>
-                <div class="rh-button-row"><button class="rh-button" type="submit">开始试算</button><button class="rh-button rh-button-secondary" type="button" id="fee-clear">清空</button></div>
-            </form>
-
-            <section class="rh-result-panel" aria-labelledby="result-title">
-                <p class="rh-result-state" id="result-state">WAITING FOR INPUT</p><h2 id="result-title">试算结果</h2>
-                <strong class="rh-result-total" id="result-total">—</strong><span class="rh-result-label" id="result-label">预计交易费用</span>
-                <dl class="rh-result-list"><div><dt>按比例费用</dt><dd id="proportional-fee">—</dd></div><div><dt>最低费用</dt><dd id="minimum-fee-output">—</dd></div><div><dt>采用规则</dt><dd id="applied-rule">—</dd></div><div><dt id="settlement-label">买入总支出</dt><dd id="settlement-total">—</dd></div></dl>
-                <button class="rh-button" type="button" id="result-copy" disabled>复制试算摘要</button><p class="rh-copy-status" id="result-copy-status" aria-live="polite"></p>
-            </section>
-        </section>
-        <aside class="rh-tool-note"><strong>请注意：</strong>本工具只计算“成交金额 × 费率”与最低费用之间的较高值，不包含税费、平台服务费、汇率差、滑点或其他收费。正式交易前请以服务提供方公布的规则为准。</aside>
-    </main>
-
-    <footer class="rh-site-footer"><div class="rh-shell rh-footer-inner"><p>试算结果不构成投资、税务或交易建议。</p><nav class="rh-footer-links" aria-label="页脚导航"><a href="index.html">返回头版</a><a href="article.html">封面故事</a><a href="legal.html">刊务与更正</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
-
-    <script>
-        (function () {
-            var form = document.getElementById('fee-form');
-            var amount = document.getElementById('trade-amount');
-            var rate = document.getElementById('fee-rate');
-            var minimum = document.getElementById('minimum-fee');
-            var currency = document.getElementById('currency');
-            var error = document.getElementById('form-error');
-            var copyButton = document.getElementById('result-copy');
-            var copyStatus = document.getElementById('result-copy-status');
-            var summary = '';
-
-            function clearResult(state) {
-                summary = '';
-                copyButton.disabled = true;
-                document.getElementById('result-state').textContent = state || 'WAITING FOR INPUT';
-                document.getElementById('result-total').textContent = '—';
-                ['proportional-fee', 'minimum-fee-output', 'applied-rule', 'settlement-total'].forEach(function (id) { document.getElementById(id).textContent = '—'; });
-                document.getElementById('settlement-label').textContent = '买入总支出';
-            }
-
-            function money(value, code) {
-                return new Intl.NumberFormat('zh-CN', { style: 'currency', currency: code, minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
-            }
-            function invalidate(field, message) {
-                clearResult('CHECK INPUT');
-                field.setAttribute('aria-invalid', 'true');
-                error.textContent = message;
-                field.focus();
-            }
-            function resetInvalid() {
-                [amount, rate, minimum].forEach(function (field) { field.removeAttribute('aria-invalid'); });
-                error.textContent = ''; copyStatus.textContent = '';
-            }
-            form.addEventListener('submit', function (event) {
-                event.preventDefault(); resetInvalid();
-                var amountValue = Number(amount.value), rateValue = Number(rate.value), minimumValue = Number(minimum.value);
-                if (!amount.value || !Number.isFinite(amountValue) || amountValue <= 0) { invalidate(amount, '请输入大于 0 的成交金额。'); return; }
-                if (amountValue > 1000000000000000) { invalidate(amount, '成交金额不能超过 1,000,000,000,000,000。'); return; }
-                if (!rate.value || !Number.isFinite(rateValue) || rateValue < 0 || rateValue > 100) { invalidate(rate, '费率必须是 0 到 100 之间的数字。'); return; }
-                if (!minimum.value || !Number.isFinite(minimumValue) || minimumValue < 0) { invalidate(minimum, '最低费用必须是大于或等于 0 的数字。'); return; }
-                if (minimumValue > 1000000000000000) { invalidate(minimum, '最低费用不能超过 1,000,000,000,000,000。'); return; }
-                var proportional = amountValue * rateValue / 100;
-                var fee = Math.max(proportional, minimumValue);
-                var side = document.querySelector('input[name="side"]:checked').value;
-                var settlement = side === 'buy' ? amountValue + fee : amountValue - fee;
-                var code = currency.value;
-                var rule = proportional >= minimumValue ? '按比例费用' : '最低费用';
-                var settlementLabel = side === 'buy' ? '买入总支出' : '卖出净回收';
-                document.getElementById('result-state').textContent = 'CALCULATED';
-                document.getElementById('result-total').textContent = money(fee, code);
-                document.getElementById('proportional-fee').textContent = money(proportional, code);
-                document.getElementById('minimum-fee-output').textContent = money(minimumValue, code);
-                document.getElementById('applied-rule').textContent = rule;
-                document.getElementById('settlement-label').textContent = settlementLabel;
-                document.getElementById('settlement-total').textContent = money(settlement, code);
-                summary = '交易成本试算\n方向：' + (side === 'buy' ? '买入' : '卖出') + '\n成交金额：' + money(amountValue, code) + '\n预计费用：' + money(fee, code) + '\n采用规则：' + rule + '\n' + settlementLabel + '：' + money(settlement, code);
-                copyButton.disabled = false;
-            });
-            document.getElementById('fee-clear').addEventListener('click', function () {
-                form.reset(); resetInvalid(); clearResult('WAITING FOR INPUT'); amount.focus();
-            });
-            Array.prototype.slice.call(form.elements).forEach(function (field) {
-                field.addEventListener('input', function () {
-                    field.removeAttribute('aria-invalid');
-                    error.textContent = '';
-                    copyStatus.textContent = '';
-                    clearResult('WAITING FOR CALCULATION');
-                });
-            });
-            copyButton.addEventListener('click', function () {
-                function done() { copyStatus.textContent = '试算摘要已复制。'; }
-                function fallback() {
-                    var field = document.createElement('textarea'); field.value = summary; document.body.appendChild(field); field.select();
-                    try { document.execCommand('copy'); done(); } catch (copyError) { copyStatus.textContent = '复制失败，请手动记录结果。'; }
-                    field.remove();
-                }
-                if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(summary).then(done, fallback); else fallback();
-            });
-        })();
-    </script>
+<a class="hld-jump" href="#main">%SKIP_LINK%</a>
+<header class="hld-banner">
+  <div class="hld-datebar"><span>%EDITION_DATE%</span><span>%EDITION_LABEL%</span><button class="hld-ink" type="button" data-hld-ink aria-pressed="false"><b>%THEME_DARK%</b><i aria-hidden="true"></i></button></div>
+  <div class="hld-nameplate"><a href="index.html"><small>The Metropolitan Evening Ledger</small><strong>%BRAND_EN%</strong><em>%SITE_NAME%</em></a><p>%SITE_TAGLINE%</p></div>
+  <nav class="hld-ribbon" aria-label="%NAV_LABEL%">
+    <a href="index.html">%NAV_HOME%</a>
+    <a href="article.html">%NAV_REPORTS%</a>
+    <a href="columns/city-ledger.html">%NAV_COLUMNS%</a>
+    <a href="tool.html" aria-current="page">%NAV_TOOLS%</a>
+    <a href="about.html">%NAV_ABOUT%</a>
+  </nav>
+</header>
+<main id="main" class="hld-tool-index"><header class="hld-page-title"><p class="hld-kicker">Local desk instruments</p><h1>%TOOL_INDEX_TITLE%</h1><p>%TOOL_INDEX_DESC%</p></header><div class="hld-tool-cards"><article><span>01</span><h2>%TOOL_01_TITLE%</h2><p>%TOOL_01_DESC%</p><a href="calculators/fee-stack.html">%OPEN_TOOL%</a></article><article><span>02</span><h2>%TOOL_02_TITLE%</h2><p>%TOOL_02_DESC%</p><a href="calculators/break-even.html">%OPEN_TOOL%</a></article><article><span>03</span><h2>%TOOL_03_TITLE%</h2><p>%TOOL_03_DESC%</p><a href="calculators/allocation-compositor.html">%OPEN_TOOL%</a></article><article><span>04</span><h2>%TOOL_04_TITLE%</h2><p>%TOOL_04_DESC%</p><a href="calculators/change-column.html">%OPEN_TOOL%</a></article><article><span>05</span><h2>%TOOL_05_TITLE%</h2><p>%TOOL_05_DESC%</p><a href="calculators/runway-clock.html">%OPEN_TOOL%</a></article></div><section class="hld-tool-principles"><h2>%TOOL_INDEX_PRINCIPLES_TITLE%</h2><p>%TOOL_INDEX_PRINCIPLES_BODY%</p></section></main>
+<footer class="hld-footer">
+  <div class="hld-footer-lead"><p><strong>%BRAND_EN%</strong><br>%FOOTER_PROMISE%</p><p>本站独立运营。<a href="disclosure.html">%DISCLOSURE_LINK%</a></p><p><a href="feed.xml">RSS / %RSS_LABEL%</a></p></div>
+  <details class="hld-directory"><summary>%DIRECTORY_TITLE%</summary><div><a href="index.html">%DIR_HOME%</a><a href="article.html">article</a><a href="stories/entry-ledger.html">stories · entry-ledger</a><a href="stories/market-anatomy.html">stories · market-anatomy</a><a href="stories/company-minute.html">stories · company-minute</a><a href="stories/earnings-sheet.html">stories · earnings-sheet</a><a href="stories/terms-almanac.html">stories · terms-almanac</a><a href="stories/method-note.html">stories · method-note</a><a href="stories/risk-quadrant.html">stories · risk-quadrant</a><a href="stories/fee-ledger.html">stories · fee-ledger</a><a href="stories/scenario-brief.html">stories · scenario-brief</a><a href="stories/comparison-docket.html">stories · comparison-docket</a><a href="stories/desk-interview.html">stories · desk-interview</a><a href="stories/weekly-close.html">stories · weekly-close</a><a href="columns/city-ledger.html">columns · city-ledger</a><a href="columns/exchange-room.html">columns · exchange-room</a><a href="columns/closing-edition.html">columns · closing-edition</a><a href="tool.html">tool</a><a href="calculators/fee-stack.html">calculators · fee-stack</a><a href="calculators/break-even.html">calculators · break-even</a><a href="calculators/allocation-compositor.html">calculators · allocation-compositor</a><a href="calculators/change-column.html">calculators · change-column</a><a href="calculators/runway-clock.html">calculators · runway-clock</a><a href="about.html">about</a><a href="contact.html">contact</a><a href="disclosure.html">disclosure</a><a href="legal.html">legal</a><a href="privacy.html">privacy</a><a href="corrections.html">corrections</a><a href="editorial.html">editorial</a></div></details>
+  <p class="hld-colophon">© %CURRENT_YEAR% %SITE_NAME% · <a href="mailto:%CONTACT_EMAIL%">%CONTACT_EMAIL%</a></p>
+</footer>
 </body>
 </html>
