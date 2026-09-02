@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://%SITE_DOMAIN%/</loc><changefreq>weekly</changefreq></url>
-    <url><loc>https://%SITE_DOMAIN%/article.html</loc></url>
-    <url><loc>https://%SITE_DOMAIN%/tool.html</loc></url>
-    <url><loc>https://%SITE_DOMAIN%/legal.html</loc></url>
+  <url><loc>https://%SITE_DOMAIN%/</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/article.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/issues/entry-bulletin.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/issues/fee-shift-monitor.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/issues/identity-rule-watch.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/issues/transfer-window-notes.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/issues/custody-policy-scan.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/issues/recovery-change-log.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/issues/evidence-signal-review.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/issues/policy-effective-date.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/issues/account-alert-brief.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/issues/source-quality-pulse.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/issues/dispute-status-wire.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/issues/monthly-signal-recap.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/desks/rules-wire.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/desks/methods-wire.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/desks/review-wire.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/tool.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/change-rate.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/range-position.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/moving-average.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/outlier-finder.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/cadence-check.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/about.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/contact.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/disclosure.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/legal.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/privacy.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/corrections.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/editorial.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
 </urlset>
