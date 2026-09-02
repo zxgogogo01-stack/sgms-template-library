@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{LANG}}" data-ck159-board="porcelain">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#efece4">
+  <meta name="description" content="在当前浏览器本地复核谱线半回合、行棋方、格位格式、评估摆幅、分支深度与草析状态。"><link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html"><meta property="og:title" content="谱线连续校样台｜{{SITE_NAME}}"><meta property="og:description" content="不上传记录的封棋谱线清单工具。"><meta property="og:type" content="website"><meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <title>谱线连续校样台｜{{SITE_NAME}}</title><link rel="stylesheet" href="static/adjournment-room.css"><script src="static/adjournment-room.js" defer></script>
+</head>
+<body>
+  <a class="ck159-skip" href="#ck159-main">跳到主要内容</a>
+  <header class="ck159-clockbar"><section class="ck159-clock ck159-clock-dark"><b>00:59</b><nav aria-label="前半导航"><a href="index.html">局面室</a><a href="article.html">六则批注</a></nav></section><a class="ck159-seal" href="index.html"><strong>{{HOUSE_MARK}}</strong><small>ADJ / 159</small></a><section class="ck159-clock ck159-clock-light"><nav aria-label="后半导航"><a class="is-current" href="tool.html">谱线台</a><a href="legal.html">边界</a></nav><b>01:00</b><button type="button" data-ck159-board-toggle aria-pressed="false">黑方室</button></section></header>
+  <main id="ck159-main" class="ck159-tool">
+    <header class="ck159-toolhead"><div><p>LOCAL VARIATION CHECK</p><h1>谱线连续<br><em>校样台</em></h1></div><aside><b>只核对记谱结构</b><span>不会判断合法着法、最佳着法、胜负、裁判决定或任何真实比赛结果。</span></aside></header>
+    <section class="ck159-presets" aria-label="示例谱线"><span>LOAD A POSITION</span><button type="button" data-ck159-preset="clear">连续谱线</button><button type="button" data-ck159-preset="swing">评估摆幅</button><button type="button" data-ck159-preset="order">半回合缺口</button><button type="button" data-ck159-preset="turn">行棋方错位</button><button type="button" data-ck159-preset="mixed">混合复核</button></section>
+    <section class="ck159-desk">
+      <form data-ck159-form novalidate>
+        <label for="ck159-records">谱线记录</label><p>每行：谱线 | 半回合 | 行棋方 | 起点 | 终点 | 评估cp | 状态</p>
+        <textarea id="ck159-records" data-ck159-records rows="10" spellcheck="false">MAIN | 1 | 白 | e2 | e4 | 20 | 封存
+MAIN | 2 | 黑 | e7 | e5 | 10 | 封存
+MAIN | 3 | 白 | g1 | f3 | 25 | 复核
+ALT | 1 | 白 | d2 | d4 | 15 | 封存
+ALT | 2 | 黑 | d7 | d5 | 5 | 复核</textarea>
+        <div class="ck159-controls"><label for="ck159-swing">评估摆幅上限 cp<input id="ck159-swing" data-ck159-swing value="100" inputmode="numeric"></label><label for="ck159-depth">每条谱线最低记录数<input id="ck159-depth" data-ck159-depth value="2" inputmode="numeric"></label></div>
+        <output class="ck159-error" data-ck159-error tabindex="-1" aria-live="assertive"></output><div class="ck159-actions"><button type="submit">生成谱线报告</button><button type="reset">清空重置</button></div><p data-ck159-form-status aria-live="polite">等待生成谱线报告。</p>
+      </form>
+      <aside class="ck159-verdict" data-ck159-report data-ck159-ready="false"><header><small>ROOM VERDICT</small><strong data-ck159-state>UNSET</strong></header><div class="ck159-line-preview" data-ck159-preview><em>等待谱线记录</em></div><div class="ck159-metrics"><div><span>记录</span><b data-ck159-metric="count">0</b></div><div><span>谱线</span><b data-ck159-metric="lines">0</b></div><div><span>最大半回合</span><b data-ck159-metric="maxply">0</b></div><div><span>最大摆幅</span><b data-ck159-metric="maxswing">0</b></div><div><span>次序</span><b data-ck159-metric="order">0</b></div><div><span>行棋方</span><b data-ck159-metric="turn">0</b></div><div><span>摆幅</span><b data-ck159-metric="swing">0</b></div><div><span>深度</span><b data-ck159-metric="depth">0</b></div><div><span>草析</span><b data-ck159-metric="drafts">0</b></div></div><button type="button" data-ck159-copy-report disabled>复制完整报告</button><output data-ck159-copy-report-status aria-live="polite"></output></aside>
+    </section>
+    <section class="ck159-findings"><header><p>ANNOTATION FLAGS</p><h2 data-ck159-findings-summary>尚未校样</h2></header><ol data-ck159-findings><li>生成报告后，这里会列出次序、行棋方、摆幅、深度与草析提示。</li></ol><div data-ck159-record-list></div></section>
+    <section class="ck159-limit"><b>工具能力边界</b><p>只做本地文本结构与算术核对；不读取 FEN/PGN，不重建棋盘，不验证着法、王将状态、吃子、升变、易位、重复局面、时限、裁判决定、引擎来源或比赛结果。</p></section>
+  </main>
+  <footer class="ck159-footer"><section><a href="index.html">{{HOUSE_MARK}}</a><p>{{SITE_DESC}}</p></section><nav aria-label="页脚导航"><a href="index.html">局面室</a><a href="article.html">六则批注</a><a href="legal.html">分析边界</a><a href="404.html">缺格示例</a></nav><address>{{CONTACT_CHANNEL}}</address><p>资料核对日期：{{REVIEW_DATE}} · 输入与结果仅保留在当前浏览器页面中。</p></footer>
+</body>
+</html>

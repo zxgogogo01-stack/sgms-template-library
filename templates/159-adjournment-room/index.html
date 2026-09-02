@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="{{LANG}}" data-ck159-board="porcelain">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#efece4">
+  <meta name="description" content="{{SITE_DESC}}">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}｜封棋分析室">
+  <meta property="og:description" content="{{HERO_NOTE}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <title>{{SITE_NAME}}｜封棋分析室</title>
+  <link rel="stylesheet" href="static/adjournment-room.css">
+  <script src="static/adjournment-room.js" defer></script>
+</head>
+<body>
+  <a class="ck159-skip" href="#ck159-main">跳到主要内容</a>
+  <header class="ck159-clockbar">
+    <section class="ck159-clock ck159-clock-dark"><b>00:59</b><nav aria-label="前半导航"><a class="is-current" href="index.html">局面室</a><a href="article.html">六则批注</a></nav></section>
+    <a class="ck159-seal" href="index.html"><strong>{{HOUSE_MARK}}</strong><small>ADJ / 159</small></a>
+    <section class="ck159-clock ck159-clock-light"><nav aria-label="后半导航"><a href="tool.html">谱线台</a><a href="legal.html">边界</a></nav><b>01:00</b><button type="button" data-ck159-board-toggle aria-pressed="false">黑方室</button></section>
+  </header>
+
+  <main id="ck159-main">
+    <section class="ck159-hero">
+      <div class="ck159-board" aria-hidden="true"><span>a</span><span>1</span><b>e4</b><i>→</i><b>e5</b><em>{{ISSUE_NO}}</em></div>
+      <div class="ck159-intro">
+        <p>SEALED POSITION / {{EDITION_LABEL}}</p>
+        <h1>封棋<br><em>分析室</em></h1>
+        <blockquote>{{HERO_NOTE}}</blockquote>
+        <a href="article.html">阅读本期六则批注 <span>↗</span></a>
+        <aside><small>ROOM CODE</small><p>只复制编号，不在首页放置外部跳转。</p><div><strong>{{INVITE_CODE}}</strong><button type="button" data-ck159-copy-code>复制室号</button></div><output data-ck159-copy-status aria-live="polite"></output></aside>
+      </div>
+    </section>
+
+    <section class="ck159-position">
+      <header><p>POSITION INDEX</p><h2>把判断写在格子外，<br>把证据留在谱线里。</h2><span>{{MANIFESTO_NOTE}}</span></header>
+      <div class="ck159-movegrid">
+        <a href="article.html#annotation-01"><i>01</i><b>先建立谱线与半回合</b><span>{{ANNOTATION_01_META}}</span><em>a1</em></a>
+        <a href="article.html#annotation-02"><i>02</i><b>白黑方按奇偶交替</b><span>{{ANNOTATION_02_META}}</span><em>b2</em></a>
+        <a href="article.html#annotation-03"><i>03</i><b>起止格只做格式核验</b><span>{{ANNOTATION_03_META}}</span><em>c3</em></a>
+        <a href="article.html#annotation-04"><i>04</i><b>评估摆幅要写阈值</b><span>{{ANNOTATION_04_META}}</span><em>d4</em></a>
+        <a href="article.html#annotation-05"><i>05</i><b>分支不可伪装成主线</b><span>{{ANNOTATION_05_META}}</span><em>e5</em></a>
+        <a href="article.html#annotation-06"><i>06</i><b>草析状态保持可见</b><span>{{ANNOTATION_06_META}}</span><em>f6</em></a>
+      </div>
+    </section>
+
+    <section class="ck159-analysis">
+      <div><p>LOCAL VARIATION DESK</p><h2>贴入谱线，<br>只在当前浏览器核对。</h2></div>
+      <ol><li><b>01</b>逐行解析谱线记录</li><li><b>02</b>检查半回合、行棋方与摆幅</li><li><b>03</b>复制完整复核报告</li></ol>
+      <a href="tool.html">打开谱线台 ↗</a>
+    </section>
+  </main>
+
+  <footer class="ck159-footer">
+    <section><a href="index.html">{{HOUSE_MARK}}</a><p>{{SITE_DESC}}</p></section>
+    <nav aria-label="页脚导航"><a href="article.html">六则批注</a><a href="tool.html">本地谱线台</a><a href="legal.html">分析边界</a><a href="404.html">缺格示例</a></nav>
+    <address>{{CONTACT_CHANNEL}}</address>
+    <p>资料核对日期：{{REVIEW_DATE}} · 本模板不验证合法着法、棋规裁决、比赛结果或任何现实决策。</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="{{LANG}}" data-ck159-board="porcelain">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#efece4">
+  <meta name="description" content="阅读{{SITE_NAME}}的六则封棋分析批注：谱线、半回合、行棋方、格位格式、评估摆幅与草析状态。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html"><meta property="og:title" content="封棋六则批注｜{{SITE_NAME}}"><meta property="og:description" content="可直接替换文字的完整分析长文框架。"><meta property="og:type" content="article"><meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
+  <title>封棋六则批注｜{{SITE_NAME}}</title><link rel="stylesheet" href="static/adjournment-room.css"><script src="static/adjournment-room.js" defer></script>
+</head>
+<body>
+  <a class="ck159-skip" href="#ck159-main">跳到主要内容</a>
+  <header class="ck159-clockbar"><section class="ck159-clock ck159-clock-dark"><b>00:59</b><nav aria-label="前半导航"><a href="index.html">局面室</a><a class="is-current" href="article.html">六则批注</a></nav></section><a class="ck159-seal" href="index.html"><strong>{{HOUSE_MARK}}</strong><small>ADJ / 159</small></a><section class="ck159-clock ck159-clock-light"><nav aria-label="后半导航"><a href="tool.html">谱线台</a><a href="legal.html">边界</a></nav><b>01:00</b><button type="button" data-ck159-board-toggle aria-pressed="false">黑方室</button></section></header>
+  <progress class="ck159-progress" data-ck159-progress max="100" value="0" aria-label="阅读进度"></progress>
+  <main id="ck159-main" class="ck159-article">
+    <header class="ck159-articlehero"><div><p>{{ARTICLE_META}} / SEALED NOTES</p><h1>六则<br><em>批注</em></h1></div><aside><span>½</span><p>保留章节锚点、批注次序与方法边界，后续 AI 只需换入已核实文字。</p><button type="button" data-ck159-copy-summary>复制六则摘要</button><output data-ck159-summary-status aria-live="polite"></output></aside></header>
+    <article class="ck159-annotation" id="annotation-01"><header><b>01</b><span>a1—h8</span></header><div><p>LINE BEFORE VERDICT</p><h2>先给谱线命名，<br>再写判断。</h2><p>{{ANNOTATION_01_LEAD}}</p><p>每条记录属于一条明确谱线，并使用从 1 开始的半回合编号。谱线名称与半回合组合应当唯一，才能区分主线、备选分支和重复录入。</p><blockquote>分析不是一句结论，而是一条别人可以重新走过的路径。</blockquote><p>{{ANNOTATION_01_BODY}}</p></div><aside><b>A</b><span>{{ANNOTATION_01_MARGIN}}</span></aside></article>
+    <article class="ck159-annotation ck159-invert" id="annotation-02"><header><b>02</b><span>W / B</span></header><div><p>TURN PARITY</p><h2>奇数白方，<br>偶数黑方。</h2><p>{{ANNOTATION_02_LEAD}}</p><p>本框架用半回合奇偶检查行棋方：1、3、5 对应白方，2、4、6 对应黑方。它只检查记谱次序，不判断某一步是否合乎棋规。</p><ol><li>先按半回合排序。</li><li>检查是否从 1 开始并连续。</li><li>再按奇偶核对行棋方。</li></ol><p>{{ANNOTATION_02_BODY}}</p></div><aside><b>B</b><span>{{ANNOTATION_02_MARGIN}}</span></aside></article>
+    <article class="ck159-annotation ck159-blue" id="annotation-03"><header><b>03</b><span>e2→e4</span></header><div><p>SQUARE FORMAT</p><h2>格位能读懂，<br>不等于着法合法。</h2><p>{{ANNOTATION_03_LEAD}}</p><p>起点和终点严格使用 a1–h8，小写化后核对，且同一步的起终点不能相同。兵种、局面占位、王将状态、吃子、升变与特殊规则都不在本地工具能力范围内。</p><dl><div><dt>接受</dt><dd>a1–h8</dd></div><div><dt>拒绝</dt><dd>同格起止</dd></div><div><dt>不判断</dt><dd>合法着法</dd></div></dl><p>{{ANNOTATION_03_BODY}}</p></div><aside><b>C</b><span>{{ANNOTATION_03_MARGIN}}</span></aside></article>
+    <article class="ck159-annotation ck159-red" id="annotation-04"><header><b>04</b><span>± CP</span></header><div><p>EVALUATION SWING</p><h2>摆幅要量化，<br>阈值要有出处。</h2><p>{{ANNOTATION_04_LEAD}}</p><p>相邻半回合的评估值取绝对差；严格超过用户阈值时提示，等于阈值通过。评估来源、引擎版本、深度和局面条件仍须在正式文章中说明。</p><blockquote>数字只描述一次变化，不能替代对局面和来源的解释。</blockquote><p>{{ANNOTATION_04_BODY}}</p></div><aside><b>D</b><span>{{ANNOTATION_04_MARGIN}}</span></aside></article>
+    <article class="ck159-annotation ck159-lime" id="annotation-05"><header><b>05</b><span>DEPTH</span></header><div><p>BRANCH DEPTH</p><h2>短分支可以保留，<br>但不能伪装完整。</h2><p>{{ANNOTATION_05_LEAD}}</p><p>校样台按每条谱线的记录数与用户设置的最低深度比较。等于最低值通过，严格少于才提示。这个提示帮助编辑发现过短分支，不评价分析质量。</p><p>{{ANNOTATION_05_BODY}}</p><a href="tool.html">带着谱线进入校样台 ↗</a></div><aside><b>E</b><span>{{ANNOTATION_05_MARGIN}}</span></aside></article>
+    <article class="ck159-annotation" id="annotation-06"><header><b>06</b><span>STATE</span></header><div><p>DRAFTS REMAIN DRAFTS</p><h2>草析要醒目，<br>封存要有证据。</h2><p>{{ANNOTATION_06_LEAD}}</p><p>“草析、复核、封存”只表示编辑状态，不代表裁判确认、引擎共识、比赛结果或发布批准。工具会单独列出草析项，避免半成品被误作定论。</p><p>{{ANNOTATION_06_BODY}}</p><aside><b>最后复核</b><span>{{FINAL_REVIEW_NOTE}}</span></aside></div><aside><b>F</b><span>{{ANNOTATION_06_MARGIN}}</span></aside></article>
+  </main>
+  <footer class="ck159-footer"><section><a href="index.html">{{HOUSE_MARK}}</a><p>{{SITE_DESC}}</p></section><nav aria-label="页脚导航"><a href="index.html">局面室</a><a href="tool.html">本地谱线台</a><a href="legal.html">分析边界</a><a href="404.html">缺格示例</a></nav><address>{{CONTACT_CHANNEL}}</address><p>资料核对日期：{{REVIEW_DATE}} · 本文是编辑框架，不构成比赛裁决、合法着法验证、博彩或任何现实决策建议。</p></footer>
+</body>
+</html>
