@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="{{LANG}}" data-is149-mode="stock">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ede8dc">
+  <meta name="description" content="本地字偶校样工具，审计反向组合、绝对值阈值、用途与文档状态。"><link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="字偶校样工作台｜{{SITE_NAME}}"><meta property="og:description" content="零上传整理两码点字偶、整数调整值、方向关系与校样状态。"><meta property="og:type" content="website"><meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <title>字偶校样工作台｜{{SITE_NAME}}</title><link rel="stylesheet" href="static/kerning-galley.css"><script src="static/kerning-galley.js" defer></script>
+</head>
+<body class="is149-tool">
+  <a class="is149-skip" href="#is149-main">跳到主要内容</a>
+  <aside class="is149-spine" aria-label="站点侧栏"><a class="is149-seal" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>149</b><span>{{FOUNDRY_MARK}}</span></a><nav aria-label="主导航"><a href="index.html"><i>01</i>样张</a><a href="article.html"><i>02</i>校记</a><a aria-current="page" href="tool.html"><i>03</i>工作台</a><a href="legal.html"><i>04</i>边界</a></nav><button type="button" data-is149-mode-toggle aria-pressed="true">打开紫外灯</button><small>GLYPH / SPACE / CONTEXT</small></aside>
+  <main id="is149-main">
+    <header class="is149-tool-lead"><div><p>DIRECTIONAL PAIRS / INTEGER NOTES</p><h1>字偶校样<br><em>工作台。</em></h1><blockquote>只整理两个 Unicode 码点、整数调整值、用户阈值、用途与状态；不读取字体文件。</blockquote></div><figure aria-hidden="true"><span>A</span><i></i><span>V</span><b>±</b></figure></header>
+    <section class="is149-bench" aria-label="字偶校样工具">
+      <form class="is149-form" data-is149-form novalidate>
+        <header><small>INPUT / GALLEY</small><h2>输入校样条</h2></header>
+        <p><code>字偶 | 调整值 | 用途 | 状态</code></p>
+        <label for="is149-pairs">每行一个字偶</label>
+        <textarea id="is149-pairs" data-is149-pairs rows="12" spellcheck="false">AV | -40 | 标题 | 定稿
+To | -25 | 正文 | 定稿
+11 | 10 | 数字 | 定稿
+Wa | -15 | 标题 | 定稿</textarea>
+        <label for="is149-limit">绝对值复核线（0–200）</label>
+        <input id="is149-limit" data-is149-limit inputmode="numeric" value="100" autocomplete="off">
+        <fieldset><legend>装入审计样张</legend><div><button type="button" data-is149-preset="balanced">平衡字偶</button><button type="button" data-is149-preset="reverse">反向成对</button><button type="button" data-is149-preset="limit">越线字偶</button><button type="button" data-is149-preset="review">综合复核</button></div></fieldset>
+        <p data-is149-error role="alert"></p>
+        <footer><button class="is149-rule-button" type="submit">压出校样报告</button><button type="reset">清空并恢复示例</button></footer>
+        <output data-is149-form-status aria-live="polite">等待至少三个字偶。</output>
+      </form>
+
+      <section class="is149-report" data-ready="false" aria-labelledby="is149-report-title">
+        <header><small>OUTPUT / PROOF</small><h2 id="is149-report-title">校样交接</h2><strong data-is149-report-state>UNSET</strong></header>
+        <div class="is149-line-preview" data-is149-preview><span>等待校样</span></div>
+        <dl class="is149-metrics"><div><dt>字偶数</dt><dd data-is149-count>0</dd></div><div><dt>总调整</dt><dd data-is149-total>0</dd></div><div><dt>中位数</dt><dd data-is149-median>—</dd></div><div><dt>最大绝对值</dt><dd data-is149-max>—</dd></div><div><dt>反向关系</dt><dd data-is149-reverse>0</dd></div><div><dt>复核线</dt><dd data-is149-threshold>—</dd></div></dl>
+        <p class="is149-summary" data-is149-summary>等待字偶</p>
+        <section class="is149-findings"><h3>校样提示</h3><ol data-is149-finding-list><li>生成报告后显示关系、阈值与状态提示。</li></ol></section>
+        <section class="is149-pair-cards"><h3>字偶目录</h3><div data-is149-pair-list></div></section>
+        <p class="is149-boundary">结果是内部整理记录，不是字体质量、可读性、授权、语言、品牌或发布结论。</p>
+        <footer><button class="is149-rule-button" type="button" data-is149-copy-report disabled>复制完整校样交接</button><output data-is149-copy-status aria-live="polite"></output></footer>
+      </section>
+    </section>
+    <footer class="is149-footer"><h2>{{FOUNDRY_MARK}}</h2><p>{{SITE_DESC}}</p><nav aria-label="页脚导航"><a href="index.html">返回样张</a><a href="article.html">字距五记</a><a href="legal.html">使用边界</a></nav><address>{{CONTACT_CHANNEL}}</address><small>发布品牌、字体、项目或客户资料前，请核实事实、许可、隐私与版权。</small></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="{{LANG}}" data-is149-mode="stock">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ede8dc">
+  <meta name="description" content="五则字距校样笔记，说明字形、方向、用途、调整值和交接边界。"><link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html">
+  <meta property="og:title" content="字距校样五记｜{{SITE_NAME}}"><meta property="og:description" content="从光学校对到发布交接，读懂字偶调整记录的使用口径。"><meta property="og:type" content="article"><meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
+  <title>字距校样五记｜{{SITE_NAME}}</title><link rel="stylesheet" href="static/kerning-galley.css"><script src="static/kerning-galley.js" defer></script>
+</head>
+<body class="is149-article">
+  <a class="is149-skip" href="#is149-main">跳到主要内容</a>
+  <aside class="is149-spine" aria-label="站点侧栏"><a class="is149-seal" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>149</b><span>{{FOUNDRY_MARK}}</span></a><nav aria-label="主导航"><a href="index.html"><i>01</i>样张</a><a aria-current="page" href="article.html"><i>02</i>校记</a><a href="tool.html"><i>03</i>工作台</a><a href="legal.html"><i>04</i>边界</a></nav><button type="button" data-is149-mode-toggle aria-pressed="true">打开紫外灯</button><small>GLYPH / SPACE / CONTEXT</small></aside>
+  <main id="is149-main">
+    <header class="is149-page-lead"><div><p>FIVE NOTES / {{ARTICLE_META}}</p><h1>字距校样<br><em>五则边注。</em></h1><blockquote>记录一次可复核的视觉决定，而不是替字体、排版系统或专业审校盖章。</blockquote></div><figure aria-hidden="true"><b>A</b><i></i><b>V</b><span>01—05</span></figure></header>
+    <progress class="is149-progress" max="100" value="0" aria-label="文章阅读进度"></progress>
+    <nav class="is149-note-index" aria-label="文章章节"><a href="#note-shape">字形</a><a href="#note-context">语境</a><a href="#note-value">数值</a><a href="#note-direction">方向</a><a href="#note-handoff">交接</a></nav>
+    <article class="is149-notebook">
+      <section id="note-shape"><header><span>01</span><small>SHAPE</small><h2>先看轮廓，<br>再看空隙。</h2></header><div><p class="is149-drop">字距校样处理的是两枚字形相邻时产生的视觉关系。斜边、圆肩、横画与衬线会让几何距离和视觉距离产生偏差。</p><blockquote>相等的坐标间隔，不一定看起来相等。</blockquote><p>工作台不读取字体文件，也不测量真实轮廓；它只整理你已经给出的字偶和调整值。</p></div></section>
+      <section id="note-context"><header><span>02</span><small>CONTEXT</small><h2>同一字偶，<br>放进不同语境。</h2></header><div><p>标题、正文与数字是三种记录用途，不是自动排版模式。字号、字重、字面比例、语言和输出介质都可能改变判断。</p><ul><li>标题：关注大字号下的轮廓张力。</li><li>正文：关注连续阅读中的节奏。</li><li>数字：关注编号、数据与表格中的秩序。</li></ul></div></section>
+      <section id="note-value"><header><span>03</span><small>VALUE</small><h2>正负号是记录，<br>不是质量分。</h2></header><div><p>负值表示本次记录希望收紧，正值表示放松，零表示不调整。绝对值阈值只是一条用户设置的复核线。</p><aside><b>内部口径</b><p>工作台不把整数换算成 em、像素、UPM、设计单位或任何字体软件专用单位。</p></aside></div></section>
+      <section id="note-direction"><header><span>04</span><small>DIRECTION</small><h2>AV 与 VA，<br>必须分开留档。</h2></header><div><p>工作台将字偶视为有方向的两个 Unicode 码点。反向组合同时出现时会生成关系提示，提醒审校者分别确认。</p><p>这不是重复错误，也不意味着两个值必须对称。</p></div></section>
+      <section id="note-handoff"><header><span>05</span><small>HANDOFF</small><h2>把上下文写进<br>交接清单。</h2></header><div><p>交付前保留完整输入、阈值、状态、总调整值、中位数、最大绝对值和全部提示。界面可以截短，复制报告不会截短。</p><ol><li>确认字偶来自获准使用的字体与文本。</li><li>在真实字号、字重和输出环境中复核。</li><li>由责任人决定是否写回字体或排版系统。</li></ol><footer><span>FIVE NOTES / COMPLETE</span><button class="is149-rule-button" type="button" data-is149-copy-notes>复制五记摘要</button><output data-is149-copy-status aria-live="polite"></output></footer></div></section>
+    </article>
+    <footer class="is149-footer"><h2>{{FOUNDRY_MARK}}</h2><p>{{SITE_DESC}}</p><nav aria-label="页脚导航"><a href="index.html">返回样张</a><a href="tool.html">字偶工作台</a><a href="legal.html">使用边界</a></nav><address>{{CONTACT_CHANNEL}}</address><small>发布品牌、字体、项目或客户资料前，请核实事实、许可、隐私与版权。</small></footer>
+  </main>
+</body>
+</html>

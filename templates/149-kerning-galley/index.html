@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="{{LANG}}" data-is149-mode="stock">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ede8dc">
+  <meta name="description" content="一套以铅字、字距校样、基线标尺与方向字偶为语言的完整原创静态模板。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}｜字距铸字校样档案">
+  <meta property="og:description" content="记录字偶、调整值、使用语境与校样状态的原创五页站点框架。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <title>{{SITE_NAME}}｜字距铸字校样档案</title>
+  <link rel="stylesheet" href="static/kerning-galley.css">
+  <script src="static/kerning-galley.js" defer></script>
+</head>
+<body class="is149-home">
+  <a class="is149-skip" href="#is149-main">跳到主要内容</a>
+  <aside class="is149-spine" aria-label="站点侧栏">
+    <a class="is149-seal" href="index.html" aria-label="{{SITE_NAME}} 首页"><b>149</b><span>{{FOUNDRY_MARK}}</span></a>
+    <nav aria-label="主导航">
+      <a aria-current="page" href="index.html"><i>01</i>样张</a>
+      <a href="article.html"><i>02</i>校记</a>
+      <a href="tool.html"><i>03</i>工作台</a>
+      <a href="legal.html"><i>04</i>边界</a>
+    </nav>
+    <button type="button" data-is149-mode-toggle aria-pressed="true">打开紫外灯</button>
+    <small>GLYPH / SPACE / CONTEXT</small>
+  </aside>
+  <main id="is149-main">
+    <section class="is149-opening" aria-labelledby="is149-title">
+      <header><span>FOUNDRY PROOF · 149</span><span>{{PROOF_CODE}}</span></header>
+      <div class="is149-opening-copy">
+        <p>SPACE IS A DRAWN FORM</p>
+        <h1 id="is149-title">字与字之间，<br><em>也要被设计。</em></h1>
+        <blockquote>{{HERO_DESCRIPTION}}</blockquote>
+        <a class="is149-rule-link" href="tool.html">进入字偶工作台 <b>→</b></a>
+      </div>
+      <figure class="is149-glyph-stage" aria-label="字偶 {{FEATURE_PAIR}} 的抽象校样">
+        <span aria-hidden="true">A</span><span aria-hidden="true">V</span>
+        <figcaption><b>{{FEATURE_PAIR}}</b><small>OPTICAL PAIR / NOT A FONT METRIC</small></figcaption>
+      </figure>
+      <footer><span>{{SITE_TAGLINE}}</span><i></i><span>PROOF BEFORE RELEASE</span></footer>
+    </section>
+
+    <section class="is149-ruler" aria-label="校样原则">
+      <b>0</b><span>字形</span><i></i><b>40</b><span>方向</span><i></i><b>80</b><span>语境</span><i></i><b>120</b><span>交接</span>
+    </section>
+
+    <section class="is149-proofs" aria-labelledby="is149-proofs-title">
+      <header><small>THREE PASSES</small><h2 id="is149-proofs-title">先看形，<br>再看空，最后看上下文。</h2></header>
+      <article><span>形</span><div><small>PASS 01</small><h3>不要把数字当答案。</h3><p>调整值只记录一次决定。真正的字距仍要结合字号、字重、大小写与相邻轮廓审看。</p></div></article>
+      <article><span>向</span><div><small>PASS 02</small><h3>AV 不等于 VA。</h3><p>方向相反就是另一组字偶。工作台会提示成对出现的反向组合，但不会替你判断哪一边正确。</p></div></article>
+      <article><span>境</span><div><small>PASS 03</small><h3>标题、正文、数字各自留档。</h3><p>同一视觉间隙在不同用途里可能需要不同处理。用途字段让交接不再依赖记忆。</p></div></article>
+    </section>
+
+    <section class="is149-specimen" aria-labelledby="is149-specimen-title">
+      <div class="is149-specimen-head"><small>SPECIMEN WALL</small><h2 id="is149-specimen-title">空白不是剩下的，<br>空白是被留下的。</h2><p>以巨型字形、细基线和编号标签组织内容，让每个板块像一张可直接换字的铸字校样。</p></div>
+      <ol>
+        <li><b>AV</b><span>斜边相遇</span><small>NEGATIVE SPACE</small></li>
+        <li><b>To</b><span>横画与圆肩</span><small>OVERHANG</small></li>
+        <li><b>11</b><span>数字节奏</span><small>TABULAR CONTEXT</small></li>
+        <li><b>Wa</b><span>宽窄转折</span><small>DIRECTION</small></li>
+      </ol>
+    </section>
+
+    <section class="is149-ticket" aria-labelledby="is149-ticket-title">
+      <p>HANDOFF STRIP · KEEP WITH THE PROOF</p>
+      <h2 id="is149-ticket-title">把决定连同语境一起交出去。</h2>
+      <div><strong>{{PROOF_CODE}}</strong><button type="button" data-is149-copy-code>复制校样编号</button><output data-is149-copy-status aria-live="polite"></output></div>
+      <a href="article.html">阅读五则校记</a>
+    </section>
+
+    <footer class="is149-footer">
+      <h2>{{FOUNDRY_MARK}}</h2><p>{{SITE_DESC}}</p>
+      <nav aria-label="页脚导航"><a href="article.html">字距五记</a><a href="tool.html">字偶工作台</a><a href="legal.html">使用边界</a></nav>
+      <address>{{CONTACT_CHANNEL}}</address><small>发布品牌、字体、项目或客户资料前，请核实事实、许可、隐私与版权。</small>
+    </footer>
+  </main>
+</body>
+</html>
