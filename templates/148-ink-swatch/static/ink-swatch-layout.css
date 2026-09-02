@@ -1,0 +1,34 @@
+.is148-lenses ol {
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.is148-lenses li {
+  min-width: 0;
+  width: 100%;
+}
+
+.is148-footer > *,
+.is148-home-footer > * {
+  min-width: 0;
+}
+
+.is148-footer section b,
+.is148-home-footer > .is148-foot-brand {
+  overflow-wrap: anywhere;
+}
+
+.is148-crown nav menu {
+  min-width: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.is148-crown nav a {
+  min-width: 44px;
+}
+
+@media (max-width: 760px) {
+  .is148-lenses ol {
+    grid-template-columns: 1fr;
+  }
+}
