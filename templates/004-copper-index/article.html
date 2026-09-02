@@ -2,65 +2,29 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>收录说明 — {{SITE_NAME}}</title>
-  <meta name="description" content="本目录的收录标准与更新流程。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>条目总录 — {{SITE_NAME}}</title>
+  <meta name="description" content="十二个已经完成铜牌版式、独立封面与内链的文章内容槽位。">
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html">
-  <meta property="og:title" content="收录说明 — {{SITE_NAME}}">
-  <meta property="og:description" content="本目录的收录标准与更新流程。">
+  <link rel="alternate" type="application/rss+xml" title="{{BRAND_EN}} catalogue feed" href="feed.xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta name="theme-color" content="#2b1b15">
+  <meta property="og:title" content="条目总录 — {{SITE_NAME}}">
+  <meta property="og:description" content="十二个已经完成铜牌版式、独立封面与内链的文章内容槽位。">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
-  <link rel="stylesheet" href="assets/root.css">
-  <link rel="stylesheet" href="assets/grids.css">
-  <link rel="stylesheet" href="assets/skin.css">
-  <link rel="stylesheet" href="assets/boutique.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "收录说明",
-    "datePublished": "2026-07-22"
-  }
-  </script>
-</head>
-<body>
-  <header class="ridge">
-    <a class="ridge__home" href="index.html">{{SITE_NAME}}</a>
-    <nav class="ridge__set" aria-label="导航">
-      <a class="ridge__go" href="article.html" aria-current="page">收录说明</a>
-      <a class="ridge__go" href="tool.html">链接去重</a>
-      <a class="ridge__go" href="legal.html">声明</a>
-    </nav>
-  </header>
-
-  <main class="floor">
-    <article class="paper">
-      <h1>收录说明</h1>
-      <div class="paper__meta"><time datetime="2026-07-22">2026-07-22 更新</time><span>目录政策 · 公开版</span></div>
-      <p>这份目录不追求数量。每一个条目都要说明它解决什么问题、适合哪种读者，以及我们最后一次确认它仍然有效的时间。</p>
-      <p>收录不是永久背书，更像一张带日期的档案卡：来源发生变化，状态也会跟着改变。</p>
-      <aside class="paper__ledger" aria-label="目录维护概况"><span><strong>4 类</strong>资源分区</span><span><strong>每季</strong>集中复核</span><span><strong>4 种</strong>条目状态</span></aside>
-      <h2>收录前，先回答四个问题</h2>
-      <ol class="paper__steps">
-        <li><strong>能否直接访问？</strong><span>主要内容不依赖强制注册或未知权限。</span></li>
-        <li><strong>解决什么问题？</strong><span>条目说明必须具体，不用“优质”“全面”等空泛词。</span></li>
-        <li><strong>证据在哪里？</strong><span>数据、规则与方法尽量指向原始来源。</span></li>
-        <li><strong>谁负责更新？</strong><span>页面有清楚的维护主体、日期或版本线索。</span></li>
-      </ol>
-      <h2>状态比排名更重要</h2>
-      <p>同一分类不设置付费置顶，也不制造含糊的综合排名。条目依照编辑顺序陈列，同时标记“已复核”“待复查”“归档”或“移除”。</p>
-      <blockquote class="paper__quote">目录真正需要维护的不是链接，而是链接背后的有效性、适用范围与最后核对时间。</blockquote>
-      <h2>一次复核如何进行</h2>
-      <p>先检查链接和访问条件，再核对页面标题、维护日期与核心内容。若条目仍有价值但部分信息过时，会保留并标记“待复查”；若入口长期失效、内容已被替换或来源不再清楚，则移入归档。</p>
-      <div class="paper__states"><span>已复核</span><span>待复查</span><span>已归档</span><span>已移除</span></div>
-      <h2>报告问题</h2>
-      <p>发现失效链接、描述错误或更合适的原始来源，请写信至 <a class="paper__link" href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>。请附上条目名称、问题和可核对的页面。</p>
-    </article>
-  </main>
-
-  <footer class="base-foot">
-    <p class="base-foot__words">人工收录 · 每季复核 · <a href="legal.html">目录声明</a></p>
-  </footer>
-
-  <script src="assets/nav.js"></script>
-</body>
-</html>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="条目总录 — {{SITE_NAME}}">
+  <meta name="twitter:description" content="十二个已经完成铜牌版式、独立封面与内链的文章内容槽位。">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/root.css?v=5">
+  <link rel="stylesheet" href="assets/grids.css?v=5">
+  <link rel="stylesheet" href="assets/skin.css?v=5">
+  <link rel="stylesheet" href="assets/boutique.css?v=5">
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"条目总录 — {{SITE_NAME}}","url":"https://{{SITE_DOMAIN}}/article.html"}</script>
+</head><body><header class="ridge"><a class="ridge__home" href="index.html" aria-label="返回首页">{{BRAND_EN}}</a><nav class="ridge__set" aria-label="主导航"><a class="ridge__go" href="index.html">目录</a><a class="ridge__go" href="article.html" aria-current="page">条目</a><a class="ridge__go" href="tool.html">工作台</a><a class="ridge__go" href="editorial.html">规约</a><a class="ridge__go" href="about.html">关于</a></nav><button class="ridge__mode" type="button" data-theme-toggle aria-label="切换明暗主题">系统色</button></header><main class="floor archive-floor"><header class="catalogue-head"><span>MASTER CATALOGUE / 12</span><h1>条目总录</h1><p>按柜别筛选，每一条记录均保留作者、复核日期、来源说明与相关入口。</p></header><nav class="catalogue-tabs" aria-label="筛选条目"><button type="button" data-collection-filter="all" aria-pressed="true">全部</button><button type="button" data-collection-filter="0" aria-pressed="false">{{COLLECTION_01_NAME}}</button><button type="button" data-collection-filter="1" aria-pressed="false">{{COLLECTION_02_NAME}}</button><button type="button" data-collection-filter="2" aria-pressed="false">{{COLLECTION_03_NAME}}</button></nav><section class="archive-grid" aria-label="文章内容槽"><a href="catalog/account-access-record.html" data-collection="0"><span>01 / ACCESS</span><strong>{{ARTICLE_01_TITLE}}</strong><small>{{ARTICLE_01_DESC}}</small></a><a href="catalog/fee-reference-card.html" data-collection="0"><span>02 / COST</span><strong>{{ARTICLE_02_TITLE}}</strong><small>{{ARTICLE_02_DESC}}</small></a><a href="catalog/source-provenance-record.html" data-collection="2"><span>03 / SOURCE</span><strong>{{ARTICLE_03_TITLE}}</strong><small>{{ARTICLE_03_DESC}}</small></a><a href="catalog/identity-check-index.html" data-collection="0"><span>04 / IDENTITY</span><strong>{{ARTICLE_04_TITLE}}</strong><small>{{ARTICLE_04_DESC}}</small></a><a href="catalog/transfer-observation-sheet.html" data-collection="1"><span>05 / TRANSFER</span><strong>{{ARTICLE_05_TITLE}}</strong><small>{{ARTICLE_05_DESC}}</small></a><a href="catalog/recovery-reference-file.html" data-collection="2"><span>06 / RECOVERY</span><strong>{{ARTICLE_06_TITLE}}</strong><small>{{ARTICLE_06_DESC}}</small></a><a href="catalog/order-mechanism-note.html" data-collection="1"><span>07 / ORDER</span><strong>{{ARTICLE_07_TITLE}}</strong><small>{{ARTICLE_07_DESC}}</small></a><a href="catalog/volatility-context-card.html" data-collection="1"><span>08 / VOLATILITY</span><strong>{{ARTICLE_08_TITLE}}</strong><small>{{ARTICLE_08_DESC}}</small></a><a href="catalog/custody-question-list.html" data-collection="2"><span>09 / CUSTODY</span><strong>{{ARTICLE_09_TITLE}}</strong><small>{{ARTICLE_09_DESC}}</small></a><a href="catalog/review-calendar-entry.html" data-collection="1"><span>10 / REVIEW</span><strong>{{ARTICLE_10_TITLE}}</strong><small>{{ARTICLE_10_DESC}}</small></a><a href="catalog/evidence-grade-table.html" data-collection="2"><span>11 / EVIDENCE</span><strong>{{ARTICLE_11_TITLE}}</strong><small>{{ARTICLE_11_DESC}}</small></a><a href="catalog/policy-revision-record.html" data-collection="0"><span>12 / POLICY</span><strong>{{ARTICLE_12_TITLE}}</strong><small>{{ARTICLE_12_DESC}}</small></a></section><nav class="collection-doors" aria-label="主题柜别"><a href="collections/baseline-register.html"><span>DRAWER 01</span><strong>{{COLLECTION_01_NAME}}</strong></a><a href="collections/process-cabinet.html"><span>DRAWER 02</span><strong>{{COLLECTION_02_NAME}}</strong></a><a href="collections/evidence-vault.html"><span>DRAWER 03</span><strong>{{COLLECTION_03_NAME}}</strong></a></nav></main><footer class="base-foot"><div class="base-foot__plate"><p><strong>{{BRAND_EN}}</strong><br>本站独立运营，不代表任何交易平台。部分页面可能含推广链接；加密资产可能损失全部本金。</p><nav aria-label="合规与联系"><a href="about.html">关于</a><a href="contact.html">联系</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私</a><a href="corrections.html">更正</a><a href="editorial.html">编辑规约</a><a href="feed.xml">RSS</a></nav></div></footer><script src="assets/nav.js?v=5" defer></script></body></html>

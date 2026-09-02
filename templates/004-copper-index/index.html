@@ -2,128 +2,37 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{SITE_NAME}} — 研究与写作资源目录</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{SITE_NAME}} — {{SITE_TAGLINE}}</title>
   <meta name="description" content="{{SITE_DESC}}">
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
-  <meta property="og:title" content="{{SITE_NAME}}">
+  <link rel="alternate" type="application/rss+xml" title="{{BRAND_EN}} catalogue feed" href="feed.xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta name="theme-color" content="#2b1b15">
+  <meta property="og:title" content="{{SITE_NAME}} — {{SITE_TAGLINE}}">
   <meta property="og:description" content="{{SITE_DESC}}">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
-  <link rel="stylesheet" href="assets/root.css">
-  <link rel="stylesheet" href="assets/grids.css">
-  <link rel="stylesheet" href="assets/skin.css">
-  <link rel="stylesheet" href="assets/boutique.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "{{SITE_NAME}}",
-    "url": "https://{{SITE_DOMAIN}}/"
-  }
-  </script>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{SITE_NAME}} — {{SITE_TAGLINE}}">
+  <meta name="twitter:description" content="{{SITE_DESC}}">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/root.css?v=5">
+  <link rel="stylesheet" href="assets/grids.css?v=5">
+  <link rel="stylesheet" href="assets/skin.css?v=5">
+  <link rel="stylesheet" href="assets/boutique.css?v=5">
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"{{SITE_NAME}} — {{SITE_TAGLINE}}","url":"https://{{SITE_DOMAIN}}/"}</script>
 </head>
-<body>
-  <header class="ridge">
-    <a class="ridge__home" href="index.html">{{SITE_NAME}}</a>
-    <nav class="ridge__set" aria-label="导航">
-      <a class="ridge__go" href="article.html">收录说明</a>
-      <a class="ridge__go" href="tool.html">链接去重</a>
-      <a class="ridge__go" href="legal.html">声明</a>
-    </nav>
-  </header>
-
-  <main class="floor">
-    <section class="grand">
-      <h1 class="grand__line">{{SITE_NAME}}</h1>
-      <p class="grand__under">{{SITE_TAGLINE}} · 一份经过核对、标注状态并定期复查的研究资源索引</p>
-    </section>
-
-    <nav class="alpha-rail" aria-label="字母索引">
-      <a class="alpha-rail__dot" href="#sec-learn">学</a>
-      <a class="alpha-rail__dot" href="#sec-data">数</a>
-      <a class="alpha-rail__dot" href="#sec-tools">工</a>
-      <a class="alpha-rail__dot" href="#sec-read">读</a>
-    </nav>
-
-    <section class="shelf" id="sec-learn">
-      <h2 class="shelf__cap">入门学习</h2>
-      <div class="shelf__row">
-        <a class="shelf__box" href="article.html">
-          <span class="shelf__state">基础 · 12 分钟</span>
-          <strong class="shelf__name">问题拆解卡</strong>
-          <span class="shelf__note">把模糊需求拆成对象、动作、时间和证据，适合第一次整理复杂问题时使用。</span>
-        </a>
-        <a class="shelf__box" href="article.html">
-          <span class="shelf__state">方法 · 已复核</span>
-          <strong class="shelf__name">证据等级手册</strong>
-          <span class="shelf__note">区分原始来源、转述与经验判断，让每句话的确定程度一眼可见。</span>
-        </a>
-        <a class="shelf__box" href="article.html">
-          <span class="shelf__state">模板 · 可复制</span>
-          <strong class="shelf__name">观察窗口指南</strong>
-          <span class="shelf__note">为一次比较设定统一的起止时间，避免让不同周期的数字替彼此发言。</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="shelf" id="sec-data">
-      <h2 class="shelf__cap">数据参考</h2>
-      <div class="shelf__row">
-        <a class="shelf__box" href="article.html">
-          <span class="shelf__state">参考 · 口径优先</span>
-          <strong class="shelf__name">口径备忘录</strong>
-          <span class="shelf__note">记录分子、分母、统计时间和排除项，适合放在每张数据表的第一页。</span>
-        </a>
-        <a class="shelf__box" href="article.html">
-          <span class="shelf__state">清单 · 8 项</span>
-          <strong class="shelf__name">来源核对表</strong>
-          <span class="shelf__note">检查发布时间、修订记录、适用对象和引用范围，为归档前做最后一次确认。</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="shelf" id="sec-tools">
-      <h2 class="shelf__cap">实用工具</h2>
-      <div class="shelf__row">
-        <a class="shelf__box" href="tool.html">
-          <span class="shelf__state">本站工具 · 本地运行</span>
-          <strong class="shelf__name">链接整理台</strong>
-          <span class="shelf__note">规范格式、过滤无效项并去除重复链接，内容不会离开当前浏览器。</span>
-        </a>
-        <a class="shelf__box" href="article.html">
-          <span class="shelf__state">模板 · 周期记录</span>
-          <strong class="shelf__name">日期快照页</strong>
-          <span class="shelf__note">为容易变化的页面保留核对日期、版本提示和下一次复查时间。</span>
-        </a>
-        <a class="shelf__box" href="article.html">
-          <span class="shelf__state">模板 · 修订记录</span>
-          <strong class="shelf__name">变更日志卡</strong>
-          <span class="shelf__note">用一句话说明改了什么、为何修改，以及原结论是否仍然成立。</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="shelf" id="sec-read">
-      <h2 class="shelf__cap">深度阅读</h2>
-      <div class="shelf__row">
-        <a class="shelf__box" href="article.html">
-          <span class="shelf__state">长文 · 编辑方法</span>
-          <strong class="shelf__name">结论也有保质期</strong>
-          <span class="shelf__note">讨论何时更新、归档或撤回一篇文章，让旧信息不再伪装成今天的答案。</span>
-        </a>
-        <a class="shelf__box" href="article.html">
-          <span class="shelf__state">长文 · 研究笔记</span>
-          <strong class="shelf__name">小样本里的诚实表达</strong>
-          <span class="shelf__note">当证据还不够多，怎样写清观察、限制与下一步，而不是过早下定论。</span>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="base-foot">
-    <p class="base-foot__words">人工收录 · 每季复核 · 状态留痕 · <a href="legal.html">目录声明</a> · {{CONTACT_EMAIL}}</p>
-  </footer>
-
-  <script src="assets/nav.js"></script>
-</body>
-</html>
+<body><header class="ridge"><a class="ridge__home" href="index.html" aria-label="返回首页">{{BRAND_EN}}</a><nav class="ridge__set" aria-label="主导航"><a class="ridge__go" href="index.html" aria-current="page">目录</a><a class="ridge__go" href="article.html">条目</a><a class="ridge__go" href="tool.html">工作台</a><a class="ridge__go" href="editorial.html">规约</a><a class="ridge__go" href="about.html">关于</a></nav><button class="ridge__mode" type="button" data-theme-toggle aria-label="切换明暗主题">系统色</button></header><main class="floor floor--home">
+<section class="grand"><div class="grand__mark">COPPER INDEX · VOL. {{ISSUE_NUMBER}}</div><div class="grand__copy"><h1 class="grand__line">{{SITE_NAME}}</h1><p class="grand__under">{{SITE_TAGLINE}}</p><nav class="grand__actions"><a href="article.html">翻阅全部条目</a><a href="tool.html">打开编目工作台</a></nav></div><aside class="access-ticket" aria-label="邀请码"><span>REFERENCE ACCESS</span><code data-invite-code>{{INVITE_CODE}}</code><button type="button" data-copy-invite>复制邀请码</button><p>使用本站邀请码，有机会获得 {{BENEFIT_RATE}} 手续费减免*</p><small>* {{BENEFIT_DISCLAIMER}}</small><i data-copy-status role="status"></i></aside><div class="grand__stamp" aria-hidden="true">004</div></section>
+<nav class="alpha-rail" aria-label="页面分区"><a href="#new">新</a><a href="#collections">集</a><a href="#bench">器</a><a href="#routes">录</a></nav>
+<section class="shelf" id="new"><header class="shelf__cap"><span>NEW ENTRIES / 12</span><h2>本期编目</h2><p>条目版式、封面和关系链已经装订。</p></header><div class="shelf__row"><a class="shelf__box" href="catalog/account-access-record.html"><span class="shelf__state">01 · ACCESS</span><strong class="shelf__name">{{ARTICLE_01_TITLE}}</strong><span class="shelf__note">{{ARTICLE_01_DESC}}</span></a><a class="shelf__box" href="catalog/fee-reference-card.html"><span class="shelf__state">02 · COST</span><strong class="shelf__name">{{ARTICLE_02_TITLE}}</strong><span class="shelf__note">{{ARTICLE_02_DESC}}</span></a><a class="shelf__box" href="catalog/source-provenance-record.html"><span class="shelf__state">03 · SOURCE</span><strong class="shelf__name">{{ARTICLE_03_TITLE}}</strong><span class="shelf__note">{{ARTICLE_03_DESC}}</span></a><a class="shelf__box" href="catalog/identity-check-index.html"><span class="shelf__state">04 · IDENTITY</span><strong class="shelf__name">{{ARTICLE_04_TITLE}}</strong><span class="shelf__note">{{ARTICLE_04_DESC}}</span></a><a class="shelf__box" href="catalog/transfer-observation-sheet.html"><span class="shelf__state">05 · TRANSFER</span><strong class="shelf__name">{{ARTICLE_05_TITLE}}</strong><span class="shelf__note">{{ARTICLE_05_DESC}}</span></a><a class="shelf__box" href="catalog/recovery-reference-file.html"><span class="shelf__state">06 · RECOVERY</span><strong class="shelf__name">{{ARTICLE_06_TITLE}}</strong><span class="shelf__note">{{ARTICLE_06_DESC}}</span></a><a class="shelf__box" href="catalog/order-mechanism-note.html"><span class="shelf__state">07 · ORDER</span><strong class="shelf__name">{{ARTICLE_07_TITLE}}</strong><span class="shelf__note">{{ARTICLE_07_DESC}}</span></a><a class="shelf__box" href="catalog/volatility-context-card.html"><span class="shelf__state">08 · VOLATILITY</span><strong class="shelf__name">{{ARTICLE_08_TITLE}}</strong><span class="shelf__note">{{ARTICLE_08_DESC}}</span></a><a class="shelf__box" href="catalog/custody-question-list.html"><span class="shelf__state">09 · CUSTODY</span><strong class="shelf__name">{{ARTICLE_09_TITLE}}</strong><span class="shelf__note">{{ARTICLE_09_DESC}}</span></a><a class="shelf__box" href="catalog/review-calendar-entry.html"><span class="shelf__state">10 · REVIEW</span><strong class="shelf__name">{{ARTICLE_10_TITLE}}</strong><span class="shelf__note">{{ARTICLE_10_DESC}}</span></a><a class="shelf__box" href="catalog/evidence-grade-table.html"><span class="shelf__state">11 · EVIDENCE</span><strong class="shelf__name">{{ARTICLE_11_TITLE}}</strong><span class="shelf__note">{{ARTICLE_11_DESC}}</span></a><a class="shelf__box" href="catalog/policy-revision-record.html"><span class="shelf__state">12 · POLICY</span><strong class="shelf__name">{{ARTICLE_12_TITLE}}</strong><span class="shelf__note">{{ARTICLE_12_DESC}}</span></a></div></section>
+<section class="cabinet" id="collections"><header><span>THREE CABINETS</span><h2>主题柜别</h2></header><a href="collections/baseline-register.html"><b>01</b><h3>{{COLLECTION_01_NAME}}</h3><p>{{COLLECTION_01_DESC}}</p><span>4 RECORDS</span></a><a href="collections/process-cabinet.html"><b>02</b><h3>{{COLLECTION_02_NAME}}</h3><p>{{COLLECTION_02_DESC}}</p><span>4 RECORDS</span></a><a href="collections/evidence-vault.html"><b>03</b><h3>{{COLLECTION_03_NAME}}</h3><p>{{COLLECTION_03_DESC}}</p><span>4 RECORDS</span></a></section>
+<section class="bench-strip" id="bench"><header><span>LOCAL WORKBENCH</span><h2>五件编目工具</h2></header><div><a href="workbench/link-refiner.html"><span>W-01</span><strong>链接精炼台</strong><small>规范链接格式、过滤无效项并去除重复记录。</small></a><a href="workbench/range-summarizer.html"><span>W-02</span><strong>样本区间尺</strong><small>把一组数值整理为极值、中位数、均值与跨度。</small></a><a href="workbench/rate-comparator.html"><span>W-03</span><strong>比例对照牌</strong><small>同时计算百分点差、相对变化和方向标记。</small></a><a href="workbench/freshness-calendar.html"><span>W-04</span><strong>复核日历尺</strong><small>用核对日、观察日和复核周期判断资料新鲜度。</small></a><a href="workbench/source-scorecard.html"><span>W-05</span><strong>来源分级牌</strong><small>按权威性、直接性、时效、佐证与冲突生成复核优先级。</small></a></div></section>
+<section class="route-ledger" id="routes"><header><span>COMPLETE ROUTE LEDGER</span><h2>完整页册</h2><p>每个可索引页面都从首页直达。</p></header><div><a href="article.html"><span>01</span>全部条目</a><a href="catalog/account-access-record.html"><span>02</span>{{ARTICLE_01_TITLE}}</a><a href="catalog/fee-reference-card.html"><span>03</span>{{ARTICLE_02_TITLE}}</a><a href="catalog/source-provenance-record.html"><span>04</span>{{ARTICLE_03_TITLE}}</a><a href="catalog/identity-check-index.html"><span>05</span>{{ARTICLE_04_TITLE}}</a><a href="catalog/transfer-observation-sheet.html"><span>06</span>{{ARTICLE_05_TITLE}}</a><a href="catalog/recovery-reference-file.html"><span>07</span>{{ARTICLE_06_TITLE}}</a><a href="catalog/order-mechanism-note.html"><span>08</span>{{ARTICLE_07_TITLE}}</a><a href="catalog/volatility-context-card.html"><span>09</span>{{ARTICLE_08_TITLE}}</a><a href="catalog/custody-question-list.html"><span>10</span>{{ARTICLE_09_TITLE}}</a><a href="catalog/review-calendar-entry.html"><span>11</span>{{ARTICLE_10_TITLE}}</a><a href="catalog/evidence-grade-table.html"><span>12</span>{{ARTICLE_11_TITLE}}</a><a href="catalog/policy-revision-record.html"><span>13</span>{{ARTICLE_12_TITLE}}</a><a href="collections/baseline-register.html"><span>14</span>{{COLLECTION_01_NAME}}</a><a href="collections/process-cabinet.html"><span>15</span>{{COLLECTION_02_NAME}}</a><a href="collections/evidence-vault.html"><span>16</span>{{COLLECTION_03_NAME}}</a><a href="tool.html"><span>17</span>工作台索引</a><a href="workbench/link-refiner.html"><span>18</span>链接精炼台</a><a href="workbench/range-summarizer.html"><span>19</span>样本区间尺</a><a href="workbench/rate-comparator.html"><span>20</span>比例对照牌</a><a href="workbench/freshness-calendar.html"><span>21</span>复核日历尺</a><a href="workbench/source-scorecard.html"><span>22</span>来源分级牌</a><a href="about.html"><span>23</span>关于本站</a><a href="contact.html"><span>24</span>联系编辑部</a><a href="disclosure.html"><span>25</span>推广披露</a><a href="legal.html"><span>26</span>免责声明</a><a href="privacy.html"><span>27</span>隐私说明</a><a href="corrections.html"><span>28</span>更正记录</a><a href="editorial.html"><span>29</span>编辑规约</a></div></section>
+</main><footer class="base-foot"><div class="base-foot__plate"><p><strong>{{BRAND_EN}}</strong><br>本站独立运营，不代表任何交易平台。部分页面可能含推广链接；加密资产可能损失全部本金。</p><nav aria-label="合规与联系"><a href="about.html">关于</a><a href="contact.html">联系</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私</a><a href="corrections.html">更正</a><a href="editorial.html">编辑规约</a><a href="feed.xml">RSS</a></nav></div></footer><script src="assets/nav.js?v=5" defer></script></body></html>

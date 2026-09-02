@@ -2,58 +2,29 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>目录声明 — {{SITE_NAME}}</title>
-  <meta name="description" content="{{SITE_NAME}} 的收录边界、外部链接、隐私与更正说明。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>免责声明 — {{SITE_NAME}}</title>
+  <meta name="description" content="{{DISCLAIMER_LEAD}}">
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/legal.html">
-  <meta property="og:title" content="目录声明 — {{SITE_NAME}}">
-  <meta property="og:description" content="{{SITE_NAME}} 的收录边界、外部链接、隐私与更正说明。">
+  <link rel="alternate" type="application/rss+xml" title="{{BRAND_EN}} catalogue feed" href="feed.xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta name="theme-color" content="#2b1b15">
+  <meta property="og:title" content="免责声明 — {{SITE_NAME}}">
+  <meta property="og:description" content="{{DISCLAIMER_LEAD}}">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/legal.html">
-  <link rel="stylesheet" href="assets/root.css">
-  <link rel="stylesheet" href="assets/grids.css">
-  <link rel="stylesheet" href="assets/skin.css">
-  <link rel="stylesheet" href="assets/boutique.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "目录声明",
-    "url": "https://{{SITE_DOMAIN}}/legal.html"
-  }
-  </script>
-</head>
-<body>
-  <header class="ridge">
-    <a class="ridge__home" href="index.html">{{SITE_NAME}}</a>
-    <nav class="ridge__set" aria-label="导航">
-      <a class="ridge__go" href="article.html">收录说明</a>
-      <a class="ridge__go" href="tool.html">链接去重</a>
-      <a class="ridge__go" href="legal.html" aria-current="page">声明</a>
-    </nav>
-  </header>
-
-  <main class="floor">
-    <article class="decl">
-      <h1>目录声明</h1>
-      <div class="paper__meta"><time datetime="2026-07-22">2026-07-22 更新</time><span>适用于 {{SITE_DOMAIN}}</span></div>
-      <p>{{SITE_NAME}} 是一份人工维护的资源索引。我们尽力说明每个条目的用途、状态和核对时间，但收录本身不代表推荐、合作或永久背书。</p>
-      <h2>外部链接与内容边界</h2>
-      <p>条目打开后进入第三方页面，其内容、账户要求、可用性和隐私做法由对应站点负责。访问前请自行判断页面是否符合你的用途与安全要求。</p>
-      <h2>状态与时效</h2>
-      <p>目录卡片反映最后一次人工核对时的情况。页面可能随时改版、迁移或关闭；标记“已复核”只说明当次检查通过，不保证未来持续可用。</p>
-      <h2>排序与商业关系</h2>
-      <p>目录不接受付费置顶。若未来出现赞助、合作或关联关系，会在对应条目旁清楚标明，不与编辑收录混在一起。</p>
-      <h2>隐私与本地工具</h2>
-      <p>模板默认不加载第三方统计脚本；链接整理台在浏览器本地运行，不发送或保存输入内容。接入任何外部服务后，应在此处补充说明。</p>
-      <h2>更正与移除</h2>
-      <p>发现失效链接、描述错误或权利问题，请写信至 <a class="paper__link" href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>，并附上条目名称和问题说明。</p>
-    </article>
-  </main>
-
-  <footer class="base-foot">
-    <p class="base-foot__words">人工收录 · 状态留痕 · 不接受付费置顶</p>
-  </footer>
-
-  <script src="assets/nav.js"></script>
-</body>
-</html>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="免责声明 — {{SITE_NAME}}">
+  <meta name="twitter:description" content="{{DISCLAIMER_LEAD}}">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/root.css?v=5">
+  <link rel="stylesheet" href="assets/grids.css?v=5">
+  <link rel="stylesheet" href="assets/skin.css?v=5">
+  <link rel="stylesheet" href="assets/boutique.css?v=5">
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"免责声明 — {{SITE_NAME}}","url":"https://{{SITE_DOMAIN}}/legal.html"}</script>
+</head><body><header class="ridge"><a class="ridge__home" href="index.html" aria-label="返回首页">{{BRAND_EN}}</a><nav class="ridge__set" aria-label="主导航"><a class="ridge__go" href="index.html">目录</a><a class="ridge__go" href="article.html">条目</a><a class="ridge__go" href="tool.html">工作台</a><a class="ridge__go" href="editorial.html">规约</a><a class="ridge__go" href="about.html">关于</a></nav><button class="ridge__mode" type="button" data-theme-toggle aria-label="切换明暗主题">系统色</button></header><main class="floor policy-floor"><header class="policy-head"><span>USE & RISK</span><h1>免责声明</h1><p>{{DISCLAIMER_LEAD}}</p><time datetime="{{EFFECTIVE_DATE}}">生效日期 {{EFFECTIVE_DATE}}</time></header><div class="policy-sections"><section><span>01</span><h2>信息用途</h2><p>内容只用于一般信息与研究记录，不构成投资、法律或税务建议。</p></section><section><span>02</span><h2>风险范围</h2><p>加密资产价格可能剧烈波动，也可能损失全部本金；请独立判断。</p></section></div></main><footer class="base-foot"><div class="base-foot__plate"><p><strong>{{BRAND_EN}}</strong><br>本站独立运营，不代表任何交易平台。部分页面可能含推广链接；加密资产可能损失全部本金。</p><nav aria-label="合规与联系"><a href="about.html">关于</a><a href="contact.html">联系</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私</a><a href="corrections.html">更正</a><a href="editorial.html">编辑规约</a><a href="feed.xml">RSS</a></nav></div></footer><script src="assets/nav.js?v=5" defer></script></body></html>

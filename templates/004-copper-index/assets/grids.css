@@ -1,3 +1,92 @@
-/* Copper Index — index frames */
-.floor{width:min(calc(100% - 48px),1240px);margin:0 auto;padding:0 0 clamp(90px,10vw,150px)}.ridge{position:sticky;z-index:30;top:0;display:grid;grid-template-columns:1fr auto;align-items:center;min-height:76px;padding:0 max(24px,calc((100vw - 1440px)/2));border-bottom:1px solid rgba(255,255,255,.14);background:rgba(33,26,22,.96);color:#eee7dc;backdrop-filter:blur(12px)}.ridge__set{display:flex;gap:clamp(18px,2.5vw,40px)}.alpha-rail{position:sticky;z-index:10;top:76px;display:grid;grid-auto-flow:column;justify-content:start;margin:0;border-block:1px solid var(--ci-line);background:rgba(238,233,223,.95);backdrop-filter:blur(10px)}.shelf{display:grid;grid-template-columns:240px 1fr;margin:0;border-bottom:1px solid var(--ci-line);scroll-margin-top:140px}.shelf__row{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--ci-line)}.shelf__box{display:grid;align-content:space-between;gap:24px;min-width:0}
-@media(max-width:820px){.floor{width:min(calc(100% - 32px),1240px)}.ridge{position:relative;grid-template-columns:1fr;padding:17px 16px 0}.ridge__set{overflow-x:auto;scrollbar-width:none}.ridge__set::-webkit-scrollbar{display:none}.alpha-rail{top:0}.shelf{grid-template-columns:1fr}.shelf__row{grid-template-columns:1fr;border-left:0;border-top:1px solid var(--ci-line)}}
+.floor{width:min(calc(100% - 48px),1260px);margin:0 auto}
+.ridge{position:sticky;z-index:40;top:0;display:grid;grid-template-columns:auto 1fr auto;align-items:center;min-height:74px;padding:0 max(24px,calc((100vw - 1460px)/2));border-bottom:1px solid rgba(255,255,255,.15);background:rgba(35,22,17,.97);color:#f4ece2;backdrop-filter:blur(14px)}
+.ridge__set{display:flex;justify-content:flex-end;align-self:stretch}
+.grand{position:relative;display:grid;grid-template-columns:1.15fr .85fr;min-height:calc(100svh - 74px);border-inline:1px solid var(--ci-line);overflow:hidden}
+.grand__copy{align-self:center;padding:80px 5vw}
+.access-ticket{position:absolute;right:5vw;bottom:13%;width:min(38%,430px)}
+.alpha-rail{position:sticky;z-index:20;top:74px;display:flex;border:1px solid var(--ci-line);background:color-mix(in srgb,var(--ci-paper) 92%,transparent);backdrop-filter:blur(10px)}
+.shelf{display:grid;grid-template-columns:250px 1fr;border-inline:1px solid var(--ci-line);border-bottom:1px solid var(--ci-line);scroll-margin-top:150px}
+.shelf__row{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--ci-line)}
+.cabinet{display:grid;grid-template-columns:250px repeat(3,1fr);padding:110px 0}
+.bench-strip{margin-inline:calc(50% - 50vw);padding:105px max(24px,calc((100vw - 1260px)/2));background:var(--ci-dark);color:#f4ece2}
+.bench-strip>div{display:grid;grid-template-columns:repeat(5,1fr)}
+.route-ledger{padding:105px 0}
+.route-ledger>div{display:grid;grid-template-columns:repeat(4,1fr)}
+.base-foot{padding:48px max(24px,calc((100vw - 1260px)/2));background:var(--ci-deep);color:#ddd0c6}
+.base-foot__plate{display:grid;grid-template-columns:1fr 1.4fr;gap:80px}
+.base-foot nav{display:grid;grid-template-columns:repeat(4,1fr);gap:5px 20px}
+.archive-floor,.collection-floor,.work-index,.work-floor,.policy-floor{padding:90px 0 130px}
+.catalogue-head,.work-head,.drawer-head,.instrument-plaque,.policy-head{display:grid;grid-template-columns:1fr auto;align-items:end;min-height:330px;padding:44px;border:1px solid var(--ci-line)}
+.catalogue-head p,.work-head p,.drawer-head p,.instrument-plaque p,.policy-head p{grid-column:1/-1}
+.catalogue-tabs{display:flex;gap:8px;padding:24px 0}
+.archive-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ci-line);border-left:1px solid var(--ci-line)}
+.collection-doors{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:55px}
+.drawer-records{display:grid;grid-template-columns:repeat(2,1fr);margin-top:55px;border-top:1px solid var(--ci-line);border-left:1px solid var(--ci-line)}
+.drawer-cross{display:flex;gap:12px;margin-top:40px}
+.entry-shell{width:min(calc(100% - 48px),1080px);margin:0 auto}
+.entry{padding:80px 0 130px}
+.entry-head{display:grid;grid-template-columns:1fr auto;padding:48px;border:1px solid var(--ci-line)}
+.entry-head h1,.entry-head p{grid-column:1/-1}
+.entry-head>div{display:grid;grid-template-columns:repeat(3,1fr);grid-column:1/-1}
+.plate-layout,.drawer-copy{display:grid;grid-template-columns:240px 1fr;gap:70px;padding-top:70px}
+.plate-index{position:sticky;top:100px;align-self:start;display:grid}
+.folio-spread{display:grid;grid-template-columns:1fr 1fr;border-left:1px solid var(--ci-line)}
+.folio-spread>section,.folio-spread>aside{padding:42px;border-right:1px solid var(--ci-line);border-bottom:1px solid var(--ci-line)}
+.folio-spread>aside{display:grid;grid-template-columns:1fr 1fr;grid-column:1/-1}
+.source-slip,.entry-faq,.entry-credit,.entry-related{margin-top:52px}
+.entry-credit,.entry-related{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.work-cards{display:grid;grid-template-columns:1.2fr .8fr .8fr}
+.work-cards a:first-child{grid-row:span 2}
+.instrument-table{display:grid;grid-template-columns:1.2fr .8fr;border:1px solid var(--ci-line)}
+#catalog-tool{padding:42px}
+.instrument-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.instrument-fields>label{display:grid;gap:8px}
+.instrument-fields>label:has(textarea),.instrument-fields>.checkline{grid-column:1/-1}
+.instrument-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.instrument-result{display:flex;flex-direction:column;justify-content:space-between;padding:38px;border-left:1px solid var(--ci-line)}
+.instrument-manual{margin:55px 0;border:1px solid var(--ci-line)}
+.instrument-manual>div{display:grid;grid-template-columns:repeat(2,1fr)}
+.work-dock{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ci-line);border-left:1px solid var(--ci-line)}
+.policy-sections{display:grid;grid-template-columns:1fr 1fr;border-left:1px solid var(--ci-line)}
+.gone{display:grid;place-content:center;min-height:calc(100svh - 74px);padding:60px}
+.gone nav{display:flex;gap:12px}
+.gone+.base-foot{margin-top:0}
+@media(max-width:900px){.ridge{grid-template-columns:auto 1fr auto;padding:0 16px}
+.ridge__set{grid-column:1/-1;order:4;justify-content:flex-start;overflow-x:auto}
+.grand{grid-template-columns:1fr;min-height:auto}
+.grand__copy{padding:60px 30px 310px}
+.access-ticket{right:30px;bottom:75px;left:30px;width:auto}
+.shelf{grid-template-columns:1fr}
+.shelf__row{border-top:1px solid var(--ci-line);border-left:0}
+.cabinet{grid-template-columns:1fr 1fr}
+.cabinet>header{grid-column:1/-1}
+.bench-strip>div,.work-dock{grid-template-columns:1fr 1fr}
+.route-ledger>div{grid-template-columns:1fr 1fr}
+.base-foot__plate{grid-template-columns:1fr;gap:35px}
+.plate-layout,.drawer-copy{grid-template-columns:1fr;gap:35px}
+.plate-index{position:static}
+.instrument-table{grid-template-columns:1fr}
+.instrument-result{min-height:230px;border-top:1px solid var(--ci-line);border-left:0}
+}
+@media(max-width:620px){.floor,.entry-shell{width:min(calc(100% - 28px),1260px)}
+.ridge__mode{width:44px;min-width:44px;font-size:0}
+.ridge__mode::after{content:"◒";font-size:16px}
+.grand__copy{padding:42px 18px 310px}
+.access-ticket{right:18px;bottom:70px;left:18px}
+.shelf__row,.archive-grid,.drawer-records,.work-cards,.policy-sections,.folio-spread,.instrument-fields,.instrument-manual>div,.base-foot nav{grid-template-columns:1fr}
+.cabinet{grid-template-columns:1fr}
+.bench-strip>div,.route-ledger>div,.work-dock{grid-template-columns:1fr}
+.archive-floor,.collection-floor,.work-index,.work-floor,.policy-floor{padding:55px 0 90px}
+.catalogue-head,.work-head,.drawer-head,.instrument-plaque,.policy-head,.entry-head{grid-template-columns:1fr;min-height:270px;padding:28px 22px}
+.catalogue-tabs{overflow-x:auto}
+.entry{padding:45px 0 90px}
+.entry-head>div{grid-template-columns:1fr}
+.folio-spread>section,.folio-spread>aside{padding:28px 22px}
+.folio-spread>aside{grid-template-columns:1fr}
+.work-cards a:first-child{grid-row:auto}
+#catalog-tool{padding:28px 20px}
+.instrument-actions{display:grid}
+.drawer-cross{display:grid}
+.gone{padding:40px 22px}
+.gone nav{display:grid}
+}

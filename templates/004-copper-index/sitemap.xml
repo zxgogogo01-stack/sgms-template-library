@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://{{SITE_DOMAIN}}/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://{{SITE_DOMAIN}}/article.html</loc></url>
-  <url><loc>https://{{SITE_DOMAIN}}/tool.html</loc></url>
-  <url><loc>https://{{SITE_DOMAIN}}/legal.html</loc></url>
+  <url><loc>https://{{SITE_DOMAIN}}/</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/article.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/catalog/account-access-record.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/catalog/fee-reference-card.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/catalog/source-provenance-record.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/catalog/identity-check-index.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/catalog/transfer-observation-sheet.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/catalog/recovery-reference-file.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/catalog/order-mechanism-note.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/catalog/volatility-context-card.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/catalog/custody-question-list.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/catalog/review-calendar-entry.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/catalog/evidence-grade-table.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/catalog/policy-revision-record.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/collections/baseline-register.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/collections/process-cabinet.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/collections/evidence-vault.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/tool.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/workbench/link-refiner.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/workbench/range-summarizer.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/workbench/rate-comparator.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/workbench/freshness-calendar.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/workbench/source-scorecard.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/about.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/contact.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/disclosure.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/legal.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/privacy.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/corrections.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+  <url><loc>https://{{SITE_DOMAIN}}/editorial.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
 </urlset>

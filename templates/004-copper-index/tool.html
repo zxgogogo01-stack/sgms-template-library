@@ -2,58 +2,29 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>链接整理台 — {{SITE_NAME}}</title>
-  <meta name="description" content="规范链接格式、过滤无效项、去除重复行并生成整理报告。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>编目工作台 — {{SITE_NAME}}</title>
+  <meta name="description" content="五个在当前浏览器运行的研究整理与复核工具。">
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
-  <meta property="og:title" content="链接整理台 — {{SITE_NAME}}">
-  <meta property="og:description" content="规范链接格式、过滤无效项、去除重复行并生成整理报告。">
+  <link rel="alternate" type="application/rss+xml" title="{{BRAND_EN}} catalogue feed" href="feed.xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta name="theme-color" content="#2b1b15">
+  <meta property="og:title" content="编目工作台 — {{SITE_NAME}}">
+  <meta property="og:description" content="五个在当前浏览器运行的研究整理与复核工具。">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
-  <link rel="stylesheet" href="assets/root.css">
-  <link rel="stylesheet" href="assets/grids.css">
-  <link rel="stylesheet" href="assets/skin.css">
-  <link rel="stylesheet" href="assets/boutique.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "链接整理台",
-    "url": "https://{{SITE_DOMAIN}}/tool.html"
-  }
-  </script>
-</head>
-<body>
-  <header class="ridge">
-    <a class="ridge__home" href="index.html">{{SITE_NAME}}</a>
-    <nav class="ridge__set" aria-label="导航">
-      <a class="ridge__go" href="article.html">收录说明</a>
-      <a class="ridge__go" href="tool.html" aria-current="page">链接去重</a>
-      <a class="ridge__go" href="legal.html">声明</a>
-    </nav>
-  </header>
-
-  <main class="floor">
-    <section class="grand">
-      <h1 class="grand__line">链接整理台</h1>
-      <p class="grand__under">规范格式、过滤无效项、合并重复链接 · 全程在本地运行</p>
-    </section>
-
-    <div class="dedupe">
-      <div class="dedupe__intro"><p>每行放一个完整链接。无法识别的内容会单独计数，不会混入整理结果。</p><span>LOCAL PROCESS / NO UPLOAD</span></div>
-      <label for="dedupe-in">原始链接</label>
-      <textarea id="dedupe-in" placeholder="每行粘贴一条完整网址"></textarea>
-      <fieldset class="dedupe__options"><legend>整理规则</legend><label for="trim-slash"><input type="checkbox" id="trim-slash" checked> 忽略末尾斜线</label><label for="drop-hash"><input type="checkbox" id="drop-hash" checked> 移除页面锚点</label></fieldset>
-      <div class="dedupe__actions"><button class="dedupe__act" type="button" id="dedupe-go">开始整理</button><button class="dedupe__clear" type="button" id="dedupe-clear">清空</button></div>
-      <div class="dedupe__meta" id="dedupe-info" role="status" aria-live="polite">等待输入链接。</div>
-      <label for="dedupe-out">整理结果</label>
-      <textarea id="dedupe-out" readonly placeholder="有效且唯一的链接会出现在这里"></textarea>
-    </div>
-  </main>
-
-  <footer class="base-foot">
-    <p class="base-foot__words">工具只在当前浏览器运行 · 不上传、不保存输入内容</p>
-  </footer>
-
-  <script src="assets/nav.js"></script>
-</body>
-</html>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="编目工作台 — {{SITE_NAME}}">
+  <meta name="twitter:description" content="五个在当前浏览器运行的研究整理与复核工具。">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/root.css?v=5">
+  <link rel="stylesheet" href="assets/grids.css?v=5">
+  <link rel="stylesheet" href="assets/skin.css?v=5">
+  <link rel="stylesheet" href="assets/boutique.css?v=5">
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"编目工作台 — {{SITE_NAME}}","url":"https://{{SITE_DOMAIN}}/tool.html"}</script>
+</head><body><header class="ridge"><a class="ridge__home" href="index.html" aria-label="返回首页">{{BRAND_EN}}</a><nav class="ridge__set" aria-label="主导航"><a class="ridge__go" href="index.html">目录</a><a class="ridge__go" href="article.html">条目</a><a class="ridge__go" href="tool.html" aria-current="page">工作台</a><a class="ridge__go" href="editorial.html">规约</a><a class="ridge__go" href="about.html">关于</a></nav><button class="ridge__mode" type="button" data-theme-toggle aria-label="切换明暗主题">系统色</button></header><main class="floor work-index"><header class="work-head"><span>FIVE LOCAL INSTRUMENTS</span><h1>编目工作台</h1><p>输入留在当前页面；工具只做格式、计算与排序，不抓取实时数据。</p></header><section class="work-cards"><a href="workbench/link-refiner.html"><span>W-01</span><h2>链接精炼台</h2><p>规范链接格式、过滤无效项并去除重复记录。</p><b>REFINE</b></a><a href="workbench/range-summarizer.html"><span>W-02</span><h2>样本区间尺</h2><p>把一组数值整理为极值、中位数、均值与跨度。</p><b>MEASURE</b></a><a href="workbench/rate-comparator.html"><span>W-03</span><h2>比例对照牌</h2><p>同时计算百分点差、相对变化和方向标记。</p><b>REFINE</b></a><a href="workbench/freshness-calendar.html"><span>W-04</span><h2>复核日历尺</h2><p>用核对日、观察日和复核周期判断资料新鲜度。</p><b>MEASURE</b></a><a href="workbench/source-scorecard.html"><span>W-05</span><h2>来源分级牌</h2><p>按权威性、直接性、时效、佐证与冲突生成复核优先级。</p><b>REFINE</b></a></section></main><footer class="base-foot"><div class="base-foot__plate"><p><strong>{{BRAND_EN}}</strong><br>本站独立运营，不代表任何交易平台。部分页面可能含推广链接；加密资产可能损失全部本金。</p><nav aria-label="合规与联系"><a href="about.html">关于</a><a href="contact.html">联系</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私</a><a href="corrections.html">更正</a><a href="editorial.html">编辑规约</a><a href="feed.xml">RSS</a></nav></div></footer><script src="assets/nav.js?v=5" defer></script></body></html>
