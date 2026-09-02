@@ -1,17 +1,53 @@
-<!DOCTYPE html>
-<html lang='%LANG%'>
-<head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>%SITE_NAME% - 田野观察个人博客</title><meta name='description' content='%SITE_DESC%'><link rel='canonical' href='https://%SITE_DOMAIN%/'><meta property='og:title' content='%SITE_NAME%'><meta property='og:description' content='%SITE_DESC%'><meta property='og:url' content='https://%SITE_DOMAIN%/'><link rel='stylesheet' href='css/style.css'><script type='application/ld+json'>{"@context":"https://schema.org","@type":"Blog","name":"%SITE_NAME%","url":"https://%SITE_DOMAIN%/"}</script></head>
-<body><div class='field'>
-    <aside class='porch'><p class='sign'>%SITE_NAME%</p><p class='sign-sub'>%SITE_TAGLINE%</p><nav class='trail' aria-label='页面'><a href='index.html'>最新</a><a href='article.html'>精选全文</a><a href='tool.html'>更新节奏</a><a href='legal.html'>关于我</a></nav><div class='tagset' aria-label='按标签筛选'><span>常写：</span><button type='button' class='active' data-tag='全部' aria-pressed='true'>全部</button><button type='button' data-tag='笔记' aria-pressed='false'>笔记</button><button type='button' data-tag='方法' aria-pressed='false'>方法</button><button type='button' data-tag='复盘' aria-pressed='false'>复盘</button></div></aside>
-    <main class='acre'>
-        <section class='sunrise' aria-labelledby='blog-title'><div class='sunrise-words'><p class='sunrise-kicker'>PRAIRIE POST / FIELD NOTES</p><h1 id='blog-title'>%SITE_NAME%</h1><p>记录读过的规则、做过的复核和仍未想明白的问题。慢一点写，尽量把日期、口径与出处留清楚。</p></div><div class='sunrise-note' aria-label='博客信息'><strong>26</strong><span>NOTES PUBLIC<br>3 TOPICS<br>UPDATED WEEKLY</span></div></section>
-        <p class='filter-status' id='filter-status' aria-live='polite'>正在显示全部文章</p>
-        <section class='haystack' aria-label='文章流'>
-            <article class='hay' data-tags='笔记 方法'><h2><a href='article.html'>把费率页面抄进笔记前，我会先记下这三个时间</a></h2><p class='hay-meta'>2026-01-21 · 笔记 / 方法</p><p>公告发布时间、页面更新时间和规则生效时间经常不是同一天。把它们并列记录，后续复查会轻松很多。</p></article>
-            <article class='hay' data-tags='方法'><h2><a href='article.html'>给公开数据做摘录时，如何避免把口径弄丢</a></h2><p class='hay-meta'>2026-01-14 · 方法</p><p>单位、统计窗口、时区和更新时间应该跟数字一起走；否则几周后只剩一个无法解释的结果。</p></article>
-            <article class='hay' data-tags='复盘 笔记'><h2><a href='article.html'>一次计算复盘：结果正确，问题却出在输入单位</a></h2><p class='hay-meta'>2026-01-05 · 复盘 / 笔记</p><p>公式没有错，但百分比和基点混在了同一列。复盘后，我给每个输入框都补上了明确单位。</p></article>
-        </section>
-        <section class='visitor-note'><h2>读者来信</h2><blockquote>“把生效时间单独列出来以后，我终于知道两次记录为什么对不上了。”—— 一位做数据笔记的读者</blockquote><blockquote>“希望后面继续写原始数据怎么留档。”—— 邮件来信</blockquote></section>
-        <footer class='gatepost'><p>个人博客，观点自负，不构成投资建议 · <a href='legal.html'>关于我</a> · %CONTACT_EMAIL%</p></footer>
-    </main>
-</div><script src='site.js'></script></body></html>
+<!doctype html>
+<html lang="%LANG%" data-prairie="day">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>%SITE_NAME% · %HOME_TITLE%</title>
+<meta name="description" content="%SITE_DESC%">
+<link rel="canonical" href="https://%SITE_DOMAIN%/">
+<meta property="og:title" content="%SITE_NAME% · %HOME_TITLE%">
+<meta property="og:description" content="%SITE_DESC%">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://%SITE_DOMAIN%/">
+<meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="%SITE_NAME% · %HOME_TITLE%">
+<meta name="twitter:description" content="%SITE_DESC%">
+<meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
+
+<link rel="stylesheet" href="css/style.css?v=15.4">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"%SITE_NAME% · %HOME_TITLE%","url":"https://%SITE_DOMAIN%/","description":"%SITE_DESC%"}</script>
+<script defer src="js/prairie.js?v=15.4"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head>
+<body class="prairie-sheet home-edition">
+<a class="wind-jump" href="#main">跳到主要内容</a>
+<header class="telegraph-rack">
+  <a class="dispatch-seal" href="index.html" aria-label="%SITE_NAME% 首页"><span>15</span><strong>%BRAND_EN%</strong><small>PRAIRIE POST</small></a>
+  <nav class="rail-tabs" aria-label="主要导航"><a href="index.html" aria-current="page">晨版</a><a href="article.html">邮袋</a><a href="tool.html">测具</a><a href="editorial.html">编务</a><a href="about.html">报馆</a></nav>
+  <button class="weather-switch" type="button" data-weather-toggle aria-label="切换明暗主题" aria-pressed="false"><i aria-hidden="true"></i><span>换天色</span></button>
+</header>
+<main id="main">
+  <section class="horizon-broadsheet" aria-labelledby="home-title">
+    <div class="dawn-column"><p class="edition-line">MORNING EDITION · FIELD NOTES NO. 15</p><h1 id="home-title">%HOME_TITLE%</h1><p class="opening-copy">%HOME_DESC%</p><a class="editor-ribbon" href="dispatches/entry-telegram.html"><small>%HOME_GUIDE_KICKER%</small><strong>%HOME_GUIDE_LABEL%</strong><span>%HOME_GUIDE_NOTE%</span></a></div>
+    <aside class="postmark-card" aria-label="邀请码与利益说明"><p>READER MARK</p><span>邀请码</span><div class="stamp-code"><code data-invite-source>%INVITE_CODE%</code><button type="button" data-invite-copy>复制</button></div><strong>有机会获得 %BENEFIT_RATE% 手续费减免*</strong><small>%BENEFIT_DISCLAIMER%</small></aside>
+    <div class="sun-disc" aria-hidden="true"><span></span></div><div class="grass-rule" aria-hidden="true"></div>
+  </section>
+  <section class="county-strip" aria-labelledby="county-heading"><div class="strip-intro"><p>THREE COUNTIES</p><h2 id="county-heading">%HOME_COUNTY_TITLE%</h2><span>%HOME_COUNTY_DESC%</span></div><div class="county-plots"><a href="counties/first-mile.html"><em>01</em><strong>%COUNTY_A_TITLE%</strong><span>%COUNTY_A_DESC%</span></a><a href="counties/safe-passage.html"><em>02</em><strong>%COUNTY_B_TITLE%</strong><span>%COUNTY_B_DESC%</span></a><a href="counties/field-practice.html"><em>03</em><strong>%COUNTY_C_TITLE%</strong><span>%COUNTY_C_DESC%</span></a></div></section>
+  <section class="instrument-crate" aria-labelledby="crate-heading"><div class="crate-head"><p>LOCAL FIELDWORK</p><h2 id="crate-heading">五件离线测具</h2><span>输入只在浏览器当前页面处理，不读取行情或外部接口。</span><a href="tool.html">查看测具说明</a></div><div class="crate-slats"><a href="gauges/publishing-pace.html"><b>1</b><span><strong>刊期步距尺</strong><small>%TOOL_01_SHORT%</small></span></a><a href="gauges/reading-clock.html"><b>2</b><span><strong>阅读时长钟</strong><small>%TOOL_02_SHORT%</small></span></a><a href="gauges/change-gauge.html"><b>3</b><span><strong>变化幅度表</strong><small>%TOOL_03_SHORT%</small></span></a><a href="gauges/freshness-almanac.html"><b>4</b><span><strong>资料新鲜度历</strong><small>%TOOL_04_SHORT%</small></span></a><a href="gauges/line-sifter.html"><b>5</b><span><strong>清单筛谷机</strong><small>%TOOL_05_SHORT%</small></span></a></div></section>
+  <section class="dispatch-roll" aria-labelledby="roll-heading"><header><p>ELEVEN MORE DISPATCHES</p><h2 id="roll-heading">%HOME_ARCHIVE_TITLE%</h2><span>%HOME_ARCHIVE_DESC%</span><a href="article.html">打开完整邮袋</a></header><div class="roll-lines"><a href="dispatches/signal-field-report.html"><time>02</time><strong>%ARTICLE_02_TITLE%</strong><small>%ARTICLE_02_DESC%</small></a><a href="dispatches/route-survey.html"><time>03</time><strong>%ARTICLE_03_TITLE%</strong><small>%ARTICLE_03_DESC%</small></a><a href="dispatches/porch-interview.html"><time>04</time><strong>%ARTICLE_04_TITLE%</strong><small>%ARTICLE_04_DESC%</small></a><a href="dispatches/weather-ledger.html"><time>05</time><strong>%ARTICLE_05_TITLE%</strong><small>%ARTICLE_05_DESC%</small></a><a href="dispatches/forked-trail.html"><time>06</time><strong>%ARTICLE_06_TITLE%</strong><small>%ARTICLE_06_DESC%</small></a><a href="dispatches/myth-bulletin.html"><time>07</time><strong>%ARTICLE_07_TITLE%</strong><small>%ARTICLE_07_DESC%</small></a><a href="dispatches/incident-mileposts.html"><time>08</time><strong>%ARTICLE_08_TITLE%</strong><small>%ARTICLE_08_DESC%</small></a><a href="dispatches/two-field-comparison.html"><time>09</time><strong>%ARTICLE_09_TITLE%</strong><small>%ARTICLE_09_DESC%</small></a><a href="dispatches/packing-checklist.html"><time>10</time><strong>%ARTICLE_10_TITLE%</strong><small>%ARTICLE_10_DESC%</small></a><a href="dispatches/plain-language-glossary.html"><time>11</time><strong>%ARTICLE_11_TITLE%</strong><small>%ARTICLE_11_DESC%</small></a><a href="dispatches/seasonal-almanac.html"><time>12</time><strong>%ARTICLE_12_TITLE%</strong><small>%ARTICLE_12_DESC%</small></a></div></section>
+  <section class="site-almanac" aria-labelledby="almanac-heading"><h2 id="almanac-heading">站内索引</h2><p>%HOME_INDEX_NOTE%</p><div><span><strong>文章</strong><a href="article.html">全部邮件</a><a href="dispatches/signal-field-report.html">%ARTICLE_02_TITLE%</a><a href="dispatches/route-survey.html">%ARTICLE_03_TITLE%</a><a href="dispatches/porch-interview.html">%ARTICLE_04_TITLE%</a><a href="dispatches/weather-ledger.html">%ARTICLE_05_TITLE%</a><a href="dispatches/forked-trail.html">%ARTICLE_06_TITLE%</a><a href="dispatches/myth-bulletin.html">%ARTICLE_07_TITLE%</a><a href="dispatches/incident-mileposts.html">%ARTICLE_08_TITLE%</a><a href="dispatches/two-field-comparison.html">%ARTICLE_09_TITLE%</a><a href="dispatches/packing-checklist.html">%ARTICLE_10_TITLE%</a><a href="dispatches/plain-language-glossary.html">%ARTICLE_11_TITLE%</a><a href="dispatches/seasonal-almanac.html">%ARTICLE_12_TITLE%</a></span><span><strong>地区</strong><a href="counties/first-mile.html">%COUNTY_A_TITLE%</a><a href="counties/safe-passage.html">%COUNTY_B_TITLE%</a><a href="counties/field-practice.html">%COUNTY_C_TITLE%</a><a href="tool.html">全部测具</a><a href="gauges/publishing-pace.html">刊期步距尺</a><a href="gauges/reading-clock.html">阅读时长钟</a><a href="gauges/change-gauge.html">变化幅度表</a><a href="gauges/freshness-almanac.html">资料新鲜度历</a><a href="gauges/line-sifter.html">清单筛谷机</a></span><span><strong>报馆</strong><a href="about.html">%ABOUT_TITLE%</a><a href="contact.html">%CONTACT_TITLE%</a><a href="disclosure.html">%DISCLOSURE_TITLE%</a><a href="legal.html">%DISCLAIMER_TITLE%</a><a href="privacy.html">%PRIVACY_TITLE%</a><a href="corrections.html">%CORRECTIONS_TITLE%</a><a href="editorial.html">%EDITORIAL_TITLE%</a></span></div></section>
+</main>
+<footer class="prairie-footer">
+  <div class="footer-postmark"><strong>%BRAND_EN%</strong><span>ISSUE 015 · %CURRENT_YEAR%</span></div>
+  <p>本站独立运营，不隶属于相关平台；部分内容可能含推广链接，详情见 <a href="disclosure.html">%DISCLOSURE_TITLE%</a>。</p>
+  <nav aria-label="页脚信息"><a href="about.html">%ABOUT_TITLE%</a><a href="contact.html">%CONTACT_TITLE%</a><a href="disclosure.html">%DISCLOSURE_TITLE%</a><a href="legal.html">%DISCLAIMER_TITLE%</a><a href="privacy.html">%PRIVACY_TITLE%</a><a href="corrections.html">%CORRECTIONS_TITLE%</a><a href="editorial.html">%EDITORIAL_TITLE%</a><a href="feed.xml">%RSS_LABEL%</a></nav>
+  <small>%SITE_NAME% · %CONTACT_EMAIL%</small>
+</footer>
+</body>
+</html>

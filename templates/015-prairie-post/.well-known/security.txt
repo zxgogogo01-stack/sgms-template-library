@@ -1,0 +1,4 @@
+Contact: mailto:%CONTACT_EMAIL%
+Canonical: https://%SITE_DOMAIN%/.well-known/security.txt
+Preferred-Languages: %LANG%
+Expires: %SECURITY_EXPIRES%

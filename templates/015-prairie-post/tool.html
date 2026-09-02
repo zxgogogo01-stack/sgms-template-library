@@ -1,7 +1,41 @@
-<!DOCTYPE html>
-<html lang='%LANG%'>
-<head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>更新节奏计算 - %SITE_NAME%</title><meta name='description' content='根据文章数与写作天数估算平均更新间隔。'><link rel='canonical' href='https://%SITE_DOMAIN%/tool.html'><meta property='og:title' content='更新节奏计算 - %SITE_NAME%'><meta property='og:description' content='根据文章数与写作天数估算平均更新间隔。'><meta property='og:url' content='https://%SITE_DOMAIN%/tool.html'><link rel='stylesheet' href='css/style.css'><script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebApplication","name":"更新节奏计算","url":"https://%SITE_DOMAIN%/tool.html"}</script></head>
-<body><div class='field'>
-    <aside class='porch'><p class='sign'>%SITE_NAME%</p><p class='sign-sub'>%SITE_TAGLINE%</p><nav class='trail' aria-label='页面'><a href='index.html'>最新</a><a href='article.html'>精选全文</a><a href='tool.html'>更新节奏</a><a href='legal.html'>关于我</a></nav></aside>
-    <main class='acre'><section class='pace' aria-labelledby='pace-title'><p class='page-kicker'>WRITING PACE / NOTEBOOK TOOL</p><h1 id='pace-title'>更新节奏计算</h1><p class='pace-intro'>用已发布文章数和持续写作天数，估算平均间隔与 30 天折算篇数。</p><label for='pc-posts'>已发布文章数</label><input type='number' id='pc-posts' min='1' step='1' inputmode='numeric' placeholder='例如 18'><label for='pc-days'>持续写作天数</label><input type='number' id='pc-days' min='1' step='1' inputmode='numeric' placeholder='例如 120'><button type='button' id='pc-go'>计算更新节奏</button><output id='pc-out' aria-live='polite'></output></section><footer class='gatepost'><p>结果只描述历史节奏，不是更新承诺 · <a href='index.html'>返回最新</a></p></footer></main>
-</div><script src='site.js'></script></body></html>
+<!doctype html>
+<html lang="%LANG%" data-prairie="day">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>%TOOLS_TITLE% · %SITE_NAME%</title>
+<meta name="description" content="%TOOLS_DESC%">
+<link rel="canonical" href="https://%SITE_DOMAIN%/tool.html">
+<meta property="og:title" content="%TOOLS_TITLE% · %SITE_NAME%">
+<meta property="og:description" content="%TOOLS_DESC%">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://%SITE_DOMAIN%/tool.html">
+<meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="%TOOLS_TITLE% · %SITE_NAME%">
+<meta name="twitter:description" content="%TOOLS_DESC%">
+<meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
+
+<link rel="stylesheet" href="css/style.css?v=15.4">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"%TOOLS_TITLE% · %SITE_NAME%","url":"https://%SITE_DOMAIN%/tool.html","description":"%TOOLS_DESC%"}</script>
+<script defer src="js/prairie.js?v=15.4"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head>
+<body class="prairie-sheet tools-edition"><a class="wind-jump" href="#main">跳到主要内容</a>
+<header class="telegraph-rack">
+  <a class="dispatch-seal" href="index.html" aria-label="%SITE_NAME% 首页"><span>15</span><strong>%BRAND_EN%</strong><small>PRAIRIE POST</small></a>
+  <nav class="rail-tabs" aria-label="主要导航"><a href="index.html">晨版</a><a href="article.html">邮袋</a><a href="tool.html" aria-current="page">测具</a><a href="editorial.html">编务</a><a href="about.html">报馆</a></nav>
+  <button class="weather-switch" type="button" data-weather-toggle aria-label="切换明暗主题" aria-pressed="false"><i aria-hidden="true"></i><span>换天色</span></button>
+</header>
+<main id="main" class="implement-shed"><header><p>FIVE LOCAL IMPLEMENTS</p><h1>%TOOLS_TITLE%</h1><span>%TOOLS_DESC%</span></header><div class="implement-wall"><a href="gauges/publishing-pace.html"><b>01</b><div><h2>刊期步距尺</h2><p>%TOOL_01_DESC%</p><span>打开测具</span></div></a><a href="gauges/reading-clock.html"><b>02</b><div><h2>阅读时长钟</h2><p>%TOOL_02_DESC%</p><span>打开测具</span></div></a><a href="gauges/change-gauge.html"><b>03</b><div><h2>变化幅度表</h2><p>%TOOL_03_DESC%</p><span>打开测具</span></div></a><a href="gauges/freshness-almanac.html"><b>04</b><div><h2>资料新鲜度历</h2><p>%TOOL_04_DESC%</p><span>打开测具</span></div></a><a href="gauges/line-sifter.html"><b>05</b><div><h2>清单筛谷机</h2><p>%TOOL_05_DESC%</p><span>打开测具</span></div></a></div><aside class="shed-note"><strong>%TOOLS_NOTE_TITLE%</strong><p>%TOOLS_NOTE_BODY%</p></aside></main>
+<footer class="prairie-footer">
+  <div class="footer-postmark"><strong>%BRAND_EN%</strong><span>ISSUE 015 · %CURRENT_YEAR%</span></div>
+  <p>本站独立运营，不隶属于相关平台；部分内容可能含推广链接，详情见 <a href="disclosure.html">%DISCLOSURE_TITLE%</a>。</p>
+  <nav aria-label="页脚信息"><a href="about.html">%ABOUT_TITLE%</a><a href="contact.html">%CONTACT_TITLE%</a><a href="disclosure.html">%DISCLOSURE_TITLE%</a><a href="legal.html">%DISCLAIMER_TITLE%</a><a href="privacy.html">%PRIVACY_TITLE%</a><a href="corrections.html">%CORRECTIONS_TITLE%</a><a href="editorial.html">%EDITORIAL_TITLE%</a><a href="feed.xml">%RSS_LABEL%</a></nav>
+  <small>%SITE_NAME% · %CONTACT_EMAIL%</small>
+</footer></body>
+</html>
