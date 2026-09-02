@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://{{SITE_DOMAIN}}/</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://{{SITE_DOMAIN}}/article.html</loc>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://{{SITE_DOMAIN}}/tool.html</loc>
-  </url>
-  <url>
-    <loc>https://{{SITE_DOMAIN}}/legal.html</loc>
-  </url>
+<url><loc>https://{{SITE_DOMAIN}}/</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/article.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-notes/access-trail-map.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-notes/fee-landmark-guide.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-notes/source-trace-notes.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-notes/identity-check-route.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-notes/transfer-waypoint-log.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-notes/recovery-shelter-plan.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-notes/order-path-primer.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-notes/volatility-weather-note.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-notes/custody-pack-list.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-notes/review-loop-journal.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-notes/evidence-specimen-card.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-notes/policy-season-watch.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/routes/first-mile.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/routes/practice-loop.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/routes/source-camp.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/tool.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-kit/route-pacer.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-kit/session-calendar.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-kit/term-tracker.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-kit/review-load.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/field-kit/checklist-coverage.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/about.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/contact.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/disclosure.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/legal.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/privacy.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/corrections.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/editorial.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
 </urlset>

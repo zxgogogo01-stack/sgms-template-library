@@ -1,145 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{LANG}}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{SITE_NAME}} — 新手路线手册</title>
-  <meta name="description" content="{{SITE_DESC}}">
-  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
-  <meta property="og:title" content="{{SITE_NAME}}">
-  <meta property="og:description" content="{{SITE_DESC}}">
-  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
-  <link rel="stylesheet" href="assets/stem.css">
-  <link rel="stylesheet" href="assets/canopy.css">
-  <link rel="stylesheet" href="assets/leaf.css">
-  <link rel="stylesheet" href="assets/boutique.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "{{SITE_NAME}}",
-    "description": "{{SITE_DESC}}",
-    "provider": { "@type": "Organization", "name": "{{SITE_NAME}}" }
-  }
-  </script>
-</head>
-<body>
-  <header class="peak">
-    <span class="peak__logo" aria-hidden="true">05</span>
-    <span class="peak__word">{{SITE_NAME}}</span>
-    <nav class="peak__menu" aria-label="主导航">
-      <a class="peak__jump" href="index.html" aria-current="page">路线</a>
-      <a class="peak__jump" href="article.html">章节样例</a>
-      <a class="peak__jump" href="tool.html">进度规划</a>
-      <a class="peak__jump" href="legal.html">学前须知</a>
-    </nav>
-  </header>
-
-  <main class="valley">
-    <section class="glade">
-      <p class="glade__kicker">CURATED STARTER ROUTE</p>
-      <h1 class="glade__head">{{SITE_NAME}}</h1>
-      <p class="glade__deck">{{SITE_TAGLINE}}</p>
-      <p class="glade__meta"><span>4 段主路线</span><span>6 份进阶札记</span><span>每季人工复核</span></p>
-    </section>
-
-    <aside class="invite-nook" aria-label="同行入口">
-      <div class="invite-nook__head">
-        <p class="invite-nook__overline">TRAIL PASS / OPTIONAL</p>
-        <h2>把路线带走，再按自己的节奏出发</h2>
-      </div>
-      <dl class="trail-register">
-        <div><dt>建议起步</dt><dd>20 分钟</dd></div>
-        <div><dt>复核频率</dt><dd>每季度</dd></div>
-      </dl>
-      <p class="invite-nook__cap">注册时可填写邀请码</p>
-      <div class="invite-nook__row">
-        <output class="invite-nook__value" id="nook-code">{{INVITE_CODE}}</output>
-        <button class="invite-nook__btn" type="button" aria-describedby="copy-status">复制代码</button>
-      </div>
-      <p class="invite-nook__status" id="copy-status" aria-live="polite"></p>
-      <p class="invite-nook__legal">{{COMPLIANCE_NOTE}}</p>
-    </aside>
-
-    <section class="path-steps" aria-labelledby="route-title">
-      <div class="section-heading">
-        <p>ROUTE / 01</p>
-        <h2 class="path-steps__cap" id="route-title">从理解到复盘</h2>
-      </div>
-      <ol class="path-steps__lane">
-        <li class="path-steps__stop">
-          <p class="path-steps__meta">12 分钟 · 建立边界</p>
-          <h3 class="path-steps__name">先把名词放回语境</h3>
-          <p class="path-steps__gist">明确对象、流程与不适用范围，避免被相似术语和旧版界面带偏。</p>
-        </li>
-        <li class="path-steps__stop">
-          <p class="path-steps__meta">18 分钟 · 安全检查</p>
-          <h3 class="path-steps__name">再梳理账户与权限</h3>
-          <p class="path-steps__gist">检查验证方式、授权边界与恢复路径，把关键设置留成可复查记录。</p>
-        </li>
-        <li class="path-steps__stop">
-          <p class="path-steps__meta">15 分钟 · 读懂条件</p>
-          <h3 class="path-steps__name">看清费用与时效</h3>
-          <p class="path-steps__gist">同时核对费率、门槛、结算周期和附加条件，不只盯住一个数字。</p>
-        </li>
-        <li class="path-steps__stop">
-          <p class="path-steps__meta">10 分钟 · 留下记录</p>
-          <h3 class="path-steps__name">用一次复盘收尾</h3>
-          <p class="path-steps__gist">记录操作前提、实际结果和待确认项，为下一次判断保留可靠上下文。</p>
-        </li>
-      </ol>
-    </section>
-
-    <section class="chapter-wall" aria-labelledby="chapter-title">
-      <div class="section-heading">
-        <p>FIELD NOTES / 02</p>
-        <h2 class="chapter-wall__cap" id="chapter-title">六份路线札记</h2>
-      </div>
-      <div class="chapter-wall__cells">
-        <a class="chapter-wall__cell" href="article.html">
-          <span class="chapter-wall__tag">基础 · 12′</span>
-          <span class="chapter-wall__title">给概念画出边界</span>
-        </a>
-        <a class="chapter-wall__cell" href="article.html">
-          <span class="chapter-wall__tag">安全 · 18′</span>
-          <span class="chapter-wall__title">把账户设置留成清单</span>
-        </a>
-        <a class="chapter-wall__cell" href="article.html">
-          <span class="chapter-wall__tag">进阶 · 15′</span>
-          <span class="chapter-wall__title">费率之外还要看什么</span>
-        </a>
-        <a class="chapter-wall__cell" href="article.html">
-          <span class="chapter-wall__tag">判断 · 14′</span>
-          <span class="chapter-wall__title">识别失效的旧版路径</span>
-        </a>
-        <a class="chapter-wall__cell" href="article.html">
-          <span class="chapter-wall__tag">实践 · 20′</span>
-          <span class="chapter-wall__title">完成第一次低风险演练</span>
-        </a>
-        <a class="chapter-wall__cell" href="article.html">
-          <span class="chapter-wall__tag">复盘 · 10′</span>
-          <span class="chapter-wall__title">做一张可复用的观察卡</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="pitfall-list" aria-labelledby="check-title">
-      <div class="section-heading">
-        <p>CHECK BEFORE GO / 03</p>
-        <h2 class="pitfall-list__cap" id="check-title">出发前，先避开三个误区</h2>
-      </div>
-      <ul class="pitfall-list__items">
-        <li class="pitfall-list__one"><strong>把单一数字当作完整答案。</strong>费率、时效、门槛与适用条件必须放在一起判断。</li>
-        <li class="pitfall-list__one"><strong>照着旧截图逐步点击。</strong>入口可能随版本调整，操作前应先核对当前页面与官方说明。</li>
-        <li class="pitfall-list__one"><strong>省略自己的复核记录。</strong>记下日期、前提与结果，才能知道下一次究竟变了什么。</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer class="roots">
-    <p class="roots__note">人工收录 · 每季复核 · 学习资料不构成行动建议 · <a href="legal.html">学前须知</a> · {{CONTACT_EMAIL}}</p>
-  </footer>
-
-  <script src="assets/go.js"></script>
-</body>
-</html>
+<html lang="{{LANG}}"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{SITE_NAME}} — {{SITE_TAGLINE}}</title><meta name="description" content="{{SITE_DESC}}"><link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+<link rel="alternate" type="application/rss+xml" title="{{BRAND_EN}} field feed" href="feed.xml">
+<link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#173b2f"><meta property="og:title" content="{{SITE_NAME}} — {{SITE_TAGLINE}}"><meta property="og:description" content="{{SITE_DESC}}"><meta property="og:type" content="website"><meta property="og:url" content="https://{{SITE_DOMAIN}}/"><meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{{SITE_NAME}} — {{SITE_TAGLINE}}"><meta name="twitter:description" content="{{SITE_DESC}}"><meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+<link rel="stylesheet" href="assets/stem.css?v=5"><link rel="stylesheet" href="assets/canopy.css?v=5"><link rel="stylesheet" href="assets/leaf.css?v=5"><link rel="stylesheet" href="assets/boutique.css?v=5"><link rel="stylesheet" href="assets/workflow.css?v=5">
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> --><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"{{SITE_NAME}} — {{SITE_TAGLINE}}","url":"https://{{SITE_DOMAIN}}/"}</script></head><body><header class="peak"><a class="peak__logo" href="index.html" aria-label="返回首页">05</a><a class="peak__word" href="index.html">{{BRAND_EN}}</a><nav class="peak__menu" aria-label="主导航"><a class="peak__jump" href="index.html" aria-current="page">路线</a><a class="peak__jump" href="article.html">札记</a><a class="peak__jump" href="tool.html">工具包</a><a class="peak__jump" href="editorial.html">指南针</a><a class="peak__jump" href="about.html">关于</a></nav><button class="peak__theme" type="button" data-theme-toggle aria-label="切换明暗主题">跟随系统</button></header><main class="valley valley--home">
+<section class="glade"><p class="glade__kicker">FIELD GUIDE / SEASON {{ISSUE_NUMBER}}</p><h1 class="glade__head">{{SITE_NAME}}</h1><p class="glade__deck">{{SITE_TAGLINE}}</p><nav class="glade__actions"><a href="article.html">展开路线札记</a><a href="tool.html">打开随行工具</a></nav><div class="fern-frond" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></section>
+<aside class="invite-nook" aria-label="邀请码"><p class="invite-nook__overline">TRAIL PASS / OPTIONAL</p><h2>随行识别码</h2><p>把代码记入自己的出发清单。</p><div class="invite-nook__row"><output class="invite-nook__value" data-invite-code>{{INVITE_CODE}}</output><button class="invite-nook__btn" type="button" data-copy-invite>复制代码</button></div><p class="invite-nook__benefit">使用本站邀请码，有机会获得 {{BENEFIT_RATE}} 手续费减免*</p><small>* {{BENEFIT_DISCLAIMER}}</small><p class="invite-nook__status" data-copy-status role="status"></p></aside>
+<section class="route-board"><header class="section-heading"><p>THREE ROUTES</p><h2>三条学习路线</h2></header><div><a href="routes/first-mile.html"><span>ROUTE 01</span><h3>{{ROUTE_01_NAME}}</h3><p>{{ROUTE_01_DESC}}</p><b>4 NOTES</b></a><a href="routes/practice-loop.html"><span>ROUTE 02</span><h3>{{ROUTE_02_NAME}}</h3><p>{{ROUTE_02_DESC}}</p><b>4 NOTES</b></a><a href="routes/source-camp.html"><span>ROUTE 03</span><h3>{{ROUTE_03_NAME}}</h3><p>{{ROUTE_03_DESC}}</p><b>4 NOTES</b></a></div></section>
+<section class="chapter-wall"><header class="section-heading"><p>FIELD NOTES / 12</p><h2>本季札记</h2></header><div class="chapter-wall__cells"><a class="chapter-wall__cell" href="field-notes/access-trail-map.html"><span class="chapter-wall__tag">01 · START</span><span class="chapter-wall__title">{{ARTICLE_01_TITLE}}</span><small>{{ARTICLE_01_DESC}}</small></a><a class="chapter-wall__cell" href="field-notes/fee-landmark-guide.html"><span class="chapter-wall__tag">02 · COST</span><span class="chapter-wall__title">{{ARTICLE_02_TITLE}}</span><small>{{ARTICLE_02_DESC}}</small></a><a class="chapter-wall__cell" href="field-notes/source-trace-notes.html"><span class="chapter-wall__tag">03 · SOURCE</span><span class="chapter-wall__title">{{ARTICLE_03_TITLE}}</span><small>{{ARTICLE_03_DESC}}</small></a><a class="chapter-wall__cell" href="field-notes/identity-check-route.html"><span class="chapter-wall__tag">04 · IDENTITY</span><span class="chapter-wall__title">{{ARTICLE_04_TITLE}}</span><small>{{ARTICLE_04_DESC}}</small></a><a class="chapter-wall__cell" href="field-notes/transfer-waypoint-log.html"><span class="chapter-wall__tag">05 · TRANSFER</span><span class="chapter-wall__title">{{ARTICLE_05_TITLE}}</span><small>{{ARTICLE_05_DESC}}</small></a><a class="chapter-wall__cell" href="field-notes/recovery-shelter-plan.html"><span class="chapter-wall__tag">06 · RECOVERY</span><span class="chapter-wall__title">{{ARTICLE_06_TITLE}}</span><small>{{ARTICLE_06_DESC}}</small></a><a class="chapter-wall__cell" href="field-notes/order-path-primer.html"><span class="chapter-wall__tag">07 · ORDER</span><span class="chapter-wall__title">{{ARTICLE_07_TITLE}}</span><small>{{ARTICLE_07_DESC}}</small></a><a class="chapter-wall__cell" href="field-notes/volatility-weather-note.html"><span class="chapter-wall__tag">08 · WEATHER</span><span class="chapter-wall__title">{{ARTICLE_08_TITLE}}</span><small>{{ARTICLE_08_DESC}}</small></a><a class="chapter-wall__cell" href="field-notes/custody-pack-list.html"><span class="chapter-wall__tag">09 · CUSTODY</span><span class="chapter-wall__title">{{ARTICLE_09_TITLE}}</span><small>{{ARTICLE_09_DESC}}</small></a><a class="chapter-wall__cell" href="field-notes/review-loop-journal.html"><span class="chapter-wall__tag">10 · REVIEW</span><span class="chapter-wall__title">{{ARTICLE_10_TITLE}}</span><small>{{ARTICLE_10_DESC}}</small></a><a class="chapter-wall__cell" href="field-notes/evidence-specimen-card.html"><span class="chapter-wall__tag">11 · EVIDENCE</span><span class="chapter-wall__title">{{ARTICLE_11_TITLE}}</span><small>{{ARTICLE_11_DESC}}</small></a><a class="chapter-wall__cell" href="field-notes/policy-season-watch.html"><span class="chapter-wall__tag">12 · POLICY</span><span class="chapter-wall__title">{{ARTICLE_12_TITLE}}</span><small>{{ARTICLE_12_DESC}}</small></a></div></section>
+<section class="kit-shelf"><header class="section-heading"><p>FIELD KIT / 05</p><h2>随行工具包</h2></header><div><a href="field-kit/route-pacer.html"><span>KIT-1</span><strong>路线节奏规划器</strong><small>按已完成章节、总量和单次节奏生成下一段路线。</small></a><a href="field-kit/session-calendar.html"><span>KIT-2</span><strong>学习营期排程器</strong><small>根据起止日期与每周频次估算可安排的学习场次。</small></a><a href="field-kit/term-tracker.html"><span>KIT-3</span><strong>术语足迹计</strong><small>统计指定术语在一段笔记中的次数、覆盖句与每千字密度。</small></a><a href="field-kit/review-load.html"><span>KIT-4</span><strong>复核负荷尺</strong><small>把条目数量、单条分钟数和可用时间换算为所需场次。</small></a><a href="field-kit/checklist-coverage.html"><span>KIT-5</span><strong>清单覆盖仪</strong><small>结合总项、已核对项与关键漏项，给出覆盖状态与剩余量。</small></a></div></section>
+<section class="trail-ledger"><header class="section-heading"><p>FULL TRAIL MAP</p><h2>完整入口</h2></header><div><a href="article.html"><span>01</span>全部札记</a><a href="field-notes/access-trail-map.html"><span>02</span>{{ARTICLE_01_TITLE}}</a><a href="field-notes/fee-landmark-guide.html"><span>03</span>{{ARTICLE_02_TITLE}}</a><a href="field-notes/source-trace-notes.html"><span>04</span>{{ARTICLE_03_TITLE}}</a><a href="field-notes/identity-check-route.html"><span>05</span>{{ARTICLE_04_TITLE}}</a><a href="field-notes/transfer-waypoint-log.html"><span>06</span>{{ARTICLE_05_TITLE}}</a><a href="field-notes/recovery-shelter-plan.html"><span>07</span>{{ARTICLE_06_TITLE}}</a><a href="field-notes/order-path-primer.html"><span>08</span>{{ARTICLE_07_TITLE}}</a><a href="field-notes/volatility-weather-note.html"><span>09</span>{{ARTICLE_08_TITLE}}</a><a href="field-notes/custody-pack-list.html"><span>10</span>{{ARTICLE_09_TITLE}}</a><a href="field-notes/review-loop-journal.html"><span>11</span>{{ARTICLE_10_TITLE}}</a><a href="field-notes/evidence-specimen-card.html"><span>12</span>{{ARTICLE_11_TITLE}}</a><a href="field-notes/policy-season-watch.html"><span>13</span>{{ARTICLE_12_TITLE}}</a><a href="routes/first-mile.html"><span>14</span>{{ROUTE_01_NAME}}</a><a href="routes/practice-loop.html"><span>15</span>{{ROUTE_02_NAME}}</a><a href="routes/source-camp.html"><span>16</span>{{ROUTE_03_NAME}}</a><a href="tool.html"><span>17</span>工具包索引</a><a href="field-kit/route-pacer.html"><span>18</span>路线节奏规划器</a><a href="field-kit/session-calendar.html"><span>19</span>学习营期排程器</a><a href="field-kit/term-tracker.html"><span>20</span>术语足迹计</a><a href="field-kit/review-load.html"><span>21</span>复核负荷尺</a><a href="field-kit/checklist-coverage.html"><span>22</span>清单覆盖仪</a><a href="about.html"><span>23</span>关于本站</a><a href="contact.html"><span>24</span>联系编辑部</a><a href="disclosure.html"><span>25</span>推广披露</a><a href="legal.html"><span>26</span>免责声明</a><a href="privacy.html"><span>27</span>隐私说明</a><a href="corrections.html"><span>28</span>更正记录</a><a href="editorial.html"><span>29</span>编辑规约</a></div></section>
+</main><footer class="roots"><div class="roots__grid"><p><strong>{{BRAND_EN}}</strong><br>本站独立运营，不代表任何交易平台。部分页面可能含推广链接；加密资产可能损失全部本金。</p><nav aria-label="合规与联系"><a href="about.html">关于</a><a href="contact.html">联系</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私</a><a href="corrections.html">更正</a><a href="editorial.html">编辑规约</a><a href="feed.xml">RSS</a></nav></div></footer><script src="assets/go.js?v=5" defer></script></body></html>
