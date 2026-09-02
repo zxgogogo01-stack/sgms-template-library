@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://%SITE_DOMAIN%/</loc><changefreq>weekly</changefreq></url>
-    <url><loc>https://%SITE_DOMAIN%/article.html</loc></url>
-    <url><loc>https://%SITE_DOMAIN%/tool.html</loc></url>
-    <url><loc>https://%SITE_DOMAIN%/legal.html</loc></url>
+  <url><loc>https://%SITE_DOMAIN%/</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/article.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dossiers/registration-dossier.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dossiers/weighted-verdict.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dossiers/blind-test-notes.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dossiers/long-term-diary.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dossiers/evidence-ledger.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dossiers/comparison-proof.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dossiers/failure-autopsy.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dossiers/value-breakdown.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dossiers/method-under-glass.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dossiers/buyer-checklist.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dossiers/terminology-rubric.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dossiers/monthly-shortlist.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lenses/access.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lenses/evidence.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lenses/decisions.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/tool.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lab/weighted-score.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lab/consistency-range.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lab/pairwise-choice.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lab/margin-estimator.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lab/feature-normalizer.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/about.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/contact.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/disclosure.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/legal.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/privacy.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/corrections.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/editorial.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
 </urlset>
