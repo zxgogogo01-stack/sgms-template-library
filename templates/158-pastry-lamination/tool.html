@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{LANG}}" data-fd158-heat="cool">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f2e8ce">
+  <meta name="description" content="在当前浏览器本地复核酥皮批次的折次、层数、温度、松弛时间与草记状态。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
+  <meta property="og:title" content="折层批次校样台｜{{SITE_NAME}}">
+  <meta property="og:description" content="不上传记录的折层工序清单校样器。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
+  <title>折层批次校样台｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/pastry-lamination.css">
+  <script src="static/pastry-lamination.js" defer></script>
+</head>
+<body>
+  <a class="fd158-skip" href="#fd158-main">跳到主要内容</a>
+  <header class="fd158-mast"><a class="fd158-mark" href="index.html"><b>{{HOUSE_MARK}}</b><small>FOLD / 158</small></a><nav class="fd158-foldnav" aria-label="主导航"><a href="index.html"><i>01</i><span>工坊</span></a><a href="article.html"><i>02</i><span>折层六记</span></a><a class="is-current" href="tool.html"><i>03</i><span>校样台</span></a><a href="legal.html"><i>04</i><span>边界</span></a></nav><button class="fd158-heat" type="button" data-fd158-heat-toggle aria-pressed="false">暖炉色</button></header>
+
+  <main id="fd158-main" class="fd158-tool">
+    <header class="fd158-toolhero"><p>LOCAL LAMINATION PROOF</p><h1>折层批次<br><em>校样台</em></h1><div><b>只在本地计算</b><span>输入不会离开当前页面。结果用于整理清单，不判断实际食品安全、质量或生产放行。</span></div></header>
+    <section class="fd158-presetbar" aria-label="示例记录"><p>先装入一组校样</p><button type="button" data-fd158-preset="clear">清晰折层</button><button type="button" data-fd158-preset="temperature">温度偏离</button><button type="button" data-fd158-preset="sequence">折次缺口</button><button type="button" data-fd158-preset="mixed">混合复核</button></section>
+    <section class="fd158-bench">
+      <form data-fd158-form novalidate>
+        <label for="fd158-records">折层记录</label>
+        <p>每行：批次 | 折次 | 折法 | 面团温度°C | 松弛分钟 | 状态</p>
+        <textarea id="fd158-records" data-fd158-records rows="9" spellcheck="false">A-01 | 1 | 单折 | 18.0 | 30 | 封存
+A-01 | 2 | 双折 | 19.5 | 35 | 封存
+B-02 | 1 | 双折 | 17.0 | 25 | 核对
+B-02 | 2 | 单折 | 18.5 | 30 | 封存</textarea>
+        <div class="fd158-thresholds">
+          <label for="fd158-low">温度下界 °C<input id="fd158-low" data-fd158-low value="16.0" inputmode="decimal"></label>
+          <label for="fd158-high">温度上界 °C<input id="fd158-high" data-fd158-high value="22.0" inputmode="decimal"></label>
+          <label for="fd158-rest">最低松弛分钟<input id="fd158-rest" data-fd158-rest value="20" inputmode="numeric"></label>
+          <label for="fd158-layer">层数复核上限<input id="fd158-layer" data-fd158-layer value="1000" inputmode="numeric"></label>
+        </div>
+        <output class="fd158-error" data-fd158-error tabindex="-1" aria-live="assertive"></output>
+        <div class="fd158-formactions"><button type="submit">生成折层报告</button><button type="reset">清空重置</button></div>
+        <p data-fd158-form-status aria-live="polite">等待生成折层报告。</p>
+      </form>
+      <aside class="fd158-proof" data-fd158-report data-fd158-ready="false">
+        <header><small>PROOF STATE</small><strong data-fd158-state>UNSET</strong></header>
+        <div class="fd158-layer-preview" data-fd158-preview><em>等待折层记录</em></div>
+        <div class="fd158-metrics">
+          <div><span>记录</span><b data-fd158-metric="count">0</b></div><div><span>批次</span><b data-fd158-metric="batches">0</b></div><div><span>最高层数</span><b data-fd158-metric="layers">0</b></div><div><span>温度提示</span><b data-fd158-metric="temperature">0</b></div><div><span>折次提示</span><b data-fd158-metric="sequence">0</b></div><div><span>层数提示</span><b data-fd158-metric="layer">0</b></div><div><span>松弛提示</span><b data-fd158-metric="rest">0</b></div><div><span>草记</span><b data-fd158-metric="drafts">0</b></div>
+        </div>
+        <button type="button" data-fd158-copy-report disabled>复制完整报告</button><output data-fd158-copy-report-status aria-live="polite"></output>
+      </aside>
+    </section>
+    <section class="fd158-results"><header><p>FINDINGS</p><h2 data-fd158-findings-summary>尚未校样</h2></header><ul data-fd158-findings><li>生成报告后，这里会列出温度、折次、层数、松弛与状态提示。</li></ul><div data-fd158-record-list></div></section>
+    <section class="fd158-boundary"><b>这张案台不会替你决定</b><p>它不验证配方、原料批次、冷链、过敏原、交叉接触、设备校准、人员资质、卫生程序、实际层数、感官质量或生产放行。涉及食品与现场安全时，请使用正式记录和适用规范。</p></section>
+  </main>
+
+  <footer class="fd158-footer"><section><a href="index.html">{{HOUSE_MARK}}</a><p>{{SITE_DESC}}</p></section><nav aria-label="页脚导航"><a href="index.html">工坊</a><a href="article.html">折层六记</a><a href="legal.html">责任边界</a><a href="404.html">缺页示例</a></nav><address>{{CONTACT_CHANNEL}}</address><p>资料核对日期：{{REVIEW_DATE}} · 输入与结果仅保留在当前浏览器页面中。</p></footer>
+</body>
+</html>

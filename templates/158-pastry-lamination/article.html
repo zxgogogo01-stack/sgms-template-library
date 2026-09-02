@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="{{LANG}}" data-fd158-heat="cool">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f2e8ce">
+  <meta name="description" content="阅读{{SITE_NAME}}的六则酥皮折层札记：记录批次、折次、温度、松弛、层数与状态边界。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/article.html">
+  <meta property="og:title" content="折层六记｜{{SITE_NAME}}">
+  <meta property="og:description" content="一篇可直接换字的完整酥皮工序长文框架。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/article.html">
+  <title>折层六记｜{{SITE_NAME}}</title>
+  <link rel="stylesheet" href="static/pastry-lamination.css">
+  <script src="static/pastry-lamination.js" defer></script>
+</head>
+<body>
+  <a class="fd158-skip" href="#fd158-main">跳到主要内容</a>
+  <header class="fd158-mast">
+    <a class="fd158-mark" href="index.html"><b>{{HOUSE_MARK}}</b><small>FOLD / 158</small></a>
+    <nav class="fd158-foldnav" aria-label="主导航"><a href="index.html"><i>01</i><span>工坊</span></a><a class="is-current" href="article.html"><i>02</i><span>折层六记</span></a><a href="tool.html"><i>03</i><span>校样台</span></a><a href="legal.html"><i>04</i><span>边界</span></a></nav>
+    <button class="fd158-heat" type="button" data-fd158-heat-toggle aria-pressed="false">暖炉色</button>
+  </header>
+  <progress class="fd158-progress" data-fd158-progress max="100" value="0" aria-label="阅读进度"></progress>
+
+  <main id="fd158-main" class="fd158-article">
+    <header class="fd158-articlehero">
+      <div><p>{{ARTICLE_META}} / PROCESS LETTERS</p><h1>折层<br><em>六记</em></h1></div>
+      <aside><b>3×3×3</b><p>完整长文骨架已经安排章节、摘要、方法、边界与下一步。替换文字时保留标题层级和锚点即可。</p><button type="button" data-fd158-copy-summary>复制六记摘要</button><output data-fd158-summary-status aria-live="polite"></output></aside>
+    </header>
+
+    <article class="fd158-letter fd158-letter-a" id="note-01">
+      <header><span>01</span><p>BATCH BEFORE BEAUTY</p></header>
+      <div><h2>先写清批次，<br>再谈漂亮层理。</h2><p>{{NOTE_01_LEAD}}</p><p>每一笔记录至少要能回答：它属于哪个批次、是第几折、使用哪一种折法，以及当时记录的温度、松弛时间和状态。批次号与折次组合应当唯一，才能避免同一动作被重复计入。</p><blockquote>可追溯不是多写几列，而是让下一位接手者能够重建当时的判断。</blockquote><p>{{NOTE_01_BODY}}</p></div>
+    </article>
+    <article class="fd158-letter fd158-letter-b" id="note-02">
+      <header><span>02</span><p>SINGLE / DOUBLE</p></header>
+      <div><h2>单折乘三，<br>双折乘四。</h2><p>{{NOTE_02_LEAD}}</p><p>本模板从一层起算：一次单折把层数乘以三，一次双折把层数乘以四。这个内部模型用于清单复核，不替代配方、擀压损耗、边料回收或实际成品剖面的判断。</p><ol><li>记录动作，而不是只写最终层数。</li><li>按折次排序后再逐步累乘。</li><li>给层数增长设置明确上限。</li></ol><p>{{NOTE_02_BODY}}</p></div>
+    </article>
+    <article class="fd158-letter fd158-letter-c" id="note-03">
+      <header><span>03</span><p>TEMPERATURE WINDOW</p></header>
+      <div><h2>温度是窗口，<br>不是一句“正好”。</h2><p>{{NOTE_03_LEAD}}</p><p>把可接受区间写成带一位小数的上下界。落在边界上的记录视为通过，严格低于下界或高于上界才产生提示。区间本身必须来自适用配方、环境和设备条件。</p><dl><div><dt>下界</dt><dd>{{TEMP_LOW_NOTE}}</dd></div><div><dt>上界</dt><dd>{{TEMP_HIGH_NOTE}}</dd></div><div><dt>来源</dt><dd>{{TEMP_SOURCE}}</dd></div></dl><p>{{NOTE_03_BODY}}</p></div>
+    </article>
+    <article class="fd158-letter fd158-letter-d" id="note-04">
+      <header><span>04</span><p>REST IS A STEP</p></header>
+      <div><h2>松弛不是空白，<br>它也是工序。</h2><p>{{NOTE_04_LEAD}}</p><p>每一折记录该次动作前已经完成的松弛分钟数。校样台以用户给出的最低值判断：等于最低值通过，严格低于才提示。真实时间仍需结合工艺、冷藏状态与现场记录解释。</p><blockquote>如果等待没有被记录，下一次折叠就失去了可复核的起点。</blockquote><p>{{NOTE_04_BODY}}</p></div>
+    </article>
+    <article class="fd158-letter fd158-letter-e" id="note-05">
+      <header><span>05</span><p>CAP THE MULTIPLIER</p></header>
+      <div><h2>层数会很快长大，<br>所以先设上限。</h2><p>{{NOTE_05_LEAD}}</p><p>连续乘法很容易让数字失去直觉。校样报告同时展示每批末次计算层数和全局最高值；只要某一步严格超过用户上限，就标记该步，等于上限仍视为通过。</p><p>{{NOTE_05_BODY}}</p><a href="tool.html">把批次带到校样台 ↗</a></div>
+    </article>
+    <article class="fd158-letter fd158-letter-f" id="note-06">
+      <header><span>06</span><p>DRAFTS STAY VISIBLE</p></header>
+      <div><h2>草记要醒目，<br>定稿要有证据。</h2><p>{{NOTE_06_LEAD}}</p><p>“草记、核对、封存”是编辑状态，不是食品安全、质量认证或生产放行结论。工具会单独列出草记项，提醒发布前补回来源、责任人和正式记录。</p><p>{{NOTE_06_BODY}}</p><aside><b>最后复核</b><span>{{FINAL_REVIEW_NOTE}}</span></aside></div>
+    </article>
+  </main>
+
+  <footer class="fd158-footer"><section><a href="index.html">{{HOUSE_MARK}}</a><p>{{SITE_DESC}}</p></section><nav aria-label="页脚导航"><a href="index.html">工坊</a><a href="tool.html">本地校样</a><a href="legal.html">责任边界</a><a href="404.html">缺页示例</a></nav><address>{{CONTACT_CHANNEL}}</address><p>资料核对日期：{{REVIEW_DATE}} · 本文是编辑框架，不构成食品安全、过敏原、营养、设备、生产或法律意见。</p></footer>
+</body>
+</html>

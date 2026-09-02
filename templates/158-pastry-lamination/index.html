@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="{{LANG}}" data-fd158-heat="cool">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f2e8ce">
+  <meta name="description" content="{{SITE_DESC}}">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+  <meta property="og:title" content="{{SITE_NAME}}｜折层酥皮工坊">
+  <meta property="og:description" content="{{HERO_NOTE}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
+  <title>{{SITE_NAME}}｜折层酥皮工坊</title>
+  <link rel="stylesheet" href="static/pastry-lamination.css">
+  <script src="static/pastry-lamination.js" defer></script>
+</head>
+<body>
+  <a class="fd158-skip" href="#fd158-main">跳到主要内容</a>
+  <header class="fd158-mast">
+    <a class="fd158-mark" href="index.html"><b>{{HOUSE_MARK}}</b><small>FOLD / 158</small></a>
+    <nav class="fd158-foldnav" aria-label="主导航">
+      <a class="is-current" href="index.html"><i>01</i><span>工坊</span></a>
+      <a href="article.html"><i>02</i><span>折层六记</span></a>
+      <a href="tool.html"><i>03</i><span>校样台</span></a>
+      <a href="legal.html"><i>04</i><span>边界</span></a>
+    </nav>
+    <button class="fd158-heat" type="button" data-fd158-heat-toggle aria-pressed="false">暖炉色</button>
+  </header>
+
+  <main id="fd158-main">
+    <section class="fd158-hero">
+      <div class="fd158-hero-copy">
+        <p class="fd158-kicker">PÂTE FEUILLETÉE / {{EDITION_LABEL}}</p>
+        <h1>折进去的，<br><em>是耐心与空气。</em></h1>
+        <p class="fd158-deck">{{HERO_NOTE}}</p>
+        <a class="fd158-arrowlink" href="article.html">翻开本期折层六记 <span>↗</span></a>
+      </div>
+      <div class="fd158-foldstage" aria-hidden="true">
+        <b>3</b><b>9</b><b>27</b>
+        <span></span><span></span><span></span><span></span><span></span>
+        <p>LAYER<br>AFTER<br>LAYER</p>
+      </div>
+      <aside class="fd158-codecard">
+        <small>WORKSHOP NOTE</small>
+        <p>只复制编号，不在首页放置外部跳转。</p>
+        <div><strong>{{INVITE_CODE}}</strong><button type="button" data-fd158-copy-code>复制编号</button></div>
+        <output data-fd158-copy-status aria-live="polite"></output>
+      </aside>
+    </section>
+
+    <section class="fd158-manifesto">
+      <header><span>001</span><p>WHY FOLDS MATTER</p></header>
+      <blockquote>“一层不是结果，<br>每一次折叠才是结构。”</blockquote>
+      <div><p>{{MANIFESTO_TEXT}}</p><a href="tool.html">打开本地折层校样台</a></div>
+    </section>
+
+    <section class="fd158-notes">
+      <header><p>FIELD NOTES</p><h2>六张折层卡，<br>已经排好阅读次序。</h2></header>
+      <div class="fd158-notegrid">
+        <a href="article.html#note-01"><b>01</b><span>先写清批次与折次</span><small>{{NOTE_01_META}}</small></a>
+        <a href="article.html#note-02"><b>02</b><span>单折与双折不是同一个倍率</span><small>{{NOTE_02_META}}</small></a>
+        <a href="article.html#note-03"><b>03</b><span>温度区间要保留来源</span><small>{{NOTE_03_META}}</small></a>
+        <a href="article.html#note-04"><b>04</b><span>松弛时间按阈值复核</span><small>{{NOTE_04_META}}</small></a>
+        <a href="article.html#note-05"><b>05</b><span>层数增长需要显式上限</span><small>{{NOTE_05_META}}</small></a>
+        <a href="article.html#note-06"><b>06</b><span>草记不能伪装成定稿</span><small>{{NOTE_06_META}}</small></a>
+      </div>
+    </section>
+
+    <section class="fd158-local">
+      <div><p>LOCAL PROOFING</p><h2>把批次放上案台，<br>只在当前浏览器里核对。</h2></div>
+      <ol><li><span>01</span>粘贴流转记录</li><li><span>02</span>设定温度与松弛边界</li><li><span>03</span>生成可复制报告</li></ol>
+      <a href="tool.html">进入校样台 ↗</a>
+    </section>
+  </main>
+
+  <footer class="fd158-footer">
+    <section><a href="index.html">{{HOUSE_MARK}}</a><p>{{SITE_DESC}}</p></section>
+    <nav aria-label="页脚导航"><a href="article.html">折层六记</a><a href="tool.html">本地校样</a><a href="legal.html">责任边界</a><a href="404.html">缺页示例</a></nav>
+    <address>{{CONTACT_CHANNEL}}</address>
+    <p>资料核对日期：{{REVIEW_DATE}} · 食品安全、过敏原、设备与生产判断请回到适用规范和有资质人员。</p>
+  </footer>
+</body>
+</html>
