@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://{{SITE_DOMAIN}}/</loc><changefreq>daily</changefreq></url>
-  <url><loc>https://{{SITE_DOMAIN}}/article.html</loc></url>
-  <url><loc>https://{{SITE_DOMAIN}}/tool.html</loc></url>
-  <url><loc>https://{{SITE_DOMAIN}}/legal.html</loc></url>
+<url><loc>https://{{SITE_DOMAIN}}/</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/article.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/briefs/access-baseline.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/briefs/fee-definition-sheet.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/briefs/source-confidence-panel.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/briefs/identity-signal-note.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/briefs/transfer-latency-board.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/briefs/recovery-threshold-card.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/briefs/order-measurement-protocol.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/briefs/volatility-window-note.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/briefs/custody-control-matrix.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/briefs/review-cadence-meter.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/briefs/evidence-quality-score.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/briefs/policy-drift-monitor.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/desks/definitions.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/desks/benchmarks.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/desks/verification.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/tool.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/lab/share-decomposer.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/lab/change-bridge.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/lab/weighted-coverage.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/lab/freshness-clock.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/lab/sample-spacing.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/about.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/contact.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/disclosure.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/legal.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/privacy.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/corrections.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
+<url><loc>https://{{SITE_DOMAIN}}/editorial.html</loc><lastmod>{{UPDATED_DATE}}</lastmod></url>
 </urlset>
