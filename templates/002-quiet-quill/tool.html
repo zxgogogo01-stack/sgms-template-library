@@ -2,69 +2,47 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>字数统计 — {{SITE_NAME}}</title>
-  <meta name="description" content="粘贴文本，统计字符、中文字与英文词数。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>编辑工作室 — {{SITE_NAME}}</title>
+  <meta name="description" content="五个无需上传数据的本地编辑与来源检查工具。">
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/tool.html">
-  <meta property="og:title" content="字数统计 — {{SITE_NAME}}">
-  <meta property="og:description" content="粘贴文本，统计字符、中文字与英文词数。">
+  <link rel="alternate" type="application/rss+xml" title="{{SITE_NAME}} RSS" href="feed.xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta name="theme-color" content="#1f2928">
+  <meta property="og:title" content="编辑工作室 — {{SITE_NAME}}">
+  <meta property="og:description" content="五个无需上传数据的本地编辑与来源检查工具。">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/tool.html">
-  <link rel="stylesheet" href="assets/core.css">
-  <link rel="stylesheet" href="assets/frame.css">
-  <link rel="stylesheet" href="assets/bits.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "字数统计",
-    "url": "https://{{SITE_DOMAIN}}/tool.html"
-  }
-  </script>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="编辑工作室 — {{SITE_NAME}}">
+  <meta name="twitter:description" content="五个无需上传数据的本地编辑与来源检查工具。">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/core.css?v=3">
+  <link rel="stylesheet" href="assets/frame.css?v=3">
+  <link rel="stylesheet" href="assets/bits.css?v=3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"编辑工作室","description":"五个无需上传数据的本地编辑与来源检查工具。","url":"https://{{SITE_DOMAIN}}/tool.html"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="assets/main.js?v=3" defer></script>
 </head>
 <body>
-  <header class="masthead">
-    <nav class="masthead__menu" aria-label="站内导航">
-      <a class="masthead__item" href="index.html">目录</a>
-      <a class="masthead__item" href="article.html">本期长文</a>
-      <a class="masthead__item" href="tool.html" aria-current="page">字数统计</a>
-    </nav>
-    <span class="masthead__mark">{{SITE_NAME}}</span>
+  <a class="skip-ink" href="#main">跳到正文</a>
+  <header class="press-head">
+    <nav class="press-nav" aria-label="主导航"><a class="press-nav__link" href="index.html">首页</a><a class="press-nav__link" href="article.html">文库</a><a class="press-nav__link" href="tool.html" aria-current="page">工作室</a><a class="press-nav__link" href="about.html">关于</a><a class="press-nav__link" href="contact.html">联系</a></nav>
+    <a class="press-head__mark" href="index.html" aria-label="返回首页">{{BRAND_EN}}</a>
+    <button class="press-head__theme" type="button" data-theme-toggle aria-label="切换明暗主题">明暗</button>
   </header>
-
-  <main>
-    <section class="headline">
-      <h1 class="headline__big">字数统计</h1>
-      <p class="headline__small">一张安静的编辑台 · 所有计算都在本地完成</p>
-    </section>
-
-    <section class="count-pad" aria-label="字数统计工具">
-      <label for="count-src">粘贴或输入文本</label>
-      <div class="count-pad__bar">
-        <p>粘贴草稿，实时查看篇幅与阅读节奏。</p>
-        <button class="count-pad__clear" id="count-clear" type="button">清空文本</button>
-      </div>
-      <textarea class="count-pad__area" id="count-src" placeholder="从这里开始写，或粘贴一段已经完成的文字……" aria-describedby="count-out"></textarea>
-      <div class="count-pad__report" id="count-out" aria-live="polite">
-        <span><strong id="metric-chars">0</strong>有效字符</span>
-        <span><strong id="metric-words">0</strong>英文词</span>
-        <span><strong id="metric-paras">0</strong>段落</span>
-        <span><strong id="metric-time">0</strong>分钟阅读</span>
-      </div>
-      <p class="count-pad__hint" id="count-hint">还没有文字。输入后会给出一条简短的篇幅提示。</p>
-    </section>
-  </main>
-
-  <footer class="foot-grid">
-    <div class="foot-grid__cell">
-      <p class="foot-grid__strong">{{SITE_NAME}}</p>
-      <p>{{SITE_TAGLINE}}</p>
-    </div>
-    <div class="foot-grid__cell">
-      <p><a href="legal.html">站点说明</a></p>
-      <p>{{CONTACT_EMAIL}}</p>
-    </div>
+  <main id="main" class="press-main work-index"><header class="work-index__head"><p class="red-label">Editorial workroom</p><h1>编辑工作室</h1><p>五个工具各自解决一种写作或资料整理任务。所有计算留在当前浏览器，不连接账户或外部服务。</p></header><section class="work-list" aria-label="工具列表"><article class="work-card"><span>01</span><div><h2><a href="workroom/reading-pace.html">阅读节奏估算台</a></h2><p>根据中英文文本量估算阅读时间与稿纸页数。</p></div><a class="work-card__open" href="workroom/reading-pace.html">打开工具</a></article><article class="work-card"><span>02</span><div><h2><a href="workroom/source-age.html">来源时效检查台</a></h2><p>比较来源日期与复核日期，标记材料的新旧程度。</p></div><a class="work-card__open" href="workroom/source-age.html">打开工具</a></article><article class="work-card"><span>03</span><div><h2><a href="workroom/revision-scope.html">修订范围对照台</a></h2><p>对照两个文本版本，统计新增、移除与变化比例。</p></div><a class="work-card__open" href="workroom/revision-scope.html">打开工具</a></article><article class="work-card"><span>04</span><div><h2><a href="workroom/source-mix.html">来源构成校对台</a></h2><p>按来源类型计算一手与正式材料的占比。</p></div><a class="work-card__open" href="workroom/source-mix.html">打开工具</a></article><article class="work-card"><span>05</span><div><h2><a href="workroom/citation-spacing.html">引文间距规划台</a></h2><p>根据篇幅和引用密度规划核对点数量与间隔。</p></div><a class="work-card__open" href="workroom/citation-spacing.html">打开工具</a></article></section></main>
+  <footer class="colophon">
+    <div class="colophon__lead"><p class="colophon__eyebrow">Independent letterpress</p><p class="colophon__brand">{{BRAND_EN}}</p><p>{{SITE_TAGLINE}}</p></div>
+    <div class="colophon__column"><h2>阅读</h2><a href="article.html">文章目录</a><a href="shelves/fine-print.html">{{CATEGORY_01_NAME}}</a><a href="shelves/custody-margin.html">{{CATEGORY_02_NAME}}</a><a href="shelves/decision-notes.html">{{CATEGORY_03_NAME}}</a><a href="feed.xml">RSS 订阅</a></div>
+    <div class="colophon__column"><h2>工作室</h2><a href="workroom/reading-pace.html">阅读节奏估算台</a><a href="workroom/source-age.html">来源时效检查台</a><a href="workroom/revision-scope.html">修订范围对照台</a><a href="workroom/source-mix.html">来源构成校对台</a><a href="workroom/citation-spacing.html">引文间距规划台</a></div>
+    <div class="colophon__column"><h2>规则</h2><a href="about.html">关于本站</a><a href="contact.html">联系我们</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私说明</a><a href="corrections.html">更正政策</a><a href="editorial.html">编辑准则</a></div>
+    <p class="colophon__disclosure">本站独立运营；指定内容页可能包含清楚标注的推广链接。<a href="disclosure.html">查看推广披露</a></p>
+    <p class="colophon__fine">内容只作一般信息整理，不构成投资、法律或税务建议。最近复核：{{UPDATED_DATE}}</p>
   </footer>
-
-  <script src="assets/main.js"></script>
 </body>
 </html>

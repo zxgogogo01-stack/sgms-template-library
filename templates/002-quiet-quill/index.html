@@ -2,87 +2,75 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{SITE_NAME}} — 观察、方法与慢写作</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{SITE_NAME}} — {{SITE_TAGLINE}}</title>
   <meta name="description" content="{{SITE_DESC}}">
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
-  <meta property="og:title" content="{{SITE_NAME}}">
+  <link rel="alternate" type="application/rss+xml" title="{{SITE_NAME}} RSS" href="feed.xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta name="theme-color" content="#1f2928">
+  <meta property="og:title" content="{{SITE_NAME}} — {{SITE_TAGLINE}}">
   <meta property="og:description" content="{{SITE_DESC}}">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
-  <link rel="stylesheet" href="assets/core.css">
-  <link rel="stylesheet" href="assets/frame.css">
-  <link rel="stylesheet" href="assets/bits.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "{{SITE_NAME}}",
-    "url": "https://{{SITE_DOMAIN}}/"
-  }
-  </script>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{SITE_NAME}} — {{SITE_TAGLINE}}">
+  <meta name="twitter:description" content="{{SITE_DESC}}">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/core.css?v=3">
+  <link rel="stylesheet" href="assets/frame.css?v=3">
+  <link rel="stylesheet" href="assets/bits.css?v=3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"{{SITE_NAME}} — {{SITE_TAGLINE}}","description":"{{SITE_DESC}}","url":"https://{{SITE_DOMAIN}}/"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="assets/main.js?v=3" defer></script>
 </head>
 <body>
-  <header class="masthead">
-    <nav class="masthead__menu" aria-label="站内导航">
-      <a class="masthead__item" href="index.html" aria-current="page">目录</a>
-      <a class="masthead__item" href="article.html">本期长文</a>
-      <a class="masthead__item" href="tool.html">字数统计</a>
-    </nav>
-    <span class="masthead__mark">{{SITE_NAME}}</span>
+  <a class="skip-ink" href="#main">跳到正文</a>
+  <header class="press-head">
+    <nav class="press-nav" aria-label="主导航"><a class="press-nav__link" href="index.html" aria-current="page">首页</a><a class="press-nav__link" href="article.html">文库</a><a class="press-nav__link" href="tool.html">工作室</a><a class="press-nav__link" href="about.html">关于</a><a class="press-nav__link" href="contact.html">联系</a></nav>
+    <a class="press-head__mark" href="index.html" aria-label="返回首页">{{BRAND_EN}}</a>
+    <button class="press-head__theme" type="button" data-theme-toggle aria-label="切换明暗主题">明暗</button>
   </header>
-
-  <main>
-    <section class="headline">
-      <h1 class="headline__big">{{SITE_NAME}}</h1>
-      <p class="headline__small">{{SITE_TAGLINE}} · 把结论写清，也把来路留下</p>
+  <main id="main" class="press-main">
+    <section class="quiet-hero">
+      <p class="quiet-hero__issue">Issue 002 · independent notes</p>
+      <h1>{{SITE_NAME}}</h1>
+      <p class="quiet-hero__tagline">{{SITE_TAGLINE}}</p>
+      <aside class="invite-slip" aria-label="邀请码与利益说明">
+        <p class="invite-slip__label">Reader code</p>
+        <div class="invite-slip__copy"><code id="reader-code">{{INVITE_CODE}}</code><button type="button" data-copy-target="reader-code">复制邀请码</button></div>
+        <p class="invite-slip__benefit">符合条件时，有机会获得最高 <strong>{{BENEFIT_RATE}}</strong> 的相关利益*</p>
+        <p class="invite-slip__note">* {{BENEFIT_DISCLAIMER}}</p>
+        <p class="invite-slip__status" data-copy-status role="status" aria-live="polite"></p>
+      </aside>
     </section>
-
-    <section class="essay-roll" aria-label="文章列表">
-      <article class="essay-roll__entry">
-        <time class="essay-roll__date" datetime="2026-07-28">2026-07-28</time>
-        <h2 class="essay-roll__head"><a href="article.html">把规则读成一张时间地图</a></h2>
-        <p class="essay-roll__lede">当公告、问答与执行细则散落在不同页面，我们如何辨认真正生效的那一刻，并让一次判断经得起回看。</p>
-      </article>
-      <article class="essay-roll__entry">
-        <time class="essay-roll__date" datetime="2026-07-16">2026-07-16</time>
-        <h2 class="essay-roll__head"><a href="article.html">数字旁边，永远留一行口径</a></h2>
-        <p class="essay-roll__lede">同一个百分比，可能回答三种完全不同的问题。比精确更重要的，是先交代分母、时间与样本边界。</p>
-      </article>
-      <article class="essay-roll__entry">
-        <time class="essay-roll__date" datetime="2026-07-03">2026-07-03</time>
-        <h2 class="essay-roll__head"><a href="article.html">一次失败的比较，以及后来补上的三列</a></h2>
-        <p class="essay-roll__lede">一张看似有力的对照表为何得出了错误结论：我们补上来源、截止时间和适用对象后，答案发生了什么变化。</p>
-      </article>
-      <article class="essay-roll__entry">
-        <time class="essay-roll__date" datetime="2026-06-19">2026-06-19</time>
-        <h2 class="essay-roll__head"><a href="article.html">写在归档之前：保留一条结论的来路</a></h2>
-        <p class="essay-roll__lede">不是所有旧文章都该保持沉默。为更新、修订与失效信息建立清楚的标记，才是对读者真正的尊重。</p>
-      </article>
-    </section>
-
-    <aside class="note-box">
-      <h2 class="note-box__title">订阅更新</h2>
-      <p class="note-box__text">每月一至两封，只寄新文章与重要修订。不追踪打开率，不转交地址。</p>
-      <form class="note-box__form" id="sub-form" novalidate>
-        <label class="note-box__label" for="sub-mail">邮箱</label>
-        <input class="note-box__input" type="email" id="sub-mail" placeholder="输入你的邮箱地址" autocomplete="email" aria-describedby="sub-status" required>
-        <button class="note-box__go" type="submit">订阅</button>
-      </form>
-      <p class="note-box__done" id="sub-status" role="status" aria-live="polite"></p>
-    </aside>
+    <section class="shelf-intro" aria-labelledby="shelf-title"><div><p class="red-label">Reading shelf</p><h2 id="shelf-title">十二个待写内容位</h2></div><p>每个页面已经配置独立封面、元数据、正文层级、作者复核区、FAQ 或旁注变体。内容 AI 只填写变量，不改版式。</p></section>
+    <div class="home-shelves"><a href="shelves/fine-print.html"><span>01</span><strong>{{CATEGORY_01_NAME}}</strong><small>4 个内容位</small></a><a href="shelves/custody-margin.html"><span>02</span><strong>{{CATEGORY_02_NAME}}</strong><small>4 个内容位</small></a><a href="shelves/decision-notes.html"><span>03</span><strong>{{CATEGORY_03_NAME}}</strong><small>4 个内容位</small></a></div>
+    <section class="leaf-ledger" aria-label="全部文章外壳"><article class="leaf-line" data-library-entry data-group="1"><span class="leaf-line__number">01</span><div><p class="leaf-line__meta">{{ARTICLE_01_KICKER}}</p><h2><a href="stories/account-entry-notes.html">{{ARTICLE_01_TITLE}}</a></h2><p>{{ARTICLE_01_DESC}}</p></div><span class="leaf-line__arrow" aria-hidden="true">→</span></article>
+        <article class="leaf-line" data-library-entry data-group="1"><span class="leaf-line__number">02</span><div><p class="leaf-line__meta">{{ARTICLE_02_KICKER}}</p><h2><a href="stories/fee-footnote-anatomy.html">{{ARTICLE_02_TITLE}}</a></h2><p>{{ARTICLE_02_DESC}}</p></div><span class="leaf-line__arrow" aria-hidden="true">→</span></article>
+        <article class="leaf-line" data-library-entry data-group="1"><span class="leaf-line__number">03</span><div><p class="leaf-line__meta">{{ARTICLE_03_KICKER}}</p><h2><a href="stories/evidence-date-line.html">{{ARTICLE_03_TITLE}}</a></h2><p>{{ARTICLE_03_DESC}}</p></div><span class="leaf-line__arrow" aria-hidden="true">→</span></article>
+        <article class="leaf-line" data-library-entry data-group="1"><span class="leaf-line__number">04</span><div><p class="leaf-line__meta">{{ARTICLE_04_KICKER}}</p><h2><a href="stories/order-choice-matrix.html">{{ARTICLE_04_TITLE}}</a></h2><p>{{ARTICLE_04_DESC}}</p></div><span class="leaf-line__arrow" aria-hidden="true">→</span></article>
+        <article class="leaf-line" data-library-entry data-group="2"><span class="leaf-line__number">05</span><div><p class="leaf-line__meta">{{ARTICLE_05_KICKER}}</p><h2><a href="stories/volatility-context-sheet.html">{{ARTICLE_05_TITLE}}</a></h2><p>{{ARTICLE_05_DESC}}</p></div><span class="leaf-line__arrow" aria-hidden="true">→</span></article>
+        <article class="leaf-line" data-library-entry data-group="2"><span class="leaf-line__number">06</span><div><p class="leaf-line__meta">{{ARTICLE_06_KICKER}}</p><h2><a href="stories/transfer-checkpoints.html">{{ARTICLE_06_TITLE}}</a></h2><p>{{ARTICLE_06_DESC}}</p></div><span class="leaf-line__arrow" aria-hidden="true">→</span></article>
+        <article class="leaf-line" data-library-entry data-group="2"><span class="leaf-line__number">07</span><div><p class="leaf-line__meta">{{ARTICLE_07_KICKER}}</p><h2><a href="stories/access-recovery-notes.html">{{ARTICLE_07_TITLE}}</a></h2><p>{{ARTICLE_07_DESC}}</p></div><span class="leaf-line__arrow" aria-hidden="true">→</span></article>
+        <article class="leaf-line" data-library-entry data-group="3"><span class="leaf-line__number">08</span><div><p class="leaf-line__meta">{{ARTICLE_08_KICKER}}</p><h2><a href="stories/risk-language-framework.html">{{ARTICLE_08_TITLE}}</a></h2><p>{{ARTICLE_08_DESC}}</p></div><span class="leaf-line__arrow" aria-hidden="true">→</span></article>
+        <article class="leaf-line" data-library-entry data-group="3"><span class="leaf-line__number">09</span><div><p class="leaf-line__meta">{{ARTICLE_09_KICKER}}</p><h2><a href="stories/position-note-cases.html">{{ARTICLE_09_TITLE}}</a></h2><p>{{ARTICLE_09_DESC}}</p></div><span class="leaf-line__arrow" aria-hidden="true">→</span></article>
+        <article class="leaf-line" data-library-entry data-group="3"><span class="leaf-line__number">10</span><div><p class="leaf-line__meta">{{ARTICLE_10_KICKER}}</p><h2><a href="stories/recurring-review-rhythm.html">{{ARTICLE_10_TITLE}}</a></h2><p>{{ARTICLE_10_DESC}}</p></div><span class="leaf-line__arrow" aria-hidden="true">→</span></article>
+        <article class="leaf-line" data-library-entry data-group="2"><span class="leaf-line__number">11</span><div><p class="leaf-line__meta">{{ARTICLE_11_KICKER}}</p><h2><a href="stories/account-security-dossier.html">{{ARTICLE_11_TITLE}}</a></h2><p>{{ARTICLE_11_DESC}}</p></div><span class="leaf-line__arrow" aria-hidden="true">→</span></article>
+        <article class="leaf-line" data-library-entry data-group="3"><span class="leaf-line__number">12</span><div><p class="leaf-line__meta">{{ARTICLE_12_KICKER}}</p><h2><a href="stories/revision-ledger-system.html">{{ARTICLE_12_TITLE}}</a></h2><p>{{ARTICLE_12_DESC}}</p></div><span class="leaf-line__arrow" aria-hidden="true">→</span></article></section>
+    <section class="workroom-preview"><div><p class="red-label">Local workroom</p><h2>五件编辑工具已经装订</h2><p>阅读节奏、来源时效、修订范围、来源构成和引文间距均在浏览器本地计算。</p></div><a href="tool.html">进入工作室</a></section>
   </main>
-
-  <footer class="foot-grid">
-    <div class="foot-grid__cell">
-      <p class="foot-grid__strong">{{SITE_NAME}}</p>
-      <p>{{SITE_TAGLINE}}</p>
-    </div>
-    <div class="foot-grid__cell">
-      <p><a href="legal.html">站点说明</a></p>
-      <p>{{CONTACT_EMAIL}}</p>
-    </div>
+  <footer class="colophon">
+    <div class="colophon__lead"><p class="colophon__eyebrow">Independent letterpress</p><p class="colophon__brand">{{BRAND_EN}}</p><p>{{SITE_TAGLINE}}</p></div>
+    <div class="colophon__column"><h2>阅读</h2><a href="article.html">文章目录</a><a href="shelves/fine-print.html">{{CATEGORY_01_NAME}}</a><a href="shelves/custody-margin.html">{{CATEGORY_02_NAME}}</a><a href="shelves/decision-notes.html">{{CATEGORY_03_NAME}}</a><a href="feed.xml">RSS 订阅</a></div>
+    <div class="colophon__column"><h2>工作室</h2><a href="workroom/reading-pace.html">阅读节奏估算台</a><a href="workroom/source-age.html">来源时效检查台</a><a href="workroom/revision-scope.html">修订范围对照台</a><a href="workroom/source-mix.html">来源构成校对台</a><a href="workroom/citation-spacing.html">引文间距规划台</a></div>
+    <div class="colophon__column"><h2>规则</h2><a href="about.html">关于本站</a><a href="contact.html">联系我们</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私说明</a><a href="corrections.html">更正政策</a><a href="editorial.html">编辑准则</a></div>
+    <p class="colophon__disclosure">本站独立运营；指定内容页可能包含清楚标注的推广链接。<a href="disclosure.html">查看推广披露</a></p>
+    <p class="colophon__fine">内容只作一般信息整理，不构成投资、法律或税务建议。最近复核：{{UPDATED_DATE}}</p>
   </footer>
-
-  <script src="assets/main.js"></script>
 </body>
 </html>

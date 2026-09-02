@@ -2,62 +2,47 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>站点说明 — {{SITE_NAME}}</title>
-  <meta name="description" content="{{SITE_NAME}} 的站点说明与声明。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>免责声明 — {{SITE_NAME}}</title>
+  <meta name="description" content="阅读本站一般信息、工具结果与风险提示的适用边界。">
   <link rel="canonical" href="https://{{SITE_DOMAIN}}/legal.html">
-  <meta property="og:title" content="站点说明 — {{SITE_NAME}}">
-  <meta property="og:description" content="{{SITE_NAME}} 的站点说明与声明。">
+  <link rel="alternate" type="application/rss+xml" title="{{SITE_NAME}} RSS" href="feed.xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta name="theme-color" content="#1f2928">
+  <meta property="og:title" content="免责声明 — {{SITE_NAME}}">
+  <meta property="og:description" content="阅读本站一般信息、工具结果与风险提示的适用边界。">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://{{SITE_DOMAIN}}/legal.html">
-  <link rel="stylesheet" href="assets/core.css">
-  <link rel="stylesheet" href="assets/frame.css">
-  <link rel="stylesheet" href="assets/bits.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "站点说明",
-    "url": "https://{{SITE_DOMAIN}}/legal.html"
-  }
-  </script>
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="免责声明 — {{SITE_NAME}}">
+  <meta name="twitter:description" content="阅读本站一般信息、工具结果与风险提示的适用边界。">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/core.css?v=3">
+  <link rel="stylesheet" href="assets/frame.css?v=3">
+  <link rel="stylesheet" href="assets/bits.css?v=3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"免责声明","description":"阅读本站一般信息、工具结果与风险提示的适用边界。","url":"https://{{SITE_DOMAIN}}/legal.html"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="assets/main.js?v=3" defer></script>
 </head>
 <body>
-  <header class="masthead">
-    <nav class="masthead__menu" aria-label="站内导航">
-      <a class="masthead__item" href="index.html">目录</a>
-      <a class="masthead__item" href="article.html">本期长文</a>
-      <a class="masthead__item" href="tool.html">字数统计</a>
-    </nav>
-    <span class="masthead__mark">{{SITE_NAME}}</span>
+  <a class="skip-ink" href="#main">跳到正文</a>
+  <header class="press-head">
+    <nav class="press-nav" aria-label="主导航"><a class="press-nav__link" href="index.html">首页</a><a class="press-nav__link" href="article.html">文库</a><a class="press-nav__link" href="tool.html">工作室</a><a class="press-nav__link" href="about.html">关于</a><a class="press-nav__link" href="contact.html">联系</a></nav>
+    <a class="press-head__mark" href="index.html" aria-label="返回首页">{{BRAND_EN}}</a>
+    <button class="press-head__theme" type="button" data-theme-toggle aria-label="切换明暗主题">明暗</button>
   </header>
-
-  <main>
-    <article class="prose">
-      <h1>站点说明</h1>
-      <div class="prose__meta"><time class="prose__when" datetime="2026-07-28">2026-07-28 更新</time><span>阅读与隐私说明</span></div>
-      <p>这是一份给读者看的说明，不是藏在页脚里的免责文字。它解释 {{SITE_NAME}} 如何写作、修订、引用资料，以及如何对待你主动留下的信息。</p>
-      <h2>我们怎样标记事实与判断</h2>
-      <p>文中的事实尽量附上可复核的来源和核对日期；推断、经验与个人观点会明确区分。涉及规则、价格或服务状态时，请以对应机构最新发布的正式页面为准。</p>
-      <h2>修订与归档</h2>
-      <p>不会悄悄改写影响结论的内容。重要修订会保留日期和简短说明；已经失效但仍有参考价值的文章，会在开头显示归档提示，而不是直接消失。</p>
-      <h2>隐私与订阅</h2>
-      <p>本站模板默认不加载第三方统计脚本。首页订阅表单仅演示交互，不会发送或保存邮箱；接入真实服务后，应在此处补充服务商、保存期限和退订方式。</p>
-      <h2>转载、纠错与联系</h2>
-      <p>短篇引用请保留文章标题与原始链接；完整转载需事先获得许可。如果你发现事实、链接或时间线需要修正，请写信至 <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>，并附上可核对的出处。</p>
-    </article>
-  </main>
-
-  <footer class="foot-grid">
-    <div class="foot-grid__cell">
-      <p class="foot-grid__strong">{{SITE_NAME}}</p>
-      <p>{{SITE_TAGLINE}}</p>
-    </div>
-    <div class="foot-grid__cell">
-      <p><a href="legal.html">站点说明</a></p>
-      <p>{{CONTACT_EMAIL}}</p>
-    </div>
+  <main id="main" class="press-main policy-page"><article class="policy-sheet"><header><p class="red-label">House rules</p><h1>免责声明</h1><p>阅读本站一般信息、工具结果与风险提示的适用边界。</p><dl><div><dt>生效日期</dt><dd>{{EFFECTIVE_DATE}}</dd></div><div><dt>最近复核</dt><dd>{{UPDATED_DATE}}</dd></div></dl></header><section><span>01</span><div><h2>一般信息</h2><p>本站内容只用于一般信息整理，不构成投资、法律、税务或个别情形建议。</p></div></section><section><span>02</span><div><h2>工具结果</h2><p>本地工具只按输入值进行确定性计算或文本统计，不连接账户，也不保证结果适合任何实际决定。</p></div></section><section><span>03</span><div><h2>外部页面</h2><p>外部服务的规则、可用性和界面可能变化。采取行动前请在官方页面独立复核。</p></div></section></article></main>
+  <footer class="colophon">
+    <div class="colophon__lead"><p class="colophon__eyebrow">Independent letterpress</p><p class="colophon__brand">{{BRAND_EN}}</p><p>{{SITE_TAGLINE}}</p></div>
+    <div class="colophon__column"><h2>阅读</h2><a href="article.html">文章目录</a><a href="shelves/fine-print.html">{{CATEGORY_01_NAME}}</a><a href="shelves/custody-margin.html">{{CATEGORY_02_NAME}}</a><a href="shelves/decision-notes.html">{{CATEGORY_03_NAME}}</a><a href="feed.xml">RSS 订阅</a></div>
+    <div class="colophon__column"><h2>工作室</h2><a href="workroom/reading-pace.html">阅读节奏估算台</a><a href="workroom/source-age.html">来源时效检查台</a><a href="workroom/revision-scope.html">修订范围对照台</a><a href="workroom/source-mix.html">来源构成校对台</a><a href="workroom/citation-spacing.html">引文间距规划台</a></div>
+    <div class="colophon__column"><h2>规则</h2><a href="about.html">关于本站</a><a href="contact.html">联系我们</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私说明</a><a href="corrections.html">更正政策</a><a href="editorial.html">编辑准则</a></div>
+    <p class="colophon__disclosure">本站独立运营；指定内容页可能包含清楚标注的推广链接。<a href="disclosure.html">查看推广披露</a></p>
+    <p class="colophon__fine">内容只作一般信息整理，不构成投资、法律或税务建议。最近复核：{{UPDATED_DATE}}</p>
   </footer>
-
-  <script src="assets/main.js"></script>
 </body>
 </html>

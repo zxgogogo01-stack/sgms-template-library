@@ -1,0 +1,5 @@
+Contact: mailto:{{CONTACT_EMAIL}}
+Expires: {{SECURITY_EXPIRES_ISO}}
+Preferred-Languages: zh, en
+Canonical: https://{{SITE_DOMAIN}}/.well-known/security.txt
+Policy: https://{{SITE_DOMAIN}}/privacy.html

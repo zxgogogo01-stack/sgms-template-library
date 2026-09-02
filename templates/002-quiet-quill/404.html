@@ -2,19 +2,31 @@
 <html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>找不到页面 — {{SITE_NAME}}</title>
-  <meta name="robots" content="noindex">
-  <link rel="stylesheet" href="assets/core.css">
-  <link rel="stylesheet" href="assets/frame.css">
-  <link rel="stylesheet" href="assets/bits.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>页面未找到 — {{SITE_NAME}}</title>
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="这个地址没有对应页面，请返回文章目录或编辑工作室。">
+  <link rel="canonical" href="https://{{SITE_DOMAIN}}/404.html">
+  <link rel="alternate" type="application/rss+xml" title="{{SITE_NAME}} RSS" href="feed.xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta name="theme-color" content="#1f2928">
+  <meta property="og:title" content="页面未找到 — {{SITE_NAME}}">
+  <meta property="og:description" content="这个地址没有对应页面，请返回文章目录或编辑工作室。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{SITE_DOMAIN}}/404.html">
+  <meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="页面未找到 — {{SITE_NAME}}">
+  <meta name="twitter:description" content="这个地址没有对应页面，请返回文章目录或编辑工作室。">
+  <meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+  <link rel="stylesheet" href="assets/core.css?v=3">
+  <link rel="stylesheet" href="assets/frame.css?v=3">
+  <link rel="stylesheet" href="assets/bits.css?v=3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"页面未找到","description":"这个地址没有对应页面，请返回文章目录或编辑工作室。","url":"https://{{SITE_DOMAIN}}/404.html"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="assets/main.js?v=3" defer></script>
 </head>
-<body>
-  <div class="astray">
-    <p class="astray__mark">404</p>
-    <h1>这一页从稿纸上走失了</h1>
-    <p>地址可能写错，文章也可能已经归档。目录里仍保留着本期长文与最近的几篇札记。</p>
-    <p><a href="index.html">回到文章目录</a></p>
-  </div>
-</body>
-</html>
+<body><main id="main" class="lost-leaf"><p class="lost-leaf__code">404</p><h1>这张稿纸没有装订进来</h1><p>地址可能已经更改。可以返回首页、文章目录或编辑工作室继续浏览。</p><nav aria-label="推荐页面"><a href="index.html">返回首页</a><a href="article.html">文章目录</a><a href="tool.html">编辑工作室</a><a href="stories/account-entry-notes.html">{{ARTICLE_01_TITLE}}</a><a href="stories/fee-footnote-anatomy.html">{{ARTICLE_02_TITLE}}</a></nav><p class="lost-leaf__disclosure">本站独立运营；指定内容页可能包含清楚标注的推广链接。<a href="disclosure.html">查看推广披露</a></p></main></body></html>
