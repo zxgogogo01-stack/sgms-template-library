@@ -1,18 +1,50 @@
-<!DOCTYPE html>
-<html lang='%LANG%'>
-<head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>%SITE_NAME% - 本地计算工具台</title><meta name='description' content='%SITE_DESC%'><link rel='canonical' href='https://%SITE_DOMAIN%/'><meta property='og:title' content='%SITE_NAME%'><meta property='og:description' content='%SITE_DESC%'><meta property='og:url' content='https://%SITE_DOMAIN%/'><link rel='stylesheet' href='css/style.css'><script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebSite","name":"%SITE_NAME%","url":"https://%SITE_DOMAIN%/"}</script></head>
-<body><div class='desk'>
-    <aside class='drawer'><a class='plate' href='index.html' aria-label='返回 %SITE_NAME% 工具工作台'>%SITE_NAME%</a><nav class='kinds' aria-label='工具分类'><a href='index.html'>全部工具</a><a href='tool.html'>计算工具</a><a href='article.html'>使用指南</a><a href='legal.html'>声明</a></nav></aside>
-    <main class='bench'>
-        <section class='greet' aria-labelledby='desk-title'><div class='greet-say'><p class='bench-kicker'>WALNUT DESK / LOCAL UTILITIES</p><h1 id='desk-title'>%SITE_NAME%</h1><p class='greet-sub'>%SITE_TAGLINE%</p><p class='greet-deck'>一组口径明确、即时计算的小工具。输入只留在当前浏览器页面，不会上传。</p></div><div class='greet-mark' aria-label='工作台信息'><strong>04</strong><span>TOOLS READY<br>LOCAL ONLY<br>NO SIGN-IN</span></div></section>
-        <aside class='invite-chip' aria-label='邀请码'><p><strong>邀请码</strong><code id='chip-val'>%INVITE_CODE%</code><button type='button' id='chip-btn' aria-label='复制邀请码' aria-live='polite'>复制</button></p><p class='chip-note'>%COMPLIANCE_NOTE%</p></aside>
-        <section class='kit' aria-labelledby='kit-title'><h2 id='kit-title'>常用工具</h2><div class='kit-row'>
-            <a class='kit-card' href='tool.html#basis'><span class='tool-code'>CONVERTER / 01</span><strong>基点换算</strong><span>在 bp 与百分比之间双向换算，适合核对费率和利差。</span></a>
-            <a class='kit-card' href='tool.html#change'><span class='tool-code'>CHANGE / 02</span><strong>变化幅度</strong><span>根据期初与期末数值计算上涨或下跌百分比。</span></a>
-            <a class='kit-card' href='tool.html#average'><span class='tool-code'>AVERAGE / 03</span><strong>加权均价</strong><span>按数量与价格计算多笔记录的加权平均成本。</span></a>
-            <a class='kit-card' href='tool.html#ratio'><span class='tool-code'>RATIO / 04</span><strong>风险回报比</strong><span>用目标距离与止损距离快速检查计划比例。</span></a>
-        </div></section>
-        <section class='usage'><h2>使用说明</h2><ol><li>先确认工具的计算口径，再输入同一单位下的数值。</li><li>计算全部在当前页面完成，刷新或关闭页面即清空。</li><li>涉及资金与规则的结果，请回到原始记录或官方页面复核。</li></ol></section>
-        <footer class='legs'><p>工具结果仅供参考，不构成投资建议 · <a href='legal.html'>声明</a> · %CONTACT_EMAIL%</p></footer>
-    </main>
-</div><script src='site.js'></script></body></html>
+<!doctype html>
+<html lang="%LANG%" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>%SITE_NAME% · %HOME_TITLE%</title>
+<meta name="description" content="%SITE_DESC%">
+<link rel="canonical" href="https://%SITE_DOMAIN%/">
+<meta property="og:title" content="%SITE_NAME% · %HOME_TITLE%">
+<meta property="og:description" content="%SITE_DESC%">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://%SITE_DOMAIN%/">
+<meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="%SITE_NAME% · %HOME_TITLE%">
+<meta name="twitter:description" content="%SITE_DESC%">
+<meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
+
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"%SITE_NAME%","alternateName":"%BRAND_EN%","url":"https://%SITE_DOMAIN%/","description":"%SITE_DESC%"}</script>
+<script defer src="js/site.js"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head>
+<body class="walnut-page home-page">
+<a class="walnut-skip" href="#main">跳到正文</a>
+<header class="walnut-rail">
+  <a class="walnut-wordmark" href="index.html" aria-label="%SITE_NAME% 首页"><span>WD·14</span><strong>%BRAND_EN%</strong></a>
+  <nav class="walnut-nav" aria-label="主要导航"><a href="index.html" aria-current="page">桌面</a><a href="article.html">案卷</a><a href="tool.html">量具</a><a href="about.html">关于</a><a href="editorial.html">编校</a></nav>
+  <button class="walnut-theme" type="button" data-theme-toggle aria-label="切换明暗主题" aria-pressed="false"><span aria-hidden="true">◐</span><span>灯光</span></button>
+</header>
+<main id="main" class="walnut-main"><section class="secretary-desk" aria-labelledby="home-title">
+  <div class="writing-leaf"><p class="desk-kicker">WALNUT REFERENCE DESK · VOL. 14</p><h1 id="home-title">%HOME_TITLE%</h1><p class="home-deck">%HOME_DESC%</p><a class="editor-slip" href="folios/entry-drawer.html"><span>编辑留笺</span><strong>%HOME_GUIDE_LABEL%</strong><small>%HOME_GUIDE_NOTE%</small></a></div>
+  <aside class="invite-drawer" aria-label="邀请码与利益说明"><div class="drawer-pull"><i></i><span>REFERENCE DRAWER</span><i></i></div><p>识别码</p><div class="code-line"><code data-copy-source>%INVITE_CODE%</code><button type="button" data-copy-invite>复制</button></div><strong class="benefit-line">最高可享 %BENEFIT_RATE% 手续费减免*</strong><small>%BENEFIT_DISCLAIMER%</small></aside>
+  <div class="desk-number" aria-hidden="true">14</div>
+</section>
+<section class="cabinet-room" aria-labelledby="cabinet-title"><header><p>THREE CABINETS</p><h2 id="cabinet-title">%HOME_CABINET_TITLE%</h2><span>%HOME_CABINET_DESC%</span></header><div class="cabinet-doors"><a class="cabinet-door door-1" href="cabinets/joinery-notes.html"><span>01</span><strong>%CABINET_A_TITLE%</strong><small>%CABINET_A_DESC%</small><i aria-hidden="true"></i></a><a class="cabinet-door door-2" href="cabinets/keeping-drawer.html"><span>02</span><strong>%CABINET_B_TITLE%</strong><small>%CABINET_B_DESC%</small><i aria-hidden="true"></i></a><a class="cabinet-door door-3" href="cabinets/review-cabinet.html"><span>03</span><strong>%CABINET_C_TITLE%</strong><small>%CABINET_C_DESC%</small><i aria-hidden="true"></i></a></div></section>
+<section class="tool-tray" aria-labelledby="tool-tray-title"><div class="tray-label"><span>LOCAL INSTRUMENTS</span><h2 id="tool-tray-title">五件本地量具</h2><p>输入仅在当前页面处理，不连接外部数据源。</p><a href="tool.html">打开整张量具台</a></div><div class="tray-slots"><a href="tools/drawer-divider.html"><b>01</b><span><strong>比例分配尺</strong><small>把一个总量按多组权重拆分，并保留合计校验。</small></span></a><a href="tools/unit-cost.html"><b>02</b><span><strong>单位成本比对板</strong><small>用成本与数量比较两组记录的单位值和差额。</small></span></a><a href="tools/interval-overlap.html"><b>03</b><span><strong>区间重合量规</strong><small>比较两段数值区间，找出重合范围与长度。</small></span></a><a href="tools/mod97-check.html"><b>04</b><span><strong>模 97 校验尺</strong><small>逐位计算长数字串的模 97 余数，避免浮点精度损失。</small></span></a><a href="tools/decision-matrix.html"><b>05</b><span><strong>双案权重评估板</strong><small>按两项权重比较两个方案，给出透明的加权得分。</small></span></a></div></section>
+<section class="folio-catalog" aria-labelledby="catalog-title"><header><span>OPEN FOLIOS / 11</span><h2 id="catalog-title">%HOME_ARCHIVE_TITLE%</h2><p>%HOME_ARCHIVE_DESC%</p><a href="article.html">查看完整案卷目录</a></header><div class="catalog-lines"><a href="folios/cost-rubbing.html"><span>02</span><strong>%ARTICLE_02_TITLE%</strong><small>%ARTICLE_02_DESC%</small></a><a href="folios/identity-folio.html"><span>03</span><strong>%ARTICLE_03_TITLE%</strong><small>%ARTICLE_03_DESC%</small></a><a href="folios/transfer-pattern.html"><span>04</span><strong>%ARTICLE_04_TITLE%</strong><small>%ARTICLE_04_DESC%</small></a><a href="folios/custody-blueprint.html"><span>05</span><strong>%ARTICLE_05_TITLE%</strong><small>%ARTICLE_05_DESC%</small></a><a href="folios/recovery-inventory.html"><span>06</span><strong>%ARTICLE_06_TITLE%</strong><small>%ARTICLE_06_DESC%</small></a><a href="folios/evidence-letter.html"><span>07</span><strong>%ARTICLE_07_TITLE%</strong><small>%ARTICLE_07_DESC%</small></a><a href="folios/policy-comparison.html"><span>08</span><strong>%ARTICLE_08_TITLE%</strong><small>%ARTICLE_08_DESC%</small></a><a href="folios/account-timeline.html"><span>09</span><strong>%ARTICLE_09_TITLE%</strong><small>%ARTICLE_09_DESC%</small></a><a href="folios/source-pinboard.html"><span>10</span><strong>%ARTICLE_10_TITLE%</strong><small>%ARTICLE_10_DESC%</small></a><a href="folios/decision-worklog.html"><span>11</span><strong>%ARTICLE_11_TITLE%</strong><small>%ARTICLE_11_DESC%</small></a><a href="folios/monthly-folio.html"><span>12</span><strong>%ARTICLE_12_TITLE%</strong><small>%ARTICLE_12_DESC%</small></a></div></section></main>
+<footer class="walnut-footer">
+  <div class="walnut-footer-mark"><span>INDEPENDENT DESK</span><strong>%BRAND_EN%</strong></div>
+  <p>本站独立运营；不隶属于相关平台。页面可能含推广链接，具体说明见 <a href="disclosure.html">推广披露</a>。</p>
+  <nav aria-label="页脚信息"><a href="about.html">%ABOUT_TITLE%</a><a href="contact.html">%CONTACT_TITLE%</a><a href="disclosure.html">%DISCLOSURE_TITLE%</a><a href="legal.html">%DISCLAIMER_TITLE%</a><a href="privacy.html">%PRIVACY_TITLE%</a><a href="corrections.html">%CORRECTIONS_TITLE%</a><a href="editorial.html">%EDITORIAL_TITLE%</a><a href="feed.xml">订阅 RSS</a></nav>
+  <small>© %CURRENT_YEAR% %SITE_NAME% · 联系：%CONTACT_EMAIL%</small>
+</footer>
+</body>
+</html>

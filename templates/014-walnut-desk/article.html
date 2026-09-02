@@ -1,7 +1,43 @@
-<!DOCTYPE html>
-<html lang='%LANG%'>
-<head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>使用指南 - %SITE_NAME%</title><meta name='description' content='本地计算工具的输入口径、精度与复核说明。'><link rel='canonical' href='https://%SITE_DOMAIN%/article.html'><meta property='og:title' content='使用指南 - %SITE_NAME%'><meta property='og:description' content='本地计算工具的输入口径、精度与复核说明。'><meta property='og:url' content='https://%SITE_DOMAIN%/article.html'><link rel='stylesheet' href='css/style.css'><script type='application/ld+json'>{"@context":"https://schema.org","@type":"Article","headline":"工具使用指南","dateModified":"2026-01-20"}</script></head>
-<body><div class='desk'>
-<aside class='drawer'><a class='plate' href='index.html' aria-label='返回 %SITE_NAME% 工具工作台'>%SITE_NAME%</a><nav class='kinds' aria-label='工具分类'><a href='index.html'>全部工具</a><a href='tool.html'>计算工具</a><a href='article.html'>使用指南</a><a href='legal.html'>声明</a></nav></aside>
-    <main class='bench'><article class='guide'><p class='page-kicker'>MANUAL / WORKBENCH NOTES</p><h1>使用指南</h1><p class='guide-intro'>先统一口径，再开始计算；保留原始数值，方便复核。</p><h2>输入单位</h2><p>同一次计算中的数值应采用一致单位。基点与百分比是不同表示方式，输入前请确认字段标签。</p><h2>小数精度</h2><p>工具会按页面标注的位数显示结果。金额或手续费计算如需更高精度，应保存原始数值后在最终环节统一取舍。</p><h2>本地处理</h2><p>输入内容只在浏览器当前页面参与计算，不发送到服务器。刷新或关闭页面后不会自动恢复。</p><div class='tip'><strong>复核提示：</strong>重要结果至少用原始公式再算一次，并对照对应平台或文件中的正式规则。</div><h2>反馈</h2><p>发现口径或计算问题，请联系 %CONTACT_EMAIL%。</p></article><footer class='legs'><p><a href='index.html'>返回工作台</a> · 工具结果仅供参考</p></footer></main>
-</div><script src='site.js'></script></body></html>
+<!doctype html>
+<html lang="%LANG%" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>%ARCHIVE_TITLE% · %SITE_NAME%</title>
+<meta name="description" content="%ARCHIVE_DESC%">
+<link rel="canonical" href="https://%SITE_DOMAIN%/article.html">
+<meta property="og:title" content="%ARCHIVE_TITLE% · %SITE_NAME%">
+<meta property="og:description" content="%ARCHIVE_DESC%">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://%SITE_DOMAIN%/article.html">
+<meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="%ARCHIVE_TITLE% · %SITE_NAME%">
+<meta name="twitter:description" content="%ARCHIVE_DESC%">
+<meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
+
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%ARCHIVE_TITLE% · %SITE_NAME%","url":"https://%SITE_DOMAIN%/article.html","isPartOf":{"@type":"WebSite","name":"%SITE_NAME%","url":"https://%SITE_DOMAIN%/"}}</script>
+<script defer src="js/site.js"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head>
+<body class="walnut-page archive-page">
+<a class="walnut-skip" href="#main">跳到正文</a>
+<header class="walnut-rail">
+  <a class="walnut-wordmark" href="index.html" aria-label="%SITE_NAME% 首页"><span>WD·14</span><strong>%BRAND_EN%</strong></a>
+  <nav class="walnut-nav" aria-label="主要导航"><a href="index.html">桌面</a><a href="article.html" aria-current="page">案卷</a><a href="tool.html">量具</a><a href="about.html">关于</a><a href="editorial.html">编校</a></nav>
+  <button class="walnut-theme" type="button" data-theme-toggle aria-label="切换明暗主题" aria-pressed="false"><span aria-hidden="true">◐</span><span>灯光</span></button>
+</header>
+<main id="main" class="walnut-main"><nav class="walnut-crumb" aria-label="面包屑"><a href="index.html">桌面</a><i aria-hidden="true">/</i><span aria-current="page">案卷</span></nav><header class="archive-head"><p>TWELVE FOLIOS</p><h1>%ARCHIVE_TITLE%</h1><span>%ARCHIVE_DESC%</span></header><nav class="cabinet-tabs" aria-label="按柜查看"><a href="cabinets/joinery-notes.html"><b>柜 1</b><strong>%CABINET_A_TITLE%</strong><span>%CABINET_A_DESC%</span></a><a href="cabinets/keeping-drawer.html"><b>柜 2</b><strong>%CABINET_B_TITLE%</strong><span>%CABINET_B_DESC%</span></a><a href="cabinets/review-cabinet.html"><b>柜 3</b><strong>%CABINET_C_TITLE%</strong><span>%CABINET_C_DESC%</span></a></nav><section class="folio-shelves" aria-label="全部案卷"><a class="folio-spine spine-1" href="folios/entry-drawer.html"><span>01</span><div><strong>%ARTICLE_01_TITLE%</strong><small>ENTRY NOTE</small><p>%ARTICLE_01_DESC%</p></div><i aria-hidden="true">OPEN</i></a><a class="folio-spine spine-2" href="folios/cost-rubbing.html"><span>02</span><div><strong>%ARTICLE_02_TITLE%</strong><small>COST RUBBING</small><p>%ARTICLE_02_DESC%</p></div><i aria-hidden="true">OPEN</i></a><a class="folio-spine spine-3" href="folios/identity-folio.html"><span>03</span><div><strong>%ARTICLE_03_TITLE%</strong><small>IDENTITY FOLIO</small><p>%ARTICLE_03_DESC%</p></div><i aria-hidden="true">OPEN</i></a><a class="folio-spine spine-4" href="folios/transfer-pattern.html"><span>04</span><div><strong>%ARTICLE_04_TITLE%</strong><small>TRANSFER PATTERN</small><p>%ARTICLE_04_DESC%</p></div><i aria-hidden="true">OPEN</i></a><a class="folio-spine spine-1" href="folios/custody-blueprint.html"><span>05</span><div><strong>%ARTICLE_05_TITLE%</strong><small>CUSTODY PLAN</small><p>%ARTICLE_05_DESC%</p></div><i aria-hidden="true">OPEN</i></a><a class="folio-spine spine-2" href="folios/recovery-inventory.html"><span>06</span><div><strong>%ARTICLE_06_TITLE%</strong><small>RECOVERY INVENTORY</small><p>%ARTICLE_06_DESC%</p></div><i aria-hidden="true">OPEN</i></a><a class="folio-spine spine-3" href="folios/evidence-letter.html"><span>07</span><div><strong>%ARTICLE_07_TITLE%</strong><small>EVIDENCE LETTER</small><p>%ARTICLE_07_DESC%</p></div><i aria-hidden="true">OPEN</i></a><a class="folio-spine spine-4" href="folios/policy-comparison.html"><span>08</span><div><strong>%ARTICLE_08_TITLE%</strong><small>POLICY LEDGER</small><p>%ARTICLE_08_DESC%</p></div><i aria-hidden="true">OPEN</i></a><a class="folio-spine spine-1" href="folios/account-timeline.html"><span>09</span><div><strong>%ARTICLE_09_TITLE%</strong><small>ACCOUNT TIMELINE</small><p>%ARTICLE_09_DESC%</p></div><i aria-hidden="true">OPEN</i></a><a class="folio-spine spine-2" href="folios/source-pinboard.html"><span>10</span><div><strong>%ARTICLE_10_TITLE%</strong><small>SOURCE BOARD</small><p>%ARTICLE_10_DESC%</p></div><i aria-hidden="true">OPEN</i></a><a class="folio-spine spine-3" href="folios/decision-worklog.html"><span>11</span><div><strong>%ARTICLE_11_TITLE%</strong><small>DECISION LOG</small><p>%ARTICLE_11_DESC%</p></div><i aria-hidden="true">OPEN</i></a><a class="folio-spine spine-4" href="folios/monthly-folio.html"><span>12</span><div><strong>%ARTICLE_12_TITLE%</strong><small>MONTHLY FOLIO</small><p>%ARTICLE_12_DESC%</p></div><i aria-hidden="true">OPEN</i></a></section></main>
+<footer class="walnut-footer">
+  <div class="walnut-footer-mark"><span>INDEPENDENT DESK</span><strong>%BRAND_EN%</strong></div>
+  <p>本站独立运营；不隶属于相关平台。页面可能含推广链接，具体说明见 <a href="disclosure.html">推广披露</a>。</p>
+  <nav aria-label="页脚信息"><a href="about.html">%ABOUT_TITLE%</a><a href="contact.html">%CONTACT_TITLE%</a><a href="disclosure.html">%DISCLOSURE_TITLE%</a><a href="legal.html">%DISCLAIMER_TITLE%</a><a href="privacy.html">%PRIVACY_TITLE%</a><a href="corrections.html">%CORRECTIONS_TITLE%</a><a href="editorial.html">%EDITORIAL_TITLE%</a><a href="feed.xml">订阅 RSS</a></nav>
+  <small>© %CURRENT_YEAR% %SITE_NAME% · 联系：%CONTACT_EMAIL%</small>
+</footer>
+</body>
+</html>
