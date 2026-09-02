@@ -1,102 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{LANG}}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{SITE_NAME}} — 周记与观察笔记</title>
-  <meta name="description" content="{{SITE_DESC}}">
-  <link rel="canonical" href="https://{{SITE_DOMAIN}}/">
-  <meta property="og:title" content="{{SITE_NAME}}">
-  <meta property="og:description" content="{{SITE_DESC}}">
-  <meta property="og:url" content="https://{{SITE_DOMAIN}}/">
-  <link rel="stylesheet" href="assets/water.css">
-  <link rel="stylesheet" href="assets/coast.css">
-  <link rel="stylesheet" href="assets/foam.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "{{SITE_NAME}}",
-    "url": "https://{{SITE_DOMAIN}}/"
-  }
-  </script>
-</head>
-<body>
-  <header class="strand">
-    <a class="strand__title" href="index.html" aria-label="返回 {{SITE_NAME}} 首页">{{SITE_NAME}}</a>
-    <nav class="strand__paths" aria-label="主导航">
-      <a class="strand__path" href="index.html" aria-current="page">时间线</a>
-      <a class="strand__path" href="article.html">本期全文</a>
-      <a class="strand__path" href="tool.html">日期差</a>
-      <a class="strand__path" href="legal.html">关于</a>
-    </nav>
-  </header>
-
-  <main class="bay">
-    <section class="swell" aria-labelledby="site-heading">
-      <p class="swell__eyebrow">FIELD NOTES / WEEKLY LOG</p>
-      <h1 class="swell__name" id="site-heading">{{SITE_NAME}}</h1>
-      <p class="swell__murmur">{{SITE_TAGLINE}}</p>
-      <p class="swell__status">CURRENT LOG · 04 ENTRIES</p>
-    </section>
-
-    <section class="tide-line" aria-labelledby="timeline-heading">
-      <h2 class="section-cap" id="timeline-heading">近期记录 / Recent entries</h2>
-      <article class="tide-line__mark">
-        <time class="tide-line__when" datetime="2026-01-18"><span>JAN</span><strong>18</strong><span>2026</span></time>
-        <div class="tide-line__body">
-          <h3 class="tide-line__title"><a href="article.html">把一周压缩成三个可验证的问题</a></h3>
-          <p class="tide-line__cut">记录一次信息整理实验：先分清事实、判断与待验证项，再决定什么值得留下。</p>
-        </div>
-        <a class="tide-line__read" href="article.html">阅读本期</a>
-      </article>
-      <article class="tide-line__mark">
-        <time class="tide-line__when" datetime="2026-01-11"><span>JAN</span><strong>11</strong><span>2026</span></time>
-        <div class="tide-line__body">
-          <h3 class="tide-line__title"><a href="article.html">少做预测，多记触发条件</a></h3>
-          <p class="tide-line__cut">与其写模糊的结论，不如记下什么变化会让自己改主意，以及下一次核对的时间。</p>
-        </div>
-        <a class="tide-line__read" href="article.html">阅读笔记</a>
-      </article>
-      <article class="tide-line__mark">
-        <time class="tide-line__when" datetime="2026-01-04"><span>JAN</span><strong>04</strong><span>2026</span></time>
-        <div class="tide-line__body">
-          <h3 class="tide-line__title"><a href="article.html">给长期项目留一张潮汐表</a></h3>
-          <p class="tide-line__cut">把进展、阻力与下一个观测点并排写，减少“忙了很多却没推进”的错觉。</p>
-        </div>
-        <a class="tide-line__read" href="article.html">阅读笔记</a>
-      </article>
-      <article class="tide-line__mark">
-        <time class="tide-line__when" datetime="2025-12-28"><span>DEC</span><strong>28</strong><span>2025</span></time>
-        <div class="tide-line__body">
-          <h3 class="tide-line__title"><a href="article.html">年末复盘：留下能重复使用的部分</a></h3>
-          <p class="tide-line__cut">不按完成数量总结一年，只整理被验证过的方法、被推翻的假设和仍然重要的问题。</p>
-        </div>
-        <a class="tide-line__read" href="article.html">阅读笔记</a>
-      </article>
-    </section>
-
-    <section class="tag-drift" aria-labelledby="topics-heading">
-      <h2 class="tag-drift__cap" id="topics-heading">常写的话题</h2>
-      <div class="tag-drift__pool">
-        <a class="tag-drift__float" href="article.html">观察方法</a>
-        <a class="tag-drift__float" href="article.html">阅读摘记</a>
-        <a class="tag-drift__float" href="article.html">长期项目</a>
-        <a class="tag-drift__float" href="article.html">工作复盘</a>
-        <a class="tag-drift__float" href="article.html">数字工具</a>
-      </div>
-    </section>
-
-    <aside class="about-cove">
-      <h2 class="about-cove__cap">关于这份手账</h2>
-      <p class="about-cove__say">每周留下一次经过核对的观察，不追热点，也不急着给答案。更新与联系：{{CONTACT_EMAIL}}</p>
-    </aside>
-  </main>
-
-  <footer class="shore">
-    <p class="shore__line">个人记录，仅供参考，不构成投资建议 · <a href="legal.html">关于与声明</a></p>
-  </footer>
-
-  <script src="assets/tide.js"></script>
-</body>
-</html>
+<html lang="{{LANG}}"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{SITE_NAME}} — {{SITE_TAGLINE}}</title><meta name="description" content="{{SITE_DESC}}"><link rel="canonical" href="https://{{SITE_DOMAIN}}/">
+<meta property="og:title" content="{{SITE_NAME}} — {{SITE_TAGLINE}}"><meta property="og:description" content="{{SITE_DESC}}"><meta property="og:type" content="website"><meta property="og:url" content="https://{{SITE_DOMAIN}}/"><meta property="og:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{{SITE_NAME}} — {{SITE_TAGLINE}}"><meta name="twitter:description" content="{{SITE_DESC}}"><meta name="twitter:image" content="https://{{SITE_DOMAIN}}/assets/social-card.png">
+<link rel="alternate" type="application/rss+xml" title="{{FEED_TITLE}}" href="feed.xml"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/water.css"><link rel="stylesheet" href="assets/coast.css"><link rel="stylesheet" href="assets/foam.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"{{SITE_NAME}}","url":"https://{{SITE_DOMAIN}}/"}</script><!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> --></head><body><header class="strand"><a class="strand__title" href="index.html" aria-label="返回首页"><span>09</span><b>{{BRAND_EN}}</b></a><nav class="strand__paths" aria-label="主导航"><a class="strand__path" href="index.html" aria-current="page">潮线</a><a class="strand__path" href="article.html">观测日志</a><a class="strand__path" href="tool.html">潮具</a><a class="strand__path" href="editorial.html">方法章程</a></nav><button class="strand__switch" type="button" data-tide-theme data-theme="system" aria-label="切换显示主题"><i aria-hidden="true"></i><span data-theme-label>系统</span></button></header><main class="bay bay--home">
+<section class="swell"><div class="swell__axis" aria-hidden="true"><i>HIGH</i><span></span><span></span><span></span><i>LOW</i></div><div class="swell__copy"><p>COASTAL FIELD LOG / N°09</p><h1>{{SITE_NAME}}</h1><strong>{{SITE_TAGLINE}}</strong></div><aside class="harbor-code"><p>PASSAGE CODE</p><div><code id="tidal-code">{{INVITE_CODE}}</code><button type="button" data-copy-mark="tidal-code" data-copy-note="tidal-code-state">复制代码</button></div><b>最高 {{BENEFIT_RATE}}</b><small>{{BENEFIT_DISCLAIMER}}</small><em id="tidal-code-state" aria-live="polite">代码可自行复制留存。</em></aside></section>
+<nav class="sound-deck" aria-label="观测分区"><a class="sound-card" href="soundings/departure-soundings.html"><span>01</span><div><b>启程测深</b><p>{{GROUP_DEPARTURE_INTRO}}</p></div><i aria-hidden="true">↗</i></a><a class="sound-card" href="soundings/current-observations.html"><span>02</span><div><b>水流观测</b><p>{{GROUP_CURRENT_INTRO}}</p></div><i aria-hidden="true">↗</i></a><a class="sound-card" href="soundings/weather-boundaries.html"><span>03</span><div><b>天气边界</b><p>{{GROUP_WEATHER_INTRO}}</p></div><i aria-hidden="true">↗</i></a></nav>
+<section class="archive-head"><div><p>TWELVE SOUNDINGS</p><h2>沿着时间线读十二份记录</h2></div><label for="log-search">筛选日志</label><input id="log-search" type="search" placeholder="输入标题或摘要" data-log-search><p data-log-empty hidden>没有匹配记录，清空关键词可回到完整时间线。</p></section>
+<section class="tide-line" aria-label="文章时间线"><article class="tide-line__mark" data-log-item data-log-text="{{N01_TITLE}} {{N01_DESC}}"><span class="tide-line__index">01</span><div><p>启程测深 / ROUTE</p><h2><a href="field-notes/first-safe-harbor.html">{{N01_TITLE}}</a></h2><small>{{N01_DESC}}</small></div><a class="tide-line__read" href="field-notes/first-safe-harbor.html" aria-label="阅读 {{N01_TITLE}}">查看水位</a></article><article class="tide-line__mark" data-log-item data-log-text="{{N02_TITLE}} {{N02_DESC}}"><span class="tide-line__index">02</span><div><p>启程测深 / WINDOW</p><h2><a href="field-notes/reading-cost-currents.html">{{N02_TITLE}}</a></h2><small>{{N02_DESC}}</small></div><a class="tide-line__read" href="field-notes/reading-cost-currents.html" aria-label="阅读 {{N02_TITLE}}">查看水位</a></article><article class="tide-line__mark" data-log-item data-log-text="{{N03_TITLE}} {{N03_DESC}}"><span class="tide-line__index">03</span><div><p>启程测深 / LOG</p><h2><a href="field-notes/status-change-watch.html">{{N03_TITLE}}</a></h2><small>{{N03_DESC}}</small></div><a class="tide-line__read" href="field-notes/status-change-watch.html" aria-label="阅读 {{N03_TITLE}}">查看水位</a></article><article class="tide-line__mark" data-log-item data-log-text="{{N04_TITLE}} {{N04_DESC}}"><span class="tide-line__index">04</span><div><p>启程测深 / WARNING</p><h2><a href="field-notes/identity-paper-weather.html">{{N04_TITLE}}</a></h2><small>{{N04_DESC}}</small></div><a class="tide-line__read" href="field-notes/identity-paper-weather.html" aria-label="阅读 {{N04_TITLE}}">查看水位</a></article><article class="tide-line__mark" data-log-item data-log-text="{{N05_TITLE}} {{N05_DESC}}"><span class="tide-line__index">05</span><div><p>水流观测 / SPECIMEN</p><h2><a href="field-notes/transfer-route-notes.html">{{N05_TITLE}}</a></h2><small>{{N05_DESC}}</small></div><a class="tide-line__read" href="field-notes/transfer-route-notes.html" aria-label="阅读 {{N05_TITLE}}">查看水位</a></article><article class="tide-line__mark" data-log-item data-log-text="{{N06_TITLE}} {{N06_DESC}}"><span class="tide-line__index">06</span><div><p>水流观测 / LOG</p><h2><a href="field-notes/recovery-lantern-log.html">{{N06_TITLE}}</a></h2><small>{{N06_DESC}}</small></div><a class="tide-line__read" href="field-notes/recovery-lantern-log.html" aria-label="阅读 {{N06_TITLE}}">查看水位</a></article><article class="tide-line__mark" data-log-item data-log-text="{{N07_TITLE}} {{N07_DESC}}"><span class="tide-line__index">07</span><div><p>水流观测 / WINDOW</p><h2><a href="field-notes/cost-sample-sheet.html">{{N07_TITLE}}</a></h2><small>{{N07_DESC}}</small></div><a class="tide-line__read" href="field-notes/cost-sample-sheet.html" aria-label="阅读 {{N07_TITLE}}">查看水位</a></article><article class="tide-line__mark" data-log-item data-log-text="{{N08_TITLE}} {{N08_DESC}}"><span class="tide-line__index">08</span><div><p>水流观测 / SPECIMEN</p><h2><a href="field-notes/session-weather-map.html">{{N08_TITLE}}</a></h2><small>{{N08_DESC}}</small></div><a class="tide-line__read" href="field-notes/session-weather-map.html" aria-label="阅读 {{N08_TITLE}}">查看水位</a></article><article class="tide-line__mark" data-log-item data-log-text="{{N09_TITLE}} {{N09_DESC}}"><span class="tide-line__index">09</span><div><p>天气边界 / WARNING</p><h2><a href="field-notes/hold-window-log.html">{{N09_TITLE}}</a></h2><small>{{N09_DESC}}</small></div><a class="tide-line__read" href="field-notes/hold-window-log.html" aria-label="阅读 {{N09_TITLE}}">查看水位</a></article><article class="tide-line__mark" data-log-item data-log-text="{{N10_TITLE}} {{N10_DESC}}"><span class="tide-line__index">10</span><div><p>天气边界 / LOG</p><h2><a href="field-notes/policy-shoreline-change.html">{{N10_TITLE}}</a></h2><small>{{N10_DESC}}</small></div><a class="tide-line__read" href="field-notes/policy-shoreline-change.html" aria-label="阅读 {{N10_TITLE}}">查看水位</a></article><article class="tide-line__mark" data-log-item data-log-text="{{N11_TITLE}} {{N11_DESC}}"><span class="tide-line__index">11</span><div><p>天气边界 / SPECIMEN</p><h2><a href="field-notes/evidence-field-kit.html">{{N11_TITLE}}</a></h2><small>{{N11_DESC}}</small></div><a class="tide-line__read" href="field-notes/evidence-field-kit.html" aria-label="阅读 {{N11_TITLE}}">查看水位</a></article><article class="tide-line__mark" data-log-item data-log-text="{{N12_TITLE}} {{N12_DESC}}"><span class="tide-line__index">12</span><div><p>天气边界 / ROUTE</p><h2><a href="field-notes/message-weather-check.html">{{N12_TITLE}}</a></h2><small>{{N12_DESC}}</small></div><a class="tide-line__read" href="field-notes/message-weather-check.html" aria-label="阅读 {{N12_TITLE}}">查看水位</a></article></section>
+<aside class="instrument-shelf"><header><p>LOCAL INSTRUMENTS</p><h2>五件本地观测潮具</h2><span>输入不会离开当前页面。</span></header><a href="instruments/date-gap-tide.html"><span>01</span><b>日期潮差尺</b><small>计算两次记录之间的日历天数，并明确前后方向。</small></a><a href="instruments/lunar-age-dial.html"><span>02</span><b>月龄近似盘</b><small>按日期估算月龄与月相区间，供观测日志标记使用。</small></a><a href="instruments/shore-distance.html"><span>03</span><b>坐标岸距仪</b><small>用球面距离公式估算两组坐标之间的直线距离。</small></a><a href="instruments/cadence-planner.html"><span>04</span><b>观测节拍表</b><small>在起止日期间均匀安排指定次数的观测节点。</small></a><a href="instruments/sample-window.html"><span>05</span><b>样本窗口尺</b><small>核算有效样本比例与观测时间跨度。</small></a></aside>
+</main><footer class="shore"><div class="shore__line"><strong>{{BRAND_EN}} FIELD NOTES</strong><p>本站独立运营；记录与工具用于理解信息，涉及推广链接的页面会就近说明。<a href="disclosure.html">查看推广关系说明</a></p></div><details class="shore__chart"><summary>展开全站海图</summary><div><b>日志</b><a href="field-notes/first-safe-harbor.html">01</a><a href="field-notes/reading-cost-currents.html">02</a><a href="field-notes/status-change-watch.html">03</a><a href="field-notes/identity-paper-weather.html">04</a><a href="field-notes/transfer-route-notes.html">05</a><a href="field-notes/recovery-lantern-log.html">06</a><a href="field-notes/cost-sample-sheet.html">07</a><a href="field-notes/session-weather-map.html">08</a><a href="field-notes/hold-window-log.html">09</a><a href="field-notes/policy-shoreline-change.html">10</a><a href="field-notes/evidence-field-kit.html">11</a><a href="field-notes/message-weather-check.html">12</a></div><div><b>测深区</b><a href="soundings/departure-soundings.html">启程测深</a><a href="soundings/current-observations.html">水流观测</a><a href="soundings/weather-boundaries.html">天气边界</a></div><div><b>潮具</b><a href="instruments/date-gap-tide.html">日期潮差尺</a><a href="instruments/lunar-age-dial.html">月龄近似盘</a><a href="instruments/shore-distance.html">坐标岸距仪</a><a href="instruments/cadence-planner.html">观测节拍表</a><a href="instruments/sample-window.html">样本窗口尺</a></div><div><b>说明</b><a href="about.html">关于这份海岸手账</a><a href="contact.html">联系观测桌</a><a href="disclosure.html">推广关系说明</a><a href="legal.html">阅读与风险边界</a><a href="privacy.html">隐私与本地输入</a><a href="corrections.html">更正与旧水位</a><a href="editorial.html">观测与编辑方法</a></div><div><b>入口</b><a href="article.html">日志总表</a><a href="tool.html">潮具总表</a><a href="feed.xml">RSS 订阅</a></div></details><p class="shore__fine">© {{YEAR}} {{SITE_NAME}} · {{CONTACT_EMAIL}}</p></footer><script defer src="assets/tide.js"></script></body></html>
