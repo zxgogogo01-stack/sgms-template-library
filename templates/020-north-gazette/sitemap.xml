@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://%SITE_DOMAIN%/</loc><changefreq>daily</changefreq></url>
-    <url><loc>https://%SITE_DOMAIN%/article.html</loc></url>
-    <url><loc>https://%SITE_DOMAIN%/tool.html</loc></url>
-    <url><loc>https://%SITE_DOMAIN%/legal.html</loc></url>
+  <url><loc>https://%SITE_DOMAIN%/</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/article.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/reports/entry-desk.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/reports/deep-freeze-investigation.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/reports/event-line.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/reports/data-desk.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/reports/source-crosscheck.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/reports/two-column-debate.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/reports/field-interview.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/reports/public-notice.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/reports/incident-desk.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/reports/reader-checklist.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/reports/terms-wire.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/reports/weekend-edition.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/desks/civic.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/desks/signals.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/desks/decisions.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/tool.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/newsroom/source-sorter.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/newsroom/dateline-normalizer.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/newsroom/quote-balance.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/newsroom/headline-comparator.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/newsroom/bulletin-diff.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/about.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/contact.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/disclosure.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/legal.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/privacy.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/corrections.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/editorial.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
 </urlset>
