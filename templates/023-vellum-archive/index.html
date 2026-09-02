@@ -1,60 +1,64 @@
-<!DOCTYPE html>
-<html lang="[[LANG]]">
+<!doctype html>
+<html lang="%LANG%">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>[[SITE_NAME]] - 可核对的长期文献档案</title>
-    <meta name="description" content="[[SITE_DESC]]">
-    <link rel="canonical" href="https://[[SITE_DOMAIN]]/">
-    <meta property="og:title" content="[[SITE_NAME]] - 可核对的长期文献档案">
-    <meta property="og:description" content="[[SITE_DESC]]">
-    <meta property="og:url" content="https://[[SITE_DOMAIN]]/">
-    <link rel="stylesheet" href="css/style.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"[[SITE_NAME]]","description":"[[SITE_DESC]]","url":"https://[[SITE_DOMAIN]]/"}</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>%HOME_META_TITLE%</title>
+  <meta name="description" content="%HOME_META_DESC%">
+  <link rel="canonical" href="https://%SITE_DOMAIN%/">
+  <meta property="og:title" content="%HOME_META_TITLE%">
+  <meta property="og:description" content="%HOME_META_DESC%">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://%SITE_DOMAIN%/">
+  <meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="%HOME_META_TITLE%">
+  <meta name="twitter:description" content="%HOME_META_DESC%">
+  <meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%HOME_META_TITLE%","url":"https://%SITE_DOMAIN%/","publisher":{"@type":"Organization","name":"%SITE_NAME%"}}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="js/archive.js" defer></script>
 </head>
 <body>
-    <a class="va-skip-link" href="#main">跳到主要内容</a>
-    <div class="va-catalog-strip"><div class="va-shell va-catalog-strip-inner"><span>Public reading room · collection register 2026.08</span><span>馆藏咨询：<a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></span></div></div>
-    <header class="va-site-header"><div class="va-shell va-header-inner"><a class="va-brand" href="index.html">[[SITE_NAME]]<small>Vellum archive · annotated public record</small></a><nav class="va-primary-nav" aria-label="主要导航"><a href="index.html" aria-current="page">馆藏总览</a><a href="#register">档案目录</a><a href="article.html">档案全文</a><a href="tool.html">编目工作台</a><a href="legal.html">收录说明</a></nav></div></header>
-
-    <main id="main">
-        <section class="va-archive-hero"><div class="va-shell va-hero-grid"><div class="va-hero-copy"><p class="va-eyebrow">Open collection / 对公众开放</p><h1>为长期记录，<span>保留当时语境。</span></h1><p>[[SITE_TAGLINE]]。这里按原始发布日期保存文章、方法笔记与实地观察，并把来源、修订和适用时间一起留在页面上。</p><div class="va-button-row"><a class="va-button" href="#register">查阅档案目录</a><a class="va-button va-button-secondary" href="article.html">打开精选卷宗</a></div><div class="va-hero-note"><span>固定馆藏编号</span><span>来源与日期并列</span><span>修订记录公开</span><span>原观点不静默回写</span></div></div><aside class="va-featured-dossier" aria-label="精选卷宗"><header class="va-dossier-head"><p class="va-eyebrow">Curator’s selection</p><h2>同一份记录，为什么需要三个时间戳？</h2></header><div class="va-dossier-body"><dl><div><dt>馆藏编号</dt><dd>VLM-2026-MTH-014</dd></div><div><dt>初次发表</dt><dd>2026-02-18</dd></div><div><dt>最后核对</dt><dd>2026-07-28</dd></div><div><dt>主题</dt><dd>记录方法与时间边界</dd></div><div><dt>全文长度</dt><dd>约 8 分钟</dd></div></dl></div><footer class="va-dossier-foot">精选卷宗含来源表、脚注和逐条修订记录。</footer></aside></div><div class="va-shell va-archive-tally" aria-label="馆藏摘要"><div><strong>038 RECORDS</strong><span>当前公开馆藏</span></div><div><strong>04 SERIES</strong><span>按主题分为四个系列</span></div><div><strong>11 SOURCES</strong><span>公开来源类型</span></div><div><strong>2021—2026</strong><span>当前覆盖时间</span></div></div></section>
-
-        <section class="va-shell va-collections" aria-labelledby="collections-title"><header class="va-section-head"><div><p class="va-eyebrow">Collection map / 馆藏脉络</p><h2 id="collections-title">不是一串链接，而是一套可追溯的卷宗关系。</h2></div><p>每个系列有独立编号和收录边界。先从主题进入，再按年份、来源与修订状态缩小范围。</p></header><div class="va-collection-grid"><article class="va-collection-card va-featured"><span class="va-collection-code">SERIES 01 · METHOD</span><h3>记录方法与证据边界</h3><p>关于版本、引用、时间戳和“当时已知信息”的方法笔记。</p><footer>12 份卷宗 · 最近核对 2026-07-28</footer></article><article class="va-collection-card"><span class="va-collection-code">SERIES 02 · POLICY</span><h3>公共政策观察</h3><p>保存政策文本发布时点、执行口径和后续修订之间的差异。</p><footer>15 份卷宗 · 7 类公开来源</footer></article><article class="va-collection-card"><span class="va-collection-code">SERIES 03 · FIELD</span><h3>实地与行业笔记</h3><p>记录现场观察、访谈限制，以及后来才出现的补充材料。</p><footer>11 份卷宗 · 含 4 份勘误</footer></article></div></section>
-
-        <section class="va-shell va-archive-board" id="register" aria-labelledby="register-title"><div class="va-board-grid"><aside class="va-archive-controls"><p class="va-eyebrow">Register filters</p><h2 id="register-title">档案目录</h2><div class="va-filter-stack" aria-label="按系列筛选"><button type="button" data-filter="all" aria-pressed="true">全部卷宗</button><button type="button" data-filter="method" aria-pressed="false">记录方法</button><button type="button" data-filter="policy" aria-pressed="false">公共政策</button><button type="button" data-filter="field" aria-pressed="false">实地笔记</button></div><p class="va-archive-status" id="archive-status" aria-live="polite">显示全部 8 份精选卷宗。</p><a class="va-button va-button-small" href="tool.html">打开编目工作台</a></aside><div class="va-register-list">
-            <section class="va-year-group"><header class="va-year-head"><h2>2026</h2><span>05 RECORDS</span></header>
-                <article class="va-archive-entry" data-series="method"><span class="va-entry-number">014</span><time class="va-entry-date" datetime="2026-02-18">FEB 18</time><div class="va-entry-copy"><h3><a href="article.html">同一份记录，为什么需要三个时间戳？</a></h3><p>区分发生、发表与核对时间，避免后来信息倒灌进旧结论。</p></div><span class="va-entry-tag">方法</span></article>
-                <article class="va-archive-entry" data-series="policy"><span class="va-entry-number">013</span><time class="va-entry-date" datetime="2026-02-02">FEB 02</time><div class="va-entry-copy"><h3>从发布稿到执行口径：保留中间版本</h3><p>比对公开文本变化时，先固定每一个可验证版本。</p></div><span class="va-entry-tag">政策</span></article>
-                <article class="va-archive-entry" data-series="field"><span class="va-entry-number">011</span><time class="va-entry-date" datetime="2026-01-26">JAN 26</time><div class="va-entry-copy"><h3>访谈笔记如何标注沉默与不确定</h3><p>未回答、无法确认与拒绝回答不应被合并成同一种空白。</p></div><span class="va-entry-tag">实地</span></article>
-                <article class="va-archive-entry" data-series="method"><span class="va-entry-number">009</span><time class="va-entry-date" datetime="2026-01-14">JAN 14</time><div class="va-entry-copy"><h3>数字被修订后，旧版本还要不要保留？</h3><p>把勘误、口径变化和数据替换分成三种不同事件。</p></div><span class="va-entry-tag">方法</span></article>
-                <article class="va-archive-entry" data-series="policy"><span class="va-entry-number">006</span><time class="va-entry-date" datetime="2026-01-05">JAN 05</time><div class="va-entry-copy"><h3>公开会议纪要的时间缺口</h3><p>会议发生、纪要发布和附件补齐之间可能相隔数周。</p></div><span class="va-entry-tag">政策</span></article>
-            </section>
-            <section class="va-year-group"><header class="va-year-head"><h2>2025</h2><span>03 RECORDS</span></header>
-                <article class="va-archive-entry" data-series="field"><span class="va-entry-number">038</span><time class="va-entry-date" datetime="2025-11-19">NOV 19</time><div class="va-entry-copy"><h3>一次现场观察的可见范围</h3><p>记录站位、时段和未能进入的区域，比笼统写“现场所见”更可靠。</p></div><span class="va-entry-tag">实地</span></article>
-                <article class="va-archive-entry" data-series="policy"><span class="va-entry-number">031</span><time class="va-entry-date" datetime="2025-09-08">SEP 08</time><div class="va-entry-copy"><h3>政策摘要不能替代原文</h3><p>摘要适合导航，但关键定义和例外条款仍需回到正式文本。</p></div><span class="va-entry-tag">政策</span></article>
-                <article class="va-archive-entry" data-series="method"><span class="va-entry-number">024</span><time class="va-entry-date" datetime="2025-06-12">JUN 12</time><div class="va-entry-copy"><h3>给每一个引用留下回程路径</h3><p>记录标题、机构、发布日期、访问日期和稳定链接。</p></div><span class="va-entry-tag">方法</span></article>
-            </section>
-            <aside class="va-reading-room"><div><p class="va-eyebrow">Reading room / 查阅建议</p><h2>先读目录卡，再读正文。</h2><p>目录卡会告诉你文献适用的时间、来源和修订状态；正文则保留完整语境。若只需要编号，可直接进入编目工作台。</p></div><div class="va-reading-action"><a class="va-button" href="article.html">阅读精选卷宗</a><p>预计阅读 8 分钟 · 含 3 条脚注</p></div></aside>
-        </div></div></section>
+<a class="vlm-skip" href="#main">%SKIP_LINK%</a>
+<div class="vlm-shell">
+  <aside class="vlm-spine">
+    <a class="vlm-wordmark" href="index.html"><b>%BRAND_EN%</b><span>%SITE_NAME%</span></a>
+    <nav class="vlm-nav" aria-label="%NAV_LABEL%"><a href="index.html" aria-current="page"><span>%NAV_HOME%</span><i aria-hidden="true"></i></a><a href="article.html"><span>%NAV_RECORDS%</span><i aria-hidden="true"></i></a><a href="collections/provenance-room.html"><span>%NAV_COLLECTIONS%</span><i aria-hidden="true"></i></a><a href="tool.html"><span>%NAV_INSTRUMENTS%</span><i aria-hidden="true"></i></a><a href="about.html"><span>%NAV_ABOUT%</span><i aria-hidden="true"></i></a></nav>
+    <button class="vlm-theme" type="button" data-vlm-theme aria-pressed="false">%THEME_LABEL%</button>
+  </aside>
+  <div class="vlm-leaf">
+    <header class="vlm-running-head"><span>%ARCHIVE_STATUS%</span><span>%EDITION_DATE%</span><span>VOL. 023</span></header>
+    <main id="main" class="vlm-home">
+      <section class="vlm-opening">
+        <div class="vlm-volume-mark" aria-hidden="true"><span>V</span><b>023</b><i></i></div>
+        <article class="vlm-opening-copy">
+          <p class="vlm-kicker">%HOME_KICKER%</p>
+          <h1>%HOME_H1_LINE_01% <em>%HOME_H1_LINE_02%</em></h1>
+          <p class="vlm-deck">%HOME_DECK%</p>
+          <a class="vlm-editor-choice" href="records/accession-note.html"><span>%HOME_EDITORIAL_LABEL%</span><strong>%HOME_EDITORIAL_ENTRY%</strong><i>↗</i></a>
+        </article>
+        <aside class="vlm-invite-folio" aria-label="%INVITE_PANEL_LABEL%">
+          <span>%INVITE_LABEL%</span><code data-vlm-code>%INVITE_CODE%</code>
+          <button type="button" data-vlm-copy>%COPY_CODE%</button><small data-vlm-copy-status aria-live="polite"></small>
+          <strong>%BENEFIT_RATE%</strong><p>%BENEFIT_DISCLAIMER%</p>
+        </aside>
+      </section>
+      <section class="vlm-three-cabinets" aria-labelledby="home-collections"><header><span>01—03</span><h2 id="home-collections">%HOME_COLLECTIONS_TITLE%</h2><p>%HOME_COLLECTIONS_DESC%</p></header><a href="collections/provenance-room.html"><i>I</i><span><b>%COLLECTION_01_TITLE%</b><small>%COLLECTION_01_DESC%</small></span></a><a href="collections/context-room.html"><i>II</i><span><b>%COLLECTION_02_TITLE%</b><small>%COLLECTION_02_DESC%</small></span></a><a href="collections/interpretation-room.html"><i>III</i><span><b>%COLLECTION_03_TITLE%</b><small>%COLLECTION_03_DESC%</small></span></a></section>
+      <section class="vlm-register-preview"><header><p class="vlm-kicker">%HOME_REGISTER_KICKER%</p><h2>%HOME_REGISTER_TITLE%</h2><a href="article.html">%VIEW_ALL_RECORDS%</a></header><ol><li><span>02</span><a href="records/source-chain.html">%RECORD_02_TITLE%</a><small>%RECORD_02_TYPE%</small></li><li><span>03</span><a href="records/version-compare.html">%RECORD_03_TITLE%</a><small>%RECORD_03_TYPE%</small></li><li><span>04</span><a href="records/date-triad.html">%RECORD_04_TITLE%</a><small>%RECORD_04_TYPE%</small></li><li><span>05</span><a href="records/citation-return.html">%RECORD_05_TITLE%</a><small>%RECORD_05_TYPE%</small></li><li><span>06</span><a href="records/scan-quality.html">%RECORD_06_TITLE%</a><small>%RECORD_06_TYPE%</small></li></ol></section>
+      <section class="vlm-instrument-ribbon"><div><span>%HOME_TOOL_KICKER%</span><h2>%HOME_TOOL_TITLE%</h2></div><a href="instruments/accession-id.html"><b>01</b><span>%TOOL_01_TITLE%</span></a><a href="instruments/citation-card.html"><b>02</b><span>%TOOL_02_TITLE%</span></a><a href="instruments/date-gap.html"><b>03</b><span>%TOOL_03_TITLE%</span></a><a href="instruments/version-fingerprint.html"><b>04</b><span>%TOOL_04_TITLE%</span></a><a href="instruments/reading-priority.html"><b>05</b><span>%TOOL_05_TITLE%</span></a><a href="tool.html"><b>→</b><span>%TOOL_INDEX_TITLE%</span></a></section>
     </main>
-
-    <footer class="va-site-footer"><div class="va-shell va-footer-inner"><p>馆藏用于研究与历史核对，内容可能随时间失效；引用前请检查原始来源和最后核对日期。</p><nav class="va-footer-links" aria-label="页脚导航"><a href="#register">档案目录</a><a href="article.html">精选卷宗</a><a href="tool.html">编目工作台</a><a href="legal.html">收录说明</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
-
-    <script>
-        (function () {
-            var buttons = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
-            var entries = Array.prototype.slice.call(document.querySelectorAll('[data-series]'));
-            var status = document.getElementById('archive-status');
-            buttons.forEach(function (button) {
-                button.addEventListener('click', function () {
-                    var value = button.getAttribute('data-filter'), count = 0;
-                    buttons.forEach(function (item) { item.setAttribute('aria-pressed', item === button ? 'true' : 'false'); });
-                    entries.forEach(function (entry) { var show = value === 'all' || entry.getAttribute('data-series') === value; entry.hidden = !show; if (show) count += 1; });
-                    status.textContent = value === 'all' ? '显示全部 ' + count + ' 份精选卷宗。' : '当前系列显示 ' + count + ' 份精选卷宗。';
-                });
-            });
-        })();
-    </script>
+    <footer class="vlm-footer">
+      <div><p>本站独立运营。<a href="disclosure.html">%DISCLOSURE_LINK%</a></p><a class="vlm-rss" href="feed.xml">%RSS_VISIBLE_LABEL%</a></div>
+      <details class="vlm-map"><summary>%ARCHIVE_MAP_LABEL%</summary><div><section><h2>%MAP_RECORDS_LABEL%</h2><ul><li><a href="article.html">00 · %ARTICLE_INDEX_TITLE%</a></li><li><a href="records/source-chain.html">02 · %RECORD_02_TITLE%</a></li><li><a href="records/version-compare.html">03 · %RECORD_03_TITLE%</a></li><li><a href="records/date-triad.html">04 · %RECORD_04_TITLE%</a></li><li><a href="records/citation-return.html">05 · %RECORD_05_TITLE%</a></li><li><a href="records/scan-quality.html">06 · %RECORD_06_TITLE%</a></li><li><a href="records/context-margin.html">07 · %RECORD_07_TITLE%</a></li><li><a href="records/field-note.html">08 · %RECORD_08_TITLE%</a></li><li><a href="records/policy-variant.html">09 · %RECORD_09_TITLE%</a></li><li><a href="records/oral-history.html">10 · %RECORD_10_TITLE%</a></li><li><a href="records/archive-glossary.html">11 · %RECORD_11_TITLE%</a></li><li><a href="records/research-dossier.html">12 · %RECORD_12_TITLE%</a></li></ul></section><section><h2>%MAP_COLLECTIONS_LABEL%</h2><ul><li><a href="collections/provenance-room.html">I · %COLLECTION_01_TITLE%</a></li><li><a href="collections/context-room.html">II · %COLLECTION_02_TITLE%</a></li><li><a href="collections/interpretation-room.html">III · %COLLECTION_03_TITLE%</a></li></ul></section><section><h2>%MAP_TOOLS_LABEL%</h2><ul><li><a href="tool.html">00 · %TOOL_INDEX_TITLE%</a></li><li><a href="instruments/accession-id.html">01 · %TOOL_01_TITLE%</a></li><li><a href="instruments/citation-card.html">02 · %TOOL_02_TITLE%</a></li><li><a href="instruments/date-gap.html">03 · %TOOL_03_TITLE%</a></li><li><a href="instruments/version-fingerprint.html">04 · %TOOL_04_TITLE%</a></li><li><a href="instruments/reading-priority.html">05 · %TOOL_05_TITLE%</a></li></ul></section><section><h2>%MAP_POLICIES_LABEL%</h2><ul><li><a href="about.html">A · %ABOUT_TITLE%</a></li><li><a href="contact.html">C · %CONTACT_TITLE%</a></li><li><a href="disclosure.html">D · %DISCLOSURE_TITLE%</a></li><li><a href="legal.html">L · %DISCLAIMER_TITLE%</a></li><li><a href="privacy.html">P · %PRIVACY_TITLE%</a></li><li><a href="corrections.html">R · %CORRECTIONS_TITLE%</a></li><li><a href="editorial.html">E · %EDITORIAL_TITLE%</a></li></ul></section></div></details>
+      <small>© %CURRENT_YEAR% %SITE_NAME% · <a href="mailto:%CONTACT_EMAIL%">%CONTACT_EMAIL%</a></small>
+    </footer>
+  </div>
+</div>
 </body>
 </html>

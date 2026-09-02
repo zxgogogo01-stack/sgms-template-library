@@ -1,15 +1,50 @@
-<!DOCTYPE html>
-<html lang="[[LANG]]">
+<!doctype html>
+<html lang="%LANG%">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>卷宗缺页 - [[SITE_NAME]]</title>
-    <meta name="description" content="请求的卷宗页不在当前馆藏中。">
-    <meta name="robots" content="noindex,follow">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,follow">
+  <title>%ERROR_META_TITLE%</title>
+  <meta name="description" content="%ERROR_META_DESC%">
+  <link rel="canonical" href="https://%SITE_DOMAIN%/404.html">
+  <meta property="og:title" content="%ERROR_META_TITLE%">
+  <meta property="og:description" content="%ERROR_META_DESC%">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://%SITE_DOMAIN%/404.html">
+  <meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="%ERROR_META_TITLE%">
+  <meta name="twitter:description" content="%ERROR_META_DESC%">
+  <meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%ERROR_META_TITLE%","url":"https://%SITE_DOMAIN%/404.html","publisher":{"@type":"Organization","name":"%SITE_NAME%"}}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="js/archive.js" defer></script>
 </head>
-<body class="va-error-page">
-    <a class="va-skip-link" href="#main">跳到主要内容</a>
-    <main id="main" class="va-error-card"><section class="va-error-copy"><p class="va-eyebrow">Missing folio / 馆藏提示</p><h1>这张目录卡没有对应卷宗。</h1><p>编号可能输入有误，卷宗也可能已经合并或转入非公开馆藏。请返回目录按年份与系列重新查找，或阅读当前精选卷宗。</p><div class="va-button-row"><a class="va-button" href="index.html#register">返回档案目录</a><a class="va-button va-button-secondary" href="article.html">阅读精选卷宗</a></div></section><aside class="va-error-folio" aria-label="错误代码"><strong>404</strong><span>FOLIO NOT IN REGISTER</span></aside></main>
+<body>
+<a class="vlm-skip" href="#main">%SKIP_LINK%</a>
+<div class="vlm-shell">
+  <aside class="vlm-spine">
+    <a class="vlm-wordmark" href="index.html"><b>%BRAND_EN%</b><span>%SITE_NAME%</span></a>
+    <nav class="vlm-nav" aria-label="%NAV_LABEL%"><a href="index.html"><span>%NAV_HOME%</span><i aria-hidden="true"></i></a><a href="article.html"><span>%NAV_RECORDS%</span><i aria-hidden="true"></i></a><a href="collections/provenance-room.html"><span>%NAV_COLLECTIONS%</span><i aria-hidden="true"></i></a><a href="tool.html"><span>%NAV_INSTRUMENTS%</span><i aria-hidden="true"></i></a><a href="about.html"><span>%NAV_ABOUT%</span><i aria-hidden="true"></i></a></nav>
+    <button class="vlm-theme" type="button" data-vlm-theme aria-pressed="false">%THEME_LABEL%</button>
+  </aside>
+  <div class="vlm-leaf">
+    <header class="vlm-running-head"><span>%ARCHIVE_STATUS%</span><span>%EDITION_DATE%</span><span>VOL. 023</span></header>
+    <main id="main" class="vlm-missing">
+      <div class="vlm-missing-number" aria-hidden="true"><span>4</span><i>0</i><span>4</span></div>
+      <article><small>UNFILED LEAF</small><h1>%ERROR_TITLE%</h1><p>%ERROR_BODY%</p><nav aria-label="%ERROR_LINKS_LABEL%"><a href="index.html">%ERROR_HOME%</a><a href="article.html">%ERROR_RECORDS%</a><a href="tool.html">%ERROR_TOOLS%</a></nav></article>
+    </main>
+    <footer class="vlm-footer">
+      <div><p>本站独立运营。<a href="disclosure.html">%DISCLOSURE_LINK%</a></p><a class="vlm-rss" href="feed.xml">%RSS_VISIBLE_LABEL%</a></div>
+      <details class="vlm-map"><summary>%ARCHIVE_MAP_LABEL%</summary><div><section><h2>%MAP_RECORDS_LABEL%</h2><ul><li><a href="article.html">00 · %ARTICLE_INDEX_TITLE%</a></li><li><a href="records/accession-note.html">01 · %RECORD_01_TITLE%</a></li><li><a href="records/source-chain.html">02 · %RECORD_02_TITLE%</a></li><li><a href="records/version-compare.html">03 · %RECORD_03_TITLE%</a></li><li><a href="records/date-triad.html">04 · %RECORD_04_TITLE%</a></li><li><a href="records/citation-return.html">05 · %RECORD_05_TITLE%</a></li><li><a href="records/scan-quality.html">06 · %RECORD_06_TITLE%</a></li><li><a href="records/context-margin.html">07 · %RECORD_07_TITLE%</a></li><li><a href="records/field-note.html">08 · %RECORD_08_TITLE%</a></li><li><a href="records/policy-variant.html">09 · %RECORD_09_TITLE%</a></li><li><a href="records/oral-history.html">10 · %RECORD_10_TITLE%</a></li><li><a href="records/archive-glossary.html">11 · %RECORD_11_TITLE%</a></li><li><a href="records/research-dossier.html">12 · %RECORD_12_TITLE%</a></li></ul></section><section><h2>%MAP_COLLECTIONS_LABEL%</h2><ul><li><a href="collections/provenance-room.html">I · %COLLECTION_01_TITLE%</a></li><li><a href="collections/context-room.html">II · %COLLECTION_02_TITLE%</a></li><li><a href="collections/interpretation-room.html">III · %COLLECTION_03_TITLE%</a></li></ul></section><section><h2>%MAP_TOOLS_LABEL%</h2><ul><li><a href="tool.html">00 · %TOOL_INDEX_TITLE%</a></li><li><a href="instruments/accession-id.html">01 · %TOOL_01_TITLE%</a></li><li><a href="instruments/citation-card.html">02 · %TOOL_02_TITLE%</a></li><li><a href="instruments/date-gap.html">03 · %TOOL_03_TITLE%</a></li><li><a href="instruments/version-fingerprint.html">04 · %TOOL_04_TITLE%</a></li><li><a href="instruments/reading-priority.html">05 · %TOOL_05_TITLE%</a></li></ul></section><section><h2>%MAP_POLICIES_LABEL%</h2><ul><li><a href="about.html">A · %ABOUT_TITLE%</a></li><li><a href="contact.html">C · %CONTACT_TITLE%</a></li><li><a href="disclosure.html">D · %DISCLOSURE_TITLE%</a></li><li><a href="legal.html">L · %DISCLAIMER_TITLE%</a></li><li><a href="privacy.html">P · %PRIVACY_TITLE%</a></li><li><a href="corrections.html">R · %CORRECTIONS_TITLE%</a></li><li><a href="editorial.html">E · %EDITORIAL_TITLE%</a></li></ul></section></div></details>
+      <small>© %CURRENT_YEAR% %SITE_NAME% · <a href="mailto:%CONTACT_EMAIL%">%CONTACT_EMAIL%</a></small>
+    </footer>
+  </div>
+</div>
 </body>
 </html>
