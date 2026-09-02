@@ -1,84 +1,47 @@
 <!DOCTYPE html>
 <html lang='%LANG%'>
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>%SITE_NAME% - 港湾观察专栏</title>
-    <meta name='description' content='%SITE_DESC%'>
-    <link rel='canonical' href='https://%SITE_DOMAIN%/'>
-    <meta property='og:title' content='%SITE_NAME%'>
-    <meta property='og:description' content='%SITE_DESC%'>
-    <meta property='og:url' content='https://%SITE_DOMAIN%/'>
-    <link rel='stylesheet' href='css/style.css'>
-    <script type='application/ld+json'>
-    {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "name": "%SITE_NAME%",
-        "url": "https://%SITE_DOMAIN%/"
-    }
-    </script>
-</head>
-<body>
-    <div class='frame'>
-        <aside class='dock'>
-            <a class='dock-mark' href='index.html' aria-label='返回 %SITE_NAME% 首页'>%SITE_NAME%</a>
-            <div class='byline'>
-                <p class='byline-role'>INDEPENDENT COLUMNIST</p>
-                <p class='byline-name'>林舟</p>
-                <p class='byline-bio'>关注公共信息如何进入日常决策。每周五更新，事实与观点分开写。</p>
-            </div>
-            <nav class='menu' aria-label='栏目导航'>
-                <a href='index.html'>专栏首页</a>
-                <a href='article.html'>本期评论</a>
-                <a href='tool.html'>阅读时长</a>
-                <a href='legal.html'>栏目说明</a>
-            </nav>
-            <p class='dock-note'>WEEKLY · FRIDAY<br>ISSUE 026</p>
-        </aside>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1,viewport-fit=cover'>
+  <title>%SITE_NAME%｜%HOME_TITLE%</title>
+  <meta name='description' content='%SITE_DESC%'>
 
-        <main class='flow'>
-            <section class='opener' aria-labelledby='column-title'>
-                <div class='opener-words'>
-                    <p class='opener-kicker'>HARBOR COLUMN / ISSUE 026</p>
-                    <h1 id='column-title'>%SITE_NAME%</h1>
-                    <p class='opener-tag'>%SITE_TAGLINE%</p>
-                    <p class='opener-deck'>写给需要在噪音里做判断的人：每周只讨论一个问题，先核对事实，再给出可以被推翻的观点。</p>
-                </div>
-            </section>
+  <link rel='canonical' href='https://%SITE_DOMAIN%/'>
+  <link rel='icon' href='favicon.ico' sizes='any'>
+  <link rel='icon' href='favicon.svg' type='image/svg+xml'>
+  <link rel='apple-touch-icon' href='apple-touch-icon.png'>
+  <link rel='alternate' type='application/rss+xml' title='%SITE_NAME% 港讯订阅' href='feed.xml'>
+  <meta property='og:title' content='%SITE_NAME%｜%HOME_TITLE%'>
+  <meta property='og:description' content='%SITE_DESC%'>
+  <meta property='og:type' content='website'>
+  <meta property='og:url' content='https://%SITE_DOMAIN%/'>
+  <meta property='og:image' content='https://%SITE_DOMAIN%/assets/social-card.png'>
+  <meta name='twitter:card' content='summary_large_image'>
+  <meta name='twitter:title' content='%SITE_NAME%｜%HOME_TITLE%'>
+  <meta name='twitter:description' content='%SITE_DESC%'>
+  <meta name='twitter:image' content='https://%SITE_DOMAIN%/assets/social-card.png'>
 
-            <section class='pieces' aria-labelledby='latest-heading'>
-                <h2 class='pieces-cap' id='latest-heading'>最新文章 / Latest dispatches</h2>
-                <article class='piece' data-no='01'>
-                    <p class='piece-when'>2026-01-16 · 公共讨论</p>
-                    <h2><a href='article.html'>信息越来越多，为什么判断反而更难？</a></h2>
-                    <p>真正稀缺的不是材料，而是辨认材料何时足以改变行动的尺度。</p>
-                </article>
-                <article class='piece' data-no='02'>
-                    <p class='piece-when'>2026-01-09 · 工作方法</p>
-                    <h2><a href='article.html'>一份好复盘不该只证明自己很努力</a></h2>
-                    <p>把结果、过程和运气拆开，复盘才不会沦为漂亮的自我解释。</p>
-                </article>
-                <article class='piece' data-no='03'>
-                    <p class='piece-when'>2026-01-02 · 数字生活</p>
-                    <h2><a href='article.html'>别急着收藏，先决定下次什么时候用</a></h2>
-                    <p>资源管理的重点不是存得多，而是让重要信息在需要时重新出现。</p>
-                </article>
-            </section>
-
-            <section class='star-box'>
-                <h2>编辑精选</h2>
-                <ul>
-                    <li><a href='article.html'>如何给观点设置“过期时间”</a> — 避免旧判断偷偷变成新事实</li>
-                    <li><a href='article.html'>面对争议，先找哪一条原始材料</a> — 一份可执行的核对顺序</li>
-                </ul>
-            </section>
-
-            <footer class='footline'>
-                <p>观点仅代表作者个人，不构成投资建议 · <a href='legal.html'>栏目说明</a> · %CONTACT_EMAIL%</p>
-            </footer>
-        </main>
-    </div>
-    <script src='js/site.js'></script>
-</body>
-</html>
+  <link rel='stylesheet' href='css/style.css?v=5'>
+  <script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebSite","name":"%SITE_NAME%","alternateName":"%BRAND_EN%","url":"https://%SITE_DOMAIN%/","description":"%SITE_DESC%"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body class='page-home'><a class='skip-buoy' href='#main'>跳到正文</a>
+<header class='harbor-dock'>
+  <a class='dock-wordmark' href='index.html' aria-label='返回 %SITE_NAME% 首页'><span>HC—011</span><strong>%BRAND_EN%</strong></a>
+  <nav class='dock-routes' aria-label='主导航'><a class='dock-route' href='index.html' aria-current='page'>封面</a><a class='dock-route' href='article.html'>港刊</a><a class='dock-route' href='berths/approach-pier.html'>码头</a><a class='dock-route' href='tool.html'>水尺房</a><a class='dock-route' href='editorial.html'>编务</a></nav>
+  <button class='dock-theme' type='button' data-tide-theme aria-label='切换显示主题'>跟随系统</button>
+  <p class='dock-issue'>HARBOR COLUMN<br>%ISSUE_LABEL%</p>
+</header><main class='harbor-flow' id='main'><section class='harbor-lead'>
+  <div class='lead-copy'><p class='signal-code'>%ISSUE_LABEL% / %HOME_KICKER%</p><h1>%HOME_TITLE%</h1><p class='lead-deck'>%SITE_TAGLINE%</p><a class='editors-lantern' href='dispatches/harbor-entry-permit.html'><span>编辑放在封面的读物</span><strong>%ARTICLE_TITLE_01%</strong><small>%ARTICLE_DESC_01%</small></a></div>
+  <div class='tide-window' aria-hidden='true'><i></i><i></i><i></i><b>011</b><span>HARBOR<br>COLUMN</span></div>
+  <aside class='pass-office' aria-labelledby='pass-title'><p class='pass-office__eyebrow'>HARBOR PASS</p><h2 id='pass-title'>邀请码</h2><div class='pass-office__code'><code>%INVITE_CODE%</code><button type='button' data-copy-pass data-copy-value='%INVITE_CODE%'>复制代码</button></div><p class='pass-office__benefit'>通过本站邀请码注册，有机会获得最高 %BENEFIT_RATE% 手续费减免*</p><p class='pass-office__fine'>* %BENEFIT_DISCLAIMER%</p><p class='pass-office__status' data-pass-status aria-live='polite'>代码可复制；本站首页没有交易平台直链。</p></aside>
+</section>
+<section class='harbor-filter' aria-labelledby='dispatch-title'><div><p class='signal-code'>THE FULL MANIFEST</p><h2 id='dispatch-title'>十二份待写港刊</h2></div><div class='harbor-filter__controls' role='group' aria-label='按码头筛选'><button type='button' data-wharf-filter='all' aria-pressed='true'>全部</button><button type='button' data-wharf-filter='approach-pier' aria-pressed='false'>靠岸</button><button type='button' data-wharf-filter='operations-pier' aria-pressed='false'>航务</button><button type='button' data-wharf-filter='records-pier' aria-pressed='false'>值守</button></div><p class='harbor-filter__count' data-wharf-count>显示 12 篇</p></section>
+<section class='dispatch-board'><a class='dispatch-slip' data-pier='approach-pier' href='dispatches/harbor-entry-permit.html'><span>01</span><strong>%ARTICLE_TITLE_01%</strong><small>%ARTICLE_DESC_01%</small></a><a class='dispatch-slip' data-pier='operations-pier' href='dispatches/fee-current-chart.html'><span>02</span><strong>%ARTICLE_TITLE_02%</strong><small>%ARTICLE_DESC_02%</small></a><a class='dispatch-slip' data-pier='approach-pier' href='dispatches/identity-mooring-check.html'><span>03</span><strong>%ARTICLE_TITLE_03%</strong><small>%ARTICLE_DESC_03%</small></a><a class='dispatch-slip' data-pier='operations-pier' href='dispatches/transfer-weather-log.html'><span>04</span><strong>%ARTICLE_TITLE_04%</strong><small>%ARTICLE_DESC_04%</small></a><a class='dispatch-slip' data-pier='records-pier' href='dispatches/custody-watch-notes.html'><span>05</span><strong>%ARTICLE_TITLE_05%</strong><small>%ARTICLE_DESC_05%</small></a><a class='dispatch-slip' data-pier='approach-pier' href='dispatches/recovery-signal-card.html'><span>06</span><strong>%ARTICLE_TITLE_06%</strong><small>%ARTICLE_DESC_06%</small></a><a class='dispatch-slip' data-pier='operations-pier' href='dispatches/evidence-cargo-list.html'><span>07</span><strong>%ARTICLE_TITLE_07%</strong><small>%ARTICLE_DESC_07%</small></a><a class='dispatch-slip' data-pier='records-pier' href='dispatches/policy-tide-table.html'><span>08</span><strong>%ARTICLE_TITLE_08%</strong><small>%ARTICLE_DESC_08%</small></a><a class='dispatch-slip' data-pier='approach-pier' href='dispatches/account-safety-drill.html'><span>09</span><strong>%ARTICLE_TITLE_09%</strong><small>%ARTICLE_DESC_09%</small></a><a class='dispatch-slip' data-pier='operations-pier' href='dispatches/source-depth-review.html'><span>10</span><strong>%ARTICLE_TITLE_10%</strong><small>%ARTICLE_DESC_10%</small></a><a class='dispatch-slip' data-pier='records-pier' href='dispatches/dispute-bridge-log.html'><span>11</span><strong>%ARTICLE_TITLE_11%</strong><small>%ARTICLE_DESC_11%</small></a><a class='dispatch-slip' data-pier='records-pier' href='dispatches/monthly-harbor-reset.html'><span>12</span><strong>%ARTICLE_TITLE_12%</strong><small>%ARTICLE_DESC_12%</small></a></section>
+<section class='pier-deck' aria-labelledby='pier-title'><header><p class='signal-code'>THREE PIERS</p><h2 id='pier-title'>按任务靠岸</h2></header><a class='pier-gate pier-gate--1' href='berths/approach-pier.html'><span>PIER A</span><strong>靠岸码头</strong><small>%PIER_A_INTRO%</small></a><a class='pier-gate pier-gate--2' href='berths/operations-pier.html'><span>PIER B</span><strong>航务码头</strong><small>%PIER_B_INTRO%</small></a><a class='pier-gate pier-gate--3' href='berths/records-pier.html'><span>PIER C</span><strong>值守码头</strong><small>%PIER_C_INTRO%</small></a></section>
+<section class='gauge-deck' aria-labelledby='gauge-title'><header><p class='signal-code'>LOCAL INSTRUMENTS</p><h2 id='gauge-title'>五件编辑水尺</h2><a href='tool.html'>查看水尺房</a></header><div class='gauge-deck__grid'><a class='gauge-ticket' href='instruments/readtime-gauge.html'><span>01</span><strong>双语阅读水尺</strong><small>按中文字符和拉丁单词分别估算阅读时间。</small></a><a class='gauge-ticket' href='instruments/heading-depth-check.html'><span>02</span><strong>标题吃水检查</strong><small>读取 Markdown 标题层级，找出跨级跳转。</small></a><a class='gauge-ticket' href='instruments/excerpt-draught.html'><span>03</span><strong>摘要吃水尺</strong><small>比较摘要长度与目标长度，提示还差多少。</small></a><a class='gauge-ticket' href='instruments/review-watch.html'><span>04</span><strong>复核值更表</strong><small>从一个日期起排出固定间隔的编辑复核节点。</small></a><a class='gauge-ticket' href='instruments/source-ballast.html'><span>05</span><strong>来源压舱盘</strong><small>把三类来源数量换算为占比，观察证据结构。</small></a></div></section>
+<section class='harbor-papers' aria-labelledby='paper-title'><header><p class='signal-code'>PUBLIC PAPERS</p><h2 id='paper-title'>编辑与责任文件</h2></header><a href='about.html'>关于这份港刊</a><a href='contact.html'>联系编辑者</a><a href='disclosure.html'>推广披露</a><a href='legal.html'>风险声明</a><a href='privacy.html'>隐私说明</a><a href='corrections.html'>更正记录</a><a href='editorial.html'>编辑原则</a><a href='article.html'>文章总表</a><a href='tool.html'>工具总表</a></section></main><footer class='low-water'>
+  <div class='low-water__brand'><strong>%BRAND_EN%</strong><span>Independent harbor notes</span></div>
+  <nav class='low-water__links' aria-label='页脚信息'><a href='about.html'>关于</a><a href='contact.html'>联系</a><a href='disclosure.html'>推广披露</a><a href='legal.html'>风险声明</a><a href='privacy.html'>隐私</a><a href='corrections.html'>更正</a><a href='editorial.html'>编辑原则</a><a href='feed.xml'>RSS 港讯</a></nav>
+  <p class='low-water__notice'>本站独立运营，不是交易平台官方网站；少数文章可能含推广链接。加密资产价格波动明显，阅读后仍请自行核实。<a href='disclosure.html'>查看披露</a></p>
+</footer>
+<script defer src='js/site.js?v=5'></script></body></html>

@@ -1,51 +1,38 @@
 <!DOCTYPE html>
 <html lang='%LANG%'>
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>阅读时长估算 - %SITE_NAME%</title>
-    <meta name='description' content='在浏览器本地估算中英文文章阅读时间。'>
-    <link rel='canonical' href='https://%SITE_DOMAIN%/tool.html'>
-    <meta property='og:title' content='阅读时长估算 - %SITE_NAME%'>
-    <meta property='og:description' content='在浏览器本地估算中英文文章阅读时间。'>
-    <meta property='og:url' content='https://%SITE_DOMAIN%/tool.html'>
-    <link rel='stylesheet' href='css/style.css'>
-    <script type='application/ld+json'>
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "阅读时长估算",
-        "url": "https://%SITE_DOMAIN%/tool.html"
-    }
-    </script>
-</head>
-<body>
-    <div class='frame'>
-        <aside class='dock'>
-            <a class='dock-mark' href='index.html' aria-label='返回 %SITE_NAME% 首页'>%SITE_NAME%</a>
-            <nav class='menu' aria-label='栏目导航'>
-                <a href='index.html'>专栏首页</a>
-                <a href='article.html'>本期评论</a>
-                <a href='tool.html'>阅读时长</a>
-                <a href='legal.html'>栏目说明</a>
-            </nav>
-            <p class='dock-note'>LOCAL TOOL<br>NO UPLOAD</p>
-        </aside>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1,viewport-fit=cover'>
+  <title>编辑水尺房｜%SITE_NAME%</title>
+  <meta name='description' content='五件纯前端编辑工具的完整索引。'>
 
-        <main class='flow'>
-            <section class='readtime' aria-labelledby='readtime-title'>
-                <p class='page-kicker'>COLUMN TOOL / READ TIME</p>
-                <h1 id='readtime-title'>阅读时长估算</h1>
-                <p class='readtime-intro'>中文按每分钟约 400 字、英文按每分钟约 200 词估算。内容只在当前浏览器中处理。</p>
-                <label for='rt-text'>文章内容</label>
-                <textarea id='rt-text' placeholder='把需要估算的文章粘贴到这里…'></textarea>
-                <button type='button' id='rt-go'>开始估算</button>
-                <output id='rt-out' aria-live='polite'>结果会显示在这里。</output>
-            </section>
+  <link rel='canonical' href='https://%SITE_DOMAIN%/tool.html'>
+  <link rel='icon' href='favicon.ico' sizes='any'>
+  <link rel='icon' href='favicon.svg' type='image/svg+xml'>
+  <link rel='apple-touch-icon' href='apple-touch-icon.png'>
+  <link rel='alternate' type='application/rss+xml' title='%SITE_NAME% 港讯订阅' href='feed.xml'>
+  <meta property='og:title' content='编辑水尺房｜%SITE_NAME%'>
+  <meta property='og:description' content='五件纯前端编辑工具的完整索引。'>
+  <meta property='og:type' content='website'>
+  <meta property='og:url' content='https://%SITE_DOMAIN%/tool.html'>
+  <meta property='og:image' content='https://%SITE_DOMAIN%/assets/social-card.png'>
+  <meta name='twitter:card' content='summary_large_image'>
+  <meta name='twitter:title' content='编辑水尺房｜%SITE_NAME%'>
+  <meta name='twitter:description' content='五件纯前端编辑工具的完整索引。'>
+  <meta name='twitter:image' content='https://%SITE_DOMAIN%/assets/social-card.png'>
 
-            <footer class='footline'><p>工具在本地运行，不保存、不上传内容</p></footer>
-        </main>
-    </div>
-    <script src='js/site.js'></script>
-</body>
-</html>
+  <link rel='stylesheet' href='css/style.css?v=5'>
+  <script type='application/ld+json'>{"@context":"https://schema.org","@type":"CollectionPage","name":"编辑水尺房","url":"https://%SITE_DOMAIN%/tool.html"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body><a class='skip-buoy' href='#main'>跳到正文</a>
+<header class='harbor-dock'>
+  <a class='dock-wordmark' href='index.html' aria-label='返回 %SITE_NAME% 首页'><span>HC—011</span><strong>%BRAND_EN%</strong></a>
+  <nav class='dock-routes' aria-label='主导航'><a class='dock-route' href='index.html'>封面</a><a class='dock-route' href='article.html'>港刊</a><a class='dock-route' href='berths/approach-pier.html'>码头</a><a class='dock-route' href='tool.html' aria-current='page'>水尺房</a><a class='dock-route' href='editorial.html'>编务</a></nav>
+  <button class='dock-theme' type='button' data-tide-theme aria-label='切换显示主题'>跟随系统</button>
+  <p class='dock-issue'>HARBOR COLUMN<br>%ISSUE_LABEL%</p>
+</header><main class='harbor-flow' id='main'><header class='instrument-head'><div><p class='signal-code'>INSTRUMENT ROOM</p><h1>编辑水尺房</h1><p>%TOOL_INDEX_INTRO%</p></div><div class='instrument-dial' aria-hidden='true'><i></i><i></i><b>05</b></div></header><section class='gauge-deck__grid gauge-deck__grid--large'><a class='gauge-ticket' href='instruments/readtime-gauge.html'><span>01</span><strong>双语阅读水尺</strong><small>按中文字符和拉丁单词分别估算阅读时间。</small></a><a class='gauge-ticket' href='instruments/heading-depth-check.html'><span>02</span><strong>标题吃水检查</strong><small>读取 Markdown 标题层级，找出跨级跳转。</small></a><a class='gauge-ticket' href='instruments/excerpt-draught.html'><span>03</span><strong>摘要吃水尺</strong><small>比较摘要长度与目标长度，提示还差多少。</small></a><a class='gauge-ticket' href='instruments/review-watch.html'><span>04</span><strong>复核值更表</strong><small>从一个日期起排出固定间隔的编辑复核节点。</small></a><a class='gauge-ticket' href='instruments/source-ballast.html'><span>05</span><strong>来源压舱盘</strong><small>把三类来源数量换算为占比，观察证据结构。</small></a></section><aside class='tool-safety'><strong>本地处理</strong><p>五件工具均在浏览器内运算，不上传输入内容。结果用于编辑检查，不代替事实核查。</p></aside></main><footer class='low-water'>
+  <div class='low-water__brand'><strong>%BRAND_EN%</strong><span>Independent harbor notes</span></div>
+  <nav class='low-water__links' aria-label='页脚信息'><a href='about.html'>关于</a><a href='contact.html'>联系</a><a href='disclosure.html'>推广披露</a><a href='legal.html'>风险声明</a><a href='privacy.html'>隐私</a><a href='corrections.html'>更正</a><a href='editorial.html'>编辑原则</a><a href='feed.xml'>RSS 港讯</a></nav>
+  <p class='low-water__notice'>本站独立运营，不是交易平台官方网站；少数文章可能含推广链接。加密资产价格波动明显，阅读后仍请自行核实。<a href='disclosure.html'>查看披露</a></p>
+</footer>
+<script defer src='js/site.js?v=5'></script></body></html>

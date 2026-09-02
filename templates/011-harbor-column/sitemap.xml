@@ -1,7 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://%SITE_DOMAIN%/</loc></url>
-    <url><loc>https://%SITE_DOMAIN%/article.html</loc></url>
-    <url><loc>https://%SITE_DOMAIN%/tool.html</loc></url>
-    <url><loc>https://%SITE_DOMAIN%/legal.html</loc></url>
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+  <url><loc>https://%SITE_DOMAIN%/</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/article.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dispatches/harbor-entry-permit.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dispatches/fee-current-chart.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dispatches/identity-mooring-check.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dispatches/transfer-weather-log.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dispatches/custody-watch-notes.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dispatches/recovery-signal-card.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dispatches/evidence-cargo-list.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dispatches/policy-tide-table.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dispatches/account-safety-drill.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dispatches/source-depth-review.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dispatches/dispute-bridge-log.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/dispatches/monthly-harbor-reset.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/berths/approach-pier.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/berths/operations-pier.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/berths/records-pier.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/tool.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/readtime-gauge.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/heading-depth-check.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/excerpt-draught.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/review-watch.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/source-ballast.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/about.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/contact.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/disclosure.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/legal.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/privacy.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/corrections.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/editorial.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
 </urlset>
