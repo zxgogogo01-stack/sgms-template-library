@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://%SITE_DOMAIN%/</loc><changefreq>monthly</changefreq></url>
-    <url><loc>https://%SITE_DOMAIN%/article.html</loc></url>
-    <url><loc>https://%SITE_DOMAIN%/tool.html</loc></url>
-    <url><loc>https://%SITE_DOMAIN%/legal.html</loc></url>
+  <url><loc>https://%SITE_DOMAIN%/</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/article.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lessons/entry-chart.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lessons/contour-reading.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lessons/distance-scale.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lessons/legend-decoder.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lessons/bearing-notebook.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lessons/route-decision.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lessons/symbol-myths.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lessons/field-incident.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lessons/map-comparison.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lessons/packing-sequence.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lessons/terrain-glossary.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/lessons/seasonal-route.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/regions/orientation-foundations.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/regions/map-language.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/regions/field-decisions.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/tool.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/bearing-rose.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/scale-distance.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/slope-reader.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/coordinate-midpoint.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/pace-estimator.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/about.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/contact.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/disclosure.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/legal.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/privacy.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/corrections.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/editorial.html</loc><lastmod>%DATE_MODIFIED%</lastmod></url>
 </urlset>
