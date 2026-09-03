@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://[[SITE_DOMAIN]]/</loc><changefreq>weekly</changefreq></url>
-    <url><loc>https://[[SITE_DOMAIN]]/article.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/tool.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/legal.html</loc></url>
+  <url><loc>https://[[SITE_DOMAIN]]/</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/article.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/current-reading.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/drift-chronicle.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/route-comparison.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/annotated-sounding.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/harbor-cards.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/field-method.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/correction-buoy.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/source-harbor.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/weather-window.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/radio-interview.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/signal-glossary.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/access-berth.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/waters/deep-reading.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/waters/making-current.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/waters/safe-passage.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/tool.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/instruments/url-sanitizer.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/instruments/link-deduplicator.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/instruments/query-lens.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/instruments/domain-sorter.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/instruments/url-resolver.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/about.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/contact.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/legal.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/disclaimer.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/privacy.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/corrections.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/editorial.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
 </urlset>
