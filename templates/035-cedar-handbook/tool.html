@@ -1,37 +1,36 @@
-<!DOCTYPE html>
-<html lang='__LANG__'>
+<!doctype html>
+<html lang="__LANG__" data-ch35-skin="paper">
 <head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Unicode 字符核验台 · __SITE_NAME__</title>
-  <meta name='description' content='在浏览器本地核验字符、Unicode 码点与十进制编号。'>
-  <link rel='canonical' href='https://__SITE_DOMAIN__/tool.html'>
-  <meta property='og:title' content='Unicode 字符核验台 · __SITE_NAME__'>
-  <meta property='og:description' content='为手册编辑准备的本地 Unicode 字符核验工具。'>
-  <meta property='og:url' content='https://__SITE_DOMAIN__/tool.html'>
-  <link rel='stylesheet' href='site.css'>
-  <script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebApplication","name":"Unicode 字符核验台","url":"https://__SITE_DOMAIN__/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
-</head>
-<body>
-  <a data-skip href='#main'>跳到主要内容</a>
-  <header data-site-header><div><a href='index.html' data-brand aria-label='返回手册索引'><b>H/35</b><span><strong>__SITE_NAME__</strong><small>Cedar field handbook · rev 3.4</small></span></a><nav data-nav aria-label='主导航'><a href='index.html'>章节索引</a><a href='article.html'>执行章节</a><a href='tool.html' aria-current='page'>字符核验</a><a href='legal.html'>使用说明</a></nav></div></header>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#173f35" />
+<title>__TOOL_INDEX_TITLE__ · __SITE_NAME__</title>
+<meta name="description" content="__TOOL_INDEX_DESCRIPTION__" />
+<link rel="canonical" href="https://__SITE_DOMAIN__/tool.html" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="__SITE_NAME__ 野外更新" href="feed.xml" />
 
-  <main id='main' data-page='tool'>
-    <header><div><p data-kicker>Appendix tool · local processing</p><h1>看清每一个字符背后的码点。</h1><p data-lede>粘贴最多 40 个字符，核对 Unicode 码点、十进制编号和字符类型，避免全角空格、不可见字符与相似符号混入正式手册。</p></div><aside><p data-label>Tool metadata</p><p>编号：H35-T01<br>版本：1.2<br>输入：最多 40 字符<br>数据：不离开本机<br>状态：现行</p></aside></header>
-
-    <div data-tool-layout>
-      <section data-tool-card aria-labelledby='tool-title'><p data-kicker>Character inspector</p><h2 id='tool-title'>Unicode 字符核验</h2><p>换行与空格会作为独立字符显示；组合字符可能由多个码点构成。</p><form id='codepoint-form' novalidate><div data-field><label for='codepoint-input'>待核验字符</label><textarea id='codepoint-input' maxlength='80' placeholder='例如：发布 A/B · 全角　空格' aria-describedby='codepoint-error codepoint-limit'></textarea><small id='codepoint-limit'>最多 40 个 Unicode 码点；当前 <span id='char-count'>0</span> 个。</small></div><div data-tool-actions><button type='submit' data-button='primary'>开始核验</button><button type='button' id='load-code-sample'>载入示例</button><button type='reset' id='clear-codepoints'>清空</button></div><p id='codepoint-error' data-error role='alert' aria-live='assertive'></p></form>
-        <section data-result id='codepoint-result' tabindex='-1' hidden aria-labelledby='result-title'><header><strong id='result-title'>核验结果</strong><span id='result-count'>0 个码点</span></header><div><table><thead><tr><th scope='col'>字符</th><th scope='col'>Unicode</th><th scope='col'>十进制</th><th scope='col'>类型</th></tr></thead><tbody id='codepoint-rows'></tbody></table></div><footer><span id='codepoint-status' aria-live='polite'>结果仅在当前页面生成。</span><button type='button' id='copy-codepoints'>复制结果</button></footer></section>
-      </section>
-      <aside data-tool-aside>
-        <section data-panel><p data-kicker>Common risks</p><h3>最容易混入的三类字符</h3><ul><li>普通空格与全角空格。</li><li>连字符、短横线与减号。</li><li>外观相似的中文、拉丁或希腊字符。</li></ul></section>
-        <section data-panel><p data-kicker>Editorial rule</p><h3>什么时候需要核验</h3><ol><li>复制外部文档的标题与编号时。</li><li>链接、代码、金额或尺寸异常时。</li><li>搜索命中与页面显示不一致时。</li></ol></section>
-        <section data-panel><p data-kicker>Privacy</p><h3>本地处理</h3><p>工具不保存或上传输入。刷新页面后，核验内容与结果即消失。</p></section>
-      </aside>
-    </div>
-  </main>
-
-  <footer><div><div><h2>__SITE_NAME__ · 字符核验台</h2><p>先看清码点，再把字符写进正式手册。</p></div><div><nav aria-label='页脚导航'><a href='index.html'>章节索引</a><a href='article.html'>执行章节</a><a href='legal.html'>使用说明</a></nav><small>H35-T01 · TOOL 1.2 · __SITE_DOMAIN__ · __CONTACT_EMAIL__</small></div></div></footer>
-  <script src='app.js'></script>
-</body>
-</html>
+<meta property="og:title" content="__TOOL_INDEX_TITLE__" />
+<meta property="og:description" content="__TOOL_INDEX_DESCRIPTION__" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://__SITE_DOMAIN__/tool.html" />
+<meta property="og:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="__TOOL_INDEX_TITLE__" />
+<meta name="twitter:description" content="__TOOL_INDEX_DESCRIPTION__" />
+<meta name="twitter:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+<link rel="stylesheet" href="assets/cedar-field.css" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"__TOOL_INDEX_TITLE__","description":"__TOOL_INDEX_DESCRIPTION__","url":"https://__SITE_DOMAIN__/tool.html","isPartOf":{"@type":"WebSite","name":"__SITE_NAME__","url":"https://__SITE_DOMAIN__/"}}</script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body class="ch35-body">
+<a class="ch35-skip" href="#main">跳到主要内容</a>
+<div class="ch35-binding" aria-hidden="true"><b>CEDAR</b><i></i><span>FIELD<br />HANDBOOK<br />035</span></div>
+<header class="ch35-mast">
+<a class="ch35-mark" href="index.html" aria-label="__SITE_NAME__ 首页"><span>35</span><strong>__BRAND_EN__</strong><small>FIELD HANDBOOK</small></a>
+<button class="ch35-index-button" type="button" data-ch35-menu aria-expanded="false" aria-controls="ch35-nav">打开野外索引</button>
+<nav class="ch35-nav" id="ch35-nav" aria-label="主导航"><a href="index.html"><span>01</span>营地</a><a href="article.html"><span>02</span>札记</a><a href="trailheads/orientation.html"><span>03</span>路线</a><a href="tool.html" aria-current="page"><span>04</span>工具包</a><a href="about.html"><span>05</span>手册说明</a></nav>
+<button class="ch35-lantern" type="button" data-ch35-skin-toggle aria-label="切换手册明暗">日 / 夜</button>
+</header>
+<main id="main" class="ch35-kit-index"><header><p>FIELD KIT / FIVE LOCAL INSTRUMENTS</p><h1>__TOOL_INDEX_TITLE__</h1><blockquote>__TOOL_INDEX_INTRODUCTION__</blockquote><div><span>无外部依赖</span><span>不保存输入</span><span>不是实时数据</span></div></header><section class="ch35-kit-list"><a href="kit/shift-coverage.html"><span>01</span><div><small>COVERAGE / LOCAL</small><h2>班次覆盖尺</h2><p>将值守区间合并，标出覆盖时长与空档。</p></div><b>打开 →</b></a><a href="kit/checklist-progress.html"><span>02</span><div><small>CHECKLIST / LOCAL</small><h2>清单完成仪</h2><p>按完成状态汇总条目数量与比例。</p></div><b>打开 →</b></a><a href="kit/maintenance-schedule.html"><span>03</span><div><small>SCHEDULE / LOCAL</small><h2>维护日程轮</h2><p>从起始日与间隔推算下一组维护日期。</p></div><b>打开 →</b></a><a href="kit/sampling-grid.html"><span>04</span><div><small>GRID / LOCAL</small><h2>样方网格尺</h2><p>按场地尺寸与点距估算规则采样点数。</p></div><b>打开 →</b></a><a href="kit/pack-weight.html"><span>05</span><div><small>WEIGHT / LOCAL</small><h2>行囊载重秤</h2><p>汇总物件重量并与用户设定的容量比较。</p></div><b>打开 →</b></a></section><aside class="ch35-kit-principle"><b>使用边界</b><p>工具结果只用于整理用户输入。结果、阈值与适用性仍需人工复核。</p><a href="privacy.html">查看本地处理说明</a><a href="disclaimer.html">查看信息边界</a></aside></main><footer class="ch35-footer"><div><span>手册编号 H–035</span><b>__BRAND_EN__</b><p>本站独立运营，与所提及的任何第三方平台不存在所有权或控制关系。</p></div><nav aria-label="合规与订阅"><a href="about.html">关于这本现场手册</a><a href="contact.html">联系与资料反馈</a><a href="legal.html">推广关系披露</a><a href="disclaimer.html">信息与使用边界</a><a href="privacy.html">隐私与本地处理</a><a href="corrections.html">更正与版本记录</a><a href="editorial.html">编辑与核验准则</a><a href="feed.xml">RSS 订阅</a></nav><small>__SITE_DOMAIN__ · __CONTACT_EMAIL__ · 修订 __MODIFIED_DATE__</small></footer><script src="assets/fieldbook.js" defer></script></body></html>

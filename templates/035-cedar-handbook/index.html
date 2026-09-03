@@ -1,52 +1,46 @@
-<!DOCTYPE html>
-<html lang='__LANG__'>
+<!doctype html>
+<html lang="__LANG__" data-ch35-skin="paper">
 <head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>__SITE_NAME__ · 现场运行手册</title>
-  <meta name='description' content='__SITE_DESC__'>
-  <link rel='canonical' href='https://__SITE_DOMAIN__/'>
-  <meta property='og:title' content='__SITE_NAME__ · 现场运行手册'>
-  <meta property='og:description' content='__SITE_DESC__'>
-  <meta property='og:url' content='https://__SITE_DOMAIN__/'>
-  <link rel='stylesheet' href='site.css'>
-  <script type='application/ld+json'>{"@context":"https://schema.org","@type":"TechArticle","name":"__SITE_NAME__ 现场运行手册","url":"https://__SITE_DOMAIN__/","version":"3.4"}</script>
-</head>
-<body>
-  <a data-skip href='#main'>跳到主要内容</a>
-  <header data-site-header><div><a href='index.html' data-brand aria-label='返回手册索引'><b>H/35</b><span><strong>__SITE_NAME__</strong><small>Cedar field handbook · rev 3.4</small></span></a><nav data-nav aria-label='主导航'><a href='index.html' aria-current='page'>章节索引</a><a href='article.html'>执行章节</a><a href='tool.html'>字符核验</a><a href='legal.html'>使用说明</a></nav></div></header>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#173f35" />
+<title>__HOME_TITLE__ · __SITE_NAME__</title>
+<meta name="description" content="__HOME_DESCRIPTION__" />
+<link rel="canonical" href="https://__SITE_DOMAIN__/" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="__SITE_NAME__ 野外更新" href="feed.xml" />
 
-  <main id='main' data-page='index'>
-    <handbook-cover data-cover role='region' aria-labelledby='cover-title'>
-      <div><div><p data-kicker>Operational reference · maintained edition</p><h1 id='cover-title'>把复杂流程，写成每个人都能执行的手册。</h1><p data-lede>__SITE_TAGLINE__。一份可检索、可引用、可追溯修订的现场运行手册示例。</p></div><footer><span>Owner · Operations</span><span>Classification · Internal reference</span></footer></div>
-      <aside data-cover-meta><header><span>Manual number</span><span>Current edition</span></header><div><span data-manual-code>H35</span><dl><div><dt>版本</dt><dd>3.4</dd></div><div><dt>生效日期</dt><dd>2026.08.01</dd></div><div><dt>维护周期</dt><dd>每季度</dd></div><div><dt>当前状态</dt><dd>现行</dd></div></dl></div><footer><span>Pages · 05</span><span>Chapters · 05</span></footer></aside>
-    </handbook-cover>
-
-    <section data-revision-strip aria-label='手册版本摘要'><div><span>当前版本</span><strong>Rev 3.4</strong></div><div><span>现行章节</span><strong>4 章</strong></div><div><span>修订章节</span><strong>1 章</strong></div><div><span>下次复核</span><strong>2026.11</strong></div></section>
-
-    <section aria-labelledby='chapters-title'>
-      <header data-section-head><div><p data-kicker>Chapter register · five modules</p><h2 id='chapters-title'>章节总览</h2></div><p>每个章节都标注适用范围、维护状态与引用编号。搜索关键词，或只查看现行与修订中的内容。</p></header>
-      <div data-control-bar><label for='chapter-search'><span data-label>搜索章节</span><input id='chapter-search' type='search' placeholder='例如：发布、回滚、证据' autocomplete='off'></label><div data-filter-group aria-label='章节状态筛选'><button type='button' data-chapter-filter='all' aria-pressed='true'>全部</button><button type='button' data-chapter-filter='current' aria-pressed='false'>现行</button><button type='button' data-chapter-filter='revision' aria-pressed='false'>修订中</button></div></div>
-      <div data-index-layout>
-<section data-chapter-shell aria-label='手册章节列表'><header><span id='chapter-count' role='status' aria-live='polite' aria-atomic='true'>5 / 5 章可见</span><span>Edition · 3.4</span></header><ol data-chapter-list>
-          <li data-chapter data-state='current' data-search='范围 角色 职责 值班 所有人'><b>01</b><div><h3><a href='article.html#scope'>范围、角色与责任边界</a></h3><p>确定谁发起、谁复核、谁批准，以及哪些情形必须升级。</p></div><span data-status='current'>现行</span></li>
-          <li data-chapter data-state='current' data-search='发布 门禁 检查 清单 上线'><b>02</b><div><h3><a href='article.html'>发布门禁与执行清单</a></h3><p>从变更冻结、证据留档到上线确认的五步执行路径。</p></div><span data-status='current'>现行</span></li>
-          <li data-chapter data-state='current' data-search='事件 响应 回滚 故障 恢复'><b>03</b><div><h3><a href='article.html#rollback'>事件响应与回滚</a></h3><p>在信息不完整时先控制影响，再恢复服务并补齐记录。</p></div><span data-status='current'>现行</span></li>
-          <li data-chapter data-state='revision' data-search='文档 证据 日志 审计 修订'><b>04</b><div><h3><a href='article.html#evidence'>文档、证据与修订记录</a></h3><p>定义最小留档字段；新版状态术语正在复核。</p></div><span data-status='revision'>修订中</span></li>
-          <li data-chapter data-state='current' data-search='附录 术语 状态 速查 代码'><b>A</b><div><h3><a href='#appendix'>附录：状态码与速查表</a></h3><p>把常用状态、负责动作和升级条件放在一页内。</p></div><span data-status='current'>现行</span></li>
-        </ol><div data-empty id='chapter-empty' hidden><h3>没有匹配的章节</h3><p>换一个关键词，或恢复全部状态。</p><button type='button' id='reset-chapters'>清除筛选</button></div></section>
-        <aside data-index-aside>
-          <section data-panel><p data-kicker>How to use</p><h3>三分钟找到答案</h3><ol><li>先确认章节状态为“现行”。</li><li>按编号引用规则，不复制旧截图。</li><li>遇到冲突，以章节修订记录为准。</li></ol></section>
-          <section data-panel><p data-kicker>Revision log</p><h3>最近修订</h3><dl data-version-log><div><dt>3.4</dt><dd>补充回滚证据与复核门禁</dd></div><div><dt>3.3</dt><dd>统一发布状态术语</dd></div><div><dt>3.2</dt><dd>新增无障碍检查项</dd></div></dl></section>
-          <section data-panel><p data-kicker>Document owner</p><h3>维护与反馈</h3><p>章节负责人每季度复核。发现过期条目时，请附上章节号和建议证据发送至 <a href='mailto:__CONTACT_EMAIL__'>__CONTACT_EMAIL__</a>。</p></section>
-        </aside>
-      </div>
-    </section>
-
-    <section data-appendix id='appendix' aria-labelledby='appendix-title'><div><p data-kicker>Appendix A · quick reference</p><h2 id='appendix-title'>状态码与处理速查</h2><p>状态描述必须同时说明下一步动作，避免只报颜色或缩写。</p></div><table><thead><tr><th scope='col'>状态码</th><th scope='col'>含义</th><th scope='col'>负责动作</th><th scope='col'>升级条件</th></tr></thead><tbody><tr><td>RDY</td><td>材料齐备，等待执行</td><td>执行人复核时间窗</td><td>超过窗口 30 分钟</td></tr><tr><td>HLD</td><td>条件不足，暂停推进</td><td>负责人补齐证据</td><td>影响既定发布日期</td></tr><tr><td>RBK</td><td>正在回滚或恢复</td><td>值班人控制影响</td><td>恢复超过 15 分钟</td></tr><tr><td>CLS</td><td>已关闭并完成复盘</td><td>所有人确认记录</td><td>发现遗留影响</td></tr></tbody></table></section>
-  </main>
-
-  <footer><div><div><h2>__SITE_NAME__ · 现场运行手册</h2><p>让规则可以被找到、被执行，也能被追溯。</p></div><div><nav aria-label='页脚导航'><a href='article.html'>执行章节</a><a href='tool.html'>字符核验</a><a href='legal.html'>使用说明</a></nav><small>HANDBOOK H35 · REV 3.4 · __SITE_DOMAIN__ · __CONTACT_EMAIL__</small></div></div></footer>
-  <script src='app.js'></script>
-</body>
-</html>
+<meta property="og:title" content="__HOME_TITLE__" />
+<meta property="og:description" content="__HOME_DESCRIPTION__" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://__SITE_DOMAIN__/" />
+<meta property="og:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="__HOME_TITLE__" />
+<meta name="twitter:description" content="__HOME_DESCRIPTION__" />
+<meta name="twitter:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+<link rel="stylesheet" href="assets/cedar-field.css" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"__HOME_TITLE__","description":"__HOME_DESCRIPTION__","url":"https://__SITE_DOMAIN__/","isPartOf":{"@type":"WebSite","name":"__SITE_NAME__","url":"https://__SITE_DOMAIN__/"}}</script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body class="ch35-body">
+<a class="ch35-skip" href="#main">跳到主要内容</a>
+<div class="ch35-binding" aria-hidden="true"><b>CEDAR</b><i></i><span>FIELD<br />HANDBOOK<br />035</span></div>
+<header class="ch35-mast">
+<a class="ch35-mark" href="index.html" aria-label="__SITE_NAME__ 首页"><span>35</span><strong>__BRAND_EN__</strong><small>FIELD HANDBOOK</small></a>
+<button class="ch35-index-button" type="button" data-ch35-menu aria-expanded="false" aria-controls="ch35-nav">打开野外索引</button>
+<nav class="ch35-nav" id="ch35-nav" aria-label="主导航"><a href="index.html" aria-current="page"><span>01</span>营地</a><a href="article.html"><span>02</span>札记</a><a href="trailheads/orientation.html"><span>03</span>路线</a><a href="tool.html"><span>04</span>工具包</a><a href="about.html"><span>05</span>手册说明</a></nav>
+<button class="ch35-lantern" type="button" data-ch35-skin-toggle aria-label="切换手册明暗">日 / 夜</button>
+</header>
+<main id="main" class="ch35-home">
+<map-board class="ch35-foldout" aria-labelledby="home-title">
+<map-leaf class="ch35-map-leaf"><p>CEDAR RANGE / EDITION __MODIFIED_DATE__</p><h1 id="home-title">把复杂现场，折成一册可以随身展开的路线。</h1><blockquote>__HOME_INTRODUCTION__</blockquote><div class="ch35-map-actions"><a href="#fieldnotes">翻阅十二则札记</a><a href="tool.html">打开工具包</a></div><div class="ch35-contours" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></map-leaf>
+<permit-card class="ch35-permit"><header><span>TRAIL PERMIT</span><b>FORM A / LOCAL</b></header><div class="ch35-permit-code"><small>识别码</small><code id="ch35-invite">__INVITE_CODE__</code><button type="button" data-ch35-copy="ch35-invite">复制邀请码</button></div><p>通过本站邀请码，有机会获得 __BENEFIT_RATE__ 手续费减免*</p><small>__BENEFIT_DISCLAIMER__</small><a href="fieldnotes/permit-page.html"><span>编辑选读 · 访问许可页</span><b>只保留待核验字段与完整 UI →</b></a></permit-card>
+<trail-tag class="ch35-trail-tag" aria-hidden="true"><b>035</b><span>KEEP DRY<br />VERIFY NOTES</span></trail-tag>
+</map-board>
+<log-strip class="ch35-log-strip" aria-label="框架清点"><div><b>12</b><span>不同札记版式</span></div><div><b>03</b><span>主题营地</span></div><div><b>05</b><span>本地工具</span></div><p>本页不含外部推广链接 · 事实状态由内容团队核验</p></log-strip>
+<field-register class="ch35-fieldnotes" id="fieldnotes"><header><div><small>FIELD NOTES / 01—12</small><h2>每一页，都有自己的阅读地形。</h2></div><label for="ch35-search">检索札记<input id="ch35-search" type="search" autocomplete="off" placeholder="输入标题、形态或编号" /></label><div role="group" aria-label="按营地筛选"><button type="button" data-ch35-filter="all" aria-pressed="true">全册</button><button type="button" data-ch35-filter="orientation" aria-pressed="false">起点</button><button type="button" data-ch35-filter="operations" aria-pressed="false">林线</button><button type="button" data-ch35-filter="stewardship" aria-pressed="false">回程</button></div><output data-ch35-count aria-live="polite">12 则可见</output></header><note-rack class="ch35-note-grid"><a class="ch35-note-card ch35-note-2" data-ch35-note data-sector="orientation" data-search="ORIENT 现场方位盘 指南针四象限" href="fieldnotes/site-orientation.html"><span>01</span><small>起点营地</small><b>__ORIENT_TITLE__</b><em>指南针四象限</em></a><a class="ch35-note-card ch35-note-3" data-ch35-note data-sector="orientation" data-search="SEQUENCE 行动路径卡 编号路线段" href="fieldnotes/operating-sequence.html"><span>02</span><small>起点营地</small><b>__SEQUENCE_TITLE__</b><em>编号路线段</em></a><a class="ch35-note-card ch35-note-4" data-ch35-note data-sector="orientation" data-search="ANATOMY 装备拆解页 部件标注图" href="fieldnotes/equipment-anatomy.html"><span>03</span><small>起点营地</small><b>__ANATOMY_TITLE__</b><em>部件标注图</em></a><a class="ch35-note-card ch35-note-1" data-ch35-note data-sector="orientation" data-search="LOG 环境记录页 观测日志" href="fieldnotes/condition-log.html"><span>04</span><small>起点营地</small><b>__LOG_TITLE__</b><em>观测日志</em></a><a class="ch35-note-card ch35-note-2" data-ch35-note data-sector="operations" data-search="BRANCH 分岔判断图 路径分枝" href="fieldnotes/decision-tree.html"><span>05</span><small>林线工位</small><b>__BRANCH_TITLE__</b><em>路径分枝</em></a><a class="ch35-note-card ch35-note-3" data-ch35-note data-sector="operations" data-search="CYCLE 维护周期轮 季节循环" href="fieldnotes/maintenance-cycle.html"><span>06</span><small>林线工位</small><b>__CYCLE_TITLE__</b><em>季节循环</em></a><a class="ch35-note-card ch35-note-4" data-ch35-note data-sector="operations" data-search="HANDOVER 交接木牌 班次交接" href="fieldnotes/handover-card.html"><span>07</span><small>林线工位</small><b>__HANDOVER_TITLE__</b><em>班次交接</em></a><a class="ch35-note-card ch35-note-1" data-ch35-note data-sector="operations" data-search="TRACE 事件足迹线 证据追踪" href="fieldnotes/incident-trace.html"><span>08</span><small>林线工位</small><b>__TRACE_TITLE__</b><em>证据追踪</em></a><a class="ch35-note-card ch35-note-2" data-ch35-note data-sector="stewardship" data-search="SPEC 规格折页 技术对照页" href="fieldnotes/spec-sheet.html"><span>09</span><small>回程档案</small><b>__SPEC_TITLE__</b><em>技术对照页</em></a><a class="ch35-note-card ch35-note-3" data-ch35-note data-sector="stewardship" data-search="RADIO 小队通话录 无线电对谈" href="fieldnotes/crew-dialogue.html"><span>10</span><small>回程档案</small><b>__RADIO_TITLE__</b><em>无线电对谈</em></a><a class="ch35-note-card ch35-note-4" data-ch35-note data-sector="stewardship" data-search="LABELS 野外词签册 标本式词签" href="fieldnotes/field-glossary.html"><span>11</span><small>回程档案</small><b>__LABELS_TITLE__</b><em>标本式词签</em></a><a class="ch35-note-card ch35-note-1" data-ch35-note data-sector="stewardship" data-search="PERMIT 访问许可页 许可签外壳" href="fieldnotes/permit-page.html"><span>12</span><small>回程档案</small><b>__PERMIT_TITLE__</b><em>许可签外壳</em></a></note-rack><empty-pocket class="ch35-no-notes" data-ch35-empty hidden><h3>这片路线没有匹配札记</h3><p>换一个词，或恢复整册。</p><button type="button" data-ch35-reset>恢复全部</button></empty-pocket></field-register>
+<camp-grid class="ch35-camps"><a href="trailheads/orientation.html"><small>ORIENTATION CAMP</small><span>01</span><h2>起点营地</h2><p>四种文章外壳，沿一条独立路线编组。</p></a><a href="trailheads/operations.html"><small>RIDGELINE POST</small><span>02</span><h2>林线工位</h2><p>四种文章外壳，沿一条独立路线编组。</p></a><a href="trailheads/stewardship.html"><small>RETURN ARCHIVE</small><span>03</span><h2>回程档案</h2><p>四种文章外壳，沿一条独立路线编组。</p></a></camp-grid>
+<kit-bench class="ch35-kit-teaser"><header><small>LOCAL FIELD KIT</small><h2>五件计算工具，只在当前浏览器工作。</h2></header><a href="kit/shift-coverage.html"><span>K1</span><b>班次覆盖尺</b><small>将值守区间合并，标出覆盖时长与空档。</small></a><a href="kit/checklist-progress.html"><span>K2</span><b>清单完成仪</b><small>按完成状态汇总条目数量与比例。</small></a><a href="kit/maintenance-schedule.html"><span>K3</span><b>维护日程轮</b><small>从起始日与间隔推算下一组维护日期。</small></a><a href="kit/sampling-grid.html"><span>K4</span><b>样方网格尺</b><small>按场地尺寸与点距估算规则采样点数。</small></a><a href="kit/pack-weight.html"><span>K5</span><b>行囊载重秤</b><small>汇总物件重量并与用户设定的容量比较。</small></a></kit-bench>
+</main><details class="ch35-pack-index"><summary>展开整套手册目录</summary><div><a href="article.html">全部札记</a><a href="fieldnotes/site-orientation.html">现场方位盘</a><a href="fieldnotes/operating-sequence.html">行动路径卡</a><a href="fieldnotes/equipment-anatomy.html">装备拆解页</a><a href="fieldnotes/condition-log.html">环境记录页</a><a href="fieldnotes/decision-tree.html">分岔判断图</a><a href="fieldnotes/maintenance-cycle.html">维护周期轮</a><a href="fieldnotes/handover-card.html">交接木牌</a><a href="fieldnotes/incident-trace.html">事件足迹线</a><a href="fieldnotes/spec-sheet.html">规格折页</a><a href="fieldnotes/crew-dialogue.html">小队通话录</a><a href="fieldnotes/field-glossary.html">野外词签册</a><a href="fieldnotes/permit-page.html">访问许可页</a><a href="trailheads/orientation.html">起点营地</a><a href="trailheads/operations.html">林线工位</a><a href="trailheads/stewardship.html">回程档案</a><a href="tool.html">工具包总览</a><a href="kit/shift-coverage.html">班次覆盖尺</a><a href="kit/checklist-progress.html">清单完成仪</a><a href="kit/maintenance-schedule.html">维护日程轮</a><a href="kit/sampling-grid.html">样方网格尺</a><a href="kit/pack-weight.html">行囊载重秤</a><a href="about.html">关于这本现场手册</a><a href="contact.html">联系与资料反馈</a><a href="legal.html">推广关系披露</a><a href="disclaimer.html">信息与使用边界</a><a href="privacy.html">隐私与本地处理</a><a href="corrections.html">更正与版本记录</a><a href="editorial.html">编辑与核验准则</a></div></details><footer class="ch35-footer"><div><span>手册编号 H–035</span><b>__BRAND_EN__</b><p>本站独立运营，与所提及的任何第三方平台不存在所有权或控制关系。</p></div><nav aria-label="合规与订阅"><a href="about.html">关于这本现场手册</a><a href="contact.html">联系与资料反馈</a><a href="legal.html">推广关系披露</a><a href="disclaimer.html">信息与使用边界</a><a href="privacy.html">隐私与本地处理</a><a href="corrections.html">更正与版本记录</a><a href="editorial.html">编辑与核验准则</a><a href="feed.xml">RSS 订阅</a></nav><small>__SITE_DOMAIN__ · __CONTACT_EMAIL__ · 修订 __MODIFIED_DATE__</small></footer><script src="assets/fieldbook.js" defer></script></body></html>

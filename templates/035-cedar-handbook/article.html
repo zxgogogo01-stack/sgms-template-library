@@ -1,40 +1,38 @@
-<!DOCTYPE html>
-<html lang='__LANG__'>
+<!doctype html>
+<html lang="__LANG__" data-ch35-skin="paper">
 <head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>第 02 章：发布门禁与执行清单 · __SITE_NAME__</title>
-  <meta name='description' content='从变更冻结、证据留档到上线确认的五步发布执行章节。'>
-  <link rel='canonical' href='https://__SITE_DOMAIN__/article.html'>
-  <meta property='og:title' content='第 02 章：发布门禁与执行清单 · __SITE_NAME__'>
-  <meta property='og:description' content='可执行、可追溯的发布门禁与回滚章节示例。'>
-  <meta property='og:url' content='https://__SITE_DOMAIN__/article.html'>
-  <link rel='stylesheet' href='site.css'>
-  <script type='application/ld+json'>{"@context":"https://schema.org","@type":"TechArticle","headline":"第 02 章：发布门禁与执行清单","datePublished":"2026-08-01","dateModified":"2026-08-01","version":"3.4"}</script>
-</head>
-<body>
-  <a data-skip href='#main'>跳到主要内容</a>
-  <header data-site-header><div><a href='index.html' data-brand aria-label='返回手册索引'><b>H/35</b><span><strong>__SITE_NAME__</strong><small>Cedar field handbook · rev 3.4</small></span></a><nav data-nav aria-label='主导航'><a href='index.html'>章节索引</a><a href='article.html' aria-current='page'>执行章节</a><a href='tool.html'>字符核验</a><a href='legal.html'>使用说明</a></nav></div></header>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#173f35" />
+<title>__ARTICLE_INDEX_TITLE__ · __SITE_NAME__</title>
+<meta name="description" content="__ARTICLE_INDEX_DESCRIPTION__" />
+<link rel="canonical" href="https://__SITE_DOMAIN__/article.html" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="__SITE_NAME__ 野外更新" href="feed.xml" />
 
-  <main id='main' data-page='article'>
-    <header><div><p data-kicker>Chapter 02 · current · owner operations</p><h1>发布门禁与执行清单。</h1><p data-lede>用五个可验证步骤把“准备好了”变成可复核的发布判断；任一关键门禁失败，就暂停而不是带病上线。</p></div><aside><p data-label>Chapter metadata</p><p>编号：H35-02<br>版本：3.4<br>状态：现行<br>复核：2026.11<br>负责人：Operations</p></aside></header>
-
-    <div data-doc-grid>
-      <aside data-toc aria-label='本章目录'><strong>本章目录</strong><ol><li><a href='#scope'>02.1 · 适用范围</a></li><li><a href='#gates'>02.2 · 三道门禁</a></li><li><a href='#checklist'>02.3 · 执行清单</a></li><li><a href='#rollback'>02.4 · 停止与回滚</a></li><li><a href='#evidence'>02.5 · 证据与修订</a></li></ol></aside>
-      <article data-prose>
-        <p>发布不是一次点击，而是一组证据充分、责任明确、随时可停止的决定。</p>
-        <h2 id='scope'>02.1 适用范围</h2><p>本章适用于面向用户的内容、配置与前端变更。纯内部草稿可简化流程；涉及权限、计费、合规或不可逆数据变更时，必须增加专项复核。</p><div data-callout><strong>Stop condition</strong>若负责人、回滚路径或验收证据任一项缺失，发布状态必须保持 HLD。</div>
-        <h2 id='gates'>02.2 三道发布门禁</h2><div data-process><div><b>01</b><h3>范围冻结</h3><p>发布窗口内不再新增需求；所有变更都能回到同一清单。</p></div><div><b>02</b><h3>证据齐备</h3><p>桌面、手机、深色、错误状态与关键路径均有验收记录。</p></div><div><b>03</b><h3>责任确认</h3><p>执行人、批准人和回滚负责人在窗口前完成确认。</p></div></div>
-<h2 id='checklist'>02.3 发布执行清单</h2><p>勾选状态只保存在当前浏览器会话，用于现场核对，不替代正式发布记录。</p><div data-check-progress><strong id='check-count' role='status' aria-live='polite' aria-atomic='true' tabindex='-1'>0 / 5 已完成</strong><div><button type='button' id='check-all'>全部标记</button><button type='button' id='reset-checklist'>重置</button></div></div><ol data-checklist>
-          <li><label for='gate-01'><input id='gate-01' type='checkbox' data-release-check aria-label='G01 发布范围与最终变更清单一致'><b>G01</b><span>发布范围与最终变更清单一致。</span></label></li><li><label for='gate-02'><input id='gate-02' type='checkbox' data-release-check aria-label='G02 桌面手机深色模式和错误状态已验收'><b>G02</b><span>桌面、手机、深色模式和错误状态已验收。</span></label></li><li><label for='gate-03'><input id='gate-03' type='checkbox' data-release-check aria-label='G03 回滚步骤负责人和恢复时间已确认'><b>G03</b><span>回滚步骤、负责人和最长恢复时间已确认。</span></label></li><li><label for='gate-04'><input id='gate-04' type='checkbox' data-release-check aria-label='G04 监控反馈入口与升级联系人可用'><b>G04</b><span>监控、用户反馈入口与升级联系人可用。</span></label></li><li><label for='gate-05'><input id='gate-05' type='checkbox' data-release-check aria-label='G05 发布说明包含影响版本和限制'><b>G05</b><span>发布说明包含影响范围、版本和已知限制。</span></label></li>
-        </ol>
-        <h2 id='rollback'>02.4 停止、回滚与恢复</h2><p>若关键路径失败、错误率持续上升或验证结果与预期不一致，执行人有权立即停止。优先控制影响，再讨论原因。</p><table><thead><tr><th scope='col'>情形</th><th scope='col'>立即动作</th><th scope='col'>记录要求</th></tr></thead><tbody><tr><td>关键路径不可用</td><td>暂停发布并回滚</td><td>时间、影响、版本</td></tr><tr><td>非关键显示异常</td><td>评估影响后修复</td><td>截图、范围、负责人</td></tr><tr><td>监控信号冲突</td><td>保持 HLD，补充验证</td><td>原始信号与判断</td></tr></tbody></table>
-        <h2 id='evidence'>02.5 证据与本章修订</h2><p>最小证据集包含发布编号、代码或内容版本、验收环境、执行时间、批准人、结果与异常。截图不能替代可检索的文本记录。</p><h3>修订记录</h3><table><thead><tr><th scope='col'>版本</th><th scope='col'>日期</th><th scope='col'>变更</th><th scope='col'>状态</th></tr></thead><tbody><tr><td>3.4</td><td>2026.08.01</td><td>补充回滚证据与五项门禁</td><td>现行</td></tr><tr><td>3.3</td><td>2026.05.01</td><td>统一 HLD / RBK 状态</td><td>归档</td></tr></tbody></table>
-      </article>
-    </div>
-  </main>
-
-  <footer><div><div><h2>__SITE_NAME__ · 第 02 章</h2><p>执行清单帮助现场核对，正式记录仍需进入发布档案。</p></div><div><nav aria-label='页脚导航'><a href='index.html'>章节索引</a><a href='tool.html'>字符核验</a><a href='legal.html'>使用说明</a></nav><small>H35-02 · REV 3.4 · __SITE_DOMAIN__ · __CONTACT_EMAIL__</small></div></div></footer>
-  <script src='app.js'></script>
-</body>
-</html>
+<meta property="og:title" content="__ARTICLE_INDEX_TITLE__" />
+<meta property="og:description" content="__ARTICLE_INDEX_DESCRIPTION__" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://__SITE_DOMAIN__/article.html" />
+<meta property="og:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="__ARTICLE_INDEX_TITLE__" />
+<meta name="twitter:description" content="__ARTICLE_INDEX_DESCRIPTION__" />
+<meta name="twitter:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+<link rel="stylesheet" href="assets/cedar-field.css" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"__ARTICLE_INDEX_TITLE__","description":"__ARTICLE_INDEX_DESCRIPTION__","url":"https://__SITE_DOMAIN__/article.html","isPartOf":{"@type":"WebSite","name":"__SITE_NAME__","url":"https://__SITE_DOMAIN__/"}}</script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body class="ch35-body">
+<a class="ch35-skip" href="#main">跳到主要内容</a>
+<div class="ch35-binding" aria-hidden="true"><b>CEDAR</b><i></i><span>FIELD<br />HANDBOOK<br />035</span></div>
+<header class="ch35-mast">
+<a class="ch35-mark" href="index.html" aria-label="__SITE_NAME__ 首页"><span>35</span><strong>__BRAND_EN__</strong><small>FIELD HANDBOOK</small></a>
+<button class="ch35-index-button" type="button" data-ch35-menu aria-expanded="false" aria-controls="ch35-nav">打开野外索引</button>
+<nav class="ch35-nav" id="ch35-nav" aria-label="主导航"><a href="index.html"><span>01</span>营地</a><a href="article.html" aria-current="page"><span>02</span>札记</a><a href="trailheads/orientation.html"><span>03</span>路线</a><a href="tool.html"><span>04</span>工具包</a><a href="about.html"><span>05</span>手册说明</a></nav>
+<button class="ch35-lantern" type="button" data-ch35-skin-toggle aria-label="切换手册明暗">日 / 夜</button>
+</header>
+<main id="main" class="ch35-register"><header class="ch35-register-head"><p>FIELD REGISTER / TWELVE LEAVES</p><h1>__ARTICLE_INDEX_TITLE__</h1><blockquote>__ARTICLE_INDEX_INTRODUCTION__</blockquote><div class="ch35-register-tools"><label for="ch35-index-search">搜索全册<input id="ch35-index-search" type="search" autocomplete="off" placeholder="关键词、版式或编号" /></label><div role="group" aria-label="筛选营地"><button type="button" data-ch35-index-filter="all" aria-pressed="true">全部</button><button type="button" data-ch35-index-filter="orientation" aria-pressed="false">起点</button><button type="button" data-ch35-index-filter="operations" aria-pressed="false">林线</button><button type="button" data-ch35-index-filter="stewardship" aria-pressed="false">回程</button></div><output data-ch35-index-count aria-live="polite">12 页</output></div></header>
+<section class="ch35-register-body"><ol><li data-ch35-index-note data-sector="orientation" data-search="ORIENT 现场方位盘 指南针四象限"><span>01</span><div><small>起点营地 · 指南针四象限</small><h2><a href="fieldnotes/site-orientation.html">__ORIENT_TITLE__</a></h2><p>__ORIENT_DECK__</p></div><b>ORIENT</b></li><li data-ch35-index-note data-sector="orientation" data-search="SEQUENCE 行动路径卡 编号路线段"><span>02</span><div><small>起点营地 · 编号路线段</small><h2><a href="fieldnotes/operating-sequence.html">__SEQUENCE_TITLE__</a></h2><p>__SEQUENCE_DECK__</p></div><b>SEQUENCE</b></li><li data-ch35-index-note data-sector="orientation" data-search="ANATOMY 装备拆解页 部件标注图"><span>03</span><div><small>起点营地 · 部件标注图</small><h2><a href="fieldnotes/equipment-anatomy.html">__ANATOMY_TITLE__</a></h2><p>__ANATOMY_DECK__</p></div><b>ANATOMY</b></li><li data-ch35-index-note data-sector="orientation" data-search="LOG 环境记录页 观测日志"><span>04</span><div><small>起点营地 · 观测日志</small><h2><a href="fieldnotes/condition-log.html">__LOG_TITLE__</a></h2><p>__LOG_DECK__</p></div><b>LOG</b></li><li data-ch35-index-note data-sector="operations" data-search="BRANCH 分岔判断图 路径分枝"><span>05</span><div><small>林线工位 · 路径分枝</small><h2><a href="fieldnotes/decision-tree.html">__BRANCH_TITLE__</a></h2><p>__BRANCH_DECK__</p></div><b>BRANCH</b></li><li data-ch35-index-note data-sector="operations" data-search="CYCLE 维护周期轮 季节循环"><span>06</span><div><small>林线工位 · 季节循环</small><h2><a href="fieldnotes/maintenance-cycle.html">__CYCLE_TITLE__</a></h2><p>__CYCLE_DECK__</p></div><b>CYCLE</b></li><li data-ch35-index-note data-sector="operations" data-search="HANDOVER 交接木牌 班次交接"><span>07</span><div><small>林线工位 · 班次交接</small><h2><a href="fieldnotes/handover-card.html">__HANDOVER_TITLE__</a></h2><p>__HANDOVER_DECK__</p></div><b>HANDOVER</b></li><li data-ch35-index-note data-sector="operations" data-search="TRACE 事件足迹线 证据追踪"><span>08</span><div><small>林线工位 · 证据追踪</small><h2><a href="fieldnotes/incident-trace.html">__TRACE_TITLE__</a></h2><p>__TRACE_DECK__</p></div><b>TRACE</b></li><li data-ch35-index-note data-sector="stewardship" data-search="SPEC 规格折页 技术对照页"><span>09</span><div><small>回程档案 · 技术对照页</small><h2><a href="fieldnotes/spec-sheet.html">__SPEC_TITLE__</a></h2><p>__SPEC_DECK__</p></div><b>SPEC</b></li><li data-ch35-index-note data-sector="stewardship" data-search="RADIO 小队通话录 无线电对谈"><span>10</span><div><small>回程档案 · 无线电对谈</small><h2><a href="fieldnotes/crew-dialogue.html">__RADIO_TITLE__</a></h2><p>__RADIO_DECK__</p></div><b>RADIO</b></li><li data-ch35-index-note data-sector="stewardship" data-search="LABELS 野外词签册 标本式词签"><span>11</span><div><small>回程档案 · 标本式词签</small><h2><a href="fieldnotes/field-glossary.html">__LABELS_TITLE__</a></h2><p>__LABELS_DECK__</p></div><b>LABELS</b></li><li data-ch35-index-note data-sector="stewardship" data-search="PERMIT 访问许可页 许可签外壳"><span>12</span><div><small>回程档案 · 许可签外壳</small><h2><a href="fieldnotes/permit-page.html">__PERMIT_TITLE__</a></h2><p>__PERMIT_DECK__</p></div><b>PERMIT</b></li></ol><aside><h2>三条路线</h2><a href="trailheads/orientation.html"><small>ORIENTATION CAMP</small><b>起点营地</b><span>04 页</span></a><a href="trailheads/operations.html"><small>RIDGELINE POST</small><b>林线工位</b><span>04 页</span></a><a href="trailheads/stewardship.html"><small>RETURN ARCHIVE</small><b>回程档案</b><span>04 页</span></a><a href="tool.html"><small>FIELD KIT</small><b>工具包</b><span>05 件</span></a></aside></section><div class="ch35-no-notes" data-ch35-index-empty hidden><h2>未找到匹配札记</h2><button type="button" data-ch35-index-reset>清除检索</button></div>
+</main><footer class="ch35-footer"><div><span>手册编号 H–035</span><b>__BRAND_EN__</b><p>本站独立运营，与所提及的任何第三方平台不存在所有权或控制关系。</p></div><nav aria-label="合规与订阅"><a href="about.html">关于这本现场手册</a><a href="contact.html">联系与资料反馈</a><a href="legal.html">推广关系披露</a><a href="disclaimer.html">信息与使用边界</a><a href="privacy.html">隐私与本地处理</a><a href="corrections.html">更正与版本记录</a><a href="editorial.html">编辑与核验准则</a><a href="feed.xml">RSS 订阅</a></nav><small>__SITE_DOMAIN__ · __CONTACT_EMAIL__ · 修订 __MODIFIED_DATE__</small></footer><script src="assets/fieldbook.js" defer></script></body></html>
