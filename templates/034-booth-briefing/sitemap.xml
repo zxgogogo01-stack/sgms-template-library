@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://__SITE_DOMAIN__/</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://__SITE_DOMAIN__/</loc></url>
   <url><loc>https://__SITE_DOMAIN__/article.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/briefs/market-radar.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/briefs/vendor-scorecard.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/briefs/supply-chain-route.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/briefs/material-board.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/briefs/buyer-interview.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/briefs/price-ladder.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/briefs/compliance-gate.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/briefs/launch-calendar.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/briefs/spec-comparison.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/briefs/risk-wall.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/briefs/field-glossary.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/briefs/access-pass.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/pavilions/sourcing.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/pavilions/operations.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/pavilions/decisions.html</loc></url>
   <url><loc>https://__SITE_DOMAIN__/tool.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/lab/supplier-scorer.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/lab/reorder-point.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/lab/container-fit.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/lab/sku-comparator.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/lab/procurement-timeline.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/about.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/contact.html</loc></url>
   <url><loc>https://__SITE_DOMAIN__/legal.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/disclaimer.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/privacy.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/corrections.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/editorial.html</loc></url>
 </urlset>
