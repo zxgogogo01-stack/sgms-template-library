@@ -1,43 +1,992 @@
-# 040-lantern-rows
+# 040 Lantern Rows — workflow-ready v2
 
-## 模板定位
+## 用途
 
-高端夜间编辑索引与文化观察模板。视觉以暖灰纸面、深夜黑、灯笼琥珀色、时间戳和连续行录为核心，适合城市文化刊物、设计观察、独立编辑精选、夜间生活指南与专题链接库。它保留“按时间逐行收录”的独特结构，但补齐了完整编辑叙事、阅读层级与可用工具。
+高端夜间编辑行录完整框架。后续 AI 只需填写站点变量、经核实的文字与十二篇文章内容；暗色灯桌视觉、十二种开场结构、三辑索引、五个纯前端工具、响应式、封面、合规和 SEO 资产已经搭好。
 
-## 页面组成
+## 页面角色
 
-- `index.html`：夜间编辑台封面、实时摘要、关键词带、七行内容索引、搜索与类别筛选、往夜存档。
-- `article.html`：完整城市观察长文，含阅读进度、文章目录、步行数据、现场笔记、编辑方法和引用复制。
-- `tool.html`：本地行号排版台，可配置起始号、位数、前缀与空白行规则，含示例、清空、错误状态和结果复制。
-- `legal.html`：收录、核对、修订、隐私与使用边界，包含公开版本记录与摘要复制。
-- `404.html`：与整套视觉一致的断线页，支持示例内容搜索与明确恢复入口。
-- `site.css`：共享视觉系统、明暗模式、桌面与手机响应式、键盘焦点和减少动态偏好。
-- `app.js`：主题、移动导航、首页筛选、文章进度、复制、行号工具与 404 搜索交互。
+```json workflow-ready-v2
+{
+  "version": 2,
+  "home": "index.html",
+  "articleIndex": "dispatch.html",
+  "articles": [
+    "signals/last-light-map.html",
+    "signals/small-type-night.html",
+    "signals/temporary-library.html",
+    "signals/local-zines.html",
+    "signals/timber-wayfinding.html",
+    "signals/rain-arcade-walk.html",
+    "signals/market-sound-layers.html",
+    "signals/window-signs.html",
+    "signals/late-kitchen-ledger.html",
+    "signals/neon-repair.html",
+    "signals/river-screening.html",
+    "signals/access-after-dark.html"
+  ],
+  "cornerstones": [
+    "signals/last-light-map.html",
+    "signals/local-zines.html"
+  ],
+  "registrationGuide": "signals/access-after-dark.html",
+  "articleCovers": {
+    "signals/last-light-map.html": {
+      "display": "assets/covers/last-light-map.webp",
+      "og": "assets/covers/last-light-map.png"
+    },
+    "signals/small-type-night.html": {
+      "display": "assets/covers/small-type-night.webp",
+      "og": "assets/covers/small-type-night.png"
+    },
+    "signals/temporary-library.html": {
+      "display": "assets/covers/temporary-library.webp",
+      "og": "assets/covers/temporary-library.png"
+    },
+    "signals/local-zines.html": {
+      "display": "assets/covers/local-zines.webp",
+      "og": "assets/covers/local-zines.png"
+    },
+    "signals/timber-wayfinding.html": {
+      "display": "assets/covers/timber-wayfinding.webp",
+      "og": "assets/covers/timber-wayfinding.png"
+    },
+    "signals/rain-arcade-walk.html": {
+      "display": "assets/covers/rain-arcade-walk.webp",
+      "og": "assets/covers/rain-arcade-walk.png"
+    },
+    "signals/market-sound-layers.html": {
+      "display": "assets/covers/market-sound-layers.webp",
+      "og": "assets/covers/market-sound-layers.png"
+    },
+    "signals/window-signs.html": {
+      "display": "assets/covers/window-signs.webp",
+      "og": "assets/covers/window-signs.png"
+    },
+    "signals/late-kitchen-ledger.html": {
+      "display": "assets/covers/late-kitchen-ledger.webp",
+      "og": "assets/covers/late-kitchen-ledger.png"
+    },
+    "signals/neon-repair.html": {
+      "display": "assets/covers/neon-repair.webp",
+      "og": "assets/covers/neon-repair.png"
+    },
+    "signals/river-screening.html": {
+      "display": "assets/covers/river-screening.webp",
+      "og": "assets/covers/river-screening.png"
+    },
+    "signals/access-after-dark.html": {
+      "display": "assets/covers/access-after-dark.webp",
+      "og": "assets/covers/access-after-dark.png"
+    }
+  },
+  "categories": [
+    {
+      "path": "editions/city.html",
+      "label": "夜路采样",
+      "articles": [
+        "signals/last-light-map.html",
+        "signals/temporary-library.html",
+        "signals/rain-arcade-walk.html",
+        "signals/late-kitchen-ledger.html"
+      ]
+    },
+    {
+      "path": "editions/design.html",
+      "label": "版面灯桌",
+      "articles": [
+        "signals/small-type-night.html",
+        "signals/timber-wayfinding.html",
+        "signals/window-signs.html",
+        "signals/neon-repair.html"
+      ]
+    },
+    {
+      "path": "editions/culture.html",
+      "label": "散场之后",
+      "articles": [
+        "signals/local-zines.html",
+        "signals/market-sound-layers.html",
+        "signals/river-screening.html",
+        "signals/access-after-dark.html"
+      ]
+    }
+  ],
+  "toolIndex": "atelier.html",
+  "tools": [
+    "atelier/numbered-lines.html",
+    "atelier/time-ladder.html",
+    "atelier/reading-cadence.html",
+    "atelier/lantern-contrast.html",
+    "atelier/observation-gaps.html"
+  ],
+  "legal": {
+    "about": "about.html",
+    "contact": "contact.html",
+    "disclosure": "legal.html",
+    "disclaimer": "disclaimer.html",
+    "privacy": "privacy.html",
+    "corrections": "corrections.html",
+    "editorial": "editorial.html"
+  },
+  "error404": "404.html",
+  "robots": "robots.txt",
+  "sitemap": "sitemap.xml",
+  "feed": "feed.xml",
+  "security": ".well-known/security.txt",
+  "favicon": "favicon.ico",
+  "appleTouchIcon": "apple-touch-icon.png",
+  "socialImage": "assets/lantern-social.png",
+  "variables": {
+    "siteDomain": "__SITE_DOMAIN__",
+    "siteName": "__SITE_NAME__",
+    "wordmark": "__WORDMARK__",
+    "inviteCode": "__INVITE_CODE__",
+    "benefitRate": "__BENEFIT_RATE__",
+    "benefitDisclaimer": "__BENEFIT_DISCLAIMER__",
+    "affiliateUrl": "__AFFILIATE_URL__"
+  }
+}
+```
 
-## 占位符
+## 夜行接入笺边界
 
-`__SITE_NAME__`、`__SITE_DOMAIN__`、`__SITE_TAGLINE__`、`__SITE_DESC__`、`__LANG__`
+`signals/access-after-dark.html` 只是文章 UI 与内容槽位，不含注册步骤、平台事实或教程正文。页面恰好保留一个 `__AFFILIATE_URL__` 静态链接槽位，具备所需属性、邀请码与紧邻披露；其他页面不含转化直链。
 
-## 后续 AI 的文字接入顺序
+## 后续 AI 接入顺序
 
-1. 先替换全部占位符，再改写首页行录、长文、编辑约定与 404 搜索样本；保留五页结构、`data-*` 属性、表单 `id`、菜单和主题按钮，不要重新设计 UI。
-2. 首页新增内容时复制完整的 `[data-signal]` 行，填写时间、标题、摘要、标签、`data-category` 与 `data-search`；类别值必须与筛选按钮的 `data-filter` 完全一致，并同步更新按钮数量和摘要。
-3. `article.html` 已提供完整的长文目录、现场数据、笔记、方法和引用区；直接替换事实、来源与文字即可。`legal.html` 只接入站点真实规则、版本和联系信息。
-4. 行号工房已覆盖参数校验、空行规则、结果失效、示例、清空和复制反馈。后续 AI 只改帮助文字与样例，不要为内容接入改写 `app.js`；404 核心搜索词在 `entries` 数组中替换。
-5. 所有 UI 类名使用 `lr40-` 专属命名空间。内容接入后运行 `node tools/audit-template.js templates/040-lantern-rows`，并在 1440px 与 390px 视口检查五页；其他 AI 可直接写文字与数据，不再消耗时间重搭框架。
+1. 替换站点名、英文 wordmark、域名、邀请码、利益点、脚注、日期、作者与联系方式变量。
+2. 分别填写十二份行录的标题、开场、章节、问答、来源与封面替代文字，不改变现成版式和 `data-*` 钩子。
+3. 接入笺只在单站事实核验完成后填写真实说明与注册链接；模板库不承载平台操作事实。
+4. 发布单站前重新核对 canonical、schema、sitemap、feed、推广披露与链接目标。
 
-## 可删与替换区块
+## 五张本地灯桌
 
-- 首页行录使用 `[data-signal]`；增删条目时，同步调整筛选按钮数量与夜间编辑台摘要。
-- 行录的 `data-category` 需要与筛选按钮的 `data-filter` 完全一致；`data-search` 可补充地点或同义词。
-- 不需要行号工具时，可删除 `tool.html`，并同步移除各页导航与 `sitemap.xml` 中对应链接。
-- 文章中的照度数字仅为展示样本；正式发布前需替换为可核对的数据和来源说明。
-- 404 搜索样本位于 `app.js` 的 `entries` 数组，应在上线前替换为真实核心页面。
+- 逐行编号台：行过滤、补零、前缀与连续编号。
+- 时间梯生成器：按分钟步长生成时标并标明跨午夜日次。
+- 阅读节奏估算器：分别统计 CJK 字符和拉丁词，并加入图片停留时间。
+- 灯色对比检验器：按相对亮度计算 WCAG 对比度与 AA/AAA 结果。
+- 观察间隙检出器：校验、排序或跨午夜读取时标并找出最长空档。
 
-## 交互与验收提示
+每张工具均已实现正常、错误、边界、输入变化失效旧结果、重置、复制和默认折叠的五段 Guide。
 
-- 首页搜索同时匹配主题、地点和关键词；无结果时展示空态并保留恢复筛选入口。
-- 行号工具拒绝空输入、超范围起始号和超过 180 行的单次输入，错误后会聚焦对应控件。
-- 复制功能包含浏览器兼容回退；状态消息通过 `aria-live` 反馈。
-- 明暗模式会记住本机选择，首次访问跟随系统偏好；移动导航完整支持键盘操作。
-- 发布前应检查长文目录锚点、手机端文本换行、工具结果滚动和全页横向溢出。
+## 兼容入口
+
+`article.html` 与 `tool.html` 是旧五页检查所需的完整只读兼容索引，均为 `noindex,follow`，canonical 分别指向 `dispatch.html` 与 `atelier.html`，不计入公开索引集合。
+
+## 变量清单
+
+- `__ABOUT_ASIDE__`
+- `__ABOUT_DESCRIPTION__`
+- `__ABOUT_INTRODUCTION__`
+- `__ABOUT_SECTION_1_BODY__`
+- `__ABOUT_SECTION_1_TITLE__`
+- `__ABOUT_SECTION_2_BODY__`
+- `__ABOUT_SECTION_2_TITLE__`
+- `__ABOUT_SECTION_3_BODY__`
+- `__ABOUT_SECTION_3_TITLE__`
+- `__ABOUT_SECTION_4_BODY__`
+- `__ABOUT_SECTION_4_TITLE__`
+- `__ABOUT_TITLE__`
+- `__ACCESS_AUTHOR_NOTE_TITLE__`
+- `__ACCESS_AUTHOR_NOTE__`
+- `__ACCESS_COVER_ALT__`
+- `__ACCESS_COVER_CAPTION__`
+- `__ACCESS_DECK__`
+- `__ACCESS_DESCRIPTION__`
+- `__ACCESS_FAQ_SHORT__`
+- `__ACCESS_FAQ_TITLE__`
+- `__ACCESS_OPENING__`
+- `__ACCESS_READING_TIME__`
+- `__ACCESS_SECTION_1_BODY_1__`
+- `__ACCESS_SECTION_1_BODY_2__`
+- `__ACCESS_SECTION_1_KICKER__`
+- `__ACCESS_SECTION_1_SHORT__`
+- `__ACCESS_SECTION_1_TITLE__`
+- `__ACCESS_SECTION_2_BODY_1__`
+- `__ACCESS_SECTION_2_BODY_2__`
+- `__ACCESS_SECTION_2_KICKER__`
+- `__ACCESS_SECTION_2_NOTE_BODY__`
+- `__ACCESS_SECTION_2_NOTE_TITLE__`
+- `__ACCESS_SECTION_2_SHORT__`
+- `__ACCESS_SECTION_2_TITLE__`
+- `__ACCESS_SECTION_3_BODY_1__`
+- `__ACCESS_SECTION_3_BODY_2__`
+- `__ACCESS_SECTION_3_KICKER__`
+- `__ACCESS_SECTION_3_QUOTE__`
+- `__ACCESS_SECTION_3_SHORT__`
+- `__ACCESS_SECTION_3_TITLE__`
+- `__ACCESS_SECTION_4_BODY_1__`
+- `__ACCESS_SECTION_4_BODY_2__`
+- `__ACCESS_SECTION_4_KICKER__`
+- `__ACCESS_SECTION_4_NOTE_BODY__`
+- `__ACCESS_SECTION_4_NOTE_TITLE__`
+- `__ACCESS_SECTION_4_SHORT__`
+- `__ACCESS_SECTION_4_TITLE__`
+- `__ACCESS_SECTION_5_BODY_1__`
+- `__ACCESS_SECTION_5_BODY_2__`
+- `__ACCESS_SECTION_5_KICKER__`
+- `__ACCESS_SECTION_5_SHORT__`
+- `__ACCESS_SECTION_5_TITLE__`
+- `__ACCESS_SOURCE_NOTE__`
+- `__ACCESS_TIME_LABEL__`
+- `__ACCESS_TITLE__`
+- `__AFFILIATE_DISCLOSURE__`
+- `__AFFILIATE_LINK_LABEL__`
+- `__AFFILIATE_URL__`
+- `__ARCADE_AUTHOR_NOTE_TITLE__`
+- `__ARCADE_AUTHOR_NOTE__`
+- `__ARCADE_COVER_ALT__`
+- `__ARCADE_COVER_CAPTION__`
+- `__ARCADE_DECK__`
+- `__ARCADE_DESCRIPTION__`
+- `__ARCADE_FAQ_SHORT__`
+- `__ARCADE_FAQ_TITLE__`
+- `__ARCADE_FEED_DESCRIPTION__`
+- `__ARCADE_OPENING__`
+- `__ARCADE_READING_TIME__`
+- `__ARCADE_RFC822_DATE__`
+- `__ARCADE_SECTION_1_BODY_1__`
+- `__ARCADE_SECTION_1_BODY_2__`
+- `__ARCADE_SECTION_1_KICKER__`
+- `__ARCADE_SECTION_1_SHORT__`
+- `__ARCADE_SECTION_1_TITLE__`
+- `__ARCADE_SECTION_2_BODY_1__`
+- `__ARCADE_SECTION_2_BODY_2__`
+- `__ARCADE_SECTION_2_KICKER__`
+- `__ARCADE_SECTION_2_NOTE_BODY__`
+- `__ARCADE_SECTION_2_NOTE_TITLE__`
+- `__ARCADE_SECTION_2_SHORT__`
+- `__ARCADE_SECTION_2_TITLE__`
+- `__ARCADE_SECTION_3_BODY_1__`
+- `__ARCADE_SECTION_3_BODY_2__`
+- `__ARCADE_SECTION_3_KICKER__`
+- `__ARCADE_SECTION_3_QUOTE__`
+- `__ARCADE_SECTION_3_SHORT__`
+- `__ARCADE_SECTION_3_TITLE__`
+- `__ARCADE_SECTION_4_BODY_1__`
+- `__ARCADE_SECTION_4_BODY_2__`
+- `__ARCADE_SECTION_4_KICKER__`
+- `__ARCADE_SECTION_4_NOTE_BODY__`
+- `__ARCADE_SECTION_4_NOTE_TITLE__`
+- `__ARCADE_SECTION_4_SHORT__`
+- `__ARCADE_SECTION_4_TITLE__`
+- `__ARCADE_SECTION_5_BODY_1__`
+- `__ARCADE_SECTION_5_BODY_2__`
+- `__ARCADE_SECTION_5_KICKER__`
+- `__ARCADE_SECTION_5_SHORT__`
+- `__ARCADE_SECTION_5_TITLE__`
+- `__ARCADE_SOURCE_NOTE__`
+- `__ARCADE_STOP_1__`
+- `__ARCADE_STOP_2__`
+- `__ARCADE_STOP_3__`
+- `__ARCADE_STOP_4__`
+- `__ARCADE_TIME_LABEL__`
+- `__ARCADE_TITLE__`
+- `__ARTICLE_INDEX_DESCRIPTION__`
+- `__ARTICLE_INDEX_INTRODUCTION__`
+- `__ARTICLE_INDEX_TITLE__`
+- `__AUTHOR_NAME__`
+- `__BENEFIT_DISCLAIMER__`
+- `__BENEFIT_RATE__`
+- `__CADENCE_GUIDE_1_BODY__`
+- `__CADENCE_GUIDE_1_TITLE__`
+- `__CADENCE_GUIDE_2_BODY__`
+- `__CADENCE_GUIDE_2_TITLE__`
+- `__CADENCE_GUIDE_3_BODY__`
+- `__CADENCE_GUIDE_3_TITLE__`
+- `__CADENCE_GUIDE_4_BODY__`
+- `__CADENCE_GUIDE_4_TITLE__`
+- `__CADENCE_GUIDE_5_BODY__`
+- `__CADENCE_GUIDE_5_TITLE__`
+- `__CADENCE_TOOL_DESCRIPTION__`
+- `__CADENCE_TOOL_INTRODUCTION__`
+- `__CADENCE_TOOL_TITLE__`
+- `__CITY_EDITION_DESCRIPTION__`
+- `__CITY_EDITION_INTRODUCTION__`
+- `__CITY_EDITION_TITLE__`
+- `__COMPAT_ARTICLE_INDEX_DESCRIPTION__`
+- `__COMPAT_ARTICLE_INDEX_TITLE__`
+- `__COMPAT_TOOL_INDEX_DESCRIPTION__`
+- `__COMPAT_TOOL_INDEX_TITLE__`
+- `__CONTACT_ASIDE__`
+- `__CONTACT_DESCRIPTION__`
+- `__CONTACT_EMAIL__`
+- `__CONTACT_INTRODUCTION__`
+- `__CONTACT_SECTION_1_BODY__`
+- `__CONTACT_SECTION_1_TITLE__`
+- `__CONTACT_SECTION_2_BODY__`
+- `__CONTACT_SECTION_2_TITLE__`
+- `__CONTACT_SECTION_3_BODY__`
+- `__CONTACT_SECTION_3_TITLE__`
+- `__CONTACT_SECTION_4_BODY__`
+- `__CONTACT_SECTION_4_TITLE__`
+- `__CONTACT_TITLE__`
+- `__CONTRAST_GUIDE_1_BODY__`
+- `__CONTRAST_GUIDE_1_TITLE__`
+- `__CONTRAST_GUIDE_2_BODY__`
+- `__CONTRAST_GUIDE_2_TITLE__`
+- `__CONTRAST_GUIDE_3_BODY__`
+- `__CONTRAST_GUIDE_3_TITLE__`
+- `__CONTRAST_GUIDE_4_BODY__`
+- `__CONTRAST_GUIDE_4_TITLE__`
+- `__CONTRAST_GUIDE_5_BODY__`
+- `__CONTRAST_GUIDE_5_TITLE__`
+- `__CONTRAST_TOOL_DESCRIPTION__`
+- `__CONTRAST_TOOL_INTRODUCTION__`
+- `__CONTRAST_TOOL_TITLE__`
+- `__CORRECTIONS_ASIDE__`
+- `__CORRECTIONS_DESCRIPTION__`
+- `__CORRECTIONS_INTRODUCTION__`
+- `__CORRECTIONS_SECTION_1_BODY__`
+- `__CORRECTIONS_SECTION_1_TITLE__`
+- `__CORRECTIONS_SECTION_2_BODY__`
+- `__CORRECTIONS_SECTION_2_TITLE__`
+- `__CORRECTIONS_SECTION_3_BODY__`
+- `__CORRECTIONS_SECTION_3_TITLE__`
+- `__CORRECTIONS_SECTION_4_BODY__`
+- `__CORRECTIONS_SECTION_4_TITLE__`
+- `__CORRECTIONS_TITLE__`
+- `__CULTURE_EDITION_DESCRIPTION__`
+- `__CULTURE_EDITION_INTRODUCTION__`
+- `__CULTURE_EDITION_TITLE__`
+- `__DESIGN_EDITION_DESCRIPTION__`
+- `__DESIGN_EDITION_INTRODUCTION__`
+- `__DESIGN_EDITION_TITLE__`
+- `__DISCLAIMER_DESCRIPTION__`
+- `__DISCLAIMER_INTRODUCTION__`
+- `__DISCLAIMER_SECTION_1_BODY__`
+- `__DISCLAIMER_SECTION_1_TITLE__`
+- `__DISCLAIMER_SECTION_2_BODY__`
+- `__DISCLAIMER_SECTION_2_TITLE__`
+- `__DISCLAIMER_SECTION_3_BODY__`
+- `__DISCLAIMER_SECTION_3_TITLE__`
+- `__DISCLAIMER_SECTION_4_BODY__`
+- `__DISCLAIMER_SECTION_4_TITLE__`
+- `__DISCLAIMER_TITLE__`
+- `__DISCLOSURE_DESCRIPTION__`
+- `__DISCLOSURE_INTRODUCTION__`
+- `__DISCLOSURE_SECTION_1_BODY__`
+- `__DISCLOSURE_SECTION_1_TITLE__`
+- `__DISCLOSURE_SECTION_2_BODY__`
+- `__DISCLOSURE_SECTION_2_TITLE__`
+- `__DISCLOSURE_SECTION_3_BODY__`
+- `__DISCLOSURE_SECTION_3_TITLE__`
+- `__DISCLOSURE_SECTION_4_BODY__`
+- `__DISCLOSURE_SECTION_4_TITLE__`
+- `__DISCLOSURE_TITLE__`
+- `__EDITION_CODE__`
+- `__EDITORIAL_ASIDE__`
+- `__EDITORIAL_DESCRIPTION__`
+- `__EDITORIAL_INTRODUCTION__`
+- `__EDITORIAL_SECTION_1_BODY__`
+- `__EDITORIAL_SECTION_1_TITLE__`
+- `__EDITORIAL_SECTION_2_BODY__`
+- `__EDITORIAL_SECTION_2_TITLE__`
+- `__EDITORIAL_SECTION_3_BODY__`
+- `__EDITORIAL_SECTION_3_TITLE__`
+- `__EDITORIAL_SECTION_4_BODY__`
+- `__EDITORIAL_SECTION_4_TITLE__`
+- `__EDITORIAL_TITLE__`
+- `__FAQ_ACCESS_AFTER_DARK_1_ANSWER__`
+- `__FAQ_ACCESS_AFTER_DARK_1_QUESTION__`
+- `__FAQ_ACCESS_AFTER_DARK_2_ANSWER__`
+- `__FAQ_ACCESS_AFTER_DARK_2_QUESTION__`
+- `__FAQ_ACCESS_AFTER_DARK_3_ANSWER__`
+- `__FAQ_ACCESS_AFTER_DARK_3_QUESTION__`
+- `__FAQ_LAST_LIGHT_MAP_1_ANSWER__`
+- `__FAQ_LAST_LIGHT_MAP_1_QUESTION__`
+- `__FAQ_LAST_LIGHT_MAP_2_ANSWER__`
+- `__FAQ_LAST_LIGHT_MAP_2_QUESTION__`
+- `__FAQ_LATE_KITCHEN_LEDGER_1_ANSWER__`
+- `__FAQ_LATE_KITCHEN_LEDGER_1_QUESTION__`
+- `__FAQ_LATE_KITCHEN_LEDGER_2_ANSWER__`
+- `__FAQ_LATE_KITCHEN_LEDGER_2_QUESTION__`
+- `__FAQ_LOCAL_ZINES_1_ANSWER__`
+- `__FAQ_LOCAL_ZINES_1_QUESTION__`
+- `__FAQ_LOCAL_ZINES_2_ANSWER__`
+- `__FAQ_LOCAL_ZINES_2_QUESTION__`
+- `__FAQ_LOCAL_ZINES_3_ANSWER__`
+- `__FAQ_LOCAL_ZINES_3_QUESTION__`
+- `__FAQ_MARKET_SOUND_LAYERS_1_ANSWER__`
+- `__FAQ_MARKET_SOUND_LAYERS_1_QUESTION__`
+- `__FAQ_NEON_REPAIR_1_ANSWER__`
+- `__FAQ_NEON_REPAIR_1_QUESTION__`
+- `__FAQ_RAIN_ARCADE_WALK_1_ANSWER__`
+- `__FAQ_RAIN_ARCADE_WALK_1_QUESTION__`
+- `__FAQ_RAIN_ARCADE_WALK_2_ANSWER__`
+- `__FAQ_RAIN_ARCADE_WALK_2_QUESTION__`
+- `__FAQ_TEMPORARY_LIBRARY_1_ANSWER__`
+- `__FAQ_TEMPORARY_LIBRARY_1_QUESTION__`
+- `__FEED_BUILD_DATE__`
+- `__FEED_DESCRIPTION__`
+- `__FEED_TITLE__`
+- `__GAPS_GUIDE_1_BODY__`
+- `__GAPS_GUIDE_1_TITLE__`
+- `__GAPS_GUIDE_2_BODY__`
+- `__GAPS_GUIDE_2_TITLE__`
+- `__GAPS_GUIDE_3_BODY__`
+- `__GAPS_GUIDE_3_TITLE__`
+- `__GAPS_GUIDE_4_BODY__`
+- `__GAPS_GUIDE_4_TITLE__`
+- `__GAPS_GUIDE_5_BODY__`
+- `__GAPS_GUIDE_5_TITLE__`
+- `__GAPS_TOOL_DESCRIPTION__`
+- `__GAPS_TOOL_INTRODUCTION__`
+- `__GAPS_TOOL_TITLE__`
+- `__HOME_DESCRIPTION__`
+- `__HOME_INTRODUCTION__`
+- `__HOME_TITLE__`
+- `__INVITE_CODE__`
+- `__ISSUE_LABEL__`
+- `__KEYWORD_1__`
+- `__KEYWORD_2__`
+- `__KEYWORD_3__`
+- `__KEYWORD_4__`
+- `__KEYWORD_5__`
+- `__KITCHEN_AUTHOR_NOTE_TITLE__`
+- `__KITCHEN_AUTHOR_NOTE__`
+- `__KITCHEN_COVER_ALT__`
+- `__KITCHEN_COVER_CAPTION__`
+- `__KITCHEN_DECK__`
+- `__KITCHEN_DESCRIPTION__`
+- `__KITCHEN_FAQ_SHORT__`
+- `__KITCHEN_FAQ_TITLE__`
+- `__KITCHEN_FEED_DESCRIPTION__`
+- `__KITCHEN_NOTE_1__`
+- `__KITCHEN_NOTE_2__`
+- `__KITCHEN_NOTE_3__`
+- `__KITCHEN_OPENING__`
+- `__KITCHEN_READING_TIME__`
+- `__KITCHEN_RFC822_DATE__`
+- `__KITCHEN_SECTION_1_BODY_1__`
+- `__KITCHEN_SECTION_1_BODY_2__`
+- `__KITCHEN_SECTION_1_KICKER__`
+- `__KITCHEN_SECTION_1_NOTE_BODY__`
+- `__KITCHEN_SECTION_1_NOTE_TITLE__`
+- `__KITCHEN_SECTION_1_SHORT__`
+- `__KITCHEN_SECTION_1_TITLE__`
+- `__KITCHEN_SECTION_2_BODY_1__`
+- `__KITCHEN_SECTION_2_BODY_2__`
+- `__KITCHEN_SECTION_2_KICKER__`
+- `__KITCHEN_SECTION_2_SHORT__`
+- `__KITCHEN_SECTION_2_TITLE__`
+- `__KITCHEN_SECTION_3_BODY_1__`
+- `__KITCHEN_SECTION_3_BODY_2__`
+- `__KITCHEN_SECTION_3_KICKER__`
+- `__KITCHEN_SECTION_3_NOTE_BODY__`
+- `__KITCHEN_SECTION_3_NOTE_TITLE__`
+- `__KITCHEN_SECTION_3_QUOTE__`
+- `__KITCHEN_SECTION_3_SHORT__`
+- `__KITCHEN_SECTION_3_TITLE__`
+- `__KITCHEN_SECTION_4_BODY_1__`
+- `__KITCHEN_SECTION_4_BODY_2__`
+- `__KITCHEN_SECTION_4_KICKER__`
+- `__KITCHEN_SECTION_4_SHORT__`
+- `__KITCHEN_SECTION_4_TITLE__`
+- `__KITCHEN_SECTION_5_BODY_1__`
+- `__KITCHEN_SECTION_5_BODY_2__`
+- `__KITCHEN_SECTION_5_KICKER__`
+- `__KITCHEN_SECTION_5_NOTE_BODY__`
+- `__KITCHEN_SECTION_5_NOTE_TITLE__`
+- `__KITCHEN_SECTION_5_SHORT__`
+- `__KITCHEN_SECTION_5_TITLE__`
+- `__KITCHEN_SHIFT_1__`
+- `__KITCHEN_SHIFT_2__`
+- `__KITCHEN_SHIFT_3__`
+- `__KITCHEN_SOURCE_NOTE__`
+- `__KITCHEN_STATION_1__`
+- `__KITCHEN_STATION_2__`
+- `__KITCHEN_STATION_3__`
+- `__KITCHEN_TIME_LABEL__`
+- `__KITCHEN_TITLE__`
+- `__LADDER_GUIDE_1_BODY__`
+- `__LADDER_GUIDE_1_TITLE__`
+- `__LADDER_GUIDE_2_BODY__`
+- `__LADDER_GUIDE_2_TITLE__`
+- `__LADDER_GUIDE_3_BODY__`
+- `__LADDER_GUIDE_3_TITLE__`
+- `__LADDER_GUIDE_4_BODY__`
+- `__LADDER_GUIDE_4_TITLE__`
+- `__LADDER_GUIDE_5_BODY__`
+- `__LADDER_GUIDE_5_TITLE__`
+- `__LADDER_TOOL_DESCRIPTION__`
+- `__LADDER_TOOL_INTRODUCTION__`
+- `__LADDER_TOOL_TITLE__`
+- `__LANG__`
+- `__LAST_LIGHT_AUTHOR_NOTE_TITLE__`
+- `__LAST_LIGHT_AUTHOR_NOTE__`
+- `__LAST_LIGHT_COVER_ALT__`
+- `__LAST_LIGHT_COVER_CAPTION__`
+- `__LAST_LIGHT_DECK__`
+- `__LAST_LIGHT_DESCRIPTION__`
+- `__LAST_LIGHT_FAQ_SHORT__`
+- `__LAST_LIGHT_FAQ_TITLE__`
+- `__LAST_LIGHT_FEED_DESCRIPTION__`
+- `__LAST_LIGHT_OPENING_TITLE__`
+- `__LAST_LIGHT_OPENING__`
+- `__LAST_LIGHT_OPEN_TIME__`
+- `__LAST_LIGHT_READING_TIME__`
+- `__LAST_LIGHT_RFC822_DATE__`
+- `__LAST_LIGHT_SECTION_1_BODY_1__`
+- `__LAST_LIGHT_SECTION_1_BODY_2__`
+- `__LAST_LIGHT_SECTION_1_KICKER__`
+- `__LAST_LIGHT_SECTION_1_NOTE_BODY__`
+- `__LAST_LIGHT_SECTION_1_NOTE_TITLE__`
+- `__LAST_LIGHT_SECTION_1_SHORT__`
+- `__LAST_LIGHT_SECTION_1_TITLE__`
+- `__LAST_LIGHT_SECTION_2_BODY_1__`
+- `__LAST_LIGHT_SECTION_2_BODY_2__`
+- `__LAST_LIGHT_SECTION_2_KICKER__`
+- `__LAST_LIGHT_SECTION_2_QUOTE__`
+- `__LAST_LIGHT_SECTION_2_SHORT__`
+- `__LAST_LIGHT_SECTION_2_TITLE__`
+- `__LAST_LIGHT_SECTION_3_BODY_1__`
+- `__LAST_LIGHT_SECTION_3_BODY_2__`
+- `__LAST_LIGHT_SECTION_3_KICKER__`
+- `__LAST_LIGHT_SECTION_3_NOTE_BODY__`
+- `__LAST_LIGHT_SECTION_3_NOTE_TITLE__`
+- `__LAST_LIGHT_SECTION_3_SHORT__`
+- `__LAST_LIGHT_SECTION_3_TITLE__`
+- `__LAST_LIGHT_SECTION_4_BODY_1__`
+- `__LAST_LIGHT_SECTION_4_BODY_2__`
+- `__LAST_LIGHT_SECTION_4_KICKER__`
+- `__LAST_LIGHT_SECTION_4_SHORT__`
+- `__LAST_LIGHT_SECTION_4_TITLE__`
+- `__LAST_LIGHT_SECTION_5_BODY_1__`
+- `__LAST_LIGHT_SECTION_5_BODY_2__`
+- `__LAST_LIGHT_SECTION_5_KICKER__`
+- `__LAST_LIGHT_SECTION_5_NOTE_BODY__`
+- `__LAST_LIGHT_SECTION_5_NOTE_TITLE__`
+- `__LAST_LIGHT_SECTION_5_QUOTE__`
+- `__LAST_LIGHT_SECTION_5_SHORT__`
+- `__LAST_LIGHT_SECTION_5_TITLE__`
+- `__LAST_LIGHT_SECTION_6_BODY_1__`
+- `__LAST_LIGHT_SECTION_6_BODY_2__`
+- `__LAST_LIGHT_SECTION_6_KICKER__`
+- `__LAST_LIGHT_SECTION_6_SHORT__`
+- `__LAST_LIGHT_SECTION_6_TITLE__`
+- `__LAST_LIGHT_SOURCE_NOTE__`
+- `__LAST_LIGHT_TIME_LABEL__`
+- `__LAST_LIGHT_TITLE__`
+- `__LEGAL_RISK_NOTE__`
+- `__LIBRARY_AUTHOR_NOTE_TITLE__`
+- `__LIBRARY_AUTHOR_NOTE__`
+- `__LIBRARY_COVER_ALT__`
+- `__LIBRARY_COVER_CAPTION__`
+- `__LIBRARY_DECK__`
+- `__LIBRARY_DESCRIPTION__`
+- `__LIBRARY_FAQ_SHORT__`
+- `__LIBRARY_FAQ_TITLE__`
+- `__LIBRARY_FEED_DESCRIPTION__`
+- `__LIBRARY_OPENING__`
+- `__LIBRARY_READING_TIME__`
+- `__LIBRARY_RFC822_DATE__`
+- `__LIBRARY_SECTION_1_BODY_1__`
+- `__LIBRARY_SECTION_1_BODY_2__`
+- `__LIBRARY_SECTION_1_KICKER__`
+- `__LIBRARY_SECTION_1_NOTE_BODY__`
+- `__LIBRARY_SECTION_1_NOTE_TITLE__`
+- `__LIBRARY_SECTION_1_SHORT__`
+- `__LIBRARY_SECTION_1_TITLE__`
+- `__LIBRARY_SECTION_2_BODY_1__`
+- `__LIBRARY_SECTION_2_BODY_2__`
+- `__LIBRARY_SECTION_2_KICKER__`
+- `__LIBRARY_SECTION_2_SHORT__`
+- `__LIBRARY_SECTION_2_TITLE__`
+- `__LIBRARY_SECTION_3_BODY_1__`
+- `__LIBRARY_SECTION_3_BODY_2__`
+- `__LIBRARY_SECTION_3_KICKER__`
+- `__LIBRARY_SECTION_3_NOTE_BODY__`
+- `__LIBRARY_SECTION_3_NOTE_TITLE__`
+- `__LIBRARY_SECTION_3_QUOTE__`
+- `__LIBRARY_SECTION_3_SHORT__`
+- `__LIBRARY_SECTION_3_TITLE__`
+- `__LIBRARY_SECTION_4_BODY_1__`
+- `__LIBRARY_SECTION_4_BODY_2__`
+- `__LIBRARY_SECTION_4_KICKER__`
+- `__LIBRARY_SECTION_4_SHORT__`
+- `__LIBRARY_SECTION_4_TITLE__`
+- `__LIBRARY_SECTION_5_BODY_1__`
+- `__LIBRARY_SECTION_5_BODY_2__`
+- `__LIBRARY_SECTION_5_KICKER__`
+- `__LIBRARY_SECTION_5_NOTE_BODY__`
+- `__LIBRARY_SECTION_5_NOTE_TITLE__`
+- `__LIBRARY_SECTION_5_SHORT__`
+- `__LIBRARY_SECTION_5_TITLE__`
+- `__LIBRARY_SOURCE_NOTE__`
+- `__LIBRARY_TIME_LABEL__`
+- `__LIBRARY_TITLE__`
+- `__LINES_GUIDE_1_BODY__`
+- `__LINES_GUIDE_1_TITLE__`
+- `__LINES_GUIDE_2_BODY__`
+- `__LINES_GUIDE_2_TITLE__`
+- `__LINES_GUIDE_3_BODY__`
+- `__LINES_GUIDE_3_TITLE__`
+- `__LINES_GUIDE_4_BODY__`
+- `__LINES_GUIDE_4_TITLE__`
+- `__LINES_GUIDE_5_BODY__`
+- `__LINES_GUIDE_5_TITLE__`
+- `__LINES_TOOL_DESCRIPTION__`
+- `__LINES_TOOL_INTRODUCTION__`
+- `__LINES_TOOL_TITLE__`
+- `__LOCAL_TIME_LABEL__`
+- `__MODIFIED_DATE__`
+- `__NEON_AUTHOR_NOTE_TITLE__`
+- `__NEON_AUTHOR_NOTE__`
+- `__NEON_COVER_ALT__`
+- `__NEON_COVER_CAPTION__`
+- `__NEON_DECK__`
+- `__NEON_DESCRIPTION__`
+- `__NEON_FAQ_SHORT__`
+- `__NEON_FAQ_TITLE__`
+- `__NEON_FEED_DESCRIPTION__`
+- `__NEON_OPENING_TITLE__`
+- `__NEON_OPENING__`
+- `__NEON_READING_TIME__`
+- `__NEON_RFC822_DATE__`
+- `__NEON_SECTION_1_BODY_1__`
+- `__NEON_SECTION_1_BODY_2__`
+- `__NEON_SECTION_1_KICKER__`
+- `__NEON_SECTION_1_SHORT__`
+- `__NEON_SECTION_1_TITLE__`
+- `__NEON_SECTION_2_BODY_1__`
+- `__NEON_SECTION_2_BODY_2__`
+- `__NEON_SECTION_2_KICKER__`
+- `__NEON_SECTION_2_NOTE_BODY__`
+- `__NEON_SECTION_2_NOTE_TITLE__`
+- `__NEON_SECTION_2_QUOTE__`
+- `__NEON_SECTION_2_SHORT__`
+- `__NEON_SECTION_2_TITLE__`
+- `__NEON_SECTION_3_BODY_1__`
+- `__NEON_SECTION_3_BODY_2__`
+- `__NEON_SECTION_3_KICKER__`
+- `__NEON_SECTION_3_SHORT__`
+- `__NEON_SECTION_3_TITLE__`
+- `__NEON_SECTION_4_BODY_1__`
+- `__NEON_SECTION_4_BODY_2__`
+- `__NEON_SECTION_4_KICKER__`
+- `__NEON_SECTION_4_NOTE_BODY__`
+- `__NEON_SECTION_4_NOTE_TITLE__`
+- `__NEON_SECTION_4_SHORT__`
+- `__NEON_SECTION_4_TITLE__`
+- `__NEON_SECTION_5_BODY_1__`
+- `__NEON_SECTION_5_BODY_2__`
+- `__NEON_SECTION_5_KICKER__`
+- `__NEON_SECTION_5_QUOTE__`
+- `__NEON_SECTION_5_SHORT__`
+- `__NEON_SECTION_5_TITLE__`
+- `__NEON_SECTION_6_BODY_1__`
+- `__NEON_SECTION_6_BODY_2__`
+- `__NEON_SECTION_6_KICKER__`
+- `__NEON_SECTION_6_NOTE_BODY__`
+- `__NEON_SECTION_6_NOTE_TITLE__`
+- `__NEON_SECTION_6_SHORT__`
+- `__NEON_SECTION_6_TITLE__`
+- `__NEON_SOURCE_NOTE__`
+- `__NEON_TIME_LABEL__`
+- `__NEON_TITLE__`
+- `__PRIVACY_ASIDE__`
+- `__PRIVACY_DESCRIPTION__`
+- `__PRIVACY_INTRODUCTION__`
+- `__PRIVACY_SECTION_1_BODY__`
+- `__PRIVACY_SECTION_1_TITLE__`
+- `__PRIVACY_SECTION_2_BODY__`
+- `__PRIVACY_SECTION_2_TITLE__`
+- `__PRIVACY_SECTION_3_BODY__`
+- `__PRIVACY_SECTION_3_TITLE__`
+- `__PRIVACY_SECTION_4_BODY__`
+- `__PRIVACY_SECTION_4_TITLE__`
+- `__PRIVACY_TITLE__`
+- `__PUBLISHED_DATE__`
+- `__SCREENING_AUTHOR_NOTE_TITLE__`
+- `__SCREENING_AUTHOR_NOTE__`
+- `__SCREENING_COVER_ALT__`
+- `__SCREENING_COVER_CAPTION__`
+- `__SCREENING_DECK__`
+- `__SCREENING_DESCRIPTION__`
+- `__SCREENING_FEED_DESCRIPTION__`
+- `__SCREENING_OPENING_TITLE__`
+- `__SCREENING_OPENING__`
+- `__SCREENING_READING_TIME__`
+- `__SCREENING_RFC822_DATE__`
+- `__SCREENING_SCREENING_TIME__`
+- `__SCREENING_SECTION_1_BODY_1__`
+- `__SCREENING_SECTION_1_BODY_2__`
+- `__SCREENING_SECTION_1_KICKER__`
+- `__SCREENING_SECTION_1_NOTE_BODY__`
+- `__SCREENING_SECTION_1_NOTE_TITLE__`
+- `__SCREENING_SECTION_1_QUOTE__`
+- `__SCREENING_SECTION_1_SHORT__`
+- `__SCREENING_SECTION_1_TITLE__`
+- `__SCREENING_SECTION_2_BODY_1__`
+- `__SCREENING_SECTION_2_BODY_2__`
+- `__SCREENING_SECTION_2_KICKER__`
+- `__SCREENING_SECTION_2_SHORT__`
+- `__SCREENING_SECTION_2_TITLE__`
+- `__SCREENING_SECTION_3_BODY_1__`
+- `__SCREENING_SECTION_3_BODY_2__`
+- `__SCREENING_SECTION_3_KICKER__`
+- `__SCREENING_SECTION_3_NOTE_BODY__`
+- `__SCREENING_SECTION_3_NOTE_TITLE__`
+- `__SCREENING_SECTION_3_SHORT__`
+- `__SCREENING_SECTION_3_TITLE__`
+- `__SCREENING_SECTION_4_BODY_1__`
+- `__SCREENING_SECTION_4_BODY_2__`
+- `__SCREENING_SECTION_4_KICKER__`
+- `__SCREENING_SECTION_4_QUOTE__`
+- `__SCREENING_SECTION_4_SHORT__`
+- `__SCREENING_SECTION_4_TITLE__`
+- `__SCREENING_SOURCE_NOTE__`
+- `__SCREENING_TIME_LABEL__`
+- `__SCREENING_TITLE__`
+- `__SECURITY_EMAIL__`
+- `__SECURITY_EXPIRES__`
+- `__SECURITY_LANGUAGES__`
+- `__SITE_DOMAIN__`
+- `__SITE_NAME__`
+- `__SMALL_TYPE_AUTHOR_NOTE_TITLE__`
+- `__SMALL_TYPE_AUTHOR_NOTE__`
+- `__SMALL_TYPE_COVER_ALT__`
+- `__SMALL_TYPE_COVER_CAPTION__`
+- `__SMALL_TYPE_DECK__`
+- `__SMALL_TYPE_DESCRIPTION__`
+- `__SMALL_TYPE_FEED_DESCRIPTION__`
+- `__SMALL_TYPE_OPENING_TITLE__`
+- `__SMALL_TYPE_OPENING__`
+- `__SMALL_TYPE_READING_TIME__`
+- `__SMALL_TYPE_RFC822_DATE__`
+- `__SMALL_TYPE_SECTION_1_BODY_1__`
+- `__SMALL_TYPE_SECTION_1_BODY_2__`
+- `__SMALL_TYPE_SECTION_1_KICKER__`
+- `__SMALL_TYPE_SECTION_1_QUOTE__`
+- `__SMALL_TYPE_SECTION_1_SHORT__`
+- `__SMALL_TYPE_SECTION_1_TITLE__`
+- `__SMALL_TYPE_SECTION_2_BODY_1__`
+- `__SMALL_TYPE_SECTION_2_BODY_2__`
+- `__SMALL_TYPE_SECTION_2_KICKER__`
+- `__SMALL_TYPE_SECTION_2_NOTE_BODY__`
+- `__SMALL_TYPE_SECTION_2_NOTE_TITLE__`
+- `__SMALL_TYPE_SECTION_2_SHORT__`
+- `__SMALL_TYPE_SECTION_2_TITLE__`
+- `__SMALL_TYPE_SECTION_3_BODY_1__`
+- `__SMALL_TYPE_SECTION_3_BODY_2__`
+- `__SMALL_TYPE_SECTION_3_KICKER__`
+- `__SMALL_TYPE_SECTION_3_SHORT__`
+- `__SMALL_TYPE_SECTION_3_TITLE__`
+- `__SMALL_TYPE_SECTION_4_BODY_1__`
+- `__SMALL_TYPE_SECTION_4_BODY_2__`
+- `__SMALL_TYPE_SECTION_4_KICKER__`
+- `__SMALL_TYPE_SECTION_4_NOTE_BODY__`
+- `__SMALL_TYPE_SECTION_4_NOTE_TITLE__`
+- `__SMALL_TYPE_SECTION_4_QUOTE__`
+- `__SMALL_TYPE_SECTION_4_SHORT__`
+- `__SMALL_TYPE_SECTION_4_TITLE__`
+- `__SMALL_TYPE_SOURCE_NOTE__`
+- `__SMALL_TYPE_TIME_LABEL__`
+- `__SMALL_TYPE_TITLE__`
+- `__SOUND_AUTHOR_NOTE_TITLE__`
+- `__SOUND_AUTHOR_NOTE__`
+- `__SOUND_COVER_ALT__`
+- `__SOUND_COVER_CAPTION__`
+- `__SOUND_DECK__`
+- `__SOUND_DESCRIPTION__`
+- `__SOUND_FAQ_SHORT__`
+- `__SOUND_FAQ_TITLE__`
+- `__SOUND_FEED_DESCRIPTION__`
+- `__SOUND_OPENING_TITLE__`
+- `__SOUND_OPENING__`
+- `__SOUND_READING_TIME__`
+- `__SOUND_RFC822_DATE__`
+- `__SOUND_SECTION_1_BODY_1__`
+- `__SOUND_SECTION_1_BODY_2__`
+- `__SOUND_SECTION_1_KICKER__`
+- `__SOUND_SECTION_1_NOTE_BODY__`
+- `__SOUND_SECTION_1_NOTE_TITLE__`
+- `__SOUND_SECTION_1_SHORT__`
+- `__SOUND_SECTION_1_TITLE__`
+- `__SOUND_SECTION_2_BODY_1__`
+- `__SOUND_SECTION_2_BODY_2__`
+- `__SOUND_SECTION_2_KICKER__`
+- `__SOUND_SECTION_2_QUOTE__`
+- `__SOUND_SECTION_2_SHORT__`
+- `__SOUND_SECTION_2_TITLE__`
+- `__SOUND_SECTION_3_BODY_1__`
+- `__SOUND_SECTION_3_BODY_2__`
+- `__SOUND_SECTION_3_KICKER__`
+- `__SOUND_SECTION_3_NOTE_BODY__`
+- `__SOUND_SECTION_3_NOTE_TITLE__`
+- `__SOUND_SECTION_3_SHORT__`
+- `__SOUND_SECTION_3_TITLE__`
+- `__SOUND_SECTION_4_BODY_1__`
+- `__SOUND_SECTION_4_BODY_2__`
+- `__SOUND_SECTION_4_KICKER__`
+- `__SOUND_SECTION_4_SHORT__`
+- `__SOUND_SECTION_4_TITLE__`
+- `__SOUND_SECTION_5_BODY_1__`
+- `__SOUND_SECTION_5_BODY_2__`
+- `__SOUND_SECTION_5_KICKER__`
+- `__SOUND_SECTION_5_NOTE_BODY__`
+- `__SOUND_SECTION_5_NOTE_TITLE__`
+- `__SOUND_SECTION_5_QUOTE__`
+- `__SOUND_SECTION_5_SHORT__`
+- `__SOUND_SECTION_5_TITLE__`
+- `__SOUND_SECTION_6_BODY_1__`
+- `__SOUND_SECTION_6_BODY_2__`
+- `__SOUND_SECTION_6_KICKER__`
+- `__SOUND_SECTION_6_SHORT__`
+- `__SOUND_SECTION_6_TITLE__`
+- `__SOUND_SOURCE_NOTE__`
+- `__SOUND_TIME_LABEL__`
+- `__SOUND_TITLE__`
+- `__TOOL_INDEX_DESCRIPTION__`
+- `__TOOL_INDEX_INTRODUCTION__`
+- `__TOOL_INDEX_TITLE__`
+- `__VERIFIED_DATE__`
+- `__WAYFINDING_AUTHOR_NOTE_TITLE__`
+- `__WAYFINDING_AUTHOR_NOTE__`
+- `__WAYFINDING_COVER_ALT__`
+- `__WAYFINDING_COVER_CAPTION__`
+- `__WAYFINDING_DECK__`
+- `__WAYFINDING_DESCRIPTION__`
+- `__WAYFINDING_FEED_DESCRIPTION__`
+- `__WAYFINDING_OPENING_TITLE__`
+- `__WAYFINDING_OPENING__`
+- `__WAYFINDING_READING_TIME__`
+- `__WAYFINDING_RFC822_DATE__`
+- `__WAYFINDING_SECTION_1_BODY_1__`
+- `__WAYFINDING_SECTION_1_BODY_2__`
+- `__WAYFINDING_SECTION_1_KICKER__`
+- `__WAYFINDING_SECTION_1_NOTE_BODY__`
+- `__WAYFINDING_SECTION_1_NOTE_TITLE__`
+- `__WAYFINDING_SECTION_1_QUOTE__`
+- `__WAYFINDING_SECTION_1_SHORT__`
+- `__WAYFINDING_SECTION_1_TITLE__`
+- `__WAYFINDING_SECTION_2_BODY_1__`
+- `__WAYFINDING_SECTION_2_BODY_2__`
+- `__WAYFINDING_SECTION_2_KICKER__`
+- `__WAYFINDING_SECTION_2_SHORT__`
+- `__WAYFINDING_SECTION_2_TITLE__`
+- `__WAYFINDING_SECTION_3_BODY_1__`
+- `__WAYFINDING_SECTION_3_BODY_2__`
+- `__WAYFINDING_SECTION_3_KICKER__`
+- `__WAYFINDING_SECTION_3_NOTE_BODY__`
+- `__WAYFINDING_SECTION_3_NOTE_TITLE__`
+- `__WAYFINDING_SECTION_3_SHORT__`
+- `__WAYFINDING_SECTION_3_TITLE__`
+- `__WAYFINDING_SECTION_4_BODY_1__`
+- `__WAYFINDING_SECTION_4_BODY_2__`
+- `__WAYFINDING_SECTION_4_KICKER__`
+- `__WAYFINDING_SECTION_4_QUOTE__`
+- `__WAYFINDING_SECTION_4_SHORT__`
+- `__WAYFINDING_SECTION_4_TITLE__`
+- `__WAYFINDING_SOURCE_NOTE__`
+- `__WAYFINDING_TIME_LABEL__`
+- `__WAYFINDING_TITLE__`
+- `__WINDOWS_AUTHOR_NOTE_TITLE__`
+- `__WINDOWS_AUTHOR_NOTE__`
+- `__WINDOWS_COVER_ALT__`
+- `__WINDOWS_COVER_CAPTION__`
+- `__WINDOWS_DECK__`
+- `__WINDOWS_DESCRIPTION__`
+- `__WINDOWS_FEED_DESCRIPTION__`
+- `__WINDOWS_OPENING_TITLE__`
+- `__WINDOWS_OPENING__`
+- `__WINDOWS_READING_TIME__`
+- `__WINDOWS_RFC822_DATE__`
+- `__WINDOWS_SECTION_1_BODY_1__`
+- `__WINDOWS_SECTION_1_BODY_2__`
+- `__WINDOWS_SECTION_1_KICKER__`
+- `__WINDOWS_SECTION_1_QUOTE__`
+- `__WINDOWS_SECTION_1_SHORT__`
+- `__WINDOWS_SECTION_1_TITLE__`
+- `__WINDOWS_SECTION_2_BODY_1__`
+- `__WINDOWS_SECTION_2_BODY_2__`
+- `__WINDOWS_SECTION_2_KICKER__`
+- `__WINDOWS_SECTION_2_NOTE_BODY__`
+- `__WINDOWS_SECTION_2_NOTE_TITLE__`
+- `__WINDOWS_SECTION_2_SHORT__`
+- `__WINDOWS_SECTION_2_TITLE__`
+- `__WINDOWS_SECTION_3_BODY_1__`
+- `__WINDOWS_SECTION_3_BODY_2__`
+- `__WINDOWS_SECTION_3_KICKER__`
+- `__WINDOWS_SECTION_3_SHORT__`
+- `__WINDOWS_SECTION_3_TITLE__`
+- `__WINDOWS_SECTION_4_BODY_1__`
+- `__WINDOWS_SECTION_4_BODY_2__`
+- `__WINDOWS_SECTION_4_KICKER__`
+- `__WINDOWS_SECTION_4_NOTE_BODY__`
+- `__WINDOWS_SECTION_4_NOTE_TITLE__`
+- `__WINDOWS_SECTION_4_QUOTE__`
+- `__WINDOWS_SECTION_4_SHORT__`
+- `__WINDOWS_SECTION_4_TITLE__`
+- `__WINDOWS_SOURCE_NOTE__`
+- `__WINDOWS_TIME_LABEL__`
+- `__WINDOWS_TITLE__`
+- `__WORDMARK__`
+- `__ZINES_ADDRESSEE__`
+- `__ZINES_AUTHOR_NOTE_TITLE__`
+- `__ZINES_AUTHOR_NOTE__`
+- `__ZINES_COVER_ALT__`
+- `__ZINES_COVER_CAPTION__`
+- `__ZINES_DECK__`
+- `__ZINES_DESCRIPTION__`
+- `__ZINES_FAQ_SHORT__`
+- `__ZINES_FAQ_TITLE__`
+- `__ZINES_FEED_DESCRIPTION__`
+- `__ZINES_OPENING_TITLE__`
+- `__ZINES_OPENING__`
+- `__ZINES_READING_TIME__`
+- `__ZINES_RFC822_DATE__`
+- `__ZINES_SECTION_1_BODY_1__`
+- `__ZINES_SECTION_1_BODY_2__`
+- `__ZINES_SECTION_1_KICKER__`
+- `__ZINES_SECTION_1_SHORT__`
+- `__ZINES_SECTION_1_TITLE__`
+- `__ZINES_SECTION_2_BODY_1__`
+- `__ZINES_SECTION_2_BODY_2__`
+- `__ZINES_SECTION_2_KICKER__`
+- `__ZINES_SECTION_2_NOTE_BODY__`
+- `__ZINES_SECTION_2_NOTE_TITLE__`
+- `__ZINES_SECTION_2_QUOTE__`
+- `__ZINES_SECTION_2_SHORT__`
+- `__ZINES_SECTION_2_TITLE__`
+- `__ZINES_SECTION_3_BODY_1__`
+- `__ZINES_SECTION_3_BODY_2__`
+- `__ZINES_SECTION_3_KICKER__`
+- `__ZINES_SECTION_3_SHORT__`
+- `__ZINES_SECTION_3_TITLE__`
+- `__ZINES_SECTION_4_BODY_1__`
+- `__ZINES_SECTION_4_BODY_2__`
+- `__ZINES_SECTION_4_KICKER__`
+- `__ZINES_SECTION_4_NOTE_BODY__`
+- `__ZINES_SECTION_4_NOTE_TITLE__`
+- `__ZINES_SECTION_4_SHORT__`
+- `__ZINES_SECTION_4_TITLE__`
+- `__ZINES_SECTION_5_BODY_1__`
+- `__ZINES_SECTION_5_BODY_2__`
+- `__ZINES_SECTION_5_KICKER__`
+- `__ZINES_SECTION_5_QUOTE__`
+- `__ZINES_SECTION_5_SHORT__`
+- `__ZINES_SECTION_5_TITLE__`
+- `__ZINES_SECTION_6_BODY_1__`
+- `__ZINES_SECTION_6_BODY_2__`
+- `__ZINES_SECTION_6_KICKER__`
+- `__ZINES_SECTION_6_NOTE_BODY__`
+- `__ZINES_SECTION_6_NOTE_TITLE__`
+- `__ZINES_SECTION_6_SHORT__`
+- `__ZINES_SECTION_6_TITLE__`
+- `__ZINES_SOURCE_NOTE__`
+- `__ZINES_TIME_LABEL__`
+- `__ZINES_TITLE__`
+
+## 模板验收
+
+从仓库根目录运行：
+
+```bash
+node tools/validate.js templates/040-lantern-rows
+node tools/audit-template.js templates/040-lantern-rows
+node tools/audit-workflow-readiness.js templates/040-lantern-rows --verbose
+node tools/check-similarity.js templates/039-rustic-register templates/040-lantern-rows
+```

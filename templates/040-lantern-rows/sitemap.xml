@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://__SITE_DOMAIN__/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://__SITE_DOMAIN__/article.html</loc></url>
-  <url><loc>https://__SITE_DOMAIN__/tool.html</loc></url>
-  <url><loc>https://__SITE_DOMAIN__/legal.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/dispatch.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/signals/last-light-map.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/signals/small-type-night.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/signals/temporary-library.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/signals/local-zines.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/signals/timber-wayfinding.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/signals/rain-arcade-walk.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/signals/market-sound-layers.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/signals/window-signs.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/signals/late-kitchen-ledger.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/signals/neon-repair.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/signals/river-screening.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/signals/access-after-dark.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/editions/city.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/editions/design.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/editions/culture.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/atelier.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/atelier/numbered-lines.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/atelier/time-ladder.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/atelier/reading-cadence.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/atelier/lantern-contrast.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/atelier/observation-gaps.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/about.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/contact.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/legal.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/disclaimer.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/privacy.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/corrections.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/editorial.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
 </urlset>
