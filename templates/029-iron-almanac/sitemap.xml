@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://[[SITE_DOMAIN]]/</loc><changefreq>yearly</changefreq></url>
-    <url><loc>https://[[SITE_DOMAIN]]/article.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/tool.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/legal.html</loc></url>
+  <url><loc>https://[[SITE_DOMAIN]]/</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/article.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/annual-keyplate.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/chronology-ribbon.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/comparison-matrix.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/annotated-chart.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/regional-plates.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/methodology-folio.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/revision-ledger.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/source-trail.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/scenario-bands.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/field-interview.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/glossary-index.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/articles/access-ledger.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/registers/annual-numbers.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/registers/method-desk.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/registers/field-notes.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/tool.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/instruments/cagr-path.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/instruments/base-index.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/instruments/percentile-rank.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/instruments/yoy-table.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/instruments/unit-scale.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/about.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/contact.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/legal.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/disclaimer.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/privacy.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/corrections.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
+  <url><loc>https://[[SITE_DOMAIN]]/editorial.html</loc><lastmod>[[MODIFIED_DATE]]</lastmod></url>
 </urlset>
