@@ -1,100 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="[[LANG]]" data-journal-theme="ivory">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="A private in-browser sentence and rhythm analyzer for English and Chinese prose.">
-  <title>Sentence &amp; Rhythm Analyzer — [[SITE_NAME]]</title><link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html"><link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <a class="mj-skip-link" href="#main">Skip to the sentence desk</a>
-  <div class="mj-shell">
-    <header class="mj-site-header"><div class="mj-container mj-masthead"><p class="mj-edition">Vol. IV · Summer 2026</p><a class="mj-brand" href="index.html"><strong>[[SITE_NAME]]</strong><span>Essays on attention &amp; ordinary time</span></a><nav class="mj-site-nav" aria-label="Primary navigation"><a href="index.html">Journal</a><a href="article.html">Featured</a><a href="tool.html" aria-current="page">Sentences</a><a href="legal.html">Colophon</a></nav></div></header>
-    <div class="mj-issue-rule"><div class="mj-container mj-issue-row"><span>The sentence desk</span><span>Private · Runs entirely in your browser</span></div></div>
-    <main id="main">
-      <header class="mj-page-hero"><div class="mj-container"><p class="mj-kicker">A small instrument for writers</p><h1>Sentence &amp; rhythm analyzer</h1><p class="mj-intro">Paste a draft to see where its pace quickens, where it lingers, and how the lengths of its sentences create rhythm. English and Chinese text are both supported.</p></div></header>
-      <div class="mj-container mj-tool-page"><div class="mj-tool-layout">
-        <section class="mj-analyzer" aria-labelledby="analyzer-title">
-          <div class="mj-analyzer-head"><h2 id="analyzer-title">Your working paragraph</h2><p>The analysis stays on this page. Your text is never uploaded or stored.</p></div>
-          <form class="mj-analyzer-form" id="analyzer-form" novalidate>
-            <label for="draft-text">Draft text</label>
-            <textarea id="draft-text" maxlength="50000" aria-describedby="draft-hint draft-error">A quiet room is not an empty room. The pipes cool inside the wall, the curtain responds to an air current too slight for skin, and a cup settles against its saucer. Listen long enough, and the room begins to describe itself.</textarea>
-            <p id="draft-hint" class="mj-skip-link">Enter one or more sentences in English or Chinese.</p><p class="mj-field-error" id="draft-error" aria-live="polite"></p>
-            <div class="mj-form-actions"><button class="mj-button" type="submit">Analyze the rhythm</button><button class="mj-button-quiet" id="load-sample" type="button">Load feature excerpt</button><button class="mj-button-quiet" id="reset-tool" type="button">Reset</button></div>
-            <div class="mj-metric-grid" aria-label="Text metrics">
-              <div class="mj-metric"><span>Sentences</span><strong id="sentence-count">—</strong></div>
-              <div class="mj-metric"><span>Words / units</span><strong id="unit-count">—</strong></div>
-              <div class="mj-metric"><span>Average length</span><strong id="average-length">—</strong></div>
-              <div class="mj-metric"><span>Reading time</span><strong id="reading-time">—</strong></div>
-            </div>
-            <section class="mj-analysis-panel" aria-labelledby="breakdown-title">
-              <div class="mj-analysis-head"><h3 id="breakdown-title">Sentence-by-sentence</h3><button class="mj-copy-button" id="copy-analysis" type="button">Copy summary</button></div>
-              <div class="mj-analysis-empty" id="analysis-empty">Run the analyzer to reveal the paragraph’s pace.</div>
-              <table class="mj-sentence-table" id="sentence-table" hidden><thead><tr><th scope="col">No.</th><th scope="col">Sentence</th><th scope="col">Units</th><th scope="col">Rhythm</th></tr></thead><tbody id="sentence-body"></tbody></table>
-            </section>
-            <p class="mj-tool-status" id="tool-status" aria-live="polite"></p>
-          </form>
-        </section>
-        <aside class="mj-tool-aside">
-          <section class="mj-note-card"><h3>Reading the result</h3><ul><li><strong>Brief:</strong> 8 units or fewer—useful for emphasis.</li><li><strong>Measured:</strong> 9–20 units—the natural gait of most prose.</li><li><strong>Long:</strong> 21+ units—expansive, but worth reading aloud.</li></ul></section>
-          <section class="mj-note-card"><h3>Try another texture</h3><p>Load a sample, then edit it to hear how one added clause changes the pace.</p><div class="mj-sample-list"><button class="mj-sample-button" type="button" data-sample="english">English field note</button><button class="mj-sample-button" type="button" data-sample="mixed">English + 中文</button></div></section>
-          <section class="mj-note-card"><h3>A gentle caveat</h3><p>Numbers can reveal repetition, not quality. A long sentence may wander beautifully; a short one may do nothing at all.</p></section>
-        </aside>
-      </div></div>
-    </main>
-    <footer class="mj-site-footer"><div class="mj-container mj-footer-grid"><p>© 2026 [[SITE_NAME]]. Made for attentive readers.</p><div class="mj-footer-links"><a href="index.html">Journal</a><a href="article.html">Featured essay</a><a href="legal.html">Colophon &amp; policies</a></div></div></footer>
-  </div>
-  <script>
-    (() => {
-      const samples = {
-        english: 'A room is never silent. The floor contracts, a pipe knocks once, and the window carries the distant friction of the street. Attention does not make the room quieter; it makes the room legible.',
-        mixed: 'The room holds its breath. 窗外的雨落在旧空调上，像一台不肯停下的打字机。We listen, and the ordinary becomes precise.'
-      };
-      const defaultText = 'A quiet room is not an empty room. The pipes cool inside the wall, the curtain responds to an air current too slight for skin, and a cup settles against its saucer. Listen long enough, and the room begins to describe itself.';
-      const form = document.getElementById('analyzer-form');
-      const input = document.getElementById('draft-text');
-      const error = document.getElementById('draft-error');
-      const body = document.getElementById('sentence-body');
-      const table = document.getElementById('sentence-table');
-      const empty = document.getElementById('analysis-empty');
-      const status = document.getElementById('tool-status');
-      const output = { sentences: document.getElementById('sentence-count'), units: document.getElementById('unit-count'), average: document.getElementById('average-length'), time: document.getElementById('reading-time') };
-      let latest = null;
-      function splitSentences(text) { return (text.match(/[^.!?。！？]+[.!?。！？]?/g) || []).map(part => part.trim()).filter(Boolean); }
-      function countUnits(text) { const words = text.match(/[A-Za-z0-9]+(?:[’'-][A-Za-z0-9]+)*/g) || []; const cjk = text.match(/[\u3400-\u9fff]/g) || []; return words.length + cjk.length; }
-      function rhythm(units) { return units <= 8 ? 'Brief' : units <= 20 ? 'Measured' : 'Long'; }
-      function clearError() { input.removeAttribute('aria-invalid'); error.textContent = ''; }
-      function invalidateAnalysis() {
-        clearError(); latest = null; body.textContent = ''; table.hidden = true; empty.hidden = false;
-        empty.textContent = 'Your draft changed. Run the analyzer to map its new pace.';
-        Object.values(output).forEach(node => node.textContent = '—'); status.textContent = '';
-      }
-      function analyze() {
-        const text = input.value.trim();
-        status.textContent = '';
-        if (!text) { input.setAttribute('aria-invalid', 'true'); error.textContent = 'Add at least one sentence before analyzing.'; input.focus(); return; }
-        if (text.length > 50000) { input.setAttribute('aria-invalid', 'true'); error.textContent = 'Keep the draft at or below 50,000 characters.'; input.focus(); return; }
-        clearError();
-        const sentences = splitSentences(text).map(sentence => ({ text: sentence, units: countUnits(sentence) })).filter(item => item.units > 0);
-        if (!sentences.length) { input.setAttribute('aria-invalid', 'true'); error.textContent = 'We could not find a readable sentence. Add a few words and punctuation.'; input.focus(); return; }
-        const total = sentences.reduce((sum, item) => sum + item.units, 0);
-        latest = { sentences, total, average: total / sentences.length, minutes: Math.max(1, Math.ceil(total / 220)) };
-        output.sentences.textContent = String(sentences.length); output.units.textContent = String(total); output.average.textContent = latest.average.toFixed(1); output.time.textContent = `${latest.minutes} min`;
-        body.textContent = '';
-        sentences.forEach((item, index) => { const row = document.createElement('tr'); [String(index + 1), item.text, String(item.units), rhythm(item.units)].forEach(value => { const cell = document.createElement('td'); cell.textContent = value; row.appendChild(cell); }); body.appendChild(row); });
-        empty.hidden = true; table.hidden = false; status.textContent = `Analysis complete: ${sentences.length} sentence${sentences.length === 1 ? '' : 's'} mapped.`;
-      }
-      form.addEventListener('submit', event => { event.preventDefault(); analyze(); });
-      input.addEventListener('input', invalidateAnalysis);
-      document.getElementById('load-sample').addEventListener('click', () => { input.value = samples.english; clearError(); analyze(); input.focus(); });
-      document.querySelectorAll('[data-sample]').forEach(button => button.addEventListener('click', () => { input.value = samples[button.dataset.sample]; clearError(); analyze(); input.focus(); }));
-      document.getElementById('reset-tool').addEventListener('click', () => { input.value = defaultText; clearError(); latest = null; body.textContent = ''; table.hidden = true; empty.hidden = false; empty.textContent = 'Run the analyzer to reveal the paragraph’s pace.'; status.textContent = ''; Object.values(output).forEach(node => node.textContent = '—'); input.focus(); });
-      document.getElementById('copy-analysis').addEventListener('click', async () => {
-        if (!latest) { status.textContent = 'Analyze a paragraph before copying its summary.'; return; }
-        const longest = [...latest.sentences].sort((a, b) => b.units - a.units)[0];
-        const summary = `Sentence rhythm: ${latest.sentences.length} sentences, ${latest.total} units, ${latest.average.toFixed(1)} average. Longest: ${longest.units} units — ${longest.text}`;
-        try { await navigator.clipboard.writeText(summary); status.textContent = 'Summary copied to the clipboard.'; } catch { status.textContent = 'Copy is unavailable here. Select the sentence table instead.'; }
-      });
-    })();
-  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>[[TOOL_INDEX_META_TITLE]]</title>
+<meta name="description" content="[[TOOL_INDEX_META_DESC]]">
+<link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="[[RSS_TITLE]]" href="feed.xml">
+
+<meta property="og:title" content="[[TOOL_INDEX_META_TITLE]]">
+<meta property="og:description" content="[[TOOL_INDEX_META_DESC]]">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html">
+<meta property="og:image" content="https://[[SITE_DOMAIN]]/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[[TOOL_INDEX_META_TITLE]]">
+<meta name="twitter:description" content="[[TOOL_INDEX_META_DESC]]">
+<meta name="twitter:image" content="https://[[SITE_DOMAIN]]/assets/social-card.png">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"[[TOOL_INDEX_META_TITLE]]","description":"[[TOOL_INDEX_META_DESC]]","url":"https://[[SITE_DOMAIN]]/tool.html","isPartOf":{"@type":"WebSite","name":"[[SITE_NAME]]","url":"https://[[SITE_DOMAIN]]/"}}</script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body>
+<a class="melo-skip" href="#main">Skip to content</a><header class="melo-mast"><p>VOL. [[ISSUE_VOLUME]] · [[ISSUE_SEASON]]</p><a class="melo-brand" href="index.html"><b>[[BRAND_EN]]</b><span>ESSAYS FOR THE ATTENTIVE READER</span></a><nav id="journal-nav" aria-label="Primary navigation"><a href="index.html">Journal</a><a href="article.html">Essays</a><a href="rooms/lamplight-room.html">Rooms</a><a href="tool.html" aria-current="page">Writing Desk</a><a href="about.html">Colophon</a></nav><div><button type="button" data-journal-menu aria-controls="journal-nav" aria-expanded="false">Menu</button><button type="button" data-journal-theme aria-pressed="false" aria-label="Switch color theme">◐</button></div></header><div class="melo-folio"><span>INDEPENDENT</span><i></i><span>ISSUE 028</span><i></i><span>[[LOCATION]]</span></div><main id="main" class="melo-page"><header class="melo-tool-index"><span>FIVE PRIVATE INSTRUMENTS</span><h1>[[TOOL_INDEX_TITLE]]</h1><p>[[TOOL_INDEX_INTRO]]</p></header><section class="melo-tool-shelf"><a href="desk/rhythm-listener.html"><i>♪</i><div><small>DESK 01 · rhythm</small><h2>[[TOOL_01_TITLE]]</h2><p>[[TOOL_01_DESC]]</p></div><b>OPEN</b></a><a href="desk/reading-clock.html"><i>◴</i><div><small>DESK 02 · reading</small><h2>[[TOOL_02_TITLE]]</h2><p>[[TOOL_02_DESC]]</p></div><b>OPEN</b></a><a href="desk/line-break-studio.html"><i>↵</i><div><small>DESK 03 · lines</small><h2>[[TOOL_03_TITLE]]</h2><p>[[TOOL_03_DESC]]</p></div><b>OPEN</b></a><a href="desk/echo-finder.html"><i>≈</i><div><small>DESK 04 · echo</small><h2>[[TOOL_04_TITLE]]</h2><p>[[TOOL_04_DESC]]</p></div><b>OPEN</b></a><a href="desk/title-compositor.html"><i>Aa</i><div><small>DESK 05 · title</small><h2>[[TOOL_05_TITLE]]</h2><p>[[TOOL_05_DESC]]</p></div><b>OPEN</b></a></section><aside class="melo-local-note"><b>[[TOOL_LOCAL_TITLE]]</b><p>[[TOOL_LOCAL_BODY]]</p></aside></main><footer class="melo-footer"><section><a href="index.html"><b>[[BRAND_EN]]</b><small>AN INDEPENDENT JOURNAL</small></a><p>This journal is independently operated. Editorial claims, sources, and suitability must be verified for each finished site.</p></section><details><summary>Open the complete journal index</summary><nav><a href="essays/reader-letter.html">[[ARTICLE_01_TITLE]]</a><a href="essays/quiet-lyric.html">[[ARTICLE_02_TITLE]]</a><a href="essays/braided-notes.html">[[ARTICLE_03_TITLE]]</a><a href="essays/field-dispatch.html">[[ARTICLE_04_TITLE]]</a><a href="essays/table-dialogue.html">[[ARTICLE_05_TITLE]]</a><a href="essays/annotated-object.html">[[ARTICLE_06_TITLE]]</a><a href="essays/scene-sequence.html">[[ARTICLE_07_TITLE]]</a><a href="essays/numbered-meditation.html">[[ARTICLE_08_TITLE]]</a><a href="essays/open-letter.html">[[ARTICLE_09_TITLE]]</a><a href="essays/review-ledger.html">[[ARTICLE_10_TITLE]]</a><a href="essays/studio-conversation.html">[[ARTICLE_11_TITLE]]</a><a href="essays/closing-miscellany.html">[[ARTICLE_12_TITLE]]</a><a href="rooms/lamplight-room.html">[[ROOM_01_TITLE]]</a><a href="rooms/passage-table.html">[[ROOM_02_TITLE]]</a><a href="rooms/margin-parlor.html">[[ROOM_03_TITLE]]</a><a href="tool.html">Writing desk</a><a href="desk/rhythm-listener.html">[[TOOL_01_TITLE]]</a><a href="desk/reading-clock.html">[[TOOL_02_TITLE]]</a><a href="desk/line-break-studio.html">[[TOOL_03_TITLE]]</a><a href="desk/echo-finder.html">[[TOOL_04_TITLE]]</a><a href="desk/title-compositor.html">[[TOOL_05_TITLE]]</a><a href="about.html">[[ABOUT_TITLE]]</a><a href="contact.html">[[CONTACT_TITLE]]</a><a href="disclosure.html">[[DISCLOSURE_TITLE]]</a><a href="legal.html">[[DISCLAIMER_TITLE]]</a><a href="privacy.html">[[PRIVACY_TITLE]]</a><a href="corrections.html">[[CORRECTIONS_TITLE]]</a><a href="editorial.html">[[EDITORIAL_TITLE]]</a><a href="feed.xml">RSS feed</a></nav></details></footer><script src="js/journal.js" defer></script>
 </body>
 </html>

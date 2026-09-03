@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://[[SITE_DOMAIN]]/</loc><changefreq>monthly</changefreq></url>
-    <url><loc>https://[[SITE_DOMAIN]]/article.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/tool.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/legal.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/article.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/essays/reader-letter.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/essays/quiet-lyric.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/essays/braided-notes.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/essays/field-dispatch.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/essays/table-dialogue.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/essays/annotated-object.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/essays/scene-sequence.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/essays/numbered-meditation.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/essays/open-letter.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/essays/review-ledger.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/essays/studio-conversation.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/essays/closing-miscellany.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/rooms/lamplight-room.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/rooms/passage-table.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/rooms/margin-parlor.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/tool.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/desk/rhythm-listener.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/desk/reading-clock.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/desk/line-break-studio.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/desk/echo-finder.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/desk/title-compositor.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/about.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/contact.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/disclosure.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/legal.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/privacy.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/corrections.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/editorial.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
