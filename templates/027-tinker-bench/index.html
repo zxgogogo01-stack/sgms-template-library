@@ -1,74 +1,29 @@
 <!doctype html>
-<html lang="[[LANG]]">
+<html lang="[[LANG]]" data-bench-theme="paper">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <title>[[SITE_NAME]]｜精密计算工作台</title>
-  <meta name="description" content="[[SITE_DESC]]">
-  <link rel="canonical" href="https://[[SITE_DOMAIN]]/">
-  <meta property="og:title" content="[[SITE_NAME]]｜精密计算工作台">
-  <meta property="og:description" content="[[SITE_DESC]]">
-  <meta property="og:url" content="https://[[SITE_DOMAIN]]/">
-  <link rel="stylesheet" href="css/style.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"[[SITE_NAME]]","url":"https://[[SITE_DOMAIN]]/","description":"[[SITE_DESC]]"}</script>
-</head>
-<body>
-  <a class="tb-skip-link" href="#main">跳到主要内容</a>
-  <div class="tb-shell">
-    <header class="tb-site-header">
-      <div class="tb-container tb-header-grid">
-        <a class="tb-brand" href="index.html"><strong>[[SITE_NAME]]</strong><span>Precision bench 027</span></a>
-        <div class="tb-header-main"><nav class="tb-site-nav" aria-label="主导航"><a href="index.html" aria-current="page">工作台</a><a href="tool.html">金额分摊</a><a href="article.html">方法手册</a><a href="legal.html">使用边界</a></nav><span class="tb-bench-status"><i class="tb-status-light" aria-hidden="true"></i>本地计算可用</span></div>
-      </div>
-      <div class="tb-calibration-strip"><div class="tb-container tb-calibration-row"><span>Calibration / 精度至 0.01</span><span>Input stays on device · Browser local only</span></div></div>
-    </header>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>[[HOME_META_TITLE]]</title>
+<meta name="description" content="[[HOME_META_DESC]]">
+<link rel="canonical" href="https://[[SITE_DOMAIN]]/">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="[[RSS_TITLE]]" href="feed.xml">
 
-    <main id="main">
-      <section class="tb-hero" aria-labelledby="hero-title"><div class="tb-container tb-hero-grid"><div><p class="tb-kicker">Utility workshop / 027</p><h1 id="hero-title">把小数、余数<br>和责任说清楚。</h1><p class="tb-lead">一套克制、透明的本地计算工作台。每次计算都给出明细、复核总和与边界说明，不把“差不多”留给最后一分钱。</p></div><div class="tb-spec-panel" aria-label="工作台规格"><div class="tb-spec-row"><strong>0.01</strong><span>最小分配精度</span></div><div class="tb-spec-row"><strong>50</strong><span>单次最多参与人数</span></div><div class="tb-spec-row"><strong>LOCAL</strong><span>输入仅在浏览器处理</span></div></div></div></section>
-
-      <section class="tb-workspace" aria-labelledby="directory-title"><div class="tb-container">
-        <div class="tb-section-head"><div><p class="tb-kicker">Bench directory</p><h2 id="directory-title">工具与复核资源</h2></div><p>先完成计算，再理解口径，最后按清单复核。这里的每个入口都对应一个可完成的具体任务。</p></div>
-        <div class="tb-directory-tools"><div class="tb-search-field"><label for="resource-search" hidden>搜索工具与资源</label><input id="resource-search" type="search" aria-label="搜索工具与资源" placeholder="搜索工具、口径或关键词" autocomplete="off"></div><div class="tb-filter-row" role="group" aria-label="按类型筛选"><button class="tb-filter" type="button" data-filter="all" aria-pressed="true">全部</button><button class="tb-filter" type="button" data-filter="tool" aria-pressed="false">工具</button><button class="tb-filter" type="button" data-filter="guide" aria-pressed="false">指南</button><button class="tb-filter" type="button" data-filter="policy" aria-pressed="false">边界</button></div></div>
-        <div class="tb-directory-meta"><span id="result-message" role="status" aria-live="polite">显示全部资源</span><strong><span id="result-count">6</span> / 6</strong></div>
-        <div class="tb-resource-list">
-          <a class="tb-resource-card" href="tool.html" data-tags="tool amount split cent people calculator 金额 分摊 余数"><span class="tb-resource-id">TOOL-01</span><span class="tb-resource-copy"><h3>金额分摊器</h3><p>按人数平均分配一笔金额，逐人列出余数归属并校验合计。</p></span><span class="tb-resource-kind">可用工具</span><span class="tb-resource-arrow" aria-hidden="true">→</span></a>
-          <a class="tb-resource-card" href="article.html#method" data-tags="guide formula method amount cent 方法 公式"><span class="tb-resource-id">NOTE-01</span><span class="tb-resource-copy"><h3>整分算法说明</h3><p>为什么先转成最小货币单位，以及如何避免浮点误差。</p></span><span class="tb-resource-kind">方法指南</span><span class="tb-resource-arrow" aria-hidden="true">→</span></a>
-          <a class="tb-resource-card" href="article.html#remainder" data-tags="guide remainder order fairness 余数 顺序 公平"><span class="tb-resource-id">NOTE-02</span><span class="tb-resource-copy"><h3>余数分配规则</h3><p>前序与后序两种分配方向的区别，以及什么时候需要轮换。</p></span><span class="tb-resource-kind">方法指南</span><span class="tb-resource-arrow" aria-hidden="true">→</span></a>
-          <a class="tb-resource-card" href="article.html#checklist" data-tags="guide checklist review total 复核 清单 合计"><span class="tb-resource-id">CHECK-01</span><span class="tb-resource-copy"><h3>结果复核清单</h3><p>四步确认人数、精度、余数和最终合计没有偏差。</p></span><span class="tb-resource-kind">复核指南</span><span class="tb-resource-arrow" aria-hidden="true">→</span></a>
-          <a class="tb-resource-card" href="legal.html#data" data-tags="policy privacy local data browser 隐私 本地 数据"><span class="tb-resource-id">RULE-01</span><span class="tb-resource-copy"><h3>输入与数据边界</h3><p>说明浏览器本地处理、刷新后的状态与不应输入的内容。</p></span><span class="tb-resource-kind">使用边界</span><span class="tb-resource-arrow" aria-hidden="true">→</span></a>
-          <a class="tb-resource-card" href="legal.html#invite" data-tags="policy invite access test 邀请码 测试 权限"><span class="tb-resource-id">RULE-02</span><span class="tb-resource-copy"><h3>邀请码使用规则</h3><p>邀请码只适用于获准测试，不代表订阅、收益或正式资格。</p></span><span class="tb-resource-kind">使用边界</span><span class="tb-resource-arrow" aria-hidden="true">→</span></a>
-        </div>
-        <div class="tb-empty-state" id="empty-state" hidden><strong>台面上没有匹配项</strong><p>换个关键词，或清除当前类型筛选。</p><button class="tb-button" type="button" id="reset-results">显示全部资源</button></div>
-
-        <div class="tb-bench-grid"><section class="tb-faq-panel" aria-labelledby="faq-title"><p class="tb-kicker">Working notes</p><h2 id="faq-title">常见问题</h2><details><summary>输入内容会被上传吗？</summary><p>不会。当前工具的计算逻辑在浏览器本地运行，没有提交到服务器的步骤。仍请避免输入姓名、账号或其他敏感信息。</p></details><details><summary>为什么有人会多分 0.01？</summary><p>总金额无法被人数整除时，剩余的最小货币单位必须分给部分参与者。工具会明确标出这些人，并保证总和不变。</p></details><details><summary>结果可以直接作为结算凭证吗？</summary><p>它适合快速生成分配明细，但正式结算前仍应由参与方确认金额、人数、分配方向和币种。</p></details></section>
-          <aside class="tb-invite-panel"><p class="tb-kicker">Private bench</p><h2>台面邀请码</h2><p>用于获准的内测工作台，不影响公开工具使用。</p><label for="invite-code" hidden>邀请码</label><input id="invite-code" value="[[INVITE_CODE]]" readonly aria-label="邀请码"><button class="tb-copy-button" type="button" id="copy-invite">复制邀请码</button><p class="tb-copy-status" id="copy-status" role="status" aria-live="polite"></p><p>[[COMPLIANCE_NOTE]]</p></aside></div>
-      </div></section>
-    </main>
-
-    <footer class="tb-site-footer"><div class="tb-container tb-footer-grid"><p>© 2026 [[SITE_NAME]] · 本地工具结果需自行复核</p><div class="tb-footer-links"><a href="tool.html">金额分摊</a><a href="article.html">方法手册</a><a href="legal.html">使用边界</a></div></div></footer>
-  </div>
-
-  <script>
-  (() => {
-    const search = document.querySelector('#resource-search');
-    const filters = [...document.querySelectorAll('[data-filter]')];
-    const cards = [...document.querySelectorAll('.tb-resource-card')];
-    const empty = document.querySelector('#empty-state');
-    const count = document.querySelector('#result-count');
-    const message = document.querySelector('#result-message');
-    let active = 'all';
-    function apply() {
-      const query = search.value.trim().toLowerCase(); let visible = 0;
-      cards.forEach((card) => { const matchType = active === 'all' || card.dataset.tags.includes(active); const matchQuery = !query || card.textContent.toLowerCase().includes(query) || card.dataset.tags.includes(query); card.hidden = !(matchType && matchQuery); if (!card.hidden) visible += 1; });
-      count.textContent = visible; empty.hidden = visible !== 0; message.textContent = visible === cards.length ? '显示全部资源' : `找到 ${visible} 项资源`;
-    }
-    filters.forEach((button) => button.addEventListener('click', () => { active = button.dataset.filter; filters.forEach((item) => item.setAttribute('aria-pressed', String(item === button))); apply(); }));
-    search.addEventListener('input', apply);
-    document.querySelector('#reset-results').addEventListener('click', () => { active = 'all'; search.value = ''; filters.forEach((item) => item.setAttribute('aria-pressed', String(item.dataset.filter === 'all'))); apply(); search.focus(); });
-    const status = document.querySelector('#copy-status');
-    document.querySelector('#copy-invite').addEventListener('click', async () => { try { await navigator.clipboard.writeText(document.querySelector('#invite-code').value); status.textContent = '邀请码已复制'; } catch (_) { status.textContent = '请选中邀请码后手动复制'; } window.setTimeout(() => { status.textContent = ''; }, 2400); });
-  })();
-  </script>
+<meta property="og:title" content="[[HOME_META_TITLE]]">
+<meta property="og:description" content="[[HOME_META_DESC]]">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://[[SITE_DOMAIN]]/">
+<meta property="og:image" content="https://[[SITE_DOMAIN]]/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[[HOME_META_TITLE]]">
+<meta name="twitter:description" content="[[HOME_META_DESC]]">
+<meta name="twitter:image" content="https://[[SITE_DOMAIN]]/assets/social-card.png">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"[[HOME_META_TITLE]]","description":"[[HOME_META_DESC]]","url":"https://[[SITE_DOMAIN]]/","isPartOf":{"@type":"WebSite","name":"[[SITE_NAME]]","url":"https://[[SITE_DOMAIN]]/"}}</script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body>
+<a class="tkw-skip" href="#main">跳到主要内容</a><header class="tkw-mast"><a class="tkw-wordmark" href="index.html"><b>[[BRAND_EN]]</b><span>PRECISION WORKSHOP / 027</span></a><nav class="tkw-nav" id="bench-nav" aria-label="主要导航"><a href="index.html" aria-current="page">总台</a><a href="article.html">工艺册</a><a href="bays/calibration-bay.html">工位</a><a href="tool.html">量具架</a><a href="about.html">工坊</a></nav><div class="tkw-controls"><button type="button" data-bench-menu aria-expanded="false" aria-controls="bench-nav">目录</button><button type="button" data-bench-theme aria-label="切换深浅主题" aria-pressed="false">◐</button></div></header><div class="tkw-calibration" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div><main id="main"><section class="tkw-hero"><div class="tkw-hero-copy"><p>TOOLMAKER'S DESK / 027</p><h1>[[HOME_TITLE_LINE_01]]<span>[[HOME_TITLE_LINE_02]]</span></h1><div class="tkw-hero-deck">[[HOME_INTRO]]</div><a href="#bench-directory">查看工位总图</a></div><div class="tkw-blueprint" aria-hidden="true"><i></i><i></i><i></i><b>27</b></div><aside class="tkw-pass"><header><span>ACCESS JIG</span><small>CALIBRATED</small></header><label for="invite-code">[[HOME_CODE_LABEL]]</label><div><code id="invite-code">[[INVITE_CODE]]</code><button type="button" data-copy="#invite-code">复制</button></div><strong>通过本站邀请码，有机会获得 [[BENEFIT_RATE]] 手续费减免*</strong><small>* [[BENEFIT_DISCLAIMER]]</small><a href="manuals/access-jig.html"><em>EDITORIAL DRAWING</em><b>[[ARTICLE_01_TITLE]]</b><span>[[HOME_ACCESS_NOTE]]</span></a><p data-copy-status aria-live="polite"></p></aside></section><section class="tkw-directory" id="bench-directory"><header><span>01</span><div><p>TWELVE WORK ORDERS</p><h2>[[HOME_MANUALS_TITLE]]</h2></div><p>[[HOME_MANUALS_NOTE]]</p></header><div class="tkw-order-board"><a href="manuals/calibration-protocol.html"><span>WO-02</span><div><small>BAY A</small><h3>[[ARTICLE_02_TITLE]]</h3><p>[[ARTICLE_02_DECK]]</p></div><b>calibrate</b></a><a href="manuals/exploded-assembly.html"><span>WO-03</span><div><small>BAY A</small><h3>[[ARTICLE_03_TITLE]]</h3><p>[[ARTICLE_03_DECK]]</p></div><b>exploded</b></a><a href="manuals/tolerance-stack.html"><span>WO-04</span><div><small>BAY A</small><h3>[[ARTICLE_04_TITLE]]</h3><p>[[ARTICLE_04_DECK]]</p></div><b>tolerance</b></a><a href="manuals/workflow-sequence.html"><span>WO-05</span><div><small>RAIL B</small><h3>[[ARTICLE_05_TITLE]]</h3><p>[[ARTICLE_05_DECK]]</p></div><b>sequence</b></a><a href="manuals/fault-diagnosis.html"><span>WO-06</span><div><small>RAIL B</small><h3>[[ARTICLE_06_TITLE]]</h3><p>[[ARTICLE_06_DECK]]</p></div><b>diagnosis</b></a><a href="manuals/measurement-card.html"><span>WO-07</span><div><small>RAIL B</small><h3>[[ARTICLE_07_TITLE]]</h3><p>[[ARTICLE_07_DECK]]</p></div><b>measure</b></a><a href="manuals/batch-log.html"><span>WO-08</span><div><small>RAIL B</small><h3>[[ARTICLE_08_TITLE]]</h3><p>[[ARTICLE_08_DECK]]</p></div><b>batch</b></a><a href="manuals/decision-tree.html"><span>WO-09</span><div><small>CAGE C</small><h3>[[ARTICLE_09_TITLE]]</h3><p>[[ARTICLE_09_DECK]]</p></div><b>decision</b></a><a href="manuals/failure-atlas.html"><span>WO-10</span><div><small>CAGE C</small><h3>[[ARTICLE_10_TITLE]]</h3><p>[[ARTICLE_10_DECK]]</p></div><b>atlas</b></a><a href="manuals/operator-notes.html"><span>WO-11</span><div><small>CAGE C</small><h3>[[ARTICLE_11_TITLE]]</h3><p>[[ARTICLE_11_DECK]]</p></div><b>interview</b></a><a href="manuals/acceptance-checklist.html"><span>WO-12</span><div><small>CAGE C</small><h3>[[ARTICLE_12_TITLE]]</h3><p>[[ARTICLE_12_DECK]]</p></div><b>acceptance</b></a></div><a class="tkw-more" href="article.html">打开全部工艺册</a></section><section class="tkw-bay-bank"><header><span>02 / BAYS</span><h2>[[HOME_BAYS_TITLE]]</h2><p>[[HOME_BAYS_NOTE]]</p></header><a href="bays/calibration-bay.html"><em>01</em><small>BAY A</small><h3>[[CATEGORY_01_TITLE]]</h3><p>[[CATEGORY_01_NOTE]]</p></a><a href="bays/assembly-rail.html"><em>02</em><small>RAIL B</small><h3>[[CATEGORY_02_TITLE]]</h3><p>[[CATEGORY_02_NOTE]]</p></a><a href="bays/inspection-cage.html"><em>03</em><small>CAGE C</small><h3>[[CATEGORY_03_TITLE]]</h3><p>[[CATEGORY_03_NOTE]]</p></a></section><section class="tkw-instrument-bank"><header><span>03 / INSTRUMENTS</span><h2>[[HOME_TOOLS_TITLE]]</h2><a href="tool.html">全部量具</a></header><div><a href="instruments/amount-divider.html"><i>÷</i><small>I-01</small><h3>[[TOOL_01_TITLE]]</h3><p>[[TOOL_01_DESC]]</p></a><a href="instruments/unit-caliper.html"><i>↔</i><small>I-02</small><h3>[[TOOL_02_TITLE]]</h3><p>[[TOOL_02_DESC]]</p></a><a href="instruments/tolerance-stack.html"><i>±</i><small>I-03</small><h3>[[TOOL_03_TITLE]]</h3><p>[[TOOL_03_DESC]]</p></a><a href="instruments/ratio-allocator.html"><i>∷</i><small>I-04</small><h3>[[TOOL_04_TITLE]]</h3><p>[[TOOL_04_DESC]]</p></a><a href="instruments/batch-checksum.html"><i>Σ</i><small>I-05</small><h3>[[TOOL_05_TITLE]]</h3><p>[[TOOL_05_DESC]]</p></a></div></section><section class="tkw-policy-bank"><div><span>04 / WORKSHOP NOTES</span><h2>[[HOME_POLICY_TITLE]]</h2><p>[[HOME_POLICY_NOTE]]</p></div><nav><a href="about.html">[[ABOUT_TITLE]]</a><a href="contact.html">[[CONTACT_TITLE]]</a><a href="disclosure.html">[[DISCLOSURE_TITLE]]</a><a href="legal.html">[[DISCLAIMER_TITLE]]</a><a href="privacy.html">[[PRIVACY_TITLE]]</a><a href="corrections.html">[[CORRECTIONS_TITLE]]</a><a href="editorial.html">[[EDITORIAL_TITLE]]</a></nav></section></main><footer class="tkw-footer"><section><a href="index.html"><b>[[BRAND_EN]]</b><small>INDEPENDENT TOOL WORKSHOP</small></a><p>本站独立运营。模板提供工具与编辑框架，具体内容、结论和适用性需在单站流程中独立核实。</p></section><details><summary>打开完整工作台目录</summary><nav><a href="manuals/calibration-protocol.html">[[ARTICLE_02_TITLE]]</a><a href="manuals/exploded-assembly.html">[[ARTICLE_03_TITLE]]</a><a href="manuals/tolerance-stack.html">[[ARTICLE_04_TITLE]]</a><a href="manuals/workflow-sequence.html">[[ARTICLE_05_TITLE]]</a><a href="manuals/fault-diagnosis.html">[[ARTICLE_06_TITLE]]</a><a href="manuals/measurement-card.html">[[ARTICLE_07_TITLE]]</a><a href="manuals/batch-log.html">[[ARTICLE_08_TITLE]]</a><a href="manuals/decision-tree.html">[[ARTICLE_09_TITLE]]</a><a href="manuals/failure-atlas.html">[[ARTICLE_10_TITLE]]</a><a href="manuals/operator-notes.html">[[ARTICLE_11_TITLE]]</a><a href="manuals/acceptance-checklist.html">[[ARTICLE_12_TITLE]]</a><a href="bays/calibration-bay.html">[[CATEGORY_01_TITLE]]</a><a href="bays/assembly-rail.html">[[CATEGORY_02_TITLE]]</a><a href="bays/inspection-cage.html">[[CATEGORY_03_TITLE]]</a><a href="tool.html">量具架</a><a href="instruments/amount-divider.html">[[TOOL_01_TITLE]]</a><a href="instruments/unit-caliper.html">[[TOOL_02_TITLE]]</a><a href="instruments/tolerance-stack.html">[[TOOL_03_TITLE]]</a><a href="instruments/ratio-allocator.html">[[TOOL_04_TITLE]]</a><a href="instruments/batch-checksum.html">[[TOOL_05_TITLE]]</a><a href="about.html">[[ABOUT_TITLE]]</a><a href="contact.html">[[CONTACT_TITLE]]</a><a href="disclosure.html">[[DISCLOSURE_TITLE]]</a><a href="legal.html">[[DISCLAIMER_TITLE]]</a><a href="privacy.html">[[PRIVACY_TITLE]]</a><a href="corrections.html">[[CORRECTIONS_TITLE]]</a><a href="editorial.html">[[EDITORIAL_TITLE]]</a><a href="feed.xml">RSS 订阅</a></nav></details></footer><script src="js/bench.js" defer></script>
 </body>
 </html>

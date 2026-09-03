@@ -1,77 +1,29 @@
 <!doctype html>
-<html lang="[[LANG]]">
+<html lang="[[LANG]]" data-bench-theme="paper">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark">
-  <title>金额分摊器｜[[SITE_NAME]]</title><meta name="description" content="按人数精确分摊金额，明确余数归属并复核总和。"><link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
-  <meta property="og:title" content="金额分摊器｜[[SITE_NAME]]"><meta property="og:description" content="生成逐人分摊明细，所有计算均在浏览器本地完成。"><meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html"><link rel="stylesheet" href="css/style.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"金额分摊器","url":"https://[[SITE_DOMAIN]]/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Web Browser"}</script>
-</head>
-<body><a class="tb-skip-link" href="#main">跳到主要内容</a><div class="tb-shell">
-  <header class="tb-site-header"><div class="tb-container tb-header-grid"><a class="tb-brand" href="index.html"><strong>[[SITE_NAME]]</strong><span>Precision bench 027</span></a><div class="tb-header-main"><nav class="tb-site-nav" aria-label="主导航"><a href="index.html">工作台</a><a href="tool.html" aria-current="page">金额分摊</a><a href="article.html">方法手册</a><a href="legal.html">使用边界</a></nav><span class="tb-bench-status"><i class="tb-status-light" aria-hidden="true"></i>本地计算可用</span></div></div><div class="tb-calibration-strip"><div class="tb-container tb-calibration-row"><span>Tool / Split-01</span><span>Local execution · No input upload</span></div></div></header>
-  <main id="main"><header class="tb-page-hero"><div class="tb-container"><p class="tb-kicker">Local utility / split-01</p><h1>每一分钱，<br>都有明确去处。</h1><p>按人数平均分配总金额，选择余数方向，并生成可复核、可复制的逐人明细。</p></div></header>
-    <section class="tb-tool-page" aria-labelledby="tool-title"><div class="tb-container tb-tool-layout"><div class="tb-calculator"><div class="tb-calculator-head"><div><h2 id="tool-title">金额分摊器</h2><p>精度固定为 0.01；总金额限制在 9,999,999.99 以内。</p></div><span class="tb-tool-badge">Browser local</span></div>
-      <form class="tb-split-form" id="split-form" novalidate><div class="tb-form-grid">
-        <div class="tb-field"><label for="total">总金额</label><input id="total" name="total" value="100.00" inputmode="decimal" autocomplete="off" aria-describedby="total-error"><p class="tb-field-error" id="total-error"></p></div>
-        <div class="tb-field"><label for="heads">参与人数</label><input id="heads" name="heads" value="6" inputmode="numeric" autocomplete="off" aria-describedby="heads-error"><p class="tb-field-error" id="heads-error"></p></div>
-        <div class="tb-field"><label for="currency">显示币种</label><select id="currency" name="currency"><option value="CNY">人民币 CNY</option><option value="USD">美元 USD</option><option value="EUR">欧元 EUR</option><option value="HKD">港元 HKD</option></select><p class="tb-field-error"></p></div>
-        <div class="tb-order-panel"><span>余数分配方向</span><div class="tb-order-options" role="group" aria-label="余数分配方向"><button class="tb-order-button" type="button" data-order="forward" aria-pressed="true">从前往后</button><button class="tb-order-button" type="button" data-order="reverse" aria-pressed="false">从后往前</button></div></div>
-      </div><div class="tb-form-actions"><button class="tb-button" type="submit">生成分摊明细</button><button class="tb-button-secondary" type="button" id="reset-tool">重置示例</button></div>
-        <section class="tb-result-panel" id="result-panel" aria-live="polite" aria-atomic="false"><div class="tb-result-summary"><div class="tb-result-stat"><span>基础份额</span><strong id="base-share">—</strong></div><div class="tb-result-stat"><span>获得余数人数</span><strong id="extra-count">—</strong></div><div class="tb-result-stat"><span>复核合计</span><strong id="verified-total">—</strong></div></div><div class="tb-result-head"><h3 id="result-title">分摊明细</h3><button class="tb-button-secondary" type="button" id="copy-result">复制明细</button></div><div class="tb-result-empty" id="result-empty" hidden>修正输入后重新生成明细。</div><div class="tb-allocation-wrap" id="allocation-wrap"><table class="tb-allocation-table"><thead><tr><th scope="col">参与者</th><th scope="col">余数标记</th><th scope="col">分配金额</th></tr></thead><tbody id="allocation-body"></tbody></table></div></section><p class="tb-copy-status" id="tool-status" role="status" aria-live="polite"></p>
-      </form></div>
-      <aside class="tb-tool-aside" aria-label="工具说明"><section class="tb-tool-note"><h3>示例输入</h3><div class="tb-examples"><button class="tb-example-button" type="button" data-total="100" data-heads="6">100.00 / 6 人 · 有余数</button><button class="tb-example-button" type="button" data-total="88" data-heads="4">88.00 / 4 人 · 整除</button><button class="tb-example-button" type="button" data-total="0.03" data-heads="5">0.03 / 5 人 · 金额小于人数</button></div></section><section class="tb-tool-note"><h3>计算规则</h3><ul><li>金额先换算成整数的分</li><li>每人先获得基础份额</li><li>余数按所选方向逐一分配</li><li>明细总和必须等于总金额</li></ul></section><section class="tb-tool-note"><h3>输入边界</h3><p>不要输入姓名、账号或支付凭证。币种只影响显示符号，不执行汇率转换。</p><p><a href="article.html">查看完整方法手册</a></p></section></aside>
-    </div></section>
-  </main><footer class="tb-site-footer"><div class="tb-container tb-footer-grid"><p>© 2026 [[SITE_NAME]] · 结果仅供计算辅助，请自行复核</p><div class="tb-footer-links"><a href="index.html">工作台</a><a href="article.html">方法手册</a><a href="legal.html">使用边界</a></div></div></footer>
-</div>
-<script>
-(() => {
-  const form = document.querySelector('#split-form');
-  const total = document.querySelector('#total');
-  const heads = document.querySelector('#heads');
-  const currency = document.querySelector('#currency');
-  const totalError = document.querySelector('#total-error');
-  const headsError = document.querySelector('#heads-error');
-  const body = document.querySelector('#allocation-body');
-  const wrap = document.querySelector('#allocation-wrap');
-  const empty = document.querySelector('#result-empty');
-  const status = document.querySelector('#tool-status');
-  const symbols = { CNY: '¥', USD: '$', EUR: '€', HKD: 'HK$' };
-  let order = 'forward'; let copyText = '';
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>[[TOOL_INDEX_META_TITLE]]</title>
+<meta name="description" content="[[TOOL_INDEX_META_DESC]]">
+<link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="[[RSS_TITLE]]" href="feed.xml">
 
-  function clearErrors() { [total, heads].forEach((input) => input.removeAttribute('aria-invalid')); totalError.textContent = ''; headsError.textContent = ''; status.textContent = ''; }
-  function money(cents) { return `${symbols[currency.value]}${(cents / 100).toFixed(2)}`; }
-  function invalid(input, element, message) { input.setAttribute('aria-invalid', 'true'); element.textContent = message; }
-  function invalidateResult(event) {
-    const input = event.currentTarget;
-    input.removeAttribute('aria-invalid');
-    (input === total ? totalError : headsError).textContent = '';
-    body.innerHTML = ''; wrap.hidden = true; empty.hidden = false; empty.textContent = '输入已更改，请重新生成明细。';
-    document.querySelector('#base-share').textContent = '—'; document.querySelector('#extra-count').textContent = '—'; document.querySelector('#verified-total').textContent = '—';
-    document.querySelector('#result-title').textContent = '输入已更改'; copyText = ''; status.textContent = '';
-  }
-  function parse() {
-    clearErrors(); const amountText = total.value.trim(); const headsText = heads.value.trim();
-    const amount = Number(amountText); const count = Number(headsText);
-    if (!/^\d+(?:\.\d{1,2})?$/.test(amountText) || !Number.isFinite(amount) || amount < 0.01 || amount > 9999999.99) invalid(total, totalError, '请输入 0.01 至 9,999,999.99，最多两位小数');
-    if (!/^\d+$/.test(headsText) || !Number.isInteger(count) || count < 1 || count > 50) invalid(heads, headsError, '请输入 1 至 50 的整数');
-    if (total.hasAttribute('aria-invalid') || heads.hasAttribute('aria-invalid')) { (total.hasAttribute('aria-invalid') ? total : heads).focus(); return null; }
-    return { cents: Math.round(amount * 100), count };
-  }
-  function render() {
-    const values = parse(); if (!values) { body.innerHTML = ''; wrap.hidden = true; empty.hidden = false; empty.textContent = '修正输入后重新生成明细。'; document.querySelector('#base-share').textContent = '—'; document.querySelector('#extra-count').textContent = '—'; document.querySelector('#verified-total').textContent = '—'; document.querySelector('#result-title').textContent = '请修正输入'; copyText = ''; return; }
-    const base = Math.floor(values.cents / values.count); const extra = values.cents - base * values.count; const rows = [];
-    for (let index = 0; index < values.count; index += 1) { const getsExtra = order === 'forward' ? index < extra : index >= values.count - extra; const share = base + (getsExtra ? 1 : 0); rows.push({ index: index + 1, getsExtra, share }); }
-    body.innerHTML = rows.map((row) => `<tr><td>参与者 ${String(row.index).padStart(2, '0')}</td><td>${row.getsExtra ? '<span class="tb-extra-mark">+0.01</span>' : '—'}</td><td><strong>${money(row.share)}</strong></td></tr>`).join('');
-    document.querySelector('#base-share').textContent = money(base); document.querySelector('#extra-count').textContent = `${extra} 人`; document.querySelector('#verified-total').textContent = money(rows.reduce((sum, row) => sum + row.share, 0)); document.querySelector('#result-title').textContent = `${values.count} 人分摊明细`; wrap.hidden = false; empty.hidden = true;
-    copyText = [`金额分摊｜${money(values.cents)} ÷ ${values.count} 人`, `方向：${order === 'forward' ? '从前往后' : '从后往前'}`, ...rows.map((row) => `参与者 ${String(row.index).padStart(2, '0')}：${money(row.share)}${row.getsExtra ? '（含余数 0.01）' : ''}`), `复核合计：${money(values.cents)}`].join('\n');
-  }
-  form.addEventListener('submit', (event) => { event.preventDefault(); render(); });
-  total.addEventListener('input', invalidateResult);
-  heads.addEventListener('input', invalidateResult);
-  document.querySelectorAll('[data-order]').forEach((button) => button.addEventListener('click', () => { order = button.dataset.order; document.querySelectorAll('[data-order]').forEach((item) => item.setAttribute('aria-pressed', String(item === button))); render(); }));
-  currency.addEventListener('change', render);
-  document.querySelectorAll('.tb-example-button').forEach((button) => button.addEventListener('click', () => { total.value = Number(button.dataset.total).toFixed(2); heads.value = button.dataset.heads; render(); }));
-  document.querySelector('#reset-tool').addEventListener('click', () => { total.value = '100.00'; heads.value = '6'; currency.value = 'CNY'; order = 'forward'; document.querySelectorAll('[data-order]').forEach((item) => item.setAttribute('aria-pressed', String(item.dataset.order === 'forward'))); render(); total.focus(); status.textContent = '已恢复默认示例'; });
-  document.querySelector('#copy-result').addEventListener('click', async () => { if (!copyText) { status.textContent = '请先生成有效明细'; return; } try { await navigator.clipboard.writeText(copyText); status.textContent = '分摊明细已复制'; } catch (_) { status.textContent = '浏览器未授权复制，请手动选择明细'; } });
-  render();
-})();
-</script></body></html>
+<meta property="og:title" content="[[TOOL_INDEX_META_TITLE]]">
+<meta property="og:description" content="[[TOOL_INDEX_META_DESC]]">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html">
+<meta property="og:image" content="https://[[SITE_DOMAIN]]/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[[TOOL_INDEX_META_TITLE]]">
+<meta name="twitter:description" content="[[TOOL_INDEX_META_DESC]]">
+<meta name="twitter:image" content="https://[[SITE_DOMAIN]]/assets/social-card.png">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"[[TOOL_INDEX_META_TITLE]]","description":"[[TOOL_INDEX_META_DESC]]","url":"https://[[SITE_DOMAIN]]/tool.html","isPartOf":{"@type":"WebSite","name":"[[SITE_NAME]]","url":"https://[[SITE_DOMAIN]]/"}}</script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body>
+<a class="tkw-skip" href="#main">跳到主要内容</a><header class="tkw-mast"><a class="tkw-wordmark" href="index.html"><b>[[BRAND_EN]]</b><span>PRECISION WORKSHOP / 027</span></a><nav class="tkw-nav" id="bench-nav" aria-label="主要导航"><a href="index.html">总台</a><a href="article.html">工艺册</a><a href="bays/calibration-bay.html">工位</a><a href="tool.html" aria-current="page">量具架</a><a href="about.html">工坊</a></nav><div class="tkw-controls"><button type="button" data-bench-menu aria-expanded="false" aria-controls="bench-nav">目录</button><button type="button" data-bench-theme aria-label="切换深浅主题" aria-pressed="false">◐</button></div></header><div class="tkw-calibration" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div><main id="main" class="tkw-page"><header class="tkw-instrument-index"><span>CALIBRATED INSTRUMENTS / 05</span><h1>[[TOOL_INDEX_TITLE]]</h1><p>[[TOOL_INDEX_INTRO]]</p></header><section class="tkw-instrument-rack"><a href="instruments/amount-divider.html"><i>÷</i><div><small>I-01 · split</small><h2>[[TOOL_01_TITLE]]</h2><p>[[TOOL_01_DESC]]</p></div><b>OPEN</b></a><a href="instruments/unit-caliper.html"><i>↔</i><div><small>I-02 · unit</small><h2>[[TOOL_02_TITLE]]</h2><p>[[TOOL_02_DESC]]</p></div><b>OPEN</b></a><a href="instruments/tolerance-stack.html"><i>±</i><div><small>I-03 · tolerance</small><h2>[[TOOL_03_TITLE]]</h2><p>[[TOOL_03_DESC]]</p></div><b>OPEN</b></a><a href="instruments/ratio-allocator.html"><i>∷</i><div><small>I-04 · ratio</small><h2>[[TOOL_04_TITLE]]</h2><p>[[TOOL_04_DESC]]</p></div><b>OPEN</b></a><a href="instruments/batch-checksum.html"><i>Σ</i><div><small>I-05 · checksum</small><h2>[[TOOL_05_TITLE]]</h2><p>[[TOOL_05_DESC]]</p></div><b>OPEN</b></a></section><aside class="tkw-local-note"><b>[[TOOL_LOCAL_TITLE]]</b><p>[[TOOL_LOCAL_BODY]]</p></aside></main><footer class="tkw-footer"><section><a href="index.html"><b>[[BRAND_EN]]</b><small>INDEPENDENT TOOL WORKSHOP</small></a><p>本站独立运营。模板提供工具与编辑框架，具体内容、结论和适用性需在单站流程中独立核实。</p></section><details><summary>打开完整工作台目录</summary><nav><a href="manuals/access-jig.html">[[ARTICLE_01_TITLE]]</a><a href="manuals/calibration-protocol.html">[[ARTICLE_02_TITLE]]</a><a href="manuals/exploded-assembly.html">[[ARTICLE_03_TITLE]]</a><a href="manuals/tolerance-stack.html">[[ARTICLE_04_TITLE]]</a><a href="manuals/workflow-sequence.html">[[ARTICLE_05_TITLE]]</a><a href="manuals/fault-diagnosis.html">[[ARTICLE_06_TITLE]]</a><a href="manuals/measurement-card.html">[[ARTICLE_07_TITLE]]</a><a href="manuals/batch-log.html">[[ARTICLE_08_TITLE]]</a><a href="manuals/decision-tree.html">[[ARTICLE_09_TITLE]]</a><a href="manuals/failure-atlas.html">[[ARTICLE_10_TITLE]]</a><a href="manuals/operator-notes.html">[[ARTICLE_11_TITLE]]</a><a href="manuals/acceptance-checklist.html">[[ARTICLE_12_TITLE]]</a><a href="bays/calibration-bay.html">[[CATEGORY_01_TITLE]]</a><a href="bays/assembly-rail.html">[[CATEGORY_02_TITLE]]</a><a href="bays/inspection-cage.html">[[CATEGORY_03_TITLE]]</a><a href="tool.html">量具架</a><a href="instruments/amount-divider.html">[[TOOL_01_TITLE]]</a><a href="instruments/unit-caliper.html">[[TOOL_02_TITLE]]</a><a href="instruments/tolerance-stack.html">[[TOOL_03_TITLE]]</a><a href="instruments/ratio-allocator.html">[[TOOL_04_TITLE]]</a><a href="instruments/batch-checksum.html">[[TOOL_05_TITLE]]</a><a href="about.html">[[ABOUT_TITLE]]</a><a href="contact.html">[[CONTACT_TITLE]]</a><a href="disclosure.html">[[DISCLOSURE_TITLE]]</a><a href="legal.html">[[DISCLAIMER_TITLE]]</a><a href="privacy.html">[[PRIVACY_TITLE]]</a><a href="corrections.html">[[CORRECTIONS_TITLE]]</a><a href="editorial.html">[[EDITORIAL_TITLE]]</a><a href="feed.xml">RSS 订阅</a></nav></details></footer><script src="js/bench.js" defer></script>
+</body>
+</html>

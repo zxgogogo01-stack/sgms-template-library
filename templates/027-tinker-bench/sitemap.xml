@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://[[SITE_DOMAIN]]/</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/article.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/tool.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/legal.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/article.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/manuals/access-jig.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/manuals/calibration-protocol.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/manuals/exploded-assembly.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/manuals/tolerance-stack.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/manuals/workflow-sequence.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/manuals/fault-diagnosis.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/manuals/measurement-card.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/manuals/batch-log.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/manuals/decision-tree.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/manuals/failure-atlas.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/manuals/operator-notes.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/manuals/acceptance-checklist.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/bays/calibration-bay.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/bays/assembly-rail.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/bays/inspection-cage.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/tool.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/instruments/amount-divider.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/instruments/unit-caliper.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/instruments/tolerance-stack.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/instruments/ratio-allocator.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/instruments/batch-checksum.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/about.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/contact.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/disclosure.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/legal.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/privacy.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/corrections.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://[[SITE_DOMAIN]]/editorial.html</loc><lastmod>[[SITEMAP_LASTMOD]]</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
