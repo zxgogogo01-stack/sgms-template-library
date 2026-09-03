@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://[[SITE_DOMAIN]]/</loc><changefreq>weekly</changefreq></url>
-    <url><loc>https://[[SITE_DOMAIN]]/article.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/tool.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/legal.html</loc></url>
+  <url><loc>https://%SITE_DOMAIN%/</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/article.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/entries/entry-gate.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/entries/root-definition.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/entries/word-origin.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/entries/meaning-branches.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/entries/context-pair.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/entries/usage-spectrum.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/entries/false-friend.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/entries/translation-notes.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/entries/field-example.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/entries/term-timeline.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/entries/comparison-grid.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/entries/editor-brief.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/collections/root-system.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/collections/branch-notes.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/collections/canopy-records.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/tool.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/context-concordance.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/rhythm-profile.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/term-overlap.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/variant-normalizer.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/instruments/glossary-cards.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/about.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/contact.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/disclosure.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/legal.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/privacy.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/corrections.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://%SITE_DOMAIN%/editorial.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

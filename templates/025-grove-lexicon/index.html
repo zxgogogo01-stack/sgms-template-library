@@ -1,70 +1,66 @@
-<!DOCTYPE html>
-<html lang="[[LANG]]">
+<!doctype html>
+<html lang="%LANG%" data-theme="light">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>[[SITE_NAME]] - 术语研究台</title>
-    <meta name="description" content="[[SITE_DESC]]">
-    <link rel="canonical" href="https://[[SITE_DOMAIN]]/">
-    <meta property="og:title" content="[[SITE_NAME]] - 术语研究台">
-    <meta property="og:description" content="[[SITE_DESC]]">
-    <meta property="og:url" content="https://[[SITE_DOMAIN]]/">
-    <link rel="stylesheet" href="css/style.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTermSet","name":"[[SITE_NAME]]","url":"https://[[SITE_DOMAIN]]/","description":"[[SITE_DESC]]"}</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>%HOME_META_TITLE%</title>
+  <meta name="description" content="%HOME_META_DESC%">
+  <link rel="canonical" href="https://%SITE_DOMAIN%/">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
+
+  <meta property="og:title" content="%HOME_META_TITLE%">
+  <meta property="og:description" content="%HOME_META_DESC%">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://%SITE_DOMAIN%/">
+  <meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="%HOME_META_TITLE%">
+  <meta name="twitter:description" content="%HOME_META_DESC%">
+  <meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%HOME_META_TITLE%","description":"%HOME_META_DESC%","url":"https://%SITE_DOMAIN%/","isPartOf":{"@type":"WebSite","name":"%SITE_NAME%","url":"https://%SITE_DOMAIN%/"}}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 </head>
 <body>
-    <a class="gl-skip-link" href="#main">跳到主要内容</a>
-    <div class="gl-status-strip"><div class="gl-shell gl-status-inner"><span>Field lexicon · public edition 2026.08</span><span>12 entries · 4 branches · local search</span></div></div>
-    <header class="gl-site-header"><div class="gl-shell gl-header-inner"><a class="gl-brand" href="index.html">[[SITE_NAME]]<small>Grove lexicon · field research desk</small></a><nav class="gl-primary-nav" aria-label="主要导航"><a href="index.html" aria-current="page">词典索引</a><a href="article.html">核心词条</a><a href="tool.html">语境统计</a><a href="legal.html">编纂说明</a></nav></div></header>
-
-    <main id="main">
-        <section class="gl-lexicon-hero"><div class="gl-shell gl-hero-grid"><div class="gl-hero-copy"><p class="gl-eyebrow">Living terminology / 为理解而编纂</p><h1>先把词说清，<span>再讨论判断。</span></h1><p>[[SITE_TAGLINE]]。每个词条先给最短定义，再补边界、常见误用与交叉引用；搜索与筛选只在当前页面运行。</p><div class="gl-button-row"><a class="gl-button" href="#dictionary">开始查词</a><a class="gl-button gl-button-secondary" href="article.html">阅读本期核心词条</a></div></div><aside class="gl-catalog-panel" aria-label="词典概况"><p class="gl-eyebrow">Catalog status / 编目状态</p><h2>一套可追溯的术语地图。</h2><p>收录基础概念、订单机制、成本结构与风险控制四个分支，公开版按六个月周期复核。</p><div class="gl-catalog-stats"><div><strong>12</strong><span>已收词条</span></div><div><strong>04</strong><span>主题分支</span></div><div><strong>01</strong><span>核心详解</span></div><div><strong>6M</strong><span>复核周期</span></div></div></aside></div><div class="gl-shell gl-search-deck"><div class="gl-search-field"><label for="term-search">Search the lexicon / 搜索词典</label><input id="term-search" type="search" autocomplete="off" placeholder="输入术语、定义或别名"><button class="gl-button gl-button-small gl-button-secondary" type="button" id="clear-search">清空</button></div><div class="gl-search-status" aria-live="polite"><strong id="match-count">12</strong><span>个词条可见</span></div></div></section>
-
-        <section class="gl-dictionary gl-shell" id="dictionary" aria-labelledby="dictionary-title"><header class="gl-section-head"><div><p class="gl-eyebrow">Dictionary branches / 术语分支</p><h2 id="dictionary-title">从结构出发，找到词与词之间的关系。</h2></div><p>点开词条查看完整定义。筛选适合浏览，搜索适合定位；找不到结果时可一键回到完整索引。</p></header><div class="gl-dictionary-layout"><aside class="gl-filter-rail"><p class="gl-eyebrow">Branch filter</p><h3>选择分支</h3><p>分类不代表唯一归属，只表示词条的主要使用场景。</p><div class="gl-filter-list" role="group" aria-label="按分支筛选"><button class="gl-filter-button" type="button" data-filter="all" aria-pressed="true">全部词条 <span>12</span></button><button class="gl-filter-button" type="button" data-filter="concept" aria-pressed="false">基础概念 <span>3</span></button><button class="gl-filter-button" type="button" data-filter="order" aria-pressed="false">订单机制 <span>3</span></button><button class="gl-filter-button" type="button" data-filter="cost" aria-pressed="false">成本结构 <span>3</span></button><button class="gl-filter-button" type="button" data-filter="risk" aria-pressed="false">风险控制 <span>3</span></button></div><div class="gl-rail-actions"><button type="button" id="open-all">展开当前词条</button><button type="button" id="close-all">收起全部词条</button></div></aside><div><div class="gl-term-list" id="term-list">
-            <details class="gl-term-card" data-category="concept" data-search="订单簿 order book 买卖报价 深度"><summary><span><span class="gl-term-name">订单簿</span><span class="gl-term-brief">按价格层级排列、尚未成交的买卖委托集合。</span></span><span class="gl-term-tag">Concept · 基础</span></summary><div class="gl-term-body"><p>它反映某一时点可见的报价与数量，不等于未来一定能按展示价格完成成交。</p><p class="gl-crossref">常见误用：把某一档数量当成长期流动性保证。</p><div class="gl-term-actions"><a href="article.html">参见：滑点</a><a href="#term-depth">参见：市场深度</a></div></div></details>
-            <details class="gl-term-card" data-category="concept" data-search="市场深度 depth 流动性 数量"><summary><span><span class="gl-term-name">市场深度</span><span class="gl-term-brief">不同价格层级上可供成交的数量分布。</span></span><span class="gl-term-tag">Concept · 基础</span></summary><div class="gl-term-body"><p>深度需要结合价格距离观察；只看最优一档，无法说明较大数量成交时的平均价格。</p><p class="gl-crossref">边界：公开订单簿未必包含隐藏委托或尚未进入市场的意图。</p><div class="gl-term-actions"><a href="article.html">参见：滑点</a><a href="#term-spread">参见：买卖价差</a></div></div></details>
-            <details class="gl-term-card" data-category="concept" data-search="流动性 liquidity 成交 价格影响"><summary><span><span class="gl-term-name">流动性</span><span class="gl-term-brief">在有限价格影响和时间成本下完成交易的能力。</span></span><span class="gl-term-tag">Concept · 基础</span></summary><div class="gl-term-body"><p>它不是单一数字，通常同时涉及可成交数量、价差、等待时间和成交后的价格恢复。</p><p class="gl-crossref">常见误用：用高成交量直接替代流动性判断。</p></div></details>
-            <details class="gl-term-card" data-category="order" data-search="限价单 limit order 指定价格"><summary><span><span class="gl-term-name">限价单</span><span class="gl-term-brief">仅在指定价格或更优条件下成交的委托。</span></span><span class="gl-term-tag">Order · 订单</span></summary><div class="gl-term-body"><p>它能限制最差成交价格，但不能保证一定成交，也不能保证在队列中优先成交。</p><p class="gl-crossref">边界：不同平台对触发、冻结和撤单的处理可能不同。</p><div class="gl-term-actions"><a href="#term-maker">参见：挂单</a></div></div></details>
-            <details class="gl-term-card" data-category="order" data-search="市价单 market order 立即成交"><summary><span><span class="gl-term-name">市价单</span><span class="gl-term-brief">按当时可用报价尽快成交的委托。</span></span><span class="gl-term-tag">Order · 订单</span></summary><div class="gl-term-body"><p>它强调执行速度而非固定价格；最终平均成交价取决于当时可用深度。</p><p class="gl-crossref">常见误用：把下单前看到的最优价当成全部数量的成交价。</p><div class="gl-term-actions"><a href="article.html">参见：滑点</a></div></div></details>
-            <details class="gl-term-card" id="term-maker" data-category="order" data-search="挂单 maker 增加流动性 订单簿"><summary><span><span class="gl-term-name">挂单</span><span class="gl-term-brief">进入订单簿等待、未立即与现有委托成交的订单。</span></span><span class="gl-term-tag">Order · 订单</span></summary><div class="gl-term-body"><p>“挂单”描述的是订单与订单簿的关系，不代表最终一定成交，也不等同于所有限价单。</p><p class="gl-crossref">平台可能对特殊订单类型使用不同判定口径。</p><div class="gl-term-actions"><a href="#term-maker-fee">参见：挂单费率</a></div></div></details>
-            <details class="gl-term-card" id="term-maker-fee" data-category="cost" data-search="挂单费率 maker fee 费用"><summary><span><span class="gl-term-name">挂单费率</span><span class="gl-term-brief">订单为订单簿增加可用流动性时适用的费用口径。</span></span><span class="gl-term-tag">Cost · 成本</span></summary><div class="gl-term-body"><p>具体费率、返还条件与分档方式由平台规则决定，不能只根据订单类型推断。</p><p class="gl-crossref">核对重点：费率表版本、等级周期与成交时的实际角色。</p><div class="gl-term-actions"><a href="#term-taker-fee">参见：吃单费率</a></div></div></details>
-            <details class="gl-term-card" id="term-taker-fee" data-category="cost" data-search="吃单费率 taker fee 费用"><summary><span><span class="gl-term-name">吃单费率</span><span class="gl-term-brief">订单立即消耗订单簿可用流动性时适用的费用口径。</span></span><span class="gl-term-tag">Cost · 成本</span></summary><div class="gl-term-body"><p>吃单费率只是总执行成本的一部分，还应区分价差、滑点以及其他服务费用。</p><p class="gl-crossref">常见误用：把较低费率等同于较低总成本。</p><div class="gl-term-actions"><a href="article.html">参见：滑点</a></div></div></details>
-            <details class="gl-term-card" id="term-spread" data-category="cost" data-search="买卖价差 bid ask spread 点差"><summary><span><span class="gl-term-name">买卖价差</span><span class="gl-term-brief">同一时点最优卖价与最优买价之间的差额。</span></span><span class="gl-term-tag">Cost · 成本</span></summary><div class="gl-term-body"><p>价差可用绝对值或相对中间价的比例表达，是即时成交成本的重要线索之一。</p><p class="gl-crossref">边界：窄价差不代表大额执行也不会产生明显价格影响。</p></div></details>
-            <details class="gl-term-card" data-category="risk" data-search="滑点 slippage 预期价格 实际成交 平均价"><summary><span><span class="gl-term-name">滑点</span><span class="gl-term-brief">预期参考价与实际平均成交价之间的偏离。</span></span><span class="gl-term-tag">Risk · 风控</span></summary><div class="gl-term-body"><p>滑点可能来自市场变化、可用深度不足、延迟或订单拆分方式；方向与计算口径必须同时说明。</p><div class="gl-term-actions"><a href="article.html">阅读完整词条</a></div></div></details>
-            <details class="gl-term-card" id="term-depth" data-category="risk" data-search="价格影响 price impact 订单 交易"><summary><span><span class="gl-term-name">价格影响</span><span class="gl-term-brief">交易本身对可成交价格或后续报价造成的变化。</span></span><span class="gl-term-tag">Risk · 风控</span></summary><div class="gl-term-body"><p>价格影响与一般市场波动可能同时发生，复盘时应明确参考时点和比较窗口。</p><p class="gl-crossref">常见误用：把全部价格变化都归因于自己的订单。</p></div></details>
-            <details class="gl-term-card" data-category="risk" data-search="风险限额 risk limit 上限 阈值"><summary><span><span class="gl-term-name">风险限额</span><span class="gl-term-brief">为规模、敞口、损失或操作权限设置的预先边界。</span></span><span class="gl-term-tag">Risk · 风控</span></summary><div class="gl-term-body"><p>限额应说明计算范围、刷新周期、触发动作和例外审批，单有一个数字不足以形成控制。</p><p class="gl-crossref">边界：限额是约束工具，不是风险已经被消除的证明。</p></div></details>
-            </div><section class="gl-empty-state" id="empty-state" hidden><p class="gl-eyebrow">No matching entry / 未找到结果</p><h3>当前索引里没有这个说法。</h3><p>试试缩短关键词、切回全部分支，或向编纂邮箱提交需要补录的词条。</p><button class="gl-button" type="button" id="reset-results">恢复完整索引</button></section></div></div></section>
-    </main>
-
-    <footer class="gl-site-footer"><div class="gl-shell gl-footer-inner"><p>词条用于建立共同语言，不替代具体平台规则、独立核验或个人判断。公开版：2026.08。</p><nav class="gl-footer-links" aria-label="页脚导航"><a href="article.html">核心词条</a><a href="tool.html">语境统计</a><a href="legal.html">编纂说明</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
-
-    <script>
-        (function () {
-            var search = document.getElementById('term-search');
-            var cards = Array.from(document.querySelectorAll('.gl-term-card'));
-            var filters = Array.from(document.querySelectorAll('[data-filter]'));
-            var active = 'all';
-            var count = document.getElementById('match-count');
-            var empty = document.getElementById('empty-state');
-            function apply() {
-                var query = search.value.trim().toLowerCase(), visible = 0;
-                cards.forEach(function (card) {
-                    var categoryMatch = active === 'all' || card.dataset.category === active;
-                    var text = (card.textContent + ' ' + card.dataset.search).toLowerCase();
-                    var queryMatch = !query || text.indexOf(query) !== -1;
-                    card.hidden = !(categoryMatch && queryMatch);
-                    if (!card.hidden) visible += 1;
-                });
-                count.textContent = String(visible);
-                empty.hidden = visible !== 0;
-            }
-            filters.forEach(function (button) { button.addEventListener('click', function () { active = button.dataset.filter; filters.forEach(function (item) { item.setAttribute('aria-pressed', String(item === button)); }); apply(); }); });
-            search.addEventListener('input', apply);
-            document.getElementById('clear-search').addEventListener('click', function () { search.value = ''; apply(); search.focus(); });
-            document.getElementById('reset-results').addEventListener('click', function () { active = 'all'; filters.forEach(function (item) { item.setAttribute('aria-pressed', String(item.dataset.filter === 'all')); }); search.value = ''; apply(); search.focus(); });
-            document.getElementById('open-all').addEventListener('click', function () { cards.filter(function (card) { return !card.hidden; }).forEach(function (card) { card.open = true; }); });
-            document.getElementById('close-all').addEventListener('click', function () { cards.forEach(function (card) { card.open = false; }); });
-        })();
-    </script>
+<a class="grv-skip" href="#main">跳到主要内容</a>
+<div class="grv-canopy-line" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<header class="grv-mast">
+  <a class="grv-wordmark" href="index.html" aria-label="%SITE_NAME% 首页"><span>%BRAND_EN%</span><small>FIELD LEXICON · %SITE_EDITION%</small></a>
+  <button class="grv-nav-switch" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-navigation">目录</button>
+  <nav class="grv-nav" id="site-navigation" aria-label="主要导航"><a href="index.html" aria-current="page">首页</a><a href="article.html">词条</a><a href="collections/root-system.html">标本集</a><a href="tool.html">仪器</a><a href="about.html">编纂室</a></nav>
+  <button class="grv-theme" type="button" data-theme-toggle aria-label="切换深浅主题"><span aria-hidden="true">◐</span><b>色相</b></button>
+</header>
+<main id="main">
+  <section class="grv-hero">
+    <div class="grv-hero-copy"><p class="grv-overline">%HOME_KICKER%</p><h1>%HOME_TITLE_LINE_01% <span>%HOME_TITLE_LINE_02%</span></h1><p class="grv-deck">%HOME_INTRO%</p><a class="grv-downlink" href="#field-index">向下进入标本索引 <span aria-hidden="true">↘</span></a></div>
+    <aside class="grv-access-bark" aria-label="邀请码与内容入口">
+      <p class="grv-bark-label">FIELD ACCESS / 邀请码</p><div class="grv-code-row"><code id="invite-code">%INVITE_CODE%</code><button type="button" data-copy-target="invite-code">复制</button></div>
+      <strong>通过本站邀请码，有机会获得 %BENEFIT_RATE% 手续费减免*</strong><small>* %BENEFIT_DISCLAIMER%</small>
+      <a class="grv-editor-pick" href="entries/entry-gate.html"><span>编辑选读 · 注册内容外壳</span><b>%ARTICLE_01_TITLE%</b><i>%HOME_GUIDE_TEASER%</i></a>
+    </aside>
+    <div class="grv-az-rail" aria-label="字母装饰"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>K</span><span>L</span><span>M</span><span>N</span><span>P</span><span>R</span><span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>Y</span></div>
+  </section>
+  <section class="grv-field-index" id="field-index">
+    <header class="grv-section-title"><p>01 / FIELD INDEX</p><h2>%HOME_INDEX_TITLE%</h2><span>%HOME_INDEX_NOTE%</span></header>
+    <div class="grv-entry-canopy"><a class="grv-entry-link" href="entries/root-definition.html"><span>02</span><b>%ARTICLE_02_TITLE%</b><small>%ARTICLE_02_KICKER%</small></a><a class="grv-entry-link" href="entries/word-origin.html"><span>03</span><b>%ARTICLE_03_TITLE%</b><small>%ARTICLE_03_KICKER%</small></a><a class="grv-entry-link" href="entries/meaning-branches.html"><span>04</span><b>%ARTICLE_04_TITLE%</b><small>%ARTICLE_04_KICKER%</small></a><a class="grv-entry-link" href="entries/context-pair.html"><span>05</span><b>%ARTICLE_05_TITLE%</b><small>%ARTICLE_05_KICKER%</small></a><a class="grv-entry-link" href="entries/usage-spectrum.html"><span>06</span><b>%ARTICLE_06_TITLE%</b><small>%ARTICLE_06_KICKER%</small></a><a class="grv-entry-link" href="entries/false-friend.html"><span>07</span><b>%ARTICLE_07_TITLE%</b><small>%ARTICLE_07_KICKER%</small></a><a class="grv-entry-link" href="entries/translation-notes.html"><span>08</span><b>%ARTICLE_08_TITLE%</b><small>%ARTICLE_08_KICKER%</small></a><a class="grv-entry-link" href="entries/field-example.html"><span>09</span><b>%ARTICLE_09_TITLE%</b><small>%ARTICLE_09_KICKER%</small></a><a class="grv-entry-link" href="entries/term-timeline.html"><span>10</span><b>%ARTICLE_10_TITLE%</b><small>%ARTICLE_10_KICKER%</small></a><a class="grv-entry-link" href="entries/comparison-grid.html"><span>11</span><b>%ARTICLE_11_TITLE%</b><small>%ARTICLE_11_KICKER%</small></a><a class="grv-entry-link" href="entries/editor-brief.html"><span>12</span><b>%ARTICLE_12_TITLE%</b><small>%ARTICLE_12_KICKER%</small></a></div>
+  </section>
+  <section class="grv-collection-band">
+    <div class="grv-band-intro"><p>02 / COLLECTIONS</p><h2>%HOME_COLLECTIONS_TITLE%</h2><a href="article.html">查看词条总索引</a></div>
+    <div class="grv-specimen-stack"><a href="collections/root-system.html"><span>ROOT / 01</span><b>%COLLECTION_01_TITLE%</b><p>%COLLECTION_01_NOTE%</p><i>01</i></a><a href="collections/branch-notes.html"><span>BRANCH / 02</span><b>%COLLECTION_02_TITLE%</b><p>%COLLECTION_02_NOTE%</p><i>02</i></a><a href="collections/canopy-records.html"><span>CANOPY / 03</span><b>%COLLECTION_03_TITLE%</b><p>%COLLECTION_03_NOTE%</p><i>03</i></a></div>
+  </section>
+  <section class="grv-instrument-grove">
+    <header class="grv-section-title"><p>03 / LOCAL INSTRUMENTS</p><h2>%HOME_TOOLS_TITLE%</h2><a href="tool.html">仪器说明与完整索引</a></header><div class="grv-tool-leaves"><a class="grv-tool-leaf" href="instruments/context-concordance.html"><span>CO</span><div><b>%TOOL_01_TITLE%</b><small>%TOOL_01_DESC%</small></div><i>01</i></a><a class="grv-tool-leaf" href="instruments/rhythm-profile.html"><span>RH</span><div><b>%TOOL_02_TITLE%</b><small>%TOOL_02_DESC%</small></div><i>02</i></a><a class="grv-tool-leaf" href="instruments/term-overlap.html"><span>OV</span><div><b>%TOOL_03_TITLE%</b><small>%TOOL_03_DESC%</small></div><i>03</i></a><a class="grv-tool-leaf" href="instruments/variant-normalizer.html"><span>VA</span><div><b>%TOOL_04_TITLE%</b><small>%TOOL_04_DESC%</small></div><i>04</i></a><a class="grv-tool-leaf" href="instruments/glossary-cards.html"><span>GC</span><div><b>%TOOL_05_TITLE%</b><small>%TOOL_05_DESC%</small></div><i>05</i></a></div>
+  </section>
+  <section class="grv-utility-tray"><div><p>04 / REFERENCE</p><h2>%HOME_REFERENCE_TITLE%</h2><span>%HOME_REFERENCE_NOTE%</span></div><nav aria-label="合规与站点信息"><a href="about.html">%ABOUT_TITLE%</a><a href="contact.html">%CONTACT_TITLE%</a><a href="disclosure.html">%DISCLOSURE_TITLE%</a><a href="legal.html">%DISCLAIMER_TITLE%</a><a href="privacy.html">%PRIVACY_TITLE%</a><a href="corrections.html">%CORRECTIONS_TITLE%</a><a href="editorial.html">%EDITORIAL_TITLE%</a></nav></section>
+</main>
+<footer class="grv-footer">
+  <div class="grv-footer-mark"><span>%BRAND_EN%</span><em>Independent field notes</em></div>
+  <p>本站独立运营。内容只用于知识整理，不替代平台规则、专业意见或个人核验。</p>
+  <details class="grv-site-drawer"><summary>展开站点抽屉</summary><div><a href="article.html">全部词条</a><a href="collections/root-system.html">根系标本</a><a href="collections/branch-notes.html">枝条注记</a><a href="collections/canopy-records.html">林冠记录</a><a href="tool.html">全部仪器</a><a href="about.html">关于</a><a href="contact.html">联系</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私</a><a href="corrections.html">勘误</a><a href="editorial.html">编辑准则</a><a href="feed.xml">RSS 订阅</a></div></details>
+</footer>
+<script src="js/grove.js" defer></script>
 </body>
 </html>

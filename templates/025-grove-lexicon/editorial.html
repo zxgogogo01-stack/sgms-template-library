@@ -3,25 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>%TOOL_INDEX_META_TITLE%</title>
-  <meta name="description" content="%TOOL_INDEX_META_DESC%">
-  <link rel="canonical" href="https://%SITE_DOMAIN%/tool.html">
+  <title>%EDITORIAL_TITLE% | %SITE_NAME%</title>
+  <meta name="description" content="%EDITORIAL_META_DESC%">
+  <link rel="canonical" href="https://%SITE_DOMAIN%/editorial.html">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
 
-  <meta property="og:title" content="%TOOL_INDEX_META_TITLE%">
-  <meta property="og:description" content="%TOOL_INDEX_META_DESC%">
+  <meta property="og:title" content="%EDITORIAL_TITLE% | %SITE_NAME%">
+  <meta property="og:description" content="%EDITORIAL_META_DESC%">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://%SITE_DOMAIN%/tool.html">
+  <meta property="og:url" content="https://%SITE_DOMAIN%/editorial.html">
   <meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="%TOOL_INDEX_META_TITLE%">
-  <meta name="twitter:description" content="%TOOL_INDEX_META_DESC%">
+  <meta name="twitter:title" content="%EDITORIAL_TITLE% | %SITE_NAME%">
+  <meta name="twitter:description" content="%EDITORIAL_META_DESC%">
   <meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
   <link rel="stylesheet" href="css/style.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%TOOL_INDEX_META_TITLE%","description":"%TOOL_INDEX_META_DESC%","url":"https://%SITE_DOMAIN%/tool.html","isPartOf":{"@type":"WebSite","name":"%SITE_NAME%","url":"https://%SITE_DOMAIN%/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%EDITORIAL_TITLE% | %SITE_NAME%","description":"%EDITORIAL_META_DESC%","url":"https://%SITE_DOMAIN%/editorial.html","isPartOf":{"@type":"WebSite","name":"%SITE_NAME%","url":"https://%SITE_DOMAIN%/"}}</script>
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 </head>
 <body>
@@ -30,13 +30,12 @@
 <header class="grv-mast">
   <a class="grv-wordmark" href="index.html" aria-label="%SITE_NAME% 首页"><span>%BRAND_EN%</span><small>FIELD LEXICON · %SITE_EDITION%</small></a>
   <button class="grv-nav-switch" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-navigation">目录</button>
-  <nav class="grv-nav" id="site-navigation" aria-label="主要导航"><a href="index.html">首页</a><a href="article.html">词条</a><a href="collections/root-system.html">标本集</a><a href="tool.html" aria-current="page">仪器</a><a href="about.html">编纂室</a></nav>
+  <nav class="grv-nav" id="site-navigation" aria-label="主要导航"><a href="index.html">首页</a><a href="article.html">词条</a><a href="collections/root-system.html">标本集</a><a href="tool.html">仪器</a><a href="about.html">编纂室</a></nav>
   <button class="grv-theme" type="button" data-theme-toggle aria-label="切换深浅主题"><span aria-hidden="true">◐</span><b>色相</b></button>
 </header>
-<main id="main" class="grv-page">
-  <header class="grv-tool-head"><div><p>LOCAL FIELD INSTRUMENTS</p><h1>%TOOL_INDEX_TITLE%</h1></div><p>%TOOL_INDEX_INTRO%</p></header>
-  <section class="grv-instrument-cabinet"><a href="instruments/context-concordance.html"><span>CO</span><div><small>INSTRUMENT 01</small><h2>%TOOL_01_TITLE%</h2><p>%TOOL_01_DESC%</p></div><b>打开 →</b></a><a href="instruments/rhythm-profile.html"><span>RH</span><div><small>INSTRUMENT 02</small><h2>%TOOL_02_TITLE%</h2><p>%TOOL_02_DESC%</p></div><b>打开 →</b></a><a href="instruments/term-overlap.html"><span>OV</span><div><small>INSTRUMENT 03</small><h2>%TOOL_03_TITLE%</h2><p>%TOOL_03_DESC%</p></div><b>打开 →</b></a><a href="instruments/variant-normalizer.html"><span>VA</span><div><small>INSTRUMENT 04</small><h2>%TOOL_04_TITLE%</h2><p>%TOOL_04_DESC%</p></div><b>打开 →</b></a><a href="instruments/glossary-cards.html"><span>GC</span><div><small>INSTRUMENT 05</small><h2>%TOOL_05_TITLE%</h2><p>%TOOL_05_DESC%</p></div><b>打开 →</b></a></section>
-  <aside class="grv-local-note"><b>%TOOL_LOCAL_TITLE%</b><p>%TOOL_LOCAL_BODY%</p></aside>
+<main id="main" class="grv-page grv-policy-page">
+  <header class="grv-policy-head"><span>REFERENCE / 07</span><p>%EDITORIAL_KICKER%</p><h1>%EDITORIAL_TITLE%</h1><em>%EDITORIAL_UPDATED%</em></header>
+  <div class="grv-policy-weave"><aside><p>%EDITORIAL_SIDENOTE%</p><a href="disclosure.html">查看推广披露</a><a href="editorial.html">查看编辑准则</a></aside><article><section><h2>%EDITORIAL_H2_01%</h2><p>%EDITORIAL_BODY_01%</p></section><section><h2>%EDITORIAL_H2_02%</h2><p>%EDITORIAL_BODY_02%</p></section><section><h2>%EDITORIAL_H2_03%</h2><p>%EDITORIAL_BODY_03%</p></section><section><h2>%EDITORIAL_H2_04%</h2><p>%EDITORIAL_BODY_04%</p></section><div class="grv-policy-note"><b>%EDITORIAL_NOTE_TITLE%</b><p>%EDITORIAL_NOTE_BODY%</p></div></article></div>
 </main>
 <footer class="grv-footer">
   <div class="grv-footer-mark"><span>%BRAND_EN%</span><em>Independent field notes</em></div>
