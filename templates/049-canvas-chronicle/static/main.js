@@ -1,317 +1,88 @@
 (function () {
   'use strict';
-
-  var root = document.documentElement;
-  var themeButton = document.querySelector('[data-theme-button]');
-  var menuButton = document.querySelector('[data-menu-button]');
-  var siteNav = document.querySelector('[data-site-nav]');
-  var storedTheme = null;
-  function normalize(value) { return String(value || '').normalize('NFKC').trim(); }
-
-  try {
-    storedTheme = window.localStorage.getItem('canvas-chronicle-049-theme');
-  } catch (error) {
-    storedTheme = null;
-  }
-
+  const root = document.documentElement;
+  const themeButton = document.querySelector('[data-theme-button]');
+  const key = 'canvas-chronicle-049-theme';
   function setTheme(theme) {
     root.dataset.theme = theme;
-    if (themeButton) {
-      themeButton.textContent = theme === 'dark' ? '日间' : '夜间';
-      themeButton.setAttribute('aria-label', theme === 'dark' ? '切换到日间模式' : '切换到夜间模式');
-    }
+    if (!themeButton) return;
+    themeButton.textContent = theme === 'dark' ? '日间' : '夜间';
+    themeButton.setAttribute('aria-label', theme === 'dark' ? '切换到日间模式' : '切换到夜间模式');
   }
-
-  setTheme(storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
-
-  if (themeButton) {
-    themeButton.addEventListener('click', function () {
-      var nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-      setTheme(nextTheme);
-      try {
-        window.localStorage.setItem('canvas-chronicle-049-theme', nextTheme);
-      } catch (error) {
-        // Local storage may be unavailable in private or hardened contexts.
-      }
-    });
-  }
-
-  function closeMenu() {
-    if (!menuButton || !siteNav) return;
-    menuButton.setAttribute('aria-expanded', 'false');
-    siteNav.dataset.open = 'false';
-    menuButton.textContent = '目录';
-  }
-
-  if (menuButton && siteNav) {
-    menuButton.addEventListener('click', function () {
-      var isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', String(!isOpen));
-      siteNav.dataset.open = String(!isOpen);
-      menuButton.textContent = isOpen ? '目录' : '收起';
-      if (!isOpen) { var firstLink = siteNav.querySelector('a'); if (firstLink) firstLink.focus(); }
-    });
-    siteNav.addEventListener('click', function (event) {
-      if (event.target.closest('a')) closeMenu();
-    });
-  }
-
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && menuButton && menuButton.getAttribute('aria-expanded') === 'true') {
-      closeMenu();
-      menuButton.focus();
-    }
+  let theme = 'light';
+  try { theme = localStorage.getItem(key) === 'dark' ? 'dark' : 'light'; } catch (_) { /* Storage is optional. */ }
+  setTheme(theme);
+  themeButton?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    try { localStorage.setItem(key, next); } catch (_) { /* Keep the current-page theme. */ }
   });
-
-  function copyText(text, statusNode, successText) {
-    var onSuccess = function () {
-      if (statusNode) statusNode.textContent = successText;
-    };
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(onSuccess).catch(function () {
-        if (statusNode) statusNode.textContent = '复制失败，请手动选择文本';
-      });
-      return;
-    }
-    var helper = document.createElement('textarea');
-    helper.value = text;
-    helper.setAttribute('readonly', '');
-    helper.style.position = 'fixed';
-    helper.style.opacity = '0';
-    document.body.appendChild(helper);
-    helper.select();
-    try {
-      if (document.execCommand('copy')) onSuccess();
-      else if (statusNode) statusNode.textContent = '复制失败，请手动选择文本';
-    } catch (error) {
-      if (statusNode) statusNode.textContent = '复制失败，请手动选择文本';
-    }
-    helper.remove();
+  const menu = document.querySelector('[data-menu-button]');
+  const nav = document.querySelector('[data-site-nav]');
+  function toggleMenu(open) {
+    if (!menu || !nav) return;
+    menu.setAttribute('aria-expanded', String(open));
+    menu.textContent = open ? '收起' : '目录';
+    nav.dataset.open = String(open);
   }
-
-  var recordSearch = document.querySelector('[data-record-search]');
-  var recordFilters = Array.prototype.slice.call(document.querySelectorAll('[data-record-filter]'));
-  var records = Array.prototype.slice.call(document.querySelectorAll('[data-record]'));
-  var recordCount = document.querySelector('[data-record-count]');
-  var recordEmpty = document.querySelector('[data-record-empty]');
-  var activeFilter = 'all';
-
-  function applyRecordFilter() {
-    if (!records.length) return;
-    var query = recordSearch ? normalize(recordSearch.value).toLocaleLowerCase() : '';
-    var visibleCount = 0;
-    records.forEach(function (record) {
-      var categoryMatches = activeFilter === 'all' || record.dataset.category === activeFilter;
-      var haystack = normalize((record.dataset.search || '') + ' ' + record.textContent).toLocaleLowerCase();
-      var searchMatches = !query || haystack.indexOf(query) !== -1;
-      var show = categoryMatches && searchMatches;
-      record.hidden = !show;
-      if (show) visibleCount += 1;
-    });
-    if (recordCount) recordCount.textContent = String(visibleCount);
-    if (recordEmpty) recordEmpty.hidden = visibleCount !== 0;
-  }
-
-  if (recordSearch) recordSearch.addEventListener('input', applyRecordFilter);
-  recordFilters.forEach(function (button) {
-    button.addEventListener('click', function () {
-      activeFilter = button.dataset.recordFilter;
-      recordFilters.forEach(function (item) {
-        item.classList.toggle('cc49-is-active', item === button);
-        item.setAttribute('aria-pressed', String(item === button));
-      });
-      applyRecordFilter();
-    });
+  menu?.addEventListener('click', () => toggleMenu(menu.getAttribute('aria-expanded') !== 'true'));
+  nav?.addEventListener('click', event => { if (event.target.closest('a')) toggleMenu(false); });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu?.getAttribute('aria-expanded') === 'true') { toggleMenu(false); menu.focus(); }
   });
-
-  var readingLine = document.querySelector('[data-reading-line]');
-  function updateReadingLine() {
-    if (!readingLine) return;
-    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    var progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
-    readingLine.style.width = (progress * 100).toFixed(2) + '%';
+  document.querySelector('[data-copy-invite]')?.addEventListener('click', async () => {
+    const status = document.querySelector('[data-copy-status]');
+    const code = document.querySelector('[data-invite-code]');
+    try { await navigator.clipboard.writeText(code.textContent.trim()); status.textContent = '识别码已复制'; }
+    catch (_) { status.textContent = '暂时无法复制，请手动选择识别码。'; }
+  });
+  const search = document.querySelector('[data-record-search]');
+  const filters = [...document.querySelectorAll('[data-record-filter]')];
+  const records = [...document.querySelectorAll('[data-record]')];
+  const status = document.querySelector('[data-record-status]');
+  const empty = document.querySelector('[data-record-empty]');
+  let category = 'all';
+  const normalize = text => String(text).normalize('NFKC').trim().toLowerCase();
+  function filterRecords() {
+    const query = normalize(search?.value || '');
+    let count = 0;
+    records.forEach(record => {
+      record.hidden = !(category === 'all' || record.dataset.category === category) || !normalize(record.dataset.search + ' ' + record.textContent).includes(query);
+      if (!record.hidden) count++;
+    });
+    if (status) status.textContent = count + ' / ' + records.length + ' 条';
+    if (empty) empty.hidden = count !== 0;
   }
-  if (readingLine) {
-    window.addEventListener('scroll', updateReadingLine, { passive: true });
-    updateReadingLine();
-  }
-
-  var citationButton = document.querySelector('[data-copy-citation]');
-  if (citationButton) {
-    citationButton.addEventListener('click', function () {
-      var citation = citationButton.parentElement.querySelector('p').textContent.trim();
-      copyText(citation, document.querySelector('[data-citation-status]'), '引用已复制');
-    });
-  }
-
-  var templateButton = document.querySelector('[data-copy-template]');
-  if (templateButton) {
-    templateButton.addEventListener('click', function () {
-      var template = templateButton.parentElement.querySelector('p').textContent.trim();
-      copyText(template, document.querySelector('[data-template-status]'), '模板已复制');
-    });
-  }
-
-  var feeForm = document.querySelector('[data-fee-form]');
-  if (feeForm) {
-    var feeVolume = document.getElementById('fee-volume');
-    var feeBefore = document.getElementById('fee-before');
-    var feeAfter = document.getElementById('fee-after');
-    var feeCount = document.getElementById('fee-count');
-    var feeMessage = document.querySelector('[data-fee-message]');
-    var feeState = document.querySelector('[data-fee-state]');
-    var feeDelta = document.querySelector('[data-fee-delta]');
-    var feeSummary = document.querySelector('[data-fee-summary]');
-    var feeOld = document.querySelector('[data-fee-old]');
-    var feeNew = document.querySelector('[data-fee-new]');
-    var feeOnce = document.querySelector('[data-fee-once]');
-    var feeTimes = document.querySelector('[data-fee-times]');
-    var copyImpactButton = document.querySelector('[data-copy-impact]');
-    var impactStatus = document.querySelector('[data-impact-status]');
-    var feeInputs = [feeVolume, feeBefore, feeAfter, feeCount];
-
-    feeMessage.id = feeMessage.id || 'cc49-fee-message';
-    function clearFeeOutput(state) {
-      feeState.textContent = state;
-      feeDelta.textContent = '—';
-      feeSummary.textContent = '填写条件后，这里会显示变更前、变更后与周期差额。';
-      feeOld.textContent = '—';
-      feeNew.textContent = '—';
-      feeOnce.textContent = '—';
-      feeTimes.textContent = '—';
-      copyImpactButton.disabled = true;
-      copyImpactButton.dataset.copyText = '';
-      impactStatus.textContent = '';
-    }
-    function resetFeeResult() {
-      clearFeeOutput('等待输入'); feeMessage.textContent = '';
-      feeInputs.forEach(function (input) { input.removeAttribute('aria-invalid'); });
-    }
-    function parseDecimal(field, minimum, maximum, maxScale) {
-      var raw = normalize(field.value);
-      if (!/^(?:\d+|\d*\.\d+)$/.test(raw)) return null;
-      var parts = raw.split('.'); var fraction = parts[1] || '';
-      if (fraction.length > maxScale) return null;
-      var numeric = Number(raw);
-      if (!Number.isFinite(numeric) || numeric < minimum || numeric > maximum) return null;
-      return { integer: BigInt((parts[0] || '0') + fraction), scale: fraction.length, numeric: numeric };
-    }
-    function parseCount(field) {
-      var raw = normalize(field.value);
-      if (!/^\d+$/.test(raw)) return null;
-      var numeric = Number(raw);
-      return Number.isSafeInteger(numeric) && numeric >= 1 && numeric <= 100000 ? numeric : null;
-    }
-    function toCents(value) { return value.integer * (10n ** BigInt(2 - value.scale)); }
-    function divideRounded(numerator, denominator) { return (numerator + denominator / 2n) / denominator; }
-    function feeCents(volumeCents, rate) { return divideRounded(volumeCents * rate.integer, 100n * (10n ** BigInt(rate.scale))); }
-    function money(cents, signed) {
-      var negative = cents < 0n; var absolute = negative ? -cents : cents;
-      var whole = (absolute / 100n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-      var prefix = negative ? '−' : signed && cents > 0n ? '+' : '';
-      return prefix + whole + '.' + (absolute % 100n).toString().padStart(2, '0');
-    }
-    function rateText(rate) { return rate.numeric.toFixed(Math.min(6, Math.max(2, rate.scale))); }
-    feeInputs.forEach(function (input) {
-      input.setAttribute('aria-describedby', feeMessage.id);
-      input.addEventListener('input', function () {
-        input.removeAttribute('aria-invalid'); feeMessage.textContent = '';
-        if (copyImpactButton.dataset.copyText) clearFeeOutput('条件已修改，请重新计算');
-      });
-    });
-
-    function calculateFee(event) {
-      if (event) event.preventDefault();
-      feeMessage.textContent = '';
-      impactStatus.textContent = '';
-      feeInputs.forEach(function (input) { input.removeAttribute('aria-invalid'); });
-      var volume = parseDecimal(feeVolume, .01, 1000000000000, 2);
-      var oldRate = parseDecimal(feeBefore, 0, 100, 6);
-      var newRate = parseDecimal(feeAfter, 0, 100, 6);
-      var count = parseCount(feeCount);
-      var invalid = [];
-      if (!volume) invalid.push({ field: feeVolume, text: '成交额须为 0.01–1,000,000,000,000 的普通十进制数，最多 2 位小数' });
-      if (!oldRate) invalid.push({ field: feeBefore, text: '变更前费率须为 0–100 的普通十进制数，最多 6 位小数' });
-      if (!newRate) invalid.push({ field: feeAfter, text: '变更后费率须为 0–100 的普通十进制数，最多 6 位小数' });
-      if (!count) invalid.push({ field: feeCount, text: '估算次数须为 1–100,000 的普通整数' });
-      if (invalid.length) {
-        clearFeeOutput('输入有误'); invalid.forEach(function (item) { item.field.setAttribute('aria-invalid', 'true'); });
-        feeMessage.textContent = invalid.map(function (item) { return item.text; }).join('；') + '。'; invalid[0].field.focus(); return;
-      }
-      var volumeCents = toCents(volume); var oldCost = feeCents(volumeCents, oldRate); var newCost = feeCents(volumeCents, newRate);
-      var onceDelta = newCost - oldCost; var cycleDelta = onceDelta * BigInt(count);
-      var state = onceDelta < 0n ? '费用下降' : onceDelta > 0n ? '费用上升' : '费用不变';
-      feeState.textContent = state;
-      feeDelta.textContent = money(cycleDelta, true);
-      feeSummary.textContent = '按单次成交额 ' + money(volumeCents, false) + '、共 ' + count + ' 次估算，' + state + ' ' + money(cycleDelta < 0n ? -cycleDelta : cycleDelta, false) + '。';
-      feeOld.textContent = money(oldCost, false);
-      feeNew.textContent = money(newCost, false);
-      feeOnce.textContent = money(onceDelta, true);
-      feeTimes.textContent = String(count);
-      copyImpactButton.disabled = false;
-      copyImpactButton.dataset.copyText = '费率变化影响试算：单次成交额 ' + money(volumeCents, false) + '；费率 ' + rateText(oldRate) + '% → ' + rateText(newRate) + '%；单次费用按分四舍五入；单次差额 ' + money(onceDelta, true) + '；' + count + ' 次周期差额 ' + money(cycleDelta, true) + '。';
-    }
-
-    feeForm.addEventListener('submit', calculateFee);
-    Array.prototype.forEach.call(document.querySelectorAll('[data-fee-preset]'), function (button) {
-      button.addEventListener('click', function () {
-        var values = button.dataset.feePreset.split(',');
-        feeVolume.value = values[0];
-        feeBefore.value = values[1];
-        feeAfter.value = values[2];
-        feeCount.value = values[3];
-        resetFeeResult();
-        calculateFee();
-      });
-    });
-    document.querySelector('[data-fee-reset]').addEventListener('click', function () {
-      feeForm.reset();
-      feeCount.value = '30';
-      resetFeeResult();
-      feeVolume.focus();
-    });
-    copyImpactButton.addEventListener('click', function () {
-      if (!copyImpactButton.disabled) copyText(copyImpactButton.dataset.copyText, impactStatus, '试算结果已复制');
-    });
-  }
-
-  var archiveForm = document.querySelector('[data-archive-search]');
-  if (archiveForm) {
-    var archiveQuery = document.getElementById('archive-query');
-    var archiveFeedback = document.querySelector('[data-archive-feedback]');
-    var archiveMap = [
-      { words: ['费率', '费差', '影响'], href: 'tool.html', label: '费率变化影响试算' },
-      { words: ['记录', '范围', '来源', '变化'], href: 'article.html', label: '基础档费率变更记录' },
-      { words: ['守则', '更正', '编纂', '引用'], href: 'legal.html', label: '编纂与更正守则' },
-      { words: ['时间轴', '档位', '结算', '现货'], href: 'index.html', label: '费率变化时间轴' }
+  search?.addEventListener('input', filterRecords);
+  filters.forEach(button => button.addEventListener('click', () => {
+    category = button.dataset.recordFilter;
+    filters.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    filterRecords();
+  }));
+  filterRecords();
+  const finder = document.querySelector('[data-archive-finder]');
+  if (finder) {
+    const field = finder.elements.query;
+    const feedback = document.querySelector('[data-finder-status]');
+    const list = document.querySelector('[data-finder-results]');
+    const routes = [
+      ['编年索引', 'chronicle.html', '记录文章时间索引'],
+      ['时点刻度', 'bands/instants.html', '时点分类'],
+      ['时间工作台', 'workbench.html', '工具工作台区间偏移序号'],
+      ['隐私说明', 'privacy.html', '隐私数据本地处理']
     ];
-    archiveFeedback.id = archiveFeedback.id || 'archive-feedback';
-    archiveQuery.addEventListener('input', function () {
-      archiveQuery.removeAttribute('aria-invalid'); archiveFeedback.textContent = '可搜索本站四个主要页面。';
-    });
-    archiveForm.addEventListener('submit', function (event) {
+    finder.addEventListener('submit', event => {
       event.preventDefault();
-      var query = normalize(archiveQuery.value).toLocaleLowerCase();
-      if (!query) {
-        archiveQuery.setAttribute('aria-invalid', 'true');
-        archiveFeedback.textContent = '请先输入一个档案主题。';
-        archiveQuery.focus();
-        return;
-      }
-      archiveQuery.removeAttribute('aria-invalid');
-      var match = archiveMap.find(function (item) {
-        return item.words.some(function (word) { var normalizedWord = normalize(word).toLocaleLowerCase(); return query.indexOf(normalizedWord) !== -1 || normalizedWord.indexOf(query) !== -1; });
+      list.replaceChildren();
+      const query = normalize(field.value);
+      if (!query) { feedback.textContent = '请输入要查找的主题。'; field.focus(); return; }
+      const found = routes.filter(route => normalize(route[0] + route[2]).includes(query));
+      feedback.textContent = found.length ? '找到 ' + found.length + ' 个入口。' : '未找到匹配入口，可以使用下方栏目导航。';
+      found.forEach(([label, href]) => {
+        const li = document.createElement('li'); const a = document.createElement('a');
+        a.href = href; a.textContent = label; li.append(a); list.append(li);
       });
-      archiveFeedback.textContent = '';
-      if (match) {
-        archiveFeedback.append('找到：');
-        var link = document.createElement('a');
-        link.href = match.href;
-        link.textContent = match.label;
-        archiveFeedback.appendChild(link);
-      } else {
-        archiveFeedback.textContent = '未找到“' + query + '”。可尝试“费率”“来源”“档位”或“更正”。';
-      }
     });
+    field.addEventListener('input', () => { feedback.textContent = ''; list.replaceChildren(); });
   }
 }());
