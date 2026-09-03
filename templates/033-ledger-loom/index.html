@@ -1,169 +1,50 @@
-<!DOCTYPE html>
-<html lang='__LANG__'>
+<!doctype html>
+<html lang="__LANG__" data-loom-theme="ivory">
 <head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>月度经营流水簿 · __SITE_NAME__</title>
-  <meta name='description' content='__SITE_DESC__'>
-  <link rel='canonical' href='https://__SITE_DOMAIN__/'>
-  <meta property='og:title' content='月度经营流水簿 · __SITE_NAME__'>
-  <meta property='og:description' content='__SITE_DESC__'>
-  <meta property='og:url' content='https://__SITE_DOMAIN__/'>
-  <link rel='stylesheet' href='site.css'>
-  <script type='application/ld+json'>
-  {
-    "@context": "https://schema.org",
-    "@type": "Dataset",
-    "name": "__SITE_NAME__ 月度经营流水簿",
-    "description": "一份包含收入、支出、分类与复核状态的公开示例账簿。",
-    "url": "https://__SITE_DOMAIN__/"
-  }
-  </script>
-</head>
-<body>
-  <a data-skip href='#main'>跳到主要内容</a>
-  <header data-site-header>
-    <ledger-box>
-      <a href='index.html' data-brand aria-label='返回月度经营流水簿首页'>
-        <b>L/33</b>
-        <span><strong>__SITE_NAME__</strong><small>Ledger loom · edition 033</small></span>
-      </a>
-      <nav data-nav aria-label='主导航'>
-        <a href='index.html' aria-current='page'>流水簿</a>
-        <a href='article.html'>记账方法</a>
-        <a href='tool.html'>结余工具</a>
-        <a href='legal.html'>使用说明</a>
-      </nav>
-    </ledger-box>
-  </header>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f4ecd9" />
+  <title>__HOME_TITLE__ · __SITE_NAME__</title>
+  <meta name="description" content="__HOME_DESCRIPTION__" />
+  <link rel="canonical" href="https://__SITE_DOMAIN__/" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="alternate" type="application/rss+xml" title="__SITE_NAME__ 织页通讯" href="feed.xml" />
 
-  <main id='main' data-page='home'>
-    <section data-hero aria-labelledby='home-title'>
-      <ledger-box>
-        <header>
-          <p data-kicker>Monthly operating ledger · July 2026</p>
-          <h1 id='home-title'>把每一笔，织成<em>可复核</em>的经营脉络。</h1>
-          <p data-lede>__SITE_TAGLINE__。这里公开一份已结账的月度示例：收入、支出、凭证与修订状态彼此对应，读者可以看懂，也可以复核。</p>
-        </header>
-        <p data-footnote>PUBLIC SAMPLE · CNY · ACCRUAL BASIS · UPDATED 2026.08.01</p>
-      </ledger-box>
-      <aside data-hero-status aria-label='本月结账状态'>
-        <header><span>Month close</span><span>07 / 2026</span></header>
-        <ledger-box><strong>已结账</strong><p>8 笔流水已归类，凭证与金额均完成复核。</p></ledger-box>
-        <footer><span>Reviewer: EDITOR</span><span>Locked</span></footer>
-      </aside>
-    </section>
-
-    <section data-status-grid aria-label='本月关键数字'>
-      <ledger-box><span data-meta-label>本月收入</span><strong>¥54,400</strong></ledger-box>
-      <ledger-box><span data-meta-label>本月支出</span><strong>¥14,499</strong></ledger-box>
-      <ledger-box><span data-meta-label>净结余</span><strong>¥39,901</strong></ledger-box>
-      <ledger-box><span data-meta-label>复核进度</span><strong>8 / 8</strong></ledger-box>
-    </section>
-
-    <section aria-labelledby='ledger-title'>
-      <header data-section-head>
-        <ledger-box><p data-kicker>July ledger · eight verified entries</p><h2 id='ledger-title'>本月流水</h2></ledger-box>
-        <p>搜索事项或分类，也可以只看收入、支出或仍需复核的项目。数字是示例，但字段与复核逻辑可以直接复用。</p>
-      </header>
-
-      <ledger-box data-control-bar>
-        <label for='entry-search'><span data-label>搜索流水</span><input id='entry-search' type='search' placeholder='例如：顾问、协作、税费' autocomplete='off'></label>
-        <ledger-box data-filter-group aria-label='流水筛选'>
-          <button type='button' data-entry-filter='all' aria-pressed='true'>全部</button>
-          <button type='button' data-entry-filter='in' aria-pressed='false'>收入</button>
-          <button type='button' data-entry-filter='out' aria-pressed='false'>支出</button>
-          <button type='button' data-entry-filter='review' aria-pressed='false'>待复核</button>
-        </ledger-box>
-      </ledger-box>
-
-      <ledger-box data-ledger-grid>
-        <section data-ledger-main aria-label='月度流水表'>
-          <header data-ledger-meta><span id='entry-count'>8 / 8 笔可见</span><span>Currency · CNY</span></header>
-          <table data-ledger-table>
-            <thead><tr><th scope='col'>日期</th><th scope='col'>事项</th><th scope='col'>分类</th><th scope='col'>凭证</th><th scope='col'>金额</th></tr></thead>
-            <tbody>
-              <tr data-entry data-kind='in' data-state='verified' data-search='顾问项目 首款 项目收入 INV-0726-01'>
-                <td data-label='日期'>07.03</td><td data-label='事项'>顾问项目首款</td><td data-label='分类'><span data-entry-type>项目收入</span></td><td data-label='凭证'>INV-0726-01</td><td data-label='金额' data-amount='in'>+¥28,000</td>
-              </tr>
-              <tr data-entry data-kind='out' data-state='verified' data-search='云服务 续费 软件服务 OPS-0705'>
-                <td data-label='日期'>07.05</td><td data-label='事项'>云服务续费</td><td data-label='分类'><span data-entry-type>运营成本</span></td><td data-label='凭证'>OPS-0705</td><td data-label='金额' data-amount='out'>−¥1,280</td>
-              </tr>
-              <tr data-entry data-kind='out' data-state='verified' data-search='样品 打印 物料支出 MAT-0708'>
-                <td data-label='日期'>07.08</td><td data-label='事项'>样品打印</td><td data-label='分类'><span data-entry-type>物料支出</span></td><td data-label='凭证'>MAT-0708</td><td data-label='金额' data-amount='out'>−¥860</td>
-              </tr>
-              <tr data-entry data-kind='in' data-state='verified' data-search='设计项目 二期 项目收入 INV-0712-02'>
-                <td data-label='日期'>07.12</td><td data-label='事项'>设计项目二期款</td><td data-label='分类'><span data-entry-type>项目收入</span></td><td data-label='凭证'>INV-0712-02</td><td data-label='金额' data-amount='in'>+¥16,800</td>
-              </tr>
-              <tr data-entry data-kind='out' data-state='verified' data-search='外部协作者 费用 协作支出 COL-0715'>
-                <td data-label='日期'>07.15</td><td data-label='事项'>外部协作者费用</td><td data-label='分类'><span data-entry-type>协作支出</span></td><td data-label='凭证'>COL-0715</td><td data-label='金额' data-amount='out'>−¥6,200</td>
-              </tr>
-              <tr data-entry data-kind='in' data-state='verified' data-search='摄影交付 尾款 项目收入 INV-0718-03'>
-                <td data-label='日期'>07.18</td><td data-label='事项'>摄影交付尾款</td><td data-label='分类'><span data-entry-type>项目收入</span></td><td data-label='凭证'>INV-0718-03</td><td data-label='金额' data-amount='in'>+¥9,600</td>
-              </tr>
-              <tr data-entry data-kind='out' data-state='verified' data-search='税费 预留 税费准备 TAX-0722'>
-                <td data-label='日期'>07.22</td><td data-label='事项'>当月税费预留</td><td data-label='分类'><span data-entry-type>税费准备</span></td><td data-label='凭证'>TAX-0722</td><td data-label='金额' data-amount='out'>−¥5,460</td>
-              </tr>
-              <tr data-entry data-kind='out' data-state='verified' data-search='设计软件 订阅 软件服务 OPS-0729'>
-                <td data-label='日期'>07.29</td><td data-label='事项'>设计软件订阅</td><td data-label='分类'><span data-entry-type>运营成本</span></td><td data-label='凭证'>OPS-0729</td><td data-label='金额' data-amount='out'>−¥699</td>
-              </tr>
-            </tbody>
-          </table>
-          <ledger-box data-empty id='entry-empty' hidden>
-            <h3>没有匹配的流水</h3>
-            <p>换一个关键词，或恢复全部分类。</p>
-            <button type='button' id='reset-entries'>清除筛选</button>
-          </ledger-box>
-        </section>
-
-        <aside data-ledger-aside>
-          <section data-panel>
-            <p data-kicker>Category summary</p>
-            <h3>分类小计</h3>
-            <table data-summary-table>
-              <tbody>
-                <tr><th scope='row'>项目收入</th><td>¥54,400</td></tr>
-                <tr><th scope='row'>运营与物料</th><td>−¥2,839</td></tr>
-                <tr><th scope='row'>协作支出</th><td>−¥6,200</td></tr>
-                <tr><th scope='row'>税费准备</th><td>−¥5,460</td></tr>
-                <tr><th scope='row'>净结余</th><td>¥39,901</td></tr>
-              </tbody>
-            </table>
-          </section>
-          <section data-panel>
-            <p data-kicker>Reconciliation</p>
-            <h3>凭证已对齐</h3>
-            <ledger-box data-progress aria-label='复核进度 100%'><span style='width:100%'></span></ledger-box>
-            <small>8 笔流水 · 8 份凭证 · 0 个差异项</small>
-          </section>
-          <section data-panel data-copy>
-            <p data-kicker>Collaborator access</p>
-            <h3>协作簿邀请码</h3>
-            <code id='ledger-code'>__INVITE_CODE__</code>
-            <button type='button' data-act='copy-code'>复制邀请码</button>
-            <p data-inline-status id='copy-status' aria-live='polite'></p>
-            <small>__COMPLIANCE_NOTE__</small>
-          </section>
-        </aside>
-      </ledger-box>
-    </section>
-
-    <section data-conventions aria-labelledby='conventions-title'>
-      <header><p data-kicker>Ledger conventions</p><h2 id='conventions-title'>三条记账约定</h2><p data-lede>先统一口径，再讨论结余。</p></header>
-      <ol>
-        <li><ledger-box><strong>金额有方向</strong><p>收入使用正数，支出使用负数；不把退款与折扣藏进备注。</p></ledger-box></li>
-        <li><ledger-box><strong>每笔有凭证</strong><p>发票、合同、付款记录或修订说明至少保留一种可定位证据。</p></ledger-box></li>
-        <li><ledger-box><strong>结账后留轨迹</strong><p>月结后不直接覆盖旧数；差异进入修订记录，注明原因与复核人。</p></ledger-box></li>
-      </ol>
-    </section>
-  </main>
-
-  <footer>
-    <ledger-box>
-      <ledger-box><h2>__SITE_NAME__ · 月度经营流水簿</h2><p>让经营数字有来处、有分类，也有复核路径。</p></ledger-box>
-      <ledger-box><nav aria-label='页脚导航'><a href='article.html'>记账方法</a><a href='tool.html'>结余工具</a><a href='legal.html'>使用说明</a></nav><small>LEDGER 033 · __SITE_DOMAIN__ · __CONTACT_EMAIL__</small></ledger-box>
-    </ledger-box>
-  </footer>
-  <script src='app.js'></script>
-</body>
-</html>
+  <meta property="og:title" content="__HOME_TITLE__" />
+  <meta property="og:description" content="__HOME_DESCRIPTION__" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://__SITE_DOMAIN__/" />
+  <meta property="og:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="__HOME_TITLE__" />
+  <meta name="twitter:description" content="__HOME_DESCRIPTION__" />
+  <meta name="twitter:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+  <link rel="stylesheet" href="assets/loom.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"__HOME_TITLE__","description":"__HOME_DESCRIPTION__","url":"https://__SITE_DOMAIN__/","isPartOf":{"@type":"WebSite","name":"__SITE_NAME__","url":"https://__SITE_DOMAIN__/"}}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body class="ll33-canvas">
+<a class="ll33-skip" href="#main">跳到主要内容</a>
+<header class="ll33-mast">
+  <a class="ll33-mark" href="index.html" aria-label="__SITE_NAME__ 首页"><i aria-hidden="true">ⅬⅬ</i><span><b>__BRAND_EN__</b><small>LEDGER / LOOM · 033</small></span></a>
+  <button class="ll33-menu" type="button" data-loom-menu aria-expanded="false" aria-controls="loom-nav">展开目录</button>
+  <nav class="ll33-nav" id="loom-nav" aria-label="主导航"><a href="index.html" aria-current="page">总账</a><a href="article.html">织页</a><a href="books/receipts.html">经纬册</a><a href="tool.html">机房</a><a href="about.html">说明</a></nav>
+  <button class="ll33-theme" type="button" data-loom-theme-toggle aria-label="切换明暗主题">日 / 夜</button>
+</header>
+<div class="ll33-selvedge" aria-hidden="true"><span>OPEN BOOK</span><b></b><span>VERIFY BEFORE USE</span><b></b><span>INDEPENDENT</span></div>
+<main id="main">
+  <section class="ll33-hero">
+    <aside class="ll33-warp" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><span>WARP<br>033</span></aside>
+    <div class="ll33-hero-copy"><p>MONTHLY FIELD LEDGER · __MODIFIED_DATE__</p><h1>让每一笔经营记录，<em>织成可复核的脉络。</em></h1><blockquote>__HOME_INTRODUCTION__</blockquote><nav><a href="#folios">翻阅十二种账页</a><a href="tool.html">进入本地机房</a></nav></div>
+    <aside class="ll33-ticket"><header><span>FIRST-FOLD ACCESS</span><b>FORM A</b></header><p>访问识别码</p><div><code id="loom-invite">__INVITE_CODE__</code><button type="button" data-copy-target="loom-invite" data-copy-success="识别码已复制">复制</button></div><strong>通过本站邀请码，有机会获得 __BENEFIT_RATE__ 手续费减免*</strong><small>__BENEFIT_DISCLAIMER__</small><a href="folios/access-folio.html"><span>编辑选读</span>访问页只保留结构与核验字段，正文待事实资料接入</a></aside>
+  </section>
+  <section class="ll33-tally" aria-label="框架清点"><p><b>12</b><span>种文章织法</span></p><p><b>03</b><span>本独立经纬册</span></p><p><b>05</b><span>件本地计算工具</span></p><p><b>00</b><span>首页推广直链</span></p></section>
+  <section class="ll33-shuttle-note"><header><small>WEAVING KEY</small><h2>先核实，再落笔。</h2></header><dl><div><dt><mark>经线</mark></dt><dd>稳定的信息架构与页面框架</dd></div><div><dt><mark>纬线</mark></dt><dd>待核验的事实、文字与来源</dd></div><div><dt><mark>梭口</mark></dt><dd>本地运算和清晰的输入边界</dd></div></dl><meter min="0" max="12" value="12">12/12</meter></section>
+  <section id="folios" class="ll33-folios"><header><p>THE TWELVE FOLIOS</p><h2>十二页，不重复同一种读法。</h2><label for="folio-search">检索织页<input id="folio-search" type="search" autocomplete="off" placeholder="输入标题或册名" /></label><div role="group" aria-label="按经纬册筛选"><button type="button" data-folio-filter="all" aria-pressed="true">全部</button><button type="button" data-folio-filter="receipts">收支</button><button type="button" data-folio-filter="reconciliation">核对</button><button type="button" data-folio-filter="decisions">经营</button></div><output data-folio-status aria-live="polite">12 页可见</output></header><div class="ll33-spool-rack"><a class="ll33-spool ll33-spool-1" data-folio data-book="receipts" data-title="OPENING" href="folios/opening-balance.html"><span>01</span><small>收支经纬</small><b>__OPENING_TITLE__</b><em>期初余额展开页</em></a><a class="ll33-spool ll33-spool-2" data-folio data-book="receipts" data-title="CASHFLOW" href="folios/cashflow-weave.html"><span>02</span><small>收支经纬</small><b>__CASHFLOW_TITLE__</b><em>现金流经纬线</em></a><a class="ll33-spool ll33-spool-3" data-folio data-book="receipts" data-title="DOUBLE" href="folios/double-entry.html"><span>03</span><small>收支经纬</small><b>__DOUBLE_TITLE__</b><em>双栏分录对照</em></a><a class="ll33-spool ll33-spool-4" data-folio data-book="receipts" data-title="INVOICE" href="folios/invoice-anatomy.html"><span>04</span><small>收支经纬</small><b>__INVOICE_TITLE__</b><em>凭证字段解剖</em></a><a class="ll33-spool ll33-spool-1" data-folio data-book="reconciliation" data-title="VARIANCE" href="folios/variance-ribbons.html"><span>05</span><small>核对纬带</small><b>__VARIANCE_TITLE__</b><em>差异带复核页</em></a><a class="ll33-spool ll33-spool-2" data-folio data-book="reconciliation" data-title="COST" href="folios/cost-patches.html"><span>06</span><small>核对纬带</small><b>__COST_TITLE__</b><em>成本拼布说明</em></a><a class="ll33-spool ll33-spool-3" data-folio data-book="reconciliation" data-title="RECON" href="folios/reconciliation.html"><span>07</span><small>核对纬带</small><b>__RECON_TITLE__</b><em>月末勾稽清单</em></a><a class="ll33-spool ll33-spool-4" data-folio data-book="reconciliation" data-title="MARGIN" href="folios/margin-notes.html"><span>08</span><small>核对纬带</small><b>__MARGIN_TITLE__</b><em>账页边注札记</em></a><a class="ll33-spool ll33-spool-1" data-folio data-book="decisions" data-title="QUARTER" href="folios/quarterly-staircase.html"><span>09</span><small>经营梭路</small><b>__QUARTER_TITLE__</b><em>季度阶梯复盘</em></a><a class="ll33-spool ll33-spool-2" data-folio data-book="decisions" data-title="FOUNDER" href="folios/founder-ledger.html"><span>10</span><small>经营梭路</small><b>__FOUNDER_TITLE__</b><em>经营者对谈账</em></a><a class="ll33-spool ll33-spool-3" data-folio data-book="decisions" data-title="GLOSSARY" href="folios/glossary-swatches.html"><span>11</span><small>经营梭路</small><b>__GLOSSARY_TITLE__</b><em>术语色样册</em></a><a class="ll33-spool ll33-spool-4" data-folio data-book="decisions" data-title="ACCESS" href="folios/access-folio.html"><span>12</span><small>经营梭路</small><b>__ACCESS_TITLE__</b><em>访问页外壳</em></a></div></section>
+  <section class="ll33-book-row"><a href="books/receipts.html"><span>01</span><h2>收支经纬</h2><p>从期初、现金流、分录与凭证四个切面组织可核对的基础账页。</p><b>打开本册 →</b></a><a href="books/reconciliation.html"><span>02</span><h2>核对纬带</h2><p>把差异、成本、勾稽与边注拆成四种复核动作。</p><b>打开本册 →</b></a><a href="books/decisions.html"><span>03</span><h2>经营梭路</h2><p>用季度复盘、对谈、术语和访问说明承接经营判断。</p><b>打开本册 →</b></a></section>
+  <section class="ll33-tool-ribbon"><header><small>LOCAL LOOM ROOM</small><h2>五件真工具，不把输入送出浏览器。</h2></header><a href="loomroom/runway-calculator.html"><b>A</b><span>现金续航尺</span></a><a href="loomroom/break-even-calculator.html"><b>B</b><span>盈亏平衡梭</span></a><a href="loomroom/due-date-scheduler.html"><b>C</b><span>到期日排梭</span></a><a href="loomroom/reconciliation-matcher.html"><b>D</b><span>双账匹配板</span></a><a href="loomroom/allocation-splitter.html"><b>E</b><span>权重分配机</span></a></section>
+</main><details class="ll33-map"><summary>展开完整站内索引</summary><div><a href="article.html">十二织页</a><a href="folios/opening-balance.html">期初余额展开页</a><a href="folios/cashflow-weave.html">现金流经纬线</a><a href="folios/double-entry.html">双栏分录对照</a><a href="folios/invoice-anatomy.html">凭证字段解剖</a><a href="folios/variance-ribbons.html">差异带复核页</a><a href="folios/cost-patches.html">成本拼布说明</a><a href="folios/reconciliation.html">月末勾稽清单</a><a href="folios/margin-notes.html">账页边注札记</a><a href="folios/quarterly-staircase.html">季度阶梯复盘</a><a href="folios/founder-ledger.html">经营者对谈账</a><a href="folios/glossary-swatches.html">术语色样册</a><a href="folios/access-folio.html">访问页外壳</a><a href="books/receipts.html">收支经纬</a><a href="books/reconciliation.html">核对纬带</a><a href="books/decisions.html">经营梭路</a><a href="tool.html">本地机房</a><a href="loomroom/runway-calculator.html">现金续航尺</a><a href="loomroom/break-even-calculator.html">盈亏平衡梭</a><a href="loomroom/due-date-scheduler.html">到期日排梭</a><a href="loomroom/reconciliation-matcher.html">双账匹配板</a><a href="loomroom/allocation-splitter.html">权重分配机</a><a href="about.html">关于这本公开账</a><a href="contact.html">联系与反馈</a><a href="legal.html">推广披露</a><a href="disclaimer.html">信息边界</a><a href="privacy.html">隐私说明</a><a href="corrections.html">更正机制</a><a href="editorial.html">编辑准则</a></div></details>
+<footer class="ll33-foot"><div><b>__BRAND_EN__ · 033</b><p>本站独立运营，与所提及的任何第三方平台不存在所有权或控制关系。</p></div><nav aria-label="合规与订阅"><a href="legal.html">推广披露</a><a href="privacy.html">隐私</a><a href="editorial.html">编辑准则</a><a href="feed.xml">RSS 订阅</a></nav><small>__SITE_DOMAIN__ · __CONTACT_EMAIL__ · 修订 __MODIFIED_DATE__</small></footer>
+<script src="assets/site.js" defer></script>
+</body></html>

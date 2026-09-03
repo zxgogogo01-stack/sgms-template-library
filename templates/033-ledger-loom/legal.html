@@ -1,41 +1,39 @@
-<!DOCTYPE html>
-<html lang='__LANG__'>
+<!doctype html>
+<html lang="__LANG__" data-loom-theme="ivory">
 <head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>使用、数据与责任说明 · __SITE_NAME__</title>
-  <meta name='description' content='说明流水簿示例数据、工具处理方式、专业责任边界与修订规则。'>
-  <link rel='canonical' href='https://__SITE_DOMAIN__/legal.html'>
-  <meta property='og:title' content='使用、数据与责任说明 · __SITE_NAME__'>
-  <meta property='og:description' content='说明流水簿示例数据、工具处理方式、专业责任边界与修订规则。'>
-  <meta property='og:url' content='https://__SITE_DOMAIN__/legal.html'>
-  <link rel='stylesheet' href='site.css'>
-  <script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebPage","name":"使用、数据与责任说明","url":"https://__SITE_DOMAIN__/legal.html"}</script>
-</head>
-<body>
-  <a data-skip href='#main'>跳到主要内容</a>
-  <header data-site-header><div><a href='index.html' data-brand aria-label='返回月度经营流水簿首页'><b>L/33</b><span><strong>__SITE_NAME__</strong><small>Ledger loom · edition 033</small></span></a><nav data-nav aria-label='主导航'><a href='index.html'>流水簿</a><a href='article.html'>记账方法</a><a href='tool.html'>结余工具</a><a href='legal.html' aria-current='page'>使用说明</a></nav></div></header>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f4ecd9" />
+  <title>__DISCLOSURE_TITLE__ · __SITE_NAME__</title>
+  <meta name="description" content="__DISCLOSURE_DESCRIPTION__" />
+  <link rel="canonical" href="https://__SITE_DOMAIN__/legal.html" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="alternate" type="application/rss+xml" title="__SITE_NAME__ 织页通讯" href="feed.xml" />
 
-  <main id='main' data-page='legal'>
-    <header>
-      <div><p data-kicker>Use, data & responsibility · version 1.1</p><h1>公开示例，清楚边界。</h1><p data-lede>本页说明这份流水簿能做什么、不能做什么，以及示例数据、邀请码、本地工具和修订记录如何处理。</p></div>
-      <aside><p data-label>Effective</p><p>生效日期：2026.08.01<br>复核周期：每季度<br>联系：__CONTACT_EMAIL__</p></aside>
-    </header>
-
-    <div data-legal-grid>
-      <aside data-toc aria-label='说明目录'><strong>目录</strong><ol><li><a href='#nature'>01 · 内容性质</a></li><li><a href='#sample'>02 · 示例数据</a></li><li><a href='#tool'>03 · 本地工具</a></li><li><a href='#limits'>04 · 专业边界</a></li><li><a href='#access'>05 · 邀请码</a></li><li><a href='#revision'>06 · 修订与联系</a></li></ol></aside>
-      <article data-prose>
-        <section id='nature'><span data-legal-number>01 · Nature</span><h2>内容性质</h2><p>本模板展示一种月度经营流水的组织方式，包括收支字段、分类小计、凭证编号、复核状态和结余工具。它是信息与界面示例，不提供代记账、审计、投资、税务或法律服务。</p></section>
-        <section id='sample'><span data-legal-number>02 · Sample data</span><h2>示例数据</h2><p>首页中的日期、事项、金额、凭证编号和修订记录均为虚构样例，不对应真实个人、企业或交易。使用者应在发布前替换所有示例数据，并确认公开范围不包含敏感信息。</p></section>
-        <section id='tool'><span data-legal-number>03 · Local processing</span><h2>本地工具与数据处理</h2><p>结余工具由浏览器端脚本执行，不向本模板配置的站点服务器上传输入，也不主动保存内容。模板无法承诺浏览器、扩展程序、网络代理或被二次修改后的部署环境具有相同的数据行为。</p></section>
-        <section id='limits'><span data-legal-number>04 · Professional limits</span><h2>专业责任边界</h2><p>工具只按正负号汇总金额，不验证交易真实性，也不判断会计科目、税率、可抵扣性、收入确认、汇率或合规义务。重要经营决策应结合原始凭证，并咨询有资质的专业人士。</p></section>
-        <section id='access'><span data-legal-number>05 · Access code</span><h2>邀请码与协作权限</h2><p>首页的 <code>__INVITE_CODE__</code> 是可替换的展示字段。若站点接入真实协作系统，应设置有效期、最小权限、撤销机制与访问日志。__COMPLIANCE_NOTE__</p></section>
-        <section id='revision'><span data-legal-number>06 · Revisions</span><h2>修订、更正与联系</h2><p>模板规则或责任边界发生重大变化时，应更新版本号、生效日期和变更摘要。发现示例错误、无障碍问题或说明冲突，可通过 <a href='mailto:__CONTACT_EMAIL__'>__CONTACT_EMAIL__</a> 联系维护者。</p><div data-callout><strong>Revision note</strong>当前版本 1.1：补充本地工具与浏览器扩展的数据边界说明。</div></section>
-      </article>
-    </div>
-  </main>
-
-  <footer><div><div><h2>__SITE_NAME__ · 使用说明</h2><p>公开不等于无边界；数字越清楚，责任越要写明。</p></div><div><nav aria-label='页脚导航'><a href='index.html'>返回流水簿</a><a href='article.html'>记账方法</a><a href='tool.html'>结余工具</a></nav><small>POLICY V1.1 · __SITE_DOMAIN__ · __CONTACT_EMAIL__</small></div></div></footer>
-  <script src='app.js'></script>
-</body>
-</html>
+  <meta property="og:title" content="__DISCLOSURE_TITLE__" />
+  <meta property="og:description" content="__DISCLOSURE_DESCRIPTION__" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://__SITE_DOMAIN__/legal.html" />
+  <meta property="og:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="__DISCLOSURE_TITLE__" />
+  <meta name="twitter:description" content="__DISCLOSURE_DESCRIPTION__" />
+  <meta name="twitter:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+  <link rel="stylesheet" href="assets/loom.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"__DISCLOSURE_TITLE__","description":"__DISCLOSURE_DESCRIPTION__","url":"https://__SITE_DOMAIN__/legal.html","isPartOf":{"@type":"WebSite","name":"__SITE_NAME__","url":"https://__SITE_DOMAIN__/"}}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body class="ll33-canvas">
+<a class="ll33-skip" href="#main">跳到主要内容</a>
+<header class="ll33-mast">
+  <a class="ll33-mark" href="index.html" aria-label="__SITE_NAME__ 首页"><i aria-hidden="true">ⅬⅬ</i><span><b>__BRAND_EN__</b><small>LEDGER / LOOM · 033</small></span></a>
+  <button class="ll33-menu" type="button" data-loom-menu aria-expanded="false" aria-controls="loom-nav">展开目录</button>
+  <nav class="ll33-nav" id="loom-nav" aria-label="主导航"><a href="index.html">总账</a><a href="article.html">织页</a><a href="books/receipts.html">经纬册</a><a href="tool.html">机房</a><a href="about.html">说明</a></nav>
+  <button class="ll33-theme" type="button" data-loom-theme-toggle aria-label="切换明暗主题">日 / 夜</button>
+</header>
+<div class="ll33-selvedge" aria-hidden="true"><span>OPEN BOOK</span><b></b><span>VERIFY BEFORE USE</span><b></b><span>INDEPENDENT</span></div>
+<main id="main" class="ll33-policy"><header><span>SELVEDGE NOTE · DISCLOSURE</span><h1>__DISCLOSURE_TITLE__</h1><p>__DISCLOSURE_INTRODUCTION__</p></header><div><aside><b>推广披露</b><small>最后修订 __MODIFIED_DATE__</small></aside><article><section><h2>__DISCLOSURE_SECTION_1_TITLE__</h2><p>__DISCLOSURE_SECTION_1_BODY__</p></section><section><h2>__DISCLOSURE_SECTION_2_TITLE__</h2><p>__DISCLOSURE_SECTION_2_BODY__</p></section><section><h2>__DISCLOSURE_SECTION_3_TITLE__</h2><p>__DISCLOSURE_SECTION_3_BODY__</p></section><section><h2>联系或复核</h2><p>__DISCLOSURE_CONTACT_NOTE__</p><a href="mailto:__CONTACT_EMAIL__">__CONTACT_EMAIL__</a></section></article></div></main><details class="ll33-map"><summary>展开完整站内索引</summary><div><a href="article.html">十二织页</a><a href="folios/opening-balance.html">期初余额展开页</a><a href="folios/cashflow-weave.html">现金流经纬线</a><a href="folios/double-entry.html">双栏分录对照</a><a href="folios/invoice-anatomy.html">凭证字段解剖</a><a href="folios/variance-ribbons.html">差异带复核页</a><a href="folios/cost-patches.html">成本拼布说明</a><a href="folios/reconciliation.html">月末勾稽清单</a><a href="folios/margin-notes.html">账页边注札记</a><a href="folios/quarterly-staircase.html">季度阶梯复盘</a><a href="folios/founder-ledger.html">经营者对谈账</a><a href="folios/glossary-swatches.html">术语色样册</a><a href="folios/access-folio.html">访问页外壳</a><a href="books/receipts.html">收支经纬</a><a href="books/reconciliation.html">核对纬带</a><a href="books/decisions.html">经营梭路</a><a href="tool.html">本地机房</a><a href="loomroom/runway-calculator.html">现金续航尺</a><a href="loomroom/break-even-calculator.html">盈亏平衡梭</a><a href="loomroom/due-date-scheduler.html">到期日排梭</a><a href="loomroom/reconciliation-matcher.html">双账匹配板</a><a href="loomroom/allocation-splitter.html">权重分配机</a><a href="about.html">关于这本公开账</a><a href="contact.html">联系与反馈</a><a href="legal.html">推广披露</a><a href="disclaimer.html">信息边界</a><a href="privacy.html">隐私说明</a><a href="corrections.html">更正机制</a><a href="editorial.html">编辑准则</a></div></details>
+<footer class="ll33-foot"><div><b>__BRAND_EN__ · 033</b><p>本站独立运营，与所提及的任何第三方平台不存在所有权或控制关系。</p></div><nav aria-label="合规与订阅"><a href="legal.html">推广披露</a><a href="privacy.html">隐私</a><a href="editorial.html">编辑准则</a><a href="feed.xml">RSS 订阅</a></nav><small>__SITE_DOMAIN__ · __CONTACT_EMAIL__ · 修订 __MODIFIED_DATE__</small></footer>
+<script src="assets/site.js" defer></script>
+</body></html>

@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://__SITE_DOMAIN__/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://__SITE_DOMAIN__/article.html</loc></url>
-  <url><loc>https://__SITE_DOMAIN__/tool.html</loc></url>
-  <url><loc>https://__SITE_DOMAIN__/legal.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/article.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/opening-balance.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/cashflow-weave.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/double-entry.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/invoice-anatomy.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/variance-ribbons.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/cost-patches.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/reconciliation.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/margin-notes.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/quarterly-staircase.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/founder-ledger.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/glossary-swatches.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/access-folio.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/books/receipts.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/books/reconciliation.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/books/decisions.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/tool.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/loomroom/runway-calculator.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/loomroom/break-even-calculator.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/loomroom/due-date-scheduler.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/loomroom/reconciliation-matcher.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/loomroom/allocation-splitter.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/about.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/contact.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/legal.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/disclaimer.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/privacy.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/corrections.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/editorial.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
 </urlset>
