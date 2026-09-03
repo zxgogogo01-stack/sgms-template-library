@@ -1,40 +1,27 @@
 <!doctype html>
-<html lang="__LANG__">
+<html lang="__LANG__" data-mg37-theme="paper">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>地名编目台｜__SITE_NAME__</title>
-  <meta name="description" content="在本地整理地名清单，按首字母分组、去重并排序。">
-  <link rel="canonical" href="https://__SITE_DOMAIN__/tool.html">
-  <meta property="og:title" content="地名编目台｜__SITE_NAME__">
-  <meta property="og:description" content="在本地整理地名清单，按首字母分组、去重并排序。">
-  <meta property="og:url" content="https://__SITE_DOMAIN__/tool.html">
-  <link rel="stylesheet" href="site.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"地名编目台","url":"https://__SITE_DOMAIN__/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
-</head>
-<body data-page="tool">
-  <a href="#main" data-skip>跳到主要内容</a>
-  <header>
-    <div data-masthead>
-      <a href="index.html" data-brand><span>GZ</span><b>__SITE_NAME__</b></a>
-      <nav aria-label="主导航"><a href="index.html">地名索引</a><a href="article.html">条目档案</a><a href="tool.html" aria-current="page">编目台</a><a href="legal.html">收录说明</a></nav>
-      <span data-coordinate><strong>LOCAL PROCESSING</strong>NO DATA UPLOAD</span>
-    </div>
-  </header>
-
-  <main id="main">
-    <header data-inner-hero>
-      <div><p data-kicker>Catalog workbench · Local utility</p><h1>散落的地名，<br>整理成一卷索引。</h1><p data-lede>每行粘贴一个地名或英文转写，编目台会在本地去重、排序并按首字母分组；中文与其他非拉丁字母条目归入“#”。</p></div>
-      <aside data-fact-card><dl><dt>输入格式</dt><dd>每行一条</dd><dt>整理步骤</dt><dd>去重 / 排序 / 分组</dd><dt>空白行</dt><dd>自动忽略</dd><dt>数据上传</dt><dd>不会</dd></dl></aside>
-    </header>
-
-    <div data-workbench>
-      <section aria-labelledby="catalog-input-title"><p data-kicker>INPUT SHEET</p><div data-field-heading><label id="catalog-input-title" for="catalog-input">待编条目</label><span id="catalog-count">0 条</span></div><textarea id="catalog-input" maxlength="20000" aria-describedby="catalog-help catalog-feedback" placeholder="Aran Terrace&#10;Cenna Ford&#10;阿岚台"></textarea><p id="catalog-help" data-output-note>每行一条；最多 500 条、20,000 字符，单条不超过 120 个字符。重复条目会被合并，大小写保留首次出现形式。</p><div data-actions><button type="button" id="group-catalog" data-primary-button>生成分组索引</button><button type="button" id="load-catalog-sample" data-secondary-button>载入样例</button><button type="button" id="clear-catalog" data-secondary-button>清空</button></div><p id="catalog-feedback" data-feedback aria-live="polite"></p></section>
-      <section id="catalog-result" tabindex="-1" aria-labelledby="catalog-result-title"><div data-output-head><div><p data-kicker>OUTPUT REGISTER</p><h2 id="catalog-result-title">分组结果</h2></div><output id="catalog-summary">等待编目</output></div><pre id="catalog-output" data-group-output aria-live="polite">将条目粘贴到左侧，生成后在此显示。</pre><div data-actions><button type="button" id="copy-catalog" data-secondary-button disabled>复制结果</button></div></section>
-    </div>
-  </main>
-
-  <footer><p>编目过程只在当前浏览器内完成 · 输入不会保存或上传。</p><nav aria-label="页脚导航"><a href="index.html">查看现有索引</a><a href="legal.html">收录规范</a><a href="mailto:__CONTACT_EMAIL__">反馈编目问题</a></nav></footer>
-  <script src="app.js"></script>
-</body>
-</html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>__TOOL_INDEX_TITLE__ · __SITE_NAME__</title>
+<meta name="description" content="__TOOL_INDEX_DESCRIPTION__" />
+<link rel="canonical" href="https://__SITE_DOMAIN__/tool.html" />
+<meta property="og:title" content="__TOOL_INDEX_TITLE__ · __SITE_NAME__" />
+<meta property="og:description" content="__TOOL_INDEX_DESCRIPTION__" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://__SITE_DOMAIN__/tool.html" />
+<meta property="og:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="__TOOL_INDEX_TITLE__ · __SITE_NAME__" />
+<meta name="twitter:description" content="__TOOL_INDEX_DESCRIPTION__" />
+<meta name="twitter:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+<link rel="alternate" type="application/rss+xml" title="__FEED_TITLE__" href="feed.xml" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="stylesheet" href="assets/gazetteer.css" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"__TOOL_INDEX_TITLE__","description":"__TOOL_INDEX_DESCRIPTION__","url":"https://__SITE_DOMAIN__/tool.html","isPartOf":{"@type":"WebSite","name":"__SITE_NAME__","url":"https://__SITE_DOMAIN__/"}}</script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body class="mg37-shell">
+<a class="mg37-skip" href="#main">跳到主要内容</a>
+<header class="mg37-sidecar"><a class="mg37-mark" href="index.html" aria-label="__SITE_NAME__ 首页"><span>GZ</span><b>__WORDMARK__</b></a><button class="mg37-menu" type="button" data-mg37-menu aria-expanded="false" aria-controls="mg37-nav">INDEX</button><nav id="mg37-nav" class="mg37-rail" aria-label="主导航"><a href="index.html"><b>01</b><span>总局</span></a><a href="article.html"><b>02</b><span>名录</span></a><a href="collections/names-register.html"><b>03</b><span>三卷</span></a><a href="tool.html" aria-current="page"><b>04</b><span>量具</span></a><a href="about.html"><b>05</b><span>说明</span></a></nav><button class="mg37-theme" type="button" data-mg37-theme-toggle aria-label="切换纸张主题">INK</button></header><main id="main" class="mg37-tools"><header><div class="mg37-caliper" aria-hidden="true"><i></i><i></i><b>37</b></div><article><p>MEASUREMENT DRAWER / FIVE LOCAL TOOLS</p><h1>__TOOL_INDEX_TITLE__</h1><blockquote>__TOOL_INDEX_INTRODUCTION__</blockquote><ol><li>不上传输入</li><li>输入变化即失效旧结果</li><li>输出可复制</li></ol></article></header><section><a href="instruments/coordinate-format.html"><span>01</span><div><h2>坐标格式转换尺</h2><p>十进制度与度分秒互换</p></div><b>OPEN →</b></a><a href="instruments/great-circle-distance.html"><span>02</span><div><h2>大圆距离测算盘</h2><p>两点球面距离估算</p></div><b>OPEN →</b></a><a href="instruments/initial-bearing.html"><span>03</span><div><h2>初始方位角罗盘</h2><p>两点初始航向角计算</p></div><b>OPEN →</b></a><a href="instruments/extent-envelope.html"><span>04</span><div><h2>坐标范围封套</h2><p>坐标集边界与中心汇总</p></div><b>OPEN →</b></a><a href="instruments/record-sorter.html"><span>05</span><div><h2>档案编号排序机</h2><p>编号自然排序与重复核查</p></div><b>OPEN →</b></a></section><aside><b>边界说明</b><p>__TOOL_INDEX_BOUNDARY_NOTE__</p></aside></main><footer class="mg37-footer"><section><b>__WORDMARK__</b><span>GAZETTEER / VOLUME 37</span><p>本站独立运营，与所提及的任何第三方平台不存在所有权或控制关系。</p></section><nav aria-label="合规、方法与订阅"><a href="about.html">关于本名录</a><a href="contact.html">联系与线索提交</a><a href="legal.html">推广关系说明</a><a href="disclaimer.html">资料边界声明</a><a href="privacy.html">隐私与本地运算</a><a href="corrections.html">更正与异名记录</a><a href="editorial.html">编目与来源准则</a><a href="feed.xml">名录 RSS</a></nav><aside><span>DOMAIN</span>__SITE_DOMAIN__<br /><span>CONTACT</span>__CONTACT_EMAIL__<br /><span>REVISION</span>__MODIFIED_DATE__</aside></footer><script src="assets/gazetteer.js" defer></script></body></html>

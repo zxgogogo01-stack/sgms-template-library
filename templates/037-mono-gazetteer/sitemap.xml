@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://__SITE_DOMAIN__/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://__SITE_DOMAIN__/article.html</loc></url>
-  <url><loc>https://__SITE_DOMAIN__/tool.html</loc></url>
-  <url><loc>https://__SITE_DOMAIN__/legal.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/article.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/place-name-file.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/alias-revision.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/romanization-card.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/water-name.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/coordinate-record.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/boundary-note.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/pass-elevation.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/settlement-index.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/source-lineage.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/disputed-label.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/field-notebook.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/access-docket.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/collections/names-register.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/collections/coordinates-register.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/collections/evidence-register.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/tool.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/instruments/coordinate-format.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/instruments/great-circle-distance.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/instruments/initial-bearing.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/instruments/extent-envelope.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/instruments/record-sorter.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/about.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/contact.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/legal.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/disclaimer.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/privacy.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/corrections.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/editorial.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
 </urlset>
