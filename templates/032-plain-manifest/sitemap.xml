@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://__SITE_DOMAIN__/</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://__SITE_DOMAIN__/article.html</loc></url>
-  <url><loc>https://__SITE_DOMAIN__/tool.html</loc></url>
-  <url><loc>https://__SITE_DOMAIN__/legal.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/article.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/clauses/evidence-record.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/clauses/decision-log.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/clauses/exception-window.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/clauses/handoff-sheet.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/clauses/meeting-minutes.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/clauses/change-note.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/clauses/public-roadmap.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/clauses/contributor-agreement.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/clauses/incident-brief.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/clauses/glossary-standard.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/clauses/verification-protocol.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/clauses/access-appendix.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/chapters/clarity.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/chapters/accountability.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/chapters/revision.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/tool.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/workbench/width-normalizer.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/workbench/anchor-maker.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/workbench/requirement-counter.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/workbench/revision-diff.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/workbench/evidence-checker.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/about.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/contact.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/legal.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/disclaimer.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/privacy.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/corrections.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/editorial.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
 </urlset>

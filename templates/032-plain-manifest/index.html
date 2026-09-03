@@ -1,103 +1,376 @@
 <!doctype html>
-<html lang="__LANG__">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#17191d">
-  <title>__SITE_NAME__｜公开协作章程</title>
-  <meta name="description" content="__SITE_DESC__">
-  <link rel="canonical" href="https://__SITE_DOMAIN__/">
-  <meta property="og:title" content="__SITE_NAME__｜公开协作章程">
-  <meta property="og:description" content="__SITE_DESC__">
-  <meta property="og:url" content="https://__SITE_DOMAIN__/">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"DigitalDocument","name":"__SITE_NAME__ 公开协作章程","version":"2.4","url":"https://__SITE_DOMAIN__/","description":"__SITE_DESC__"}
-  </script>
-  <link rel="stylesheet" href="site.css">
-  <script src="app.js" defer></script>
-</head>
-<body>
-  <a data-skip href="#main">跳到主要内容</a>
-  <header>
-    <div data-mast>
-      <a data-brand href="index.html" aria-label="__SITE_NAME__ 首页"><span>§</span><span><strong>__SITE_NAME__</strong><small>Open Work Charter · Document 032</small></span></a>
-      <nav data-nav aria-label="主要导航"><a href="index.html" aria-current="page">章程</a><a href="article.html">条款解读</a><a href="tool.html">文本规范化</a><a href="legal.html">许可与责任</a></nav>
-      <div data-version><b>v2.4 · accepted</b><span>ratified 2026.08.01</span></div>
+<html lang="__LANG__" data-theme="paper">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#efeee8" />
+    <title>__HOME_TITLE__ · __SITE_NAME__</title>
+    <meta name="description" content="__HOME_DESCRIPTION__" />
+    <link rel="canonical" href="https://__SITE_DOMAIN__/" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="__SITE_NAME__ 章程通讯"
+      href="feed.xml"
+    />
+    <meta property="og:title" content="__HOME_TITLE__" />
+    <meta property="og:description" content="__HOME_DESCRIPTION__" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://__SITE_DOMAIN__/" />
+    <meta
+      property="og:image"
+      content="https://__SITE_DOMAIN__/assets/social-card.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="__HOME_TITLE__" />
+    <meta name="twitter:description" content="__HOME_DESCRIPTION__" />
+    <meta
+      name="twitter:image"
+      content="https://__SITE_DOMAIN__/assets/social-card.png"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "__HOME_TITLE__",
+        "url": "https://__SITE_DOMAIN__/",
+        "mainEntityOfPage": "https://__SITE_DOMAIN__/",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "__SITE_NAME__",
+          "url": "https://__SITE_DOMAIN__/"
+        }
+      }
+    </script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  </head>
+  <body class="pm32-page">
+    <a data-skip href="#main">跳到主要内容</a>
+    <header class="pm32-head">
+      <div data-mast>
+        <a
+          class="pm32-brand"
+          data-brand
+          href="index.html"
+          aria-label="__SITE_NAME__ 首页"
+          ><span>§32</span><b>__BRAND_EN__</b><small>PUBLIC MANIFEST</small></a
+        ><button
+          class="pm32-menu"
+          type="button"
+          data-menu
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          目录
+        </button>
+        <nav class="pm32-nav" id="main-nav" data-nav aria-label="主导航">
+          <a href="index.html" aria-current="page">总则</a
+          ><a href="article.html">条款</a
+          ><a href="chapters/clarity.html">章节</a><a href="tool.html">校对台</a
+          ><a href="about.html">文件说明</a>
+        </nav>
+        <button
+          class="pm32-theme"
+          type="button"
+          data-theme
+          aria-label="切换明暗主题"
+        >
+          ◐
+        </button>
+        <aside class="pm32-revision">
+          <b>REV __MODIFIED_DATE__</b><span>DOCUMENT / 032</span>
+        </aside>
+      </div>
+    </header>
+    <div class="pm32-rule" aria-hidden="true">
+      <span>OPEN RECORD</span><i></i><span>VERSIONED</span><i></i
+      ><span>INDEPENDENT</span>
     </div>
-  </header>
-
-  <main id="main">
-    <section data-wrap data-cover>
-      <div data-covermain>
-        <p data-kicker>Public charter · document 032</p>
-        <h1>把协作，<br>写成<em>明文。</em></h1>
-        <p>__SITE_TAGLINE__。这份公开章程把“完成、负责、例外、修订”写成可验证的共同约定，让团队不再依赖猜测和口头默契。</p>
-      </div>
-      <aside data-coverseal aria-label="章程状态">
-        <div><span>document seal</span><span>032 / 2026</span></div>
-        <div><strong>已通过</strong><p>五项核心原则、四类责任、一个公开修订轨迹。</p></div>
-        <dl>
-          <div><dt>当前版本</dt><dd>2.4</dd></div>
-          <div><dt>生效日期</dt><dd>2026.08.01</dd></div>
-          <div><dt>下次复核</dt><dd>2026.11</dd></div>
-          <div><dt>文档状态</dt><dd>Accepted</dd></div>
-        </dl>
-      </aside>
-    </section>
-
-    <section data-wrap data-principles aria-label="章程摘要">
-      <article><span>01 · Explicit</span><h2>先写清，再开工。</h2><p>目标、边界、负责人和完成定义在行动前可见，不把关键决定留在私聊里。</p></article>
-      <article><span>02 · Verifiable</span><h2>用证据完成闭环。</h2><p>“已完成”必须能由第三人复核；没有证据的状态，只能叫“已汇报”。</p></article>
-      <article><span>03 · Revisable</span><h2>允许改，但留下轨迹。</h2><p>规则不是石碑。每次调整都说明原因、影响和生效时间，让变化可追溯。</p></article>
-    </section>
-
-    <section data-wrap data-manifest aria-labelledby="manifest-title">
-      <header data-sectionhead>
-        <div><p data-kicker>Ratified principles</p><h2 id="manifest-title">五条公开原则</h2></div>
-        <p>搜索关键词或按性质筛选。每条原则都包含行为要求、验证标准和可复制的引用编号。</p>
-      </header>
-
-      <div data-controls>
-        <label for="clause-search"><span>搜索章程条款</span><input id="clause-search" type="search" placeholder="搜索：负责人、证据、例外、修订" autocomplete="off"></label>
-        <div data-filters aria-label="原则分类"><button type="button" data-clause-filter="all" aria-pressed="true">全部</button><button type="button" data-clause-filter="core" aria-pressed="false">核心</button><button type="button" data-clause-filter="governance" aria-pressed="false">治理</button><button type="button" data-clause-filter="support" aria-pressed="false">支持</button></div>
-      </div>
-      <div data-filtermeta><output id="clause-count" aria-live="polite">5 / 5 条原则可见</output><span>Current edition · v2.4</span></div>
-
-      <div data-document>
-        <aside data-index aria-label="条款索引"><strong>05</strong><a href="#c01">01 · 先写清目标</a><a href="#c02">02 · 明确责任人</a><a href="#c03">03 · 定义完成证据</a><a href="#c04">04 · 公布例外</a><a href="#c05">05 · 保留修订轨迹</a></aside>
-        <div data-clauses>
-          <section id="c01" data-clause data-kind="core">
-            <header><span>core</span><strong>01</strong></header>
-            <div><h3>任何工作，在开始前都应写清目标与边界。</h3><p>发起人用一句话说明要改变什么，再列出明确的范围内、范围外与停止条件。</p><ul><li>目标描述结果，不只描述动作</li><li>边界写明不做什么</li><li>停止条件可由第三人判断</li></ul><div data-refrow><code>CHARTER-01</code><button type="button" data-act="copy-reference" data-reference="__SITE_NAME__ 公开协作章程 v2.4 §01" data-button="quiet">复制引用</button><output data-inline-status aria-live="polite"></output></div></div>
-          </section>
-          <section id="c02" data-clause data-kind="core">
-            <header><span>core</span><strong>02</strong></header>
-            <div><h3>每项决定，只能有一个明确的最终责任人。</h3><p>参与者可以很多，但最终确认、风险判断和状态更新必须有唯一归属。</p><ul><li>负责人以姓名或岗位明确标识</li><li>代理期间同步交接窗口</li><li>阻塞超过约定时间必须公开升级</li></ul><div data-refrow><code>CHARTER-02</code><button type="button" data-act="copy-reference" data-reference="__SITE_NAME__ 公开协作章程 v2.4 §02" data-button="quiet">复制引用</button><output data-inline-status aria-live="polite"></output></div></div>
-          </section>
-          <section id="c03" data-clause data-kind="core">
-            <header><span>core</span><strong>03</strong></header>
-            <div><h3>“完成”不是一句状态，而是一组可复核的证据。</h3><p>交付物、检查结果与剩余限制应在同一处出现。关键路径不能用“应该没问题”代替验证。</p><ul><li>交付物可访问、可定位</li><li>验证结果包含范围与时间</li><li>已知限制与未覆盖项必须明示</li></ul><div data-refrow><code>CHARTER-03</code><a href="article.html" data-button="signal">阅读完整解读</a><button type="button" data-act="copy-reference" data-reference="__SITE_NAME__ 公开协作章程 v2.4 §03" data-button="quiet">复制引用</button><output data-inline-status aria-live="polite"></output></div></div>
-          </section>
-          <section id="c04" data-clause data-kind="governance">
-            <header><span>governance</span><strong>04</strong></header>
-            <div><h3>例外可以存在，但必须有理由、期限和复核人。</h3><p>紧急情况不取消治理，只改变治理节奏。任何绕开常规流程的决定都需要留下复盘入口。</p><ul><li>说明为什么常规路径不可用</li><li>设定到期或回归条件</li><li>由非发起人完成事后复核</li></ul><div data-refrow><code>CHARTER-04</code><button type="button" data-act="copy-reference" data-reference="__SITE_NAME__ 公开协作章程 v2.4 §04" data-button="quiet">复制引用</button><output data-inline-status aria-live="polite"></output></div></div>
-          </section>
-          <section id="c05" data-clause data-kind="support">
-            <header><span>support</span><strong>05</strong></header>
-            <div><h3>规则可以修订，但不能悄悄改写过去。</h3><p>每次版本变更都记录提议者、理由、影响范围、生效时间与替代条款。</p><ul><li>小改也保留版本号</li><li>重大变化需要明确通过状态</li><li>旧版可读但清楚标记为失效</li></ul><div data-refrow><code>CHARTER-05</code><button type="button" data-act="copy-reference" data-reference="__SITE_NAME__ 公开协作章程 v2.4 §05" data-button="quiet">复制引用</button><output data-inline-status aria-live="polite"></output></div></div>
-          </section>
+    <main id="main">
+      <section data-cover>
+        <div data-cover-copy>
+          <p>PUBLIC MANIFEST · FILE 032</p>
+          <h1>把共同约定，<br /><em>留在明处。</em></h1>
+          <span>__HOME_INTRODUCTION__</span>
+          <nav>
+            <a href="#clauses">打开十二份条款</a
+            ><a href="tool.html">使用本地校对台</a>
+          </nav>
         </div>
-      </div>
-
-      <div id="clause-empty" data-empty hidden><strong>没有匹配的原则</strong><p>换一个关键词，或恢复全部分类。</p><button id="reset-clauses" type="button" data-button="quiet">清除条件</button></div>
-
-      <section data-matrix aria-labelledby="matrix-title">
-        <header><div><p data-kicker>Responsibility matrix</p><h2 id="matrix-title">责任与证据矩阵</h2></div><p>最低交付标准，不代表所有团队都必须采用同一种工具。</p></header>
-        <div data-tablewrap><table><caption>章程 v2.4 的四类责任</caption><thead><tr><th scope="col">角色</th><th scope="col">最小责任</th><th scope="col">完成证据</th><th scope="col">状态</th></tr></thead><tbody><tr><th scope="row">发起人</th><td>目标、边界、优先级</td><td>任务简报与范围说明</td><td><span data-state>已通过</span></td></tr><tr><th scope="row">负责人</th><td>推进、判断、升级</td><td>状态更新与交付物</td><td><span data-state>已通过</span></td></tr><tr><th scope="row">复核人</th><td>独立检查关键结果</td><td>带范围的验证记录</td><td><span data-state>已通过</span></td></tr><tr><th scope="row">维护人</th><td>修订、归档、通知</td><td>版本日志与生效说明</td><td><span data-state="review">季度复核</span></td></tr></tbody></table></div>
+        <aside data-access-card>
+          <header><span>ACCESS NOTE</span><b>FORM A</b></header>
+          <p>访问识别码</p>
+          <div>
+            <code id="invite-code">__INVITE_CODE__</code
+            ><button
+              type="button"
+              data-copy="invite-code"
+              data-success="识别码已复制"
+            >
+              复制
+            </button>
+          </div>
+          <strong
+            >通过本站邀请码，有机会获得 __BENEFIT_RATE__ 手续费减免*</strong
+          ><small>__BENEFIT_DISCLAIMER__</small
+          ><a data-editorial-entry href="clauses/access-appendix.html"
+            ><span>编目员选读</span
+            >访问附录的框架已经装订，填入资料前先核对事实</a
+          >
+        </aside>
+        <div data-cover-index aria-hidden="true">
+          <b>01</b><b>02</b><b>03</b><b>04</b>
+        </div>
       </section>
-    </section>
-  </main>
-
-  <footer><div data-foot><div><strong>__SITE_NAME__ · 公开协作章程</strong><p>把重要约定写成人人看得见、查得到、能复核的明文。</p></div><div><nav aria-label="页脚导航"><a href="article.html">条款解读</a><a href="tool.html">文本规范化</a><a href="legal.html">许可与责任</a></nav><small>VERSION 2.4 · __SITE_DOMAIN__ · __CONTACT_EMAIL__</small></div></div></footer>
-</body>
+      <section data-status-band>
+        <span><b>12</b>份差异化条款</span><span><b>03</b>册章节索引</span
+        ><span><b>05</b>件本地校对工具</span
+        ><span><b>00</b>条首页外部推广直链</span>
+      </section>
+      <aside data-notation aria-labelledby="notation-title">
+        <h2 id="notation-title">
+          <abbr title="Document notation">文件记号</abbr>
+        </h2>
+        <dl>
+          <div>
+            <dt><code>MUST</code></dt>
+            <dd><samp>必须满足</samp></dd>
+          </div>
+          <div>
+            <dt><kbd>SHOULD</kbd></dt>
+            <dd><var>建议满足</var></dd>
+          </div>
+        </dl>
+        <blockquote>
+          <q>先写清，再执行。</q><cite>装订说明</cite>
+        </blockquote>
+        <p>
+          <mark>当前</mark><del>旧版</del><ins>修订</ins
+          ><time datetime="__MODIFIED_DATE__">__MODIFIED_DATE__</time>
+        </p>
+        <ol>
+          <li><data value="1">明文</data></li>
+          <li><meter min="0" max="3" value="2">2/3</meter></li>
+          <li><progress max="3" value="3">3/3</progress></li>
+        </ol>
+        <address><a href="contact.html">联系文件维护人</a></address>
+        <table>
+          <caption>
+            文件状态图例
+          </caption>
+          <colgroup>
+            <col />
+            <col />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>记号</th>
+              <th>含义</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>OPEN</b></td>
+              <td><span>可供阅读</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </aside>
+      <section data-clauses id="clauses">
+        <header data-section-title>
+          <div>
+            <p>RATIFIED READING ORDER</p>
+            <h2>十二份条款，<br />各有装订方法。</h2>
+          </div>
+          <span>__ARTICLE_INDEX_INTRODUCTION__</span>
+        </header>
+        <div data-clause-controls>
+          <label for="clause-search">检索条款</label
+          ><input
+            id="clause-search"
+            type="search"
+            autocomplete="off"
+            placeholder="输入标题或章节"
+          />
+          <div role="group" aria-label="按章节筛选">
+            <button type="button" data-filter="all" aria-pressed="true">
+              全部</button
+            ><button type="button" data-filter="clarity">明文</button
+            ><button type="button" data-filter="accountability">责任</button
+            ><button type="button" data-filter="revision">修订</button>
+          </div>
+          <output data-filter-status aria-live="polite">12 份条款可见</output>
+        </div>
+        <div data-clause-list>
+          <a
+            data-clause-card
+            data-chapter="clarity"
+            data-title="__EVIDENCE_TITLE__"
+            href="clauses/evidence-record.html"
+            ><span>01</span><small>§ 01 / RECORD</small><b>__EVIDENCE_TITLE__</b
+            ><em>明文原则</em></a
+          ><a
+            data-clause-card
+            data-chapter="clarity"
+            data-title="__DECISION_TITLE__"
+            href="clauses/decision-log.html"
+            ><span>02</span><small>§ 02 / DECISION</small
+            ><b>__DECISION_TITLE__</b><em>明文原则</em></a
+          ><a
+            data-clause-card
+            data-chapter="clarity"
+            data-title="__EXCEPTION_TITLE__"
+            href="clauses/exception-window.html"
+            ><span>03</span><small>§ 03 / EXCEPTION</small
+            ><b>__EXCEPTION_TITLE__</b><em>明文原则</em></a
+          ><a
+            data-clause-card
+            data-chapter="clarity"
+            data-title="__HANDOFF_TITLE__"
+            href="clauses/handoff-sheet.html"
+            ><span>04</span><small>§ 04 / HANDOFF</small><b>__HANDOFF_TITLE__</b
+            ><em>明文原则</em></a
+          ><a
+            data-clause-card
+            data-chapter="accountability"
+            data-title="__MINUTES_TITLE__"
+            href="clauses/meeting-minutes.html"
+            ><span>05</span><small>§ 05 / MINUTES</small><b>__MINUTES_TITLE__</b
+            ><em>责任记录</em></a
+          ><a
+            data-clause-card
+            data-chapter="accountability"
+            data-title="__CHANGE_TITLE__"
+            href="clauses/change-note.html"
+            ><span>06</span><small>§ 06 / CHANGE</small><b>__CHANGE_TITLE__</b
+            ><em>责任记录</em></a
+          ><a
+            data-clause-card
+            data-chapter="accountability"
+            data-title="__ROADMAP_TITLE__"
+            href="clauses/public-roadmap.html"
+            ><span>07</span><small>§ 07 / ROADMAP</small><b>__ROADMAP_TITLE__</b
+            ><em>责任记录</em></a
+          ><a
+            data-clause-card
+            data-chapter="accountability"
+            data-title="__CONTRIBUTOR_TITLE__"
+            href="clauses/contributor-agreement.html"
+            ><span>08</span><small>§ 08 / AGREEMENT</small
+            ><b>__CONTRIBUTOR_TITLE__</b><em>责任记录</em></a
+          ><a
+            data-clause-card
+            data-chapter="revision"
+            data-title="__INCIDENT_TITLE__"
+            href="clauses/incident-brief.html"
+            ><span>09</span><small>§ 09 / INCIDENT</small
+            ><b>__INCIDENT_TITLE__</b><em>修订档案</em></a
+          ><a
+            data-clause-card
+            data-chapter="revision"
+            data-title="__GLOSSARY_TITLE__"
+            href="clauses/glossary-standard.html"
+            ><span>10</span><small>§ 10 / GLOSSARY</small
+            ><b>__GLOSSARY_TITLE__</b><em>修订档案</em></a
+          ><a
+            data-clause-card
+            data-chapter="revision"
+            data-title="__VERIFY_TITLE__"
+            href="clauses/verification-protocol.html"
+            ><span>11</span><small>§ 11 / VERIFY</small><b>__VERIFY_TITLE__</b
+            ><em>修订档案</em></a
+          ><a
+            data-clause-card
+            data-chapter="revision"
+            data-title="__ACCESS_TITLE__"
+            href="clauses/access-appendix.html"
+            ><span>12</span><small>§ 12 / ACCESS</small><b>__ACCESS_TITLE__</b
+            ><em>修订档案</em></a
+          >
+        </div>
+        <section data-chapter-register>
+          <header>
+            <p>CHAPTER REGISTER</p>
+            <h2>三册章节</h2>
+          </header>
+          <nav>
+            <a href="chapters/clarity.html"
+              ><small>CHAPTER 01</small><b>明文原则</b
+              ><span>CLARITY ARTICLES</span></a
+            ><a href="chapters/accountability.html"
+              ><small>CHAPTER 02</small><b>责任记录</b
+              ><span>ACCOUNTABILITY FILES</span></a
+            ><a href="chapters/revision.html"
+              ><small>CHAPTER 03</small><b>修订档案</b
+              ><span>REVISION ARCHIVE</span></a
+            >
+          </nav>
+        </section>
+        <section data-workbench-strip>
+          <div>
+            <p>LOCAL WORKBENCH</p>
+            <h2>文字不出浏览器，<br />在本页完成校对。</h2>
+          </div>
+          <nav>
+            <a href="workbench/width-normalizer.html"
+              ><span>01</span><b>字符宽度校对台</b><small>WIDTH</small></a
+            ><a href="workbench/anchor-maker.html"
+              ><span>02</span><b>条款锚点编目器</b><small>ANCHOR</small></a
+            ><a href="workbench/requirement-counter.html"
+              ><span>03</span><b>规范强度计数板</b><small>FORCE</small></a
+            ><a href="workbench/revision-diff.html"
+              ><span>04</span><b>修订范围比较尺</b><small>DIFF</small></a
+            ><a href="workbench/evidence-checker.html"
+              ><span>05</span><b>证据行完整度检查器</b><small>PROOF</small></a
+            >
+          </nav>
+        </section>
+        <section data-public-index>
+          <header>
+            <p>PUBLIC RECORDS</p>
+            <h2>公开文件</h2>
+          </header>
+          <nav>
+            <a href="article.html">全部条款</a
+            ><a href="tool.html">全部校对工具</a
+            ><a href="about.html">__ABOUT_TITLE__</a
+            ><a href="contact.html">__CONTACT_TITLE__</a
+            ><a href="legal.html">__DISCLOSURE_TITLE__</a
+            ><a href="disclaimer.html">__DISCLAIMER_TITLE__</a
+            ><a href="privacy.html">__PRIVACY_TITLE__</a
+            ><a href="corrections.html">__CORRECTIONS_TITLE__</a
+            ><a href="editorial.html">__EDITORIAL_TITLE__</a>
+          </nav>
+        </section>
+      </section>
+    </main>
+    <footer class="pm32-foot">
+      <div data-footer-mark>
+        <b>__BRAND_EN__</b><span>PUBLIC FILE 032</span>
+      </div>
+      <div data-footer-copy>
+        <p>
+          本站独立运营，不隶属于任何交易平台，也不代管资金。这里提供一般信息；推广关系收录在<a
+            href="legal.html"
+            >资助记录</a
+          >。
+        </p>
+        <nav aria-label="公开文件">
+          <a href="about.html">文件说明</a><a href="contact.html">联系</a
+          ><a href="legal.html">资助记录</a
+          ><a href="disclaimer.html">使用边界</a><a href="privacy.html">隐私</a
+          ><a href="corrections.html">更正</a
+          ><a href="editorial.html">编辑准则</a><a href="feed.xml">RSS 通讯</a>
+        </nav>
+      </div>
+    </footer>
+    <script defer src="assets/site.js"></script>
+  </body>
 </html>
