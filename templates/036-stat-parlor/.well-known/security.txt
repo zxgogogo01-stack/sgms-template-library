@@ -1,0 +1,4 @@
+Contact: mailto:__CONTACT_EMAIL__
+Expires: 2027-09-03T00:00:00Z
+Preferred-Languages: zh, en
+Canonical: https://__SITE_DOMAIN__/.well-known/security.txt

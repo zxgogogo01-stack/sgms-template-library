@@ -1,140 +1,37 @@
 <!doctype html>
-<html lang="__LANG__">
+<html lang="__LANG__" data-sp36-mode="evening">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>统计会客室｜__SITE_NAME__</title>
-  <meta name="description" content="__SITE_DESC__">
-  <link rel="canonical" href="https://__SITE_DOMAIN__/">
-  <meta property="og:title" content="统计会客室｜__SITE_NAME__">
-  <meta property="og:description" content="__SITE_DESC__">
-  <meta property="og:url" content="https://__SITE_DOMAIN__/">
-  <link rel="stylesheet" href="site.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"__SITE_NAME__ 统计会客室","url":"https://__SITE_DOMAIN__/","description":"__SITE_DESC__"}</script>
-</head>
-<body data-page="home">
-  <a href="#main" data-skip>跳到主要内容</a>
-  <header>
-    <div data-masthead>
-      <a href="index.html" data-brand><span>SP</span><strong>__SITE_NAME__</strong></a>
-      <nav aria-label="主导航">
-        <a href="index.html" aria-current="page">陈列</a>
-        <a href="article.html">口径档案</a>
-        <a href="tool.html">分析台</a>
-        <a href="legal.html">资料声明</a>
-      </nav>
-      <span data-session>本席数据已核验</span>
-    </div>
-  </header>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#171419" />
 
-  <main id="main">
-    <section data-hero aria-labelledby="hero-title">
-      <div>
-        <p data-eyebrow>Statistical salon · 第 24 席</p>
-        <h1 id="hero-title">把数字请进<br>一间会客室。</h1>
-        <p data-lede>__SITE_TAGLINE__。这里不追逐喧哗的仪表盘，只把样本、趋势与口径摆上同一张桌，供每一次判断从容核对。</p>
-      </div>
-      <aside data-hero-note aria-label="本次开放席位">
-        <span>本次开放席位</span>
-        <strong>12,480</strong>
-        <p>完成核验的有效观察值<br>更新于 2026.08 · 09:30</p>
-      </aside>
-    </section>
+<title>__HOME_TITLE__ · __SITE_NAME__</title>
+<meta name="description" content="__HOME_DESCRIPTION__" />
+<link rel="canonical" href="https://__SITE_DOMAIN__/" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="__SITE_NAME__ 沙龙札记" href="feed.xml" />
 
-    <section aria-labelledby="signal-title">
-      <div data-section-head>
-        <div>
-          <p data-eyebrow>Conversation pieces</p>
-          <h2 id="signal-title">本席谈资</h2>
-        </div>
-        <p><span id="stat-count">6 / 6 项可见</span>。切换观察主题，比较增长、回访与样本质量。</p>
-      </div>
-      <div data-filter-row aria-label="统计主题筛选">
-        <button type="button" data-stat-filter="all" aria-pressed="true">全部谈资</button>
-        <button type="button" data-stat-filter="growth" aria-pressed="false">增长</button>
-        <button type="button" data-stat-filter="retention" aria-pressed="false">回访</button>
-        <button type="button" data-stat-filter="quality" aria-pressed="false">质量</button>
-        <button type="button" data-stat-filter="other" aria-pressed="false">待补充</button>
-      </div>
-
-      <div data-stat-grid data-visible="6">
-        <article data-stat data-group="growth">
-          <header><span>有效样本</span><b>+6.8%</b></header>
-          <output>12,480</output>
-          <p>较上一观察窗增加 794 份</p>
-          <div data-trend aria-label="完成进度 82%"><i style="--value:82%"></i></div>
-        </article>
-        <article data-stat data-group="growth">
-          <header><span>完成问卷</span><b>+4.1%</b></header>
-          <output>3,216</output>
-          <p>整体完成率为 25.8%</p>
-          <div data-trend aria-label="完成进度 64%"><i style="--value:64%"></i></div>
-        </article>
-        <article data-stat data-group="retention">
-          <header><span>日均停留</span><b>+01:16</b></header>
-          <output>08:42</output>
-          <p>长读样本贡献主要增量</p>
-          <div data-trend aria-label="完成进度 72%"><i style="--value:72%"></i></div>
-        </article>
-        <article data-stat data-group="retention">
-          <header><span>回访样本</span><b>+2.3%</b></header>
-          <output>1,094</output>
-          <p>30 日内再次出现的独立样本</p>
-          <div data-trend aria-label="完成进度 48%"><i style="--value:48%"></i></div>
-        </article>
-        <article data-stat data-group="quality">
-          <header><span>置信区间</span><b>稳定</b></header>
-          <output>95%</output>
-          <p>主要估计误差范围为 ±1.7%</p>
-          <div data-trend aria-label="完成进度 95%"><i style="--value:95%"></i></div>
-        </article>
-        <article data-stat data-group="quality">
-          <header><span>有效字段</span><b>87.5%</b></header>
-          <output>42/48</output>
-          <p>六个低完整度字段已单列说明</p>
-          <div data-trend aria-label="完成进度 88%"><i style="--value:88%"></i></div>
-        </article>
-      </div>
-      <div id="stat-empty" data-empty hidden>
-        <h3>这一席暂时没有谈资</h3>
-        <p>恢复全部主题，即可重新查看本期陈列。</p>
-        <button type="button" id="reset-stats" data-quiet-button>恢复全部</button>
-      </div>
-    </section>
-
-    <section data-ledger-wrap aria-labelledby="ledger-title">
-      <div data-section-head>
-        <div>
-          <p data-eyebrow>Reading ledger</p>
-          <h2 id="ledger-title">席间记录</h2>
-        </div>
-        <p>相同口径下的四个观察窗。完整定义与修订历史见口径档案。</p>
-      </div>
-      <div data-table-scroll tabindex="0" aria-label="可横向滚动的席间记录表">
-        <table>
-          <thead><tr><th scope="col">观察窗</th><th scope="col">样本数</th><th scope="col">完成率</th><th scope="col">回访率</th><th scope="col">状态</th></tr></thead>
-          <tbody>
-            <tr><td><strong>2026 · 夏末</strong></td><td>12,480</td><td>25.8%</td><td>8.8%</td><td><span data-badge>已核验</span></td></tr>
-            <tr><td><strong>2026 · 初夏</strong></td><td>11,686</td><td>24.7%</td><td>8.1%</td><td><span data-badge>已归档</span></td></tr>
-            <tr><td><strong>2026 · 春分</strong></td><td>10,914</td><td>23.9%</td><td>7.6%</td><td><span data-badge>已归档</span></td></tr>
-            <tr><td><strong>2025 · 冬至</strong></td><td>9,842</td><td>22.4%</td><td>7.2%</td><td><span data-badge>已归档</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section data-invitation aria-label="会客室邀请函">
-      <p>带一位同事入席，继续这场有口径的讨论。</p>
-      <code id="invite-code" data-code>__INVITE_CODE__</code>
-      <button type="button" id="copy-invite">复制席位码</button>
-      <small id="copy-status" aria-live="polite">__COMPLIANCE_NOTE__</small>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2026 __SITE_NAME__ · 数据为结构示例，不构成投资或决策建议。</p>
-    <nav aria-label="页脚导航"><a href="article.html">方法与口径</a><a href="legal.html">资料声明</a><a href="mailto:__CONTACT_EMAIL__">联系编辑席</a></nav>
-  </footer>
-  <script src="app.js"></script>
-</body>
-</html>
+<meta property="og:title" content="__HOME_TITLE__" />
+<meta property="og:description" content="__HOME_DESCRIPTION__" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://__SITE_DOMAIN__/" />
+<meta property="og:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="__HOME_TITLE__" />
+<meta name="twitter:description" content="__HOME_DESCRIPTION__" />
+<meta name="twitter:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+<link rel="stylesheet" href="assets/parlor.css" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"__HOME_TITLE__","description":"__HOME_DESCRIPTION__","url":"https://__SITE_DOMAIN__/","isPartOf":{"@type":"WebSite","name":"__SITE_NAME__","url":"https://__SITE_DOMAIN__/"}}</script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body class="sp36-shell">
+<a class="sp36-skip" href="#main">跳到主要内容</a>
+<header class="sp36-marquee"><a class="sp36-wordmark" href="index.html" aria-label="__SITE_NAME__ 首页"><span>S·36</span><b>__BRAND_EN__</b><small>STATISTICAL PARLOR</small></a><button class="sp36-menu" type="button" data-sp36-menu aria-expanded="false" aria-controls="sp36-nav">席位索引</button><nav class="sp36-nav" id="sp36-nav" aria-label="主导航"><a href="index.html" aria-current="page"><i>01</i><span>会客厅</span></a><a href="article.html"><i>02</i><span>研究册</span></a><a href="rooms/measurement.html"><i>03</i><span>三房间</span></a><a href="tool.html"><i>04</i><span>分析吧</span></a><a href="about.html"><i>05</i><span>关于</span></a></nav><button class="sp36-mode" type="button" data-sp36-mode-toggle aria-label="切换会客室明暗">LIGHT</button></header>
+<main id="main" class="sp36-home">
+<salon-stage class="sp36-stage" aria-labelledby="home-title"><article class="sp36-intro"><p>PRIVATE EDITION / __MODIFIED_DATE__</p><h1 id="home-title">让数字坐下来，再开始一场有分寸的谈话。</h1><blockquote>__HOME_INTRODUCTION__</blockquote><nav aria-label="首屏内容入口"><a href="#folios">翻阅研究册</a><a href="tool.html">前往分析吧</a></nav></article><conversation-pit class="sp36-pit" aria-hidden="true"><i></i><i></i><i></i><span>36</span></conversation-pit><membership-card class="sp36-membership"><header><b>GUEST CARD</b><span>FORM A</span></header><label>来宾识别码</label><div><code id="sp36-invite">__INVITE_CODE__</code><button type="button" data-sp36-copy="sp36-invite">复制</button></div><strong>通过本站邀请码，最高可享 __BENEFIT_RATE__ 手续费减免*</strong><small>__BENEFIT_DISCLAIMER__</small><a href="folios/guest-pass.html"><span>本期编辑选读</span><b>来宾通行页仅保留待核验字段 →</b></a></membership-card><room-number class="sp36-room-number">Nº<br /><b>036</b></room-number></salon-stage>
+<counter-strip class="sp36-counter"><span>12 份研究册</span><span>03 间主题室</span><span>05 件本地仪器</span><p>首页不含外部推广链接 · 观察口径由内容团队核验</p></counter-strip>
+<folio-cabinet class="sp36-cabinet" id="folios"><header><div><small>RESEARCH FOLIOS / 01—12</small><h2>十二种读法，不把研究压成同一张卡。</h2></div><label for="sp36-search">检索研究册<input id="sp36-search" type="search" autocomplete="off" placeholder="标题、结构或编号" /></label><div role="group" aria-label="按房间筛选"><button type="button" data-sp36-filter="all" aria-pressed="true">全册</button><button type="button" data-sp36-filter="measurement" aria-pressed="false">测量</button><button type="button" data-sp36-filter="comparison" aria-pressed="false">比较</button><button type="button" data-sp36-filter="interpretation" aria-pressed="false">解读</button></div><output data-sp36-count aria-live="polite">12 份可见</output></header><div class="sp36-card-wall"><a class="sp36-folio-card sp36-card-2" data-sp36-folio data-room="measurement" data-search="SAMPLE 样本剖面 环形样本剖面" href="folios/sample-anatomy.html"><span>01</span><small>测量前厅</small><h3>__SAMPLE_TITLE__</h3><em>环形样本剖面</em><i aria-hidden="true"></i></a><a class="sp36-folio-card sp36-card-3" data-sp36-folio data-room="measurement" data-search="DISTRIBUTION 分布肖像 点列分布画" href="folios/distribution-portrait.html"><span>02</span><small>测量前厅</small><h3>__DISTRIBUTION_TITLE__</h3><em>点列分布画</em><i aria-hidden="true"></i></a><a class="sp36-folio-card sp36-card-4" data-sp36-folio data-room="measurement" data-search="UNCERTAINTY 不确定性窗 区间窗格" href="folios/uncertainty-window.html"><span>03</span><small>测量前厅</small><h3>__UNCERTAINTY_TITLE__</h3><em>区间窗格</em><i aria-hidden="true"></i></a><a class="sp36-folio-card sp36-card-5" data-sp36-folio data-room="measurement" data-search="CHANGE 时间变化谱 折线节拍" href="folios/time-change.html"><span>04</span><small>测量前厅</small><h3>__CHANGE_TITLE__</h3><em>折线节拍</em><i aria-hidden="true"></i></a><a class="sp36-folio-card sp36-card-6" data-sp36-folio data-room="comparison" data-search="COHORT 队列席次表 对角队列桌" href="folios/cohort-table.html"><span>05</span><small>比较包厢</small><h3>__COHORT_TITLE__</h3><em>对角队列桌</em><i aria-hidden="true"></i></a><a class="sp36-folio-card sp36-card-1" data-sp36-folio data-room="comparison" data-search="CORRELATION 相关会谈 散点会谈" href="folios/correlation-room.html"><span>06</span><small>比较包厢</small><h3>__CORRELATION_TITLE__</h3><em>散点会谈</em><i aria-hidden="true"></i></a><a class="sp36-folio-card sp36-card-2" data-sp36-folio data-room="comparison" data-search="RATIO 比例账册 比例条册" href="folios/ratio-ledger.html"><span>07</span><small>比较包厢</small><h3>__RATIO_TITLE__</h3><em>比例条册</em><i aria-hidden="true"></i></a><a class="sp36-folio-card sp36-card-3" data-sp36-folio data-room="comparison" data-search="OUTLIER 离群个案 证据个案台" href="folios/outlier-case.html"><span>08</span><small>比较包厢</small><h3>__OUTLIER_TITLE__</h3><em>证据个案台</em><i aria-hidden="true"></i></a><a class="sp36-folio-card sp36-card-4" data-sp36-folio data-room="interpretation" data-search="SURVEY 调查路径 问卷路径图" href="folios/survey-method.html"><span>09</span><small>解读圆厅</small><h3>__SURVEY_TITLE__</h3><em>问卷路径图</em><i aria-hidden="true"></i></a><a class="sp36-folio-card sp36-card-5" data-sp36-folio data-room="interpretation" data-search="EXPERIMENT 实验双席 对照双席" href="folios/experiment-brief.html"><span>10</span><small>解读圆厅</small><h3>__EXPERIMENT_TITLE__</h3><em>对照双席</em><i aria-hidden="true"></i></a><a class="sp36-folio-card sp36-card-6" data-sp36-folio data-room="interpretation" data-search="GLOSSARY 指标词匣 抽屉词卡" href="folios/metric-glossary.html"><span>11</span><small>解读圆厅</small><h3>__GLOSSARY_TITLE__</h3><em>抽屉词卡</em><i aria-hidden="true"></i></a><a class="sp36-folio-card sp36-card-1" data-sp36-folio data-room="interpretation" data-search="PASS 来宾通行页 来宾卡外壳" href="folios/guest-pass.html"><span>12</span><small>解读圆厅</small><h3>__PASS_TITLE__</h3><em>来宾卡外壳</em><i aria-hidden="true"></i></a></div><aside class="sp36-empty" data-sp36-empty hidden><h3>这一间没有匹配研究册</h3><p>换个检索词，或恢复全册。</p><button type="button" data-sp36-reset>恢复全部</button></aside></folio-cabinet>
+<room-suite class="sp36-room-suite"><a href="rooms/measurement.html"><span>ROOM 01</span><h2>测量前厅</h2><small>MEASURE FOYER</small><p>四份不同结构的研究内容外壳。</p></a><a href="rooms/comparison.html"><span>ROOM 02</span><h2>比较包厢</h2><small>COMPARISON BOX</small><p>四份不同结构的研究内容外壳。</p></a><a href="rooms/interpretation.html"><span>ROOM 03</span><h2>解读圆厅</h2><small>INTERPRETATION ROTUNDA</small><p>四份不同结构的研究内容外壳。</p></a></room-suite>
+<bar-console class="sp36-bar-console"><header><small>FIVE LOCAL INSTRUMENTS</small><h2>把原始输入留在浏览器内。</h2></header><a href="instruments/weighted-mean.html"><span>B1</span><b>加权均值调酒器</b><p>按名称、数值与权重计算加权均值。</p></a><a href="instruments/margin-window.html"><span>B2</span><b>比例误差窗</b><p>按样本量与观察比例估算误差范围。</p></a><a href="instruments/percentile-seat.html"><span>B3</span><b>百分位席次尺</b><p>从数列中定位指定百分位的插值位置。</p></a><a href="instruments/rate-difference.html"><span>B4</span><b>双比例比较仪</b><p>比较两组事件率的百分点差与相对变化。</p></a><a href="instruments/rebase-index.html"><span>B5</span><b>指数换基台</b><p>把时间序列改写为基期等于 100 的指数。</p></a></bar-console>
+</main><details class="sp36-directory"><summary>展开完整会客室目录</summary><div><a href="article.html">全部研究册</a><a href="folios/sample-anatomy.html">样本剖面</a><a href="folios/distribution-portrait.html">分布肖像</a><a href="folios/uncertainty-window.html">不确定性窗</a><a href="folios/time-change.html">时间变化谱</a><a href="folios/cohort-table.html">队列席次表</a><a href="folios/correlation-room.html">相关会谈</a><a href="folios/ratio-ledger.html">比例账册</a><a href="folios/outlier-case.html">离群个案</a><a href="folios/survey-method.html">调查路径</a><a href="folios/experiment-brief.html">实验双席</a><a href="folios/metric-glossary.html">指标词匣</a><a href="folios/guest-pass.html">来宾通行页</a><a href="rooms/measurement.html">测量前厅</a><a href="rooms/comparison.html">比较包厢</a><a href="rooms/interpretation.html">解读圆厅</a><a href="tool.html">分析吧总览</a><a href="instruments/weighted-mean.html">加权均值调酒器</a><a href="instruments/margin-window.html">比例误差窗</a><a href="instruments/percentile-seat.html">百分位席次尺</a><a href="instruments/rate-difference.html">双比例比较仪</a><a href="instruments/rebase-index.html">指数换基台</a><a href="about.html">关于统计会客室</a><a href="contact.html">联系与资料反馈</a><a href="legal.html">推广关系披露</a><a href="disclaimer.html">统计信息边界</a><a href="privacy.html">隐私与本地运算</a><a href="corrections.html">更正与修订台账</a><a href="editorial.html">编辑与口径准则</a></div></details><footer class="sp36-footer"><section><small>ROOM 036 / INDEPENDENT EDITION</small><b>__BRAND_EN__</b><p>本站独立运营，与所提及的任何第三方平台不存在所有权或控制关系。</p></section><nav aria-label="合规与订阅"><a href="about.html">关于统计会客室</a><a href="contact.html">联系与资料反馈</a><a href="legal.html">推广关系披露</a><a href="disclaimer.html">统计信息边界</a><a href="privacy.html">隐私与本地运算</a><a href="corrections.html">更正与修订台账</a><a href="editorial.html">编辑与口径准则</a><a href="feed.xml">RSS 订阅</a></nav><aside>__SITE_DOMAIN__<br />__CONTACT_EMAIL__<br />修订 __MODIFIED_DATE__</aside></footer><script src="assets/parlor.js" defer></script></body></html>

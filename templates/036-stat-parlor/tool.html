@@ -1,60 +1,31 @@
 <!doctype html>
-<html lang="__LANG__">
+<html lang="__LANG__" data-sp36-mode="evening">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>离散分析台｜__SITE_NAME__</title>
-  <meta name="description" content="在本地计算数列的极值、极差、均值、中位数与离散程度。">
-  <link rel="canonical" href="https://__SITE_DOMAIN__/tool.html">
-  <meta property="og:title" content="离散分析台｜__SITE_NAME__">
-  <meta property="og:description" content="在本地计算数列的极值、极差、均值、中位数与离散程度。">
-  <meta property="og:url" content="https://__SITE_DOMAIN__/tool.html">
-  <link rel="stylesheet" href="site.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"离散分析台","url":"https://__SITE_DOMAIN__/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
-</head>
-<body data-page="tool">
-  <a href="#main" data-skip>跳到主要内容</a>
-  <header>
-    <div data-masthead>
-      <a href="index.html" data-brand><span>SP</span><strong>__SITE_NAME__</strong></a>
-      <nav aria-label="主导航"><a href="index.html">陈列</a><a href="article.html">口径档案</a><a href="tool.html" aria-current="page">分析台</a><a href="legal.html">资料声明</a></nav>
-      <span data-session>仅在本地计算</span>
-    </div>
-  </header>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#171419" />
 
-  <main id="main">
-    <header data-inner-hero>
-      <div><p data-eyebrow>Range room · Local utility</p><h1>让一串数，<br>坐下来谈谈。</h1><p data-lede>粘贴一组观察值，分析台会在本地整理极值、极差、均值、中位数与标准差。输入内容不会离开当前页面。</p></div>
-      <aside data-meta-card><dl><dt>支持格式</dt><dd>空格 / 逗号 / 换行</dd><dt>最少数量</dt><dd>2</dd><dt>计算方式</dt><dd>总体标准差</dd><dt>数据上传</dt><dd>不会</dd></dl></aside>
-    </header>
+<title>__TOOL_INDEX_TITLE__ · __SITE_NAME__</title>
+<meta name="description" content="__TOOL_INDEX_DESCRIPTION__" />
+<link rel="canonical" href="https://__SITE_DOMAIN__/tool.html" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="__SITE_NAME__ 沙龙札记" href="feed.xml" />
 
-    <div data-lab>
-      <section aria-labelledby="input-title">
-        <p data-eyebrow>Input tray</p>
-        <div data-field-head><label id="input-title" for="range-input">观察值</label><span id="input-count">0 个数</span></div>
-        <textarea id="range-input" maxlength="20000" aria-describedby="range-help range-feedback" placeholder="例如：18.4, 21.2, 19.8, 24.6, 20.1"></textarea>
-        <p id="range-help" data-lede>用空格、逗号或换行分隔；无效项会明确提示。至少 2 个、最多 500 个有限数字。</p>
-        <div data-actions><button type="button" id="calculate-range" data-primary-button>整理这组数字</button><button type="button" id="load-sample" data-quiet-button>载入样例</button><button type="button" id="clear-range" data-quiet-button>清空</button></div>
-        <p id="range-feedback" data-feedback aria-live="polite"></p>
-      </section>
-
-      <section id="range-result" data-result tabindex="-1" aria-labelledby="result-title">
-        <header><div><p data-eyebrow>Conversation notes</p><h2 id="result-title">分析摘要</h2></div><output id="result-count">等待入席</output></header>
-        <div data-result-grid>
-          <div><span>最低值</span><output id="result-min">—</output></div>
-          <div><span>最高值</span><output id="result-max">—</output></div>
-          <div><span>极差</span><output id="result-range">—</output></div>
-          <div><span>平均值</span><output id="result-mean">—</output></div>
-          <div><span>中位数</span><output id="result-median">—</output></div>
-          <div><span>标准差</span><output id="result-deviation">—</output></div>
-        </div>
-        <div data-distribution><span data-meta-label>相对离散程度</span><div aria-hidden="true"><i id="dispersion-bar"></i></div><p id="dispersion-note">计算后显示标准差与平均值的相对关系。</p></div>
-        <div data-actions><button type="button" id="copy-result" data-quiet-button disabled>复制摘要</button></div>
-      </section>
-    </div>
-  </main>
-
-  <footer><p>所有计算只在浏览器内完成 · 结果仅供快速复核。</p><nav aria-label="页脚导航"><a href="article.html">查阅计算口径</a><a href="index.html">返回陈列</a><a href="mailto:__CONTACT_EMAIL__">反馈工具问题</a></nav></footer>
-  <script src="app.js"></script>
-</body>
-</html>
+<meta property="og:title" content="__TOOL_INDEX_TITLE__" />
+<meta property="og:description" content="__TOOL_INDEX_DESCRIPTION__" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://__SITE_DOMAIN__/tool.html" />
+<meta property="og:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="__TOOL_INDEX_TITLE__" />
+<meta name="twitter:description" content="__TOOL_INDEX_DESCRIPTION__" />
+<meta name="twitter:image" content="https://__SITE_DOMAIN__/assets/social-card.png" />
+<link rel="stylesheet" href="assets/parlor.css" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"__TOOL_INDEX_TITLE__","description":"__TOOL_INDEX_DESCRIPTION__","url":"https://__SITE_DOMAIN__/tool.html","isPartOf":{"@type":"WebSite","name":"__SITE_NAME__","url":"https://__SITE_DOMAIN__/"}}</script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body class="sp36-shell">
+<a class="sp36-skip" href="#main">跳到主要内容</a>
+<header class="sp36-marquee"><a class="sp36-wordmark" href="index.html" aria-label="__SITE_NAME__ 首页"><span>S·36</span><b>__BRAND_EN__</b><small>STATISTICAL PARLOR</small></a><button class="sp36-menu" type="button" data-sp36-menu aria-expanded="false" aria-controls="sp36-nav">席位索引</button><nav class="sp36-nav" id="sp36-nav" aria-label="主导航"><a href="index.html"><i>01</i><span>会客厅</span></a><a href="article.html"><i>02</i><span>研究册</span></a><a href="rooms/measurement.html"><i>03</i><span>三房间</span></a><a href="tool.html" aria-current="page"><i>04</i><span>分析吧</span></a><a href="about.html"><i>05</i><span>关于</span></a></nav><button class="sp36-mode" type="button" data-sp36-mode-toggle aria-label="切换会客室明暗">LIGHT</button></header>
+<main id="main" class="sp36-tool-index"><header><aside aria-hidden="true"><i></i><i></i><i></i><span>5</span></aside><div><p>ANALYSIS BAR / LOCAL ONLY</p><h1>__TOOL_INDEX_TITLE__</h1><blockquote>__TOOL_INDEX_INTRODUCTION__</blockquote><ol><li>不加载外部数据</li><li>不保存输入</li><li>不冒充实时结果</li></ol></div></header><section class="sp36-instrument-list"><a href="instruments/weighted-mean.html"><span>BAR / 01</span><div><small>WEIGHTED</small><h2>加权均值调酒器</h2><p>按名称、数值与权重计算加权均值。</p></div><b>OPEN</b></a><a href="instruments/margin-window.html"><span>BAR / 02</span><div><small>MARGIN</small><h2>比例误差窗</h2><p>按样本量与观察比例估算误差范围。</p></div><b>OPEN</b></a><a href="instruments/percentile-seat.html"><span>BAR / 03</span><div><small>PERCENTILE</small><h2>百分位席次尺</h2><p>从数列中定位指定百分位的插值位置。</p></div><b>OPEN</b></a><a href="instruments/rate-difference.html"><span>BAR / 04</span><div><small>RATE</small><h2>双比例比较仪</h2><p>比较两组事件率的百分点差与相对变化。</p></div><b>OPEN</b></a><a href="instruments/rebase-index.html"><span>BAR / 05</span><div><small>REBASE</small><h2>指数换基台</h2><p>把时间序列改写为基期等于 100 的指数。</p></div><b>OPEN</b></a></section><aside class="sp36-tool-boundary"><b>使用边界</b><p>所有结果只整理用户输入；统计假设、来源与适用性仍需人工复核。</p><a href="privacy.html">本地处理说明</a><a href="disclaimer.html">统计信息边界</a></aside></main><footer class="sp36-footer"><section><small>ROOM 036 / INDEPENDENT EDITION</small><b>__BRAND_EN__</b><p>本站独立运营，与所提及的任何第三方平台不存在所有权或控制关系。</p></section><nav aria-label="合规与订阅"><a href="about.html">关于统计会客室</a><a href="contact.html">联系与资料反馈</a><a href="legal.html">推广关系披露</a><a href="disclaimer.html">统计信息边界</a><a href="privacy.html">隐私与本地运算</a><a href="corrections.html">更正与修订台账</a><a href="editorial.html">编辑与口径准则</a><a href="feed.xml">RSS 订阅</a></nav><aside>__SITE_DOMAIN__<br />__CONTACT_EMAIL__<br />修订 __MODIFIED_DATE__</aside></footer><script src="assets/parlor.js" defer></script></body></html>
