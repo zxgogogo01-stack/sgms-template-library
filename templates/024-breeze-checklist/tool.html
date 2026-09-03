@@ -1,86 +1,37 @@
-<!DOCTYPE html>
-<html lang="[[LANG]]">
+<!doctype html>
+<html lang="%LANG%">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>复核抽样 - [[SITE_NAME]]</title>
-    <meta name="description" content="从自定义清单中随机抽取若干条目，作为本次重点复核项。">
-    <link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
-    <meta property="og:title" content="复核抽样 - [[SITE_NAME]]">
-    <meta property="og:description" content="从自定义清单中随机抽取若干条目，作为本次重点复核项。">
-    <meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html">
-    <link rel="stylesheet" href="css/style.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"复核抽样工具","url":"https://[[SITE_DOMAIN]]/tool.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any"}</script>
-</head>
-<body>
-    <a class="bc-skip-link" href="#main">跳到主要内容</a>
-    <div class="bc-status-strip"><div class="bc-shell bc-status-strip-inner"><span>Local review sampler · no inputs are uploaded</span><span>抽样用于复核，不替代完整清单</span></div></div>
-    <header class="bc-site-header"><div class="bc-shell bc-header-inner"><a class="bc-brand" href="index.html">[[SITE_NAME]]<small>Breeze checklist · calm operations desk</small></a><nav class="bc-primary-nav" aria-label="主要导航"><a href="index.html">今日自查</a><a href="article.html">使用方法</a><a href="tool.html" aria-current="page">复核抽样</a><a href="legal.html">数据说明</a></nav></div></header>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>%TOOL_INDEX_META_TITLE%</title>
+  <meta name="description" content="%TOOL_INDEX_META_DESC%">
+  <link rel="canonical" href="https://%SITE_DOMAIN%/tool.html">
+  <link rel="alternate" type="application/rss+xml" title="%SITE_NAME% RSS" href="feed.xml">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <main id="main" class="bc-shell bc-page-main">
-        <header class="bc-page-head"><div><p class="bc-eyebrow">Review sampler / 发现熟悉步骤里的盲区</p><h1>随机抽三项，重新证明它们真的完成。</h1><p>把自己的检查条目按行贴入，选择抽取数量。结果只在当前页面生成，不上传、不保存，也不会自动判断条目是否合格。</p></div><aside class="bc-fact-card" aria-label="工具说明"><dl><div><dt>输入格式</dt><dd>每行一条</dd></div><div><dt>抽取范围</dt><dd>1–20 条</dd></div><div><dt>重复条目</dt><dd>可自动去重</dd></div><div><dt>处理位置</dt><dd>浏览器本地</dd></div></dl></aside></header>
-
-        <section class="bc-audit-layout" aria-label="复核抽样工具"><form class="bc-audit-form" id="audit-form" novalidate><p class="bc-eyebrow">Sampling pool / 条目池</p><h2>准备本次复核</h2><p>建议使用可验证的动作句，不要使用“提高警惕”这类无法判定完成的表述。</p><div class="bc-field"><label for="pool">检查条目（每行一条）</label><textarea id="pool" aria-describedby="pool-help form-error">官方域名已独立核对并加入书签
-两步验证已启用并保存离线恢复码
-最近登录设备和会话均可识别
-API 与第三方授权遵循最小权限
-对象、方向、金额与单位已逐项复述
-费率、限制、到账时间与撤销条件已查看
-地址或收款信息已通过独立渠道确认
-本周异常与处理结果已有记录</textarea><p class="bc-field-help" id="pool-help">空行会被忽略；单次最多处理 100 条</p></div><div class="bc-inline-fields"><div class="bc-field"><label for="take">抽取数量</label><input id="take" type="number" min="1" max="20" step="1" value="3" inputmode="numeric" aria-describedby="take-help form-error"><p class="bc-field-help" id="take-help">不能超过有效条目数量</p></div><div class="bc-field"><label for="label-mode">结果编号</label><select id="label-mode"><option value="check">CHECK 01</option><option value="review">REVIEW 01</option><option value="plain">仅数字 01</option></select><p class="bc-field-help">只改变结果前缀</p></div></div><label class="bc-choice-line"><input type="checkbox" id="dedupe" aria-label="忽略完全相同的重复条目" checked>忽略完全相同的重复条目</label><p class="bc-form-error" id="form-error" role="alert"></p><div class="bc-button-row"><button class="bc-button bc-button-accent" type="submit">抽取本次复核项</button><button class="bc-button bc-button-secondary" type="button" id="reset-tool">恢复示例</button></div></form>
-
-        <section class="bc-audit-result" aria-labelledby="result-title"><p class="bc-result-state" id="result-state">WAITING FOR POOL</p><h2 id="result-title">本次重点复核</h2><div class="bc-result-summary"><div><strong id="pool-count">0</strong><span>有效条目</span></div><div><strong id="pick-count">0</strong><span>本次抽中</span></div></div><ol class="bc-audit-picks" id="audit-picks"><li data-number="—">尚未抽取复核项</li></ol><button class="bc-button" type="button" id="copy-result" disabled>复制抽样结果</button><p class="bc-copy-status" id="copy-result-status" aria-live="polite"></p></section></section>
-        <aside class="bc-tool-note"><strong>使用边界：</strong>随机抽样只能帮助发现熟悉流程里的盲区。首次操作、重大变更或高风险场景仍应完成整套清单，不能用抽中的少数条目代替完整核对。</aside>
-    </main>
-
-    <footer class="bc-site-footer"><div class="bc-shell bc-footer-inner"><p>条目池与抽样结果只存在于当前页面；离开或刷新后不会保留。</p><nav class="bc-footer-links" aria-label="页脚导航"><a href="index.html">今日自查</a><a href="article.html">使用方法</a><a href="legal.html">数据说明</a><a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></nav></div></footer>
-
-    <script>
-        (function () {
-            var defaults = document.getElementById('pool').value;
-            var form = document.getElementById('audit-form');
-            var pool = document.getElementById('pool');
-            var take = document.getElementById('take');
-            var dedupe = document.getElementById('dedupe');
-            var mode = document.getElementById('label-mode');
-            var error = document.getElementById('form-error');
-            var output = document.getElementById('audit-picks');
-            var copyButton = document.getElementById('copy-result');
-            var copyStatus = document.getElementById('copy-result-status');
-            var picked = [];
-
-            function resetInvalid() { [pool, take].forEach(function (field) { field.removeAttribute('aria-invalid'); }); error.textContent = ''; copyStatus.textContent = ''; }
-            function clearResult(state) { picked = []; document.getElementById('result-state').textContent = state || 'WAITING FOR POOL'; document.getElementById('pool-count').textContent = '0'; document.getElementById('pick-count').textContent = '0'; output.textContent = ''; var empty = document.createElement('li'); empty.setAttribute('data-number', '—'); empty.textContent = '尚未抽取复核项'; output.appendChild(empty); copyButton.disabled = true; }
-            function invalidate(field, message) { clearResult('CHECK POOL'); field.setAttribute('aria-invalid', 'true'); error.textContent = message; field.focus(); }
-            function rows() { var list = pool.value.split(/\r?\n/).map(function (item) { return item.trim(); }).filter(Boolean); if (dedupe.checked) list = list.filter(function (item, index) { return list.indexOf(item) === index; }); return list; }
-            function prefix(index) { var number = String(index + 1).padStart(2, '0'); if (mode.value === 'plain') return number; return (mode.value === 'review' ? 'REVIEW ' : 'CHECK ') + number; }
-
-            form.addEventListener('submit', function (event) {
-                event.preventDefault(); resetInvalid();
-                var list = rows(), amount = Number(take.value);
-                if (!list.length) { invalidate(pool, '请至少输入一条可复核的检查条目。'); return; }
-                if (list.length > 100) { invalidate(pool, '单次最多处理 100 条，请减少条目数量。'); return; }
-                if (!take.value || !Number.isInteger(amount) || amount < 1 || amount > 20) { invalidate(take, '抽取数量必须是 1–20 之间的整数。'); return; }
-                if (amount > list.length) { invalidate(take, '抽取数量不能超过有效条目数量。'); return; }
-                var shuffled = list.slice();
-                for (var i = shuffled.length - 1; i > 0; i -= 1) { var j = Math.floor(Math.random() * (i + 1)), temp = shuffled[i]; shuffled[i] = shuffled[j]; shuffled[j] = temp; }
-                picked = shuffled.slice(0, amount);
-                output.textContent = '';
-                picked.forEach(function (item, index) { var li = document.createElement('li'); li.setAttribute('data-number', prefix(index)); li.textContent = item; output.appendChild(li); });
-                document.getElementById('result-state').textContent = 'SAMPLE READY';
-                document.getElementById('pool-count').textContent = String(list.length);
-                document.getElementById('pick-count').textContent = String(picked.length);
-                copyButton.disabled = false;
-            });
-            document.getElementById('reset-tool').addEventListener('click', function () { pool.value = defaults; take.value = '3'; dedupe.checked = true; mode.value = 'check'; resetInvalid(); clearResult('WAITING FOR POOL'); pool.focus(); });
-            Array.prototype.slice.call(form.elements).forEach(function (field) {
-                field.addEventListener('input', function () {
-                    field.removeAttribute('aria-invalid'); error.textContent = ''; copyStatus.textContent = '';
-                    clearResult('POOL CHANGED');
-                });
-            });
-            copyButton.addEventListener('click', function () { var text = picked.map(function (item, index) { return prefix(index) + ' · ' + item; }).join('\n'); function done() { copyStatus.textContent = '抽样结果已复制。'; } function fallback() { var field = document.createElement('textarea'); field.value = text; document.body.appendChild(field); field.select(); try { document.execCommand('copy'); done(); } catch (copyError) { copyStatus.textContent = '复制失败，请手动记录结果。'; } field.remove(); } if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback); else fallback(); });
-        })();
-    </script>
-</body>
-</html>
+  <meta property="og:title" content="%TOOL_INDEX_META_TITLE%">
+  <meta property="og:description" content="%TOOL_INDEX_META_DESC%">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://%SITE_DOMAIN%/tool.html">
+  <meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="%TOOL_INDEX_META_TITLE%">
+  <meta name="twitter:description" content="%TOOL_INDEX_META_DESC%">
+  <meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%TOOL_INDEX_META_TITLE%","description":"%TOOL_INDEX_META_DESC%","url":"https://%SITE_DOMAIN%/tool.html"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+  <script src="js/breeze.js" defer></script>
+</head><body class="brz-page"><a class="brz-skip" href="#main">%SKIP_LINK%</a>
+<div class="brz-signal"><div class="brz-wrap"><span><i></i>%SIGNAL_STATUS%</span><span>%SIGNAL_NOTE%</span></div></div>
+<header class="brz-header"><div class="brz-wrap brz-header-inner">
+  <a class="brz-mark" href="index.html" aria-label="%SITE_NAME%"><svg viewBox="0 0 44 44" aria-hidden="true"><path d="M8 24c7-13 22-16 29-5-5-2-10 0-12 5 5-2 9 0 11 5-11 8-24 4-28-5Z"/><path d="M12 30c6 3 13 3 19 0"/></svg><span>%BRAND_EN%<small>%BRAND_NOTE%</small></span></a>
+  <nav class="brz-nav" aria-label="%PRIMARY_NAV_ARIA%"><a href="index.html">%NAV_HOME%</a><a href="article.html">%NAV_PROTOCOLS%</a><a href="tool.html" aria-current="page">%NAV_CHECKS%</a><a href="about.html">%NAV_ABOUT%</a></nav>
+  <button class="brz-theme" type="button" data-brz-theme aria-pressed="false"><span>%THEME_LIGHT%</span><b aria-hidden="true"></b><span>%THEME_DARK%</span></button>
+</div></header><main id="main"><section class="brz-tools-hero"><div class="brz-wrap"><p class="brz-kicker">%TOOL_INDEX_KICKER%</p><h1>%TOOL_INDEX_TITLE%</h1><p>%TOOL_INDEX_DESC%</p></div></section><section class="brz-wrap brz-tool-shelf"><article><span>01</span><div class="brz-tool-glyph" aria-hidden="true"><i></i><i></i><i></i></div><p>%TOOL_01_TYPE%</p><h2><a href="checks/sample-picker.html">%TOOL_01_TITLE%</a></h2><p>%TOOL_01_DESC%</p><a class="brz-button" href="checks/sample-picker.html">%OPEN_TOOL%</a></article><article><span>02</span><div class="brz-tool-glyph" aria-hidden="true"><i></i><i></i><i></i></div><p>%TOOL_02_TYPE%</p><h2><a href="checks/passphrase-meter.html">%TOOL_02_TITLE%</a></h2><p>%TOOL_02_DESC%</p><a class="brz-button" href="checks/passphrase-meter.html">%OPEN_TOOL%</a></article><article><span>03</span><div class="brz-tool-glyph" aria-hidden="true"><i></i><i></i><i></i></div><p>%TOOL_03_TYPE%</p><h2><a href="checks/permission-score.html">%TOOL_03_TITLE%</a></h2><p>%TOOL_03_DESC%</p><a class="brz-button" href="checks/permission-score.html">%OPEN_TOOL%</a></article><article><span>04</span><div class="brz-tool-glyph" aria-hidden="true"><i></i><i></i><i></i></div><p>%TOOL_04_TYPE%</p><h2><a href="checks/recovery-readiness.html">%TOOL_04_TITLE%</a></h2><p>%TOOL_04_DESC%</p><a class="brz-button" href="checks/recovery-readiness.html">%OPEN_TOOL%</a></article><article><span>05</span><div class="brz-tool-glyph" aria-hidden="true"><i></i><i></i><i></i></div><p>%TOOL_05_TYPE%</p><h2><a href="checks/incident-window.html">%TOOL_05_TITLE%</a></h2><p>%TOOL_05_DESC%</p><a class="brz-button" href="checks/incident-window.html">%OPEN_TOOL%</a></article></section><section class="brz-wrap brz-tool-principles"><div><span>01</span><h2>%TOOL_PRINCIPLE_01_TITLE%</h2><p>%TOOL_PRINCIPLE_01_BODY%</p></div><div><span>02</span><h2>%TOOL_PRINCIPLE_02_TITLE%</h2><p>%TOOL_PRINCIPLE_02_BODY%</p></div><div><span>03</span><h2>%TOOL_PRINCIPLE_03_TITLE%</h2><p>%TOOL_PRINCIPLE_03_BODY%</p></div></section></main><footer class="brz-footer"><div class="brz-wrap">
+  <div class="brz-footer-top"><div><a class="brz-footer-brand" href="index.html">%BRAND_EN%</a><p>%FOOTER_STATEMENT%</p></div><nav aria-label="%LEGAL_NAV_ARIA%"><a href="about.html">%ABOUT_LINK%</a><a href="contact.html">%CONTACT_LINK%</a><a href="disclosure.html">%DISCLOSURE_LINK%</a><a href="legal.html">%DISCLAIMER_LINK%</a><a href="privacy.html">%PRIVACY_LINK%</a><a href="corrections.html">%CORRECTIONS_LINK%</a><a href="editorial.html">%EDITORIAL_LINK%</a><a href="feed.xml">RSS</a></nav></div>
+  <details class="brz-map"><summary>%SITE_MAP_LABEL%</summary><nav aria-label="%SITE_MAP_ARIA%"><a href="index.html">01 · %SITE_LINK_01%</a><a href="article.html">02 · %SITE_LINK_02%</a><a href="protocols/access-check.html">03 · %SITE_LINK_03%</a><a href="protocols/threat-model.html">04 · %SITE_LINK_04%</a><a href="protocols/preflight-sequence.html">05 · %SITE_LINK_05%</a><a href="protocols/recovery-path.html">06 · %SITE_LINK_06%</a><a href="protocols/device-hygiene.html">07 · %SITE_LINK_07%</a><a href="protocols/permission-audit.html">08 · %SITE_LINK_08%</a><a href="protocols/identity-proof.html">09 · %SITE_LINK_09%</a><a href="protocols/incident-window.html">10 · %SITE_LINK_10%</a><a href="protocols/team-handoff.html">11 · %SITE_LINK_11%</a><a href="protocols/anomaly-triage.html">12 · %SITE_LINK_12%</a><a href="protocols/glossary-board.html">13 · %SITE_LINK_13%</a><a href="protocols/review-brief.html">14 · %SITE_LINK_14%</a><a href="checklists/before-action.html">15 · %SITE_LINK_15%</a><a href="checklists/while-active.html">16 · %SITE_LINK_16%</a><a href="checklists/after-event.html">17 · %SITE_LINK_17%</a><a href="tool.html">18 · %SITE_LINK_18%</a><a href="checks/sample-picker.html">19 · %SITE_LINK_19%</a><a href="checks/passphrase-meter.html">20 · %SITE_LINK_20%</a><a href="checks/permission-score.html">21 · %SITE_LINK_21%</a><a href="checks/recovery-readiness.html">22 · %SITE_LINK_22%</a><a href="checks/incident-window.html">23 · %SITE_LINK_23%</a><a href="about.html">24 · %SITE_LINK_24%</a><a href="contact.html">25 · %SITE_LINK_25%</a><a href="disclosure.html">26 · %SITE_LINK_26%</a><a href="legal.html">27 · %SITE_LINK_27%</a><a href="privacy.html">28 · %SITE_LINK_28%</a><a href="corrections.html">29 · %SITE_LINK_29%</a><a href="editorial.html">30 · %SITE_LINK_30%</a></nav></details>
+  <div class="brz-footer-base"><span>本站独立运营 · %INDEPENDENT_DISCLOSURE%</span><span>%COPYRIGHT%</span></div>
+</div></footer></body></html>

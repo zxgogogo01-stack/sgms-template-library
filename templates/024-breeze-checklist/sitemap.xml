@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://[[SITE_DOMAIN]]/</loc><changefreq>monthly</changefreq></url>
-    <url><loc>https://[[SITE_DOMAIN]]/article.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/tool.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/legal.html</loc></url>
+  <url><loc>https://%SITE_DOMAIN%/</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/article.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/protocols/access-check.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/protocols/threat-model.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/protocols/preflight-sequence.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/protocols/recovery-path.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/protocols/device-hygiene.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/protocols/permission-audit.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/protocols/identity-proof.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/protocols/incident-window.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/protocols/team-handoff.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/protocols/anomaly-triage.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/protocols/glossary-board.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/protocols/review-brief.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/checklists/before-action.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/checklists/while-active.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/checklists/after-event.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/tool.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/checks/sample-picker.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/checks/passphrase-meter.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/checks/permission-score.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/checks/recovery-readiness.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/checks/incident-window.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/about.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/contact.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/disclosure.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/legal.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/privacy.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/corrections.html</loc><lastmod>%LASTMOD%</lastmod></url>
+  <url><loc>https://%SITE_DOMAIN%/editorial.html</loc><lastmod>%LASTMOD%</lastmod></url>
 </urlset>
