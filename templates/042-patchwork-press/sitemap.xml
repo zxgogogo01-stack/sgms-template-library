@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://~SITE_DOMAIN~/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://~SITE_DOMAIN~/article.html</loc></url>
-  <url><loc>https://~SITE_DOMAIN~/tool.html</loc></url>
-  <url><loc>https://~SITE_DOMAIN~/legal.html</loc></url>
+<url><loc>https://~SITE_DOMAIN~/</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stitches.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stories/warp-map.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stories/dyebath-log.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stories/fiber-ledger.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stories/provenance-fold.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stories/repair-sequence.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stories/pattern-window.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stories/use-cycle.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stories/care-matrix.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stories/oral-loom.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stories/workshop-dialogue.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stories/field-glossary.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/stories/access-patch.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/collections/material-atlas.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/collections/craft-notes.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/collections/field-voices.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/workroom.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/workroom/yardage-planner.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/workroom/repair-priority.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/workroom/dye-batch-ratio.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/workroom/swatch-contrast.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/workroom/provenance-completeness.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/about.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/contact.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/disclosure.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/disclaimer.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/privacy.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/corrections.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
+<url><loc>https://~SITE_DOMAIN~/editorial.html</loc><lastmod>~MODIFIED_DATE~</lastmod></url>
 </urlset>
