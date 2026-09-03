@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://__SITE_DOMAIN__/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://__SITE_DOMAIN__/article.html</loc></url>
-  <url><loc>https://__SITE_DOMAIN__/tool.html</loc></url>
-  <url><loc>https://__SITE_DOMAIN__/legal.html</loc></url>
+  <url><loc>https://__SITE_DOMAIN__/</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/registry.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/market-stall.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/workshop-profile.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/neighborhood-walk.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/community-library.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/repair-studio.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/seasonal-kitchen.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/accessible-guesthouse.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/ferry-route.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/shared-courtyard.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/craft-cooperative.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/archive-provenance.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/entries/submission-pass.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/table-folio.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/craft-folio.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/folios/road-folio.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/workbench.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/workbench/name-likeness.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/workbench/hours-overlap.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/workbench/visit-duration.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/workbench/accessibility-score.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/workbench/record-freshness.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/about.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/contact.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/legal.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/disclaimer.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/privacy.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/corrections.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
+  <url><loc>https://__SITE_DOMAIN__/editorial.html</loc><lastmod>__MODIFIED_DATE__</lastmod></url>
 </urlset>

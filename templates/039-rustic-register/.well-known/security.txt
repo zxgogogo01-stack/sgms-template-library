@@ -1,0 +1,4 @@
+Contact: mailto:__SECURITY_EMAIL__
+Canonical: https://__SITE_DOMAIN__/.well-known/security.txt
+Preferred-Languages: __SECURITY_LANGUAGES__
+Expires: __SECURITY_EXPIRES_ISO__
