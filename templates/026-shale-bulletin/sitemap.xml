@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://[[SITE_DOMAIN]]/</loc><changefreq>weekly</changefreq></url>
-    <url><loc>https://[[SITE_DOMAIN]]/article.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/tool.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/legal.html</loc></url>
+<url><loc>https://%SITE_DOMAIN%/</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<url><loc>https://%SITE_DOMAIN%/article.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://%SITE_DOMAIN%/dispatches/entry-pass.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/dispatches/change-anatomy.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/dispatches/migration-route.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/dispatches/breaking-note.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/dispatches/compatibility-matrix.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/dispatches/rollback-plan.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/dispatches/deprecation-window.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/dispatches/api-diff.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/dispatches/issue-ledger.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/dispatches/version-timeline.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/dispatches/maintainer-interview.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/dispatches/release-retrospective.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/registers/current-stratum.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/registers/fault-line.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/registers/archive-core.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/tool.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://%SITE_DOMAIN%/instruments/semver-order.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/instruments/changelog-sorter.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/instruments/compatibility-check.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/instruments/release-risk.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/instruments/maintenance-window.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/about.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/contact.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/disclosure.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/legal.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/privacy.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/corrections.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://%SITE_DOMAIN%/editorial.html</loc><lastmod>%SITEMAP_LASTMOD%</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

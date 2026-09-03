@@ -1,169 +1,31 @@
 <!doctype html>
-<html lang="[[LANG]]">
+<html lang="%LANG%" data-shale-theme="light">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <title>语义化版本比较器｜[[SITE_NAME]]</title>
-  <meta name="description" content="在浏览器本地比较两个语义化版本号，支持 v 前缀、预发布标识与构建信息。">
-  <link rel="canonical" href="https://[[SITE_DOMAIN]]/tool.html">
-  <meta property="og:title" content="语义化版本比较器｜[[SITE_NAME]]">
-  <meta property="og:description" content="快速判断两个版本的先后关系，输入不会离开浏览器。">
-  <meta property="og:url" content="https://[[SITE_DOMAIN]]/tool.html">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <a class="sb-skip-link" href="#main">跳到主要内容</a>
-  <div class="sb-site-shell">
-    <header class="sb-site-header">
-      <div class="sb-container sb-masthead">
-        <a class="sb-brand" href="index.html" aria-label="[[SITE_NAME]] 首页"><span class="sb-brand-mark" aria-hidden="true">SB</span><span class="sb-brand-copy"><span class="sb-brand-name">[[SITE_NAME]]</span><span class="sb-brand-desc">Release intelligence</span></span></a>
-        <nav class="sb-site-nav" aria-label="主导航"><a href="index.html">公告</a><a href="article.html">最新版本</a><a href="tool.html" aria-current="page">版本比较</a><a href="legal.html">发布规范</a></nav>
-      </div>
-      <div class="sb-top-signal"><div class="sb-container sb-signal-row"><span><i class="sb-signal-dot" aria-hidden="true"></i>本地工具 · 不上传输入内容</span><span>SEMVER 2.0.0 COMPATIBLE</span></div></div>
-    </header>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>%TOOL_INDEX_META_TITLE%</title>
+<meta name="description" content="%TOOL_INDEX_META_DESC%">
+<link rel="canonical" href="https://%SITE_DOMAIN%/tool.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
 
-    <main id="main">
-      <header class="sb-page-hero">
-        <div class="sb-container"><p class="sb-eyebrow">Local utility / semver</p><h1>版本先后，<br>一次说清。</h1><p>比较正式版、预发布版与构建标识。所有计算均在当前浏览器完成，不发送输入内容。</p></div>
-      </header>
-
-      <section class="sb-tool-page" aria-labelledby="tool-heading">
-        <div class="sb-container sb-tool-grid">
-          <div class="sb-tool-panel">
-            <div class="sb-tool-panel-head"><h2 id="tool-heading">语义化版本比较器</h2><p>输入完整的主版本.次版本.修订号，例如 3.8.0 或 3.9.0-rc.2。</p></div>
-            <form class="sb-tool-form" id="version-form" novalidate>
-              <div class="sb-version-row">
-                <div class="sb-field"><label for="version-a">版本 A</label><input id="version-a" name="version-a" value="v3.8.0" inputmode="text" autocomplete="off" aria-describedby="error-a"><p class="sb-field-error" id="error-a"></p></div>
-                <button class="sb-icon-button" id="swap" type="button" aria-label="交换两个版本" title="交换版本">⇄</button>
-                <div class="sb-field"><label for="version-b">版本 B</label><input id="version-b" name="version-b" value="3.7.2" inputmode="text" autocomplete="off" aria-describedby="error-b"><p class="sb-field-error" id="error-b"></p></div>
-              </div>
-              <div class="sb-form-actions"><button class="sb-button" type="submit">比较版本</button><button class="sb-button-quiet" id="copy-result" type="button">复制结论</button><button class="sb-button-quiet" id="reset" type="button">重置示例</button></div>
-
-              <section class="sb-result-box" id="result" data-state="idle" aria-live="polite" aria-atomic="true">
-                <p class="sb-result-kicker">Comparison ready</p><h3 class="sb-result-title" id="result-title">等待比较</h3><p class="sb-result-detail" id="result-detail">提交两个有效版本后，这里会显示优先级结论。</p>
-                <div class="sb-segment-list" id="segments" hidden>
-                  <div class="sb-segment"><span>主版本</span><strong id="segment-major">—</strong></div>
-                  <div class="sb-segment"><span>次版本</span><strong id="segment-minor">—</strong></div>
-                  <div class="sb-segment"><span>修订 / 预发布</span><strong id="segment-patch">—</strong></div>
-                </div>
-              </section>
-              <p class="sb-copy-status" id="tool-status" role="status" aria-live="polite" style="color:var(--green)"></p>
-            </form>
-          </div>
-
-          <aside class="sb-tool-note" aria-label="版本比较说明">
-            <section class="sb-note-card"><p class="sb-rail-label">Quick examples</p><div class="sb-example-list"><button class="sb-example-button" type="button" data-a="3.8.0" data-b="3.7.2">3.8.0 vs 3.7.2 · 正式版</button><button class="sb-example-button" type="button" data-a="3.8.0-rc.1" data-b="3.8.0">3.8.0-rc.1 vs 3.8.0 · 预发布</button><button class="sb-example-button" type="button" data-a="3.8.0+build.1" data-b="3.8.0+build.2">构建信息不同 · 优先级相同</button></div></section>
-            <section class="sb-note-card"><h3>支持的格式</h3><ul><li>可选的 <code>v</code> 前缀</li><li>三段数字核心版本</li><li><code>-alpha.1</code> 等预发布标识</li><li><code>+build.7</code> 等构建信息</li></ul></section>
-            <section class="sb-note-card"><h3>判定规则</h3><p>先比较主、次、修订号；正式版高于同核心版本的预发布版。构建信息仅用于标识，不改变优先级。</p></section>
-          </aside>
-        </div>
-      </section>
-    </main>
-
-    <footer class="sb-site-footer"><div class="sb-container sb-footer-grid"><p>© 2026 [[SITE_NAME]] · 工具仅供版本判断，不替代发布说明。</p><div class="sb-footer-links"><a href="index.html">全部公告</a><a href="article.html">最新版本</a><a href="legal.html">发布规范</a></div></div></footer>
-  </div>
-
-  <script>
-  (() => {
-    const form = document.querySelector('#version-form');
-    const inputA = document.querySelector('#version-a');
-    const inputB = document.querySelector('#version-b');
-    const errorA = document.querySelector('#error-a');
-    const errorB = document.querySelector('#error-b');
-    const result = document.querySelector('#result');
-    const resultTitle = document.querySelector('#result-title');
-    const resultDetail = document.querySelector('#result-detail');
-    const segments = document.querySelector('#segments');
-    const status = document.querySelector('#tool-status');
-    let conclusion = '';
-    const pattern = /^v?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?$/;
-
-    function parse(value) {
-      const clean = value.trim();
-      const match = clean.match(pattern);
-      if (!match) return { error: '请输入完整版本，例如 3.8.0 或 3.8.0-rc.1' };
-      const pre = match[4] ? match[4].split('.') : [];
-      if (pre.some((part) => /^\d+$/.test(part) && part.length > 1 && part.startsWith('0'))) return { error: '预发布数字标识不能包含前导零' };
-      return { raw: clean, core: [match[1], match[2], match[3]], pre, build: match[5] || '' };
-    }
-
-    function compareNumeric(a, b) {
-      if (a.length !== b.length) return a.length > b.length ? 1 : -1;
-      return a === b ? 0 : a > b ? 1 : -1;
-    }
-
-    function compareIdentifiers(a, b) {
-      const max = Math.max(a.length, b.length);
-      for (let i = 0; i < max; i += 1) {
-        if (a[i] === undefined) return -1;
-        if (b[i] === undefined) return 1;
-        if (a[i] === b[i]) continue;
-        const aNumber = /^\d+$/.test(a[i]);
-        const bNumber = /^\d+$/.test(b[i]);
-        if (aNumber && bNumber) return compareNumeric(a[i], b[i]);
-        if (aNumber !== bNumber) return aNumber ? -1 : 1;
-        return a[i] > b[i] ? 1 : -1;
-      }
-      return 0;
-    }
-
-    function compare(a, b) {
-      for (let i = 0; i < 3; i += 1) { const order = compareNumeric(a.core[i], b.core[i]); if (order) return order; }
-      if (!a.pre.length && !b.pre.length) return 0;
-      if (!a.pre.length) return 1;
-      if (!b.pre.length) return -1;
-      return compareIdentifiers(a.pre, b.pre);
-    }
-
-    function clearErrors() {
-      [inputA, inputB].forEach((input) => input.removeAttribute('aria-invalid'));
-      errorA.textContent = ''; errorB.textContent = '';
-    }
-
-    function invalidateResult() {
-      conclusion = ''; result.dataset.state = 'idle'; resultTitle.textContent = '输入已更改';
-      resultDetail.textContent = '请重新比较当前版本，旧结论已经失效。'; segments.hidden = true; status.textContent = '';
-    }
-
-    function showSegment(id, a, b) { document.querySelector(id).textContent = `${a} ↔ ${b}`; }
-
-    function runComparison() {
-      clearErrors(); status.textContent = '';
-      const a = parse(inputA.value); const b = parse(inputB.value);
-      if (a.error || b.error) {
-        if (a.error) { inputA.setAttribute('aria-invalid', 'true'); errorA.textContent = a.error; }
-        if (b.error) { inputB.setAttribute('aria-invalid', 'true'); errorB.textContent = b.error; }
-        (a.error ? inputA : inputB).focus();
-        result.dataset.state = 'idle'; resultTitle.textContent = '请修正版本格式'; resultDetail.textContent = '错误字段已经标出，修正后重新比较。'; segments.hidden = true; conclusion = '';
-        return;
-      }
-      const order = compare(a, b);
-      result.dataset.state = order > 0 ? 'a' : order < 0 ? 'b' : 'equal';
-      resultTitle.textContent = order > 0 ? '版本 A 更新' : order < 0 ? '版本 B 更新' : '两个版本优先级相同';
-      resultDetail.textContent = order === 0 ? `${a.raw} 与 ${b.raw} 的语义化优先级一致；构建信息不参与排序。` : `${order > 0 ? a.raw : b.raw} 的优先级高于 ${order > 0 ? b.raw : a.raw}。`;
-      conclusion = `${resultTitle.textContent}：${resultDetail.textContent}`;
-      showSegment('#segment-major', a.core[0], b.core[0]);
-      showSegment('#segment-minor', a.core[1], b.core[1]);
-      showSegment('#segment-patch', `${a.core[2]}${a.pre.length ? '-' + a.pre.join('.') : ''}`, `${b.core[2]}${b.pre.length ? '-' + b.pre.join('.') : ''}`);
-      segments.hidden = false;
-    }
-
-    form.addEventListener('submit', (event) => { event.preventDefault(); runComparison(); });
-    document.querySelector('#swap').addEventListener('click', () => { const value = inputA.value; inputA.value = inputB.value; inputB.value = value; runComparison(); });
-    document.querySelector('#reset').addEventListener('click', () => { inputA.value = 'v3.8.0'; inputB.value = '3.7.2'; clearErrors(); runComparison(); inputA.focus(); status.textContent = '已恢复默认示例'; });
-    document.querySelector('#copy-result').addEventListener('click', async () => {
-      if (!conclusion) { status.textContent = '请先完成一次有效比较'; return; }
-      try { await navigator.clipboard.writeText(conclusion); status.textContent = '比较结论已复制'; }
-      catch (_) { status.textContent = '浏览器未授权复制，请手动选取结论'; }
-    });
-    [inputA, inputB].forEach((input) => input.addEventListener('input', () => {
-      input.removeAttribute('aria-invalid'); document.querySelector(`#error-${input === inputA ? 'a' : 'b'}`).textContent = '';
-      invalidateResult();
-    }));
-    document.querySelectorAll('.sb-example-button').forEach((button) => button.addEventListener('click', () => { inputA.value = button.dataset.a; inputB.value = button.dataset.b; runComparison(); }));
-    runComparison();
-  })();
-  </script>
+<meta property="og:title" content="%TOOL_INDEX_META_TITLE%">
+<meta property="og:description" content="%TOOL_INDEX_META_DESC%">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://%SITE_DOMAIN%/tool.html">
+<meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="%TOOL_INDEX_META_TITLE%">
+<meta name="twitter:description" content="%TOOL_INDEX_META_DESC%">
+<meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%TOOL_INDEX_META_TITLE%","description":"%TOOL_INDEX_META_DESC%","url":"https://%SITE_DOMAIN%/tool.html","isPartOf":{"@type":"WebSite","name":"%SITE_NAME%","url":"https://%SITE_DOMAIN%/"}}</script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body>
+<a class="shb-skip" href="#main">跳到主要内容</a>
+<header class="shb-header"><a class="shb-brand" href="index.html"><span>%BRAND_EN%</span><small>SHALE BULLETIN · %SITE_EDITION%</small></a><button class="shb-menu-button" type="button" data-menu aria-expanded="false" aria-controls="shale-menu">MENU</button><nav class="shb-menu" id="shale-menu" aria-label="主要导航"><a href="index.html">公告板</a><a href="article.html">变更档案</a><a href="registers/current-stratum.html">层理册</a><a href="tool.html" aria-current="page">校验台</a><a href="about.html">编辑部</a></nav><button class="shb-tone" type="button" data-tone aria-label="切换深浅主题">◒</button></header>
+<div class="shb-rule" aria-hidden="true"><i></i><i></i><i></i><i></i></div><main id="main" class="shb-page"><header class="shb-tool-index-head"><p>LOCAL RELEASE INSTRUMENTS / 05</p><h1>%TOOL_INDEX_TITLE%</h1><span>%TOOL_INDEX_INTRO%</span></header><section class="shb-instrument-grid"><a href="instruments/semver-order.html"><span>V↕</span><div><small>01 / semver</small><h2>%TOOL_01_TITLE%</h2><p>%TOOL_01_DESC%</p></div><b>OPEN</b></a><a href="instruments/changelog-sorter.html"><span>¶</span><div><small>02 / changelog</small><h2>%TOOL_02_TITLE%</h2><p>%TOOL_02_DESC%</p></div><b>OPEN</b></a><a href="instruments/compatibility-check.html"><span>⊞</span><div><small>03 / compat</small><h2>%TOOL_03_TITLE%</h2><p>%TOOL_03_DESC%</p></div><b>OPEN</b></a><a href="instruments/release-risk.html"><span>△</span><div><small>04 / risk</small><h2>%TOOL_04_TITLE%</h2><p>%TOOL_04_DESC%</p></div><b>OPEN</b></a><a href="instruments/maintenance-window.html"><span>◷</span><div><small>05 / window</small><h2>%TOOL_05_TITLE%</h2><p>%TOOL_05_DESC%</p></div><b>OPEN</b></a></section><aside class="shb-browser-note"><b>%TOOL_LOCAL_TITLE%</b><p>%TOOL_LOCAL_BODY%</p></aside></main><footer class="shb-footer"><div><strong>%BRAND_EN%</strong><span>Independently operated bulletin</span></div><p>本站独立运营。公告框架用于整理经核实的信息，不替代平台规则、专业意见或个人判断。</p><details><summary>站点目录</summary><nav><a href="article.html">变更档案</a><a href="registers/current-stratum.html">当前层</a><a href="registers/fault-line.html">迁移层</a><a href="registers/archive-core.html">归档层</a><a href="tool.html">校验台</a><a href="about.html">关于</a><a href="contact.html">联系</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私</a><a href="corrections.html">勘误</a><a href="editorial.html">编辑准则</a><a href="feed.xml">RSS 订阅</a></nav></details></footer><script src="js/shale.js" defer></script>
 </body>
 </html>

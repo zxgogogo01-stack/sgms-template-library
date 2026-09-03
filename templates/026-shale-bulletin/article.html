@@ -1,104 +1,31 @@
 <!doctype html>
-<html lang="[[LANG]]">
+<html lang="%LANG%" data-shale-theme="light">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <title>v3.8.0 权限审计与导出流程更新｜[[SITE_NAME]]</title>
-  <meta name="description" content="v3.8.0 权限审计、数据导出审批与追溯记录的完整变更说明。">
-  <link rel="canonical" href="https://[[SITE_DOMAIN]]/article.html">
-  <meta property="og:title" content="v3.8.0 权限审计与导出流程更新">
-  <meta property="og:description" content="变更范围、生效时间、迁移步骤与支持渠道。">
-  <meta property="og:url" content="https://[[SITE_DOMAIN]]/article.html">
-  <link rel="stylesheet" href="css/style.css">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"TechArticle","headline":"v3.8.0 权限审计与导出流程更新","datePublished":"2026-07-29","dateModified":"2026-07-31","author":{"@type":"Organization","name":"[[SITE_NAME]]"},"mainEntityOfPage":"https://[[SITE_DOMAIN]]/article.html"}
-  </script>
-</head>
-<body>
-  <a class="sb-skip-link" href="#main">跳到主要内容</a>
-  <div class="sb-site-shell">
-    <header class="sb-site-header">
-      <div class="sb-container sb-masthead">
-        <a class="sb-brand" href="index.html" aria-label="[[SITE_NAME]] 首页"><span class="sb-brand-mark" aria-hidden="true">SB</span><span class="sb-brand-copy"><span class="sb-brand-name">[[SITE_NAME]]</span><span class="sb-brand-desc">Release intelligence</span></span></a>
-        <nav class="sb-site-nav" aria-label="主导航"><a href="index.html">公告</a><a href="article.html" aria-current="page">最新版本</a><a href="tool.html">版本比较</a><a href="legal.html">发布规范</a></nav>
-      </div>
-      <div class="sb-top-signal"><div class="sb-container sb-signal-row"><span><i class="sb-signal-dot" aria-hidden="true"></i>发布通道正常 · LAST CHECK 09:40 CST</span><span>当前稳定版 v3.8.0 · 公告时区 Asia/Shanghai</span></div></div>
-    </header>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>%ARTICLE_INDEX_META_TITLE%</title>
+<meta name="description" content="%ARTICLE_INDEX_META_DESC%">
+<link rel="canonical" href="https://%SITE_DOMAIN%/article.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="%RSS_TITLE%" href="feed.xml">
 
-    <main id="main">
-      <header class="sb-page-hero">
-        <div class="sb-container">
-          <p class="sb-eyebrow">Release note / v3.8.0</p>
-          <h1>权限审计与<br>导出流程更新</h1>
-          <p>管理员现在可以生成可追溯的权限快照，并为敏感数据导出设置二次审批。以下内容说明影响对象、迁移动作与兼容范围。</p>
-          <div class="sb-page-meta"><span>发布 2026.07.29</span><span>更新 2026.07.31</span><span>生效 2026.08.12 02:00 CST</span><span>阅读约 7 分钟</span></div>
-        </div>
-      </header>
-
-      <div class="sb-article-wrap">
-        <div class="sb-container sb-article-grid">
-          <article class="sb-prose">
-            <p>本次发布把“谁能访问什么、谁批准了什么”纳入同一条审计链。对日常成员无操作影响；拥有工作区管理、审计或数据导出权限的角色需要完成一次复核。</p>
-
-            <div class="sb-fact-grid" aria-label="变更摘要">
-              <div class="sb-fact"><span>影响等级</span><strong>重要 · 需管理员动作</strong></div>
-              <div class="sb-fact"><span>影响对象</span><strong>组织与工作区管理员</strong></div>
-              <div class="sb-fact"><span>兼容窗口</span><strong>至 2026.08.12</strong></div>
-            </div>
-
-            <div class="sb-callout sb-warning"><strong>管理员需在生效前完成角色复核</strong><p>若未调整，原“管理导出”角色将在生效时自动映射为“发起导出”，审批权仅保留给组织所有者。</p></div>
-
-            <h2 id="scope">一、影响范围</h2>
-            <p>变更覆盖组织级权限审计、工作区数据导出与管理员活动记录。已生成的导出文件不受影响，下载有效期仍按原规则计算。</p>
-            <ul>
-              <li><strong>组织所有者：</strong>获得审批队列、全局审计快照与策略设置入口。</li>
-              <li><strong>工作区管理员：</strong>可发起导出申请，但是否可自批由组织策略决定。</li>
-              <li><strong>审计员：</strong>可查看权限变更与审批记录，不能下载业务数据。</li>
-              <li><strong>普通成员：</strong>界面与现有权限均无变化。</li>
-            </ul>
-
-            <h2 id="changes">二、具体变化</h2>
-            <p>新流程将权限状态、导出理由与审批结论绑定到同一记录，并对关键节点生成不可编辑的时间戳。</p>
-            <table class="sb-data-table">
-              <thead><tr><th>项目</th><th>此前</th><th>v3.8.0 起</th></tr></thead>
-              <tbody>
-                <tr><td>权限快照</td><td>仅查看当前状态</td><td>按日生成，可追溯 30 天</td></tr>
-                <tr><td>敏感导出</td><td>有权限即可下载</td><td>发起、审批、生成三段式</td></tr>
-                <tr><td>导出理由</td><td>选填文本</td><td>必填，保留在审计记录</td></tr>
-                <tr><td>审批超时</td><td>不适用</td><td>24 小时后自动失效</td></tr>
-                <tr><td>活动记录</td><td>记录发起人</td><td>记录发起、审批与下载人</td></tr>
-              </tbody>
-            </table>
-
-            <h2 id="migration">三、迁移清单</h2>
-            <ol>
-              <li>进入“组织设置 → 访问控制 → 导出策略”，查看系统生成的角色映射预览。</li>
-              <li>确认每个工作区至少有一名可处理审批的组织所有者。</li>
-              <li>将仍需直接下载权限的自动化账号改为专用服务角色，并限定目标工作区。</li>
-              <li>在测试工作区发起一次导出，验证通知、审批与下载记录是否完整。</li>
-              <li>将新流程同步给数据与合规负责人，更新内部操作手册。</li>
-            </ol>
-            <div class="sb-callout"><strong>接口调用方无需立即改造</strong><p>现有导出接口在兼容期内继续返回任务编号。生效后，缺少审批记录的敏感导出将返回 <code>approval_required</code> 状态。</p></div>
-
-            <h2 id="rollback">四、回退与例外</h2>
-            <p>权限快照启用后不可关闭，但组织所有者可以在 30 天内恢复某一历史角色配置。恢复操作只影响权限，不会删除期间生成的审批与活动记录。</p>
-            <p>无人值守的合规归档可申请服务角色例外。例外必须限定数据范围、到期时间和调用来源，并会在审计首页持续提示。</p>
-
-            <h2 id="support">五、支持与订正</h2>
-            <p>如发现角色映射与实际职责不符，请附上组织编号、受影响角色和预期权限，发送至 <a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a>。涉及安全风险的问题请标注“安全”，我们会优先分流。</p>
-            <p>本文若发生实质性订正，将更新页面顶部时间并在公告首页保留订正记录；不会静默修改生效条件。</p>
-          </article>
-
-          <aside class="sb-article-aside" aria-label="文章辅助导航">
-            <nav class="sb-toc" aria-label="本文目录"><p class="sb-rail-label">On this page</p><ol><li><a href="#scope">影响范围</a></li><li><a href="#changes">具体变化</a></li><li><a href="#migration">迁移清单</a></li><li><a href="#rollback">回退与例外</a></li><li><a href="#support">支持与订正</a></li></ol></nav>
-            <div class="sb-aside-action"><p class="sb-rail-label">Version check</p><h3>不确定当前版本？</h3><p>使用本地比较器判断两个版本的先后关系，支持预发布标识。</p><a href="tool.html">打开版本比较器 ↗</a></div>
-          </aside>
-        </div>
-      </div>
-    </main>
-
-    <footer class="sb-site-footer"><div class="sb-container sb-footer-grid"><p>© 2026 [[SITE_NAME]] · [[COMPLIANCE_NOTE]]</p><div class="sb-footer-links"><a href="index.html">全部公告</a><a href="tool.html">版本比较</a><a href="legal.html">发布规范</a></div></div></footer>
-  </div>
+<meta property="og:title" content="%ARTICLE_INDEX_META_TITLE%">
+<meta property="og:description" content="%ARTICLE_INDEX_META_DESC%">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://%SITE_DOMAIN%/article.html">
+<meta property="og:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="%ARTICLE_INDEX_META_TITLE%">
+<meta name="twitter:description" content="%ARTICLE_INDEX_META_DESC%">
+<meta name="twitter:image" content="https://%SITE_DOMAIN%/assets/social-card.png">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%ARTICLE_INDEX_META_TITLE%","description":"%ARTICLE_INDEX_META_DESC%","url":"https://%SITE_DOMAIN%/article.html","isPartOf":{"@type":"WebSite","name":"%SITE_NAME%","url":"https://%SITE_DOMAIN%/"}}</script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head><body>
+<a class="shb-skip" href="#main">跳到主要内容</a>
+<header class="shb-header"><a class="shb-brand" href="index.html"><span>%BRAND_EN%</span><small>SHALE BULLETIN · %SITE_EDITION%</small></a><button class="shb-menu-button" type="button" data-menu aria-expanded="false" aria-controls="shale-menu">MENU</button><nav class="shb-menu" id="shale-menu" aria-label="主要导航"><a href="index.html">公告板</a><a href="article.html" aria-current="page">变更档案</a><a href="registers/current-stratum.html">层理册</a><a href="tool.html">校验台</a><a href="about.html">编辑部</a></nav><button class="shb-tone" type="button" data-tone aria-label="切换深浅主题">◒</button></header>
+<div class="shb-rule" aria-hidden="true"><i></i><i></i><i></i><i></i></div><main id="main" class="shb-page"><header class="shb-index-head"><span>MASTER CHANGE FILE / 12</span><h1>%ARTICLE_INDEX_TITLE%</h1><div><p>%ARTICLE_INDEX_INTRO%</p><label for="release-filter">筛选档案</label><input id="release-filter" type="search" autocomplete="off" placeholder="%ARTICLE_INDEX_SEARCH_HINT%"><small data-release-count aria-live="polite">12 entries</small></div></header><nav class="shb-register-tabs" aria-label="层理册"><a href="registers/current-stratum.html"><span>STRATUM A</span>%REGISTER_01_TITLE%</a><a href="registers/fault-line.html"><span>STRATUM B</span>%REGISTER_02_TITLE%</a><a href="registers/archive-core.html"><span>STRATUM C</span>%REGISTER_03_TITLE%</a></nav><section class="shb-master-file"><article data-release data-search="%ARTICLE_01_TITLE% %ARTICLE_01_KICKER%"><span>01</span><div><small>STRATUM A</small><h2><a href="dispatches/entry-pass.html">%ARTICLE_01_TITLE%</a></h2><p>%ARTICLE_01_KICKER%</p></div><b>pass</b></article><article data-release data-search="%ARTICLE_02_TITLE% %ARTICLE_02_KICKER%"><span>02</span><div><small>STRATUM A</small><h2><a href="dispatches/change-anatomy.html">%ARTICLE_02_TITLE%</a></h2><p>%ARTICLE_02_KICKER%</p></div><b>anatomy</b></article><article data-release data-search="%ARTICLE_03_TITLE% %ARTICLE_03_KICKER%"><span>03</span><div><small>STRATUM A</small><h2><a href="dispatches/migration-route.html">%ARTICLE_03_TITLE%</a></h2><p>%ARTICLE_03_KICKER%</p></div><b>route</b></article><article data-release data-search="%ARTICLE_04_TITLE% %ARTICLE_04_KICKER%"><span>04</span><div><small>STRATUM A</small><h2><a href="dispatches/breaking-note.html">%ARTICLE_04_TITLE%</a></h2><p>%ARTICLE_04_KICKER%</p></div><b>alert</b></article><article data-release data-search="%ARTICLE_05_TITLE% %ARTICLE_05_KICKER%"><span>05</span><div><small>STRATUM B</small><h2><a href="dispatches/compatibility-matrix.html">%ARTICLE_05_TITLE%</a></h2><p>%ARTICLE_05_KICKER%</p></div><b>matrix</b></article><article data-release data-search="%ARTICLE_06_TITLE% %ARTICLE_06_KICKER%"><span>06</span><div><small>STRATUM B</small><h2><a href="dispatches/rollback-plan.html">%ARTICLE_06_TITLE%</a></h2><p>%ARTICLE_06_KICKER%</p></div><b>rollback</b></article><article data-release data-search="%ARTICLE_07_TITLE% %ARTICLE_07_KICKER%"><span>07</span><div><small>STRATUM B</small><h2><a href="dispatches/deprecation-window.html">%ARTICLE_07_TITLE%</a></h2><p>%ARTICLE_07_KICKER%</p></div><b>window</b></article><article data-release data-search="%ARTICLE_08_TITLE% %ARTICLE_08_KICKER%"><span>08</span><div><small>STRATUM B</small><h2><a href="dispatches/api-diff.html">%ARTICLE_08_TITLE%</a></h2><p>%ARTICLE_08_KICKER%</p></div><b>diff</b></article><article data-release data-search="%ARTICLE_09_TITLE% %ARTICLE_09_KICKER%"><span>09</span><div><small>STRATUM C</small><h2><a href="dispatches/issue-ledger.html">%ARTICLE_09_TITLE%</a></h2><p>%ARTICLE_09_KICKER%</p></div><b>ledger</b></article><article data-release data-search="%ARTICLE_10_TITLE% %ARTICLE_10_KICKER%"><span>10</span><div><small>STRATUM C</small><h2><a href="dispatches/version-timeline.html">%ARTICLE_10_TITLE%</a></h2><p>%ARTICLE_10_KICKER%</p></div><b>timeline</b></article><article data-release data-search="%ARTICLE_11_TITLE% %ARTICLE_11_KICKER%"><span>11</span><div><small>STRATUM C</small><h2><a href="dispatches/maintainer-interview.html">%ARTICLE_11_TITLE%</a></h2><p>%ARTICLE_11_KICKER%</p></div><b>interview</b></article><article data-release data-search="%ARTICLE_12_TITLE% %ARTICLE_12_KICKER%"><span>12</span><div><small>STRATUM C</small><h2><a href="dispatches/release-retrospective.html">%ARTICLE_12_TITLE%</a></h2><p>%ARTICLE_12_KICKER%</p></div><b>retro</b></article><p class="shb-no-release" data-release-empty hidden>%ARTICLE_INDEX_EMPTY%</p></section></main><footer class="shb-footer"><div><strong>%BRAND_EN%</strong><span>Independently operated bulletin</span></div><p>本站独立运营。公告框架用于整理经核实的信息，不替代平台规则、专业意见或个人判断。</p><details><summary>站点目录</summary><nav><a href="article.html">变更档案</a><a href="registers/current-stratum.html">当前层</a><a href="registers/fault-line.html">迁移层</a><a href="registers/archive-core.html">归档层</a><a href="tool.html">校验台</a><a href="about.html">关于</a><a href="contact.html">联系</a><a href="disclosure.html">推广披露</a><a href="legal.html">免责声明</a><a href="privacy.html">隐私</a><a href="corrections.html">勘误</a><a href="editorial.html">编辑准则</a><a href="feed.xml">RSS 订阅</a></nav></details></footer><script src="js/shale.js" defer></script>
 </body>
 </html>
