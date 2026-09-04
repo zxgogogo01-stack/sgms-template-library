@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class='so52-nojs' lang='~LANG~'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover'>
+
+  <meta name='theme-color' content='#7c1f2e'>
+  <title>折线面积尺 — ~SITE_NAME~</title>
+  <meta name='description' content='对按横坐标递增的折线计算带符号面积，保留每一段的贡献。'>
+  <meta name='robots' content='index,follow'>
+  <link rel='canonical' href='https://~SITE_DOMAIN~/instruments/area-trace.html'>
+  <meta property='og:type' content='website'>
+  <meta property='og:site_name' content='~SITE_NAME~'>
+  <meta property='og:title' content='折线面积尺 — ~SITE_NAME~'>
+  <meta property='og:description' content='对按横坐标递增的折线计算带符号面积，保留每一段的贡献。'>
+  <meta property='og:url' content='https://~SITE_DOMAIN~/instruments/area-trace.html'>
+  <meta property='og:image' content='https://~SITE_DOMAIN~/assets/social-card.png'>
+  <meta property='og:image:width' content='1200'><meta property='og:image:height' content='630'>
+  <meta name='twitter:card' content='summary_large_image'>
+  <meta name='twitter:title' content='折线面积尺 — ~SITE_NAME~'>
+  <meta name='twitter:description' content='对按横坐标递增的折线计算带符号面积，保留每一段的贡献。'>
+  <meta name='twitter:image' content='https://~SITE_DOMAIN~/assets/social-card.png'>
+  <link rel='icon' href='../favicon.ico' sizes='any'><link rel='icon' href='../favicon.svg' type='image/svg+xml'>
+  <link rel='apple-touch-icon' href='../apple-touch-icon.png'>
+  <link rel='alternate' type='application/rss+xml' title='~SITE_NAME~ RSS' href='../feed.xml'>
+
+  <link rel='stylesheet' href='../style.css'><link rel='stylesheet' href='../framework.css'>
+  <script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebPage","name":"折线面积尺","description":"对按横坐标递增的折线计算带符号面积，保留每一段的贡献。","url":"https://~SITE_DOMAIN~/instruments/area-trace.html","image":"https://~SITE_DOMAIN~/assets/social-card.png"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head>
+<body>
+  <a class='so52-skip' href='#so52-main'>跳到主要内容</a>
+  <header class='so52-mast'>
+    <div class='so52-mast-in'>
+      <a class='so52-sig' href='../index.html'>~BRAND_EN~</a>
+      <button type='button' class='so52-mast-btn' id='so52-mast-btn' aria-label='主导航' aria-expanded='false' aria-controls='so52-mast-nav'>
+        <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
+      </button>
+      <nav class='so52-mast-nav' id='so52-mast-nav' aria-label='主导航'>
+        <a href='../index.html'>首页</a>
+        <a href='../observations.html'>评述</a>
+        <a href='../instruments.html'>工具</a>
+        <a href='../disclosure.html'>披露</a>
+        <button type='button' class='so52-theme' id='so52-theme-button' aria-label='切换到夜间模式'>夜间</button>
+      </nav>
+    </div>
+  </header>
+<main id='so52-main' class='so52-workbench'><header class='so52-workbench-head'><p class='so52-kicker'>INSTRUMENT / 02</p><h1>折线面积尺</h1><p>对按横坐标递增的折线计算带符号面积，保留每一段的贡献。</p><a href='../instruments.html'>全部工具</a></header><div class='so52-instrument-frame'><form data-instrument='area-trace' novalidate><h2>输入记录</h2><label for='so52-rows'>坐标点 · 每行 x,y</label><textarea id='so52-rows' name='rows' rows='8' maxlength='6500' spellcheck='false' aria-describedby='so52-input-help'>0,0
+1,2
+3,2</textarea><p id='so52-input-help' class='so52-input-help'>2–100 行；x 严格递增；坐标 ±1,000,000，最多三位小数。</p><p id='so52-field-error' data-input-error role='alert' aria-live='assertive'></p><div class='so52-form-actions'><button type='submit' disabled>计算并观察</button><button type='reset'>重置</button></div><noscript><p>计算需要 JavaScript；下方说明可以直接阅读，输入不会被提交。</p></noscript></form><section class='so52-result' aria-labelledby='so52-result-title'><header><div><p class='so52-kicker'>READOUT</p><h2 id='so52-result-title'>观察结果</h2></div><button type='button' data-copy-result disabled>复制结果</button></header><p data-result-state role='status' aria-live='polite'>等待计算。</p><pre data-result-text tabindex='0' aria-label='完整计算结果'></pre><p data-result-copy-state role='status' aria-live='polite'></p><p class='so52-result-note'>仅描述输入数据，不推断实际情况或提供决策结论。</p></section></div><section class='so52-guide'><h2>方法与使用说明</h2><p>对按横坐标递增的折线计算带符号面积，保留每一段的贡献。 下方 Guide 包括格式、算法、输出、边界与状态处理。</p><details><summary>打开 Guide · 计算方法与输入边界</summary><section><h3>输入格式</h3><p>每行只填写两个数，以英文逗号分隔，例如 0,0。坐标绝对值不超过 1,000,000，最多三位小数；不接受科学计数法、千分位或前导加号。</p></section><section><h3>计算方法</h3><p>第 i 段的带符号面积为 (x[i+1]−x[i]) × (y[i]+y[i+1]) / 2。把各段相加得到折线与横轴间的代数面积。内部以千分位整数与 BigInt 计算，结果保留六位小数。</p></section><section><h3>如何阅读结果</h3><p>同时报告横向跨度、点数和逐段面积。示例 0,0；1,2；3,2 的面积为 5。负值区域会抵消正值区域，不是几何总面积。</p></section><section><h3>边界与限制</h3><p>只接受 2–100 个点，x 必须严格递增；不自动排序或合并重复坐标。不外推两端、不填补缺测，默认相邻点之间是直线。坐标单位由输入者负责，面积单位为 x 单位乘 y 单位。</p></section><section><h3>编辑、重置与复制</h3><p>修改任何输入立即使旧报告失效；输入错误时定位字段。重置恢复示例，复制完整逐段结果；输入不上传、不保存在浏览器中。</p></section></details></section><nav class='so52-neighbours' aria-label='其他工具'><a href='../instruments/run-strips.html'>连续段折叠器</a><a href='../instruments/line-fit.html'>直线拟合台</a><a href='../instruments/overlap-ruler.html'>区间覆盖尺</a><a href='../instruments/median-window.html'>中位窗口镜</a></nav></main>
+<footer class='so52-foot'><div class='so52-foot-in'>
+  <div class='so52-foot-brand'><p class='so52-sig so52-foot-sig'>~BRAND_EN~</p><p class='so52-foot-dim'>~FOOTER_NOTE~</p></div>
+  <div class='so52-foot-col'><h4>观察目录</h4><a href='../collections/parallel-notes.html'>并读笔记</a><a href='../collections/trace-register.html'>轨迹索引</a><a href='../collections/context-margins.html'>边注档案</a><a href='../instruments.html'>本地工具</a></div>
+  <div class='so52-foot-col'><h4>站务与说明</h4><a href='../about.html'>关于本站</a><a href='../contact.html'>联系编辑</a><a href='../disclosure.html'>推广披露</a><a href='../disclaimer.html'>使用边界</a><a href='../privacy.html'>隐私说明</a><a href='../corrections.html'>勘误记录</a><a href='../editorial.html'>编辑方法</a></div></div>
+  <p class='so52-foot-line'>本站独立运营。~INDEPENDENCE_NOTE~ <a href='../disclosure.html'>推广披露</a><br>~RISK_NOTE~</p></footer>
+<script src='../boot.js' defer></script><script src='../instruments.js' defer></script>
+</body>
+</html>

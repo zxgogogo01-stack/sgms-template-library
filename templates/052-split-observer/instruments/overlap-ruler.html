@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class='so52-nojs' lang='~LANG~'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover'>
+
+  <meta name='theme-color' content='#7c1f2e'>
+  <title>区间覆盖尺 — ~SITE_NAME~</title>
+  <meta name='description' content='合并一组半开区间，计算实际覆盖长度与最大重叠层数。'>
+  <meta name='robots' content='index,follow'>
+  <link rel='canonical' href='https://~SITE_DOMAIN~/instruments/overlap-ruler.html'>
+  <meta property='og:type' content='website'>
+  <meta property='og:site_name' content='~SITE_NAME~'>
+  <meta property='og:title' content='区间覆盖尺 — ~SITE_NAME~'>
+  <meta property='og:description' content='合并一组半开区间，计算实际覆盖长度与最大重叠层数。'>
+  <meta property='og:url' content='https://~SITE_DOMAIN~/instruments/overlap-ruler.html'>
+  <meta property='og:image' content='https://~SITE_DOMAIN~/assets/social-card.png'>
+  <meta property='og:image:width' content='1200'><meta property='og:image:height' content='630'>
+  <meta name='twitter:card' content='summary_large_image'>
+  <meta name='twitter:title' content='区间覆盖尺 — ~SITE_NAME~'>
+  <meta name='twitter:description' content='合并一组半开区间，计算实际覆盖长度与最大重叠层数。'>
+  <meta name='twitter:image' content='https://~SITE_DOMAIN~/assets/social-card.png'>
+  <link rel='icon' href='../favicon.ico' sizes='any'><link rel='icon' href='../favicon.svg' type='image/svg+xml'>
+  <link rel='apple-touch-icon' href='../apple-touch-icon.png'>
+  <link rel='alternate' type='application/rss+xml' title='~SITE_NAME~ RSS' href='../feed.xml'>
+
+  <link rel='stylesheet' href='../style.css'><link rel='stylesheet' href='../framework.css'>
+  <script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebPage","name":"区间覆盖尺","description":"合并一组半开区间，计算实际覆盖长度与最大重叠层数。","url":"https://~SITE_DOMAIN~/instruments/overlap-ruler.html","image":"https://~SITE_DOMAIN~/assets/social-card.png"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head>
+<body>
+  <a class='so52-skip' href='#so52-main'>跳到主要内容</a>
+  <header class='so52-mast'>
+    <div class='so52-mast-in'>
+      <a class='so52-sig' href='../index.html'>~BRAND_EN~</a>
+      <button type='button' class='so52-mast-btn' id='so52-mast-btn' aria-label='主导航' aria-expanded='false' aria-controls='so52-mast-nav'>
+        <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
+      </button>
+      <nav class='so52-mast-nav' id='so52-mast-nav' aria-label='主导航'>
+        <a href='../index.html'>首页</a>
+        <a href='../observations.html'>评述</a>
+        <a href='../instruments.html'>工具</a>
+        <a href='../disclosure.html'>披露</a>
+        <button type='button' class='so52-theme' id='so52-theme-button' aria-label='切换到夜间模式'>夜间</button>
+      </nav>
+    </div>
+  </header>
+<main id='so52-main' class='so52-workbench'><header class='so52-workbench-head'><p class='so52-kicker'>INSTRUMENT / 04</p><h1>区间覆盖尺</h1><p>合并一组半开区间，计算实际覆盖长度与最大重叠层数。</p><a href='../instruments.html'>全部工具</a></header><div class='so52-instrument-frame'><form data-instrument='overlap-ruler' novalidate><h2>输入记录</h2><label for='so52-rows'>区间 · 每行 开始,结束</label><textarea id='so52-rows' name='rows' rows='8' maxlength='6500' spellcheck='false' aria-describedby='so52-input-help'>0,3
+2,5
+7,8</textarea><p id='so52-input-help' class='so52-input-help'>1–100 个 [开始,结束) 区间；开始必须小于结束；端点最多三位小数。</p><p id='so52-field-error' data-input-error role='alert' aria-live='assertive'></p><div class='so52-form-actions'><button type='submit' disabled>计算并观察</button><button type='reset'>重置</button></div><noscript><p>计算需要 JavaScript；下方说明可以直接阅读，输入不会被提交。</p></noscript></form><section class='so52-result' aria-labelledby='so52-result-title'><header><div><p class='so52-kicker'>READOUT</p><h2 id='so52-result-title'>观察结果</h2></div><button type='button' data-copy-result disabled>复制结果</button></header><p data-result-state role='status' aria-live='polite'>等待计算。</p><pre data-result-text tabindex='0' aria-label='完整计算结果'></pre><p data-result-copy-state role='status' aria-live='polite'></p><p class='so52-result-note'>仅描述输入数据，不推断实际情况或提供决策结论。</p></section></div><section class='so52-guide'><h2>方法与使用说明</h2><p>合并一组半开区间，计算实际覆盖长度与最大重叠层数。 下方 Guide 包括格式、算法、输出、边界与状态处理。</p><details><summary>打开 Guide · 计算方法与输入边界</summary><section><h3>输入格式</h3><p>每行填写开始,结束，两个端点均在 −1,000,000 至 1,000,000 之间，最多三位小数。每个区间须有正长度；最多 100 行，允许重复区间。</p></section><section><h3>计算方法</h3><p>按开始值排序后合并重叠或首尾相接的区间，覆盖长度等于合并后各段长度的总和。区间使用 [开始,结束) 约定；相接只合并覆盖范围，不算端点重叠。</p></section><section><h3>如何阅读结果</h3><p>通过同一端点的净变化量扫描求最大重叠层数。重复区间会增加层数，但不会重复增加实际覆盖长度。示例覆盖 0–5 和 7–8，总长度 6，最大层数 2。</p></section><section><h3>边界与限制</h3><p>报告输入长度合计、实际覆盖长度、合并段数、最大层数和各合并区间。使用千分位整数做精确比较。坐标只代表用户定义的单一轴，不转换日期、时区或单位。</p></section><section><h3>编辑、重置与复制</h3><p>任何编辑都会清空旧结果。错误时聚焦输入，重置恢复示例；复制只包含本次结果。不会读取外部日历、网络数据或保存输入。</p></section></details></section><nav class='so52-neighbours' aria-label='其他工具'><a href='../instruments/run-strips.html'>连续段折叠器</a><a href='../instruments/area-trace.html'>折线面积尺</a><a href='../instruments/line-fit.html'>直线拟合台</a><a href='../instruments/median-window.html'>中位窗口镜</a></nav></main>
+<footer class='so52-foot'><div class='so52-foot-in'>
+  <div class='so52-foot-brand'><p class='so52-sig so52-foot-sig'>~BRAND_EN~</p><p class='so52-foot-dim'>~FOOTER_NOTE~</p></div>
+  <div class='so52-foot-col'><h4>观察目录</h4><a href='../collections/parallel-notes.html'>并读笔记</a><a href='../collections/trace-register.html'>轨迹索引</a><a href='../collections/context-margins.html'>边注档案</a><a href='../instruments.html'>本地工具</a></div>
+  <div class='so52-foot-col'><h4>站务与说明</h4><a href='../about.html'>关于本站</a><a href='../contact.html'>联系编辑</a><a href='../disclosure.html'>推广披露</a><a href='../disclaimer.html'>使用边界</a><a href='../privacy.html'>隐私说明</a><a href='../corrections.html'>勘误记录</a><a href='../editorial.html'>编辑方法</a></div></div>
+  <p class='so52-foot-line'>本站独立运营。~INDEPENDENCE_NOTE~ <a href='../disclosure.html'>推广披露</a><br>~RISK_NOTE~</p></footer>
+<script src='../boot.js' defer></script><script src='../instruments.js' defer></script>
+</body>
+</html>

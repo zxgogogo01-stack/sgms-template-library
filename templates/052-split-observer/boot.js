@@ -1,35 +1,81 @@
-(function () {
+(() => {
   'use strict';
-  var root=document.documentElement,btn=document.getElementById('so52-mast-btn'),nav=document.getElementById('so52-mast-nav'),themeButton=document.getElementById('so52-theme-button'),storedTheme=null;
-  function normalize(value){return String(value||'').normalize('NFKC').trim();}
-  try{storedTheme=window.localStorage.getItem('split-observer-052-theme');}catch(error){storedTheme=null;}
-  function setTheme(theme){root.dataset.theme=theme;if(themeButton){themeButton.textContent=theme==='dark'?'日间':'夜间';themeButton.setAttribute('aria-label',theme==='dark'?'切换到日间模式':'切换到夜间模式');}}
-  setTheme(storedTheme==='dark'||(!storedTheme&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');
-  if(themeButton)themeButton.addEventListener('click',function(){var next=root.dataset.theme==='dark'?'light':'dark';setTheme(next);try{window.localStorage.setItem('split-observer-052-theme',next);}catch(error){/* Persistence is optional. */}});
-  function closeMenu(restore){if(!btn||!nav)return;nav.classList.remove('so52-ajar');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','打开主导航');if(restore)btn.focus();}
-  if(btn&&nav){btn.setAttribute('aria-label','打开主导航');btn.addEventListener('click',function(){var open=nav.classList.toggle('so52-ajar');btn.setAttribute('aria-expanded',String(open));btn.setAttribute('aria-label',open?'关闭主导航':'打开主导航');if(open){var first=nav.querySelector('a');if(first)first.focus();}});nav.addEventListener('click',function(event){if(event.target.closest('a'))closeMenu(false);});document.addEventListener('keydown',function(event){if(event.key==='Escape'&&btn.getAttribute('aria-expanded')==='true')closeMenu(true);});}
-  function copyText(value,status,message){function success(){if(status)status.textContent=message;}if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(value).then(success).catch(function(){if(status)status.textContent='复制失败，请手动选择文本';});return;}var helper=document.createElement('textarea');helper.value=value;helper.setAttribute('readonly','');helper.style.position='fixed';helper.style.opacity='0';document.body.appendChild(helper);helper.select();try{if(document.execCommand('copy'))success();else if(status)status.textContent='复制失败，请手动选择文本';}catch(error){if(status)status.textContent='复制失败，请手动选择文本';}helper.remove();}
-  var progress=document.querySelector('[data-reading-progress]');function updateProgress(){if(!progress)return;var scrollable=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=((scrollable>0?Math.min(1,Math.max(0,window.scrollY/scrollable)):0)*100).toFixed(2)+'%';}if(progress){window.addEventListener('scroll',updateProgress,{passive:true});updateProgress();}
-  var summaryButton=document.querySelector('[data-copy-summary]');if(summaryButton)summaryButton.addEventListener('click',function(){copyText(summaryButton.parentElement.querySelector('p').textContent.trim(),document.querySelector('[data-summary-status]'),'摘要已复制');});
-  var disclosureButton=document.querySelector('[data-copy-disclosure]');if(disclosureButton)disclosureButton.addEventListener('click',function(){copyText(disclosureButton.parentElement.querySelector('p').textContent.trim(),document.querySelector('[data-disclosure-status]'),'披露文本已复制');});
-
-  var rebateForm=document.getElementById('so52-rb-form');
-  if(rebateForm){
-    var volumeInput=document.getElementById('so52-rb-vol'),feeInput=document.getElementById('so52-rb-fee'),shareInput=document.getElementById('so52-rb-cut'),capInput=document.getElementById('so52-rb-cap'),inputs=[volumeInput,feeInput,shareInput,capInput];
-    var message=document.getElementById('so52-rb-message'),state=document.querySelector('[data-rb-state]'),total=document.querySelector('[data-rb-total]'),feeSum=document.querySelector('[data-rb-fee-sum]'),before=document.querySelector('[data-rb-before]'),applied=document.querySelector('[data-rb-applied]'),net=document.querySelector('[data-rb-net]'),capState=document.querySelector('[data-rb-cap-state]'),copyButton=document.querySelector('[data-copy-rb]'),copyStatus=document.querySelector('[data-rb-copy-status]');
-    function parseDecimal(field,min,max,maxScale){var raw=normalize(field.value);if(!/^(?:\d+|\d*\.\d+)$/.test(raw))return null;var parts=raw.split('.'),fraction=parts[1]||'';if(fraction.length>maxScale)return null;var numeric=Number(raw);if(!Number.isFinite(numeric)||numeric<min||numeric>max)return null;return{integer:BigInt((parts[0]||'0')+fraction),scale:fraction.length,numeric:numeric};}
-    function divideRounded(n,d){return(n+d/2n)/d;}function toCents(v){return v.integer*(10n**BigInt(2-v.scale));}function applyPercent(cents,rate){return divideRounded(cents*rate.integer,100n*(10n**BigInt(rate.scale)));}
-    function amount(cents){var whole=(cents/100n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');return whole+'.'+(cents%100n).toString().padStart(2,'0');}function rateText(rate){return rate.numeric.toFixed(Math.min(6,Math.max(2,rate.scale)));}
-    function clearOutput(label){state.textContent=label;total.textContent='—';[feeSum,before,applied,net,capState].forEach(function(node){node.textContent='—';});copyButton.disabled=true;copyButton.dataset.copyText='';copyStatus.textContent='';}
-    function resetState(){message.textContent='';inputs.forEach(function(input){input.removeAttribute('aria-invalid');});clearOutput('等待输入');}
-    inputs.forEach(function(input){input.addEventListener('input',function(){input.removeAttribute('aria-invalid');message.textContent='';if(copyButton.dataset.copyText)clearOutput('条件已修改，请重新试算');});});
-    rebateForm.addEventListener('submit',function(event){event.preventDefault();message.textContent='';copyStatus.textContent='';inputs.forEach(function(input){input.removeAttribute('aria-invalid');});var volume=parseDecimal(volumeInput,.01,1000000000000,2),fee=parseDecimal(feeInput,0,100,6),share=parseDecimal(shareInput,0,100,6),capRaw=normalize(capInput.value),cap=capRaw?parseDecimal(capInput,0,1000000000000,2):null,invalid=[];
-      if(!volume)invalid.push({field:volumeInput,text:'月成交额须为 0.01–1,000,000,000,000 的普通十进制数，最多 2 位小数'});if(!fee)invalid.push({field:feeInput,text:'手续费率须为 0–100 的普通十进制数，最多 6 位小数'});if(!share)invalid.push({field:shareInput,text:'返佣分成须为 0–100 的普通十进制数，最多 6 位小数'});if(capRaw&&!cap)invalid.push({field:capInput,text:'封顶须为 0–1,000,000,000,000 的普通十进制数，最多 2 位小数'});
-      if(invalid.length){clearOutput('输入有误');invalid.forEach(function(item){item.field.setAttribute('aria-invalid','true');});message.textContent=invalid.map(function(item){return item.text;}).join('；')+'。';invalid[0].field.focus();return;}
-      var volumeCents=toCents(volume),gross=applyPercent(volumeCents,fee),rawRebate=applyPercent(gross,share),capCents=cap?toCents(cap):null,actual=capCents!==null&&rawRebate>capCents?capCents:rawRebate,netFee=gross-actual,capLabel=capCents===null?'未设置':(rawRebate>capCents?'已触发':'未触发');state.textContent='试算完成';total.textContent=amount(actual);feeSum.textContent=amount(gross);before.textContent=amount(rawRebate);applied.textContent=amount(actual);net.textContent=amount(netFee);capState.textContent=capLabel;copyButton.disabled=false;copyButton.dataset.copyText='返佣试算：月成交额 '+amount(volumeCents)+'；手续费率 '+rateText(fee)+'%；返佣分成 '+rateText(share)+'%；手续费 '+amount(gross)+'；封顶前返佣 '+amount(rawRebate)+'；实际估算返佣 '+amount(actual)+'；返佣后净手续费 '+amount(netFee)+'；封顶状态 '+capLabel+'。手续费与返佣均按分四舍五入，最终以官方规则和账单为准。';
-    });
-    Array.prototype.forEach.call(document.querySelectorAll('[data-rb-preset]'),function(button){button.addEventListener('click',function(){var values=button.dataset.rbPreset.split(',');volumeInput.value=values[0];feeInput.value=values[1];shareInput.value=values[2];capInput.value=values[3]||'';resetState();rebateForm.requestSubmit();});});
-    document.querySelector('[data-rb-reset]').addEventListener('click',function(){rebateForm.reset();resetState();volumeInput.focus();});copyButton.addEventListener('click',function(){if(!copyButton.disabled)copyText(copyButton.dataset.copyText,copyStatus,'试算结果已复制');});
+  const doc = document.documentElement;
+  doc.classList.remove('so52-nojs');
+  const themeKey = 'split-observer-052-theme';
+  const themeButton = document.getElementById('so52-theme-button');
+  function setTheme(theme) {
+    doc.dataset.theme = theme;
+    if (themeButton) {
+      themeButton.textContent = theme === 'dark' ? '日间' : '夜间';
+      themeButton.setAttribute('aria-label', theme === 'dark' ? '切换到日间模式' : '切换到夜间模式');
+    }
   }
-  var topicForm=document.querySelector('[data-topic-search]');if(topicForm){var topicInput=document.getElementById('so52-topic-query'),feedback=document.querySelector('[data-topic-feedback]'),topics=[{words:['首页','观察','安全','栏目'],href:'index.html',label:'平台观察台'},{words:['评述','费率','口径','结算'],href:'article.html',label:'逐条评述'},{words:['返佣','计算','试算','封顶'],href:'tool.html',label:'返佣试算'},{words:['披露','免责','风险','联系'],href:'legal.html',label:'披露与免责'}];topicInput.addEventListener('input',function(){topicInput.removeAttribute('aria-invalid');feedback.textContent='可搜索观察台、评述、试算和披露。';});topicForm.addEventListener('submit',function(event){event.preventDefault();var query=normalize(topicInput.value).toLocaleLowerCase();if(!query){topicInput.setAttribute('aria-invalid','true');feedback.textContent='请先输入一个观察主题。';topicInput.focus();return;}topicInput.removeAttribute('aria-invalid');var match=topics.find(function(item){return item.words.some(function(word){var normalized=normalize(word).toLocaleLowerCase();return query.indexOf(normalized)!==-1||normalized.indexOf(query)!==-1;});});feedback.textContent='';if(match){feedback.append('找到：');var link=document.createElement('a');link.href=match.href;link.textContent=match.label;feedback.appendChild(link);}else feedback.textContent='未找到“'+query+'”。可尝试“费率”“返佣”“封顶”或“披露”。';});}
-}());
+  let saved;
+  try { saved = localStorage.getItem(themeKey); } catch { /* Storage is optional. */ }
+  setTheme(['light', 'dark'].includes(saved) ? saved : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  themeButton?.addEventListener('click', () => {
+    const theme = doc.dataset.theme === 'dark' ? 'light' : 'dark';
+    setTheme(theme);
+    try { localStorage.setItem(themeKey, theme); } catch { /* Keep this page usable without storage. */ }
+  });
+  const menu = document.getElementById('so52-mast-nav');
+  const menuButton = document.getElementById('so52-mast-btn');
+  function closeMenu(focus) {
+    menu?.classList.remove('so52-ajar');
+    menuButton?.setAttribute('aria-expanded', 'false');
+    if (focus) menuButton?.focus();
+  }
+  menuButton?.addEventListener('click', () => {
+    const opened = menu.classList.toggle('so52-ajar');
+    menuButton.setAttribute('aria-expanded', String(opened));
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu?.classList.contains('so52-ajar')) closeMenu(true);
+  });
+  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => closeMenu(false)));
+  matchMedia('(min-width: 621px)').addEventListener('change', event => { if (event.matches) closeMenu(false); });
+  const codeButton = document.querySelector('[data-copy-code]');
+  codeButton?.addEventListener('click', async () => {
+    const state = document.querySelector('[data-code-state]');
+    const value = document.getElementById('so52-code').textContent.trim();
+    codeButton.disabled = true;
+    state.textContent = '';
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(value);
+      state.textContent = '邀请码已复制。';
+    } catch { state.textContent = '复制未获许可，请选中邀请码手动复制。'; }
+    finally { codeButton.disabled = false; }
+  });
+  document.querySelectorAll('[data-js-controls]').forEach(e => { e.hidden = false; });
+  const filters = document.querySelectorAll('[data-collection-filter]');
+  filters.forEach(button => button.addEventListener('click', () => {
+    const key = button.dataset.collectionFilter;
+    let count = 0;
+    document.querySelectorAll('[data-observation]').forEach(row => {
+      row.hidden = key !== 'all' && row.dataset.collection !== key;
+      if (!row.hidden) count++;
+    });
+    filters.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+    document.querySelector('[data-filter-state]').textContent = '显示 ' + count + ' 条观察。';
+  }));
+  const search = document.querySelector('[data-local-search]');
+  if (search) {
+    search.hidden = false;
+    search.addEventListener('submit', event => {
+      event.preventDefault();
+      const query = search.elements.query.value.trim().normalize('NFKC').toLocaleLowerCase();
+      let count = 0;
+      document.querySelectorAll('[data-search-item]').forEach(item => {
+        item.hidden = !item.textContent.normalize('NFKC').toLocaleLowerCase().includes(query);
+        if (!item.hidden) count++;
+      });
+      search.querySelector('[data-search-state]').textContent = count ? '找到 ' + count + ' 个目录入口。' : '没有匹配项。请调整关键词，或清空后查看全部。';
+    });
+    search.addEventListener('input', () => {
+      document.querySelectorAll('[data-search-item]').forEach(item => { item.hidden = false; });
+      search.querySelector('[data-search-state]').textContent = '关键词已变更，请重新查找。';
+    });
+  }
+})();

@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html lang='~LANG~'>
+<html class='so52-nojs' lang='~LANG~'>
 <head>
   <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta name='theme-color' content='#9a3b2f'>
-  <title>~SITE_NAME~ — ~SEO_TITLE~</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover'>
+
+  <meta name='theme-color' content='#7c1f2e'>
+  <title>~SEO_TITLE~ — ~SITE_NAME~</title>
   <meta name='description' content='~SITE_DESC~'>
+  <meta name='robots' content='index,follow'>
   <link rel='canonical' href='https://~SITE_DOMAIN~/'>
   <meta property='og:type' content='website'>
   <meta property='og:site_name' content='~SITE_NAME~'>
-  <meta property='og:title' content='~SITE_NAME~ — ~SEO_TITLE~'>
+  <meta property='og:title' content='~SEO_TITLE~ — ~SITE_NAME~'>
   <meta property='og:description' content='~SITE_DESC~'>
   <meta property='og:url' content='https://~SITE_DOMAIN~/'>
-  <meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='style.css'>
+  <meta property='og:image' content='https://~SITE_DOMAIN~/assets/social-card.png'>
+  <meta property='og:image:width' content='1200'><meta property='og:image:height' content='630'>
+  <meta name='twitter:card' content='summary_large_image'>
+  <meta name='twitter:title' content='~SEO_TITLE~ — ~SITE_NAME~'>
+  <meta name='twitter:description' content='~SITE_DESC~'>
+  <meta name='twitter:image' content='https://~SITE_DOMAIN~/assets/social-card.png'>
+  <link rel='icon' href='favicon.ico' sizes='any'><link rel='icon' href='favicon.svg' type='image/svg+xml'>
+  <link rel='apple-touch-icon' href='apple-touch-icon.png'>
+  <link rel='alternate' type='application/rss+xml' title='~SITE_NAME~ RSS' href='feed.xml'>
+
+  <link rel='stylesheet' href='style.css'><link rel='stylesheet' href='framework.css'>
+  <script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebPage","name":"~SEO_TITLE~","description":"~SITE_DESC~","url":"https://~SITE_DOMAIN~/","image":"https://~SITE_DOMAIN~/assets/social-card.png"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 </head>
 <body>
   <a class='so52-skip' href='#so52-main'>跳到主要内容</a>
@@ -25,68 +38,50 @@
       </button>
       <nav class='so52-mast-nav' id='so52-mast-nav' aria-label='主导航'>
         <a href='index.html' aria-current='page'>首页</a>
-        <a href='article.html'>评述</a>
-        <a href='tool.html'>工具</a>
-        <a href='legal.html'>披露</a>
+        <a href='observations.html'>评述</a>
+        <a href='instruments.html'>工具</a>
+        <a href='disclosure.html'>披露</a>
         <button type='button' class='so52-theme' id='so52-theme-button' aria-label='切换到夜间模式'>夜间</button>
       </nav>
     </div>
   </header>
-
   <main id='so52-main'>
     <section class='so52-split-hero'>
       <div class='so52-split-left'>
         <p class='so52-split-eyebrow'>~HERO_EYEBROW~</p>
         <h1 class='so52-split-h1'>~HERO_TITLE~</h1>
         <p class='so52-split-lede'>~HERO_DESCRIPTION~</p>
-        <div class='so52-split-cta'>
-          <a class='so52-btn so52-btn-primary' href='article.html'>开始阅读 <span class='so52-arrow'>→</span></a>
-          <a class='so52-split-textlink' href='legal.html'>了解本站</a>
+        <div class='so52-cleave-pass so52-codewell'><span class='so52-cp-k'>邀请码</span><code id='so52-code'>~INVITE_CODE~</code><button type='button' data-copy-code>复制</button><strong>~BENEFIT_RATE~</strong><small>~BENEFIT_DISCLAIMER~</small><span data-code-state role='status' aria-live='polite'></span></div><div class='so52-split-cta'>
+          <a class='so52-btn so52-btn-primary' href='observations.html'>开始阅读 <span class='so52-arrow'>→</span></a>
+          <a class='so52-split-textlink' href='about.html'>了解本站</a>
         </div>
       </div>
-      <a class='so52-split-right' href='article.html'>
-        <span class='so52-split-kicker'>~HOME_FEATURED_LABEL~</span>
-        <span class='so52-split-feat'>
-          <span class='so52-split-fmeta'>费率观察<span class='so52-dot'> · </span><time datetime='2026-01-19'>2026-01-19</time></span>
-          <span class='so52-split-ftitle'>三类返佣结算口径应该怎样逐条比较</span>
-        </span>
-      </a>
+      <a class='so52-split-right' href='observations/parallel-window.html'><img class='so52-hero-art' src='assets/split-view.webp' alt='两扇并置的几何观察窗口' width='720' height='800' fetchpriority='high'><span class='so52-split-kicker'>~HOME_FEATURED_LABEL~</span><span class='so52-split-feat'><span class='so52-split-fmeta'>并读笔记<span class='so52-dot'> · </span><time datetime='~A1_PUBLISHED~'>~A1_PUBLISHED~</time></span><span class='so52-split-ftitle'>~A1_TITLE~</span></span></a>
     </section>
 
     <div class='so52-split-rest'>
-      <div class='so52-split-rest-head'><span>~HOME_LATEST_LABEL~</span><a href='article.html'>查看全部 <span aria-hidden='true'>→</span></a></div>
-      <div class='so52-split-list'>
-        <a class='so52-split-row' href='article.html'><span class='so52-sr-n'>01</span><span class='so52-sr-t'>现货档位调整后，实际手续费如何变化</span><span class='so52-sr-m'>费率观察</span><span class='so52-sr-d'><time datetime='2026-01-18'>01-18</time></span></a>
-        <a class='so52-split-row' href='article.html'><span class='so52-sr-n'>02</span><span class='so52-sr-t'>返佣到账延迟的三种常见原因</span><span class='so52-sr-m'>返佣机制</span><span class='so52-sr-d'><time datetime='2026-01-16'>01-16</time></span></a>
-        <a class='so52-split-row' href='article.html'><span class='so52-sr-n'>03</span><span class='so52-sr-t'>只做现货是否需要区分挂单与吃单费率</span><span class='so52-sr-m'>新手答疑</span><span class='so52-sr-d'><time datetime='2026-01-14'>01-14</time></span></a>
-        <a class='so52-split-row' href='article.html'><span class='so52-sr-n'>04</span><span class='so52-sr-t'>身份认证材料被退回时的自查清单</span><span class='so52-sr-m'>安全核验</span><span class='so52-sr-d'><time datetime='2026-01-11'>01-11</time></span></a>
-        <a class='so52-split-row' href='article.html'><span class='so52-sr-n'>05</span><span class='so52-sr-t'>资金费率变化时应查看哪些数据</span><span class='so52-sr-m'>费率观察</span><span class='so52-sr-d'><time datetime='2026-01-08'>01-08</time></span></a>
-        <a class='so52-split-row' href='article.html'><span class='so52-sr-n'>06</span><span class='so52-sr-t'>提现白名单能降低哪些账户风险</span><span class='so52-sr-m'>安全核验</span><span class='so52-sr-d'><time datetime='2026-01-05'>01-05</time></span></a>
-      </div>
+      <div class='so52-split-rest-head'><span>~HOME_LATEST_LABEL~</span><a href='observations.html'>查看全部 <span aria-hidden='true'>→</span></a></div>
+      <div class='so52-split-list'><a class='so52-split-row'  href='observations/parallel-window.html'><span class='so52-sr-n'>01</span><span class='so52-sr-t'>~A1_TITLE~</span><span class='so52-sr-m'>并读笔记</span><span class='so52-sr-d'><time datetime='~A1_PUBLISHED~'>~A1_SHORT_DATE~</time></span></a>
+<a class='so52-split-row'  href='observations/reference-line.html'><span class='so52-sr-n'>02</span><span class='so52-sr-t'>~A2_TITLE~</span><span class='so52-sr-m'>并读笔记</span><span class='so52-sr-d'><time datetime='~A2_PUBLISHED~'>~A2_SHORT_DATE~</time></span></a>
+<a class='so52-split-row'  href='observations/aperture-notes.html'><span class='so52-sr-n'>03</span><span class='so52-sr-t'>~A3_TITLE~</span><span class='so52-sr-m'>并读笔记</span><span class='so52-sr-d'><time datetime='~A3_PUBLISHED~'>~A3_SHORT_DATE~</time></span></a>
+<a class='so52-split-row'  href='observations/change-strips.html'><span class='so52-sr-n'>04</span><span class='so52-sr-t'>~A4_TITLE~</span><span class='so52-sr-m'>并读笔记</span><span class='so52-sr-d'><time datetime='~A4_PUBLISHED~'>~A4_SHORT_DATE~</time></span></a>
+<a class='so52-split-row'  href='observations/margin-marker.html'><span class='so52-sr-n'>05</span><span class='so52-sr-t'>~A5_TITLE~</span><span class='so52-sr-m'>轨迹索引</span><span class='so52-sr-d'><time datetime='~A5_PUBLISHED~'>~A5_SHORT_DATE~</time></span></a>
+<a class='so52-split-row'  href='observations/branch-view.html'><span class='so52-sr-n'>06</span><span class='so52-sr-t'>~A6_TITLE~</span><span class='so52-sr-m'>轨迹索引</span><span class='so52-sr-d'><time datetime='~A6_PUBLISHED~'>~A6_SHORT_DATE~</time></span></a>
+<a class='so52-split-row'  href='observations/signal-trace.html'><span class='so52-sr-n'>07</span><span class='so52-sr-t'>~A7_TITLE~</span><span class='so52-sr-m'>轨迹索引</span><span class='so52-sr-d'><time datetime='~A7_PUBLISHED~'>~A7_SHORT_DATE~</time></span></a>
+<a class='so52-split-row'  href='observations/observation-ledger.html'><span class='so52-sr-n'>08</span><span class='so52-sr-t'>~A8_TITLE~</span><span class='so52-sr-m'>轨迹索引</span><span class='so52-sr-d'><time datetime='~A8_PUBLISHED~'>~A8_SHORT_DATE~</time></span></a>
+<a class='so52-split-row'  href='observations/close-reading.html'><span class='so52-sr-n'>09</span><span class='so52-sr-t'>~A9_TITLE~</span><span class='so52-sr-m'>边注档案</span><span class='so52-sr-d'><time datetime='~A9_PUBLISHED~'>~A9_SHORT_DATE~</time></span></a>
+<a class='so52-split-row'  href='observations/layered-context.html'><span class='so52-sr-n'>10</span><span class='so52-sr-t'>~A10_TITLE~</span><span class='so52-sr-m'>边注档案</span><span class='so52-sr-d'><time datetime='~A10_PUBLISHED~'>~A10_SHORT_DATE~</time></span></a>
+<a class='so52-split-row'  href='observations/return-route.html'><span class='so52-sr-n'>11</span><span class='so52-sr-t'>~A11_TITLE~</span><span class='so52-sr-m'>边注档案</span><span class='so52-sr-d'><time datetime='~A11_PUBLISHED~'>~A11_SHORT_DATE~</time></span></a>
+<a class='so52-split-row'  href='observations/connection-frame.html'><span class='so52-sr-n'>12</span><span class='so52-sr-t'>~A12_TITLE~</span><span class='so52-sr-m'>边注档案</span><span class='so52-sr-d'><time datetime='~A12_PUBLISHED~'>~A12_SHORT_DATE~</time></span></a></div>
     </div>
 
-    <section class='so52-observation-rail' aria-labelledby='so52-rail-title'>
-      <header><div><p>OBSERVATION RAIL / FOUR PASSES</p><h2 id='so52-rail-title'>同一个百分比，<br>要经过四道观察。</h2></div><output aria-live='polite'>SOURCE → SCOPE → MATH → LEDGER</output></header>
-      <div class='so52-rail-body'>
-        <ol>
-          <li><time datetime='P1D'>01</time><strong>来源</strong><small>保存规则页与核对日期</small></li>
-          <li><time datetime='P2D'>02</time><strong>范围</strong><small>确认账户、地区与产品</small></li>
-          <li><time datetime='P3D'>03</time><strong>计算</strong><small>费率与返佣分层取整</small></li>
-          <li><time datetime='P4D'>04</time><strong>账单</strong><small>核对结算状态与到账</small></li>
-        </ol>
-        <figure><figcaption>观察完整度 / 示例</figcaption><meter min='0' max='4' value='4'>4 / 4</meter><blockquote>没有范围和时间的比例，只是一枚孤立数字。</blockquote><a href='article.html'>打开逐条评述 <span aria-hidden='true'>↗</span></a></figure>
-      </div>
-    </section>
+    <section class='so52-observation-rail' aria-labelledby='so52-rail-title'><header><div><p>~RAIL_EYEBROW~</p><h2 id='so52-rail-title'>~RAIL_TITLE~</h2></div><span class='so52-rail-sequence'>~RAIL_SEQUENCE~</span></header><div class='so52-rail-body'><ol><li><span class='so52-pass-number'>01</span><strong>~RAIL_1_TITLE~</strong><small>~RAIL_1_TEXT~</small></li><li><span class='so52-pass-number'>02</span><strong>~RAIL_2_TITLE~</strong><small>~RAIL_2_TEXT~</small></li><li><span class='so52-pass-number'>03</span><strong>~RAIL_3_TITLE~</strong><small>~RAIL_3_TEXT~</small></li><li><span class='so52-pass-number'>04</span><strong>~RAIL_4_TITLE~</strong><small>~RAIL_4_TEXT~</small></li></ol><figure><figcaption>~RAIL_CAPTION~</figcaption><div class='so52-four-lines' aria-hidden='true'><i></i><i></i><i></i><i></i></div><blockquote>~RAIL_QUOTE~</blockquote><a href='observations/reference-line.html'>打开观察笔记 <span aria-hidden='true'>↗</span></a></figure></div></section><section class='so52-shelf' aria-labelledby='so52-shelf-title'><p class='so52-kicker'>COLLECTIONS</p><h2 id='so52-shelf-title'>沿着线索继续阅读</h2><div class='so52-collection-grid'><a href='collections/parallel-notes.html'><span>01 / COLLECTION</span><h3>并读笔记</h3><p>~C1_SUMMARY~</p><b aria-hidden='true'>↗</b></a><a href='collections/trace-register.html'><span>02 / COLLECTION</span><h3>轨迹索引</h3><p>~C2_SUMMARY~</p><b aria-hidden='true'>↗</b></a><a href='collections/context-margins.html'><span>03 / COLLECTION</span><h3>边注档案</h3><p>~C3_SUMMARY~</p><b aria-hidden='true'>↗</b></a></div><h2>在本地整理输入</h2><div class='so52-instrument-shelf'><a href='instruments/run-strips.html'><span class='so52-instrument-number'>01</span><strong>连续段折叠器</strong><span aria-hidden='true'>↗</span></a><a href='instruments/area-trace.html'><span class='so52-instrument-number'>02</span><strong>折线面积尺</strong><span aria-hidden='true'>↗</span></a><a href='instruments/line-fit.html'><span class='so52-instrument-number'>03</span><strong>直线拟合台</strong><span aria-hidden='true'>↗</span></a><a href='instruments/overlap-ruler.html'><span class='so52-instrument-number'>04</span><strong>区间覆盖尺</strong><span aria-hidden='true'>↗</span></a><a href='instruments/median-window.html'><span class='so52-instrument-number'>05</span><strong>中位窗口镜</strong><span aria-hidden='true'>↗</span></a></div></section>
   </main>
-
-  <footer class='so52-foot'>
-    <div class='so52-foot-in'>
-      <div><p class='so52-sig so52-foot-sig'>~BRAND_EN~</p><p class='so52-foot-dim'>~FOOTER_NOTE~</p></div>
-      <div class='so52-foot-col'><h4>栏目</h4><a href='article.html'>费率观察</a><a href='article.html'>返佣机制</a><a href='article.html'>新手答疑</a></div>
-      <div class='so52-foot-col'><h4>站务</h4><a href='tool.html'>返佣试算</a><a href='legal.html'>披露与免责</a></div>
-    </div>
-    <p class='so52-foot-line'>内容以对应平台官方页面和账户实际显示为准，不构成投资建议。</p>
-  </footer>
-  <script src='boot.js'></script>
+<footer class='so52-foot'><div class='so52-foot-in'>
+  <div class='so52-foot-brand'><p class='so52-sig so52-foot-sig'>~BRAND_EN~</p><p class='so52-foot-dim'>~FOOTER_NOTE~</p></div>
+  <div class='so52-foot-col'><h4>观察目录</h4><a href='collections/parallel-notes.html'>并读笔记</a><a href='collections/trace-register.html'>轨迹索引</a><a href='collections/context-margins.html'>边注档案</a><a href='instruments.html'>本地工具</a></div>
+  <div class='so52-foot-col'><h4>站务与说明</h4><a href='about.html'>关于本站</a><a href='contact.html'>联系编辑</a><a href='disclosure.html'>推广披露</a><a href='disclaimer.html'>使用边界</a><a href='privacy.html'>隐私说明</a><a href='corrections.html'>勘误记录</a><a href='editorial.html'>编辑方法</a></div></div>
+  <p class='so52-foot-line'>本站独立运营。~INDEPENDENCE_NOTE~ <a href='disclosure.html'>推广披露</a><br>~RISK_NOTE~</p></footer>
+<script src='boot.js' defer></script>
 </body>
 </html>

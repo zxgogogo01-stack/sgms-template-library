@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://~SITE_DOMAIN~/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://~SITE_DOMAIN~/article.html</loc></url>
-  <url><loc>https://~SITE_DOMAIN~/tool.html</loc></url>
-  <url><loc>https://~SITE_DOMAIN~/legal.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations/parallel-window.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations/reference-line.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations/aperture-notes.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations/change-strips.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations/margin-marker.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations/branch-view.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations/signal-trace.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations/observation-ledger.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations/close-reading.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations/layered-context.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations/return-route.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/observations/connection-frame.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/collections/parallel-notes.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/collections/trace-register.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/collections/context-margins.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/instruments.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/instruments/run-strips.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/instruments/area-trace.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/instruments/line-fit.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/instruments/overlap-ruler.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/instruments/median-window.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/about.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/contact.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/disclosure.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/disclaimer.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/privacy.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/corrections.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/editorial.html</loc></url>
 </urlset>

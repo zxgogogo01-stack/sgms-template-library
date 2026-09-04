@@ -1,37 +1,998 @@
-# 052-split-observer（分屏观察站）
+# 052-split-observer
 
-## 适合什么站
+## 本地 UI 完整框架
 
-返佣平台观察站、评测型内容站：左文右特稿分屏首屏，下接带编号的最新内容清单。
+保留本地分屏观察台的硬分割首屏、酒红与黄铜配色、编号列表、四格观察栏、so52 命名与旧 style.css，补齐 30 个可索引页面、404 和 3 个兼容入口。新框架样式独立写入 framework.css。当前工作不代表军哥动态原包忠实度已核验。
 
-## 差异化口径
+## 下游 AI 内容接入
 
-- 首页采用左文右特稿的硬分屏，下接编号观察清单与独立“四道观察轨道”。
-- 全套 UI 类名使用 `so52-` 专属命名空间，不依赖共享 CMS 样式，也不包含其他主题的闲置代码。
-- 明暗主题、移动导航、文章进度、复制、带封顶的精确返佣试算和 404 检索均由本模板独立实现。
+只替换变量和经查证的文字、文章正文及来源，不需重建 UI、开发工具或另做通用图像。保留 class、id、data 属性、表单 name、相对文件路径及无障碍属性。三类开场、十二种独立内容组件、不同章节与 FAQ 数量、三类收尾、来源、作者与相关推荐已搭建。
 
-## 页面与文件
+- registrationGuide 是检查器兼容字段，指 connection-frame.html 通用内容外壳。它不是注册教程；本模板不代写教程、平台事实或可发布业务内容。
+- 首页仅有明文邀请码、复制、利益文字与脚注变量，不含推广直链。唯一静态推广链接位于 connection-frame.html，保留 target=_blank、sponsored nofollow noopener noreferrer 及紧邻披露。
+- HTML/XML 内容按所在上下文实体转义；JSON-LD 使用 JSON 字符串编码并安全处理小于号。域名不带协议和路径；日期用 ISO 格式，security.txt 到期时间须为有效未来 RFC3339 时间。来源 URL 和推广 URL 只填核验过的 HTTPS 地址。
+- 站名、英文或罗马字字标、作者身份、联系方式、来源、政策和发布日期由建站 AI 核实填写，不能把示例或变量直接发布。A1–A12 各自独立，分类名称可以随内容调整但保留独立路径结构。
+- 首屏标题与摘要维持简洁，填写新文字后复验 360px 首屏复制区及深浅主题；不要用长段落替代短标签。
+- article.html、tool.html、legal.html 仅为 noindex 兼容目录，无自动重定向。服务器需把未知路径映射到 404.html 且返回真实 404 状态，此设置由单站流程负责，本轮不部署。
+- 工具仅操作当前页面输入，不上传、不持久化；点击才复制，编辑使旧结果失效，错误聚焦字段。五件工具依次为连续段折叠、折线梯形带符号积分、等权直线最小二乘、半开区间并集与重叠扫描、完整奇数滑窗中位数。精度、例子与边界均在各自默认折叠 Guide 中。
+- 保留本地 SVG/PNG/WebP 封面、PNG 社交图、favicon 和 apple-touch-icon；抽象插画是 UI 资产，不代表实测图表或数据证据。
 
-`index.html` / `article.html` / `tool.html` / `legal.html` / `404.html` / `robots.txt` / `sitemap.xml` / `TEMPLATE.md`，以及 `style.css`、`boot.js`。
+## workflow-ready-v2
 
-## 占位符
+```json workflow-ready-v2
+{
+  "version": 2,
+  "home": "index.html",
+  "articleIndex": "observations.html",
+  "articles": [
+    "observations/parallel-window.html",
+    "observations/reference-line.html",
+    "observations/aperture-notes.html",
+    "observations/change-strips.html",
+    "observations/margin-marker.html",
+    "observations/branch-view.html",
+    "observations/signal-trace.html",
+    "observations/observation-ledger.html",
+    "observations/close-reading.html",
+    "observations/layered-context.html",
+    "observations/return-route.html",
+    "observations/connection-frame.html"
+  ],
+  "cornerstones": [
+    "observations/parallel-window.html",
+    "observations/reference-line.html"
+  ],
+  "registrationGuide": "observations/connection-frame.html",
+  "articleCovers": {
+    "observations/parallel-window.html": {
+      "display": "assets/covers/parallel-window.webp",
+      "og": "assets/covers/parallel-window.png"
+    },
+    "observations/reference-line.html": {
+      "display": "assets/covers/reference-line.webp",
+      "og": "assets/covers/reference-line.png"
+    },
+    "observations/aperture-notes.html": {
+      "display": "assets/covers/aperture-notes.webp",
+      "og": "assets/covers/aperture-notes.png"
+    },
+    "observations/change-strips.html": {
+      "display": "assets/covers/change-strips.webp",
+      "og": "assets/covers/change-strips.png"
+    },
+    "observations/margin-marker.html": {
+      "display": "assets/covers/margin-marker.webp",
+      "og": "assets/covers/margin-marker.png"
+    },
+    "observations/branch-view.html": {
+      "display": "assets/covers/branch-view.webp",
+      "og": "assets/covers/branch-view.png"
+    },
+    "observations/signal-trace.html": {
+      "display": "assets/covers/signal-trace.webp",
+      "og": "assets/covers/signal-trace.png"
+    },
+    "observations/observation-ledger.html": {
+      "display": "assets/covers/observation-ledger.webp",
+      "og": "assets/covers/observation-ledger.png"
+    },
+    "observations/close-reading.html": {
+      "display": "assets/covers/close-reading.webp",
+      "og": "assets/covers/close-reading.png"
+    },
+    "observations/layered-context.html": {
+      "display": "assets/covers/layered-context.webp",
+      "og": "assets/covers/layered-context.png"
+    },
+    "observations/return-route.html": {
+      "display": "assets/covers/return-route.webp",
+      "og": "assets/covers/return-route.png"
+    },
+    "observations/connection-frame.html": {
+      "display": "assets/covers/connection-frame.webp",
+      "og": "assets/covers/connection-frame.png"
+    }
+  },
+  "categories": [
+    {
+      "path": "collections/parallel-notes.html",
+      "label": "并读笔记",
+      "articles": [
+        "observations/parallel-window.html",
+        "observations/reference-line.html",
+        "observations/aperture-notes.html",
+        "observations/change-strips.html"
+      ]
+    },
+    {
+      "path": "collections/trace-register.html",
+      "label": "轨迹索引",
+      "articles": [
+        "observations/margin-marker.html",
+        "observations/branch-view.html",
+        "observations/signal-trace.html",
+        "observations/observation-ledger.html"
+      ]
+    },
+    {
+      "path": "collections/context-margins.html",
+      "label": "边注档案",
+      "articles": [
+        "observations/close-reading.html",
+        "observations/layered-context.html",
+        "observations/return-route.html",
+        "observations/connection-frame.html"
+      ]
+    }
+  ],
+  "toolIndex": "instruments.html",
+  "tools": [
+    "instruments/run-strips.html",
+    "instruments/area-trace.html",
+    "instruments/line-fit.html",
+    "instruments/overlap-ruler.html",
+    "instruments/median-window.html"
+  ],
+  "legal": {
+    "about": "about.html",
+    "contact": "contact.html",
+    "disclosure": "disclosure.html",
+    "disclaimer": "disclaimer.html",
+    "privacy": "privacy.html",
+    "corrections": "corrections.html",
+    "editorial": "editorial.html"
+  },
+  "error404": "404.html",
+  "robots": "robots.txt",
+  "sitemap": "sitemap.xml",
+  "feed": "feed.xml",
+  "security": ".well-known/security.txt",
+  "favicon": "favicon.ico",
+  "appleTouchIcon": "apple-touch-icon.png",
+  "socialImage": "assets/social-card.png",
+  "variables": {
+    "siteDomain": "~SITE_DOMAIN~",
+    "siteName": "~SITE_NAME~",
+    "wordmark": "~BRAND_EN~",
+    "inviteCode": "~INVITE_CODE~",
+    "benefitRate": "~BENEFIT_RATE~",
+    "benefitDisclaimer": "~BENEFIT_DISCLAIMER~",
+    "affiliateUrl": "~AFFILIATE_URL~",
+    "authorName": "~AUTHOR_NAME~",
+    "authorBio": "~AUTHOR_BIO~",
+    "contactEmail": "~CONTACT_EMAIL~",
+    "published": "~A1_PUBLISHED~",
+    "modified": "~A1_MODIFIED~"
+  }
+}
+```
 
-`~SITE_NAME~`、`~BRAND_EN~`、`~SITE_DOMAIN~`、`~SITE_TAGLINE~`、`~SITE_DESC~`、`~SEO_TITLE~`、`~HERO_EYEBROW~`、`~HERO_TITLE~`、`~HERO_DESCRIPTION~`、`~HOME_FEATURED_LABEL~`、`~HOME_LATEST_LABEL~`、`~FOOTER_NOTE~`、`~CONTACT_EMAIL~`、`~LANG~`。
+## 变量清单
 
-## 可调项
+独立页面摘要：`~404_DESC~`、`~ABOUT_DESC~`、`~ARTICLE_DESC~`、`~COLLECTIONS_CONTEXT_MARGINS_DESC~`、`~COLLECTIONS_PARALLEL_NOTES_DESC~`、`~COLLECTIONS_TRACE_REGISTER_DESC~`、`~CONTACT_DESC~`、`~CORRECTIONS_DESC~`、`~DISCLAIMER_DESC~`、`~DISCLOSURE_DESC~`、`~EDITORIAL_DESC~`、`~INSTRUMENTS_DESC~`、`~LEGAL_DESC~`、`~OBSERVATIONS_DESC~`、`~PRIVACY_DESC~`、`~TOOL_DESC~`。
 
-- 静态文章行可以按实际内容数量增减，但应保留源模板四列清单结构。
-- 站点色彩、字体与响应式细节集中在 `style.css`。
+核心与逐页文字均用波浪线槽位。每个页面的正文、来源、FAQ、作者说明及收尾必须按真实资料填写。
 
-## AI 文字接入说明
+- `~A10_ANSWER1~`
+- `~A10_ANSWER2~`
+- `~A10_BODY_1~`
+- `~A10_BODY_2~`
+- `~A10_BODY_3~`
+- `~A10_CELL1_2~`
+- `~A10_CELL1_3~`
+- `~A10_CELL2_2~`
+- `~A10_CELL2_3~`
+- `~A10_CELL3_2~`
+- `~A10_CELL3_3~`
+- `~A10_CHECKED~`
+- `~A10_COL1~`
+- `~A10_COL2~`
+- `~A10_COL3~`
+- `~A10_COVER_ALT~`
+- `~A10_COVER_CAPTION~`
+- `~A10_EDITOR_NOTE~`
+- `~A10_ENDING_TEXT~`
+- `~A10_ENDING_TITLE~`
+- `~A10_FAQ_TITLE~`
+- `~A10_H2_1~`
+- `~A10_H2_2~`
+- `~A10_H2_3~`
+- `~A10_LAYER1_TEXT~`
+- `~A10_LAYER1_TITLE~`
+- `~A10_LAYER2_TEXT~`
+- `~A10_LAYER2_TITLE~`
+- `~A10_LAYER3_TEXT~`
+- `~A10_LAYER3_TITLE~`
+- `~A10_MODIFIED~`
+- `~A10_PUBLISHED~`
+- `~A10_Q1~`
+- `~A10_Q2~`
+- `~A10_QUOTE_CITE~`
+- `~A10_QUOTE~`
+- `~A10_ROW1~`
+- `~A10_ROW2~`
+- `~A10_ROW3~`
+- `~A10_SHORT_DATE~`
+- `~A10_SOURCE_LABEL1~`
+- `~A10_SOURCE_LABEL2~`
+- `~A10_SOURCE_LABEL3~`
+- `~A10_SOURCE_NOTE1~`
+- `~A10_SOURCE_NOTE2~`
+- `~A10_SOURCE_NOTE3~`
+- `~A10_SOURCE_URL1~`
+- `~A10_SOURCE_URL2~`
+- `~A10_SOURCE_URL3~`
+- `~A10_SUMMARY~`
+- `~A10_TABLE_CAPTION~`
+- `~A10_TITLE~`
+- `~A11_ANSWER1~`
+- `~A11_ANSWER2~`
+- `~A11_ANSWER3~`
+- `~A11_BODY_1~`
+- `~A11_BODY_2~`
+- `~A11_BODY_3~`
+- `~A11_BODY_4~`
+- `~A11_CELL1_2~`
+- `~A11_CELL1_3~`
+- `~A11_CELL2_2~`
+- `~A11_CELL2_3~`
+- `~A11_CELL3_2~`
+- `~A11_CELL3_3~`
+- `~A11_CHECKED~`
+- `~A11_COL1~`
+- `~A11_COL2~`
+- `~A11_COL3~`
+- `~A11_COVER_ALT~`
+- `~A11_COVER_CAPTION~`
+- `~A11_EDITOR_NOTE~`
+- `~A11_ENDING_SECOND~`
+- `~A11_ENDING_TEXT~`
+- `~A11_ENDING_TITLE~`
+- `~A11_FAQ_TITLE~`
+- `~A11_H2_1~`
+- `~A11_H2_2~`
+- `~A11_H2_3~`
+- `~A11_H2_4~`
+- `~A11_LIST3_1~`
+- `~A11_LIST3_2~`
+- `~A11_LIST3_3~`
+- `~A11_MODIFIED~`
+- `~A11_OPENING_LABEL~`
+- `~A11_PUBLISHED~`
+- `~A11_Q1~`
+- `~A11_Q2~`
+- `~A11_Q3~`
+- `~A11_QUOTE_CITE~`
+- `~A11_QUOTE~`
+- `~A11_RETURN1_TEXT~`
+- `~A11_RETURN1_TITLE~`
+- `~A11_RETURN2_TEXT~`
+- `~A11_RETURN2_TITLE~`
+- `~A11_RETURN3_TEXT~`
+- `~A11_RETURN3_TITLE~`
+- `~A11_RETURN4_TEXT~`
+- `~A11_RETURN4_TITLE~`
+- `~A11_ROW1~`
+- `~A11_ROW2~`
+- `~A11_ROW3~`
+- `~A11_SHORT_DATE~`
+- `~A11_SOURCE_LABEL1~`
+- `~A11_SOURCE_LABEL2~`
+- `~A11_SOURCE_LABEL3~`
+- `~A11_SOURCE_NOTE1~`
+- `~A11_SOURCE_NOTE2~`
+- `~A11_SOURCE_NOTE3~`
+- `~A11_SOURCE_URL1~`
+- `~A11_SOURCE_URL2~`
+- `~A11_SOURCE_URL3~`
+- `~A11_SUMMARY~`
+- `~A11_TABLE_CAPTION~`
+- `~A11_TITLE~`
+- `~A12_ANSWER1~`
+- `~A12_ANSWER2~`
+- `~A12_ANSWER3~`
+- `~A12_ANSWER4~`
+- `~A12_BODY_1~`
+- `~A12_BODY_2~`
+- `~A12_BODY_3~`
+- `~A12_BODY_4~`
+- `~A12_BODY_5~`
+- `~A12_CELL1_2~`
+- `~A12_CELL1_3~`
+- `~A12_CELL2_2~`
+- `~A12_CELL2_3~`
+- `~A12_CELL3_2~`
+- `~A12_CELL3_3~`
+- `~A12_CHECKED~`
+- `~A12_COL1~`
+- `~A12_COL2~`
+- `~A12_COL3~`
+- `~A12_CONNECTION_LABEL~`
+- `~A12_CONNECTION_TEXT~`
+- `~A12_CONNECTION_TITLE~`
+- `~A12_COVER_ALT~`
+- `~A12_COVER_CAPTION~`
+- `~A12_EDITOR_NOTE~`
+- `~A12_ENDING_LABEL~`
+- `~A12_ENDING_TEXT~`
+- `~A12_ENDING_TITLE~`
+- `~A12_FAQ_TITLE~`
+- `~A12_H2_1~`
+- `~A12_H2_2~`
+- `~A12_H2_3~`
+- `~A12_H2_4~`
+- `~A12_H2_5~`
+- `~A12_LIST3_1~`
+- `~A12_LIST3_2~`
+- `~A12_LIST3_3~`
+- `~A12_LIST4_1~`
+- `~A12_LIST4_2~`
+- `~A12_LIST4_3~`
+- `~A12_MODIFIED~`
+- `~A12_PUBLISHED~`
+- `~A12_Q1~`
+- `~A12_Q2~`
+- `~A12_Q3~`
+- `~A12_Q4~`
+- `~A12_QUOTE_CITE~`
+- `~A12_QUOTE~`
+- `~A12_ROW1~`
+- `~A12_ROW2~`
+- `~A12_ROW3~`
+- `~A12_SHORT_DATE~`
+- `~A12_SOURCE_LABEL1~`
+- `~A12_SOURCE_LABEL2~`
+- `~A12_SOURCE_LABEL3~`
+- `~A12_SOURCE_NOTE1~`
+- `~A12_SOURCE_NOTE2~`
+- `~A12_SOURCE_NOTE3~`
+- `~A12_SOURCE_URL1~`
+- `~A12_SOURCE_URL2~`
+- `~A12_SOURCE_URL3~`
+- `~A12_SUMMARY~`
+- `~A12_TABLE_CAPTION~`
+- `~A12_TITLE~`
+- `~A1_ANSWER1~`
+- `~A1_ANSWER2~`
+- `~A1_BODY_1~`
+- `~A1_BODY_2~`
+- `~A1_BODY_3~`
+- `~A1_CELL1_2~`
+- `~A1_CELL1_3~`
+- `~A1_CELL2_2~`
+- `~A1_CELL2_3~`
+- `~A1_CELL3_2~`
+- `~A1_CELL3_3~`
+- `~A1_CHECKED~`
+- `~A1_COL1~`
+- `~A1_COL2~`
+- `~A1_COL3~`
+- `~A1_COVER_ALT~`
+- `~A1_COVER_CAPTION~`
+- `~A1_EDITOR_NOTE~`
+- `~A1_ENDING_TEXT~`
+- `~A1_ENDING_TITLE~`
+- `~A1_FAQ_TITLE~`
+- `~A1_H2_1~`
+- `~A1_H2_2~`
+- `~A1_H2_3~`
+- `~A1_MODIFIED~`
+- `~A1_PUBLISHED~`
+- `~A1_Q1~`
+- `~A1_Q2~`
+- `~A1_QUOTE_CITE~`
+- `~A1_QUOTE~`
+- `~A1_ROW1~`
+- `~A1_ROW2~`
+- `~A1_ROW3~`
+- `~A1_SHORT_DATE~`
+- `~A1_SOURCE_LABEL1~`
+- `~A1_SOURCE_LABEL2~`
+- `~A1_SOURCE_LABEL3~`
+- `~A1_SOURCE_NOTE1~`
+- `~A1_SOURCE_NOTE2~`
+- `~A1_SOURCE_NOTE3~`
+- `~A1_SOURCE_URL1~`
+- `~A1_SOURCE_URL2~`
+- `~A1_SOURCE_URL3~`
+- `~A1_SUMMARY~`
+- `~A1_TABLE_CAPTION~`
+- `~A1_TITLE~`
+- `~A1_WINDOW1_LABEL~`
+- `~A1_WINDOW1_TEXT~`
+- `~A1_WINDOW1_TITLE~`
+- `~A1_WINDOW2_LABEL~`
+- `~A1_WINDOW2_TEXT~`
+- `~A1_WINDOW2_TITLE~`
+- `~A2_ANSWER1~`
+- `~A2_ANSWER2~`
+- `~A2_ANSWER3~`
+- `~A2_BODY_1~`
+- `~A2_BODY_2~`
+- `~A2_BODY_3~`
+- `~A2_BODY_4~`
+- `~A2_CELL1_2~`
+- `~A2_CELL1_3~`
+- `~A2_CELL2_2~`
+- `~A2_CELL2_3~`
+- `~A2_CELL3_2~`
+- `~A2_CELL3_3~`
+- `~A2_CHECKED~`
+- `~A2_COL1~`
+- `~A2_COL2~`
+- `~A2_COL3~`
+- `~A2_COVER_ALT~`
+- `~A2_COVER_CAPTION~`
+- `~A2_EDITOR_NOTE~`
+- `~A2_ENDING_SECOND~`
+- `~A2_ENDING_TEXT~`
+- `~A2_ENDING_TITLE~`
+- `~A2_FAQ_TITLE~`
+- `~A2_H2_1~`
+- `~A2_H2_2~`
+- `~A2_H2_3~`
+- `~A2_H2_4~`
+- `~A2_LIST3_1~`
+- `~A2_LIST3_2~`
+- `~A2_LIST3_3~`
+- `~A2_MODIFIED~`
+- `~A2_OPENING_LABEL~`
+- `~A2_PUBLISHED~`
+- `~A2_Q1~`
+- `~A2_Q2~`
+- `~A2_Q3~`
+- `~A2_QUOTE_CITE~`
+- `~A2_QUOTE~`
+- `~A2_ROW1~`
+- `~A2_ROW2~`
+- `~A2_ROW3~`
+- `~A2_SHORT_DATE~`
+- `~A2_SOURCE_LABEL1~`
+- `~A2_SOURCE_LABEL2~`
+- `~A2_SOURCE_LABEL3~`
+- `~A2_SOURCE_NOTE1~`
+- `~A2_SOURCE_NOTE2~`
+- `~A2_SOURCE_NOTE3~`
+- `~A2_SOURCE_URL1~`
+- `~A2_SOURCE_URL2~`
+- `~A2_SOURCE_URL3~`
+- `~A2_STOP1_TEXT~`
+- `~A2_STOP1_TITLE~`
+- `~A2_STOP2_TEXT~`
+- `~A2_STOP2_TITLE~`
+- `~A2_STOP3_TEXT~`
+- `~A2_STOP3_TITLE~`
+- `~A2_SUMMARY~`
+- `~A2_TABLE_CAPTION~`
+- `~A2_TITLE~`
+- `~A3_ANSWER1~`
+- `~A3_ANSWER2~`
+- `~A3_ANSWER3~`
+- `~A3_ANSWER4~`
+- `~A3_BODY_1~`
+- `~A3_BODY_2~`
+- `~A3_BODY_3~`
+- `~A3_BODY_4~`
+- `~A3_BODY_5~`
+- `~A3_CELL1_2~`
+- `~A3_CELL1_3~`
+- `~A3_CELL2_2~`
+- `~A3_CELL2_3~`
+- `~A3_CELL3_2~`
+- `~A3_CELL3_3~`
+- `~A3_CHECKED~`
+- `~A3_COL1~`
+- `~A3_COL2~`
+- `~A3_COL3~`
+- `~A3_COVER_ALT~`
+- `~A3_COVER_CAPTION~`
+- `~A3_EDITOR_NOTE~`
+- `~A3_ENDING_LABEL~`
+- `~A3_ENDING_TEXT~`
+- `~A3_ENDING_TITLE~`
+- `~A3_FAQ_TITLE~`
+- `~A3_FIELD1_LABEL~`
+- `~A3_FIELD1_VALUE~`
+- `~A3_FIELD2_LABEL~`
+- `~A3_FIELD2_VALUE~`
+- `~A3_FIELD3_LABEL~`
+- `~A3_FIELD3_VALUE~`
+- `~A3_H2_1~`
+- `~A3_H2_2~`
+- `~A3_H2_3~`
+- `~A3_H2_4~`
+- `~A3_H2_5~`
+- `~A3_LIST3_1~`
+- `~A3_LIST3_2~`
+- `~A3_LIST3_3~`
+- `~A3_LIST4_1~`
+- `~A3_LIST4_2~`
+- `~A3_LIST4_3~`
+- `~A3_MODIFIED~`
+- `~A3_PUBLISHED~`
+- `~A3_Q1~`
+- `~A3_Q2~`
+- `~A3_Q3~`
+- `~A3_Q4~`
+- `~A3_QUOTE_CITE~`
+- `~A3_QUOTE~`
+- `~A3_ROW1~`
+- `~A3_ROW2~`
+- `~A3_ROW3~`
+- `~A3_SHORT_DATE~`
+- `~A3_SOURCE_LABEL1~`
+- `~A3_SOURCE_LABEL2~`
+- `~A3_SOURCE_LABEL3~`
+- `~A3_SOURCE_NOTE1~`
+- `~A3_SOURCE_NOTE2~`
+- `~A3_SOURCE_NOTE3~`
+- `~A3_SOURCE_URL1~`
+- `~A3_SOURCE_URL2~`
+- `~A3_SOURCE_URL3~`
+- `~A3_SUMMARY~`
+- `~A3_TABLE_CAPTION~`
+- `~A3_TITLE~`
+- `~A4_ANSWER1~`
+- `~A4_ANSWER2~`
+- `~A4_BODY_1~`
+- `~A4_BODY_2~`
+- `~A4_BODY_3~`
+- `~A4_CELL1_2~`
+- `~A4_CELL1_3~`
+- `~A4_CELL2_2~`
+- `~A4_CELL2_3~`
+- `~A4_CELL3_2~`
+- `~A4_CELL3_3~`
+- `~A4_CHECKED~`
+- `~A4_COL1~`
+- `~A4_COL2~`
+- `~A4_COL3~`
+- `~A4_COVER_ALT~`
+- `~A4_COVER_CAPTION~`
+- `~A4_EDITOR_NOTE~`
+- `~A4_ENDING_TEXT~`
+- `~A4_ENDING_TITLE~`
+- `~A4_FAQ_TITLE~`
+- `~A4_H2_1~`
+- `~A4_H2_2~`
+- `~A4_H2_3~`
+- `~A4_MODIFIED~`
+- `~A4_PUBLISHED~`
+- `~A4_Q1~`
+- `~A4_Q2~`
+- `~A4_QUOTE_CITE~`
+- `~A4_QUOTE~`
+- `~A4_ROW1~`
+- `~A4_ROW2~`
+- `~A4_ROW3~`
+- `~A4_SHORT_DATE~`
+- `~A4_SOURCE_LABEL1~`
+- `~A4_SOURCE_LABEL2~`
+- `~A4_SOURCE_LABEL3~`
+- `~A4_SOURCE_NOTE1~`
+- `~A4_SOURCE_NOTE2~`
+- `~A4_SOURCE_NOTE3~`
+- `~A4_SOURCE_URL1~`
+- `~A4_SOURCE_URL2~`
+- `~A4_SOURCE_URL3~`
+- `~A4_STRIP1_TEXT~`
+- `~A4_STRIP1_TITLE~`
+- `~A4_STRIP2_TEXT~`
+- `~A4_STRIP2_TITLE~`
+- `~A4_STRIP3_TEXT~`
+- `~A4_STRIP3_TITLE~`
+- `~A4_STRIP4_TEXT~`
+- `~A4_STRIP4_TITLE~`
+- `~A4_SUMMARY~`
+- `~A4_TABLE_CAPTION~`
+- `~A4_TITLE~`
+- `~A5_ANSWER1~`
+- `~A5_ANSWER2~`
+- `~A5_ANSWER3~`
+- `~A5_BODY_1~`
+- `~A5_BODY_2~`
+- `~A5_BODY_3~`
+- `~A5_BODY_4~`
+- `~A5_CELL1_2~`
+- `~A5_CELL1_3~`
+- `~A5_CELL2_2~`
+- `~A5_CELL2_3~`
+- `~A5_CELL3_2~`
+- `~A5_CELL3_3~`
+- `~A5_CHECKED~`
+- `~A5_COL1~`
+- `~A5_COL2~`
+- `~A5_COL3~`
+- `~A5_COVER_ALT~`
+- `~A5_COVER_CAPTION~`
+- `~A5_EDITOR_NOTE~`
+- `~A5_ENDING_SECOND~`
+- `~A5_ENDING_TEXT~`
+- `~A5_ENDING_TITLE~`
+- `~A5_EXCERPT~`
+- `~A5_FAQ_TITLE~`
+- `~A5_H2_1~`
+- `~A5_H2_2~`
+- `~A5_H2_3~`
+- `~A5_H2_4~`
+- `~A5_LIST3_1~`
+- `~A5_LIST3_2~`
+- `~A5_LIST3_3~`
+- `~A5_MARGIN_TEXT~`
+- `~A5_MARGIN_TITLE~`
+- `~A5_MODIFIED~`
+- `~A5_OPENING_LABEL~`
+- `~A5_PUBLISHED~`
+- `~A5_Q1~`
+- `~A5_Q2~`
+- `~A5_Q3~`
+- `~A5_QUOTE_CITE~`
+- `~A5_QUOTE~`
+- `~A5_ROW1~`
+- `~A5_ROW2~`
+- `~A5_ROW3~`
+- `~A5_SHORT_DATE~`
+- `~A5_SOURCE_LABEL1~`
+- `~A5_SOURCE_LABEL2~`
+- `~A5_SOURCE_LABEL3~`
+- `~A5_SOURCE_NOTE1~`
+- `~A5_SOURCE_NOTE2~`
+- `~A5_SOURCE_NOTE3~`
+- `~A5_SOURCE_URL1~`
+- `~A5_SOURCE_URL2~`
+- `~A5_SOURCE_URL3~`
+- `~A5_SUMMARY~`
+- `~A5_TABLE_CAPTION~`
+- `~A5_TITLE~`
+- `~A6_ANSWER1~`
+- `~A6_ANSWER2~`
+- `~A6_ANSWER3~`
+- `~A6_ANSWER4~`
+- `~A6_BODY_1~`
+- `~A6_BODY_2~`
+- `~A6_BODY_3~`
+- `~A6_BODY_4~`
+- `~A6_BODY_5~`
+- `~A6_BRANCH1_POINT1~`
+- `~A6_BRANCH1_POINT2~`
+- `~A6_BRANCH1_TITLE~`
+- `~A6_BRANCH2_POINT1~`
+- `~A6_BRANCH2_POINT2~`
+- `~A6_BRANCH2_TITLE~`
+- `~A6_BRANCH_CONTEXT~`
+- `~A6_CELL1_2~`
+- `~A6_CELL1_3~`
+- `~A6_CELL2_2~`
+- `~A6_CELL2_3~`
+- `~A6_CELL3_2~`
+- `~A6_CELL3_3~`
+- `~A6_CHECKED~`
+- `~A6_COL1~`
+- `~A6_COL2~`
+- `~A6_COL3~`
+- `~A6_COVER_ALT~`
+- `~A6_COVER_CAPTION~`
+- `~A6_EDITOR_NOTE~`
+- `~A6_ENDING_LABEL~`
+- `~A6_ENDING_TEXT~`
+- `~A6_ENDING_TITLE~`
+- `~A6_FAQ_TITLE~`
+- `~A6_H2_1~`
+- `~A6_H2_2~`
+- `~A6_H2_3~`
+- `~A6_H2_4~`
+- `~A6_H2_5~`
+- `~A6_LIST3_1~`
+- `~A6_LIST3_2~`
+- `~A6_LIST3_3~`
+- `~A6_LIST4_1~`
+- `~A6_LIST4_2~`
+- `~A6_LIST4_3~`
+- `~A6_MODIFIED~`
+- `~A6_PUBLISHED~`
+- `~A6_Q1~`
+- `~A6_Q2~`
+- `~A6_Q3~`
+- `~A6_Q4~`
+- `~A6_QUOTE_CITE~`
+- `~A6_QUOTE~`
+- `~A6_ROW1~`
+- `~A6_ROW2~`
+- `~A6_ROW3~`
+- `~A6_SHORT_DATE~`
+- `~A6_SOURCE_LABEL1~`
+- `~A6_SOURCE_LABEL2~`
+- `~A6_SOURCE_LABEL3~`
+- `~A6_SOURCE_NOTE1~`
+- `~A6_SOURCE_NOTE2~`
+- `~A6_SOURCE_NOTE3~`
+- `~A6_SOURCE_URL1~`
+- `~A6_SOURCE_URL2~`
+- `~A6_SOURCE_URL3~`
+- `~A6_SUMMARY~`
+- `~A6_TABLE_CAPTION~`
+- `~A6_TITLE~`
+- `~A7_ANSWER1~`
+- `~A7_ANSWER2~`
+- `~A7_BODY_1~`
+- `~A7_BODY_2~`
+- `~A7_BODY_3~`
+- `~A7_CELL1_2~`
+- `~A7_CELL1_3~`
+- `~A7_CELL2_2~`
+- `~A7_CELL2_3~`
+- `~A7_CELL3_2~`
+- `~A7_CELL3_3~`
+- `~A7_CHECKED~`
+- `~A7_COL1~`
+- `~A7_COL2~`
+- `~A7_COL3~`
+- `~A7_COVER_ALT~`
+- `~A7_COVER_CAPTION~`
+- `~A7_EDITOR_NOTE~`
+- `~A7_ENDING_TEXT~`
+- `~A7_ENDING_TITLE~`
+- `~A7_FAQ_TITLE~`
+- `~A7_H2_1~`
+- `~A7_H2_2~`
+- `~A7_H2_3~`
+- `~A7_MODIFIED~`
+- `~A7_PUBLISHED~`
+- `~A7_Q1~`
+- `~A7_Q2~`
+- `~A7_QUOTE_CITE~`
+- `~A7_QUOTE~`
+- `~A7_ROW1~`
+- `~A7_ROW2~`
+- `~A7_ROW3~`
+- `~A7_SHORT_DATE~`
+- `~A7_SOURCE_LABEL1~`
+- `~A7_SOURCE_LABEL2~`
+- `~A7_SOURCE_LABEL3~`
+- `~A7_SOURCE_NOTE1~`
+- `~A7_SOURCE_NOTE2~`
+- `~A7_SOURCE_NOTE3~`
+- `~A7_SOURCE_URL1~`
+- `~A7_SOURCE_URL2~`
+- `~A7_SOURCE_URL3~`
+- `~A7_SUMMARY~`
+- `~A7_TABLE_CAPTION~`
+- `~A7_TITLE~`
+- `~A7_TRACE_CAPTION~`
+- `~A7_TRACE_NOTE~`
+- `~A8_ANSWER1~`
+- `~A8_ANSWER2~`
+- `~A8_ANSWER3~`
+- `~A8_BODY_1~`
+- `~A8_BODY_2~`
+- `~A8_BODY_3~`
+- `~A8_BODY_4~`
+- `~A8_CELL1_2~`
+- `~A8_CELL1_3~`
+- `~A8_CELL2_2~`
+- `~A8_CELL2_3~`
+- `~A8_CELL3_2~`
+- `~A8_CELL3_3~`
+- `~A8_CHECKED~`
+- `~A8_COL1~`
+- `~A8_COL2~`
+- `~A8_COL3~`
+- `~A8_COVER_ALT~`
+- `~A8_COVER_CAPTION~`
+- `~A8_EDITOR_NOTE~`
+- `~A8_ENDING_SECOND~`
+- `~A8_ENDING_TEXT~`
+- `~A8_ENDING_TITLE~`
+- `~A8_FAQ_TITLE~`
+- `~A8_H2_1~`
+- `~A8_H2_2~`
+- `~A8_H2_3~`
+- `~A8_H2_4~`
+- `~A8_LEDGER_NOTE~`
+- `~A8_LIST3_1~`
+- `~A8_LIST3_2~`
+- `~A8_LIST3_3~`
+- `~A8_MODIFIED~`
+- `~A8_OPENING_LABEL~`
+- `~A8_PUBLISHED~`
+- `~A8_Q1~`
+- `~A8_Q2~`
+- `~A8_Q3~`
+- `~A8_QUOTE_CITE~`
+- `~A8_QUOTE~`
+- `~A8_ROW1~`
+- `~A8_ROW2~`
+- `~A8_ROW3~`
+- `~A8_SHORT_DATE~`
+- `~A8_SOURCE_LABEL1~`
+- `~A8_SOURCE_LABEL2~`
+- `~A8_SOURCE_LABEL3~`
+- `~A8_SOURCE_NOTE1~`
+- `~A8_SOURCE_NOTE2~`
+- `~A8_SOURCE_NOTE3~`
+- `~A8_SOURCE_URL1~`
+- `~A8_SOURCE_URL2~`
+- `~A8_SOURCE_URL3~`
+- `~A8_SUMMARY~`
+- `~A8_TABLE_CAPTION~`
+- `~A8_TITLE~`
+- `~A9_ANSWER1~`
+- `~A9_ANSWER2~`
+- `~A9_ANSWER3~`
+- `~A9_ANSWER4~`
+- `~A9_BODY_1~`
+- `~A9_BODY_2~`
+- `~A9_BODY_3~`
+- `~A9_BODY_4~`
+- `~A9_BODY_5~`
+- `~A9_CELL1_2~`
+- `~A9_CELL1_3~`
+- `~A9_CELL2_2~`
+- `~A9_CELL2_3~`
+- `~A9_CELL3_2~`
+- `~A9_CELL3_3~`
+- `~A9_CHECKED~`
+- `~A9_COL1~`
+- `~A9_COL2~`
+- `~A9_COL3~`
+- `~A9_COVER_ALT~`
+- `~A9_COVER_CAPTION~`
+- `~A9_EDITOR_NOTE~`
+- `~A9_ENDING_LABEL~`
+- `~A9_ENDING_TEXT~`
+- `~A9_ENDING_TITLE~`
+- `~A9_FAQ_TITLE~`
+- `~A9_H2_1~`
+- `~A9_H2_2~`
+- `~A9_H2_3~`
+- `~A9_H2_4~`
+- `~A9_H2_5~`
+- `~A9_LIST3_1~`
+- `~A9_LIST3_2~`
+- `~A9_LIST3_3~`
+- `~A9_LIST4_1~`
+- `~A9_LIST4_2~`
+- `~A9_LIST4_3~`
+- `~A9_MODIFIED~`
+- `~A9_PUBLISHED~`
+- `~A9_Q1~`
+- `~A9_Q2~`
+- `~A9_Q3~`
+- `~A9_Q4~`
+- `~A9_QUOTE_CITE~`
+- `~A9_QUOTE~`
+- `~A9_READING_CITE~`
+- `~A9_READING_TEXT~`
+- `~A9_READING_TITLE~`
+- `~A9_ROW1~`
+- `~A9_ROW2~`
+- `~A9_ROW3~`
+- `~A9_SHORT_DATE~`
+- `~A9_SOURCE_LABEL1~`
+- `~A9_SOURCE_LABEL2~`
+- `~A9_SOURCE_LABEL3~`
+- `~A9_SOURCE_NOTE1~`
+- `~A9_SOURCE_NOTE2~`
+- `~A9_SOURCE_NOTE3~`
+- `~A9_SOURCE_URL1~`
+- `~A9_SOURCE_URL2~`
+- `~A9_SOURCE_URL3~`
+- `~A9_SUMMARY~`
+- `~A9_TABLE_CAPTION~`
+- `~A9_TITLE~`
+- `~ABOUT_BODY_1~`
+- `~ABOUT_BODY_2~`
+- `~ABOUT_BODY_3~`
+- `~ABOUT_BODY_4~`
+- `~ABOUT_H2_1~`
+- `~ABOUT_H2_2~`
+- `~ABOUT_H2_3~`
+- `~ABOUT_H2_4~`
+- `~ABOUT_INTRO~`
+- `~AFFILIATE_DISCLOSURE~`
+- `~AFFILIATE_URL~`
+- `~ALIAS_INTRO~`
+- `~AUTHOR_BIO~`
+- `~AUTHOR_NAME~`
+- `~BENEFIT_DISCLAIMER~`
+- `~BENEFIT_RATE~`
+- `~BRAND_EN~`
+- `~C1_SUMMARY~`
+- `~C2_SUMMARY~`
+- `~C3_SUMMARY~`
+- `~CONTACT_BODY_1~`
+- `~CONTACT_BODY_2~`
+- `~CONTACT_BODY_3~`
+- `~CONTACT_BODY_4~`
+- `~CONTACT_EMAIL~`
+- `~CONTACT_H2_1~`
+- `~CONTACT_H2_2~`
+- `~CONTACT_H2_3~`
+- `~CONTACT_H2_4~`
+- `~CONTACT_INTRO~`
+- `~CORRECTIONS_BODY_1~`
+- `~CORRECTIONS_BODY_2~`
+- `~CORRECTIONS_BODY_3~`
+- `~CORRECTIONS_BODY_4~`
+- `~CORRECTIONS_H2_1~`
+- `~CORRECTIONS_H2_2~`
+- `~CORRECTIONS_H2_3~`
+- `~CORRECTIONS_H2_4~`
+- `~CORRECTIONS_INTRO~`
+- `~DISCLAIMER_BODY_1~`
+- `~DISCLAIMER_BODY_2~`
+- `~DISCLAIMER_BODY_3~`
+- `~DISCLAIMER_BODY_4~`
+- `~DISCLAIMER_H2_1~`
+- `~DISCLAIMER_H2_2~`
+- `~DISCLAIMER_H2_3~`
+- `~DISCLAIMER_H2_4~`
+- `~DISCLAIMER_INTRO~`
+- `~DISCLOSURE_BODY_1~`
+- `~DISCLOSURE_BODY_2~`
+- `~DISCLOSURE_BODY_3~`
+- `~DISCLOSURE_BODY_4~`
+- `~DISCLOSURE_H2_1~`
+- `~DISCLOSURE_H2_2~`
+- `~DISCLOSURE_H2_3~`
+- `~DISCLOSURE_H2_4~`
+- `~DISCLOSURE_INTRO~`
+- `~EDITORIAL_BODY_1~`
+- `~EDITORIAL_BODY_2~`
+- `~EDITORIAL_BODY_3~`
+- `~EDITORIAL_BODY_4~`
+- `~EDITORIAL_H2_1~`
+- `~EDITORIAL_H2_2~`
+- `~EDITORIAL_H2_3~`
+- `~EDITORIAL_H2_4~`
+- `~EDITORIAL_INTRO~`
+- `~FOOTER_NOTE~`
+- `~HERO_DESCRIPTION~`
+- `~HERO_EYEBROW~`
+- `~HERO_TITLE~`
+- `~HOME_FEATURED_LABEL~`
+- `~HOME_LATEST_LABEL~`
+- `~INDEPENDENCE_NOTE~`
+- `~INDEX_INTRO~`
+- `~INVITE_CODE~`
+- `~LANG~`
+- `~POLICY_MODIFIED~`
+- `~POLICY_SCOPE~`
+- `~PRIVACY_BODY_1~`
+- `~PRIVACY_BODY_2~`
+- `~PRIVACY_BODY_3~`
+- `~PRIVACY_BODY_4~`
+- `~PRIVACY_H2_1~`
+- `~PRIVACY_H2_2~`
+- `~PRIVACY_H2_3~`
+- `~PRIVACY_H2_4~`
+- `~PRIVACY_INTRO~`
+- `~RAIL_1_TEXT~`
+- `~RAIL_1_TITLE~`
+- `~RAIL_2_TEXT~`
+- `~RAIL_2_TITLE~`
+- `~RAIL_3_TEXT~`
+- `~RAIL_3_TITLE~`
+- `~RAIL_4_TEXT~`
+- `~RAIL_4_TITLE~`
+- `~RAIL_CAPTION~`
+- `~RAIL_EYEBROW~`
+- `~RAIL_QUOTE~`
+- `~RAIL_SEQUENCE~`
+- `~RAIL_TITLE~`
+- `~RISK_NOTE~`
+- `~SECURITY_EMAIL~`
+- `~SECURITY_EXPIRES~`
+- `~SECURITY_LANGUAGES~`
+- `~SEO_TITLE~`
+- `~SITE_DESC~`
+- `~SITE_DOMAIN~`
+- `~SITE_NAME~`
 
-后续 AI 只替换占位符与可见文字，不需要重新设计 UI。保留全部 `so52-` 类名、元素 `id`、`data-*` 属性、表单 `name`、五个页面文件名及 `style.css`、`boot.js` 的引用关系；这些标记共同维持主题、导航、阅读进度、复制、精确计算和 404 检索。
+## 验收
 
-- 首页观察轨道、文章结论和表格、试算公式、法律披露必须使用同一套术语与事实口径。
-- 费率、返佣比例、封顶、资格、地区、产品范围、结算周期和最低条件都要依据可追溯来源填写，并写明核对日期；无法确认的数字应删除或明确标成演示值。
-- 邀请码或推荐链接只有在真实、有效且完成利益披露时才能添加；转化直链须紧邻披露并使用 `rel="sponsored nofollow noopener noreferrer"`。没有授权信息时保持 0 条外链。
-- 每页只保留一个 `h1`；不要删除搜索和试算器的标签、帮助文本、错误提示、状态区域，404 必须保留 `noindex`。
+逐套运行 validate、audit-template、audit-workflow-readiness、全库 check-similarity，以及 tools/qa/052-split-observer-browser.js。逐页验收桌面、390px、360px 的深浅主题；实点复制、导航、筛选、404、五件工具的正常/错误/边界/重置/旧结果失效/异步复制与无 JavaScript 阅读。审计通过才可标记就绪。
 
-试算器固定规则：月成交额为 `0.01–1,000,000,000,000` 的普通十进制数且最多 2 位小数；手续费率与返佣分成为 `0–100` 且最多 6 位小数；可选封顶为 `0–1,000,000,000,000` 且最多 2 位小数。先把手续费四舍五入到分，再把返佣四舍五入到分，最后应用封顶。若改变口径，须同步修改 `tool.html`、`boot.js`、首页观察轨道和本文件。
+2026-09-04 本机验收：三套静态检查无问题；34 页 × 1440/768/390/360px × 明暗 = 272 次渲染、218 项交互和边界断言均通过，控制台与网络错误为 0。另核对全部变量登记、JSON-LD 解析、页内锚点和 12 张封面独立性。旧首页 39 个类名全部保留，旧 style.css 未改。浏览器报告与截图保存在本地忽略目录 artifacts/qa/052-split-observer-v2-2026-09-04；复验脚本在 tools/qa/052-split-observer-browser.js。
 
-交付前逐页检查标题与描述唯一、本地链接存在、无空锚点；再在桌面和 390px 手机视口验证横向溢出、44px 触控尺寸、明暗主题、菜单焦点、阅读进度、复制、试算空值/普通值/半分取整/封顶与不封顶/0%与100%/最大值/非法格式/输入后旧结果失效/预设/清空，以及 404 空值、命中、无结果和 HTML 注入文本，最后确认控制台无错误。
+测试使用仅在本地服务器内替换的中性文字与 example.invalid 链接，未写入发布模板；没有测试真实推广站点、真实站点内容或生产服务器。部署前仍须填完并核验内容、真实 HTTPS 链接、元数据与服务器 404 配置。原始动态源包忠实度尚未验证。
