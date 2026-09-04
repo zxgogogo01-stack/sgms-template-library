@@ -1,0 +1,39 @@
+/* Five bounded, local editorial tools. All result rendering uses textContent. */
+(function(){
+"use strict";
+const form=document.querySelector("[data-instrument]");if(!form)return;
+const result=document.querySelector("[data-result-text]"),state=document.querySelector("[data-result-state]"),error=document.querySelector("[data-input-error]"),copy=document.querySelector("[data-copy-result]"),copyState=document.querySelector("[data-result-copy-state]");
+const controls=[...form.querySelectorAll("input,select,textarea")];let revision=0,output="",snapshot=controls.map(e=>e.value).join("\u0000");
+const field=name=>form.elements.namedItem(name),value=name=>field(name).value;
+function fail(name,message){throw {field:name,message};}
+function normalized(name,max=3000){const raw=value(name);if(raw.length>max)fail(name,"输入最多 "+max+" 字符。");return raw.normalize("NFKC").trim();}
+function number(raw,min,max,name){if(!/^[1-9]\d*$/.test(raw)||!Number.isSafeInteger(Number(raw))||Number(raw)<min||Number(raw)>max)fail(name,"请输入 "+min+"–"+max+" 的普通整数，不含前导零、符号、小数或指数。");return Number(raw);}
+function mode(name,choices){const raw=value(name);if(!choices.includes(raw))fail(name,"请从已有选项中选择。");return raw;}
+function lines(name,max){const list=normalized(name).split(/\r\n|\r|\n/).map(s=>s.trim()).filter(Boolean);if(!list.length||list.length>max)fail(name,"请输入 1–"+max+" 个非空行。");return list;}
+const unsafe=/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f-\u009f\ud800-\udfff]/u;
+function clear(){revision++;output="";result.textContent="";error.textContent="";copyState.textContent="";copy.disabled=true;state.textContent="材料已改变，等待重新整理。";for(const e of controls){e.removeAttribute("aria-invalid");e.removeAttribute("aria-errormessage");}}
+function changed(){const now=controls.map(e=>e.value).join("\u0000");if(now!==snapshot){clear();snapshot=now;}}
+form.addEventListener("input",changed);form.addEventListener("change",changed);form.addEventListener("reset",()=>{clear();state.textContent="示例已恢复，等待整理。";setTimeout(()=>{snapshot=controls.map(e=>e.value).join("\u0000");},0);});
+function anchors(){const raw=value("headings");if(raw.length>10000||[...raw].length>5000)fail("headings","标题总输入最多 5000 码点、10000 个 UTF-16 单元。");if(unsafe.test(raw))fail("headings","不接收控制字符或孤立代理项；换行和制表可用。");const list=raw.normalize("NFKC").replace(/\r\n?/g,"\n").split("\n").map(s=>s.trim().replace(/\s+/gu," ")).filter(Boolean);if(!list.length||list.length>50)fail("headings","请输入 1–50 个非空标题。");if(list.some(s=>[...s].length>120))fail("headings","每个规范化后的标题最多 120 码点。");const joiner=mode("separator",["dash","underscore"])==="dash"?"-":"_",prefix=mode("prefix",["yes","no"])==="yes",used=new Set(),counts=new Map();let renamed=0,longest=0;const rows=list.map(title=>{let base=title.normalize("NFKD").replace(/\p{M}+/gu,"").toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu,joiner);base=base.replace(joiner==="-"?/^-+|-+$/g:/^_+|_+$/g,"");base=[...base].slice(0,48).join("").replace(joiner==="-"?/-+$/g:/_+$/g,"")||"section";if(prefix&&/^\p{N}/u.test(base))base="s"+joiner+base;let occurrence=(counts.get(base)||0)+1,slug=occurrence===1?base:base+joiner+occurrence;while(used.has(slug)){occurrence++;slug=base+joiner+occurrence;}counts.set(base,occurrence);used.add(slug);if(slug!==base)renamed++;longest=Math.max(longest,[...slug].length);return title+"\n#"+slug;});
+return "标题数："+list.length+"\n重名改写："+renamed+"\n最长锚点："+longest+" 码点\n\n"+rows.map((s,i)=>(i+1)+". "+s).join("\n\n")+"\n\n清单未读取现有页面；发布前仍需检查同名 id 与目录链接。";
+}
+function saddle(){const n=number(normalized("pages",20),4,256,"pages"),right=mode("binding",["left","right"])==="right";if(n%4)fail("pages","总页数须为 4 的倍数，不自动补空白。");const result=[];for(let i=0;i<n/4;i++){const front=[n-2*i,1+2*i],back=[2+2*i,n-1-2*i];if(right){front.reverse();back.reverse();}result.push("纸张 "+(i+1)+" | 正面 "+front.join(" | ")+" | 反面 "+back.join(" | "));}
+return "总页数："+n+"\n纸张数："+n/4+"\n装订："+(right?"右侧":"左侧")+"\n\n"+result.join("\n")+"\n\n按外到内排列；只是理想页序，不含打印翻转、爬移、出血或裁切，实际制作须打样。";
+}
+const romanValues=[[1000,"M"],[900,"CM"],[500,"D"],[400,"CD"],[100,"C"],[90,"XC"],[50,"L"],[40,"XL"],[10,"X"],[9,"IX"],[5,"V"],[4,"IV"],[1,"I"]];
+function roman(){const direction=mode("direction",["to-roman","to-decimal"]),list=lines("entries",100),rows=list.map(s=>{if(direction==="to-roman"){const n=number(s,1,3999,"entries");let rest=n,text="";for(const[val,label]of romanValues)while(rest>=val){text+=label;rest-=val;}return n+" → "+text;}const text=s.toUpperCase();if(!/^(?=.)M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/.test(text))fail("entries","罗马页码须为 1–3999 的规范减法写法，不含内部空白。");const values={I:1,V:5,X:10,L:50,C:100,D:500,M:1000};let n=0;for(let i=0;i<text.length;i++)n+=values[text[i]]*(values[text[i]]<(values[text[i+1]]||0)?-1:1);return text+" → "+n;});
+return "转写条数："+rows.length+"\n方向："+(direction==="to-roman"?"整数到罗马页码":"罗马页码到整数")+"\n\n"+rows.join("\n")+"\n\n仅处理规范页码标签；不判定历史异体写法的正误。";
+}
+function citations(){const raw=normalized("citations"),tokens=raw.split(",").map(s=>s.trim());if(!raw||tokens.length>200||tokens.some(s=>!s))fail("citations","请输入 1–200 个逗号分隔的编号，不留空项。");const cites=tokens.map(s=>number(s,1,9999,"citations")),sources=lines("sources",100).map(s=>number(s,1,9999,"sources"));if(new Set(sources).size!==sources.length)fail("sources","来源清单编号必须唯一，不能重复。");const counts=new Map();for(const n of cites)counts.set(n,(counts.get(n)||0)+1);const missing=[...counts.keys()].filter(n=>!sources.includes(n)),unused=sources.filter(n=>!counts.has(n)),fmt=list=>list.length?list.join(", "):"无";
+return "引用总次数："+cites.length+"\n引用编号数："+counts.size+"\n来源编号数："+sources.length+"\n缺失来源："+fmt(missing)+"\n未引用来源："+fmt(unused)+"\n\n首次出现顺序与频次：\n"+[...counts].map(([n,c])=>n+"："+c+" 次").join("\n")+"\n\n只核对编号与次数，不证明来源支持论述、真实可靠或具有使用授权。";
+}
+function brackets(){const raw=value("text");if(!raw.length||raw.length>2000||[...raw].length>1000)fail("text","请输入 1–1000 码点，最多 2000 个 UTF-16 单元。");if(unsafe.test(raw))fail("text","不接收控制字符或孤立代理项；换行和制表可保留。");const all=mode("pairs",["all","ascii"])==="all",pairs=new Map([["(",")"],["[","]"],["{","}"],...(all?[["（","）"],["【","】"],["《","》"],["「","」"]]:[])]),closers=new Set(pairs.values()),chars=[...raw.replace(/\r\n?/g,"\n")],stack=[],issues=[];let line=1,column=1,matched=0,depth=0;
+for(const c of chars){if(pairs.has(c)){stack.push({c,line,column});depth=Math.max(depth,stack.length);}else if(closers.has(c)){const last=stack.at(-1);if(last&&pairs.get(last.c)===c){stack.pop();matched++;}else issues.push("第 "+line+" 行第 "+column+" 列："+c+" 不匹配"+(last?"，栈顶需要 "+pairs.get(last.c):"，没有待闭合的开括号")+"。");}if(c==="\n"){line++;column=1;}else column++;}
+for(const s of stack)issues.push("第 "+s.line+" 行第 "+s.column+" 列："+s.c+" 尚未闭合，需要 "+pairs.get(s.c)+"。");
+return "检查范围："+(all?"英文及中文括号":"仅英文括号")+"\n规范换行后码点："+chars.length+"\n已配对："+matched+"\n最大待闭合深度："+depth+"\n问题数："+issues.length+"\n\n"+(issues.length?issues.join("\n"):"未发现括号配对问题。")+"\n\n不解释引号、注释或代码块；只检查字符配对，不验证语法与内容。";
+}
+const run=[anchors,saddle,roman,citations,brackets][Number(form.dataset.instrument)];
+form.querySelector("button[type=submit]").disabled=false;
+form.addEventListener("submit",e=>{e.preventDefault();clear();snapshot=controls.map(e=>e.value).join("\u0000");try{output=run();result.textContent=output;copy.disabled=false;state.textContent="整理完成，仅在本页保留。";}catch(err){const input=field(err.field)||controls[0];error.textContent=err.message||"材料格式无法处理，请检查输入。";input.setAttribute("aria-invalid","true");input.setAttribute("aria-errormessage","sf62-field-error");state.textContent="尚未生成记录。";input.focus();}});
+copy.addEventListener("click",async()=>{if(!output)return;const epoch=revision,text=output;copy.disabled=true;try{await navigator.clipboard.writeText(text);if(epoch===revision)copyState.textContent="已复制，可粘贴使用。";}catch{if(epoch===revision)copyState.textContent="无法复制，请手动选择结果文字。";}finally{if(epoch===revision)copy.disabled=false;}});
+})();
