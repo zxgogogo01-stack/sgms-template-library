@@ -1,39 +1,936 @@
-# 057-oat-profile
+# 057-oat-profile · 燕麦资料卡
 
-一套温暖燕麦色的主理人资料卡模板。首页由人物档案、快速文件柜和三张编辑卡组成；文章页负责展开证据链；工具页用五项检查生成发布建议。视觉与代码均使用 `op57-` 专属命名空间，不依赖公共 CMS 样式。
+## 完整框架与来源边界
 
-## 页面与文件
+保留燕麦纸色、圆章字标、资料卡、快速文件柜和三张笔记卡，保留 op57 命名与原 card.css；stationery.css 补齐阅读、目录和工具。原始动态源包忠实度未核验，UI 就绪不等于原包复刻证明。
 
-- `index.html`：人物档案、快速入口、最近笔记
-- `article.html`：长文、来源护照、复制摘要、阅读进度
-- `tool.html`：五项资料完整度检查
-- `legal.html`：利益披露、风险边界、联系与可复制文本
-- `404.html`：本地安全检索与页面引导
-- `card.css` / `card.js`：整套模板唯一的样式与交互入口
+## 后续 AI 内容接入
 
-## 后续 AI 内容接口
+只填写经核实的文字、文章和站点变量，无需补 UI、页面、组件、封面、工具或通用资源。保留类名、id、data、表单 name、aria 关系和相对路径。
 
-直接替换变量和可见文字即可，不需要重做 UI、DOM、类名、主题、移动导航或工具逻辑。推荐流程：
+- N1–N12 为独立文章槽位。三种开场、十二组件、3/5/4 个正文 H2、2/4/3 个 FAQ 和三种收尾已预搭。作者身份、经历、来源、日期、政策及联系方式必须由后续内容流程核实；抽象纸品图形不是实拍证据或真人肖像。
+- registrationGuide 只是旧检查器兼容字段，指向通用推广 UI 外壳 connection-card.html，不要求注册教程或业务文章。首页仅邀请码真复制及利益条件；该内容壳仅一个静态推广槽位并紧邻披露，其余页零推广直链。
+- 品牌使用英文或罗马字；HTML/XML 文字与属性按上下文转义，JSON-LD 使用 JSON 字符串编码并安全转义小于号。域名不带协议或路径；URL 只填写已核实的 HTTPS 地址，来源 URL 不填推广地址；日期用 ISO，RSS_DATE 用 RFC822，SECURITY_EXPIRES 为未来 RFC3339。
+- 首页标题、介绍和权益脚注保持简短，替换后复核 360px 首屏、长词、主题和表格。三个抽屉各有四篇纸页；增删文章需同步清单、分类、链接、sitemap、feed 及封面。不要把同一正文铺满所有文章。
+- 主题是唯一 localStorage 项。抽屉使用原生 details；无 JS 时可阅读、展开导航与目录，提交和复制禁用。表单、结果和搜索不保存、不上传；输入、重置与异步复制均处理旧结果失效。
+- 五工具为固定权重字段盘点、UTC 闭区间并集、十分之一毫米 BigInt 拼版、圆桌轮转配对、Intl.Segmenter 字素分栏。Guide 说明范围、算法与局限；字段齐备不证明正确，日期并集不是工龄认证，网格不是印刷文件，配对不是预约，字素预算不是实际视觉宽度。
+- 兼容入口 article.html/tool.html/legal.html 为 noindex，不自动跳转。未知深层 URL 须由单站服务器返回真实 404 并映射本模板 404.html；本轮不配置或部署服务器。
+- 每篇自带独立 SVG/PNG/WebP 1200×630 封面；WebP 显示并高优先级预载，PNG 用于 OG。另备社交图、SVG/ICO 图标、180px apple-touch-icon、robots、sitemap、摘要 RSS、security.txt。RSS 仅选第 1、2、4、5、7、8、10、11 篇摘要，不含推广或邀请码。
 
-1. 全局替换下列变量；保留 `op57-` 类名、`data-*` 属性、元素 id 和页面文件名。
-2. 首页三张笔记可直接改标题、标签、日期和摘要；增减卡片时复制完整 `article` 节点。
-3. 文章正文可以替换，但保留“来源护照”的字段结构与披露提醒。
-4. 工具页五个检查项的权重合计为 100；如需改权重，应同步修改 `data-weight`、说明文案和 `card.js` 判定门槛。
-5. 不要填入无法由官方页面或账户页面核实的具体比例、收益承诺或“最高”宣传。
+## workflow-ready-v2
 
-## 全局变量
+```json workflow-ready-v2
+{
+  "version": 2,
+  "home": "index.html",
+  "articleIndex": "notebooks.html",
+  "articles": [
+    "notes/source-passport.html",
+    "notes/name-plate.html",
+    "notes/dated-thread.html",
+    "notes/scope-frame.html",
+    "notes/evidence-folio.html",
+    "notes/service-bands.html",
+    "notes/availability-grid.html",
+    "notes/correspondence.html",
+    "notes/margin-note.html",
+    "notes/paired-views.html",
+    "notes/revision-spine.html",
+    "notes/connection-card.html"
+  ],
+  "cornerstones": [
+    "notes/source-passport.html",
+    "notes/name-plate.html"
+  ],
+  "registrationGuide": "notes/connection-card.html",
+  "articleCovers": {
+    "notes/source-passport.html": {
+      "display": "assets/covers/source-passport.webp",
+      "og": "assets/covers/source-passport.png"
+    },
+    "notes/name-plate.html": {
+      "display": "assets/covers/name-plate.webp",
+      "og": "assets/covers/name-plate.png"
+    },
+    "notes/dated-thread.html": {
+      "display": "assets/covers/dated-thread.webp",
+      "og": "assets/covers/dated-thread.png"
+    },
+    "notes/scope-frame.html": {
+      "display": "assets/covers/scope-frame.webp",
+      "og": "assets/covers/scope-frame.png"
+    },
+    "notes/evidence-folio.html": {
+      "display": "assets/covers/evidence-folio.webp",
+      "og": "assets/covers/evidence-folio.png"
+    },
+    "notes/service-bands.html": {
+      "display": "assets/covers/service-bands.webp",
+      "og": "assets/covers/service-bands.png"
+    },
+    "notes/availability-grid.html": {
+      "display": "assets/covers/availability-grid.webp",
+      "og": "assets/covers/availability-grid.png"
+    },
+    "notes/correspondence.html": {
+      "display": "assets/covers/correspondence.webp",
+      "og": "assets/covers/correspondence.png"
+    },
+    "notes/margin-note.html": {
+      "display": "assets/covers/margin-note.webp",
+      "og": "assets/covers/margin-note.png"
+    },
+    "notes/paired-views.html": {
+      "display": "assets/covers/paired-views.webp",
+      "og": "assets/covers/paired-views.png"
+    },
+    "notes/revision-spine.html": {
+      "display": "assets/covers/revision-spine.webp",
+      "og": "assets/covers/revision-spine.png"
+    },
+    "notes/connection-card.html": {
+      "display": "assets/covers/connection-card.webp",
+      "og": "assets/covers/connection-card.png"
+    }
+  },
+  "categories": [
+    {
+      "path": "drawers/identity-papers.html",
+      "label": "身份纸页",
+      "articles": [
+        "notes/source-passport.html",
+        "notes/name-plate.html",
+        "notes/dated-thread.html",
+        "notes/scope-frame.html"
+      ]
+    },
+    {
+      "path": "drawers/working-desk.html",
+      "label": "工作案头",
+      "articles": [
+        "notes/evidence-folio.html",
+        "notes/service-bands.html",
+        "notes/availability-grid.html",
+        "notes/correspondence.html"
+      ]
+    },
+    {
+      "path": "drawers/return-address.html",
+      "label": "回信地址",
+      "articles": [
+        "notes/margin-note.html",
+        "notes/paired-views.html",
+        "notes/revision-spine.html",
+        "notes/connection-card.html"
+      ]
+    }
+  ],
+  "toolIndex": "desk.html",
+  "tools": [
+    "desk/field-inventory.html",
+    "desk/date-union.html",
+    "desk/card-imposition.html",
+    "desk/round-robin.html",
+    "desk/text-columns.html"
+  ],
+  "legal": {
+    "about": "about.html",
+    "contact": "contact.html",
+    "disclosure": "disclosure.html",
+    "disclaimer": "disclaimer.html",
+    "privacy": "privacy.html",
+    "corrections": "corrections.html",
+    "editorial": "editorial.html"
+  },
+  "error404": "404.html",
+  "robots": "robots.txt",
+  "sitemap": "sitemap.xml",
+  "feed": "feed.xml",
+  "security": ".well-known/security.txt",
+  "favicon": "favicon.ico",
+  "appleTouchIcon": "apple-touch-icon.png",
+  "socialImage": "assets/social-card.png",
+  "variables": {
+    "siteDomain": "~SITE_DOMAIN~",
+    "siteName": "~SITE_NAME~",
+    "wordmark": "~BRAND_EN~",
+    "inviteCode": "~INVITE_CODE~",
+    "benefitRate": "~BENEFIT_RATE~",
+    "benefitDisclaimer": "~BENEFIT_DISCLAIMER~",
+    "affiliateUrl": "~AFFILIATE_URL~"
+  }
+}
+```
 
-`~LANG~`、`~SITE_NAME~`、`~BRAND_EN~`、`~SITE_DOMAIN~`、`~SITE_TAGLINE~`、`~SITE_DESC~`、`~SEO_TITLE~`、`~HERO_EYEBROW~`、`~HERO_TITLE~`、`~HERO_DESCRIPTION~`、`~HOME_LINKS_LABEL~`、`~HOME_LATEST_LABEL~`、`~CONTACT_EMAIL~`。
+## 全部变量
 
-其中 `~CONTACT_EMAIL~` 只出现在联系与更正说明中，应替换为可收信地址；不需要时请改成真实可用的联系路径，不要删除整段责任说明。
+- `~ABOUT_DESC~`
+- `~ABOUT_H2_1~`
+- `~ABOUT_H2_2~`
+- `~ABOUT_H2_3~`
+- `~ABOUT_INTRO~`
+- `~ABOUT_MODIFIED~`
+- `~ABOUT_NOTE~`
+- `~ABOUT_TEXT_1~`
+- `~ABOUT_TEXT_2~`
+- `~ABOUT_TEXT_3~`
+- `~AFFILIATE_DISCLOSURE~`
+- `~AFFILIATE_LABEL~`
+- `~AFFILIATE_URL~`
+- `~AUTHOR_BIO~`
+- `~AUTHOR_NAME~`
+- `~BENEFIT_DISCLAIMER~`
+- `~BENEFIT_RATE~`
+- `~BRAND_EN~`
+- `~CONTACT_DESC~`
+- `~CONTACT_EMAIL~`
+- `~CONTACT_H2_1~`
+- `~CONTACT_H2_2~`
+- `~CONTACT_H2_3~`
+- `~CONTACT_INTRO~`
+- `~CONTACT_MODIFIED~`
+- `~CONTACT_NOTE~`
+- `~CONTACT_TEXT_1~`
+- `~CONTACT_TEXT_2~`
+- `~CONTACT_TEXT_3~`
+- `~CORRECTIONS_DESC~`
+- `~CORRECTIONS_H2_1~`
+- `~CORRECTIONS_H2_2~`
+- `~CORRECTIONS_H2_3~`
+- `~CORRECTIONS_INTRO~`
+- `~CORRECTIONS_MODIFIED~`
+- `~CORRECTIONS_NOTE~`
+- `~CORRECTIONS_TEXT_1~`
+- `~CORRECTIONS_TEXT_2~`
+- `~CORRECTIONS_TEXT_3~`
+- `~DESK_DESC~`
+- `~DESK_INTRO~`
+- `~DISCLAIMER_DESC~`
+- `~DISCLAIMER_H2_1~`
+- `~DISCLAIMER_H2_2~`
+- `~DISCLAIMER_H2_3~`
+- `~DISCLAIMER_INTRO~`
+- `~DISCLAIMER_MODIFIED~`
+- `~DISCLAIMER_NOTE~`
+- `~DISCLAIMER_TEXT_1~`
+- `~DISCLAIMER_TEXT_2~`
+- `~DISCLAIMER_TEXT_3~`
+- `~DISCLOSURE_DESC~`
+- `~DISCLOSURE_H2_1~`
+- `~DISCLOSURE_H2_2~`
+- `~DISCLOSURE_H2_3~`
+- `~DISCLOSURE_INTRO~`
+- `~DISCLOSURE_MODIFIED~`
+- `~DISCLOSURE_NOTE~`
+- `~DISCLOSURE_TEXT_1~`
+- `~DISCLOSURE_TEXT_2~`
+- `~DISCLOSURE_TEXT_3~`
+- `~DRAWER_1_DESC~`
+- `~DRAWER_1_INTRO~`
+- `~DRAWER_2_DESC~`
+- `~DRAWER_2_INTRO~`
+- `~DRAWER_3_DESC~`
+- `~DRAWER_3_INTRO~`
+- `~EDITORIAL_DESC~`
+- `~EDITORIAL_H2_1~`
+- `~EDITORIAL_H2_2~`
+- `~EDITORIAL_H2_3~`
+- `~EDITORIAL_INTRO~`
+- `~EDITORIAL_MODIFIED~`
+- `~EDITORIAL_NOTE~`
+- `~EDITORIAL_TEXT_1~`
+- `~EDITORIAL_TEXT_2~`
+- `~EDITORIAL_TEXT_3~`
+- `~HERO_DESCRIPTION~`
+- `~HERO_EYEBROW~`
+- `~HERO_TITLE~`
+- `~HOME_LATEST_LABEL~`
+- `~HOME_LINKS_LABEL~`
+- `~HOME_TOOLS_TITLE~`
+- `~INDEPENDENCE_NOTE~`
+- `~INVITE_CODE~`
+- `~INVITE_LABEL~`
+- `~LANG~`
+- `~LATEST_TITLE~`
+- `~N10_CHECKED~`
+- `~N10_COVER_ALT~`
+- `~N10_COVER_CAPTION~`
+- `~N10_DESC~`
+- `~N10_END_TEXT~`
+- `~N10_END_TITLE~`
+- `~N10_FAQ_A1~`
+- `~N10_FAQ_A2~`
+- `~N10_FAQ_Q1~`
+- `~N10_FAQ_Q2~`
+- `~N10_H2_1~`
+- `~N10_H2_2~`
+- `~N10_H2_3~`
+- `~N10_INTRO~`
+- `~N10_MODIFIED~`
+- `~N10_M_LABEL_1~`
+- `~N10_M_LABEL_2~`
+- `~N10_M_TEXT_1~`
+- `~N10_M_TEXT_2~`
+- `~N10_PUBLISHED~`
+- `~N10_QUOTE_ATTRIBUTION~`
+- `~N10_QUOTE~`
+- `~N10_RSS_DATE~`
+- `~N10_SOURCE_LABEL_1~`
+- `~N10_SOURCE_LABEL_2~`
+- `~N10_SOURCE_NOTE_1~`
+- `~N10_SOURCE_NOTE_2~`
+- `~N10_SOURCE_URL_1~`
+- `~N10_SOURCE_URL_2~`
+- `~N10_SUMMARY~`
+- `~N10_TABLE_CAPTION~`
+- `~N10_TABLE_CELL_1_1~`
+- `~N10_TABLE_CELL_1_2~`
+- `~N10_TABLE_CELL_2_1~`
+- `~N10_TABLE_CELL_2_2~`
+- `~N10_TABLE_CELL_3_1~`
+- `~N10_TABLE_CELL_3_2~`
+- `~N10_TABLE_COL_1~`
+- `~N10_TABLE_COL_2~`
+- `~N10_TABLE_COL_3~`
+- `~N10_TABLE_ROW_1~`
+- `~N10_TABLE_ROW_2~`
+- `~N10_TABLE_ROW_3~`
+- `~N10_TEXT_1~`
+- `~N10_TEXT_2~`
+- `~N10_TEXT_3~`
+- `~N10_TITLE~`
+- `~N11_CHECKED~`
+- `~N11_COVER_ALT~`
+- `~N11_COVER_CAPTION~`
+- `~N11_DESC~`
+- `~N11_END_TEXT~`
+- `~N11_END_TITLE~`
+- `~N11_FAQ_A1~`
+- `~N11_FAQ_A2~`
+- `~N11_FAQ_A3~`
+- `~N11_FAQ_A4~`
+- `~N11_FAQ_Q1~`
+- `~N11_FAQ_Q2~`
+- `~N11_FAQ_Q3~`
+- `~N11_FAQ_Q4~`
+- `~N11_H2_1~`
+- `~N11_H2_2~`
+- `~N11_H2_3~`
+- `~N11_H2_4~`
+- `~N11_H2_5~`
+- `~N11_INTRO~`
+- `~N11_MODIFIED~`
+- `~N11_M_LABEL_1~`
+- `~N11_M_LABEL_2~`
+- `~N11_M_LABEL_3~`
+- `~N11_M_LABEL~`
+- `~N11_M_TEXT_1~`
+- `~N11_M_TEXT_2~`
+- `~N11_M_TEXT_3~`
+- `~N11_PUBLISHED~`
+- `~N11_QUOTE_ATTRIBUTION~`
+- `~N11_QUOTE~`
+- `~N11_RSS_DATE~`
+- `~N11_SOURCE_LABEL_1~`
+- `~N11_SOURCE_LABEL_2~`
+- `~N11_SOURCE_NOTE_1~`
+- `~N11_SOURCE_NOTE_2~`
+- `~N11_SOURCE_URL_1~`
+- `~N11_SOURCE_URL_2~`
+- `~N11_SUMMARY~`
+- `~N11_TABLE_CAPTION~`
+- `~N11_TABLE_CELL_1_1~`
+- `~N11_TABLE_CELL_1_2~`
+- `~N11_TABLE_CELL_2_1~`
+- `~N11_TABLE_CELL_2_2~`
+- `~N11_TABLE_CELL_3_1~`
+- `~N11_TABLE_CELL_3_2~`
+- `~N11_TABLE_COL_1~`
+- `~N11_TABLE_COL_2~`
+- `~N11_TABLE_COL_3~`
+- `~N11_TABLE_ROW_1~`
+- `~N11_TABLE_ROW_2~`
+- `~N11_TABLE_ROW_3~`
+- `~N11_TEXT_1~`
+- `~N11_TEXT_2~`
+- `~N11_TEXT_3~`
+- `~N11_TEXT_4~`
+- `~N11_TEXT_5~`
+- `~N11_TITLE~`
+- `~N12_CHECKED~`
+- `~N12_COVER_ALT~`
+- `~N12_COVER_CAPTION~`
+- `~N12_DESC~`
+- `~N12_END_TEXT~`
+- `~N12_END_TITLE~`
+- `~N12_FAQ_A1~`
+- `~N12_FAQ_A2~`
+- `~N12_FAQ_A3~`
+- `~N12_FAQ_Q1~`
+- `~N12_FAQ_Q2~`
+- `~N12_FAQ_Q3~`
+- `~N12_H2_1~`
+- `~N12_H2_2~`
+- `~N12_H2_3~`
+- `~N12_H2_4~`
+- `~N12_INTRO~`
+- `~N12_MODIFIED~`
+- `~N12_M_LABEL~`
+- `~N12_M_TEXT~`
+- `~N12_PUBLISHED~`
+- `~N12_QUOTE_ATTRIBUTION~`
+- `~N12_QUOTE~`
+- `~N12_SOURCE_LABEL_1~`
+- `~N12_SOURCE_LABEL_2~`
+- `~N12_SOURCE_NOTE_1~`
+- `~N12_SOURCE_NOTE_2~`
+- `~N12_SOURCE_URL_1~`
+- `~N12_SOURCE_URL_2~`
+- `~N12_SUMMARY~`
+- `~N12_TABLE_CAPTION~`
+- `~N12_TABLE_CELL_1_1~`
+- `~N12_TABLE_CELL_1_2~`
+- `~N12_TABLE_CELL_2_1~`
+- `~N12_TABLE_CELL_2_2~`
+- `~N12_TABLE_CELL_3_1~`
+- `~N12_TABLE_CELL_3_2~`
+- `~N12_TABLE_COL_1~`
+- `~N12_TABLE_COL_2~`
+- `~N12_TABLE_COL_3~`
+- `~N12_TABLE_ROW_1~`
+- `~N12_TABLE_ROW_2~`
+- `~N12_TABLE_ROW_3~`
+- `~N12_TEXT_1~`
+- `~N12_TEXT_2~`
+- `~N12_TEXT_3~`
+- `~N12_TEXT_4~`
+- `~N12_TITLE~`
+- `~N1_CHECKED~`
+- `~N1_COVER_ALT~`
+- `~N1_COVER_CAPTION~`
+- `~N1_DESC~`
+- `~N1_END_TEXT~`
+- `~N1_END_TITLE~`
+- `~N1_FAQ_A1~`
+- `~N1_FAQ_A2~`
+- `~N1_FAQ_Q1~`
+- `~N1_FAQ_Q2~`
+- `~N1_H2_1~`
+- `~N1_H2_2~`
+- `~N1_H2_3~`
+- `~N1_INTRO~`
+- `~N1_MODIFIED~`
+- `~N1_M_LABEL_1~`
+- `~N1_M_LABEL_2~`
+- `~N1_M_LABEL_3~`
+- `~N1_M_LABEL_4~`
+- `~N1_M_LABEL~`
+- `~N1_M_TEXT_1~`
+- `~N1_M_TEXT_2~`
+- `~N1_M_TEXT_3~`
+- `~N1_M_TEXT_4~`
+- `~N1_PUBLISHED~`
+- `~N1_QUOTE_ATTRIBUTION~`
+- `~N1_QUOTE~`
+- `~N1_RSS_DATE~`
+- `~N1_SOURCE_LABEL_1~`
+- `~N1_SOURCE_LABEL_2~`
+- `~N1_SOURCE_NOTE_1~`
+- `~N1_SOURCE_NOTE_2~`
+- `~N1_SOURCE_URL_1~`
+- `~N1_SOURCE_URL_2~`
+- `~N1_SUMMARY~`
+- `~N1_TABLE_CAPTION~`
+- `~N1_TABLE_CELL_1_1~`
+- `~N1_TABLE_CELL_1_2~`
+- `~N1_TABLE_CELL_2_1~`
+- `~N1_TABLE_CELL_2_2~`
+- `~N1_TABLE_CELL_3_1~`
+- `~N1_TABLE_CELL_3_2~`
+- `~N1_TABLE_COL_1~`
+- `~N1_TABLE_COL_2~`
+- `~N1_TABLE_COL_3~`
+- `~N1_TABLE_ROW_1~`
+- `~N1_TABLE_ROW_2~`
+- `~N1_TABLE_ROW_3~`
+- `~N1_TEXT_1~`
+- `~N1_TEXT_2~`
+- `~N1_TEXT_3~`
+- `~N1_TITLE~`
+- `~N2_CHECKED~`
+- `~N2_COVER_ALT~`
+- `~N2_COVER_CAPTION~`
+- `~N2_DESC~`
+- `~N2_END_TEXT~`
+- `~N2_END_TITLE~`
+- `~N2_FAQ_A1~`
+- `~N2_FAQ_A2~`
+- `~N2_FAQ_A3~`
+- `~N2_FAQ_A4~`
+- `~N2_FAQ_Q1~`
+- `~N2_FAQ_Q2~`
+- `~N2_FAQ_Q3~`
+- `~N2_FAQ_Q4~`
+- `~N2_H2_1~`
+- `~N2_H2_2~`
+- `~N2_H2_3~`
+- `~N2_H2_4~`
+- `~N2_H2_5~`
+- `~N2_INTRO~`
+- `~N2_MODIFIED~`
+- `~N2_M_LABEL_1~`
+- `~N2_M_LABEL_2~`
+- `~N2_M_LABEL~`
+- `~N2_M_TEXT_1~`
+- `~N2_M_TEXT_2~`
+- `~N2_M_TEXT~`
+- `~N2_PUBLISHED~`
+- `~N2_QUOTE_ATTRIBUTION~`
+- `~N2_QUOTE~`
+- `~N2_RSS_DATE~`
+- `~N2_SOURCE_LABEL_1~`
+- `~N2_SOURCE_LABEL_2~`
+- `~N2_SOURCE_NOTE_1~`
+- `~N2_SOURCE_NOTE_2~`
+- `~N2_SOURCE_URL_1~`
+- `~N2_SOURCE_URL_2~`
+- `~N2_SUMMARY~`
+- `~N2_TABLE_CAPTION~`
+- `~N2_TABLE_CELL_1_1~`
+- `~N2_TABLE_CELL_1_2~`
+- `~N2_TABLE_CELL_2_1~`
+- `~N2_TABLE_CELL_2_2~`
+- `~N2_TABLE_CELL_3_1~`
+- `~N2_TABLE_CELL_3_2~`
+- `~N2_TABLE_COL_1~`
+- `~N2_TABLE_COL_2~`
+- `~N2_TABLE_COL_3~`
+- `~N2_TABLE_ROW_1~`
+- `~N2_TABLE_ROW_2~`
+- `~N2_TABLE_ROW_3~`
+- `~N2_TEXT_1~`
+- `~N2_TEXT_2~`
+- `~N2_TEXT_3~`
+- `~N2_TEXT_4~`
+- `~N2_TEXT_5~`
+- `~N2_TITLE~`
+- `~N3_CHECKED~`
+- `~N3_COVER_ALT~`
+- `~N3_COVER_CAPTION~`
+- `~N3_DESC~`
+- `~N3_END_TEXT~`
+- `~N3_END_TITLE~`
+- `~N3_FAQ_A1~`
+- `~N3_FAQ_A2~`
+- `~N3_FAQ_A3~`
+- `~N3_FAQ_Q1~`
+- `~N3_FAQ_Q2~`
+- `~N3_FAQ_Q3~`
+- `~N3_H2_1~`
+- `~N3_H2_2~`
+- `~N3_H2_3~`
+- `~N3_H2_4~`
+- `~N3_INTRO~`
+- `~N3_MODIFIED~`
+- `~N3_M_DATE_1~`
+- `~N3_M_DATE_2~`
+- `~N3_M_DATE_3~`
+- `~N3_M_LABEL_1~`
+- `~N3_M_LABEL_2~`
+- `~N3_M_LABEL_3~`
+- `~N3_M_TEXT_1~`
+- `~N3_M_TEXT_2~`
+- `~N3_M_TEXT_3~`
+- `~N3_PUBLISHED~`
+- `~N3_QUOTE_ATTRIBUTION~`
+- `~N3_QUOTE~`
+- `~N3_SOURCE_LABEL_1~`
+- `~N3_SOURCE_LABEL_2~`
+- `~N3_SOURCE_NOTE_1~`
+- `~N3_SOURCE_NOTE_2~`
+- `~N3_SOURCE_URL_1~`
+- `~N3_SOURCE_URL_2~`
+- `~N3_SUMMARY~`
+- `~N3_TABLE_CAPTION~`
+- `~N3_TABLE_CELL_1_1~`
+- `~N3_TABLE_CELL_1_2~`
+- `~N3_TABLE_CELL_2_1~`
+- `~N3_TABLE_CELL_2_2~`
+- `~N3_TABLE_CELL_3_1~`
+- `~N3_TABLE_CELL_3_2~`
+- `~N3_TABLE_COL_1~`
+- `~N3_TABLE_COL_2~`
+- `~N3_TABLE_COL_3~`
+- `~N3_TABLE_ROW_1~`
+- `~N3_TABLE_ROW_2~`
+- `~N3_TABLE_ROW_3~`
+- `~N3_TEXT_1~`
+- `~N3_TEXT_2~`
+- `~N3_TEXT_3~`
+- `~N3_TEXT_4~`
+- `~N3_TITLE~`
+- `~N4_CHECKED~`
+- `~N4_COVER_ALT~`
+- `~N4_COVER_CAPTION~`
+- `~N4_DESC~`
+- `~N4_END_TEXT~`
+- `~N4_END_TITLE~`
+- `~N4_FAQ_A1~`
+- `~N4_FAQ_A2~`
+- `~N4_FAQ_Q1~`
+- `~N4_FAQ_Q2~`
+- `~N4_H2_1~`
+- `~N4_H2_2~`
+- `~N4_H2_3~`
+- `~N4_INTRO~`
+- `~N4_MODIFIED~`
+- `~N4_M_LABEL_1~`
+- `~N4_M_LABEL_2~`
+- `~N4_M_LABEL~`
+- `~N4_M_TEXT_1~`
+- `~N4_M_TEXT_2~`
+- `~N4_M_TEXT~`
+- `~N4_PUBLISHED~`
+- `~N4_QUOTE_ATTRIBUTION~`
+- `~N4_QUOTE~`
+- `~N4_RSS_DATE~`
+- `~N4_SOURCE_LABEL_1~`
+- `~N4_SOURCE_LABEL_2~`
+- `~N4_SOURCE_NOTE_1~`
+- `~N4_SOURCE_NOTE_2~`
+- `~N4_SOURCE_URL_1~`
+- `~N4_SOURCE_URL_2~`
+- `~N4_SUMMARY~`
+- `~N4_TABLE_CAPTION~`
+- `~N4_TABLE_CELL_1_1~`
+- `~N4_TABLE_CELL_1_2~`
+- `~N4_TABLE_CELL_2_1~`
+- `~N4_TABLE_CELL_2_2~`
+- `~N4_TABLE_CELL_3_1~`
+- `~N4_TABLE_CELL_3_2~`
+- `~N4_TABLE_COL_1~`
+- `~N4_TABLE_COL_2~`
+- `~N4_TABLE_COL_3~`
+- `~N4_TABLE_ROW_1~`
+- `~N4_TABLE_ROW_2~`
+- `~N4_TABLE_ROW_3~`
+- `~N4_TEXT_1~`
+- `~N4_TEXT_2~`
+- `~N4_TEXT_3~`
+- `~N4_TITLE~`
+- `~N5_CHECKED~`
+- `~N5_COVER_ALT~`
+- `~N5_COVER_CAPTION~`
+- `~N5_DESC~`
+- `~N5_END_TEXT~`
+- `~N5_END_TITLE~`
+- `~N5_FAQ_A1~`
+- `~N5_FAQ_A2~`
+- `~N5_FAQ_A3~`
+- `~N5_FAQ_A4~`
+- `~N5_FAQ_Q1~`
+- `~N5_FAQ_Q2~`
+- `~N5_FAQ_Q3~`
+- `~N5_FAQ_Q4~`
+- `~N5_H2_1~`
+- `~N5_H2_2~`
+- `~N5_H2_3~`
+- `~N5_H2_4~`
+- `~N5_H2_5~`
+- `~N5_INTRO~`
+- `~N5_MODIFIED~`
+- `~N5_M_LABEL_1~`
+- `~N5_M_LABEL_2~`
+- `~N5_M_LABEL_3~`
+- `~N5_M_LABEL~`
+- `~N5_M_TEXT_1~`
+- `~N5_M_TEXT_2~`
+- `~N5_M_TEXT_3~`
+- `~N5_M_TEXT~`
+- `~N5_PUBLISHED~`
+- `~N5_QUOTE_ATTRIBUTION~`
+- `~N5_QUOTE~`
+- `~N5_RSS_DATE~`
+- `~N5_SOURCE_LABEL_1~`
+- `~N5_SOURCE_LABEL_2~`
+- `~N5_SOURCE_NOTE_1~`
+- `~N5_SOURCE_NOTE_2~`
+- `~N5_SOURCE_URL_1~`
+- `~N5_SOURCE_URL_2~`
+- `~N5_SUMMARY~`
+- `~N5_TABLE_CAPTION~`
+- `~N5_TABLE_CELL_1_1~`
+- `~N5_TABLE_CELL_1_2~`
+- `~N5_TABLE_CELL_2_1~`
+- `~N5_TABLE_CELL_2_2~`
+- `~N5_TABLE_CELL_3_1~`
+- `~N5_TABLE_CELL_3_2~`
+- `~N5_TABLE_COL_1~`
+- `~N5_TABLE_COL_2~`
+- `~N5_TABLE_COL_3~`
+- `~N5_TABLE_ROW_1~`
+- `~N5_TABLE_ROW_2~`
+- `~N5_TABLE_ROW_3~`
+- `~N5_TEXT_1~`
+- `~N5_TEXT_2~`
+- `~N5_TEXT_3~`
+- `~N5_TEXT_4~`
+- `~N5_TEXT_5~`
+- `~N5_TITLE~`
+- `~N6_CHECKED~`
+- `~N6_COVER_ALT~`
+- `~N6_COVER_CAPTION~`
+- `~N6_DESC~`
+- `~N6_END_TEXT~`
+- `~N6_END_TITLE~`
+- `~N6_FAQ_A1~`
+- `~N6_FAQ_A2~`
+- `~N6_FAQ_A3~`
+- `~N6_FAQ_Q1~`
+- `~N6_FAQ_Q2~`
+- `~N6_FAQ_Q3~`
+- `~N6_H2_1~`
+- `~N6_H2_2~`
+- `~N6_H2_3~`
+- `~N6_H2_4~`
+- `~N6_INTRO~`
+- `~N6_MODIFIED~`
+- `~N6_M_LABEL_1~`
+- `~N6_M_LABEL_2~`
+- `~N6_M_LABEL_3~`
+- `~N6_M_TEXT_1~`
+- `~N6_M_TEXT_2~`
+- `~N6_M_TEXT_3~`
+- `~N6_PUBLISHED~`
+- `~N6_QUOTE_ATTRIBUTION~`
+- `~N6_QUOTE~`
+- `~N6_SOURCE_LABEL_1~`
+- `~N6_SOURCE_LABEL_2~`
+- `~N6_SOURCE_NOTE_1~`
+- `~N6_SOURCE_NOTE_2~`
+- `~N6_SOURCE_URL_1~`
+- `~N6_SOURCE_URL_2~`
+- `~N6_SUMMARY~`
+- `~N6_TABLE_CAPTION~`
+- `~N6_TABLE_CELL_1_1~`
+- `~N6_TABLE_CELL_1_2~`
+- `~N6_TABLE_CELL_2_1~`
+- `~N6_TABLE_CELL_2_2~`
+- `~N6_TABLE_CELL_3_1~`
+- `~N6_TABLE_CELL_3_2~`
+- `~N6_TABLE_COL_1~`
+- `~N6_TABLE_COL_2~`
+- `~N6_TABLE_COL_3~`
+- `~N6_TABLE_ROW_1~`
+- `~N6_TABLE_ROW_2~`
+- `~N6_TABLE_ROW_3~`
+- `~N6_TEXT_1~`
+- `~N6_TEXT_2~`
+- `~N6_TEXT_3~`
+- `~N6_TEXT_4~`
+- `~N6_TITLE~`
+- `~N7_CHECKED~`
+- `~N7_COVER_ALT~`
+- `~N7_COVER_CAPTION~`
+- `~N7_DESC~`
+- `~N7_END_TEXT~`
+- `~N7_END_TITLE~`
+- `~N7_FAQ_A1~`
+- `~N7_FAQ_A2~`
+- `~N7_FAQ_Q1~`
+- `~N7_FAQ_Q2~`
+- `~N7_H2_1~`
+- `~N7_H2_2~`
+- `~N7_H2_3~`
+- `~N7_INTRO~`
+- `~N7_MODIFIED~`
+- `~N7_M_LABEL_1~`
+- `~N7_M_LABEL_2~`
+- `~N7_M_LABEL_3~`
+- `~N7_M_LABEL_4~`
+- `~N7_M_LABEL_5~`
+- `~N7_M_LABEL_6~`
+- `~N7_M_LABEL~`
+- `~N7_M_TEXT_1~`
+- `~N7_M_TEXT_2~`
+- `~N7_M_TEXT_3~`
+- `~N7_M_TEXT_4~`
+- `~N7_M_TEXT_5~`
+- `~N7_M_TEXT_6~`
+- `~N7_M_TEXT~`
+- `~N7_PUBLISHED~`
+- `~N7_QUOTE_ATTRIBUTION~`
+- `~N7_QUOTE~`
+- `~N7_RSS_DATE~`
+- `~N7_SOURCE_LABEL_1~`
+- `~N7_SOURCE_LABEL_2~`
+- `~N7_SOURCE_NOTE_1~`
+- `~N7_SOURCE_NOTE_2~`
+- `~N7_SOURCE_URL_1~`
+- `~N7_SOURCE_URL_2~`
+- `~N7_SUMMARY~`
+- `~N7_TABLE_CAPTION~`
+- `~N7_TABLE_CELL_1_1~`
+- `~N7_TABLE_CELL_1_2~`
+- `~N7_TABLE_CELL_2_1~`
+- `~N7_TABLE_CELL_2_2~`
+- `~N7_TABLE_CELL_3_1~`
+- `~N7_TABLE_CELL_3_2~`
+- `~N7_TABLE_COL_1~`
+- `~N7_TABLE_COL_2~`
+- `~N7_TABLE_COL_3~`
+- `~N7_TABLE_ROW_1~`
+- `~N7_TABLE_ROW_2~`
+- `~N7_TABLE_ROW_3~`
+- `~N7_TEXT_1~`
+- `~N7_TEXT_2~`
+- `~N7_TEXT_3~`
+- `~N7_TITLE~`
+- `~N8_CHECKED~`
+- `~N8_COVER_ALT~`
+- `~N8_COVER_CAPTION~`
+- `~N8_DESC~`
+- `~N8_END_TEXT~`
+- `~N8_END_TITLE~`
+- `~N8_FAQ_A1~`
+- `~N8_FAQ_A2~`
+- `~N8_FAQ_A3~`
+- `~N8_FAQ_A4~`
+- `~N8_FAQ_Q1~`
+- `~N8_FAQ_Q2~`
+- `~N8_FAQ_Q3~`
+- `~N8_FAQ_Q4~`
+- `~N8_H2_1~`
+- `~N8_H2_2~`
+- `~N8_H2_3~`
+- `~N8_H2_4~`
+- `~N8_H2_5~`
+- `~N8_INTRO~`
+- `~N8_MODIFIED~`
+- `~N8_M_FOOT~`
+- `~N8_M_LABEL~`
+- `~N8_M_TEXT~`
+- `~N8_PUBLISHED~`
+- `~N8_QUOTE_ATTRIBUTION~`
+- `~N8_QUOTE~`
+- `~N8_RSS_DATE~`
+- `~N8_SOURCE_LABEL_1~`
+- `~N8_SOURCE_LABEL_2~`
+- `~N8_SOURCE_NOTE_1~`
+- `~N8_SOURCE_NOTE_2~`
+- `~N8_SOURCE_URL_1~`
+- `~N8_SOURCE_URL_2~`
+- `~N8_SUMMARY~`
+- `~N8_TABLE_CAPTION~`
+- `~N8_TABLE_CELL_1_1~`
+- `~N8_TABLE_CELL_1_2~`
+- `~N8_TABLE_CELL_2_1~`
+- `~N8_TABLE_CELL_2_2~`
+- `~N8_TABLE_CELL_3_1~`
+- `~N8_TABLE_CELL_3_2~`
+- `~N8_TABLE_COL_1~`
+- `~N8_TABLE_COL_2~`
+- `~N8_TABLE_COL_3~`
+- `~N8_TABLE_ROW_1~`
+- `~N8_TABLE_ROW_2~`
+- `~N8_TABLE_ROW_3~`
+- `~N8_TEXT_1~`
+- `~N8_TEXT_2~`
+- `~N8_TEXT_3~`
+- `~N8_TEXT_4~`
+- `~N8_TEXT_5~`
+- `~N8_TITLE~`
+- `~N9_CHECKED~`
+- `~N9_COVER_ALT~`
+- `~N9_COVER_CAPTION~`
+- `~N9_DESC~`
+- `~N9_END_TEXT~`
+- `~N9_END_TITLE~`
+- `~N9_FAQ_A1~`
+- `~N9_FAQ_A2~`
+- `~N9_FAQ_A3~`
+- `~N9_FAQ_Q1~`
+- `~N9_FAQ_Q2~`
+- `~N9_FAQ_Q3~`
+- `~N9_H2_1~`
+- `~N9_H2_2~`
+- `~N9_H2_3~`
+- `~N9_H2_4~`
+- `~N9_INTRO~`
+- `~N9_MODIFIED~`
+- `~N9_M_LABEL_1~`
+- `~N9_M_LABEL_2~`
+- `~N9_M_LABEL~`
+- `~N9_M_TEXT_1~`
+- `~N9_M_TEXT_2~`
+- `~N9_M_TEXT~`
+- `~N9_PUBLISHED~`
+- `~N9_QUOTE_ATTRIBUTION~`
+- `~N9_QUOTE~`
+- `~N9_SOURCE_LABEL_1~`
+- `~N9_SOURCE_LABEL_2~`
+- `~N9_SOURCE_NOTE_1~`
+- `~N9_SOURCE_NOTE_2~`
+- `~N9_SOURCE_URL_1~`
+- `~N9_SOURCE_URL_2~`
+- `~N9_SUMMARY~`
+- `~N9_TABLE_CAPTION~`
+- `~N9_TABLE_CELL_1_1~`
+- `~N9_TABLE_CELL_1_2~`
+- `~N9_TABLE_CELL_2_1~`
+- `~N9_TABLE_CELL_2_2~`
+- `~N9_TABLE_CELL_3_1~`
+- `~N9_TABLE_CELL_3_2~`
+- `~N9_TABLE_COL_1~`
+- `~N9_TABLE_COL_2~`
+- `~N9_TABLE_COL_3~`
+- `~N9_TABLE_ROW_1~`
+- `~N9_TABLE_ROW_2~`
+- `~N9_TABLE_ROW_3~`
+- `~N9_TEXT_1~`
+- `~N9_TEXT_2~`
+- `~N9_TEXT_3~`
+- `~N9_TEXT_4~`
+- `~N9_TITLE~`
+- `~NOTEBOOKS_DESC~`
+- `~NOTEBOOKS_INTRO~`
+- `~PRIVACY_DESC~`
+- `~PRIVACY_H2_1~`
+- `~PRIVACY_H2_2~`
+- `~PRIVACY_H2_3~`
+- `~PRIVACY_INTRO~`
+- `~PRIVACY_MODIFIED~`
+- `~PRIVACY_NOTE~`
+- `~PRIVACY_TEXT_1~`
+- `~PRIVACY_TEXT_2~`
+- `~PRIVACY_TEXT_3~`
+- `~PROFILE_FIELD_1~`
+- `~PROFILE_FIELD_2~`
+- `~PROFILE_FIELD_3~`
+- `~PROFILE_QUOTE_ATTRIBUTION~`
+- `~PROFILE_QUOTE~`
+- `~PROFILE_VALUE_1~`
+- `~PROFILE_VALUE_2~`
+- `~PROFILE_VALUE_3~`
+- `~QUICK_FILE_1_NOTE~`
+- `~QUICK_FILE_2_NOTE~`
+- `~QUICK_FILE_3_NOTE~`
+- `~QUICK_FILE_4_NOTE~`
+- `~RISK_NOTE~`
+- `~SECURITY_EMAIL~`
+- `~SECURITY_EXPIRES~`
+- `~SEO_TITLE~`
+- `~SITE_DESC~`
+- `~SITE_DOMAIN~`
+- `~SITE_NAME~`
+- `~SITE_TAGLINE~`
 
-## 工具规则
+## 验收记录
 
-- 五项权重：官方来源 30、适用范围 20、版本/条款 20、生效时间 15、复核责任人 15。
-- 未勾任何项时不生成结果；1–59 为“暂缓发布”，60–84 为“补证后复核”，85–100 为“可进入终审”。
-- 结果只代表资料字段完整度，不代表内容正确、平台认可或投资安全。
-- 输出节点通过 `textContent` / `createElement` 构造，不得改回 `innerHTML`。
-
-## 交付前检查
-
-运行 `node tools/audit-template.js templates/057-oat-profile`、`node tools/validate.js` 和与全库其他模板的逐对相似度检查；再在 1440×1000 与 390×844 下验收五页、主题、菜单、复制、阅读进度、工具空态/三种结果/预设/重置和 404 安全检索，确认控制台无错误。
+- 2026-09-04：validate、audit-template、audit-workflow-readiness 均通过，P0/P1/P2 均为 0。共 84 个文件、34 个 HTML（30 个可索引页、404 和 3 个兼容入口）。首页原有 21 个类名全部保留，原 card.css 字节不变。
+- `node tools/qa/057-oat-profile-browser.js` 完成 34 页 × 1440/768/390/360px × 明暗主题，共 272 次渲染与 377 项功能/边界检查，零失败、零控制台与网络错误。本地生成证据在 `artifacts/qa/057-oat-profile-v2-2026-09-04/`，不提交截图产物。
+- 五工具检查包含全部 32 种字段组合、UTC 闭区间日集合独立对照、闰年/世纪/全日期范围/重叠计量、十分之一毫米与旋转/并列/零容量/最大网格及独立逐格枚举、2–16 人选取奇偶规模的全部配对唯一性与每轮人员守恒、字素与组合重音/ZWJ/旗帜/修饰符/空行/尾换行/CRLF/4000 卡片上限及不支持分段的降级状态。原生粘贴与回车、复制拒绝、重置与异步旧结果失效通过。
+- 首屏邀请码真复制、主题持久化、菜单焦点与 Escape、三个原生抽屉、404 标题搜索三态与深层真实 404、唯一推广 UI 槽位、无 JS 阅读/导航/抽屉及禁用提交、reduced-motion、原生 Tab/Enter 跳转、阅读进度和明暗原生控件配色通过。
+- 人工查看首页、目录、三种开场、十二组件、五工具、封面、移动端表格和暗色错误状态。修正浅色次要文字对比度、暗色原生滚动条和兼容页重复描述后完整重验。测试脚本的无 JS 动画帧等待曾阻塞；确认活进程与页面后终止该轮，仅将改用原生鼠标事件且有超时保护后的完整报告作为通过证据。
+- 变量登记、JSON-LD、页内锚点、十二独立 1200×630 PNG 与敏感模式扫描通过。相邻 056：类名 1.7%、DOM 标签二元组 30.0%、CSS 属性序列 28.4%。全库 160 套类名最高 9.1%；仅既有 003×004、005×006 两组 CSS 参考警告。统计指标不保证完全不存在可识别共性。
+- 原始动态源包忠实度未核验，与 UI 就绪分别记录。本轮仅制作模板，不代写文章或注册教程，未触发 CI、未部署生产。填入真实事实、文章及变量后仍需完成单站内容与发布审计。

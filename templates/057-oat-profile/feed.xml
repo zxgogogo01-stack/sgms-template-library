@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>~SITE_NAME~</title><link>https://~SITE_DOMAIN~/</link><description>~SITE_DESC~</description>
+<item><title>~N1_TITLE~</title><link>https://~SITE_DOMAIN~/notes/source-passport.html</link><guid>https://~SITE_DOMAIN~/notes/source-passport.html</guid><pubDate>~N1_RSS_DATE~</pubDate><description>~N1_SUMMARY~</description></item>
+<item><title>~N2_TITLE~</title><link>https://~SITE_DOMAIN~/notes/name-plate.html</link><guid>https://~SITE_DOMAIN~/notes/name-plate.html</guid><pubDate>~N2_RSS_DATE~</pubDate><description>~N2_SUMMARY~</description></item>
+<item><title>~N4_TITLE~</title><link>https://~SITE_DOMAIN~/notes/scope-frame.html</link><guid>https://~SITE_DOMAIN~/notes/scope-frame.html</guid><pubDate>~N4_RSS_DATE~</pubDate><description>~N4_SUMMARY~</description></item>
+<item><title>~N5_TITLE~</title><link>https://~SITE_DOMAIN~/notes/evidence-folio.html</link><guid>https://~SITE_DOMAIN~/notes/evidence-folio.html</guid><pubDate>~N5_RSS_DATE~</pubDate><description>~N5_SUMMARY~</description></item>
+<item><title>~N7_TITLE~</title><link>https://~SITE_DOMAIN~/notes/availability-grid.html</link><guid>https://~SITE_DOMAIN~/notes/availability-grid.html</guid><pubDate>~N7_RSS_DATE~</pubDate><description>~N7_SUMMARY~</description></item>
+<item><title>~N8_TITLE~</title><link>https://~SITE_DOMAIN~/notes/correspondence.html</link><guid>https://~SITE_DOMAIN~/notes/correspondence.html</guid><pubDate>~N8_RSS_DATE~</pubDate><description>~N8_SUMMARY~</description></item>
+<item><title>~N10_TITLE~</title><link>https://~SITE_DOMAIN~/notes/paired-views.html</link><guid>https://~SITE_DOMAIN~/notes/paired-views.html</guid><pubDate>~N10_RSS_DATE~</pubDate><description>~N10_SUMMARY~</description></item>
+<item><title>~N11_TITLE~</title><link>https://~SITE_DOMAIN~/notes/revision-spine.html</link><guid>https://~SITE_DOMAIN~/notes/revision-spine.html</guid><pubDate>~N11_RSS_DATE~</pubDate><description>~N11_SUMMARY~</description></item>
+</channel></rss>
