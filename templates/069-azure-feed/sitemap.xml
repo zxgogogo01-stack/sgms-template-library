@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://%%SITE_DOMAIN%%/</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/article.html</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/tool.html</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/legal.html</loc></url>
-</urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://%%SITE_DOMAIN%%/</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatch-index.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatches/signal-memo.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatches/source-window.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatches/reading-sequence.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatches/unknown-quadrant.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatches/paired-voices.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatches/reference-table.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatches/inline-notes.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatches/revision-track.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatches/question-exchange.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatches/scope-switchboard.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatches/decision-stack.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/dispatches/outbound-slip.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/channels/first-reports.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/channels/source-notes.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/channels/readout-methods.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/channels/open-questions.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/processor-desk.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/processors/card-segments.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/processors/line-revision.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/processors/byte-budget.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/processors/literal-locator.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/processors/field-inventory.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/public-desk/about.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/public-desk/contact.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/public-desk/disclosure.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/public-desk/disclaimer.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/public-desk/privacy.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/public-desk/corrections.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/public-desk/editorial.html</loc></url></urlset>
