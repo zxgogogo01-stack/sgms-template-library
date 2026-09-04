@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>{SITE_NAME}</title><link>https://{SITE_DOMAIN}/</link><description>{SITE_DESC}</description><language>{LANG}</language>
+<item><title>{D1_TITLE}</title><link>https://{SITE_DOMAIN}/dispatch/source-ticket.html</link><guid isPermaLink="true">https://{SITE_DOMAIN}/dispatch/source-ticket.html</guid><description>{D1_SUMMARY}</description><pubDate>{D1_RSS_DATE}</pubDate></item>
+<item><title>{D3_TITLE}</title><link>https://{SITE_DOMAIN}/dispatch/field-scan.html</link><guid isPermaLink="true">https://{SITE_DOMAIN}/dispatch/field-scan.html</guid><description>{D3_SUMMARY}</description><pubDate>{D3_RSS_DATE}</pubDate></item>
+<item><title>{D4_TITLE}</title><link>https://{SITE_DOMAIN}/dispatch/impact-radar.html</link><guid isPermaLink="true">https://{SITE_DOMAIN}/dispatch/impact-radar.html</guid><description>{D4_SUMMARY}</description><pubDate>{D4_RSS_DATE}</pubDate></item>
+<item><title>{D6_TITLE}</title><link>https://{SITE_DOMAIN}/dispatch/quote-channel.html</link><guid isPermaLink="true">https://{SITE_DOMAIN}/dispatch/quote-channel.html</guid><description>{D6_SUMMARY}</description><pubDate>{D6_RSS_DATE}</pubDate></item>
+<item><title>{D7_TITLE}</title><link>https://{SITE_DOMAIN}/dispatch/scope-gates.html</link><guid isPermaLink="true">https://{SITE_DOMAIN}/dispatch/scope-gates.html</guid><description>{D7_SUMMARY}</description><pubDate>{D7_RSS_DATE}</pubDate></item>
+<item><title>{D9_TITLE}</title><link>https://{SITE_DOMAIN}/dispatch/evidence-stack.html</link><guid isPermaLink="true">https://{SITE_DOMAIN}/dispatch/evidence-stack.html</guid><description>{D9_SUMMARY}</description><pubDate>{D9_RSS_DATE}</pubDate></item>
+<item><title>{D10_TITLE}</title><link>https://{SITE_DOMAIN}/dispatch/open-issues.html</link><guid isPermaLink="true">https://{SITE_DOMAIN}/dispatch/open-issues.html</guid><description>{D10_SUMMARY}</description><pubDate>{D10_RSS_DATE}</pubDate></item>
+<item><title>{D12_TITLE}</title><link>https://{SITE_DOMAIN}/dispatch/access-terminal.html</link><guid isPermaLink="true">https://{SITE_DOMAIN}/dispatch/access-terminal.html</guid><description>{D12_SUMMARY}</description><pubDate>{D12_RSS_DATE}</pubDate></item>
+</channel></rss>

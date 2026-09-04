@@ -1,91 +1,54 @@
 <!DOCTYPE html>
-<html lang='{LANG}'>
+<html lang="{LANG}" class="tw55-nojs" data-theme="dark">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta name='theme-color' content='#0e1118'>
-  <title>{SITE_NAME} — {SEO_TITLE}</title>
-  <meta name='description' content='{SITE_DESC}'>
-  <link rel='canonical' href='https://{SITE_DOMAIN}/'>
-  <meta property='og:type' content='website'><meta property='og:site_name' content='{SITE_NAME}'>
-  <meta property='og:title' content='{SITE_NAME} — {SEO_TITLE}'><meta property='og:description' content='{SITE_DESC}'>
-  <meta property='og:url' content='https://{SITE_DOMAIN}/'><meta name='twitter:card' content='summary'>
-  <link rel='stylesheet' href='skin.css'>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>{SEO_TITLE} — {SITE_NAME}</title>
+<meta name="description" content="{SITE_DESC}">
+<link rel="canonical" href="https://{SITE_DOMAIN}/">
+<meta name="theme-color" content="#0e1118">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{SITE_NAME}">
+<meta property="og:title" content="{SEO_TITLE}">
+<meta property="og:description" content="{SITE_DESC}">
+<meta property="og:url" content="https://{SITE_DOMAIN}/">
+<meta property="og:image" content="https://{SITE_DOMAIN}/assets/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{SEO_TITLE}">
+<meta name="twitter:description" content="{SITE_DESC}">
+<meta name="twitter:image" content="https://{SITE_DOMAIN}/assets/social-card.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" href="feed.xml" title="{SITE_NAME}">
+<link rel="stylesheet" href="skin.css">
+<link rel="stylesheet" href="framework.css">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"{SEO_TITLE}","url":"https://{SITE_DOMAIN}/","description":"{SITE_DESC}"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"{SITE_NAME}","item":"https://{SITE_DOMAIN}/"}]}]</script>
+<script src="deck.js" defer></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
 </head>
 <body>
-  <a class='tw55-skip' href='#tw55-main'>跳到主要内容</a>
-  <div class='tw55-tick-marquee' aria-hidden='true'>
-    <div class='tw55-tick-track'>
-      <span class='tw55-tick-chip'><b>费率观察</b><span class='tw55-tick-num'>12</span></span><span class='tw55-tick-chip'><b>返佣结算</b><span class='tw55-tick-num'>09</span></span><span class='tw55-tick-chip'><b>新手通道</b><span class='tw55-tick-num'>08</span></span><span class='tw55-tick-chip'><b>安全防坑</b><span class='tw55-tick-num'>06</span></span>
-      <span class='tw55-tick-chip'><b>费率观察</b><span class='tw55-tick-num'>12</span></span><span class='tw55-tick-chip'><b>返佣结算</b><span class='tw55-tick-num'>09</span></span><span class='tw55-tick-chip'><b>新手通道</b><span class='tw55-tick-num'>08</span></span><span class='tw55-tick-chip'><b>安全防坑</b><span class='tw55-tick-num'>06</span></span>
-    </div>
-  </div>
-
-  <header class='tw55-console'>
-    <div class='tw55-console-in'>
-      <a class='tw55-callsign' href='index.html'>{BRAND_EN}<span class='tw55-callsign-cue'>_</span></a>
-      <button type='button' class='tw55-console-btn' id='tw55-console-btn' aria-label='主导航' aria-expanded='false' aria-controls='tw55-console-nav'><svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg></button>
-      <nav class='tw55-console-nav' id='tw55-console-nav' aria-label='主导航'><a href='index.html' aria-current='page'>快讯台</a><a href='article.html'>专栏</a><a href='tool.html'>时效台</a><a href='legal.html'>披露</a><button type='button' class='tw55-theme' id='tw55-theme-button' aria-label='切换到浅色模式'>浅色</button></nav>
-    </div>
-  </header>
-
-  <main id='tw55-main'>
-    <section class='tw55-tick-hero'>
-      <div class='tw55-tick-in tw55-tick-hero-grid'>
-        <div class='tw55-tick-lead'>
-          <p class='tw55-tick-eyebrow'>{HERO_EYEBROW}</p><h1 class='tw55-tick-h1'>{HERO_TITLE}</h1><p class='tw55-tick-lede'>{HERO_DESCRIPTION}</p>
-          <div class='tw55-tick-cta'><a class='tw55-btn tw55-btn-primary' href='article.html'>看今日快讯 <span class='tw55-arrow'>→</span></a><a class='tw55-btn' href='legal.html'>了解本站</a></div>
-        </div>
-        <a class='tw55-tick-panel tw55-tick-feat tw55-has-cover' href='article.html'>
-          <span class='tw55-tick-panel-head'><span class='tw55-tick-dot' aria-hidden='true'></span>{HOME_FEATURED_LABEL}</span>
-          <span class='tw55-tick-feat-cover tw55-tick-feat-cover-gen'><b aria-hidden='true'>费</b></span>
-          <span class='tw55-tick-feat-body'><span class='tw55-tick-feat-meta'><span class='tw55-tick-cat'>费率观察</span><time datetime='2026-01-19'>2026-01-19</time></span><span class='tw55-tick-feat-title'>示例平台调整挂单档位，返佣基数同步变化</span><span class='tw55-tick-feat-ex'>说明变更内容、生效时间以及对返佣的传导路径。</span></span>
-        </a>
-      </div>
-    </section>
-
-    <section class='tw55-verify-deck' aria-labelledby='tw55-verify-title'>
-      <div class='tw55-verify-in'>
-        <header><p>SIGNAL VERIFICATION / EDITOR DESK</p><h2 id='tw55-verify-title'>每条快讯，都要留下核验状态。</h2><output data-signal-count aria-live='polite'>3 条信号</output></header>
-        <menu aria-label='按核验状态筛选'>
-          <li><button type='button' data-signal-filter='all' aria-pressed='true'>全部</button></li>
-          <li><button type='button' data-signal-filter='verified' aria-pressed='false'>已核验</button></li>
-          <li><button type='button' data-signal-filter='review' aria-pressed='false'>待复核</button></li>
-          <li><button type='button' data-signal-filter='pending' aria-pressed='false'>待确认</button></li>
-        </menu>
-        <ul class='tw55-signal-list'>
-          <li data-signal-status='verified'><article><header><time datetime='2026-01-19T14:00'>14:00</time><mark>已核验</mark></header><h3>费率规则页出现新版本号</h3><p>已保存官方页面、适用产品与生效时间。</p><footer><cite>来源：官方规则页</cite><a href='article.html'>查看记录</a></footer></article></li>
-          <li data-signal-status='review'><article><header><time datetime='2026-01-19T11:20'>11:20</time><mark>待复核</mark></header><h3>账户端展示与公告口径不同</h3><p>等待第二个账户样本与账单字段交叉核对。</p><footer><cite>来源：账户页面</cite><a href='article.html'>查看记录</a></footer></article></li>
-          <li data-signal-status='pending'><article><header><time datetime='2026-01-19T09:45'>09:45</time><mark>待确认</mark></header><h3>社区流传新的结算时间</h3><p>尚未找到一手公告，不能写成确定事实。</p><footer><cite>来源：二手线索</cite><a href='legal.html'>查看边界</a></footer></article></li>
-        </ul>
-      </div>
-    </section>
-
-    <div class='tw55-tick-board-wrap'>
-      <div class='tw55-tick-in tw55-tick-grid'>
-        <section class='tw55-tick-main'>
-          <div class='tw55-tick-head'><span class='tw55-tick-live'><span class='tw55-tick-dot' aria-hidden='true'></span>{HOME_LATEST_LABEL}</span><a href='article.html'>查看全部 <span class='tw55-arrow' aria-hidden='true'>→</span></a></div>
-          <div class='tw55-tick-list'>
-            <a class='tw55-tick-row' href='article.html'><span class='tw55-tick-time'><time datetime='2026-01-19T14:00'>14:00</time></span><span class='tw55-tick-body'><span class='tw55-tick-cat'>结算</span><span class='tw55-tick-title'>示例平台返佣结算时间提前两小时</span></span></a>
-            <a class='tw55-tick-row' href='article.html'><span class='tw55-tick-time'><time datetime='2026-01-19T11:20'>11:20</time></span><span class='tw55-tick-body'><span class='tw55-tick-cat'>费率</span><span class='tw55-tick-title'>基础档吃单费率对照已经更新</span></span></a>
-            <a class='tw55-tick-row' href='article.html'><span class='tw55-tick-time'><time datetime='2026-01-19T09:45'>09:45</time></span><span class='tw55-tick-body'><span class='tw55-tick-cat'>新手</span><span class='tw55-tick-title'>邀请关系查询入口位置调整</span></span></a>
-            <a class='tw55-tick-row' href='article.html'><span class='tw55-tick-time'><time datetime='2026-01-18T16:30'>16:30</time></span><span class='tw55-tick-body'><span class='tw55-tick-cat'>安全</span><span class='tw55-tick-title'>识别仿冒返佣后台的检查清单</span></span></a>
-            <a class='tw55-tick-row' href='article.html'><span class='tw55-tick-time'><time datetime='2026-01-18T10:05'>10:05</time></span><span class='tw55-tick-body'><span class='tw55-tick-cat'>费率</span><span class='tw55-tick-title'>资金费率结算周期速览</span></span></a>
-          </div>
-        </section>
-        <aside class='tw55-tick-side'>
-          <div class='tw55-tick-card'><div class='tw55-tick-card-h'>栏目</div><div class='tw55-tick-board-list'>
-            <a class='tw55-tick-board-row' href='article.html'><span class='tw55-tick-board-name'>费率观察</span><span class='tw55-tick-num'>12</span></a><a class='tw55-tick-board-row' href='article.html'><span class='tw55-tick-board-name'>返佣结算</span><span class='tw55-tick-num'>09</span></a><a class='tw55-tick-board-row' href='article.html'><span class='tw55-tick-board-name'>新手通道</span><span class='tw55-tick-num'>08</span></a><a class='tw55-tick-board-row' href='article.html'><span class='tw55-tick-board-name'>安全防坑</span><span class='tw55-tick-num'>06</span></a>
-          </div></div>
-          <div class='tw55-tick-card'><div class='tw55-tick-card-h'>{HOME_LINKS_LABEL}</div><div class='tw55-tick-link-list'>
-            <a class='tw55-tick-link' href='tool.html'><span class='tw55-tick-link-ic'><b>时</b></span><span class='tw55-tick-link-t'>快讯时效检查器</span></a><a class='tw55-tick-link' href='legal.html'><span class='tw55-tick-link-ic'><b>披</b></span><span class='tw55-tick-link-t'>披露与免责</span></a>
-          </div></div>
-        </aside>
-      </div>
-    </div>
-  </main>
-
-  <footer class='tw55-dockend'><div class='tw55-dockend-in'><div><p class='tw55-callsign tw55-de-mark'>{BRAND_EN}<span class='tw55-callsign-cue'>_</span></p><p class='tw55-de-dim'>{SITE_TAGLINE}</p></div><div class='tw55-de-col'><h4>栏目</h4><a href='article.html'>费率观察</a><a href='article.html'>返佣结算</a><a href='article.html'>安全防坑</a></div><div class='tw55-de-col'><h4>站务</h4><a href='tool.html'>快讯时效检查器</a><a href='legal.html'>披露与免责</a><p class='tw55-de-dim'>{CONTACT_EMAIL}</p></div></div><p class='tw55-de-line'>快讯为信息转述，费率与规则以平台官方页面实时显示为准。</p></footer>
-  <script src='deck.js'></script>
+<a class="tw55-skip" href="#tw55-main">跳到主要内容</a>
+<div class="tw55-tape-bar"><div class="tw55-tick-marquee" aria-hidden="true"><div class="tw55-tick-track"><span class="tw55-tick-chip"><b>来源席</b><span class="tw55-tick-num">04</span></span><span class="tw55-tick-chip"><b>范围线</b><span class="tw55-tick-num">04</span></span><span class="tw55-tick-chip"><b>跟进架</b><span class="tw55-tick-num">04</span></span><span class="tw55-tick-chip"><b>本地工具</b><span class="tw55-tick-num">05</span></span><span class="tw55-tick-chip"><b>来源席</b><span class="tw55-tick-num">04</span></span><span class="tw55-tick-chip"><b>范围线</b><span class="tw55-tick-num">04</span></span><span class="tw55-tick-chip"><b>跟进架</b><span class="tw55-tick-num">04</span></span><span class="tw55-tick-chip"><b>本地工具</b><span class="tw55-tick-num">05</span></span></div></div><button type="button" class="tw55-tape-control" data-motion-toggle aria-pressed="false">暂停动态</button></div>
+<header class="tw55-console"><div class="tw55-console-in"><a href="index.html" class="tw55-callsign">{BRAND_EN}<span class="tw55-callsign-cue" aria-hidden="true">_</span></a><button type="button" class="tw55-console-btn" id="tw55-console-btn" aria-label="主导航" aria-expanded="false" aria-controls="tw55-console-nav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button><nav class="tw55-console-nav" id="tw55-console-nav" aria-label="主导航"><a href="index.html" aria-current="page">快讯台</a><a href="dispatches.html">快讯目录</a><a href="workbench.html">核验工具</a><a href="disclosure.html">披露</a><button type="button" class="tw55-theme" id="tw55-theme-button" aria-label="切换到浅色模式">浅色</button></nav></div></header>
+<main id="tw55-main">
+<section class="tw55-tick-hero"><div class="tw55-tick-in tw55-tick-hero-grid"><div class="tw55-tick-lead"><p class="tw55-tick-eyebrow">{HERO_EYEBROW}</p><h1 class="tw55-tick-h1">{HERO_TITLE}</h1><p class="tw55-tick-lede">{HERO_DESCRIPTION}</p><div class="tw55-helm-pass"><span>邀请码</span><code id="tw55-code">{INVITE_CODE}</code><button type="button" data-copy-code>复制邀请码</button><strong>{BENEFIT_RATE}</strong><small>{BENEFIT_DISCLAIMER}</small><p class="tw55-copy-state" data-code-state role="status"></p></div><div class="tw55-tick-cta"><a href="dispatches.html" class="tw55-btn tw55-btn-primary">进入快讯目录 <span class="tw55-arrow" aria-hidden="true">→</span></a><a href="about.html" class="tw55-btn">了解本站</a></div></div><a href="dispatch/source-ticket.html" class="tw55-tick-panel tw55-tick-feat tw55-has-cover"><span class="tw55-tick-panel-head"><span class="tw55-tick-dot" aria-hidden="true"></span>{HOME_FEATURED_LABEL}</span><span class="tw55-tick-feat-cover tw55-tick-feat-cover-gen"><img src="assets/covers/source-ticket.webp" width="1200" height="630" alt="{D1_COVER_ALT}" fetchpriority="high"></span><span class="tw55-tick-feat-body"><span class="tw55-tick-feat-meta"><span class="tw55-tick-cat">来源席</span><time datetime="{D1_MODIFIED}">{D1_MODIFIED}</time></span><span class="tw55-tick-feat-title">{D1_TITLE}</span><span class="tw55-tick-feat-ex">{D1_SUMMARY}</span></span></a></div></section>
+<section class="tw55-verify-deck" aria-labelledby="tw55-verify-title"><div class="tw55-verify-in"><header><p>SIGNAL VERIFICATION / EDITOR DESK</p><h2 id="tw55-verify-title">{QUEUE_TITLE}</h2><output data-signal-count aria-live="polite">3 条线索</output></header><menu aria-label="按核验状态筛选" data-js-controls hidden><li><button type="button" data-signal-filter="all" aria-pressed="true">全部</button></li><li><button type="button" data-signal-filter="verified" aria-pressed="false">已核验</button></li><li><button type="button" data-signal-filter="review" aria-pressed="false">待复核</button></li><li><button type="button" data-signal-filter="pending" aria-pressed="false">待确认</button></li></menu><ul class="tw55-signal-list"><li data-signal-status="{SIGNAL1_STATE}"><article><header><time datetime="{SIGNAL1_DATE}">{SIGNAL1_DATE}</time><mark>{SIGNAL1_STATE_LABEL}</mark></header><h3>{SIGNAL1_TITLE}</h3><p>{SIGNAL1_BODY}</p><footer><cite>{SIGNAL1_CITE}</cite><a href="dispatch/source-ticket.html">查看记录</a></footer></article></li><li data-signal-status="{SIGNAL2_STATE}"><article><header><time datetime="{SIGNAL2_DATE}">{SIGNAL2_DATE}</time><mark>{SIGNAL2_STATE_LABEL}</mark></header><h3>{SIGNAL2_TITLE}</h3><p>{SIGNAL2_BODY}</p><footer><cite>{SIGNAL2_CITE}</cite><a href="dispatch/quote-channel.html">查看记录</a></footer></article></li><li data-signal-status="{SIGNAL3_STATE}"><article><header><time datetime="{SIGNAL3_DATE}">{SIGNAL3_DATE}</time><mark>{SIGNAL3_STATE_LABEL}</mark></header><h3>{SIGNAL3_TITLE}</h3><p>{SIGNAL3_BODY}</p><footer><cite>{SIGNAL3_CITE}</cite><a href="dispatch/open-issues.html">查看记录</a></footer></article></li></ul></div></section>
+<div class="tw55-tick-board-wrap"><div class="tw55-tick-in tw55-tick-grid"><section class="tw55-tick-main"><div class="tw55-tick-head"><span class="tw55-tick-live"><span class="tw55-tick-dot" aria-hidden="true"></span>{HOME_LATEST_LABEL}</span><a href="dispatches.html">查看全部 <span class="tw55-arrow" aria-hidden="true">→</span></a></div><div class="tw55-tick-list"><a href="dispatch/source-ticket.html" class="tw55-tick-row"><span class="tw55-tick-time"><time datetime="{D1_MODIFIED}">{D1_MODIFIED}</time></span><span class="tw55-tick-body"><span class="tw55-tick-cat">来源席</span><span class="tw55-tick-title">{D1_TITLE}</span><span class="tw55-row-summary">{D1_SUMMARY}</span></span></a>
+<a href="dispatch/update-window.html" class="tw55-tick-row"><span class="tw55-tick-time"><time datetime="{D2_MODIFIED}">{D2_MODIFIED}</time></span><span class="tw55-tick-body"><span class="tw55-tick-cat">来源席</span><span class="tw55-tick-title">{D2_TITLE}</span><span class="tw55-row-summary">{D2_SUMMARY}</span></span></a>
+<a href="dispatch/field-scan.html" class="tw55-tick-row"><span class="tw55-tick-time"><time datetime="{D3_MODIFIED}">{D3_MODIFIED}</time></span><span class="tw55-tick-body"><span class="tw55-tick-cat">来源席</span><span class="tw55-tick-title">{D3_TITLE}</span><span class="tw55-row-summary">{D3_SUMMARY}</span></span></a>
+<a href="dispatch/impact-radar.html" class="tw55-tick-row"><span class="tw55-tick-time"><time datetime="{D4_MODIFIED}">{D4_MODIFIED}</time></span><span class="tw55-tick-body"><span class="tw55-tick-cat">来源席</span><span class="tw55-tick-title">{D4_TITLE}</span><span class="tw55-row-summary">{D4_SUMMARY}</span></span></a>
+<a href="dispatch/version-panel.html" class="tw55-tick-row"><span class="tw55-tick-time"><time datetime="{D5_MODIFIED}">{D5_MODIFIED}</time></span><span class="tw55-tick-body"><span class="tw55-tick-cat">范围线</span><span class="tw55-tick-title">{D5_TITLE}</span><span class="tw55-row-summary">{D5_SUMMARY}</span></span></a>
+<a href="dispatch/quote-channel.html" class="tw55-tick-row"><span class="tw55-tick-time"><time datetime="{D6_MODIFIED}">{D6_MODIFIED}</time></span><span class="tw55-tick-body"><span class="tw55-tick-cat">范围线</span><span class="tw55-tick-title">{D6_TITLE}</span><span class="tw55-row-summary">{D6_SUMMARY}</span></span></a>
+<a href="dispatch/scope-gates.html" class="tw55-tick-row"><span class="tw55-tick-time"><time datetime="{D7_MODIFIED}">{D7_MODIFIED}</time></span><span class="tw55-tick-body"><span class="tw55-tick-cat">范围线</span><span class="tw55-tick-title">{D7_TITLE}</span><span class="tw55-row-summary">{D7_SUMMARY}</span></span></a>
+<a href="dispatch/time-rail.html" class="tw55-tick-row"><span class="tw55-tick-time"><time datetime="{D8_MODIFIED}">{D8_MODIFIED}</time></span><span class="tw55-tick-body"><span class="tw55-tick-cat">范围线</span><span class="tw55-tick-title">{D8_TITLE}</span><span class="tw55-row-summary">{D8_SUMMARY}</span></span></a>
+<a href="dispatch/evidence-stack.html" class="tw55-tick-row"><span class="tw55-tick-time"><time datetime="{D9_MODIFIED}">{D9_MODIFIED}</time></span><span class="tw55-tick-body"><span class="tw55-tick-cat">跟进架</span><span class="tw55-tick-title">{D9_TITLE}</span><span class="tw55-row-summary">{D9_SUMMARY}</span></span></a>
+<a href="dispatch/open-issues.html" class="tw55-tick-row"><span class="tw55-tick-time"><time datetime="{D10_MODIFIED}">{D10_MODIFIED}</time></span><span class="tw55-tick-body"><span class="tw55-tick-cat">跟进架</span><span class="tw55-tick-title">{D10_TITLE}</span><span class="tw55-row-summary">{D10_SUMMARY}</span></span></a>
+<a href="dispatch/revision-route.html" class="tw55-tick-row"><span class="tw55-tick-time"><time datetime="{D11_MODIFIED}">{D11_MODIFIED}</time></span><span class="tw55-tick-body"><span class="tw55-tick-cat">跟进架</span><span class="tw55-tick-title">{D11_TITLE}</span><span class="tw55-row-summary">{D11_SUMMARY}</span></span></a>
+<a href="dispatch/access-terminal.html" class="tw55-tick-row"><span class="tw55-tick-time"><time datetime="{D12_MODIFIED}">{D12_MODIFIED}</time></span><span class="tw55-tick-body"><span class="tw55-tick-cat">跟进架</span><span class="tw55-tick-title">{D12_TITLE}</span><span class="tw55-row-summary">{D12_SUMMARY}</span></span></a></div></section><aside class="tw55-tick-side"><div class="tw55-tick-card"><div class="tw55-tick-card-h">栏目接线</div><div class="tw55-tick-board-list"><a href="channels/source-desk.html" class="tw55-tick-board-row"><span class="tw55-tick-board-name">来源席</span><span class="tw55-tick-num">04</span></a><a href="channels/scope-line.html" class="tw55-tick-board-row"><span class="tw55-tick-board-name">范围线</span><span class="tw55-tick-num">04</span></a><a href="channels/follow-up-rack.html" class="tw55-tick-board-row"><span class="tw55-tick-board-name">跟进架</span><span class="tw55-tick-num">04</span></a></div></div><div class="tw55-tick-card"><div class="tw55-tick-card-h">{HOME_LINKS_LABEL}</div><div class="tw55-tick-link-list"><a href="instruments/freshness-window.html" class="tw55-tick-link"><span class="tw55-tick-link-ic"><b>时</b></span><span class="tw55-tick-link-t">快讯时效检查</span></a><a href="instruments/line-changes.html" class="tw55-tick-link"><span class="tw55-tick-link-ic"><b>异</b></span><span class="tw55-tick-link-t">逐行变化对照</span></a><a href="instruments/latency-profile.html" class="tw55-tick-link"><span class="tw55-tick-link-ic"><b>延</b></span><span class="tw55-tick-link-t">延迟样本分布</span></a><a href="instruments/text-checksum.html" class="tw55-tick-link"><span class="tw55-tick-link-ic"><b>验</b></span><span class="tw55-tick-link-t">文本 CRC 校验</span></a><a href="instruments/sequence-gaps.html" class="tw55-tick-link"><span class="tw55-tick-link-ic"><b>序</b></span><span class="tw55-tick-link-t">序号缺口检查</span></a></div></div></aside></div></div>
+</main>
+<footer class="tw55-dockend"><div class="tw55-dockend-in"><div><p class="tw55-callsign tw55-de-mark">{BRAND_EN}<span class="tw55-callsign-cue" aria-hidden="true">_</span></p><p class="tw55-de-dim">{SITE_TAGLINE}</p></div><div class="tw55-de-col"><h4>栏目接线</h4><a href="channels/source-desk.html">来源席</a><a href="channels/scope-line.html">范围线</a><a href="channels/follow-up-rack.html">跟进架</a><a href="workbench.html">核验工具</a></div><div class="tw55-de-col"><h4>站务</h4><a href="about.html">关于本站</a><a href="contact.html">联系编辑</a><a href="disclosure.html">推广披露</a><a href="disclaimer.html">使用边界</a><a href="privacy.html">隐私说明</a><a href="corrections.html">勘误记录</a><a href="editorial.html">编辑方法</a><p class="tw55-de-dim">{CONTACT_EMAIL}</p></div></div><p class="tw55-de-line">本站独立运营。{INDEPENDENCE_NOTE} <a href="disclosure.html">推广披露</a><br>{RISK_NOTE}</p></footer>
 </body>
 </html>

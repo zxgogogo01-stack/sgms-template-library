@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{LANG}" class="tw55-nojs" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>延迟样本分布 — {SITE_NAME}</title>
+<meta name="description" content="用最近秩法查看样本分位值、平均值与超限比例。">
+<link rel="canonical" href="https://{SITE_DOMAIN}/instruments/latency-profile.html">
+<meta name="theme-color" content="#0e1118">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{SITE_NAME}">
+<meta property="og:title" content="延迟样本分布">
+<meta property="og:description" content="用最近秩法查看样本分位值、平均值与超限比例。">
+<meta property="og:url" content="https://{SITE_DOMAIN}/instruments/latency-profile.html">
+<meta property="og:image" content="https://{SITE_DOMAIN}/assets/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="延迟样本分布">
+<meta name="twitter:description" content="用最近秩法查看样本分位值、平均值与超限比例。">
+<meta name="twitter:image" content="https://{SITE_DOMAIN}/assets/social-card.png">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" href="../feed.xml" title="{SITE_NAME}">
+<link rel="stylesheet" href="../skin.css">
+<link rel="stylesheet" href="../framework.css">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebPage","name":"延迟样本分布","url":"https://{SITE_DOMAIN}/instruments/latency-profile.html","description":"用最近秩法查看样本分位值、平均值与超限比例。"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"{SITE_NAME}","item":"https://{SITE_DOMAIN}/"},{"@type":"ListItem","position":2,"name":"延迟样本分布","item":"https://{SITE_DOMAIN}/instruments/latency-profile.html"}]}]</script>
+<script src="../deck.js" defer></script>
+<script src="../instruments.js" defer></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head>
+<body>
+<a class="tw55-skip" href="#tw55-main">跳到主要内容</a>
+<div class="tw55-tape-bar"><div class="tw55-tick-marquee" aria-hidden="true"><div class="tw55-tick-track"><span class="tw55-tick-chip"><b>来源席</b><span class="tw55-tick-num">04</span></span><span class="tw55-tick-chip"><b>范围线</b><span class="tw55-tick-num">04</span></span><span class="tw55-tick-chip"><b>跟进架</b><span class="tw55-tick-num">04</span></span><span class="tw55-tick-chip"><b>本地工具</b><span class="tw55-tick-num">05</span></span><span class="tw55-tick-chip"><b>来源席</b><span class="tw55-tick-num">04</span></span><span class="tw55-tick-chip"><b>范围线</b><span class="tw55-tick-num">04</span></span><span class="tw55-tick-chip"><b>跟进架</b><span class="tw55-tick-num">04</span></span><span class="tw55-tick-chip"><b>本地工具</b><span class="tw55-tick-num">05</span></span></div></div><button type="button" class="tw55-tape-control" data-motion-toggle aria-pressed="false">暂停动态</button></div>
+<header class="tw55-console"><div class="tw55-console-in"><a href="../index.html" class="tw55-callsign">{BRAND_EN}<span class="tw55-callsign-cue" aria-hidden="true">_</span></a><button type="button" class="tw55-console-btn" id="tw55-console-btn" aria-label="主导航" aria-expanded="false" aria-controls="tw55-console-nav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button><nav class="tw55-console-nav" id="tw55-console-nav" aria-label="主导航"><a href="../index.html">快讯台</a><a href="../dispatches.html">快讯目录</a><a href="../workbench.html">核验工具</a><a href="../disclosure.html">披露</a><button type="button" class="tw55-theme" id="tw55-theme-button" aria-label="切换到浅色模式">浅色</button></nav></div></header>
+<main id="tw55-main" class="tw55-page-bay"><header class="tw55-bay-head"><p class="tw55-eyetag">INSTRUMENT / 03</p><h1>延迟样本分布</h1><p>用最近秩法查看样本分位值、平均值与超限比例。</p></header><form class="tw55-input-console" data-instrument="latency-profile" novalidate><header><span>INPUT / 03</span><h2>输入台</h2></header><div class="tw55-input-fields"><div class="tw55-input-field"><label for="tw55-samples">延迟样本（毫秒）</label><textarea id="tw55-samples" name="samples" rows="5" spellcheck="false" aria-describedby="tw55-samples-hint">10, 20, 30, 40, 100</textarea><p id="tw55-samples-hint">1–300 项，空白或英文逗号分隔；每项 0–600000。</p></div><div class="tw55-input-field"><label for="tw55-limit">超限阈值（毫秒）</label><input id="tw55-limit" name="limit" type="text" value="40" autocomplete="off" aria-describedby="tw55-limit-hint"><p id="tw55-limit-hint">0–600000 的普通整数；相等不计为超限。</p></div></div><p>示例仅用于测试。输入只在当前页面内处理，不上传、不保存。</p><p id="tw55-field-error" data-input-error role="alert"></p><div class="tw55-run-row"><button type="submit" disabled>运行检查</button><button type="reset">恢复示例</button></div><noscript><p>需要 JavaScript 才能运行；下方说明仍可直接阅读。</p></noscript></form><section class="tw55-output-console" aria-labelledby="tw55-output-title"><header><h2 id="tw55-output-title">结果台</h2><button type="button" data-copy-result disabled>复制结果</button></header><p data-result-state role="status">等待检查。</p><pre data-result-text tabindex="0" aria-label="检查结果"></pre><p data-result-copy-state role="status"></p><p class="tw55-result-foot">编辑输入后，旧结果立即失效；请重新运行检查。复制不可用时可手动选择结果文本。</p></section><section class="tw55-guide"><h2>方法与边界</h2><p>用最近秩法查看样本分位值、平均值与超限比例。 各项格式、算法和适用限制见下方说明。</p><details><summary>Guide · 输入、算法与核对示例</summary><section><h3>何时使用</h3><p>描述一组已获得的延迟样本。工具不测速、不请求远程服务器，也不把样本结果外推为持续服务质量。</p></section><section><h3>输入格式</h3><p>1–300 个非负整数，0–600000 毫秒，使用空白或英文逗号分隔。重复、开头和末尾分隔符会被忽略。数字先做 NFKC 归一化，不接受小数、正负号、前导零或指数；输入文本最多 6000 个代码单元。</p></section><section><h3>计算口径</h3><p>排序后，P50、P95、P99 分别取第 ceil(p × n / 100) 项，使用最近秩法，不做插值。平均值通过 BigInt 精确求和再四舍五入到三位小数。严格超过阈值才算超限；比例保留两位小数。</p></section><section><h3>核对示例</h3><p>10、20、30、40、100 的平均值为 40.000 ms，P50 为 30 ms，P95 和 P99 都为 100 ms。阈值 40 时只有一项超限，占比 20.00%。</p></section><section><h3>适用边界</h3><p>单位固定为整数毫秒。少量样本的高分位值通常等于最大值；它不是置信区间。只使用经允许处理的样本，核对是否存在漏样或采样偏差。</p></section></details></section><nav class="tw55-next-ports" aria-label="其他核验工具"><a href="../workbench.html">全部核验工具</a><a href="freshness-window.html">快讯时效检查</a><a href="line-changes.html">逐行变化对照</a><a href="text-checksum.html">文本 CRC 校验</a><a href="sequence-gaps.html">序号缺口检查</a></nav></main>
+<footer class="tw55-dockend"><div class="tw55-dockend-in"><div><p class="tw55-callsign tw55-de-mark">{BRAND_EN}<span class="tw55-callsign-cue" aria-hidden="true">_</span></p><p class="tw55-de-dim">{SITE_TAGLINE}</p></div><div class="tw55-de-col"><h4>栏目接线</h4><a href="../channels/source-desk.html">来源席</a><a href="../channels/scope-line.html">范围线</a><a href="../channels/follow-up-rack.html">跟进架</a><a href="../workbench.html">核验工具</a></div><div class="tw55-de-col"><h4>站务</h4><a href="../about.html">关于本站</a><a href="../contact.html">联系编辑</a><a href="../disclosure.html">推广披露</a><a href="../disclaimer.html">使用边界</a><a href="../privacy.html">隐私说明</a><a href="../corrections.html">勘误记录</a><a href="../editorial.html">编辑方法</a><p class="tw55-de-dim">{CONTACT_EMAIL}</p></div></div><p class="tw55-de-line">本站独立运营。{INDEPENDENCE_NOTE} <a href="../disclosure.html">推广披露</a><br>{RISK_NOTE}</p></footer>
+</body>
+</html>
