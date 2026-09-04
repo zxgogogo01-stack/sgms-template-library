@@ -128,7 +128,7 @@
 | 081-slate-signalarchive | 灰蓝信号微缩库 | 保留灰蓝微缩胶片、穿孔、三轨波形、四步信号条与开放登记册，补齐四卷十二种信号文章组件、五件摘要/字节/链路仪器和完整公开说明；原包忠实度未核验 | workflow-ready v2 | 有 |
 | 082-teal-orbitindex | 深青内容天文台 | 保留深青双环轨道、四节点、坐标带、周期卡与传输札记，补齐四轨十二种观测文章组件、五台坐标/角距/窗口/相位仪器和完整公开台站；原包忠实度未核验 | workflow-ready v2 | 有 |
 | 083-lime-typecascade | 荧柠铅字排演场 | 保留黑墨/纸样双主题、荧柠错位巨字、编号瀑布与铅字舞台，补齐四个字模部、十二种长文排印组件、五台层级/版心/基线/断行/分页工具和完整公开说明；原包忠实度未核验 | workflow-ready v2 | 有 |
-| 084-champagne-columnstage | 香槟立柱 | 军哥 home_column_stage 忠实静态化，保留宣言条、五柱舞台和编号溢出行 | 复刻返工 | 有 |
+| 084-champagne-columnstage | 香槟柱廊内容沙龙 | 保留香槟金/酒红双主题、拱顶舞台、柱廊与全部首页旧类名，补齐四间内容厅、十二种建筑式正文组件、五台栏宽/权重/场记/节奏/覆盖工具和完整公开说明；原包忠实度未核验 | workflow-ready v2 | 有 |
 | 085-cobalt-briefingdesk | 钴蓝简报 | 军哥 home_briefing_desk 忠实静态化，保留简报横带、导读区、清单侧栏和最新三卡 | 复刻返工 | 有 |
 | 086-chalk-decisionwall | 决策墙 | 返佣决策墙站，忠实静态化军哥 decision_wall 布局 | 复刻返工 | 有 |
 | 087-coral-routeatlas | 珊瑚路线 | 军哥 home_route_atlas 忠实静态化，保留路线索引、Hero、三段导读、补给链接和最近更新 | 新增复刻 | 有 |
