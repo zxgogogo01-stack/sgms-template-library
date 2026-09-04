@@ -1,131 +1,28 @@
-<!DOCTYPE html>
-<html lang="%%LANG%%">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#9a3b2f">
-  <title>%%SITE_NAME%% — %%SEO_TITLE%%</title>
-  <meta name="description" content="%%SITE_DESC%%">
-  <link rel="canonical" href="https://%%SITE_DOMAIN%%/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="%%SITE_NAME%%">
-  <meta property="og:title" content="%%SITE_NAME%% — %%SEO_TITLE%%">
-  <meta property="og:description" content="%%SITE_DESC%%">
-  <meta property="og:url" content="https://%%SITE_DOMAIN%%/">
-  <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="css/site.css">
-</head>
-<body>
-  <a class="bd51-skip" href="#bd51-main">跳到主要内容</a>
-  <header class="bd51-crown">
-    <div class="bd51-crown-in">
-      <a class="bd51-wordmark" href="index.html">%%BRAND_EN%%<span class="bd51-wordmark-dot">.</span></a>
-      <button type="button" class="bd51-crown-fold" id="bd51-fold-btn" aria-label="主导航" aria-expanded="false" aria-controls="bd51-crown-nav">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      </button>
-      <nav class="bd51-crown-nav" id="bd51-crown-nav" aria-label="主导航">
-        <a href="index.html" aria-current="page">首页</a>
-        <a href="article.html">指南</a>
-        <a href="tool.html">工具</a>
-        <a href="legal.html">披露</a>
-        <button type="button" class="bd51-theme" id="bd51-theme-button" aria-label="切换到夜间模式">夜间</button>
-      </nav>
-    </div>
-  </header>
-
-  <main class="bd51-bento-wrap" id="bd51-main">
+<!doctype html><html lang="%%LANG%%" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1e2a52"><title>%%SEO_TITLE%% — %%SITE_NAME%%</title><meta name="description" content="%%SITE_DESC%%"><meta name="robots" content="index,follow"><link rel="canonical" href="https://%%SITE_DOMAIN%%/"><meta property="og:type" content="website"><meta property="og:site_name" content="%%SITE_NAME%%"><meta property="og:title" content="%%SEO_TITLE%%"><meta property="og:description" content="%%SITE_DESC%%"><meta property="og:url" content="https://%%SITE_DOMAIN%%/"><meta property="og:image" content="https://%%SITE_DOMAIN%%/assets/desk-social.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="%%SEO_TITLE%%"><meta name="twitter:description" content="%%SITE_DESC%%"><meta name="twitter:image" content="https://%%SITE_DOMAIN%%/assets/desk-social.png"><link rel="icon" href="favicon.ico"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="alternate" type="application/rss+xml" title="RSS" href="feed.xml"><link rel="stylesheet" href="css/site.css"><link rel="stylesheet" href="css/page.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"%%SEO_TITLE%%","url":"https://%%SITE_DOMAIN%%/","description":"%%SITE_DESC%%"}</script><!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> --><link rel="stylesheet" href="css/framework.css"></head><body>
+ <a class="bd51-skip" href="#bd51-main">跳到主要内容</a><header class="bd51-crown"><div class="bd51-crown-in"><a href="index.html" class="bd51-wordmark">%%BRAND_EN%%<span class="bd51-wordmark-dot">.</span></a><button type="button" class="bd51-crown-fold" id="bd51-fold-btn" aria-label="主导航" aria-expanded="false" aria-controls="bd51-crown-nav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button><nav class="bd51-crown-nav" id="bd51-crown-nav" aria-label="主导航"><a href="index.html" aria-current="page">首页</a><a href="cases.html" >内容</a><a href="instruments.html" >工具</a><a href="about.html" >关于</a><button type="button" class="bd51-theme" id="bd51-theme-button" aria-label="切换到深色主题">深色</button></nav></div></header>
+ <main id="bd51-main" class="bd51-bento-wrap">
     <div class="bd51-bento-grid">
       <section class="bd51-bento-tile bd51-bento-hero">
         <p class="bd51-bento-eyebrow">%%HERO_EYEBROW%%</p>
         <h1 class="bd51-bento-h1">%%HERO_TITLE%%</h1>
         <p class="bd51-bento-hero-sub">%%HERO_DESCRIPTION%%</p>
-        <div class="bd51-hero-cta">
-          <a class="bd51-btn bd51-btn-primary" href="article.html">开始阅读 <span class="bd51-arrow">→</span></a>
-          <a class="bd51-btn" href="legal.html">了解本站</a>
-        </div>
+        <div class="bd51-codewell"><span>邀请码</span><code id="bd51-code">%%INVITE_CODE%%</code><button type="button" data-copy-code>复制</button><strong>%%BENEFIT_RATE%%</strong><small>%%BENEFIT_DISCLAIMER%%</small><span class="bd51-live" data-copy-status role="status" aria-live="polite"></span></div><div class="bd51-hero-cta"><a href="cases.html" class="bd51-btn bd51-btn-primary">浏览内容 <span class="bd51-arrow">→</span></a><a href="instruments.html" class="bd51-btn">打开工具</a></div>
       </section>
 
-      <a class="bd51-bento-tile bd51-bento-feature" href="article.html">
-        <span class="bd51-bento-kicker">%%HOME_FEATURED_LABEL%%</span>
-        <div class="bd51-bento-feature-foot">
-          <div class="bd51-bento-meta"><span class="bd51-bento-tag">费率与返佣</span><time datetime="2026-01-20">2026-01-20</time></div>
-          <h2 class="bd51-bento-feature-title">不同产品线的手续费与返佣口径对照</h2>
-          <p class="bd51-bento-feature-ex">先统一费率、交易额和结算周期，再比较返佣后的实际成本。</p>
-        </div>
-      </a>
+      <a class="bd51-bento-tile bd51-bento-feature" href="cases/criteria-board.html"><span class="bd51-bento-kicker">%%HOME_FEATURED_LABEL%%</span><div class="bd51-feature-art" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="bd51-bento-feature-foot"><div class="bd51-bento-meta"><span class="bd51-bento-tag">比较镜面</span><time datetime="%%A1_MODIFIED%%">%%A1_MODIFIED%%</time></div><h2 class="bd51-bento-feature-title">%%A1_TITLE%%</h2><p class="bd51-bento-feature-ex">%%A1_SUMMARY%%</p></div></a>
 
-      <a class="bd51-bento-tile bd51-bento-cat" href="article.html">
-        <span class="bd51-bento-cat-head"><span class="bd51-bento-cat-name">新手入门</span><span class="bd51-bento-cat-desc">注册、认证与安全核验</span></span>
-        <span class="bd51-bento-cat-foot"><b class="bd51-bento-cat-num">08</b><span class="bd51-bento-arrow" aria-hidden="true">→</span></span>
-      </a>
-      <a class="bd51-bento-tile bd51-bento-cat" href="article.html">
-        <span class="bd51-bento-cat-head"><span class="bd51-bento-cat-name">费率与返佣</span><span class="bd51-bento-cat-desc">费率表、等级与结算规则</span></span>
-        <span class="bd51-bento-cat-foot"><b class="bd51-bento-cat-num">12</b><span class="bd51-bento-arrow" aria-hidden="true">→</span></span>
-      </a>
-      <a class="bd51-bento-tile bd51-bento-cat" href="article.html">
-        <span class="bd51-bento-cat-head"><span class="bd51-bento-cat-name">安全与防骗</span><span class="bd51-bento-cat-desc">域名核验、两步验证与提现保护</span></span>
-        <span class="bd51-bento-cat-foot"><b class="bd51-bento-cat-num">06</b><span class="bd51-bento-arrow" aria-hidden="true">→</span></span>
-      </a>
+      <a class="bd51-bento-tile bd51-bento-cat" href="lanes/compare-lens.html"><span class="bd51-bento-cat-head"><span class="bd51-bento-cat-name">比较镜面</span><span class="bd51-bento-cat-desc">%%CAT1_DESC%%</span></span><span class="bd51-bento-cat-foot"><b class="bd51-bento-cat-num">04</b><span class="bd51-bento-arrow" aria-hidden="true">→</span></span></a>
+      <a class="bd51-bento-tile bd51-bento-cat" href="lanes/signal-pieces.html"><span class="bd51-bento-cat-head"><span class="bd51-bento-cat-name">证据拼块</span><span class="bd51-bento-cat-desc">%%CAT2_DESC%%</span></span><span class="bd51-bento-cat-foot"><b class="bd51-bento-cat-num">04</b><span class="bd51-bento-arrow" aria-hidden="true">→</span></span></a>
+      <a class="bd51-bento-tile bd51-bento-cat" href="lanes/decision-notes.html"><span class="bd51-bento-cat-head"><span class="bd51-bento-cat-name">决策札记</span><span class="bd51-bento-cat-desc">%%CAT3_DESC%%</span></span><span class="bd51-bento-cat-foot"><b class="bd51-bento-cat-num">04</b><span class="bd51-bento-arrow" aria-hidden="true">→</span></span></a>
 
-      <a class="bd51-bento-tile bd51-bento-post" href="article.html">
-        <div class="bd51-bento-meta"><span class="bd51-bento-tag">费率与返佣</span><time datetime="2026-01-18">2026-01-18</time></div>
-        <h3 class="bd51-bento-post-title">返佣到账周期有哪些常见差异</h3>
-        <p class="bd51-bento-post-ex">对照日结、周结与月结规则，核验最小结算条件。</p>
-      </a>
-      <a class="bd51-bento-tile bd51-bento-post" href="article.html">
-        <div class="bd51-bento-meta"><span class="bd51-bento-tag">新手入门</span><time datetime="2026-01-15">2026-01-15</time></div>
-        <h3 class="bd51-bento-post-title">身份认证不通过时应该检查什么</h3>
-        <p class="bd51-bento-post-ex">从证件有效期、照片清晰度到地区资格逐项排查。</p>
-      </a>
-      <a class="bd51-bento-tile bd51-bento-post" href="article.html">
-        <div class="bd51-bento-meta"><span class="bd51-bento-tag">安全与防骗</span><time datetime="2026-01-12">2026-01-12</time></div>
-        <h3 class="bd51-bento-post-title">如何识别仿冒客服和钓鱼链接</h3>
-        <p class="bd51-bento-post-ex">不要分享验证码，所有敏感操作回到官方应用完成。</p>
-      </a>
+      <a href="cases/criteria-board.html" class="bd51-bento-tile bd51-bento-post" data-case-card data-group="0"><div class="bd51-bento-meta"><span class="bd51-bento-tag">比较镜面</span><time datetime="%%A1_MODIFIED%%">%%A1_MODIFIED%%</time></div><h3 class="bd51-bento-post-title">%%A1_TITLE%%</h3><p class="bd51-bento-post-ex">%%A1_SUMMARY%%</p></a><a href="cases/weight-dial.html" class="bd51-bento-tile bd51-bento-post" data-case-card data-group="0"><div class="bd51-bento-meta"><span class="bd51-bento-tag">比较镜面</span><time datetime="%%A2_MODIFIED%%">%%A2_MODIFIED%%</time></div><h3 class="bd51-bento-post-title">%%A2_TITLE%%</h3><p class="bd51-bento-post-ex">%%A2_SUMMARY%%</p></a><a href="cases/option-pairs.html" class="bd51-bento-tile bd51-bento-post" data-case-card data-group="0"><div class="bd51-bento-meta"><span class="bd51-bento-tag">比较镜面</span><time datetime="%%A3_MODIFIED%%">%%A3_MODIFIED%%</time></div><h3 class="bd51-bento-post-title">%%A3_TITLE%%</h3><p class="bd51-bento-post-ex">%%A3_SUMMARY%%</p></a><a href="cases/evidence-cards.html" class="bd51-bento-tile bd51-bento-post" data-case-card data-group="0"><div class="bd51-bento-meta"><span class="bd51-bento-tag">比较镜面</span><time datetime="%%A4_MODIFIED%%">%%A4_MODIFIED%%</time></div><h3 class="bd51-bento-post-title">%%A4_TITLE%%</h3><p class="bd51-bento-post-ex">%%A4_SUMMARY%%</p></a><a href="cases/confidence-range.html" class="bd51-bento-tile bd51-bento-post" data-case-card data-group="1"><div class="bd51-bento-meta"><span class="bd51-bento-tag">证据拼块</span><time datetime="%%A5_MODIFIED%%">%%A5_MODIFIED%%</time></div><h3 class="bd51-bento-post-title">%%A5_TITLE%%</h3><p class="bd51-bento-post-ex">%%A5_SUMMARY%%</p></a><a href="cases/constraint-map.html" class="bd51-bento-tile bd51-bento-post" data-case-card data-group="1"><div class="bd51-bento-meta"><span class="bd51-bento-tag">证据拼块</span><time datetime="%%A6_MODIFIED%%">%%A6_MODIFIED%%</time></div><h3 class="bd51-bento-post-title">%%A6_TITLE%%</h3><p class="bd51-bento-post-ex">%%A6_SUMMARY%%</p></a><a href="cases/tradeoff-window.html" class="bd51-bento-tile bd51-bento-post" data-case-card data-group="1"><div class="bd51-bento-meta"><span class="bd51-bento-tag">证据拼块</span><time datetime="%%A7_MODIFIED%%">%%A7_MODIFIED%%</time></div><h3 class="bd51-bento-post-title">%%A7_TITLE%%</h3><p class="bd51-bento-post-ex">%%A7_SUMMARY%%</p></a><a href="cases/comparison-table.html" class="bd51-bento-tile bd51-bento-post" data-case-card data-group="1"><div class="bd51-bento-meta"><span class="bd51-bento-tag">证据拼块</span><time datetime="%%A8_MODIFIED%%">%%A8_MODIFIED%%</time></div><h3 class="bd51-bento-post-title">%%A8_TITLE%%</h3><p class="bd51-bento-post-ex">%%A8_SUMMARY%%</p></a><a href="cases/source-pocket.html" class="bd51-bento-tile bd51-bento-post" data-case-card data-group="2"><div class="bd51-bento-meta"><span class="bd51-bento-tag">决策札记</span><time datetime="%%A9_MODIFIED%%">%%A9_MODIFIED%%</time></div><h3 class="bd51-bento-post-title">%%A9_TITLE%%</h3><p class="bd51-bento-post-ex">%%A9_SUMMARY%%</p></a><a href="cases/exception-tray.html" class="bd51-bento-tile bd51-bento-post" data-case-card data-group="2"><div class="bd51-bento-meta"><span class="bd51-bento-tag">决策札记</span><time datetime="%%A10_MODIFIED%%">%%A10_MODIFIED%%</time></div><h3 class="bd51-bento-post-title">%%A10_TITLE%%</h3><p class="bd51-bento-post-ex">%%A10_SUMMARY%%</p></a><a href="cases/review-loop.html" class="bd51-bento-tile bd51-bento-post" data-case-card data-group="2"><div class="bd51-bento-meta"><span class="bd51-bento-tag">决策札记</span><time datetime="%%A11_MODIFIED%%">%%A11_MODIFIED%%</time></div><h3 class="bd51-bento-post-title">%%A11_TITLE%%</h3><p class="bd51-bento-post-ex">%%A11_SUMMARY%%</p></a><a href="cases/access-panel.html" class="bd51-bento-tile bd51-bento-post" data-case-card data-group="2"><div class="bd51-bento-meta"><span class="bd51-bento-tag">决策札记</span><time datetime="%%A12_MODIFIED%%">%%A12_MODIFIED%%</time></div><h3 class="bd51-bento-post-title">%%A12_TITLE%%</h3><p class="bd51-bento-post-ex">%%A12_SUMMARY%%</p></a>
 
-      <a class="bd51-bento-tile bd51-bento-link" href="tool.html">
-        <span class="bd51-bento-arrow" aria-hidden="true">↗</span>
-        <span class="bd51-bento-link-ico">算</span>
-        <span class="bd51-bento-link-body"><span class="bd51-bento-link-title">手续费对比器</span><span class="bd51-bento-link-ex">比较不同费率与返佣条件下的净成本</span></span>
-      </a>
-      <a class="bd51-bento-tile bd51-bento-link" href="tool.html">
-        <span class="bd51-bento-arrow" aria-hidden="true">↗</span>
-        <span class="bd51-bento-link-ico">验</span>
-        <span class="bd51-bento-link-body"><span class="bd51-bento-link-title">注册前核验清单</span><span class="bd51-bento-link-ex">确认域名、资格、费率和邀请码状态</span></span>
-      </a>
+
+
+      <a href="instruments/weighted-score.html" class="bd51-bento-tile bd51-bento-link" data-tool-card><span class="bd51-bento-arrow" aria-hidden="true">↗</span><span class="bd51-bento-link-ico">衡</span><span class="bd51-bento-link-body"><span class="bd51-bento-link-title">加权评分台</span><span class="bd51-bento-link-ex">按给定权重归一化汇总分数，查看每项贡献。</span></span></a><a href="instruments/pareto-frontier.html" class="bd51-bento-tile bd51-bento-link" data-tool-card><span class="bd51-bento-arrow" aria-hidden="true">↗</span><span class="bd51-bento-link-ico">筛</span><span class="bd51-bento-link-body"><span class="bd51-bento-link-title">双轴前沿筛选</span><span class="bd51-bento-link-ex">在成本更低、质量更高的两个方向上找出未被支配的方案。</span></span></a><a href="instruments/contingency-count.html" class="bd51-bento-tile bd51-bento-link" data-tool-card><span class="bd51-bento-arrow" aria-hidden="true">↗</span><span class="bd51-bento-link-ico">联</span><span class="bd51-bento-link-body"><span class="bd51-bento-link-title">四格关联计数</span><span class="bd51-bento-link-ex">从四格计数计算条件占比和 phi 关联系数。</span></span></a><a href="instruments/top-k-overlap.html" class="bd51-bento-tile bd51-bento-link" data-tool-card><span class="bd51-bento-arrow" aria-hidden="true">↗</span><span class="bd51-bento-link-ico">叠</span><span class="bd51-bento-link-body"><span class="bd51-bento-link-title">前列重合镜</span><span class="bd51-bento-link-ex">比较两份排序的前 K 项，查看共同项和名次差。</span></span></a><a href="instruments/resource-combination.html" class="bd51-bento-tile bd51-bento-link" data-tool-card><span class="bd51-bento-arrow" aria-hidden="true">↗</span><span class="bd51-bento-link-ico">配</span><span class="bd51-bento-link-body"><span class="bd51-bento-link-title">容量组合抽屉</span><span class="bd51-bento-link-ex">在整数容量内选取一次性项目，寻找总价值最高的组合。</span></span></a>
+
     </div>
 
-    <section class="bd51-desk-audit" aria-labelledby="bd51-desk-title">
-      <header>
-        <div><p class="bd51-desk-kicker">DECISION DESK / 04 CHECKPOINTS</p><h2 id="bd51-desk-title">在比较优惠前，<br>先把口径摆上桌。</h2></div>
-        <output aria-live="polite">COMPARE THE NET COST</output>
-      </header>
-      <div class="bd51-desk-board">
-        <figure>
-          <figcaption>净手续费阅读式</figcaption>
-          <p><data value="volume">成交额</data><span>×</span><data value="fee">费率</data><span>−</span><data value="rebate">返还</data><span>=</span><strong>净成本</strong></p>
-          <small>每一步都应注明取整方式、有效期与适用账户。</small>
-        </figure>
-        <dl>
-          <div><dt><dfn>01</dfn> 来源</dt><dd>保存官方规则页与核对日期。</dd></div>
-          <div><dt><dfn>02</dfn> 资格</dt><dd>确认地区、账户类型与活动范围。</dd></div>
-          <div><dt><dfn>03</dfn> 口径</dt><dd>分开记录手续费率和返佣比例。</dd></div>
-          <div><dt><dfn>04</dfn> 到账</dt><dd>按账单核对周期、状态与金额。</dd></div>
-        </dl>
-        <aside><h3>这张桌只负责比较，不替你做决定。</h3><p>示例数字用于展示结构；正式发布时由内容人员依据可追溯来源逐项替换。</p><a href="legal.html">查看披露边界 <span aria-hidden="true">↗</span></a></aside>
-      </div>
-    </section>
+    <section class="bd51-desk-audit" aria-labelledby="bd51-desk-title"><header><div><p class="bd51-desk-kicker">DECISION DESK / 04 PANELS</p><h2 id="bd51-desk-title">%%DESK_TITLE%%</h2></div><output>%%DESK_LABEL%%</output></header><div class="bd51-desk-board"><figure><figcaption>%%DESK_CAPTION%%</figcaption><p><data value="criteria">%%DESK_CRITERIA%%</data><span>×</span><data value="evidence">%%DESK_EVIDENCE%%</data><span>−</span><data value="constraints">%%DESK_CONSTRAINTS%%</data><span>=</span><strong>%%DESK_RESULT%%</strong></p><small>%%DESK_FOOTNOTE%%</small></figure><dl><div><dt><dfn>01</dfn> 准则</dt><dd>%%DESK_NOTE_0%%</dd></div><div><dt><dfn>02</dfn> 证据</dt><dd>%%DESK_NOTE_1%%</dd></div><div><dt><dfn>03</dfn> 约束</dt><dd>%%DESK_NOTE_2%%</dd></div><div><dt><dfn>04</dfn> 回看</dt><dd>%%DESK_NOTE_3%%</dd></div></dl><aside><h3>%%DESK_ASIDE_TITLE%%</h3><p>%%DESK_ASIDE_TEXT%%</p><a href="editorial.html" >编辑准则 <span aria-hidden="true">↗</span></a></aside></div></section>
   </main>
-
-  <footer class="bd51-ledge">
-    <div class="bd51-ledge-in">
-      <div class="bd51-ledge-col"><p class="bd51-wordmark bd51-ledge-mark">%%BRAND_EN%%<span class="bd51-wordmark-dot">.</span></p><p class="bd51-ledge-dim">%%FOOTER_NOTE%%</p></div>
-      <div class="bd51-ledge-col"><h4>栏目</h4><a href="article.html">新手入门</a><a href="article.html">费率与返佣</a><a href="article.html">安全与防骗</a></div>
-      <div class="bd51-ledge-col"><h4>工具</h4><a href="tool.html">手续费对比器</a></div>
-      <div class="bd51-ledge-col"><h4>说明</h4><a href="legal.html">披露与免责</a></div>
-    </div>
-    <p class="bd51-ledge-line">费率与返佣规则以对应平台官方页面和账户实际显示为准。</p>
-  </footer>
-  <script src="site.js"></script>
-</body>
-</html>
+ <footer class="bd51-ledge"><div class="bd51-ledge-in"><div class="bd51-ledge-col"><p class="bd51-wordmark bd51-ledge-mark">%%BRAND_EN%%<span class="bd51-wordmark-dot">.</span></p><p class="bd51-ledge-dim">%%FOOTER_NOTE%%</p><a href="feed.xml" >RSS 订阅</a></div><div class="bd51-ledge-col"><h4>内容分区</h4><a href="cases.html" >全部内容</a><a href="lanes/compare-lens.html" >比较镜面</a><a href="lanes/signal-pieces.html" >证据拼块</a><a href="lanes/decision-notes.html" >决策札记</a></div><div class="bd51-ledge-col"><h4>桌面工具</h4><a href="instruments.html" >全部工具</a><a href="instruments/weighted-score.html" >加权评分台</a><a href="instruments/pareto-frontier.html" >双轴前沿筛选</a><a href="instruments/contingency-count.html" >四格关联计数</a><a href="instruments/top-k-overlap.html" >前列重合镜</a><a href="instruments/resource-combination.html" >容量组合抽屉</a></div><div class="bd51-ledge-col"><h4>本站说明</h4><a href="about.html" >关于本站</a><a href="contact.html" >联系渠道</a><a href="disclosure.html" >推广披露</a><a href="disclaimer.html" >使用边界</a><a href="privacy.html" >隐私说明</a><a href="corrections.html" >纠错记录</a><a href="editorial.html" >编辑准则</a></div></div><p class="bd51-ledge-line">本站独立运营。%%INDEPENDENCE_NOTE%% <a href="disclosure.html" >推广披露</a> · %%RISK_NOTE%%</p></footer><script defer src="site.js"></script></body></html>
