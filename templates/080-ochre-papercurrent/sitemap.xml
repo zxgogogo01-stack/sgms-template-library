@@ -1,1 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://%%SITE_DOMAIN%%/</loc></url><url><loc>https://%%SITE_DOMAIN%%/article.html</loc></url><url><loc>https://%%SITE_DOMAIN%%/tool.html</loc></url><url><loc>https://%%SITE_DOMAIN%%/legal.html</loc></url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://%%SITE_DOMAIN%%/</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folio-register.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/source-margin.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/claim-thread.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/context-panel.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/citation-footnote.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/annotated-gutter.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/note-apparatus.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/version-corrigenda.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/revision-fold.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/date-colophon.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/editorial-handoff.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/publication-check.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/disclosure-insert.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/leaves/source-leaf.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/leaves/context-leaf.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/leaves/revision-leaf.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/leaves/handoff-leaf.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/proofing-desk.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/tools/footnote-bijection.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/tools/fold-pagination.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/tools/citation-density.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/tools/revision-chronology.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/tools/claim-evidence.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/edition-charter.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/editorial-desk.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/corrigenda-policy.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/relation-insert.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/reading-boundary.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/local-privacy.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/edition-changelog.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/editorial-method.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+</urlset>
