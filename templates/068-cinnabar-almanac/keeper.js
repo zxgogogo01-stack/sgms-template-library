@@ -1,376 +1,46 @@
 (() => {
-  "use strict";
-
-  const root = document.documentElement;
-  const inkToggle = document.querySelector("[data-ink-toggle]");
-  const storageKey = "cinnabar-almanac-068-ink";
-
-  function setInk(value) {
-    const ink = value === "night" ? "night" : "day";
-    root.dataset.ink = ink;
-    if (inkToggle) {
-      inkToggle.textContent = ink === "night" ? "日读" : "夜读";
-      inkToggle.setAttribute("aria-label", ink === "night" ? "切换到日读主题" : "切换到夜读主题");
-    }
-  }
-
-  try {
-    setInk(localStorage.getItem(storageKey) || "day");
-  } catch (error) {
-    setInk("day");
-  }
-
-  inkToggle?.addEventListener("click", () => {
-    const next = root.dataset.ink === "night" ? "day" : "night";
-    setInk(next);
-    try {
-      localStorage.setItem(storageKey, next);
-    } catch (error) {
-      // 主题仍在当前页面生效。
-    }
-  });
-
-  const menuButton = document.querySelector(".ca68-menu-button");
-  const menu = document.querySelector(".ca68-menu");
-
-  function closeMenu(returnFocus = false) {
-    if (!menuButton || !menu) return;
-    menu.classList.remove("ca68-open");
-    menuButton.setAttribute("aria-expanded", "false");
-    if (returnFocus) menuButton.focus();
-  }
-
-  menuButton?.addEventListener("click", () => {
-    const open = !menu.classList.contains("ca68-open");
-    menu.classList.toggle("ca68-open", open);
-    menuButton.setAttribute("aria-expanded", String(open));
-    if (open) menu.querySelector("a,button")?.focus();
-  });
-  menu?.addEventListener("click", (event) => {
-    if (event.target.closest("a")) closeMenu();
-  });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && menu?.classList.contains("ca68-open")) closeMenu(true);
-  });
-  window.addEventListener("resize", () => {
-    if (innerWidth > 960) closeMenu();
-  });
-
-  async function copyText(value) {
-    if (navigator.clipboard && isSecureContext) {
-      await navigator.clipboard.writeText(value);
-      return;
-    }
-    const area = document.createElement("textarea");
-    area.value = value;
-    area.readOnly = true;
-    area.style.position = "fixed";
-    area.style.opacity = "0";
-    document.body.append(area);
-    area.select();
-    const copied = document.execCommand("copy");
-    area.remove();
-    if (!copied) throw new Error("copy unavailable");
-  }
-
-  function bindCopy(buttonSelector, sourceSelector, statusSelector) {
-    const button = document.querySelector(buttonSelector);
-    const source = document.querySelector(sourceSelector);
-    const status = document.querySelector(statusSelector);
-    button?.addEventListener("click", async () => {
-      try {
-        await copyText(source.textContent.trim());
-        status.textContent = "已复制，请按真实资料补齐。";
-      } catch (error) {
-        status.textContent = "浏览器未允许复制，请手动选择文字。";
-      }
-    });
-  }
-
-  bindCopy("[data-copy-handoff]", "[data-handoff-text]", "[data-handoff-status]");
-  bindCopy("[data-copy-disclosure]", "[data-disclosure-text]", "[data-disclosure-status]");
-
-  const progress = document.querySelector("[data-reading-progress]");
-  if (progress) {
-    const updateProgress = () => {
-      const available = document.documentElement.scrollHeight - innerHeight;
-      const value = available > 0 ? Math.min(100, Math.max(0, scrollY / available * 100)) : 100;
-      progress.style.width = `${value}%`;
-    };
-    updateProgress();
-    addEventListener("scroll", updateProgress, { passive: true });
-    addEventListener("resize", updateProgress);
-  }
-
-  const entryForm = document.querySelector("[data-entry-form]");
-  if (entryForm) {
-    const input = entryForm.querySelector("#ca68-entries");
-    const error = entryForm.querySelector("[data-entry-error]");
-    const status = entryForm.querySelector("[data-entry-status]");
-    const report = document.querySelector(".ca68-ruler-report");
-    const state = report.querySelector("[data-entry-state]");
-    const entryCount = report.querySelector("[data-entry-count]");
-    const dateCount = report.querySelector("[data-date-count]");
-    const sameCount = report.querySelector("[data-same-count]");
-    const longestGap = report.querySelector("[data-longest-gap]");
-    const list = report.querySelector("[data-gap-list]");
-    const note = report.querySelector("[data-entry-note]");
-    const copyButton = report.querySelector("[data-copy-entry-report]");
-    const copyStatus = report.querySelector("[data-entry-copy-status]");
-    let latest = "";
-
-    const presets = {
-      steady: "2026-01-03 | 栏目边界初校\n2026-01-10 | 来源字段补记\n2026-01-17 | 工具说明复核\n2026-01-24 | 公开边注复校",
-      "same-day": "2026-02-08 | 方法页第二校\n2026-02-08 | 工具边界补记\n2026-02-11 | 首页入口复核\n2026-02-18 | 来源路径检查",
-      gaps: "2025-11-02 | 旧卷封存\n2025-11-06 | 更正记录\n2026-01-12 | 新卷起笔\n2026-03-30 | 季度复校"
-    };
-
-    function placeholder(text = "校对后显示按日期排序的前 20 个相邻间隔。") {
-      const item = document.createElement("li");
-      item.textContent = text;
-      list.replaceChildren(item);
-    }
-
-    function zero() {
-      entryCount.textContent = "0";
-      dateCount.textContent = "0";
-      sameCount.textContent = "0";
-      longestGap.textContent = "0 天";
-    }
-
-    function fail(message) {
-      input.setAttribute("aria-invalid", "true");
-      error.textContent = message;
-      status.textContent = "未生成报告，请修正输入。";
-      report.dataset.ready = "false";
-      state.textContent = "退校";
-      zero();
-      placeholder("输入有误，修正后重新校对。");
-      note.textContent = "间隔仅供编辑复查，不代表内容应按固定频率发布。";
-      copyButton.disabled = true;
-      copyStatus.textContent = "";
-      latest = "";
-    }
-
-    function markStale() {
-      if (report.dataset.ready !== "true") return;
-      report.dataset.ready = "false";
-      state.textContent = "待复校";
-      status.textContent = "日期条目已变化，请重新校对。";
-      copyButton.disabled = true;
-      copyStatus.textContent = "";
-      latest = "";
-    }
-
-    function parseDate(value) {
-      const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
-      if (!match) return null;
-      const year = Number(match[1]);
-      const month = Number(match[2]);
-      const day = Number(match[3]);
-      if (year < 2000 || year > 2099) return null;
-      const time = Date.UTC(year, month - 1, day);
-      const date = new Date(time);
-      if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) return null;
-      return time;
-    }
-
-    input.addEventListener("input", markStale);
-
-    entryForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const text = input.value.replace(/\r\n?/g, "\n");
-      const length = Array.from(text).length;
-      input.removeAttribute("aria-invalid");
-      error.textContent = "";
-
-      if (!text.trim()) {
-        fail("请先输入至少一条日期记录。");
-        input.focus();
-        return;
-      }
-      if (length > 10000) {
-        fail(`输入共 ${length} 个字符，最多允许 10000 个。`);
-        input.focus();
-        return;
-      }
-
-      const rows = text.split("\n").map((value, index) => ({ value: value.trim(), line: index + 1 })).filter((row) => row.value);
-      if (rows.length > 120) {
-        fail(`检测到 ${rows.length} 条记录，最多允许 120 条。`);
-        input.focus();
-        return;
-      }
-
-      const entries = [];
-      for (const row of rows) {
-        const parts = row.value.normalize("NFKC").split("|");
-        if (parts.length !== 2) {
-          fail(`第 ${row.line} 行必须且只能包含一个“|”分隔符。`);
-          input.focus();
-          return;
-        }
-        const date = parts[0].trim();
-        const title = parts[1].trim();
-        const time = parseDate(date);
-        if (time === null) {
-          fail(`第 ${row.line} 行不是 2000–2099 范围内的真实 YYYY-MM-DD 日期。`);
-          input.focus();
-          return;
-        }
-        if (!title) {
-          fail(`第 ${row.line} 行缺少题名。`);
-          input.focus();
-          return;
-        }
-        if (Array.from(title).length > 80) {
-          fail(`第 ${row.line} 行题名超过 80 个字符。`);
-          input.focus();
-          return;
-        }
-        entries.push({ date, time, title, order: row.line });
-      }
-
-      entries.sort((a, b) => a.time - b.time || a.order - b.order);
-      const dates = new Map();
-      for (const entry of entries) {
-        if (!dates.has(entry.date)) dates.set(entry.date, []);
-        dates.get(entry.date).push(entry.title);
-      }
-      const uniqueDates = [...dates.keys()];
-      const sameDates = [...dates.entries()].filter((item) => item[1].length > 1);
-      const gaps = [];
-      for (let index = 1; index < uniqueDates.length; index += 1) {
-        const from = uniqueDates[index - 1];
-        const to = uniqueDates[index];
-        const days = Math.round((parseDate(to) - parseDate(from)) / 86400000);
-        gaps.push({ from, to, days });
-      }
-      const longest = gaps.reduce((max, gap) => Math.max(max, gap.days), 0);
-
-      entryCount.textContent = String(entries.length);
-      dateCount.textContent = String(uniqueDates.length);
-      sameCount.textContent = String(sameDates.length);
-      longestGap.textContent = `${longest} 天`;
-      list.replaceChildren();
-
-      if (!gaps.length) {
-        placeholder("只有一个唯一日期，暂时没有相邻间隔。");
-      } else {
-        gaps.slice(0, 20).forEach((gap, index) => {
-          const item = document.createElement("li");
-          const number = document.createElement("b");
-          const range = document.createElement("span");
-          const days = document.createElement("em");
-          number.textContent = String(index + 1).padStart(2, "0");
-          range.textContent = `${gap.from} → ${gap.to}`;
-          days.textContent = `${gap.days} 天`;
-          item.append(number, range, days);
-          list.append(item);
-        });
-      }
-
-      note.textContent = sameDates.length
-        ? `同日多条：${sameDates.slice(0, 5).map((item) => `${item[0]}（${item[1].length} 条）`).join("、")}${sameDates.length > 5 ? "等" : ""}`
-        : "没有同日多条记录；仍需人工判断间隔含义。";
-      latest = [
-        "日期条目间隔报告",
-        `条目：${entries.length}`,
-        `唯一日期：${uniqueDates.length}`,
-        `同日多条日期：${sameDates.length}`,
-        `最长间隔：${longest} 天`,
-        ...gaps.slice(0, 20).map((gap) => `${gap.from} → ${gap.to}：${gap.days} 天`),
-        "说明：间隔只描述输入时间线，不判断更新必要性。"
-      ].join("\n");
-      report.dataset.ready = "true";
-      state.textContent = "已校";
-      status.textContent = `校对完成：${entries.length} 条记录覆盖 ${uniqueDates.length} 个日期。`;
-      copyButton.disabled = false;
-      copyStatus.textContent = "";
-    });
-
-    entryForm.querySelectorAll("[data-entry-preset]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const hadReadyReport = report.dataset.ready === "true";
-        input.value = presets[button.dataset.entryPreset];
-        input.removeAttribute("aria-invalid");
-        error.textContent = "";
-        if (hadReadyReport) {
-          markStale();
-        } else {
-          report.dataset.ready = "false";
-          state.textContent = "待校";
-          zero();
-          placeholder();
-          note.textContent = "间隔仅供编辑复查，不代表内容应按固定频率发布。";
-          copyButton.disabled = true;
-          copyStatus.textContent = "";
-          latest = "";
-        }
-        status.textContent = "样例已装载，点击校对生成报告。";
-        input.focus();
-      });
-    });
-
-    copyButton.addEventListener("click", async () => {
-      if (!latest) return;
-      try {
-        await copyText(latest);
-        copyStatus.textContent = "报告已复制。";
-      } catch (error) {
-        copyStatus.textContent = "浏览器未允许复制。";
-      }
-    });
-
-    entryForm.addEventListener("reset", () => setTimeout(() => {
-      input.removeAttribute("aria-invalid");
-      error.textContent = "";
-      status.textContent = "等待输入日期条目。";
-      report.dataset.ready = "false";
-      state.textContent = "待笔";
-      zero();
-      placeholder();
-      note.textContent = "间隔仅供编辑复查，不代表内容应按固定频率发布。";
-      copyButton.disabled = true;
-      copyStatus.textContent = "";
-      latest = "";
-    }, 0));
-  }
-
-  const search = document.querySelector("[data-index-search]");
-  if (search) {
-    const query = search.querySelector("input");
-    const output = search.querySelector("[data-index-result]");
-    const routes = [
-      { href: "article.html", label: "校历方法", words: ["日期", "方法", "复核", "同日"] },
-      { href: "tool.html", label: "条目间隔校对尺", words: ["间隔", "工具", "空档", "条目"] },
-      { href: "legal.html", label: "公开边注", words: ["披露", "边界", "利益", "更正"] },
-      { href: "index.html", label: "今卷首页", words: ["首页", "今卷", "总览", "登记"] }
-    ];
-
-    search.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const value = query.value.trim();
-      if (!value) {
-        output.textContent = "请输入一个卷内词。";
-        query.focus();
-        return;
-      }
-      const normalized = value.normalize("NFKC").toLocaleLowerCase();
-      const found = routes.find((route) => route.words.some((word) => normalized.includes(word)));
-      const route = found || routes[3];
-      const link = document.createElement("a");
-      link.href = route.href;
-      link.textContent = route.label;
-      output.replaceChildren(
-        document.createTextNode(found ? "最近的卷内页：" : "未找到精确条目，建议先返回"),
-        link,
-        document.createTextNode("。")
-      );
-    });
-
-    query.addEventListener("input", () => {
-      output.textContent = "卷内词已变化，提交后重新检索。";
-    });
-  }
+ 'use strict';
+ const one=s=>document.querySelector(s),all=s=>Array.from(document.querySelectorAll(s));
+ const html=document.documentElement,banner=one('.ca68-banner'),menu=one('#ca68-menu'),menuButton=one('#ca68-menu-button'),themeButton=one('[data-ink-toggle]');
+ const storageKey='cinnabar-almanac-068-ink';
+ function applyTheme(value){html.dataset.ink=value==='night'?'night':'day';if(themeButton){themeButton.textContent=html.dataset.ink==='night'?'日读':'夜读';themeButton.setAttribute('aria-label',html.dataset.ink==='night'?'切换为日读主题':'切换为夜读主题');}one('meta[name="theme-color"]').content=html.dataset.ink==='night'?'#181613':'#f2ecdd';}
+ try{applyTheme(localStorage.getItem(storageKey));}catch{applyTheme('day');}
+ if(themeButton){themeButton.hidden=false;themeButton.addEventListener('click',()=>{applyTheme(html.dataset.ink==='night'?'day':'night');try{localStorage.setItem(storageKey,html.dataset.ink);}catch{}});}
+ function closeMenu(focus=false){if(!menuButton)return;menu.classList.remove('ca68-open');menuButton.setAttribute('aria-expanded','false');if(focus)menuButton.focus();}
+ if(menuButton&&menu){banner.classList.add('ca68-js');menuButton.hidden=false;menuButton.addEventListener('click',()=>{if(menuButton.getAttribute('aria-expanded')==='true')closeMenu();else{menu.classList.add('ca68-open');menuButton.setAttribute('aria-expanded','true');menu.querySelector('a').focus();}});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>closeMenu()));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menuButton.getAttribute('aria-expanded')==='true')closeMenu(true);});document.addEventListener('click',e=>{if(!banner.contains(e.target))closeMenu();});matchMedia('(min-width:961px)').addEventListener('change',e=>{if(e.matches)closeMenu();});}
+ const codeButton=one('[data-copy-code]');if(codeButton){codeButton.disabled=false;codeButton.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(one('#ca68-code').textContent.trim());one('[data-code-state]').textContent='代码已复制。';}catch{one('[data-code-state]').textContent='未获剪贴板权限，请手动选择代码复制。';}});}
+ const normalize=s=>s.normalize('NFKC').trim().toLowerCase();
+ const filter=one('[data-leaf-filter]');if(filter){filter.hidden=false;const update=()=>{const query=normalize(filter.elements.keyword.value),volume=filter.elements.volume.value;let count=0;all('[data-leaf-volume]').forEach(item=>{item.hidden=!((volume==='all'||volume===item.dataset.leafVolume)&&normalize(item.querySelector('a').textContent).includes(query));if(!item.hidden)count++;});one('[data-filter-state]').textContent='显示 '+count+' 叶。';};filter.addEventListener('input',update);filter.addEventListener('change',update);filter.addEventListener('reset',()=>setTimeout(update,0));update();}
+ const search=one('[data-local-search]');if(search){search.querySelector('button').disabled=false;search.addEventListener('submit',e=>{e.preventDefault();const query=normalize(search.elements.query.value);let count=0;all('[data-search-item]').forEach(a=>{a.hidden=!normalize(a.textContent).includes(query);if(!a.hidden)count++;});one('[data-search-state]').textContent=count?'找到 '+count+' 个卷目。':'没有匹配题名，请尝试更短关键词。';});}
+ const progress=one('[data-reading-progress]');if(progress){let pending=false;const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?Math.min(100,Math.max(0,scrollY/max*100)):100)+'%';pending=false;};addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(update);}},{passive:true});addEventListener('resize',update);addEventListener('load',update);update();}
+ const form=one('[data-instrument]');if(!form)return;
+ const output=one('[data-result-text]'),status=one('[data-result-status]'),copy=one('[data-copy-result]'),copyState=one('[data-result-copy-state]'),error=one('#ca68-error');let revision=0;
+ const controls=()=>Array.from(form.querySelectorAll('input,select,textarea'));
+ const raw=name=>form.elements.namedItem(name).value;
+ function fail(name,message){const e=new Error(message);e.field=name;throw e;}
+ function clean(name,max,empty=false){const text=raw(name);if(!text.isWellFormed())fail(name,'输入含不完整 Unicode，请重新输入。');if(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f-\u009f]/u.test(text))fail(name,'输入含不可用控制字符。');if(Array.from(text).length>max)fail(name,'输入超过 '+max+' Unicode 码点。');const value=text.normalize('NFKC').trim();if(!empty&&!value)fail(name,'请填写此字段。');return value;}
+ function integer(name,min,max){const s=clean(name,20);if(!/^\d+$/.test(s))fail(name,'请输入十进制整数，不使用符号、小数或指数。');const n=Number(s);if(!Number.isSafeInteger(n)||n<min||n>max)fail(name,'请输入 '+min+'–'+max+' 范围的整数。');return n;}
+ const leap=y=>y%4===0&&(y%100!==0||y%400===0),days=(y,m)=>[31,leap(y)?29:28,31,30,31,30,31,31,30,31,30,31][m-1],DAY=86400000;
+ const iso=ms=>new Date(ms).toISOString().slice(0,10),stamp=(y,m,d)=>Date.UTC(y,m-1,d);
+ function parseDate(s,name){if(!/^20\d{2}-\d{2}-\d{2}$/.test(s))fail(name,'日期须为 2000–2099 的 YYYY-MM-DD。');const [y,m,d]=s.split('-').map(Number);if(m<1||m>12||d<1||d>days(y,m))fail(name,'日期不是有效公历日。');return {y,m,d,time:stamp(y,m,d)};}
+ const date=name=>parseDate(clean(name,30),name);
+ const year=name=>{const n=integer(name,2000,2099);if(!/^20\d{2}$/.test(clean(name,20)))fail(name,'年份须为四位 2000–2099。');return n;};
+ const option=(name,options)=>{const s=raw(name);if(!options.includes(s))fail(name,'请选择有效选项。');return s;};
+ const weekdays=['周日','周一','周二','周三','周四','周五','周六'];
+ const algorithms={
+  'entry-gap':()=>{clean('entries',10000);const text=raw('entries').normalize('NFKC'),lines=text.split(/\r\n|\n|\r/).map((text,i)=>({text:text.trim(),line:i+1})).filter(r=>r.text);if(lines.length>120)fail('entries','最多接受 120 条非空记录。');const rows=lines.map(r=>{const parts=r.text.split('|');if(parts.length!==2)fail('entries','第 '+r.line+' 行须恰好一个竖线。');const label=parts[1].trim();if(!label||Array.from(label).length>80)fail('entries','第 '+r.line+' 行题名须为 1–80 码点。');return {date:parseDate(parts[0].trim(),'entries'),label,line:r.line};}).sort((a,b)=>a.date.time-b.date.time||a.line-b.line);const groups=[];rows.forEach(r=>{let g=groups[groups.length-1];if(!g||g.time!==r.date.time){g={time:r.date.time,rows:[]};groups.push(g);}g.rows.push(r);});const same=groups.filter(g=>g.rows.length>1),gaps=groups.slice(1).map((g,i)=>({from:groups[i].time,to:g.time,days:(g.time-groups[i].time)/DAY}));return ['日期条目间隔报告','有效记录：'+rows.length,'唯一日期：'+groups.length,'同日多条日期：'+same.length,'最长间隔：'+Math.max(0,...gaps.map(g=>g.days))+' 天','','日期顺序（同日保留输入次序）',...rows.map((r,i)=>(i+1)+'. '+iso(r.date.time)+' | '+r.label+'（原行 '+r.line+'）'),'','同日登记',...(same.length?same.map(g=>iso(g.time)+'：'+g.rows.map(r=>r.label).join('；')):['无同日多条。']),'','相邻唯一日期间隔',...(gaps.length?gaps.map(g=>iso(g.from)+' → '+iso(g.to)+'：'+g.days+' 天'):['仅一个唯一日期，无相邻间隔。']),'','仅为当前输入的日期计算，不判断发布或内容质量。'].join('\n');},
+  'month-grid':()=>{const y=year('year'),m=integer('month',1,12),first=option('first',['monday','sunday']),start=first==='monday'?1:0,offset=(new Date(stamp(y,m,1)).getUTCDay()-start+7)%7,len=days(y,m),cells=Array(offset).fill('  ');for(let d=1;d<=len;d++)cells.push(String(d).padStart(2,' '));while(cells.length%7)cells.push('  ');const grid=[];for(let i=0;i<cells.length;i+=7)grid.push(cells.slice(i,i+7).join(' | '));return ['公历月格报告',y+'-'+String(m).padStart(2,'0'),'该月天数：'+len,'首日星期：'+weekdays[new Date(stamp(y,m,1)).getUTCDay()],'首列：'+weekdays[start],'前置空位：'+offset,'行数：'+grid.length,'',Array.from({length:7},(_,i)=>['Su','Mo','Tu','We','Th','Fr','Sa'][(start+i)%7]).join(' | '),...grid,'','Mo–Fr：周一至周五；Sa：周六；Su：周日。','空位不属于本月。未标记节假日、农历或地区工作安排。'].join('\n');},
+  'ordinal-day':()=>{const direction=option('direction',['forward','reverse']);let d,n,y;if(direction==='forward'){d=date('date');y=d.y;n=(d.time-stamp(y,1,1))/DAY+1;}else{y=year('year');n=integer('ordinal',1,leap(y)?366:365);d={time:stamp(y,1,1)+(n-1)*DAY};}return ['年内日序报告','日期：'+iso(d.time),'年份：'+y,'年内日序：'+n,'全年天数：'+(leap(y)?366:365),'年内剩余：'+((leap(y)?366:365)-n)+' 天','星期：'+weekdays[new Date(d.time).getUTCDay()],'','日序从 1 开始，剩余天数不含当前日。'].join('\n');},
+  'weekday-tally':()=>{const start=date('start'),end=date('end');if(end.time<start.time)fail('end','结束日期不得早于起始日期。');const counts=Array(7).fill(0),total=(end.time-start.time)/DAY+1;for(let t=start.time;t<=end.time;t+=DAY)counts[new Date(t).getUTCDay()]++;return ['星期分布报告',iso(start.time)+' → '+iso(end.time),'总天数（含首尾）：'+total,'',...Array.from({length:7},(_,i)=>{const d=(i+1)%7;return weekdays[d]+'：'+counts[d];}),'','周一至周五：'+counts.slice(1,6).reduce((a,b)=>a+b,0),'周六与周日：'+(counts[0]+counts[6]),'','不等于法定工作日；没有节假日、调休和时区规则。'].join('\n');},
+  'monthly-anchor':()=>{const anchor=date('anchor'),step=integer('step',1,12),count=integer('count',1,36),policy=option('policy',['clamp','skip']),base=anchor.y*12+anchor.m-1;const last=base+(count-1)*step;if(Math.floor(last/12)>2099)fail('count','候选月份越过 2099 年，请减少数量或间隔。');const result=[];let emitted=0,adjusted=0,skipped=0;for(let i=0;i<count;i++){const index=base+i*step,y=Math.floor(index/12),m=index%12+1,len=days(y,m),prefix=(i+1)+'. ';if(anchor.d>len&&policy==='skip'){skipped++;result.push(prefix+y+'-'+String(m).padStart(2,'0')+' 跳过：无 '+anchor.d+' 日');}else{const d=Math.min(anchor.d,len);emitted++;if(d!==anchor.d)adjusted++;result.push(prefix+iso(stamp(y,m,d))+(d!==anchor.d?'（月底截齐）':''));}}return ['逐月锚点报告','原始锚点：'+iso(anchor.time),'间隔：'+step+' 月','候选月份：'+count,'生成日期：'+emitted,'截齐月份：'+adjusted,'跳过月份：'+skipped,'',...result,'','始终使用原始日号；候选数量包含首月与跳过月份。'].join('\n');}
+ };
+ function clear(){revision++;output.textContent='';copy.disabled=true;copyState.textContent='';error.textContent='';controls().forEach(e=>{e.removeAttribute('aria-invalid');e.removeAttribute('aria-errormessage');});status.textContent='输入已变更，请重新计算';}
+ function direction(){if(form.dataset.instrument!=='ordinal-day')return;const reverse=raw('direction')==='reverse';const forwardBox=one('[data-ordinal-forward]'),reverseBox=one('[data-ordinal-reverse]');forwardBox.hidden=reverse;forwardBox.disabled=reverse;reverseBox.hidden=!reverse;reverseBox.disabled=!reverse;}
+ form.querySelector('[type="submit"]').disabled=false;direction();
+ // change only updates direction: native blur must not invalidate an already calculated report.
+ form.addEventListener('input',()=>{clear();direction();});
+ form.addEventListener('change',e=>{if(e.target.tagName==='SELECT'){clear();direction();}});
+ form.addEventListener('reset',()=>{clear();setTimeout(()=>{direction();status.textContent='已恢复示例，等待计算';},0);});
+ form.addEventListener('submit',e=>{e.preventDefault();clear();try{output.textContent=algorithms[form.dataset.instrument]();status.textContent='报告已生成';copy.disabled=false;}catch(problem){error.textContent=problem.message;status.textContent='请检查输入';const field=form.elements.namedItem(problem.field);if(field){field.setAttribute('aria-invalid','true');field.setAttribute('aria-errormessage','ca68-error');field.focus();}}});
+ copy.addEventListener('click',async()=>{if(copy.disabled)return;const version=revision,text=output.textContent;try{await navigator.clipboard.writeText(text);if(version===revision)copyState.textContent='完整报告已复制。';}catch{if(version===revision)copyState.textContent='未获剪贴板权限，请在报告区域手动选择复制。';}});
 })();

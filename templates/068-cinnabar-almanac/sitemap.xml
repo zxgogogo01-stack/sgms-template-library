@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://%%SITE_DOMAIN%%/</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/article.html</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/tool.html</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/legal.html</loc></url>
-</urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://%%SITE_DOMAIN%%/</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaf-register.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaves/date-leaf.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaves/facing-notes.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaves/event-ribbon.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaves/field-notebook.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaves/source-register.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaves/month-folio.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaves/comparison-lines.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaves/margin-lexicon.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaves/revision-slips.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaves/decision-branches.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaves/excerpt-window.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/leaves/reference-gate.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/volumes/first-impressions.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/volumes/collation-desk.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/volumes/after-notes.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/ruler-room.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/rulers/entry-gap.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/rulers/month-grid.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/rulers/ordinal-day.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/rulers/weekday-tally.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/rulers/monthly-anchor.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/annotations/about.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/annotations/contact.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/annotations/disclosure.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/annotations/disclaimer.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/annotations/privacy.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/annotations/corrections.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/annotations/editorial.html</loc></url></urlset>
