@@ -1,42 +1,1024 @@
-# 054-bands-primer（四色带入门课）
+# 054-bands-primer · 四色带入门课
 
-## 模板定位
+## 完整 UI 与来源边界
 
-面向返佣入门、规则教育和分层知识站。页面以整幅横向色带组织 Hero、精选课、常用入口、学习通行证和更新列表，适合把复杂内容拆成清晰的学习顺序。
-
-## 视觉与指纹隔离
-
-- 全站 UI、状态和脚本钩子使用独立的 `bp54-` 命名空间。
-- 视觉语言由板岩蓝、铜色、整幅横带和纸质课程卡组成；课程通行证使用 `fieldset`、有序列表、复选框与 `progress`，形成该模板独有的语义骨架。
-- 仅加载 `css/tone.css` 与 `lift.js`，没有共享公共样式副本、远程字体、图片或第三方脚本。
-- 五页均具备跳过导航、明暗主题、44px 触控目标、移动导航、清晰焦点状态和安全的本地交互。
-
-## 页面与职责
-
-- `index.html`：四色带首页、课程入口、可勾选学习通行证和更新列表。
-- `article.html`：长文、口径表、阅读进度和可复制核对顺序。
-- `tool.html`：按课程数、天数与单课分钟生成精确学习节奏。
-- `legal.html`：利益关系、数据口径、风险与联系披露，可复制通用披露段。
-- `404.html`：`noindex` 的本地课程查找，使用 DOM 节点安全输出结果。
-- `robots.txt`、`sitemap.xml`：上线前替换域名占位符。
+保留本地整幅四色横带、板岩蓝与铜色、衬线标题、课程通行证、bp54 命名及原 css/tone.css；css/curriculum.css 补齐完整框架。原始军哥动态源包忠实度未核验，本地 UI 验收不作为原包复刻证明。
 
 ## 后续 AI 内容接入
 
-后续 AI 只需替换文字、链接和下列占位符，不需要重做模板 UI：
+只填写经核实的文字、文章与站点变量，不需重新设计 UI、补页面、表格、封面、工具或发布资源。保留 class、id、data 属性、form name、aria 关系和相对路径；三种文章开场、十二内容组件、不同 H2/FAQ 数量与三种收尾已经搭好。
 
-`[[SITE_NAME]]`、`[[BRAND_EN]]`、`[[SITE_DOMAIN]]`、`[[SITE_TAGLINE]]`、`[[SITE_DESC]]`、`[[SEO_TITLE]]`、`[[HERO_EYEBROW]]`、`[[HERO_TITLE]]`、`[[HERO_DESCRIPTION]]`、`[[HOME_FEATURED_LABEL]]`、`[[HOME_LINKS_LABEL]]`、`[[HOME_LATEST_LABEL]]`、`[[CONTACT_EMAIL]]`、`[[LANG]]`。
+- registrationGuide 只是旧检查器兼容字段，指向 access-pass.html 内的通用推广 UI，不预定注册教程，不代写教程或业务文章。
+- 首页仅有邀请码、复制、利益点与脚注；唯一静态推广链接在通用内容外壳内，保留 target=_blank 与 sponsored nofollow noopener noreferrer，并紧邻披露。来源链接分别核实，不能填成推广地址。
+- 作者身份、来源、政策、日期、联系方式、利益条件均为独立内容槽位，不伪造经历或证据。字标使用英文或罗马字，封面是抽象 UI 资产，不代表实测或摄影证据。
+- HTML/XML 文字与属性按各自上下文转义；JSON-LD 使用 JSON 字符串编码并安全处理小于号。域名不含协议或路径；URL 使用经核实的 HTTPS 地址。日期 ISO，RSS_DATE 使用 RFC822 日期，SECURITY_EXPIRES 填未来 RFC3339 时间。
+- 标题、首屏摘要与利益脚注应简短；填入真实内容后再次检查 360px 首屏复制区、明暗主题、长词和移动表格。正文独立变量 L1–L12，不把相同文字批量铺满所有页面。
+- 五个工具分别实现均衡课量分配、依赖拓扑分层、UTC 日期累计、带完整休息的时段分割、BigInt 有理数加权评分。每页 Guide 给出格式、算法、例子和边界；输入不上传、不持久化，编辑使旧结果失效。通行证勾选只在当前页面生效。
+- article.html、tool.html、legal.html 为 noindex 兼容入口，不自动跳转。未知深层地址由单站服务器返回真实 404 并映射到 404.html，本轮不配置或部署服务器。
+- 自带 12 套 SVG/PNG/WebP 封面、PNG 社交图、SVG/ICO 标志及 180px apple-touch-icon。RSS 选前 11 篇摘要，不带邀请码或推广链接。
 
-可以增删 `.bp54-bands-row`、`.bp54-bands-link` 和课程通行证条目，但须同步 `progress` 最大值与脚本输出，并保留语义标签、内部链接、表单 `name`、输入约束、`data-*` 行为钩子及 `aria-*` 关系。每条公开费率、资格或时效信息都要附一手来源、适用范围和核对日期；不得写最高返佣、保证收益或绝对安全等未经核验的表述。
+## workflow-ready-v2
 
-## 学习计划口径
+```json workflow-ready-v2
+{
+  "version": 2,
+  "home": "index.html",
+  "articleIndex": "curriculum.html",
+  "articles": [
+    "lessons/orientation-card.html",
+    "lessons/term-tabs.html",
+    "lessons/route-stair.html",
+    "lessons/concept-shelf.html",
+    "lessons/worked-pair.html",
+    "lessons/question-pocket.html",
+    "lessons/practice-window.html",
+    "lessons/check-ladder.html",
+    "lessons/source-margin.html",
+    "lessons/review-loop.html",
+    "lessons/change-strip.html",
+    "lessons/access-pass.html"
+  ],
+  "cornerstones": [
+    "lessons/orientation-card.html",
+    "lessons/term-tabs.html"
+  ],
+  "registrationGuide": "lessons/access-pass.html",
+  "articleCovers": {
+    "lessons/orientation-card.html": {
+      "display": "assets/covers/orientation-card.webp",
+      "og": "assets/covers/orientation-card.png"
+    },
+    "lessons/term-tabs.html": {
+      "display": "assets/covers/term-tabs.webp",
+      "og": "assets/covers/term-tabs.png"
+    },
+    "lessons/route-stair.html": {
+      "display": "assets/covers/route-stair.webp",
+      "og": "assets/covers/route-stair.png"
+    },
+    "lessons/concept-shelf.html": {
+      "display": "assets/covers/concept-shelf.webp",
+      "og": "assets/covers/concept-shelf.png"
+    },
+    "lessons/worked-pair.html": {
+      "display": "assets/covers/worked-pair.webp",
+      "og": "assets/covers/worked-pair.png"
+    },
+    "lessons/question-pocket.html": {
+      "display": "assets/covers/question-pocket.webp",
+      "og": "assets/covers/question-pocket.png"
+    },
+    "lessons/practice-window.html": {
+      "display": "assets/covers/practice-window.webp",
+      "og": "assets/covers/practice-window.png"
+    },
+    "lessons/check-ladder.html": {
+      "display": "assets/covers/check-ladder.webp",
+      "og": "assets/covers/check-ladder.png"
+    },
+    "lessons/source-margin.html": {
+      "display": "assets/covers/source-margin.webp",
+      "og": "assets/covers/source-margin.png"
+    },
+    "lessons/review-loop.html": {
+      "display": "assets/covers/review-loop.webp",
+      "og": "assets/covers/review-loop.png"
+    },
+    "lessons/change-strip.html": {
+      "display": "assets/covers/change-strip.webp",
+      "og": "assets/covers/change-strip.png"
+    },
+    "lessons/access-pass.html": {
+      "display": "assets/covers/access-pass.webp",
+      "og": "assets/covers/access-pass.png"
+    }
+  },
+  "categories": [
+    {
+      "path": "bands/first-light.html",
+      "label": "起步色带",
+      "articles": [
+        "lessons/orientation-card.html",
+        "lessons/term-tabs.html",
+        "lessons/route-stair.html",
+        "lessons/concept-shelf.html"
+      ]
+    },
+    {
+      "path": "bands/try-and-connect.html",
+      "label": "联结色带",
+      "articles": [
+        "lessons/worked-pair.html",
+        "lessons/question-pocket.html",
+        "lessons/practice-window.html",
+        "lessons/check-ladder.html"
+      ]
+    },
+    {
+      "path": "bands/return-and-check.html",
+      "label": "回看色带",
+      "articles": [
+        "lessons/source-margin.html",
+        "lessons/review-loop.html",
+        "lessons/change-strip.html",
+        "lessons/access-pass.html"
+      ]
+    }
+  ],
+  "toolIndex": "practice.html",
+  "tools": [
+    "practice/lesson-load.html",
+    "practice/prerequisite-order.html",
+    "practice/review-dates.html",
+    "practice/focus-blocks.html",
+    "practice/weighted-rubric.html"
+  ],
+  "legal": {
+    "about": "about.html",
+    "contact": "contact.html",
+    "disclosure": "disclosure.html",
+    "disclaimer": "disclaimer.html",
+    "privacy": "privacy.html",
+    "corrections": "corrections.html",
+    "editorial": "editorial.html"
+  },
+  "error404": "404.html",
+  "robots": "robots.txt",
+  "sitemap": "sitemap.xml",
+  "feed": "feed.xml",
+  "security": ".well-known/security.txt",
+  "favicon": "favicon.ico",
+  "appleTouchIcon": "apple-touch-icon.png",
+  "socialImage": "assets/social-card.png",
+  "variables": {
+    "siteDomain": "[[SITE_DOMAIN]]",
+    "siteName": "[[SITE_NAME]]",
+    "wordmark": "[[BRAND_EN]]",
+    "inviteCode": "[[INVITE_CODE]]",
+    "benefitRate": "[[BENEFIT_RATE]]",
+    "benefitDisclaimer": "[[BENEFIT_DISCLAIMER]]",
+    "affiliateUrl": "[[AFFILIATE_URL]]"
+  }
+}
+```
 
-- 课程数量只接受 1–120 的整数；可用天数为 1–365；每课分钟为 1–600。
-- 每天课数按 `课程数量 ÷ 可用天数` 向上取整；实际学习日再按 `课程数量 ÷ 每天课数` 向上取整。
-- 总分钟、高峰日分钟、留白天数和最后一天课数全部由整数运算得出；输入变更会立即使旧结果失效。
+## 变量清单
 
-## 交付前检查
+- `[[404_DESC]]`
+- `[[ABOUT_DESC]]`
+- `[[ABOUT_H2_1]]`
+- `[[ABOUT_H2_2]]`
+- `[[ABOUT_H2_3]]`
+- `[[ABOUT_INTRO]]`
+- `[[ABOUT_MODIFIED]]`
+- `[[ABOUT_NOTE]]`
+- `[[ABOUT_TEXT_1]]`
+- `[[ABOUT_TEXT_2]]`
+- `[[ABOUT_TEXT_3]]`
+- `[[AFFILIATE_DISCLOSURE]]`
+- `[[AFFILIATE_URL]]`
+- `[[ARTICLE_DESC]]`
+- `[[ARTICLE_INTRO]]`
+- `[[AUTHOR_BIO]]`
+- `[[AUTHOR_NAME]]`
+- `[[BAND1_INTRO]]`
+- `[[BAND2_INTRO]]`
+- `[[BAND3_INTRO]]`
+- `[[BANDS_FIRST_LIGHT_DESC]]`
+- `[[BANDS_RETURN_AND_CHECK_DESC]]`
+- `[[BANDS_TRY_AND_CONNECT_DESC]]`
+- `[[BENEFIT_DISCLAIMER]]`
+- `[[BENEFIT_RATE]]`
+- `[[BRAND_EN]]`
+- `[[CONTACT_DESC]]`
+- `[[CONTACT_EMAIL]]`
+- `[[CONTACT_H2_1]]`
+- `[[CONTACT_H2_2]]`
+- `[[CONTACT_H2_3]]`
+- `[[CONTACT_INTRO]]`
+- `[[CONTACT_MODIFIED]]`
+- `[[CONTACT_NOTE]]`
+- `[[CONTACT_TEXT_1]]`
+- `[[CONTACT_TEXT_2]]`
+- `[[CONTACT_TEXT_3]]`
+- `[[CORRECTIONS_DESC]]`
+- `[[CORRECTIONS_H2_1]]`
+- `[[CORRECTIONS_H2_2]]`
+- `[[CORRECTIONS_H2_3]]`
+- `[[CORRECTIONS_INTRO]]`
+- `[[CORRECTIONS_MODIFIED]]`
+- `[[CORRECTIONS_NOTE]]`
+- `[[CORRECTIONS_TEXT_1]]`
+- `[[CORRECTIONS_TEXT_2]]`
+- `[[CORRECTIONS_TEXT_3]]`
+- `[[CURRICULUM_DESC]]`
+- `[[CURRICULUM_INTRO]]`
+- `[[DISCLAIMER_DESC]]`
+- `[[DISCLAIMER_H2_1]]`
+- `[[DISCLAIMER_H2_2]]`
+- `[[DISCLAIMER_H2_3]]`
+- `[[DISCLAIMER_INTRO]]`
+- `[[DISCLAIMER_MODIFIED]]`
+- `[[DISCLAIMER_NOTE]]`
+- `[[DISCLAIMER_TEXT_1]]`
+- `[[DISCLAIMER_TEXT_2]]`
+- `[[DISCLAIMER_TEXT_3]]`
+- `[[DISCLOSURE_DESC]]`
+- `[[DISCLOSURE_H2_1]]`
+- `[[DISCLOSURE_H2_2]]`
+- `[[DISCLOSURE_H2_3]]`
+- `[[DISCLOSURE_INTRO]]`
+- `[[DISCLOSURE_MODIFIED]]`
+- `[[DISCLOSURE_NOTE]]`
+- `[[DISCLOSURE_TEXT_1]]`
+- `[[DISCLOSURE_TEXT_2]]`
+- `[[DISCLOSURE_TEXT_3]]`
+- `[[EDITORIAL_DESC]]`
+- `[[EDITORIAL_H2_1]]`
+- `[[EDITORIAL_H2_2]]`
+- `[[EDITORIAL_H2_3]]`
+- `[[EDITORIAL_INTRO]]`
+- `[[EDITORIAL_MODIFIED]]`
+- `[[EDITORIAL_NOTE]]`
+- `[[EDITORIAL_TEXT_1]]`
+- `[[EDITORIAL_TEXT_2]]`
+- `[[EDITORIAL_TEXT_3]]`
+- `[[HERO_DESCRIPTION]]`
+- `[[HERO_EYEBROW]]`
+- `[[HERO_TITLE]]`
+- `[[HOME_FEATURED_LABEL]]`
+- `[[HOME_LATEST_LABEL]]`
+- `[[HOME_LINKS_LABEL]]`
+- `[[INDEPENDENCE_NOTE]]`
+- `[[INVITE_CODE]]`
+- `[[L10_BODY_1]]`
+- `[[L10_BODY_2]]`
+- `[[L10_BODY_3]]`
+- `[[L10_CELL1_2]]`
+- `[[L10_CELL1_3]]`
+- `[[L10_CELL2_2]]`
+- `[[L10_CELL2_3]]`
+- `[[L10_CHECKED]]`
+- `[[L10_COL1]]`
+- `[[L10_COL2]]`
+- `[[L10_COL3]]`
+- `[[L10_COVER_ALT]]`
+- `[[L10_COVER_CAPTION]]`
+- `[[L10_EDITOR_NOTE]]`
+- `[[L10_ENDING_LABEL]]`
+- `[[L10_ENDING_TEXT]]`
+- `[[L10_ENDING_TITLE]]`
+- `[[L10_FAQ_A1]]`
+- `[[L10_FAQ_A2]]`
+- `[[L10_FAQ_A3]]`
+- `[[L10_FAQ_Q1]]`
+- `[[L10_FAQ_Q2]]`
+- `[[L10_FAQ_Q3]]`
+- `[[L10_FAQ_TITLE]]`
+- `[[L10_H2_1]]`
+- `[[L10_H2_2]]`
+- `[[L10_H2_3]]`
+- `[[L10_LOOP_TEXT1]]`
+- `[[L10_LOOP_TEXT2]]`
+- `[[L10_LOOP_TEXT3]]`
+- `[[L10_LOOP_TEXT4]]`
+- `[[L10_LOOP_TITLE1]]`
+- `[[L10_LOOP_TITLE2]]`
+- `[[L10_LOOP_TITLE3]]`
+- `[[L10_LOOP_TITLE4]]`
+- `[[L10_MODIFIED]]`
+- `[[L10_PUBLISHED]]`
+- `[[L10_QUOTE]]`
+- `[[L10_QUOTE_SOURCE]]`
+- `[[L10_ROW1]]`
+- `[[L10_ROW2]]`
+- `[[L10_RSS_DATE]]`
+- `[[L10_SOURCE_LABEL1]]`
+- `[[L10_SOURCE_LABEL2]]`
+- `[[L10_SOURCE_LABEL3]]`
+- `[[L10_SOURCE_NOTE1]]`
+- `[[L10_SOURCE_NOTE2]]`
+- `[[L10_SOURCE_NOTE3]]`
+- `[[L10_SOURCE_URL1]]`
+- `[[L10_SOURCE_URL2]]`
+- `[[L10_SOURCE_URL3]]`
+- `[[L10_SUMMARY]]`
+- `[[L10_TABLE_CAPTION]]`
+- `[[L10_TITLE]]`
+- `[[L11_BODY_1]]`
+- `[[L11_BODY_2]]`
+- `[[L11_BODY_3]]`
+- `[[L11_BODY_4]]`
+- `[[L11_CELL1_2]]`
+- `[[L11_CELL1_3]]`
+- `[[L11_CELL2_2]]`
+- `[[L11_CELL2_3]]`
+- `[[L11_CELL3_2]]`
+- `[[L11_CELL3_3]]`
+- `[[L11_CHANGE_DATE1]]`
+- `[[L11_CHANGE_DATE2]]`
+- `[[L11_CHANGE_DATE3]]`
+- `[[L11_CHANGE_TEXT1]]`
+- `[[L11_CHANGE_TEXT2]]`
+- `[[L11_CHANGE_TEXT3]]`
+- `[[L11_CHANGE_TITLE1]]`
+- `[[L11_CHANGE_TITLE2]]`
+- `[[L11_CHANGE_TITLE3]]`
+- `[[L11_CHECKED]]`
+- `[[L11_COL1]]`
+- `[[L11_COL2]]`
+- `[[L11_COL3]]`
+- `[[L11_COVER_ALT]]`
+- `[[L11_COVER_CAPTION]]`
+- `[[L11_EDITOR_NOTE]]`
+- `[[L11_ENDING_LABEL]]`
+- `[[L11_ENDING_TEXT]]`
+- `[[L11_ENDING_TITLE]]`
+- `[[L11_FAQ_A1]]`
+- `[[L11_FAQ_A2]]`
+- `[[L11_FAQ_A3]]`
+- `[[L11_FAQ_A4]]`
+- `[[L11_FAQ_Q1]]`
+- `[[L11_FAQ_Q2]]`
+- `[[L11_FAQ_Q3]]`
+- `[[L11_FAQ_Q4]]`
+- `[[L11_FAQ_TITLE]]`
+- `[[L11_H2_1]]`
+- `[[L11_H2_2]]`
+- `[[L11_H2_3]]`
+- `[[L11_H2_4]]`
+- `[[L11_MODIFIED]]`
+- `[[L11_POINT3_1]]`
+- `[[L11_POINT3_2]]`
+- `[[L11_POINT3_3]]`
+- `[[L11_PUBLISHED]]`
+- `[[L11_QUOTE]]`
+- `[[L11_QUOTE_SOURCE]]`
+- `[[L11_ROW1]]`
+- `[[L11_ROW2]]`
+- `[[L11_ROW3]]`
+- `[[L11_RSS_DATE]]`
+- `[[L11_SOURCE_LABEL1]]`
+- `[[L11_SOURCE_LABEL2]]`
+- `[[L11_SOURCE_LABEL3]]`
+- `[[L11_SOURCE_NOTE1]]`
+- `[[L11_SOURCE_NOTE2]]`
+- `[[L11_SOURCE_NOTE3]]`
+- `[[L11_SOURCE_URL1]]`
+- `[[L11_SOURCE_URL2]]`
+- `[[L11_SOURCE_URL3]]`
+- `[[L11_SUMMARY]]`
+- `[[L11_TABLE_CAPTION]]`
+- `[[L11_TITLE]]`
+- `[[L12_ACCESS_LABEL]]`
+- `[[L12_ACCESS_LINK_LABEL]]`
+- `[[L12_ACCESS_TEXT]]`
+- `[[L12_ACCESS_TITLE]]`
+- `[[L12_BODY_1]]`
+- `[[L12_BODY_2]]`
+- `[[L12_BODY_3]]`
+- `[[L12_BODY_4]]`
+- `[[L12_BODY_5]]`
+- `[[L12_CELL1_2]]`
+- `[[L12_CELL1_3]]`
+- `[[L12_CELL2_2]]`
+- `[[L12_CELL2_3]]`
+- `[[L12_CELL3_2]]`
+- `[[L12_CELL3_3]]`
+- `[[L12_CELL4_2]]`
+- `[[L12_CELL4_3]]`
+- `[[L12_CHECKED]]`
+- `[[L12_COL1]]`
+- `[[L12_COL2]]`
+- `[[L12_COL3]]`
+- `[[L12_COVER_ALT]]`
+- `[[L12_COVER_CAPTION]]`
+- `[[L12_EDITOR_NOTE]]`
+- `[[L12_ENDING_LABEL]]`
+- `[[L12_ENDING_TEXT]]`
+- `[[L12_ENDING_TITLE]]`
+- `[[L12_FAQ_A1]]`
+- `[[L12_FAQ_A2]]`
+- `[[L12_FAQ_Q1]]`
+- `[[L12_FAQ_Q2]]`
+- `[[L12_FAQ_TITLE]]`
+- `[[L12_H2_1]]`
+- `[[L12_H2_2]]`
+- `[[L12_H2_3]]`
+- `[[L12_H2_4]]`
+- `[[L12_H2_5]]`
+- `[[L12_MODIFIED]]`
+- `[[L12_POINT3_1]]`
+- `[[L12_POINT3_2]]`
+- `[[L12_POINT3_3]]`
+- `[[L12_POINT4_1]]`
+- `[[L12_POINT4_2]]`
+- `[[L12_POINT4_3]]`
+- `[[L12_PUBLISHED]]`
+- `[[L12_QUOTE]]`
+- `[[L12_QUOTE_SOURCE]]`
+- `[[L12_ROW1]]`
+- `[[L12_ROW2]]`
+- `[[L12_ROW3]]`
+- `[[L12_ROW4]]`
+- `[[L12_SOURCE_LABEL1]]`
+- `[[L12_SOURCE_LABEL2]]`
+- `[[L12_SOURCE_LABEL3]]`
+- `[[L12_SOURCE_NOTE1]]`
+- `[[L12_SOURCE_NOTE2]]`
+- `[[L12_SOURCE_NOTE3]]`
+- `[[L12_SOURCE_URL1]]`
+- `[[L12_SOURCE_URL2]]`
+- `[[L12_SOURCE_URL3]]`
+- `[[L12_SUMMARY]]`
+- `[[L12_TABLE_CAPTION]]`
+- `[[L12_TITLE]]`
+- `[[L1_BODY_1]]`
+- `[[L1_BODY_2]]`
+- `[[L1_BODY_3]]`
+- `[[L1_CELL1_2]]`
+- `[[L1_CELL1_3]]`
+- `[[L1_CELL2_2]]`
+- `[[L1_CELL2_3]]`
+- `[[L1_CHECKED]]`
+- `[[L1_COL1]]`
+- `[[L1_COL2]]`
+- `[[L1_COL3]]`
+- `[[L1_COVER_ALT]]`
+- `[[L1_COVER_CAPTION]]`
+- `[[L1_EDITOR_NOTE]]`
+- `[[L1_ENDING_LABEL]]`
+- `[[L1_ENDING_TEXT]]`
+- `[[L1_ENDING_TITLE]]`
+- `[[L1_FAQ_A1]]`
+- `[[L1_FAQ_A2]]`
+- `[[L1_FAQ_A3]]`
+- `[[L1_FAQ_Q1]]`
+- `[[L1_FAQ_Q2]]`
+- `[[L1_FAQ_Q3]]`
+- `[[L1_FAQ_TITLE]]`
+- `[[L1_H2_1]]`
+- `[[L1_H2_2]]`
+- `[[L1_H2_3]]`
+- `[[L1_MODIFIED]]`
+- `[[L1_ORIENT_LABEL1]]`
+- `[[L1_ORIENT_LABEL2]]`
+- `[[L1_ORIENT_LABEL3]]`
+- `[[L1_ORIENT_TEXT1]]`
+- `[[L1_ORIENT_TEXT2]]`
+- `[[L1_ORIENT_TEXT3]]`
+- `[[L1_PUBLISHED]]`
+- `[[L1_QUOTE]]`
+- `[[L1_QUOTE_SOURCE]]`
+- `[[L1_ROW1]]`
+- `[[L1_ROW2]]`
+- `[[L1_RSS_DATE]]`
+- `[[L1_SOURCE_LABEL1]]`
+- `[[L1_SOURCE_LABEL2]]`
+- `[[L1_SOURCE_LABEL3]]`
+- `[[L1_SOURCE_NOTE1]]`
+- `[[L1_SOURCE_NOTE2]]`
+- `[[L1_SOURCE_NOTE3]]`
+- `[[L1_SOURCE_URL1]]`
+- `[[L1_SOURCE_URL2]]`
+- `[[L1_SOURCE_URL3]]`
+- `[[L1_SUMMARY]]`
+- `[[L1_TABLE_CAPTION]]`
+- `[[L1_TITLE]]`
+- `[[L2_BODY_1]]`
+- `[[L2_BODY_2]]`
+- `[[L2_BODY_3]]`
+- `[[L2_BODY_4]]`
+- `[[L2_CELL1_2]]`
+- `[[L2_CELL1_3]]`
+- `[[L2_CELL2_2]]`
+- `[[L2_CELL2_3]]`
+- `[[L2_CELL3_2]]`
+- `[[L2_CELL3_3]]`
+- `[[L2_CHECKED]]`
+- `[[L2_COL1]]`
+- `[[L2_COL2]]`
+- `[[L2_COL3]]`
+- `[[L2_COVER_ALT]]`
+- `[[L2_COVER_CAPTION]]`
+- `[[L2_DEFINITION1]]`
+- `[[L2_DEFINITION2]]`
+- `[[L2_DEFINITION3]]`
+- `[[L2_EDITOR_NOTE]]`
+- `[[L2_ENDING_LABEL]]`
+- `[[L2_ENDING_TEXT]]`
+- `[[L2_ENDING_TITLE]]`
+- `[[L2_FAQ_A1]]`
+- `[[L2_FAQ_A2]]`
+- `[[L2_FAQ_A3]]`
+- `[[L2_FAQ_A4]]`
+- `[[L2_FAQ_Q1]]`
+- `[[L2_FAQ_Q2]]`
+- `[[L2_FAQ_Q3]]`
+- `[[L2_FAQ_Q4]]`
+- `[[L2_FAQ_TITLE]]`
+- `[[L2_H2_1]]`
+- `[[L2_H2_2]]`
+- `[[L2_H2_3]]`
+- `[[L2_H2_4]]`
+- `[[L2_MODIFIED]]`
+- `[[L2_POINT3_1]]`
+- `[[L2_POINT3_2]]`
+- `[[L2_POINT3_3]]`
+- `[[L2_PUBLISHED]]`
+- `[[L2_QUOTE]]`
+- `[[L2_QUOTE_SOURCE]]`
+- `[[L2_ROW1]]`
+- `[[L2_ROW2]]`
+- `[[L2_ROW3]]`
+- `[[L2_RSS_DATE]]`
+- `[[L2_SOURCE_LABEL1]]`
+- `[[L2_SOURCE_LABEL2]]`
+- `[[L2_SOURCE_LABEL3]]`
+- `[[L2_SOURCE_NOTE1]]`
+- `[[L2_SOURCE_NOTE2]]`
+- `[[L2_SOURCE_NOTE3]]`
+- `[[L2_SOURCE_URL1]]`
+- `[[L2_SOURCE_URL2]]`
+- `[[L2_SOURCE_URL3]]`
+- `[[L2_SUMMARY]]`
+- `[[L2_TABLE_CAPTION]]`
+- `[[L2_TERM1]]`
+- `[[L2_TERM2]]`
+- `[[L2_TERM3]]`
+- `[[L2_TITLE]]`
+- `[[L3_BODY_1]]`
+- `[[L3_BODY_2]]`
+- `[[L3_BODY_3]]`
+- `[[L3_BODY_4]]`
+- `[[L3_BODY_5]]`
+- `[[L3_CELL1_2]]`
+- `[[L3_CELL1_3]]`
+- `[[L3_CELL2_2]]`
+- `[[L3_CELL2_3]]`
+- `[[L3_CELL3_2]]`
+- `[[L3_CELL3_3]]`
+- `[[L3_CELL4_2]]`
+- `[[L3_CELL4_3]]`
+- `[[L3_CHECKED]]`
+- `[[L3_COL1]]`
+- `[[L3_COL2]]`
+- `[[L3_COL3]]`
+- `[[L3_COVER_ALT]]`
+- `[[L3_COVER_CAPTION]]`
+- `[[L3_EDITOR_NOTE]]`
+- `[[L3_ENDING_LABEL]]`
+- `[[L3_ENDING_TEXT]]`
+- `[[L3_ENDING_TITLE]]`
+- `[[L3_FAQ_A1]]`
+- `[[L3_FAQ_A2]]`
+- `[[L3_FAQ_Q1]]`
+- `[[L3_FAQ_Q2]]`
+- `[[L3_FAQ_TITLE]]`
+- `[[L3_H2_1]]`
+- `[[L3_H2_2]]`
+- `[[L3_H2_3]]`
+- `[[L3_H2_4]]`
+- `[[L3_H2_5]]`
+- `[[L3_MODIFIED]]`
+- `[[L3_POINT3_1]]`
+- `[[L3_POINT3_2]]`
+- `[[L3_POINT3_3]]`
+- `[[L3_POINT4_1]]`
+- `[[L3_POINT4_2]]`
+- `[[L3_POINT4_3]]`
+- `[[L3_PUBLISHED]]`
+- `[[L3_QUOTE]]`
+- `[[L3_QUOTE_SOURCE]]`
+- `[[L3_ROW1]]`
+- `[[L3_ROW2]]`
+- `[[L3_ROW3]]`
+- `[[L3_ROW4]]`
+- `[[L3_RSS_DATE]]`
+- `[[L3_SOURCE_LABEL1]]`
+- `[[L3_SOURCE_LABEL2]]`
+- `[[L3_SOURCE_LABEL3]]`
+- `[[L3_SOURCE_NOTE1]]`
+- `[[L3_SOURCE_NOTE2]]`
+- `[[L3_SOURCE_NOTE3]]`
+- `[[L3_SOURCE_URL1]]`
+- `[[L3_SOURCE_URL2]]`
+- `[[L3_SOURCE_URL3]]`
+- `[[L3_STAGE_TEXT1]]`
+- `[[L3_STAGE_TEXT2]]`
+- `[[L3_STAGE_TEXT3]]`
+- `[[L3_STAGE_TITLE1]]`
+- `[[L3_STAGE_TITLE2]]`
+- `[[L3_STAGE_TITLE3]]`
+- `[[L3_SUMMARY]]`
+- `[[L3_TABLE_CAPTION]]`
+- `[[L3_TITLE]]`
+- `[[L4_BODY_1]]`
+- `[[L4_BODY_2]]`
+- `[[L4_BODY_3]]`
+- `[[L4_CELL1_2]]`
+- `[[L4_CELL1_3]]`
+- `[[L4_CELL2_2]]`
+- `[[L4_CELL2_3]]`
+- `[[L4_CHECKED]]`
+- `[[L4_COL1]]`
+- `[[L4_COL2]]`
+- `[[L4_COL3]]`
+- `[[L4_CONCEPT_TEXT1]]`
+- `[[L4_CONCEPT_TEXT2]]`
+- `[[L4_CONCEPT_TEXT3]]`
+- `[[L4_CONCEPT_TITLE1]]`
+- `[[L4_CONCEPT_TITLE2]]`
+- `[[L4_CONCEPT_TITLE3]]`
+- `[[L4_COVER_ALT]]`
+- `[[L4_COVER_CAPTION]]`
+- `[[L4_EDITOR_NOTE]]`
+- `[[L4_ENDING_LABEL]]`
+- `[[L4_ENDING_TEXT]]`
+- `[[L4_ENDING_TITLE]]`
+- `[[L4_FAQ_A1]]`
+- `[[L4_FAQ_A2]]`
+- `[[L4_FAQ_A3]]`
+- `[[L4_FAQ_Q1]]`
+- `[[L4_FAQ_Q2]]`
+- `[[L4_FAQ_Q3]]`
+- `[[L4_FAQ_TITLE]]`
+- `[[L4_H2_1]]`
+- `[[L4_H2_2]]`
+- `[[L4_H2_3]]`
+- `[[L4_MODIFIED]]`
+- `[[L4_PUBLISHED]]`
+- `[[L4_QUOTE]]`
+- `[[L4_QUOTE_SOURCE]]`
+- `[[L4_ROW1]]`
+- `[[L4_ROW2]]`
+- `[[L4_RSS_DATE]]`
+- `[[L4_SOURCE_LABEL1]]`
+- `[[L4_SOURCE_LABEL2]]`
+- `[[L4_SOURCE_LABEL3]]`
+- `[[L4_SOURCE_NOTE1]]`
+- `[[L4_SOURCE_NOTE2]]`
+- `[[L4_SOURCE_NOTE3]]`
+- `[[L4_SOURCE_URL1]]`
+- `[[L4_SOURCE_URL2]]`
+- `[[L4_SOURCE_URL3]]`
+- `[[L4_SUMMARY]]`
+- `[[L4_TABLE_CAPTION]]`
+- `[[L4_TITLE]]`
+- `[[L5_AFTER_LABEL]]`
+- `[[L5_AFTER_TEXT]]`
+- `[[L5_BEFORE_LABEL]]`
+- `[[L5_BEFORE_TEXT]]`
+- `[[L5_BODY_1]]`
+- `[[L5_BODY_2]]`
+- `[[L5_BODY_3]]`
+- `[[L5_BODY_4]]`
+- `[[L5_CELL1_2]]`
+- `[[L5_CELL1_3]]`
+- `[[L5_CELL2_2]]`
+- `[[L5_CELL2_3]]`
+- `[[L5_CELL3_2]]`
+- `[[L5_CELL3_3]]`
+- `[[L5_CHECKED]]`
+- `[[L5_COL1]]`
+- `[[L5_COL2]]`
+- `[[L5_COL3]]`
+- `[[L5_COVER_ALT]]`
+- `[[L5_COVER_CAPTION]]`
+- `[[L5_EDITOR_NOTE]]`
+- `[[L5_ENDING_LABEL]]`
+- `[[L5_ENDING_TEXT]]`
+- `[[L5_ENDING_TITLE]]`
+- `[[L5_FAQ_A1]]`
+- `[[L5_FAQ_A2]]`
+- `[[L5_FAQ_A3]]`
+- `[[L5_FAQ_A4]]`
+- `[[L5_FAQ_Q1]]`
+- `[[L5_FAQ_Q2]]`
+- `[[L5_FAQ_Q3]]`
+- `[[L5_FAQ_Q4]]`
+- `[[L5_FAQ_TITLE]]`
+- `[[L5_H2_1]]`
+- `[[L5_H2_2]]`
+- `[[L5_H2_3]]`
+- `[[L5_H2_4]]`
+- `[[L5_MODIFIED]]`
+- `[[L5_PAIR_NOTE]]`
+- `[[L5_POINT3_1]]`
+- `[[L5_POINT3_2]]`
+- `[[L5_POINT3_3]]`
+- `[[L5_PUBLISHED]]`
+- `[[L5_QUOTE]]`
+- `[[L5_QUOTE_SOURCE]]`
+- `[[L5_ROW1]]`
+- `[[L5_ROW2]]`
+- `[[L5_ROW3]]`
+- `[[L5_RSS_DATE]]`
+- `[[L5_SOURCE_LABEL1]]`
+- `[[L5_SOURCE_LABEL2]]`
+- `[[L5_SOURCE_LABEL3]]`
+- `[[L5_SOURCE_NOTE1]]`
+- `[[L5_SOURCE_NOTE2]]`
+- `[[L5_SOURCE_NOTE3]]`
+- `[[L5_SOURCE_URL1]]`
+- `[[L5_SOURCE_URL2]]`
+- `[[L5_SOURCE_URL3]]`
+- `[[L5_SUMMARY]]`
+- `[[L5_TABLE_CAPTION]]`
+- `[[L5_TITLE]]`
+- `[[L6_BODY_1]]`
+- `[[L6_BODY_2]]`
+- `[[L6_BODY_3]]`
+- `[[L6_BODY_4]]`
+- `[[L6_BODY_5]]`
+- `[[L6_CELL1_2]]`
+- `[[L6_CELL1_3]]`
+- `[[L6_CELL2_2]]`
+- `[[L6_CELL2_3]]`
+- `[[L6_CELL3_2]]`
+- `[[L6_CELL3_3]]`
+- `[[L6_CELL4_2]]`
+- `[[L6_CELL4_3]]`
+- `[[L6_CHECKED]]`
+- `[[L6_COL1]]`
+- `[[L6_COL2]]`
+- `[[L6_COL3]]`
+- `[[L6_COVER_ALT]]`
+- `[[L6_COVER_CAPTION]]`
+- `[[L6_EDITOR_NOTE]]`
+- `[[L6_ENDING_LABEL]]`
+- `[[L6_ENDING_TEXT]]`
+- `[[L6_ENDING_TITLE]]`
+- `[[L6_FAQ_A1]]`
+- `[[L6_FAQ_A2]]`
+- `[[L6_FAQ_Q1]]`
+- `[[L6_FAQ_Q2]]`
+- `[[L6_FAQ_TITLE]]`
+- `[[L6_H2_1]]`
+- `[[L6_H2_2]]`
+- `[[L6_H2_3]]`
+- `[[L6_H2_4]]`
+- `[[L6_H2_5]]`
+- `[[L6_MODIFIED]]`
+- `[[L6_POCKET_PROMPT]]`
+- `[[L6_POCKET_TEXT]]`
+- `[[L6_POCKET_TITLE]]`
+- `[[L6_POINT3_1]]`
+- `[[L6_POINT3_2]]`
+- `[[L6_POINT3_3]]`
+- `[[L6_POINT4_1]]`
+- `[[L6_POINT4_2]]`
+- `[[L6_POINT4_3]]`
+- `[[L6_PUBLISHED]]`
+- `[[L6_QUOTE]]`
+- `[[L6_QUOTE_SOURCE]]`
+- `[[L6_ROW1]]`
+- `[[L6_ROW2]]`
+- `[[L6_ROW3]]`
+- `[[L6_ROW4]]`
+- `[[L6_RSS_DATE]]`
+- `[[L6_SOURCE_LABEL1]]`
+- `[[L6_SOURCE_LABEL2]]`
+- `[[L6_SOURCE_LABEL3]]`
+- `[[L6_SOURCE_NOTE1]]`
+- `[[L6_SOURCE_NOTE2]]`
+- `[[L6_SOURCE_NOTE3]]`
+- `[[L6_SOURCE_URL1]]`
+- `[[L6_SOURCE_URL2]]`
+- `[[L6_SOURCE_URL3]]`
+- `[[L6_SUMMARY]]`
+- `[[L6_TABLE_CAPTION]]`
+- `[[L6_TITLE]]`
+- `[[L7_BODY_1]]`
+- `[[L7_BODY_2]]`
+- `[[L7_BODY_3]]`
+- `[[L7_CELL1_2]]`
+- `[[L7_CELL1_3]]`
+- `[[L7_CELL2_2]]`
+- `[[L7_CELL2_3]]`
+- `[[L7_CHECKED]]`
+- `[[L7_COL1]]`
+- `[[L7_COL2]]`
+- `[[L7_COL3]]`
+- `[[L7_COVER_ALT]]`
+- `[[L7_COVER_CAPTION]]`
+- `[[L7_EDITOR_NOTE]]`
+- `[[L7_ENDING_LABEL]]`
+- `[[L7_ENDING_TEXT]]`
+- `[[L7_ENDING_TITLE]]`
+- `[[L7_FAQ_A1]]`
+- `[[L7_FAQ_A2]]`
+- `[[L7_FAQ_A3]]`
+- `[[L7_FAQ_Q1]]`
+- `[[L7_FAQ_Q2]]`
+- `[[L7_FAQ_Q3]]`
+- `[[L7_FAQ_TITLE]]`
+- `[[L7_H2_1]]`
+- `[[L7_H2_2]]`
+- `[[L7_H2_3]]`
+- `[[L7_MODIFIED]]`
+- `[[L7_PROMPT1]]`
+- `[[L7_PROMPT2]]`
+- `[[L7_PUBLISHED]]`
+- `[[L7_QUOTE]]`
+- `[[L7_QUOTE_SOURCE]]`
+- `[[L7_RESPONSE1]]`
+- `[[L7_RESPONSE2]]`
+- `[[L7_ROW1]]`
+- `[[L7_ROW2]]`
+- `[[L7_RSS_DATE]]`
+- `[[L7_SOURCE_LABEL1]]`
+- `[[L7_SOURCE_LABEL2]]`
+- `[[L7_SOURCE_LABEL3]]`
+- `[[L7_SOURCE_NOTE1]]`
+- `[[L7_SOURCE_NOTE2]]`
+- `[[L7_SOURCE_NOTE3]]`
+- `[[L7_SOURCE_URL1]]`
+- `[[L7_SOURCE_URL2]]`
+- `[[L7_SOURCE_URL3]]`
+- `[[L7_SUMMARY]]`
+- `[[L7_TABLE_CAPTION]]`
+- `[[L7_TITLE]]`
+- `[[L7_WINDOW_LABEL]]`
+- `[[L7_WINDOW_TITLE]]`
+- `[[L8_BODY_1]]`
+- `[[L8_BODY_2]]`
+- `[[L8_BODY_3]]`
+- `[[L8_BODY_4]]`
+- `[[L8_CELL1_2]]`
+- `[[L8_CELL1_3]]`
+- `[[L8_CELL2_2]]`
+- `[[L8_CELL2_3]]`
+- `[[L8_CELL3_2]]`
+- `[[L8_CELL3_3]]`
+- `[[L8_CHECKED]]`
+- `[[L8_CHECK_TEXT1]]`
+- `[[L8_CHECK_TEXT2]]`
+- `[[L8_CHECK_TEXT3]]`
+- `[[L8_CHECK_TITLE1]]`
+- `[[L8_CHECK_TITLE2]]`
+- `[[L8_CHECK_TITLE3]]`
+- `[[L8_COL1]]`
+- `[[L8_COL2]]`
+- `[[L8_COL3]]`
+- `[[L8_COVER_ALT]]`
+- `[[L8_COVER_CAPTION]]`
+- `[[L8_EDITOR_NOTE]]`
+- `[[L8_ENDING_LABEL]]`
+- `[[L8_ENDING_TEXT]]`
+- `[[L8_ENDING_TITLE]]`
+- `[[L8_FAQ_A1]]`
+- `[[L8_FAQ_A2]]`
+- `[[L8_FAQ_A3]]`
+- `[[L8_FAQ_A4]]`
+- `[[L8_FAQ_Q1]]`
+- `[[L8_FAQ_Q2]]`
+- `[[L8_FAQ_Q3]]`
+- `[[L8_FAQ_Q4]]`
+- `[[L8_FAQ_TITLE]]`
+- `[[L8_H2_1]]`
+- `[[L8_H2_2]]`
+- `[[L8_H2_3]]`
+- `[[L8_H2_4]]`
+- `[[L8_MODIFIED]]`
+- `[[L8_POINT3_1]]`
+- `[[L8_POINT3_2]]`
+- `[[L8_POINT3_3]]`
+- `[[L8_PUBLISHED]]`
+- `[[L8_QUOTE]]`
+- `[[L8_QUOTE_SOURCE]]`
+- `[[L8_ROW1]]`
+- `[[L8_ROW2]]`
+- `[[L8_ROW3]]`
+- `[[L8_RSS_DATE]]`
+- `[[L8_SOURCE_LABEL1]]`
+- `[[L8_SOURCE_LABEL2]]`
+- `[[L8_SOURCE_LABEL3]]`
+- `[[L8_SOURCE_NOTE1]]`
+- `[[L8_SOURCE_NOTE2]]`
+- `[[L8_SOURCE_NOTE3]]`
+- `[[L8_SOURCE_URL1]]`
+- `[[L8_SOURCE_URL2]]`
+- `[[L8_SOURCE_URL3]]`
+- `[[L8_SUMMARY]]`
+- `[[L8_TABLE_CAPTION]]`
+- `[[L8_TITLE]]`
+- `[[L9_BODY_1]]`
+- `[[L9_BODY_2]]`
+- `[[L9_BODY_3]]`
+- `[[L9_BODY_4]]`
+- `[[L9_BODY_5]]`
+- `[[L9_CELL1_2]]`
+- `[[L9_CELL1_3]]`
+- `[[L9_CELL2_2]]`
+- `[[L9_CELL2_3]]`
+- `[[L9_CELL3_2]]`
+- `[[L9_CELL3_3]]`
+- `[[L9_CELL4_2]]`
+- `[[L9_CELL4_3]]`
+- `[[L9_CHECKED]]`
+- `[[L9_COL1]]`
+- `[[L9_COL2]]`
+- `[[L9_COL3]]`
+- `[[L9_COVER_ALT]]`
+- `[[L9_COVER_CAPTION]]`
+- `[[L9_EDITOR_NOTE]]`
+- `[[L9_ENDING_LABEL]]`
+- `[[L9_ENDING_TEXT]]`
+- `[[L9_ENDING_TITLE]]`
+- `[[L9_FAQ_A1]]`
+- `[[L9_FAQ_A2]]`
+- `[[L9_FAQ_Q1]]`
+- `[[L9_FAQ_Q2]]`
+- `[[L9_FAQ_TITLE]]`
+- `[[L9_H2_1]]`
+- `[[L9_H2_2]]`
+- `[[L9_H2_3]]`
+- `[[L9_H2_4]]`
+- `[[L9_H2_5]]`
+- `[[L9_MARGIN_LABEL]]`
+- `[[L9_MARGIN_LIMIT]]`
+- `[[L9_MARGIN_TEXT]]`
+- `[[L9_MARGIN_TITLE]]`
+- `[[L9_MODIFIED]]`
+- `[[L9_POINT3_1]]`
+- `[[L9_POINT3_2]]`
+- `[[L9_POINT3_3]]`
+- `[[L9_POINT4_1]]`
+- `[[L9_POINT4_2]]`
+- `[[L9_POINT4_3]]`
+- `[[L9_PUBLISHED]]`
+- `[[L9_QUOTE]]`
+- `[[L9_QUOTE_SOURCE]]`
+- `[[L9_ROW1]]`
+- `[[L9_ROW2]]`
+- `[[L9_ROW3]]`
+- `[[L9_ROW4]]`
+- `[[L9_RSS_DATE]]`
+- `[[L9_SOURCE_LABEL1]]`
+- `[[L9_SOURCE_LABEL2]]`
+- `[[L9_SOURCE_LABEL3]]`
+- `[[L9_SOURCE_NOTE1]]`
+- `[[L9_SOURCE_NOTE2]]`
+- `[[L9_SOURCE_NOTE3]]`
+- `[[L9_SOURCE_URL1]]`
+- `[[L9_SOURCE_URL2]]`
+- `[[L9_SOURCE_URL3]]`
+- `[[L9_SUMMARY]]`
+- `[[L9_TABLE_CAPTION]]`
+- `[[L9_TITLE]]`
+- `[[LANG]]`
+- `[[LEGAL_DESC]]`
+- `[[LEGAL_INTRO]]`
+- `[[PASSPORT_CHECK1]]`
+- `[[PASSPORT_CHECK2]]`
+- `[[PASSPORT_CHECK3]]`
+- `[[PASSPORT_CHECK4]]`
+- `[[PASSPORT_INTRO]]`
+- `[[PASSPORT_NOTE1]]`
+- `[[PASSPORT_NOTE2]]`
+- `[[PASSPORT_NOTE3]]`
+- `[[PASSPORT_NOTE4]]`
+- `[[PASSPORT_STEP1]]`
+- `[[PASSPORT_STEP2]]`
+- `[[PASSPORT_STEP3]]`
+- `[[PASSPORT_STEP4]]`
+- `[[PASSPORT_TITLE]]`
+- `[[PRACTICE_DESC]]`
+- `[[PRACTICE_FOCUS_BLOCKS_DESC]]`
+- `[[PRACTICE_INTRO]]`
+- `[[PRACTICE_LESSON_LOAD_DESC]]`
+- `[[PRACTICE_PREREQUISITE_ORDER_DESC]]`
+- `[[PRACTICE_REVIEW_DATES_DESC]]`
+- `[[PRACTICE_WEIGHTED_RUBRIC_DESC]]`
+- `[[PRIVACY_DESC]]`
+- `[[PRIVACY_H2_1]]`
+- `[[PRIVACY_H2_2]]`
+- `[[PRIVACY_H2_3]]`
+- `[[PRIVACY_INTRO]]`
+- `[[PRIVACY_MODIFIED]]`
+- `[[PRIVACY_NOTE]]`
+- `[[PRIVACY_TEXT_1]]`
+- `[[PRIVACY_TEXT_2]]`
+- `[[PRIVACY_TEXT_3]]`
+- `[[RISK_NOTE]]`
+- `[[SECURITY_EMAIL]]`
+- `[[SECURITY_EXPIRES]]`
+- `[[SECURITY_LANGUAGES]]`
+- `[[SEO_TITLE]]`
+- `[[SITE_DESC]]`
+- `[[SITE_DOMAIN]]`
+- `[[SITE_NAME]]`
+- `[[SITE_TAGLINE]]`
+- `[[TOOL_DESC]]`
+- `[[TOOL_INTRO]]`
 
-1. 运行 `node tools/audit-template.js templates/054-bands-primer` 与 `node tools/validate.js`。
-2. 在 1440×1000 和 390×844 检查五个页面，无横向溢出、断图、失效锚点或小于 44px 的交互目标。
-3. 验证主题持久化、移动菜单焦点/Escape、课程通行证 0/部分/全部/重置、复制、阅读进度、三组计划预设、整数边界、非法输入、结果失效、清空和 404 安全查找。
-4. 与全库逐一运行 `node tools/check-similarity.js templates/054-bands-primer templates/NNN-name`，确保类名、骨架与 CSS 属性顺序均为零警告。
+## 验收
+
+逐套运行 validate、audit-template、audit-workflow-readiness、全库 check-similarity 与 tools/qa/054-bands-primer-browser.js；全页四种宽度、明暗主题，实点首屏复制、通行证、导航、主题、筛选、404、工具正常/错误/边界/重置/复制/旧结果及异步复制失效，并人工看图后才可记为就绪。
+
+2026-09-04 本机验收：三套静态审计通过，当前套 P0/P1/P2 均为 0；34 页 × 1440/768/390/360px × 明暗主题共 272 次逐页渲染、286 项交互与边界断言通过，控制台及网络错误为 0。覆盖通行证空/部分/全部/重置、复制与拒绝、导航焦点与 Escape、主题持久化、筛选、404 搜索与深层返回、唯一推广槽位、无 JS 阅读及禁用提交、reduced-motion、移动表格、阅读进度、原生粘贴与回车。五工具另覆盖均分合计不变量、依赖环和最大任务数、闰年/2100 非闰年与跨年、无末尾休息/1440 段极值、精确权重/舍入/零权重、Unicode 标准化、错误焦点、结果失效及异步复制竞态。
+
+人工复核首页、三种开场、十二内容模块、五工具、通行证、移动表格及暗色错误状态。修正小字与主按钮对比度、编号/日期断行、封面图注遮挡和第五个工具入口排版；专注时段 Guide 的示例与算法同步后再次完整重验。旧首页 48 个类名全部保留，css/tone.css 字节未改。变量登记、JSON-LD 解析、页内锚点、12 张封面独立性和敏感模式扫描通过。与 053 的 DOM 骨架 35.9%、CSS 属性序列 30.4%、类名重合 1.5%；全库最高类名重合 9.1%，仅既有两组 CSS 参考警告。相似度是结构参考，不是不可识别或无指纹的保证。
+
+浏览器证据在本地忽略目录 artifacts/qa/054-bands-primer-v2-2026-09-04，复验脚本为 tools/qa/054-bands-primer-browser.js。原包忠实度未核验；本轮没有生产部署或云端 CI。填入真实文字后的事实、合规、跨语言和单站发布验收另行执行。
