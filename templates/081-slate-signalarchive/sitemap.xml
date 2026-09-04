@@ -1,1 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://%%SITE_DOMAIN%%/</loc></url><url><loc>https://%%SITE_DOMAIN%%/article.html</loc></url><url><loc>https://%%SITE_DOMAIN%%/tool.html</loc></url><url><loc>https://%%SITE_DOMAIN%%/legal.html</loc></url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://%%SITE_DOMAIN%%/</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/archive-register.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/dossiers/capture-envelope.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/dossiers/source-identity-frame.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/dossiers/version-boundary-strip.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/dossiers/encoding-freeze.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/dossiers/newline-calibration.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/dossiers/normalization-log.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/dossiers/digest-ledger.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/dossiers/duplicate-fingerprint.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/dossiers/byte-drift-scope.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/dossiers/provenance-context-card.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/dossiers/authenticity-boundary.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/dossiers/release-custody.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/reels/capture-reel.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/reels/normalize-reel.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/reels/fingerprint-reel.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/reels/context-reel.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instrument-bay.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/digest-register.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/prefix-collision.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/hamming-scope.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/byte-manifest.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/capture-chain.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/archive-charter.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/signal-desk.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/amendment-log.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/relation-frame.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/integrity-boundary.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/local-privacy.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/reel-changelog.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/capture-method.html</loc><lastmod>%%UPDATED_DATE%%</lastmod></url>
+</urlset>
