@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://__site_domain__/</loc><changefreq>weekly</changefreq></url>
-    <url><loc>https://__site_domain__/article.html</loc></url>
-    <url><loc>https://__site_domain__/tool.html</loc></url>
-    <url><loc>https://__site_domain__/legal.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions/anchor-question.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions/definition-knot.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions/assumption-gate.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions/example-beads.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions/reason-chain.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions/counterpoint.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions/source-spindle.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions/comparison-fold.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions/exception-loop.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions/confidence-note.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions/revision-thread.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/questions/access-note.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/strands/premise-steps.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/strands/answer-weaves.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/strands/boundary-marks.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/reasoning.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/reasoning/logic-grid.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/reasoning/rational-pair.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/reasoning/choice-count.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/reasoning/congruence-axis.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/reasoning/base-bridge.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/about.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/contact.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/disclosure.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/disclaimer.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/privacy.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/corrections.html</loc></url>
+  <url><loc>https://~SITE_DOMAIN~/editorial.html</loc></url>
 </urlset>

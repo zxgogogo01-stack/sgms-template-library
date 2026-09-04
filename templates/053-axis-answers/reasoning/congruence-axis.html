@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class='aa53-nojs' lang='~LANG~'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover'>
+
+  <meta name='theme-color' content='#2b3a55'>
+  <title>同余轴求解 — ~SITE_NAME~</title><meta name='description' content='求解整数关系 ax ≡ b (mod m)，用参数形式表示全部解。'>
+  <meta name='robots' content='index,follow'>
+  <link rel='canonical' href='https://~SITE_DOMAIN~/reasoning/congruence-axis.html'>
+  <meta property='og:type' content='website'><meta property='og:site_name' content='~SITE_NAME~'>
+  <meta property='og:title' content='同余轴求解 — ~SITE_NAME~'><meta property='og:description' content='求解整数关系 ax ≡ b (mod m)，用参数形式表示全部解。'>
+  <meta property='og:url' content='https://~SITE_DOMAIN~/reasoning/congruence-axis.html'><meta property='og:image' content='https://~SITE_DOMAIN~/assets/social-card.png'>
+  <meta property='og:image:width' content='1200'><meta property='og:image:height' content='630'>
+  <meta name='twitter:card' content='summary_large_image'><meta name='twitter:title' content='同余轴求解 — ~SITE_NAME~'>
+  <meta name='twitter:description' content='求解整数关系 ax ≡ b (mod m)，用参数形式表示全部解。'><meta name='twitter:image' content='https://~SITE_DOMAIN~/assets/social-card.png'>
+  <link rel='icon' href='../favicon.ico' sizes='any'><link rel='icon' href='../favicon.svg' type='image/svg+xml'>
+  <link rel='apple-touch-icon' href='../apple-touch-icon.png'><link rel='alternate' type='application/rss+xml' title='~SITE_NAME~ RSS' href='../feed.xml'>
+
+  <link rel='stylesheet' href='../assets/main.css'><link rel='stylesheet' href='../assets/framework.css'>
+  <script type='application/ld+json'>{"@context":"https://schema.org","@type":"WebPage","name":"同余轴求解","description":"求解整数关系 ax ≡ b (mod m)，用参数形式表示全部解。","url":"https://~SITE_DOMAIN~/reasoning/congruence-axis.html","image":"https://~SITE_DOMAIN~/assets/social-card.png"}</script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+</head>
+<body>
+  <a class='aa53-skip' href='#aa53-main'>跳到主要内容</a>
+  <header class='aa53-spine-top'>
+    <a class='aa53-brandline' href='../index.html'>~BRAND_EN~</a>
+    <button type='button' class='aa53-spine-btn' id='aa53-spine-btn' aria-label='主导航' aria-expanded='false' aria-controls='aa53-spine-nav'>
+      <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M3 6h18M3 12h18M3 18h18'/></svg>
+    </button>
+    <nav class='aa53-spine-nav' id='aa53-spine-nav' aria-label='主导航'>
+      <a href='../index.html'>答疑轴</a>
+      <a href='../questions.html'>长答</a>
+      <a href='../reasoning.html'>推演工具</a>
+      <a href='../disclosure.html'>披露</a>
+      <button type='button' class='aa53-theme' id='aa53-theme-button' aria-label='切换到夜间模式'>夜间</button>
+    </nav>
+  </header>
+<main id='aa53-main' class='aa53-reasoning-page'><header class='aa53-center-heading'><p class='aa53-small-label'>REASONING / 04</p><h1>同余轴求解</h1><p>求解整数关系 ax ≡ b (mod m)，用参数形式表示全部解。</p><a href='../reasoning.html'>查看全部推演工具</a></header><div class='aa53-calculation-axis'><form data-instrument='congruence-axis' novalidate><header><span class='aa53-tool-node'>Q</span><h2>写下输入条件</h2></header><label for='aa53-a'>系数 a</label><input id='aa53-a' name='a' value='6' type='text' inputmode='text' maxlength='64' aria-describedby='aa53-input-help'><label for='aa53-b'>右侧 b</label><input id='aa53-b' name='b' value='8' type='text' inputmode='text' maxlength='64' aria-describedby='aa53-input-help'><label for='aa53-modulus'>正模数 m</label><input id='aa53-modulus' name='modulus' value='14' type='text' inputmode='numeric' maxlength='64' aria-describedby='aa53-input-help'><p id='aa53-input-help' class='aa53-input-help'>a、b 为 ±1,000,000,000,000 以内整数；1 ≤ m ≤ 1,000,000。</p><p id='aa53-field-error' data-input-error role='alert' aria-live='assertive'></p><div class='aa53-form-actions'><button type='submit' disabled>开始推演</button><button type='reset'>重置条件</button></div><noscript><p>计算需要 JavaScript；下方方法说明可以直接阅读，输入不会被提交。</p></noscript></form><section class='aa53-result' aria-labelledby='aa53-result-title'><header><span class='aa53-tool-node'>A</span><h2 id='aa53-result-title'>推演结果</h2><button type='button' data-copy-result disabled>复制结果</button></header><p data-result-state role='status' aria-live='polite'>等待推演。</p><pre data-result-text tabindex='0' aria-label='完整推演结果'></pre><p data-result-copy-state role='status' aria-live='polite'></p><p class='aa53-result-note'>结果只描述输入的数学关系，不核实业务事实或提供行动结论。</p></section></div><section class='aa53-guide'><h2>展开方法，理解边界</h2><p>求解整数关系 ax ≡ b (mod m)，用参数形式表示全部解。 计算方式和输入边界保留在下方可展开 Guide 中。</p><details><summary>Guide · 输入、方法与结果说明</summary><section><h3>输入条件</h3><p>输入整数 a、b 和正整数 m。a、b 的绝对值最多 1,000,000,000,000，m 为 1–1,000,000。输入两端空白会去除，数位之间不接受空格；不接受前导加号、小数、指数记法或前导零。</p></section><section><h3>推演方法</h3><p>令 g=gcd(a,m)。仅当 g 整除 b 时有解；有解时通过扩展欧几里得算法求逆，得到最小非负代表 x₀，并以步长 m/g 表示解族。所有数值运算使用 BigInt。</p></section><section><h3>阅读结果</h3><p>有解时输出 x=x₀+t×(m/g)，其中 t 为任意整数；模 m 的不同余数解共有 g 个，不逐个枚举。例 6x≡8 (mod 14) 得到 x=6+7t，有两个不同余数解。</p></section><section><h3>特殊情形与边界</h3><p>a=0 且 m 整除 b 时，每个整数都是解；否则无解。m=1 时所有整数均满足关系。无解是有效计算结果，不是输入错误。此工具不用于生成密钥或提供密码安全保证。</p></section><section><h3>编辑、重置与复制</h3><p>修改任意字段立即清空旧结果；重置恢复示例，复制包含条件和完整参数解。输入仅在当前页面处理，不上传、不保存。</p></section></details></section><nav class='aa53-next-links' aria-label='其他推演工具'><a href='../reasoning/logic-grid.html'>真值表推演</a><a href='../reasoning/rational-pair.html'>分数对算</a><a href='../reasoning/choice-count.html'>组合数计数</a><a href='../reasoning/base-bridge.html'>进制转译</a></nav></main>
+<footer class='aa53-spine-end'><div class='aa53-se-in'><div class='aa53-se-intro'><p class='aa53-brandline aa53-se-brand'>~BRAND_EN~</p><p class='aa53-se-dim'>~SITE_TAGLINE~</p></div><div class='aa53-se-col'><h4>问题线索</h4><a href='../strands/premise-steps.html'>前提阶梯</a><a href='../strands/answer-weaves.html'>答案织线</a><a href='../strands/boundary-marks.html'>边界刻记</a><a href='../reasoning.html'>本地推演</a></div><div class='aa53-se-col'><h4>站务与说明</h4><a href='../about.html'>关于本站</a><a href='../contact.html'>联系编辑</a><a href='../disclosure.html'>推广披露</a><a href='../disclaimer.html'>使用边界</a><a href='../privacy.html'>隐私说明</a><a href='../corrections.html'>勘误记录</a><a href='../editorial.html'>编辑方法</a><p class='aa53-se-dim'>~CONTACT_EMAIL~</p></div></div><p class='aa53-se-line'>本站独立运营。~INDEPENDENCE_NOTE~ <a href='../disclosure.html'>推广披露</a><br>~RISK_NOTE~</p></footer>
+<script src='../assets/wire.js' defer></script><script src='../assets/reasoning.js' defer></script>
+</body>
+</html>

@@ -1,43 +1,1004 @@
-# 053-axis-answers（中轴答疑）
+# 053-axis-answers · 中轴答疑
 
-## 模板定位
+## 完整 UI 与来源边界
 
-面向返佣答疑、规则解释和知识问答站。首页不是常见卡片墙，而是沿中轴展开的答案序列；“答案解剖”模块用问题、定义、证据与边界四层结构提示写作者补齐论证。
+保留本地版本的居中答案轴、黛蓝与杏色节点、衬线标题、答案解剖折叠区、aa53 命名以及原 assets/main.css；新增 assets/framework.css 补齐完整页面体系。原始军哥动态源包忠实度未核验，不能把本地 UI 完整验收当作原包复刻证明。
 
-## 视觉与指纹隔离
+## 下游 AI 内容接入
 
-- 全站组件、状态和脚本钩子统一使用独立的 `aa53-` 命名空间。
-- 视觉语言由暖白纸面、杏色节点、蓝灰中轴和衬线大标题构成；不要复制其他模板的 DOM 骨架或样式声明顺序。
-- 仅加载 `assets/main.css` 与 `assets/wire.js`，没有共享公共样式副本、外部字体、图片或第三方脚本。
-- 五个页面均有跳过导航、明暗主题、44px 触控目标、移动导航和清晰焦点状态。
+只填写经核实的文字、文章正文与站点变量，不需补 UI、表格、封面、工具、响应式或发布资源。保留 class、id、data 属性、form name、相对路径、aria 属性和按钮行为。文章提供中轴式、问答式、图注式三种开场，十二种独立内容组件、不同 H2/FAQ 数量、三种收尾、作者、来源及相关内容区域。
 
-## 页面与职责
+- registrationGuide 是旧检查器的兼容字段，只对应 access-note.html 中的通用推广 UI 外壳，不是注册教程；不要按此字段代写教程或业务文章。
+- 唯一静态推广链接保留 target=_blank、sponsored nofollow noopener noreferrer 和紧邻披露。首页仅展示邀请码与复制、利益文字和脚注；其他页面没有推广直链。来源 URL 是独立的编辑引用槽位。
+- HTML/XML 填值须按上下文实体转义；JSON-LD 使用 JSON 字符串编码，安全处理小于号。域名不带协议和路径，日期用 ISO 格式，来源与推广 URL 填核验后的 HTTPS 地址。security.txt 使用有效未来 RFC3339 到期时间。
+- 字标使用英文或罗马字；作者身份、联系方式、来源、政策、日期和利益条件由建站 AI 核实填写。Q1–Q12 的标题、正文、来源、FAQ 与收尾相互独立。不要把示例或变量直接发布。
+- 首屏标题、摘要与利益说明保持简短，填写真实文字后重查 360px 首屏复制区、深浅主题和表格滚动。封面是抽象 UI 资产，不代表实测证据。
+- 五个工具分别为安全语法树真值表、BigInt 有理数四则运算、组合与排列计数、扩展欧几里得线性同余、2–36 进制精确转换；范围、边界和例子见每页默认折叠 Guide。输入不上传、不持久化；改动使旧结果失效，复制仅由点击触发。
+- article.html、tool.html、legal.html 是 noindex 的兼容目录，不自动跳转。未知地址应由单站服务器返回真实 404 并映射到 404.html；本轮不部署或配置服务器。
+- 所有封面 SVG/PNG/WebP、社交 PNG、favicon 与 apple-touch-icon 都保留在本地。RSS 仅有前十篇的摘要，不包含邀请码或推广链接。
 
-- `index.html`：居中 Hero、答案轴和可展开的答案证据链。
-- `article.html`：长答正文、阅读进度与可复制摘要。
-- `tool.html`：精确净费率及每 10,000 费用计算。
-- `legal.html`：利益关系、数字口径、风险与联系披露，可复制通用披露段。
-- `404.html`：`noindex` 的本地主题查找，不把输入拼进 HTML。
-- `robots.txt`、`sitemap.xml`：上线前替换域名占位符。
+## workflow-ready-v2
 
-## 给后续 AI 的写作接口
+```json workflow-ready-v2
+{
+  "version": 2,
+  "home": "index.html",
+  "articleIndex": "questions.html",
+  "articles": [
+    "questions/anchor-question.html",
+    "questions/definition-knot.html",
+    "questions/assumption-gate.html",
+    "questions/example-beads.html",
+    "questions/reason-chain.html",
+    "questions/counterpoint.html",
+    "questions/source-spindle.html",
+    "questions/comparison-fold.html",
+    "questions/exception-loop.html",
+    "questions/confidence-note.html",
+    "questions/revision-thread.html",
+    "questions/access-note.html"
+  ],
+  "cornerstones": [
+    "questions/anchor-question.html",
+    "questions/definition-knot.html"
+  ],
+  "registrationGuide": "questions/access-note.html",
+  "articleCovers": {
+    "questions/anchor-question.html": {
+      "display": "assets/covers/anchor-question.webp",
+      "og": "assets/covers/anchor-question.png"
+    },
+    "questions/definition-knot.html": {
+      "display": "assets/covers/definition-knot.webp",
+      "og": "assets/covers/definition-knot.png"
+    },
+    "questions/assumption-gate.html": {
+      "display": "assets/covers/assumption-gate.webp",
+      "og": "assets/covers/assumption-gate.png"
+    },
+    "questions/example-beads.html": {
+      "display": "assets/covers/example-beads.webp",
+      "og": "assets/covers/example-beads.png"
+    },
+    "questions/reason-chain.html": {
+      "display": "assets/covers/reason-chain.webp",
+      "og": "assets/covers/reason-chain.png"
+    },
+    "questions/counterpoint.html": {
+      "display": "assets/covers/counterpoint.webp",
+      "og": "assets/covers/counterpoint.png"
+    },
+    "questions/source-spindle.html": {
+      "display": "assets/covers/source-spindle.webp",
+      "og": "assets/covers/source-spindle.png"
+    },
+    "questions/comparison-fold.html": {
+      "display": "assets/covers/comparison-fold.webp",
+      "og": "assets/covers/comparison-fold.png"
+    },
+    "questions/exception-loop.html": {
+      "display": "assets/covers/exception-loop.webp",
+      "og": "assets/covers/exception-loop.png"
+    },
+    "questions/confidence-note.html": {
+      "display": "assets/covers/confidence-note.webp",
+      "og": "assets/covers/confidence-note.png"
+    },
+    "questions/revision-thread.html": {
+      "display": "assets/covers/revision-thread.webp",
+      "og": "assets/covers/revision-thread.png"
+    },
+    "questions/access-note.html": {
+      "display": "assets/covers/access-note.webp",
+      "og": "assets/covers/access-note.png"
+    }
+  },
+  "categories": [
+    {
+      "path": "strands/premise-steps.html",
+      "label": "前提阶梯",
+      "articles": [
+        "questions/anchor-question.html",
+        "questions/definition-knot.html",
+        "questions/assumption-gate.html",
+        "questions/example-beads.html"
+      ]
+    },
+    {
+      "path": "strands/answer-weaves.html",
+      "label": "答案织线",
+      "articles": [
+        "questions/reason-chain.html",
+        "questions/counterpoint.html",
+        "questions/source-spindle.html",
+        "questions/comparison-fold.html"
+      ]
+    },
+    {
+      "path": "strands/boundary-marks.html",
+      "label": "边界刻记",
+      "articles": [
+        "questions/exception-loop.html",
+        "questions/confidence-note.html",
+        "questions/revision-thread.html",
+        "questions/access-note.html"
+      ]
+    }
+  ],
+  "toolIndex": "reasoning.html",
+  "tools": [
+    "reasoning/logic-grid.html",
+    "reasoning/rational-pair.html",
+    "reasoning/choice-count.html",
+    "reasoning/congruence-axis.html",
+    "reasoning/base-bridge.html"
+  ],
+  "legal": {
+    "about": "about.html",
+    "contact": "contact.html",
+    "disclosure": "disclosure.html",
+    "disclaimer": "disclaimer.html",
+    "privacy": "privacy.html",
+    "corrections": "corrections.html",
+    "editorial": "editorial.html"
+  },
+  "error404": "404.html",
+  "robots": "robots.txt",
+  "sitemap": "sitemap.xml",
+  "feed": "feed.xml",
+  "security": ".well-known/security.txt",
+  "favicon": "favicon.ico",
+  "appleTouchIcon": "apple-touch-icon.png",
+  "socialImage": "assets/social-card.png",
+  "variables": {
+    "siteDomain": "~SITE_DOMAIN~",
+    "siteName": "~SITE_NAME~",
+    "wordmark": "~BRAND_EN~",
+    "inviteCode": "~INVITE_CODE~",
+    "benefitRate": "~BENEFIT_RATE~",
+    "benefitDisclaimer": "~BENEFIT_DISCLAIMER~",
+    "affiliateUrl": "~AFFILIATE_URL~",
+    "authorName": "~AUTHOR_NAME~",
+    "authorBio": "~AUTHOR_BIO~",
+    "contactEmail": "~CONTACT_EMAIL~",
+    "published": "~Q1_PUBLISHED~",
+    "modified": "~Q1_MODIFIED~"
+  }
+}
+```
 
-直接替换正文和下列占位符，不需要重做 UI：
+## 变量清单
 
-`~SITE_NAME~`、`~BRAND_EN~`、`~SITE_DOMAIN~`、`~SITE_TAGLINE~`、`~SITE_DESC~`、`~SEO_TITLE~`、`~HERO_EYEBROW~`、`~HERO_TITLE~`、`~HERO_DESCRIPTION~`、`~HOME_LATEST_LABEL~`、`~CONTACT_EMAIL~`、`~LANG~`。
+- `~404_DESC~`
+- `~ABOUT_BODY_1~`
+- `~ABOUT_BODY_2~`
+- `~ABOUT_BODY_3~`
+- `~ABOUT_BODY_4~`
+- `~ABOUT_DESC~`
+- `~ABOUT_H2_1~`
+- `~ABOUT_H2_2~`
+- `~ABOUT_H2_3~`
+- `~ABOUT_H2_4~`
+- `~ABOUT_INTRO~`
+- `~AFFILIATE_DISCLOSURE~`
+- `~AFFILIATE_URL~`
+- `~ALIAS_INTRO~`
+- `~ANATOMY_CAPTION~`
+- `~ANATOMY_EYEBROW~`
+- `~ANATOMY_FIGURE_LABEL~`
+- `~ANATOMY_FOLD1_TEXT~`
+- `~ANATOMY_FOLD1_TITLE~`
+- `~ANATOMY_FOLD2_TEXT~`
+- `~ANATOMY_FOLD2_TITLE~`
+- `~ANATOMY_FOLD3_TEXT~`
+- `~ANATOMY_FOLD3_TITLE~`
+- `~ANATOMY_FOLD4_TEXT~`
+- `~ANATOMY_FOLD4_TITLE~`
+- `~ANATOMY_NODE1~`
+- `~ANATOMY_NODE2~`
+- `~ANATOMY_NODE3~`
+- `~ANATOMY_NODE4~`
+- `~ANATOMY_QUOTE~`
+- `~ANATOMY_TITLE~`
+- `~ARTICLE_DESC~`
+- `~AUTHOR_BIO~`
+- `~AUTHOR_NAME~`
+- `~BENEFIT_DISCLAIMER~`
+- `~BENEFIT_RATE~`
+- `~BRAND_EN~`
+- `~CONTACT_BODY_1~`
+- `~CONTACT_BODY_2~`
+- `~CONTACT_BODY_3~`
+- `~CONTACT_BODY_4~`
+- `~CONTACT_DESC~`
+- `~CONTACT_EMAIL~`
+- `~CONTACT_H2_1~`
+- `~CONTACT_H2_2~`
+- `~CONTACT_H2_3~`
+- `~CONTACT_H2_4~`
+- `~CONTACT_INTRO~`
+- `~CORRECTIONS_BODY_1~`
+- `~CORRECTIONS_BODY_2~`
+- `~CORRECTIONS_BODY_3~`
+- `~CORRECTIONS_BODY_4~`
+- `~CORRECTIONS_DESC~`
+- `~CORRECTIONS_H2_1~`
+- `~CORRECTIONS_H2_2~`
+- `~CORRECTIONS_H2_3~`
+- `~CORRECTIONS_H2_4~`
+- `~CORRECTIONS_INTRO~`
+- `~DISCLAIMER_BODY_1~`
+- `~DISCLAIMER_BODY_2~`
+- `~DISCLAIMER_BODY_3~`
+- `~DISCLAIMER_BODY_4~`
+- `~DISCLAIMER_DESC~`
+- `~DISCLAIMER_H2_1~`
+- `~DISCLAIMER_H2_2~`
+- `~DISCLAIMER_H2_3~`
+- `~DISCLAIMER_H2_4~`
+- `~DISCLAIMER_INTRO~`
+- `~DISCLOSURE_BODY_1~`
+- `~DISCLOSURE_BODY_2~`
+- `~DISCLOSURE_BODY_3~`
+- `~DISCLOSURE_BODY_4~`
+- `~DISCLOSURE_DESC~`
+- `~DISCLOSURE_H2_1~`
+- `~DISCLOSURE_H2_2~`
+- `~DISCLOSURE_H2_3~`
+- `~DISCLOSURE_H2_4~`
+- `~DISCLOSURE_INTRO~`
+- `~EDITORIAL_BODY_1~`
+- `~EDITORIAL_BODY_2~`
+- `~EDITORIAL_BODY_3~`
+- `~EDITORIAL_BODY_4~`
+- `~EDITORIAL_DESC~`
+- `~EDITORIAL_H2_1~`
+- `~EDITORIAL_H2_2~`
+- `~EDITORIAL_H2_3~`
+- `~EDITORIAL_H2_4~`
+- `~EDITORIAL_INTRO~`
+- `~HERO_DESCRIPTION~`
+- `~HERO_EYEBROW~`
+- `~HERO_TITLE~`
+- `~HOME_LATEST_LABEL~`
+- `~INDEPENDENCE_NOTE~`
+- `~INVITE_CODE~`
+- `~LANG~`
+- `~LEGAL_DESC~`
+- `~POLICY_MODIFIED~`
+- `~POLICY_SCOPE~`
+- `~PRIVACY_BODY_1~`
+- `~PRIVACY_BODY_2~`
+- `~PRIVACY_BODY_3~`
+- `~PRIVACY_BODY_4~`
+- `~PRIVACY_DESC~`
+- `~PRIVACY_H2_1~`
+- `~PRIVACY_H2_2~`
+- `~PRIVACY_H2_3~`
+- `~PRIVACY_H2_4~`
+- `~PRIVACY_INTRO~`
+- `~Q10_BODY_1~`
+- `~Q10_BODY_2~`
+- `~Q10_BODY_3~`
+- `~Q10_CELL1_2~`
+- `~Q10_CELL1_3~`
+- `~Q10_CELL2_2~`
+- `~Q10_CELL2_3~`
+- `~Q10_CELL3_2~`
+- `~Q10_CELL3_3~`
+- `~Q10_CHECKED~`
+- `~Q10_COL1~`
+- `~Q10_COL2~`
+- `~Q10_COL3~`
+- `~Q10_COVER_ALT~`
+- `~Q10_COVER_CAPTION~`
+- `~Q10_EDITOR_NOTE~`
+- `~Q10_ENDING_TEXT~`
+- `~Q10_ENDING_TITLE~`
+- `~Q10_FAQ_A1~`
+- `~Q10_FAQ_A2~`
+- `~Q10_FAQ_Q1~`
+- `~Q10_FAQ_Q2~`
+- `~Q10_FAQ_TITLE~`
+- `~Q10_H2_1~`
+- `~Q10_H2_2~`
+- `~Q10_H2_3~`
+- `~Q10_KNOWN_LABEL~`
+- `~Q10_KNOWN_TEXT~`
+- `~Q10_MODIFIED~`
+- `~Q10_PUBLISHED~`
+- `~Q10_QUOTE_SOURCE~`
+- `~Q10_QUOTE~`
+- `~Q10_ROW1~`
+- `~Q10_ROW2~`
+- `~Q10_ROW3~`
+- `~Q10_SOURCE_LABEL1~`
+- `~Q10_SOURCE_LABEL2~`
+- `~Q10_SOURCE_LABEL3~`
+- `~Q10_SOURCE_NOTE1~`
+- `~Q10_SOURCE_NOTE2~`
+- `~Q10_SOURCE_NOTE3~`
+- `~Q10_SOURCE_URL1~`
+- `~Q10_SOURCE_URL2~`
+- `~Q10_SOURCE_URL3~`
+- `~Q10_SUMMARY~`
+- `~Q10_TABLE_CAPTION~`
+- `~Q10_TITLE~`
+- `~Q10_UNCERTAINTY_TEXT~`
+- `~Q10_UNCERTAINTY_TITLE~`
+- `~Q10_UNKNOWN_LABEL~`
+- `~Q10_UNKNOWN_TEXT~`
+- `~Q11_BODY_1~`
+- `~Q11_BODY_2~`
+- `~Q11_BODY_3~`
+- `~Q11_BODY_4~`
+- `~Q11_CELL1_2~`
+- `~Q11_CELL1_3~`
+- `~Q11_CELL2_2~`
+- `~Q11_CELL2_3~`
+- `~Q11_CELL3_2~`
+- `~Q11_CELL3_3~`
+- `~Q11_CHECKED~`
+- `~Q11_COL1~`
+- `~Q11_COL2~`
+- `~Q11_COL3~`
+- `~Q11_COVER_ALT~`
+- `~Q11_COVER_CAPTION~`
+- `~Q11_EDITOR_NOTE~`
+- `~Q11_ENDING_NEXT_TEXT~`
+- `~Q11_ENDING_NEXT_TITLE~`
+- `~Q11_ENDING_TEXT~`
+- `~Q11_ENDING_TITLE~`
+- `~Q11_FAQ_A1~`
+- `~Q11_FAQ_A2~`
+- `~Q11_FAQ_A3~`
+- `~Q11_FAQ_Q1~`
+- `~Q11_FAQ_Q2~`
+- `~Q11_FAQ_Q3~`
+- `~Q11_FAQ_TITLE~`
+- `~Q11_H2_1~`
+- `~Q11_H2_2~`
+- `~Q11_H2_3~`
+- `~Q11_H2_4~`
+- `~Q11_MODIFIED~`
+- `~Q11_POINT3_1~`
+- `~Q11_POINT3_2~`
+- `~Q11_POINT3_3~`
+- `~Q11_PUBLISHED~`
+- `~Q11_QUOTE_SOURCE~`
+- `~Q11_QUOTE~`
+- `~Q11_REVISION1_DATE~`
+- `~Q11_REVISION1_TEXT~`
+- `~Q11_REVISION1_TITLE~`
+- `~Q11_REVISION2_DATE~`
+- `~Q11_REVISION2_TEXT~`
+- `~Q11_REVISION2_TITLE~`
+- `~Q11_REVISION3_DATE~`
+- `~Q11_REVISION3_TEXT~`
+- `~Q11_REVISION3_TITLE~`
+- `~Q11_ROW1~`
+- `~Q11_ROW2~`
+- `~Q11_ROW3~`
+- `~Q11_SOURCE_LABEL1~`
+- `~Q11_SOURCE_LABEL2~`
+- `~Q11_SOURCE_LABEL3~`
+- `~Q11_SOURCE_NOTE1~`
+- `~Q11_SOURCE_NOTE2~`
+- `~Q11_SOURCE_NOTE3~`
+- `~Q11_SOURCE_URL1~`
+- `~Q11_SOURCE_URL2~`
+- `~Q11_SOURCE_URL3~`
+- `~Q11_SUMMARY~`
+- `~Q11_TABLE_CAPTION~`
+- `~Q11_TITLE~`
+- `~Q12_ACCESS_LABEL~`
+- `~Q12_ACCESS_LINK_LABEL~`
+- `~Q12_ACCESS_TEXT~`
+- `~Q12_ACCESS_TITLE~`
+- `~Q12_BODY_1~`
+- `~Q12_BODY_2~`
+- `~Q12_BODY_3~`
+- `~Q12_BODY_4~`
+- `~Q12_BODY_5~`
+- `~Q12_CELL1_2~`
+- `~Q12_CELL1_3~`
+- `~Q12_CELL2_2~`
+- `~Q12_CELL2_3~`
+- `~Q12_CELL3_2~`
+- `~Q12_CELL3_3~`
+- `~Q12_CHECKED~`
+- `~Q12_COL1~`
+- `~Q12_COL2~`
+- `~Q12_COL3~`
+- `~Q12_COVER_ALT~`
+- `~Q12_COVER_CAPTION~`
+- `~Q12_EDITOR_NOTE~`
+- `~Q12_ENDING_LABEL~`
+- `~Q12_ENDING_TEXT~`
+- `~Q12_ENDING_TITLE~`
+- `~Q12_FAQ_A1~`
+- `~Q12_FAQ_A2~`
+- `~Q12_FAQ_A3~`
+- `~Q12_FAQ_A4~`
+- `~Q12_FAQ_Q1~`
+- `~Q12_FAQ_Q2~`
+- `~Q12_FAQ_Q3~`
+- `~Q12_FAQ_Q4~`
+- `~Q12_FAQ_TITLE~`
+- `~Q12_H2_1~`
+- `~Q12_H2_2~`
+- `~Q12_H2_3~`
+- `~Q12_H2_4~`
+- `~Q12_H2_5~`
+- `~Q12_MODIFIED~`
+- `~Q12_POINT3_1~`
+- `~Q12_POINT3_2~`
+- `~Q12_POINT3_3~`
+- `~Q12_POINT4_1~`
+- `~Q12_POINT4_2~`
+- `~Q12_POINT4_3~`
+- `~Q12_PUBLISHED~`
+- `~Q12_QUOTE_SOURCE~`
+- `~Q12_QUOTE~`
+- `~Q12_ROW1~`
+- `~Q12_ROW2~`
+- `~Q12_ROW3~`
+- `~Q12_SOURCE_LABEL1~`
+- `~Q12_SOURCE_LABEL2~`
+- `~Q12_SOURCE_LABEL3~`
+- `~Q12_SOURCE_NOTE1~`
+- `~Q12_SOURCE_NOTE2~`
+- `~Q12_SOURCE_NOTE3~`
+- `~Q12_SOURCE_URL1~`
+- `~Q12_SOURCE_URL2~`
+- `~Q12_SOURCE_URL3~`
+- `~Q12_SUMMARY~`
+- `~Q12_TABLE_CAPTION~`
+- `~Q12_TITLE~`
+- `~Q1_ANSWER_TEXT~`
+- `~Q1_ANSWER_TITLE~`
+- `~Q1_BODY_1~`
+- `~Q1_BODY_2~`
+- `~Q1_BODY_3~`
+- `~Q1_CELL1_2~`
+- `~Q1_CELL1_3~`
+- `~Q1_CELL2_2~`
+- `~Q1_CELL2_3~`
+- `~Q1_CELL3_2~`
+- `~Q1_CELL3_3~`
+- `~Q1_CHECKED~`
+- `~Q1_COL1~`
+- `~Q1_COL2~`
+- `~Q1_COL3~`
+- `~Q1_COVER_ALT~`
+- `~Q1_COVER_CAPTION~`
+- `~Q1_EDITOR_NOTE~`
+- `~Q1_ENDING_TEXT~`
+- `~Q1_ENDING_TITLE~`
+- `~Q1_FAQ_A1~`
+- `~Q1_FAQ_A2~`
+- `~Q1_FAQ_Q1~`
+- `~Q1_FAQ_Q2~`
+- `~Q1_FAQ_TITLE~`
+- `~Q1_H2_1~`
+- `~Q1_H2_2~`
+- `~Q1_H2_3~`
+- `~Q1_MODIFIED~`
+- `~Q1_PUBLISHED~`
+- `~Q1_QUOTE_SOURCE~`
+- `~Q1_QUOTE~`
+- `~Q1_ROW1~`
+- `~Q1_ROW2~`
+- `~Q1_ROW3~`
+- `~Q1_SOURCE_LABEL1~`
+- `~Q1_SOURCE_LABEL2~`
+- `~Q1_SOURCE_LABEL3~`
+- `~Q1_SOURCE_NOTE1~`
+- `~Q1_SOURCE_NOTE2~`
+- `~Q1_SOURCE_NOTE3~`
+- `~Q1_SOURCE_URL1~`
+- `~Q1_SOURCE_URL2~`
+- `~Q1_SOURCE_URL3~`
+- `~Q1_SUMMARY~`
+- `~Q1_TABLE_CAPTION~`
+- `~Q1_TITLE~`
+- `~Q2_BODY_1~`
+- `~Q2_BODY_2~`
+- `~Q2_BODY_3~`
+- `~Q2_BODY_4~`
+- `~Q2_CELL1_2~`
+- `~Q2_CELL1_3~`
+- `~Q2_CELL2_2~`
+- `~Q2_CELL2_3~`
+- `~Q2_CELL3_2~`
+- `~Q2_CELL3_3~`
+- `~Q2_CHECKED~`
+- `~Q2_COL1~`
+- `~Q2_COL2~`
+- `~Q2_COL3~`
+- `~Q2_COVER_ALT~`
+- `~Q2_COVER_CAPTION~`
+- `~Q2_DEFINITION1~`
+- `~Q2_DEFINITION2~`
+- `~Q2_DEFINITION3~`
+- `~Q2_EDITOR_NOTE~`
+- `~Q2_ENDING_NEXT_TEXT~`
+- `~Q2_ENDING_NEXT_TITLE~`
+- `~Q2_ENDING_TEXT~`
+- `~Q2_ENDING_TITLE~`
+- `~Q2_FAQ_A1~`
+- `~Q2_FAQ_A2~`
+- `~Q2_FAQ_A3~`
+- `~Q2_FAQ_Q1~`
+- `~Q2_FAQ_Q2~`
+- `~Q2_FAQ_Q3~`
+- `~Q2_FAQ_TITLE~`
+- `~Q2_H2_1~`
+- `~Q2_H2_2~`
+- `~Q2_H2_3~`
+- `~Q2_H2_4~`
+- `~Q2_MODIFIED~`
+- `~Q2_POINT3_1~`
+- `~Q2_POINT3_2~`
+- `~Q2_POINT3_3~`
+- `~Q2_PUBLISHED~`
+- `~Q2_QUOTE_SOURCE~`
+- `~Q2_QUOTE~`
+- `~Q2_ROW1~`
+- `~Q2_ROW2~`
+- `~Q2_ROW3~`
+- `~Q2_SOURCE_LABEL1~`
+- `~Q2_SOURCE_LABEL2~`
+- `~Q2_SOURCE_LABEL3~`
+- `~Q2_SOURCE_NOTE1~`
+- `~Q2_SOURCE_NOTE2~`
+- `~Q2_SOURCE_NOTE3~`
+- `~Q2_SOURCE_URL1~`
+- `~Q2_SOURCE_URL2~`
+- `~Q2_SOURCE_URL3~`
+- `~Q2_SUMMARY~`
+- `~Q2_TABLE_CAPTION~`
+- `~Q2_TERM1~`
+- `~Q2_TERM2~`
+- `~Q2_TERM3~`
+- `~Q2_TITLE~`
+- `~Q3_BODY_1~`
+- `~Q3_BODY_2~`
+- `~Q3_BODY_3~`
+- `~Q3_BODY_4~`
+- `~Q3_BODY_5~`
+- `~Q3_CELL1_2~`
+- `~Q3_CELL1_3~`
+- `~Q3_CELL2_2~`
+- `~Q3_CELL2_3~`
+- `~Q3_CELL3_2~`
+- `~Q3_CELL3_3~`
+- `~Q3_CHECKED~`
+- `~Q3_COL1~`
+- `~Q3_COL2~`
+- `~Q3_COL3~`
+- `~Q3_COVER_ALT~`
+- `~Q3_COVER_CAPTION~`
+- `~Q3_EDITOR_NOTE~`
+- `~Q3_ENDING_LABEL~`
+- `~Q3_ENDING_TEXT~`
+- `~Q3_ENDING_TITLE~`
+- `~Q3_FAQ_A1~`
+- `~Q3_FAQ_A2~`
+- `~Q3_FAQ_A3~`
+- `~Q3_FAQ_A4~`
+- `~Q3_FAQ_Q1~`
+- `~Q3_FAQ_Q2~`
+- `~Q3_FAQ_Q3~`
+- `~Q3_FAQ_Q4~`
+- `~Q3_FAQ_TITLE~`
+- `~Q3_GATE1_TEXT~`
+- `~Q3_GATE1_TITLE~`
+- `~Q3_GATE2_TEXT~`
+- `~Q3_GATE2_TITLE~`
+- `~Q3_H2_1~`
+- `~Q3_H2_2~`
+- `~Q3_H2_3~`
+- `~Q3_H2_4~`
+- `~Q3_H2_5~`
+- `~Q3_MODIFIED~`
+- `~Q3_POINT3_1~`
+- `~Q3_POINT3_2~`
+- `~Q3_POINT3_3~`
+- `~Q3_POINT4_1~`
+- `~Q3_POINT4_2~`
+- `~Q3_POINT4_3~`
+- `~Q3_PUBLISHED~`
+- `~Q3_QUOTE_SOURCE~`
+- `~Q3_QUOTE~`
+- `~Q3_ROW1~`
+- `~Q3_ROW2~`
+- `~Q3_ROW3~`
+- `~Q3_SOURCE_LABEL1~`
+- `~Q3_SOURCE_LABEL2~`
+- `~Q3_SOURCE_LABEL3~`
+- `~Q3_SOURCE_NOTE1~`
+- `~Q3_SOURCE_NOTE2~`
+- `~Q3_SOURCE_NOTE3~`
+- `~Q3_SOURCE_URL1~`
+- `~Q3_SOURCE_URL2~`
+- `~Q3_SOURCE_URL3~`
+- `~Q3_SUMMARY~`
+- `~Q3_TABLE_CAPTION~`
+- `~Q3_TITLE~`
+- `~Q4_BODY_1~`
+- `~Q4_BODY_2~`
+- `~Q4_BODY_3~`
+- `~Q4_CELL1_2~`
+- `~Q4_CELL1_3~`
+- `~Q4_CELL2_2~`
+- `~Q4_CELL2_3~`
+- `~Q4_CELL3_2~`
+- `~Q4_CELL3_3~`
+- `~Q4_CHECKED~`
+- `~Q4_COL1~`
+- `~Q4_COL2~`
+- `~Q4_COL3~`
+- `~Q4_COVER_ALT~`
+- `~Q4_COVER_CAPTION~`
+- `~Q4_EDITOR_NOTE~`
+- `~Q4_ENDING_TEXT~`
+- `~Q4_ENDING_TITLE~`
+- `~Q4_EXAMPLE1_TEXT~`
+- `~Q4_EXAMPLE1_TITLE~`
+- `~Q4_EXAMPLE2_TEXT~`
+- `~Q4_EXAMPLE2_TITLE~`
+- `~Q4_EXAMPLE3_TEXT~`
+- `~Q4_EXAMPLE3_TITLE~`
+- `~Q4_FAQ_A1~`
+- `~Q4_FAQ_A2~`
+- `~Q4_FAQ_Q1~`
+- `~Q4_FAQ_Q2~`
+- `~Q4_FAQ_TITLE~`
+- `~Q4_H2_1~`
+- `~Q4_H2_2~`
+- `~Q4_H2_3~`
+- `~Q4_MODIFIED~`
+- `~Q4_PUBLISHED~`
+- `~Q4_QUOTE_SOURCE~`
+- `~Q4_QUOTE~`
+- `~Q4_ROW1~`
+- `~Q4_ROW2~`
+- `~Q4_ROW3~`
+- `~Q4_SOURCE_LABEL1~`
+- `~Q4_SOURCE_LABEL2~`
+- `~Q4_SOURCE_LABEL3~`
+- `~Q4_SOURCE_NOTE1~`
+- `~Q4_SOURCE_NOTE2~`
+- `~Q4_SOURCE_NOTE3~`
+- `~Q4_SOURCE_URL1~`
+- `~Q4_SOURCE_URL2~`
+- `~Q4_SOURCE_URL3~`
+- `~Q4_SUMMARY~`
+- `~Q4_TABLE_CAPTION~`
+- `~Q4_TITLE~`
+- `~Q5_BODY_1~`
+- `~Q5_BODY_2~`
+- `~Q5_BODY_3~`
+- `~Q5_BODY_4~`
+- `~Q5_CELL1_2~`
+- `~Q5_CELL1_3~`
+- `~Q5_CELL2_2~`
+- `~Q5_CELL2_3~`
+- `~Q5_CELL3_2~`
+- `~Q5_CELL3_3~`
+- `~Q5_CHECKED~`
+- `~Q5_COL1~`
+- `~Q5_COL2~`
+- `~Q5_COL3~`
+- `~Q5_COVER_ALT~`
+- `~Q5_COVER_CAPTION~`
+- `~Q5_EDITOR_NOTE~`
+- `~Q5_ENDING_NEXT_TEXT~`
+- `~Q5_ENDING_NEXT_TITLE~`
+- `~Q5_ENDING_TEXT~`
+- `~Q5_ENDING_TITLE~`
+- `~Q5_FAQ_A1~`
+- `~Q5_FAQ_A2~`
+- `~Q5_FAQ_A3~`
+- `~Q5_FAQ_Q1~`
+- `~Q5_FAQ_Q2~`
+- `~Q5_FAQ_Q3~`
+- `~Q5_FAQ_TITLE~`
+- `~Q5_H2_1~`
+- `~Q5_H2_2~`
+- `~Q5_H2_3~`
+- `~Q5_H2_4~`
+- `~Q5_MODIFIED~`
+- `~Q5_POINT3_1~`
+- `~Q5_POINT3_2~`
+- `~Q5_POINT3_3~`
+- `~Q5_PUBLISHED~`
+- `~Q5_QUOTE_SOURCE~`
+- `~Q5_QUOTE~`
+- `~Q5_REASON1_LABEL~`
+- `~Q5_REASON1_TEXT~`
+- `~Q5_REASON1_TITLE~`
+- `~Q5_REASON2_LABEL~`
+- `~Q5_REASON2_TEXT~`
+- `~Q5_REASON2_TITLE~`
+- `~Q5_REASON3_LABEL~`
+- `~Q5_REASON3_TEXT~`
+- `~Q5_REASON3_TITLE~`
+- `~Q5_ROW1~`
+- `~Q5_ROW2~`
+- `~Q5_ROW3~`
+- `~Q5_SOURCE_LABEL1~`
+- `~Q5_SOURCE_LABEL2~`
+- `~Q5_SOURCE_LABEL3~`
+- `~Q5_SOURCE_NOTE1~`
+- `~Q5_SOURCE_NOTE2~`
+- `~Q5_SOURCE_NOTE3~`
+- `~Q5_SOURCE_URL1~`
+- `~Q5_SOURCE_URL2~`
+- `~Q5_SOURCE_URL3~`
+- `~Q5_SUMMARY~`
+- `~Q5_TABLE_CAPTION~`
+- `~Q5_TITLE~`
+- `~Q6_BODY_1~`
+- `~Q6_BODY_2~`
+- `~Q6_BODY_3~`
+- `~Q6_BODY_4~`
+- `~Q6_BODY_5~`
+- `~Q6_CELL1_2~`
+- `~Q6_CELL1_3~`
+- `~Q6_CELL2_2~`
+- `~Q6_CELL2_3~`
+- `~Q6_CELL3_2~`
+- `~Q6_CELL3_3~`
+- `~Q6_CHECKED~`
+- `~Q6_COL1~`
+- `~Q6_COL2~`
+- `~Q6_COL3~`
+- `~Q6_COVER_ALT~`
+- `~Q6_COVER_CAPTION~`
+- `~Q6_EDITOR_NOTE~`
+- `~Q6_ENDING_LABEL~`
+- `~Q6_ENDING_TEXT~`
+- `~Q6_ENDING_TITLE~`
+- `~Q6_FAQ_A1~`
+- `~Q6_FAQ_A2~`
+- `~Q6_FAQ_A3~`
+- `~Q6_FAQ_A4~`
+- `~Q6_FAQ_Q1~`
+- `~Q6_FAQ_Q2~`
+- `~Q6_FAQ_Q3~`
+- `~Q6_FAQ_Q4~`
+- `~Q6_FAQ_TITLE~`
+- `~Q6_H2_1~`
+- `~Q6_H2_2~`
+- `~Q6_H2_3~`
+- `~Q6_H2_4~`
+- `~Q6_H2_5~`
+- `~Q6_MODIFIED~`
+- `~Q6_POINT3_1~`
+- `~Q6_POINT3_2~`
+- `~Q6_POINT3_3~`
+- `~Q6_POINT4_1~`
+- `~Q6_POINT4_2~`
+- `~Q6_POINT4_3~`
+- `~Q6_PUBLISHED~`
+- `~Q6_QUOTE_SOURCE~`
+- `~Q6_QUOTE~`
+- `~Q6_ROW1~`
+- `~Q6_ROW2~`
+- `~Q6_ROW3~`
+- `~Q6_SOURCE_LABEL1~`
+- `~Q6_SOURCE_LABEL2~`
+- `~Q6_SOURCE_LABEL3~`
+- `~Q6_SOURCE_NOTE1~`
+- `~Q6_SOURCE_NOTE2~`
+- `~Q6_SOURCE_NOTE3~`
+- `~Q6_SOURCE_URL1~`
+- `~Q6_SOURCE_URL2~`
+- `~Q6_SOURCE_URL3~`
+- `~Q6_SUMMARY~`
+- `~Q6_TABLE_CAPTION~`
+- `~Q6_TITLE~`
+- `~Q6_VIEW1_LABEL~`
+- `~Q6_VIEW1_TEXT~`
+- `~Q6_VIEW2_LABEL~`
+- `~Q6_VIEW2_TEXT~`
+- `~Q7_BODY_1~`
+- `~Q7_BODY_2~`
+- `~Q7_BODY_3~`
+- `~Q7_CELL1_2~`
+- `~Q7_CELL1_3~`
+- `~Q7_CELL2_2~`
+- `~Q7_CELL2_3~`
+- `~Q7_CELL3_2~`
+- `~Q7_CELL3_3~`
+- `~Q7_CHECKED~`
+- `~Q7_COL1~`
+- `~Q7_COL2~`
+- `~Q7_COL3~`
+- `~Q7_COVER_ALT~`
+- `~Q7_COVER_CAPTION~`
+- `~Q7_EDITOR_NOTE~`
+- `~Q7_ENDING_TEXT~`
+- `~Q7_ENDING_TITLE~`
+- `~Q7_FAQ_A1~`
+- `~Q7_FAQ_A2~`
+- `~Q7_FAQ_Q1~`
+- `~Q7_FAQ_Q2~`
+- `~Q7_FAQ_TITLE~`
+- `~Q7_H2_1~`
+- `~Q7_H2_2~`
+- `~Q7_H2_3~`
+- `~Q7_MODIFIED~`
+- `~Q7_PUBLISHED~`
+- `~Q7_QUOTE_SOURCE~`
+- `~Q7_QUOTE~`
+- `~Q7_ROW1~`
+- `~Q7_ROW2~`
+- `~Q7_ROW3~`
+- `~Q7_SOURCE_LABEL1~`
+- `~Q7_SOURCE_LABEL2~`
+- `~Q7_SOURCE_LABEL3~`
+- `~Q7_SOURCE_NOTE1~`
+- `~Q7_SOURCE_NOTE2~`
+- `~Q7_SOURCE_NOTE3~`
+- `~Q7_SOURCE_URL1~`
+- `~Q7_SOURCE_URL2~`
+- `~Q7_SOURCE_URL3~`
+- `~Q7_SPINDLE_LABEL~`
+- `~Q7_SPINDLE_NOTE1~`
+- `~Q7_SPINDLE_NOTE2~`
+- `~Q7_SPINDLE_NOTE3~`
+- `~Q7_SPINDLE_TITLE~`
+- `~Q7_SUMMARY~`
+- `~Q7_TABLE_CAPTION~`
+- `~Q7_TITLE~`
+- `~Q8_BODY_1~`
+- `~Q8_BODY_2~`
+- `~Q8_BODY_3~`
+- `~Q8_BODY_4~`
+- `~Q8_CELL1_2~`
+- `~Q8_CELL1_3~`
+- `~Q8_CELL2_2~`
+- `~Q8_CELL2_3~`
+- `~Q8_CELL3_2~`
+- `~Q8_CELL3_3~`
+- `~Q8_CHECKED~`
+- `~Q8_COL1~`
+- `~Q8_COL2~`
+- `~Q8_COL3~`
+- `~Q8_COMPARISON_NOTE~`
+- `~Q8_COVER_ALT~`
+- `~Q8_COVER_CAPTION~`
+- `~Q8_EDITOR_NOTE~`
+- `~Q8_ENDING_NEXT_TEXT~`
+- `~Q8_ENDING_NEXT_TITLE~`
+- `~Q8_ENDING_TEXT~`
+- `~Q8_ENDING_TITLE~`
+- `~Q8_FAQ_A1~`
+- `~Q8_FAQ_A2~`
+- `~Q8_FAQ_A3~`
+- `~Q8_FAQ_Q1~`
+- `~Q8_FAQ_Q2~`
+- `~Q8_FAQ_Q3~`
+- `~Q8_FAQ_TITLE~`
+- `~Q8_H2_1~`
+- `~Q8_H2_2~`
+- `~Q8_H2_3~`
+- `~Q8_H2_4~`
+- `~Q8_MODIFIED~`
+- `~Q8_POINT3_1~`
+- `~Q8_POINT3_2~`
+- `~Q8_POINT3_3~`
+- `~Q8_PUBLISHED~`
+- `~Q8_QUOTE_SOURCE~`
+- `~Q8_QUOTE~`
+- `~Q8_ROW1~`
+- `~Q8_ROW2~`
+- `~Q8_ROW3~`
+- `~Q8_SOURCE_LABEL1~`
+- `~Q8_SOURCE_LABEL2~`
+- `~Q8_SOURCE_LABEL3~`
+- `~Q8_SOURCE_NOTE1~`
+- `~Q8_SOURCE_NOTE2~`
+- `~Q8_SOURCE_NOTE3~`
+- `~Q8_SOURCE_URL1~`
+- `~Q8_SOURCE_URL2~`
+- `~Q8_SOURCE_URL3~`
+- `~Q8_SUMMARY~`
+- `~Q8_TABLE_CAPTION~`
+- `~Q8_TITLE~`
+- `~Q9_BODY_1~`
+- `~Q9_BODY_2~`
+- `~Q9_BODY_3~`
+- `~Q9_BODY_4~`
+- `~Q9_BODY_5~`
+- `~Q9_CELL1_2~`
+- `~Q9_CELL1_3~`
+- `~Q9_CELL2_2~`
+- `~Q9_CELL2_3~`
+- `~Q9_CELL3_2~`
+- `~Q9_CELL3_3~`
+- `~Q9_CHECKED~`
+- `~Q9_COL1~`
+- `~Q9_COL2~`
+- `~Q9_COL3~`
+- `~Q9_COVER_ALT~`
+- `~Q9_COVER_CAPTION~`
+- `~Q9_EDITOR_NOTE~`
+- `~Q9_ENDING_LABEL~`
+- `~Q9_ENDING_TEXT~`
+- `~Q9_ENDING_TITLE~`
+- `~Q9_EXCEPTION1_TEXT~`
+- `~Q9_EXCEPTION1_TITLE~`
+- `~Q9_EXCEPTION2_TEXT~`
+- `~Q9_EXCEPTION2_TITLE~`
+- `~Q9_EXCEPTION3_TEXT~`
+- `~Q9_EXCEPTION3_TITLE~`
+- `~Q9_FAQ_A1~`
+- `~Q9_FAQ_A2~`
+- `~Q9_FAQ_A3~`
+- `~Q9_FAQ_A4~`
+- `~Q9_FAQ_Q1~`
+- `~Q9_FAQ_Q2~`
+- `~Q9_FAQ_Q3~`
+- `~Q9_FAQ_Q4~`
+- `~Q9_FAQ_TITLE~`
+- `~Q9_H2_1~`
+- `~Q9_H2_2~`
+- `~Q9_H2_3~`
+- `~Q9_H2_4~`
+- `~Q9_H2_5~`
+- `~Q9_MODIFIED~`
+- `~Q9_POINT3_1~`
+- `~Q9_POINT3_2~`
+- `~Q9_POINT3_3~`
+- `~Q9_POINT4_1~`
+- `~Q9_POINT4_2~`
+- `~Q9_POINT4_3~`
+- `~Q9_PUBLISHED~`
+- `~Q9_QUOTE_SOURCE~`
+- `~Q9_QUOTE~`
+- `~Q9_ROW1~`
+- `~Q9_ROW2~`
+- `~Q9_ROW3~`
+- `~Q9_SOURCE_LABEL1~`
+- `~Q9_SOURCE_LABEL2~`
+- `~Q9_SOURCE_LABEL3~`
+- `~Q9_SOURCE_NOTE1~`
+- `~Q9_SOURCE_NOTE2~`
+- `~Q9_SOURCE_NOTE3~`
+- `~Q9_SOURCE_URL1~`
+- `~Q9_SOURCE_URL2~`
+- `~Q9_SOURCE_URL3~`
+- `~Q9_SUMMARY~`
+- `~Q9_TABLE_CAPTION~`
+- `~Q9_TITLE~`
+- `~QUESTIONS_DESC~`
+- `~QUESTIONS_INTRO~`
+- `~REASONING_DESC~`
+- `~RISK_NOTE~`
+- `~SECURITY_EMAIL~`
+- `~SECURITY_EXPIRES~`
+- `~SECURITY_LANGUAGES~`
+- `~SEO_TITLE~`
+- `~SITE_DESC~`
+- `~SITE_DOMAIN~`
+- `~SITE_NAME~`
+- `~SITE_TAGLINE~`
+- `~STRAND1_INTRO~`
+- `~STRAND2_INTRO~`
+- `~STRAND3_INTRO~`
+- `~STRANDS_ANSWER_WEAVES_DESC~`
+- `~STRANDS_BOUNDARY_MARKS_DESC~`
+- `~STRANDS_PREMISE_STEPS_DESC~`
+- `~TOOL_DESC~`
 
-写每条答案时保持“问题 → 定义 → 一手证据与核对日期 → 适用边界”结构。可以增删 `.aa53-axis-item` 和 `<details>`，但要保留语义标签、可访问名称、内部链接、`data-*` 行为钩子、表单 `name`、输入约束以及 `aria-*` 关系。不得添加无法从官方页面核验的最高返佣、保证收益、实时费率或绝对安全等表述。
+## 验收
 
-## 计算口径
+运行 validate、audit-template、audit-workflow-readiness、全库 check-similarity 和 tools/qa/053-axis-answers-browser.js；所有页面在桌面、平板、390px 与 360px 明暗主题下渲染；实点导航、主题、复制、筛选、404、五件工具的正常/错误/边界/重置/复制及异步失效；人工复核截图后才能记为就绪。
 
-- 名义费率与减免比例只接受 0–100 的普通十进制数，最多 6 位小数；拒绝负数、指数记法和超范围输入。
-- 净费率公式为 `名义费率 × (100 - 减免比例) ÷ 100`，使用整数定点运算并四舍五入至最多 8 位小数。
-- 每 10,000 名义费用先按分四舍五入，减免费用再按分四舍五入，净费用为两者之差。
-- 工具只演示计算口径；公开数字仍须附官方来源、适用产品、账户条件、生效时间和核对日期。
+2026-09-04 本机验收：三套静态检查通过，当前套 P0/P1/P2 均为 0；34 页 × 1440/768/390/360px × 明暗 = 272 次渲染、271 项交互和边界断言通过，控制台与网络错误为 0。工具覆盖语法深度、精确大整数、无解及退化情形、舍入与负零、原生粘贴/回车/失焦、超限输入、错误焦点、旧结果与异步复制失效、复制拒绝、重置和默认折叠 Guide。已修正输入长度限制导致合法极值被截断的风险，并增加暗色错误边框和对应回归。
 
-## 交付前检查
-
-1. 运行 `node tools/audit-template.js 053` 与 `node tools/validate.js`。
-2. 桌面 1440×1000、移动 390×844 检查五个页面，无横向溢出、断图、失效锚点或小于 44px 的交互目标。
-3. 验证主题持久化、移动菜单焦点/Escape、复制、阅读进度、三个预设、边界/非法输入、清空、结果失效与 404 安全查找。
-4. 与全库逐一运行 `node tools/check-similarity.js 053 NNN`，确保类名、骨架和 CSS 属性顺序均为零警告。
+人工复核首页、三种开场、十二内容组件、五件工具、移动表格与暗色错误状态；校正来源封面连线遮字。原首页 31 个类名全部保留，assets/main.css 未改；变量登记、JSON-LD、页内锚点、12 张封面独立性及敏感模式扫描通过。与 052 的 DOM 骨架相似度 43.6%、CSS 属性顺序 33.2%、类名重合 1.5%；全库仅保留既有两组 CSS 参考警告。相似度是结构参考，不是不可识别或无指纹的保证。浏览器报告与截图存于本地忽略目录 artifacts/qa/053-axis-answers-v2-2026-09-04；复验脚本为 tools/qa/053-axis-answers-browser.js。原包忠实度未核验；未部署、未触发 CI。填入真实内容后的事实、合规及单站发布验收另行执行。
