@@ -1,29 +1,973 @@
-# 061-orbit-liftoff
+# 061-orbit-liftoff · 深空点火
 
-独立的深空任务控制舱模板。首页包含轨道主视觉、四字段任务状态、四段核对序列和遥测卡；文章页是任务简报；工具页用固定种子生成可重复的记录抽样索引。所有 UI 使用 `ol61-` 专属命名空间，不依赖公共 CMS 样式。
+## 完整框架与来源边界
 
-## 后续 AI 内容接口
+保留 style.css 全部字节、深空轨道主视觉、青橙刻度、任务序列和遥测卡；flightdeck.css 扩展完整 ol61 阅读、工具与响应式。原动态源包忠实度未核验，本地 UI 就绪不代表已验证源包复刻。
 
-后续 AI 只替换变量与可见文字，不需要重做 UI、轨道视觉、响应式、主题、移动导航或抽样逻辑：
+## 后续 AI 只填写文字和变量
 
-1. 全局替换变量；保留 `ol61-` 类名、`data-*` 属性、控件 id 与五个页面文件名。
-2. 首页核对序列可修改文案和状态；新增遥测卡时复制完整 `article`。
-3. 文章正文可以替换，但保留任务参数、四段证据链和可复制摘要。
-4. 工具的总记录数为 1–10000、样本数为 1–500 且不大于总数；种子为 1–32 个可见字符。
-5. 抽样仅帮助安排人工复核，不证明未抽中记录正确，也不替代官方来源核验。
+- L1–L12 为十二个内容槽位，已具备三种开场、十二种任务组件、5/3/4 个正文 H2、2/4/3 个 FAQ、三种原生目录及收尾。三个交叉分组、五工具、七站务页、独立 404 与发布资产已齐；保留路径、class、id、data、ARIA、字段名与组件布局，不必补 UI。
+- 只填经核实的文章和站点变量；作者身份、经历、来源、日期与政策结论不得虚构。抽象封面不是观测图或实拍证据。增删文章须同步各索引、分类、内链、sitemap 和 RSS。
+- 占位语法为 %%UPPER_CASE%%。英文或罗马字 wordmark；HTML/XML、属性和 JSON 字符串各按上下文转义，JSON-LD 安全转义小于号。SITE_DOMAIN 不带协议或路径，SOURCE_URL 只填核实的 HTTPS 来源。日期 ISO、RSS_DATE 为 RFC822、SECURITY_EXPIRES 为未来 RFC3339。
+- 首页标题、邀请码、利益点及脚注保持简短，替换后复查 360px 首屏。首页只明文和真复制，没有推广直链。registrationGuide 仅为旧审计器兼容字段，指向 docking-note.html 的通用推广组件，不指定注册教程选题；该页唯一静态推广 href 带四项 rel 与邻近披露。
+- 暗色是默认；主题为唯一 localStorage 项。输入、筛选和结果不保存、不上传；无 JS 能阅读和导航，目录可原生展开，筛选隐藏、提交与复制禁用。修改和重置立即让旧输出失效，异步复制不能复活旧记录。
+- 五工具为沿用码点哈希/xorshift32/部分 Fisher–Yates 的索引抽样、最小向前环形增量、BigInt 位字段转换、广义 CRT 周期合并、完整窗口滑动中值。各页有格式、示例、上限及边界；不是实际设备、密码学、抽签或投资工具。
+- 12 张独立 SVG/PNG/WebP 封面均为 1200×630；页面预载对应 WebP，OG 各用独立 PNG；站点社交图、SVG/ICO、180px apple 与抓取资源齐备。RSS 仅放第 1/2/4/5/7/9/10/11 篇摘要，不含邀请码或推广。
+- article.html/tool.html/legal.html 是 noindex 兼容入口，无自动跳转。服务器应对未知深层 URL 返回真实 404 并映射 404.html，本轮不配置或部署。填实后须另做单站事实、合规及发布验收。
 
-## 变量
+## workflow-ready-v2
 
-`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_TAGLINE%%`、`%%SITE_DESC%%`、`%%SEO_TITLE%%`、`%%HERO_EYEBROW%%`、`%%HERO_TITLE%%`、`%%HERO_DESCRIPTION%%`、`%%HOME_FEATURED_LABEL%%`、`%%HOME_LINKS_LABEL%%`、`%%HOME_LATEST_LABEL%%`、`%%CONTACT_EMAIL%%`。
+```json workflow-ready-v2
+{
+  "version": 2,
+  "home": "index.html",
+  "articleIndex": "flight-log.html",
+  "articles": [
+    "logs/source-beacon.html",
+    "logs/scope-vector.html",
+    "logs/stage-sequence.html",
+    "logs/sensor-array.html",
+    "logs/phase-window.html",
+    "logs/relay-path.html",
+    "logs/parity-panel.html",
+    "logs/packet-stream.html",
+    "logs/boundary-ring.html",
+    "logs/recovery-trace.html",
+    "logs/drift-lanes.html",
+    "logs/docking-note.html"
+  ],
+  "cornerstones": [
+    "logs/source-beacon.html",
+    "logs/scope-vector.html"
+  ],
+  "registrationGuide": "logs/docking-note.html",
+  "articleCovers": {
+    "logs/source-beacon.html": {
+      "display": "assets/covers/source-beacon.webp",
+      "og": "assets/covers/source-beacon.png"
+    },
+    "logs/scope-vector.html": {
+      "display": "assets/covers/scope-vector.webp",
+      "og": "assets/covers/scope-vector.png"
+    },
+    "logs/stage-sequence.html": {
+      "display": "assets/covers/stage-sequence.webp",
+      "og": "assets/covers/stage-sequence.png"
+    },
+    "logs/sensor-array.html": {
+      "display": "assets/covers/sensor-array.webp",
+      "og": "assets/covers/sensor-array.png"
+    },
+    "logs/phase-window.html": {
+      "display": "assets/covers/phase-window.webp",
+      "og": "assets/covers/phase-window.png"
+    },
+    "logs/relay-path.html": {
+      "display": "assets/covers/relay-path.webp",
+      "og": "assets/covers/relay-path.png"
+    },
+    "logs/parity-panel.html": {
+      "display": "assets/covers/parity-panel.webp",
+      "og": "assets/covers/parity-panel.png"
+    },
+    "logs/packet-stream.html": {
+      "display": "assets/covers/packet-stream.webp",
+      "og": "assets/covers/packet-stream.png"
+    },
+    "logs/boundary-ring.html": {
+      "display": "assets/covers/boundary-ring.webp",
+      "og": "assets/covers/boundary-ring.png"
+    },
+    "logs/recovery-trace.html": {
+      "display": "assets/covers/recovery-trace.webp",
+      "og": "assets/covers/recovery-trace.png"
+    },
+    "logs/drift-lanes.html": {
+      "display": "assets/covers/drift-lanes.webp",
+      "og": "assets/covers/drift-lanes.png"
+    },
+    "logs/docking-note.html": {
+      "display": "assets/covers/docking-note.webp",
+      "og": "assets/covers/docking-note.png"
+    }
+  },
+  "categories": [
+    {
+      "path": "orbits/insertion-sheet.html",
+      "label": "入轨单",
+      "articles": [
+        "logs/source-beacon.html",
+        "logs/stage-sequence.html",
+        "logs/parity-panel.html",
+        "logs/drift-lanes.html"
+      ]
+    },
+    {
+      "path": "orbits/cruise-book.html",
+      "label": "巡航簿",
+      "articles": [
+        "logs/scope-vector.html",
+        "logs/phase-window.html",
+        "logs/packet-stream.html",
+        "logs/recovery-trace.html"
+      ]
+    },
+    {
+      "path": "orbits/return-frame.html",
+      "label": "返回帧",
+      "articles": [
+        "logs/sensor-array.html",
+        "logs/relay-path.html",
+        "logs/boundary-ring.html",
+        "logs/docking-note.html"
+      ]
+    }
+  ],
+  "toolIndex": "instrument-bay.html",
+  "tools": [
+    "consoles/seeded-sampler.html",
+    "consoles/ring-increments.html",
+    "consoles/bit-register.html",
+    "consoles/phase-rendezvous.html",
+    "consoles/median-sweep.html"
+  ],
+  "legal": {
+    "about": "about.html",
+    "contact": "contact.html",
+    "disclosure": "disclosure.html",
+    "disclaimer": "disclaimer.html",
+    "privacy": "privacy.html",
+    "corrections": "corrections.html",
+    "editorial": "editorial.html"
+  },
+  "error404": "404.html",
+  "robots": "robots.txt",
+  "sitemap": "sitemap.xml",
+  "feed": "feed.xml",
+  "security": ".well-known/security.txt",
+  "favicon": "favicon.ico",
+  "appleTouchIcon": "apple-touch-icon.png",
+  "socialImage": "assets/social-card.png",
+  "variables": {
+    "siteDomain": "%%SITE_DOMAIN%%",
+    "siteName": "%%SITE_NAME%%",
+    "wordmark": "%%BRAND_EN%%",
+    "inviteCode": "%%INVITE_CODE%%",
+    "benefitRate": "%%BENEFIT_RATE%%",
+    "benefitDisclaimer": "%%BENEFIT_DISCLAIMER%%",
+    "affiliateUrl": "%%AFFILIATE_URL%%"
+  }
+}
+```
 
-`%%CONTACT_EMAIL%%` 用于更正联系，必须换成真实可达地址或联系路径，不删除责任说明。
+## 全部变量登记
 
-## 抽样算法
+- `%%ABOUT_CONTACT_NOTE%%`
+- `%%ABOUT_DESC%%`
+- `%%ABOUT_HEAD_1%%`
+- `%%ABOUT_HEAD_2%%`
+- `%%ABOUT_HEAD_3%%`
+- `%%ABOUT_HEAD_4%%`
+- `%%ABOUT_INTRO%%`
+- `%%ABOUT_MODIFIED%%`
+- `%%ABOUT_TEXT_1%%`
+- `%%ABOUT_TEXT_2%%`
+- `%%ABOUT_TEXT_3%%`
+- `%%ABOUT_TEXT_4%%`
+- `%%AFFILIATE_DISCLOSURE%%`
+- `%%AFFILIATE_INTRO%%`
+- `%%AFFILIATE_LABEL%%`
+- `%%AFFILIATE_TITLE%%`
+- `%%AFFILIATE_URL%%`
+- `%%AUTHOR_BIO%%`
+- `%%AUTHOR_NAME%%`
+- `%%BENEFIT_DISCLAIMER%%`
+- `%%BENEFIT_RATE%%`
+- `%%BRAND_EN%%`
+- `%%CONTACT_CONTACT_NOTE%%`
+- `%%CONTACT_DESC%%`
+- `%%CONTACT_EMAIL%%`
+- `%%CONTACT_HEAD_1%%`
+- `%%CONTACT_HEAD_2%%`
+- `%%CONTACT_HEAD_3%%`
+- `%%CONTACT_INTRO%%`
+- `%%CONTACT_MODIFIED%%`
+- `%%CONTACT_TEXT_1%%`
+- `%%CONTACT_TEXT_2%%`
+- `%%CONTACT_TEXT_3%%`
+- `%%CORRECTIONS_CONTACT_NOTE%%`
+- `%%CORRECTIONS_DESC%%`
+- `%%CORRECTIONS_HEAD_1%%`
+- `%%CORRECTIONS_HEAD_2%%`
+- `%%CORRECTIONS_HEAD_3%%`
+- `%%CORRECTIONS_INTRO%%`
+- `%%CORRECTIONS_MODIFIED%%`
+- `%%CORRECTIONS_TEXT_1%%`
+- `%%CORRECTIONS_TEXT_2%%`
+- `%%CORRECTIONS_TEXT_3%%`
+- `%%CRUISE_BOOK_DESC%%`
+- `%%CRUISE_BOOK_INTRO%%`
+- `%%DISCLAIMER_CONTACT_NOTE%%`
+- `%%DISCLAIMER_DESC%%`
+- `%%DISCLAIMER_HEAD_1%%`
+- `%%DISCLAIMER_HEAD_2%%`
+- `%%DISCLAIMER_HEAD_3%%`
+- `%%DISCLAIMER_HEAD_4%%`
+- `%%DISCLAIMER_HEAD_5%%`
+- `%%DISCLAIMER_INTRO%%`
+- `%%DISCLAIMER_MODIFIED%%`
+- `%%DISCLAIMER_TEXT_1%%`
+- `%%DISCLAIMER_TEXT_2%%`
+- `%%DISCLAIMER_TEXT_3%%`
+- `%%DISCLAIMER_TEXT_4%%`
+- `%%DISCLAIMER_TEXT_5%%`
+- `%%DISCLOSURE_CONTACT_NOTE%%`
+- `%%DISCLOSURE_DESC%%`
+- `%%DISCLOSURE_HEAD_1%%`
+- `%%DISCLOSURE_HEAD_2%%`
+- `%%DISCLOSURE_HEAD_3%%`
+- `%%DISCLOSURE_HEAD_4%%`
+- `%%DISCLOSURE_INTRO%%`
+- `%%DISCLOSURE_MODIFIED%%`
+- `%%DISCLOSURE_TEXT_1%%`
+- `%%DISCLOSURE_TEXT_2%%`
+- `%%DISCLOSURE_TEXT_3%%`
+- `%%DISCLOSURE_TEXT_4%%`
+- `%%EDITORIAL_CONTACT_NOTE%%`
+- `%%EDITORIAL_DESC%%`
+- `%%EDITORIAL_HEAD_1%%`
+- `%%EDITORIAL_HEAD_2%%`
+- `%%EDITORIAL_HEAD_3%%`
+- `%%EDITORIAL_HEAD_4%%`
+- `%%EDITORIAL_HEAD_5%%`
+- `%%EDITORIAL_INTRO%%`
+- `%%EDITORIAL_MODIFIED%%`
+- `%%EDITORIAL_TEXT_1%%`
+- `%%EDITORIAL_TEXT_2%%`
+- `%%EDITORIAL_TEXT_3%%`
+- `%%EDITORIAL_TEXT_4%%`
+- `%%EDITORIAL_TEXT_5%%`
+- `%%HERO_DESCRIPTION%%`
+- `%%HERO_EYEBROW%%`
+- `%%HERO_TITLE%%`
+- `%%HOME_FEATURED_LABEL%%`
+- `%%HOME_ISSUE_LABEL%%`
+- `%%HOME_LATEST_LABEL%%`
+- `%%HOME_LINKS_LABEL%%`
+- `%%INDEPENDENCE_NOTE%%`
+- `%%INDEX_DESC%%`
+- `%%INDEX_INTRO%%`
+- `%%INSERTION_SHEET_DESC%%`
+- `%%INSERTION_SHEET_INTRO%%`
+- `%%INVITE_CODE%%`
+- `%%INVITE_LABEL%%`
+- `%%L10_CHECKED%%`
+- `%%L10_CLOSING_TEXT%%`
+- `%%L10_CLOSING_TITLE%%`
+- `%%L10_COVER_ALT%%`
+- `%%L10_COVER_CAPTION%%`
+- `%%L10_FAQ_A_1%%`
+- `%%L10_FAQ_A_2%%`
+- `%%L10_FAQ_Q_1%%`
+- `%%L10_FAQ_Q_2%%`
+- `%%L10_FAQ_TITLE%%`
+- `%%L10_H2_1%%`
+- `%%L10_H2_2%%`
+- `%%L10_H2_3%%`
+- `%%L10_H2_4%%`
+- `%%L10_H2_5%%`
+- `%%L10_MODIFIED%%`
+- `%%L10_MODULE_HEAD_1%%`
+- `%%L10_MODULE_HEAD_2%%`
+- `%%L10_MODULE_HEAD_3%%`
+- `%%L10_MODULE_TEXT_1%%`
+- `%%L10_MODULE_TEXT_2%%`
+- `%%L10_MODULE_TEXT_3%%`
+- `%%L10_PUBLISHED%%`
+- `%%L10_QUOTE%%`
+- `%%L10_QUOTE_SOURCE%%`
+- `%%L10_RSS_DATE%%`
+- `%%L10_SOURCES_TITLE%%`
+- `%%L10_SOURCE_LABEL_1%%`
+- `%%L10_SOURCE_LABEL_2%%`
+- `%%L10_SOURCE_NOTE_1%%`
+- `%%L10_SOURCE_NOTE_2%%`
+- `%%L10_SOURCE_URL_1%%`
+- `%%L10_SOURCE_URL_2%%`
+- `%%L10_STATUS%%`
+- `%%L10_SUMMARY%%`
+- `%%L10_TABLE_CAPTION%%`
+- `%%L10_TABLE_CELL_1_1%%`
+- `%%L10_TABLE_CELL_1_2%%`
+- `%%L10_TABLE_CELL_2_1%%`
+- `%%L10_TABLE_CELL_2_2%%`
+- `%%L10_TABLE_CELL_3_1%%`
+- `%%L10_TABLE_CELL_3_2%%`
+- `%%L10_TABLE_COL_1%%`
+- `%%L10_TABLE_COL_2%%`
+- `%%L10_TABLE_COL_3%%`
+- `%%L10_TABLE_ROW_1%%`
+- `%%L10_TABLE_ROW_2%%`
+- `%%L10_TABLE_ROW_3%%`
+- `%%L10_TEXT_1%%`
+- `%%L10_TEXT_2%%`
+- `%%L10_TEXT_3%%`
+- `%%L10_TEXT_4%%`
+- `%%L10_TEXT_5%%`
+- `%%L10_TITLE%%`
+- `%%L11_CHECKED%%`
+- `%%L11_CLOSING_TEXT%%`
+- `%%L11_CLOSING_TITLE%%`
+- `%%L11_COVER_ALT%%`
+- `%%L11_COVER_CAPTION%%`
+- `%%L11_FAQ_A_1%%`
+- `%%L11_FAQ_A_2%%`
+- `%%L11_FAQ_A_3%%`
+- `%%L11_FAQ_A_4%%`
+- `%%L11_FAQ_Q_1%%`
+- `%%L11_FAQ_Q_2%%`
+- `%%L11_FAQ_Q_3%%`
+- `%%L11_FAQ_Q_4%%`
+- `%%L11_FAQ_TITLE%%`
+- `%%L11_H2_1%%`
+- `%%L11_H2_2%%`
+- `%%L11_H2_3%%`
+- `%%L11_MODIFIED%%`
+- `%%L11_MODULE_HEAD_1%%`
+- `%%L11_MODULE_HEAD_2%%`
+- `%%L11_MODULE_HEAD_3%%`
+- `%%L11_MODULE_TEXT_1%%`
+- `%%L11_MODULE_TEXT_2%%`
+- `%%L11_MODULE_TEXT_3%%`
+- `%%L11_PUBLISHED%%`
+- `%%L11_QUOTE%%`
+- `%%L11_QUOTE_SOURCE%%`
+- `%%L11_RSS_DATE%%`
+- `%%L11_SOURCES_TITLE%%`
+- `%%L11_SOURCE_LABEL_1%%`
+- `%%L11_SOURCE_LABEL_2%%`
+- `%%L11_SOURCE_NOTE_1%%`
+- `%%L11_SOURCE_NOTE_2%%`
+- `%%L11_SOURCE_URL_1%%`
+- `%%L11_SOURCE_URL_2%%`
+- `%%L11_STATUS%%`
+- `%%L11_SUMMARY%%`
+- `%%L11_TABLE_CAPTION%%`
+- `%%L11_TABLE_CELL_1_1%%`
+- `%%L11_TABLE_CELL_1_2%%`
+- `%%L11_TABLE_CELL_2_1%%`
+- `%%L11_TABLE_CELL_2_2%%`
+- `%%L11_TABLE_CELL_3_1%%`
+- `%%L11_TABLE_CELL_3_2%%`
+- `%%L11_TABLE_COL_1%%`
+- `%%L11_TABLE_COL_2%%`
+- `%%L11_TABLE_COL_3%%`
+- `%%L11_TABLE_ROW_1%%`
+- `%%L11_TABLE_ROW_2%%`
+- `%%L11_TABLE_ROW_3%%`
+- `%%L11_TEXT_1%%`
+- `%%L11_TEXT_2%%`
+- `%%L11_TEXT_3%%`
+- `%%L11_TITLE%%`
+- `%%L12_CHECKED%%`
+- `%%L12_CLOSING_TEXT%%`
+- `%%L12_CLOSING_TITLE%%`
+- `%%L12_COVER_ALT%%`
+- `%%L12_COVER_CAPTION%%`
+- `%%L12_FAQ_A_1%%`
+- `%%L12_FAQ_A_2%%`
+- `%%L12_FAQ_A_3%%`
+- `%%L12_FAQ_Q_1%%`
+- `%%L12_FAQ_Q_2%%`
+- `%%L12_FAQ_Q_3%%`
+- `%%L12_FAQ_TITLE%%`
+- `%%L12_H2_1%%`
+- `%%L12_H2_2%%`
+- `%%L12_H2_3%%`
+- `%%L12_H2_4%%`
+- `%%L12_MODIFIED%%`
+- `%%L12_MODULE_HEAD_1%%`
+- `%%L12_MODULE_HEAD_2%%`
+- `%%L12_MODULE_HEAD_3%%`
+- `%%L12_MODULE_TEXT_1%%`
+- `%%L12_MODULE_TEXT_2%%`
+- `%%L12_MODULE_TEXT_3%%`
+- `%%L12_PUBLISHED%%`
+- `%%L12_QUOTE%%`
+- `%%L12_QUOTE_SOURCE%%`
+- `%%L12_SOURCES_TITLE%%`
+- `%%L12_SOURCE_LABEL_1%%`
+- `%%L12_SOURCE_LABEL_2%%`
+- `%%L12_SOURCE_NOTE_1%%`
+- `%%L12_SOURCE_NOTE_2%%`
+- `%%L12_SOURCE_URL_1%%`
+- `%%L12_SOURCE_URL_2%%`
+- `%%L12_STATUS%%`
+- `%%L12_SUMMARY%%`
+- `%%L12_TABLE_CAPTION%%`
+- `%%L12_TABLE_CELL_1_1%%`
+- `%%L12_TABLE_CELL_1_2%%`
+- `%%L12_TABLE_CELL_2_1%%`
+- `%%L12_TABLE_CELL_2_2%%`
+- `%%L12_TABLE_CELL_3_1%%`
+- `%%L12_TABLE_CELL_3_2%%`
+- `%%L12_TABLE_COL_1%%`
+- `%%L12_TABLE_COL_2%%`
+- `%%L12_TABLE_COL_3%%`
+- `%%L12_TABLE_ROW_1%%`
+- `%%L12_TABLE_ROW_2%%`
+- `%%L12_TABLE_ROW_3%%`
+- `%%L12_TEXT_1%%`
+- `%%L12_TEXT_2%%`
+- `%%L12_TEXT_3%%`
+- `%%L12_TEXT_4%%`
+- `%%L12_TITLE%%`
+- `%%L1_CHECKED%%`
+- `%%L1_CLOSING_TEXT%%`
+- `%%L1_CLOSING_TITLE%%`
+- `%%L1_COVER_ALT%%`
+- `%%L1_COVER_CAPTION%%`
+- `%%L1_FAQ_A_1%%`
+- `%%L1_FAQ_A_2%%`
+- `%%L1_FAQ_Q_1%%`
+- `%%L1_FAQ_Q_2%%`
+- `%%L1_FAQ_TITLE%%`
+- `%%L1_H2_1%%`
+- `%%L1_H2_2%%`
+- `%%L1_H2_3%%`
+- `%%L1_H2_4%%`
+- `%%L1_H2_5%%`
+- `%%L1_MODIFIED%%`
+- `%%L1_MODULE_HEAD_1%%`
+- `%%L1_MODULE_HEAD_2%%`
+- `%%L1_MODULE_HEAD_3%%`
+- `%%L1_MODULE_TEXT_1%%`
+- `%%L1_MODULE_TEXT_2%%`
+- `%%L1_MODULE_TEXT_3%%`
+- `%%L1_PUBLISHED%%`
+- `%%L1_QUOTE%%`
+- `%%L1_QUOTE_SOURCE%%`
+- `%%L1_RSS_DATE%%`
+- `%%L1_SOURCES_TITLE%%`
+- `%%L1_SOURCE_LABEL_1%%`
+- `%%L1_SOURCE_LABEL_2%%`
+- `%%L1_SOURCE_NOTE_1%%`
+- `%%L1_SOURCE_NOTE_2%%`
+- `%%L1_SOURCE_URL_1%%`
+- `%%L1_SOURCE_URL_2%%`
+- `%%L1_STATUS%%`
+- `%%L1_SUMMARY%%`
+- `%%L1_TABLE_CAPTION%%`
+- `%%L1_TABLE_CELL_1_1%%`
+- `%%L1_TABLE_CELL_1_2%%`
+- `%%L1_TABLE_CELL_2_1%%`
+- `%%L1_TABLE_CELL_2_2%%`
+- `%%L1_TABLE_CELL_3_1%%`
+- `%%L1_TABLE_CELL_3_2%%`
+- `%%L1_TABLE_COL_1%%`
+- `%%L1_TABLE_COL_2%%`
+- `%%L1_TABLE_COL_3%%`
+- `%%L1_TABLE_ROW_1%%`
+- `%%L1_TABLE_ROW_2%%`
+- `%%L1_TABLE_ROW_3%%`
+- `%%L1_TEXT_1%%`
+- `%%L1_TEXT_2%%`
+- `%%L1_TEXT_3%%`
+- `%%L1_TEXT_4%%`
+- `%%L1_TEXT_5%%`
+- `%%L1_TITLE%%`
+- `%%L2_CHECKED%%`
+- `%%L2_CLOSING_TEXT%%`
+- `%%L2_CLOSING_TITLE%%`
+- `%%L2_COVER_ALT%%`
+- `%%L2_COVER_CAPTION%%`
+- `%%L2_FAQ_A_1%%`
+- `%%L2_FAQ_A_2%%`
+- `%%L2_FAQ_A_3%%`
+- `%%L2_FAQ_A_4%%`
+- `%%L2_FAQ_Q_1%%`
+- `%%L2_FAQ_Q_2%%`
+- `%%L2_FAQ_Q_3%%`
+- `%%L2_FAQ_Q_4%%`
+- `%%L2_FAQ_TITLE%%`
+- `%%L2_H2_1%%`
+- `%%L2_H2_2%%`
+- `%%L2_H2_3%%`
+- `%%L2_MODIFIED%%`
+- `%%L2_MODULE_HEAD_1%%`
+- `%%L2_MODULE_HEAD_2%%`
+- `%%L2_MODULE_HEAD_3%%`
+- `%%L2_MODULE_HEAD_4%%`
+- `%%L2_MODULE_TEXT_1%%`
+- `%%L2_MODULE_TEXT_2%%`
+- `%%L2_MODULE_TEXT_3%%`
+- `%%L2_MODULE_TEXT_4%%`
+- `%%L2_PUBLISHED%%`
+- `%%L2_QUOTE%%`
+- `%%L2_QUOTE_SOURCE%%`
+- `%%L2_RSS_DATE%%`
+- `%%L2_SOURCES_TITLE%%`
+- `%%L2_SOURCE_LABEL_1%%`
+- `%%L2_SOURCE_LABEL_2%%`
+- `%%L2_SOURCE_NOTE_1%%`
+- `%%L2_SOURCE_NOTE_2%%`
+- `%%L2_SOURCE_URL_1%%`
+- `%%L2_SOURCE_URL_2%%`
+- `%%L2_STATUS%%`
+- `%%L2_SUMMARY%%`
+- `%%L2_TABLE_CAPTION%%`
+- `%%L2_TABLE_CELL_1_1%%`
+- `%%L2_TABLE_CELL_1_2%%`
+- `%%L2_TABLE_CELL_2_1%%`
+- `%%L2_TABLE_CELL_2_2%%`
+- `%%L2_TABLE_CELL_3_1%%`
+- `%%L2_TABLE_CELL_3_2%%`
+- `%%L2_TABLE_COL_1%%`
+- `%%L2_TABLE_COL_2%%`
+- `%%L2_TABLE_COL_3%%`
+- `%%L2_TABLE_ROW_1%%`
+- `%%L2_TABLE_ROW_2%%`
+- `%%L2_TABLE_ROW_3%%`
+- `%%L2_TEXT_1%%`
+- `%%L2_TEXT_2%%`
+- `%%L2_TEXT_3%%`
+- `%%L2_TITLE%%`
+- `%%L3_CHECKED%%`
+- `%%L3_CLOSING_TEXT%%`
+- `%%L3_CLOSING_TITLE%%`
+- `%%L3_COVER_ALT%%`
+- `%%L3_COVER_CAPTION%%`
+- `%%L3_FAQ_A_1%%`
+- `%%L3_FAQ_A_2%%`
+- `%%L3_FAQ_A_3%%`
+- `%%L3_FAQ_Q_1%%`
+- `%%L3_FAQ_Q_2%%`
+- `%%L3_FAQ_Q_3%%`
+- `%%L3_FAQ_TITLE%%`
+- `%%L3_H2_1%%`
+- `%%L3_H2_2%%`
+- `%%L3_H2_3%%`
+- `%%L3_H2_4%%`
+- `%%L3_MODIFIED%%`
+- `%%L3_MODULE_HEAD_1%%`
+- `%%L3_MODULE_HEAD_2%%`
+- `%%L3_MODULE_HEAD_3%%`
+- `%%L3_MODULE_TEXT_1%%`
+- `%%L3_MODULE_TEXT_2%%`
+- `%%L3_MODULE_TEXT_3%%`
+- `%%L3_PUBLISHED%%`
+- `%%L3_QUOTE%%`
+- `%%L3_QUOTE_SOURCE%%`
+- `%%L3_SOURCES_TITLE%%`
+- `%%L3_SOURCE_LABEL_1%%`
+- `%%L3_SOURCE_LABEL_2%%`
+- `%%L3_SOURCE_NOTE_1%%`
+- `%%L3_SOURCE_NOTE_2%%`
+- `%%L3_SOURCE_URL_1%%`
+- `%%L3_SOURCE_URL_2%%`
+- `%%L3_STATUS%%`
+- `%%L3_SUMMARY%%`
+- `%%L3_TABLE_CAPTION%%`
+- `%%L3_TABLE_CELL_1_1%%`
+- `%%L3_TABLE_CELL_1_2%%`
+- `%%L3_TABLE_CELL_2_1%%`
+- `%%L3_TABLE_CELL_2_2%%`
+- `%%L3_TABLE_CELL_3_1%%`
+- `%%L3_TABLE_CELL_3_2%%`
+- `%%L3_TABLE_COL_1%%`
+- `%%L3_TABLE_COL_2%%`
+- `%%L3_TABLE_COL_3%%`
+- `%%L3_TABLE_ROW_1%%`
+- `%%L3_TABLE_ROW_2%%`
+- `%%L3_TABLE_ROW_3%%`
+- `%%L3_TEXT_1%%`
+- `%%L3_TEXT_2%%`
+- `%%L3_TEXT_3%%`
+- `%%L3_TEXT_4%%`
+- `%%L3_TITLE%%`
+- `%%L4_CHECKED%%`
+- `%%L4_CLOSING_TEXT%%`
+- `%%L4_CLOSING_TITLE%%`
+- `%%L4_COVER_ALT%%`
+- `%%L4_COVER_CAPTION%%`
+- `%%L4_FAQ_A_1%%`
+- `%%L4_FAQ_A_2%%`
+- `%%L4_FAQ_Q_1%%`
+- `%%L4_FAQ_Q_2%%`
+- `%%L4_FAQ_TITLE%%`
+- `%%L4_H2_1%%`
+- `%%L4_H2_2%%`
+- `%%L4_H2_3%%`
+- `%%L4_H2_4%%`
+- `%%L4_H2_5%%`
+- `%%L4_MODIFIED%%`
+- `%%L4_MODULE_HEAD_1%%`
+- `%%L4_MODULE_HEAD_2%%`
+- `%%L4_MODULE_HEAD_3%%`
+- `%%L4_MODULE_HEAD_4%%`
+- `%%L4_MODULE_TEXT_1%%`
+- `%%L4_MODULE_TEXT_2%%`
+- `%%L4_MODULE_TEXT_3%%`
+- `%%L4_MODULE_TEXT_4%%`
+- `%%L4_PUBLISHED%%`
+- `%%L4_QUOTE%%`
+- `%%L4_QUOTE_SOURCE%%`
+- `%%L4_RSS_DATE%%`
+- `%%L4_SOURCES_TITLE%%`
+- `%%L4_SOURCE_LABEL_1%%`
+- `%%L4_SOURCE_LABEL_2%%`
+- `%%L4_SOURCE_NOTE_1%%`
+- `%%L4_SOURCE_NOTE_2%%`
+- `%%L4_SOURCE_URL_1%%`
+- `%%L4_SOURCE_URL_2%%`
+- `%%L4_STATUS%%`
+- `%%L4_SUMMARY%%`
+- `%%L4_TABLE_CAPTION%%`
+- `%%L4_TABLE_CELL_1_1%%`
+- `%%L4_TABLE_CELL_1_2%%`
+- `%%L4_TABLE_CELL_2_1%%`
+- `%%L4_TABLE_CELL_2_2%%`
+- `%%L4_TABLE_CELL_3_1%%`
+- `%%L4_TABLE_CELL_3_2%%`
+- `%%L4_TABLE_COL_1%%`
+- `%%L4_TABLE_COL_2%%`
+- `%%L4_TABLE_COL_3%%`
+- `%%L4_TABLE_ROW_1%%`
+- `%%L4_TABLE_ROW_2%%`
+- `%%L4_TABLE_ROW_3%%`
+- `%%L4_TEXT_1%%`
+- `%%L4_TEXT_2%%`
+- `%%L4_TEXT_3%%`
+- `%%L4_TEXT_4%%`
+- `%%L4_TEXT_5%%`
+- `%%L4_TITLE%%`
+- `%%L5_CHECKED%%`
+- `%%L5_CLOSING_TEXT%%`
+- `%%L5_CLOSING_TITLE%%`
+- `%%L5_COVER_ALT%%`
+- `%%L5_COVER_CAPTION%%`
+- `%%L5_FAQ_A_1%%`
+- `%%L5_FAQ_A_2%%`
+- `%%L5_FAQ_A_3%%`
+- `%%L5_FAQ_A_4%%`
+- `%%L5_FAQ_Q_1%%`
+- `%%L5_FAQ_Q_2%%`
+- `%%L5_FAQ_Q_3%%`
+- `%%L5_FAQ_Q_4%%`
+- `%%L5_FAQ_TITLE%%`
+- `%%L5_H2_1%%`
+- `%%L5_H2_2%%`
+- `%%L5_H2_3%%`
+- `%%L5_MODIFIED%%`
+- `%%L5_MODULE_HEAD_1%%`
+- `%%L5_MODULE_HEAD_2%%`
+- `%%L5_MODULE_HEAD_3%%`
+- `%%L5_MODULE_TEXT_1%%`
+- `%%L5_MODULE_TEXT_2%%`
+- `%%L5_MODULE_TEXT_3%%`
+- `%%L5_PUBLISHED%%`
+- `%%L5_QUOTE%%`
+- `%%L5_QUOTE_SOURCE%%`
+- `%%L5_RSS_DATE%%`
+- `%%L5_SOURCES_TITLE%%`
+- `%%L5_SOURCE_LABEL_1%%`
+- `%%L5_SOURCE_LABEL_2%%`
+- `%%L5_SOURCE_NOTE_1%%`
+- `%%L5_SOURCE_NOTE_2%%`
+- `%%L5_SOURCE_URL_1%%`
+- `%%L5_SOURCE_URL_2%%`
+- `%%L5_STATUS%%`
+- `%%L5_SUMMARY%%`
+- `%%L5_TABLE_CAPTION%%`
+- `%%L5_TABLE_CELL_1_1%%`
+- `%%L5_TABLE_CELL_1_2%%`
+- `%%L5_TABLE_CELL_2_1%%`
+- `%%L5_TABLE_CELL_2_2%%`
+- `%%L5_TABLE_CELL_3_1%%`
+- `%%L5_TABLE_CELL_3_2%%`
+- `%%L5_TABLE_COL_1%%`
+- `%%L5_TABLE_COL_2%%`
+- `%%L5_TABLE_COL_3%%`
+- `%%L5_TABLE_ROW_1%%`
+- `%%L5_TABLE_ROW_2%%`
+- `%%L5_TABLE_ROW_3%%`
+- `%%L5_TEXT_1%%`
+- `%%L5_TEXT_2%%`
+- `%%L5_TEXT_3%%`
+- `%%L5_TITLE%%`
+- `%%L6_CHECKED%%`
+- `%%L6_CLOSING_TEXT%%`
+- `%%L6_CLOSING_TITLE%%`
+- `%%L6_COVER_ALT%%`
+- `%%L6_COVER_CAPTION%%`
+- `%%L6_FAQ_A_1%%`
+- `%%L6_FAQ_A_2%%`
+- `%%L6_FAQ_A_3%%`
+- `%%L6_FAQ_Q_1%%`
+- `%%L6_FAQ_Q_2%%`
+- `%%L6_FAQ_Q_3%%`
+- `%%L6_FAQ_TITLE%%`
+- `%%L6_H2_1%%`
+- `%%L6_H2_2%%`
+- `%%L6_H2_3%%`
+- `%%L6_H2_4%%`
+- `%%L6_MODIFIED%%`
+- `%%L6_MODULE_HEAD_1%%`
+- `%%L6_MODULE_HEAD_2%%`
+- `%%L6_MODULE_HEAD_3%%`
+- `%%L6_MODULE_TEXT_1%%`
+- `%%L6_MODULE_TEXT_2%%`
+- `%%L6_MODULE_TEXT_3%%`
+- `%%L6_PUBLISHED%%`
+- `%%L6_QUOTE%%`
+- `%%L6_QUOTE_SOURCE%%`
+- `%%L6_SOURCES_TITLE%%`
+- `%%L6_SOURCE_LABEL_1%%`
+- `%%L6_SOURCE_LABEL_2%%`
+- `%%L6_SOURCE_NOTE_1%%`
+- `%%L6_SOURCE_NOTE_2%%`
+- `%%L6_SOURCE_URL_1%%`
+- `%%L6_SOURCE_URL_2%%`
+- `%%L6_STATUS%%`
+- `%%L6_SUMMARY%%`
+- `%%L6_TABLE_CAPTION%%`
+- `%%L6_TABLE_CELL_1_1%%`
+- `%%L6_TABLE_CELL_1_2%%`
+- `%%L6_TABLE_CELL_2_1%%`
+- `%%L6_TABLE_CELL_2_2%%`
+- `%%L6_TABLE_CELL_3_1%%`
+- `%%L6_TABLE_CELL_3_2%%`
+- `%%L6_TABLE_COL_1%%`
+- `%%L6_TABLE_COL_2%%`
+- `%%L6_TABLE_COL_3%%`
+- `%%L6_TABLE_ROW_1%%`
+- `%%L6_TABLE_ROW_2%%`
+- `%%L6_TABLE_ROW_3%%`
+- `%%L6_TEXT_1%%`
+- `%%L6_TEXT_2%%`
+- `%%L6_TEXT_3%%`
+- `%%L6_TEXT_4%%`
+- `%%L6_TITLE%%`
+- `%%L7_CHECKED%%`
+- `%%L7_CLOSING_TEXT%%`
+- `%%L7_CLOSING_TITLE%%`
+- `%%L7_COVER_ALT%%`
+- `%%L7_COVER_CAPTION%%`
+- `%%L7_FAQ_A_1%%`
+- `%%L7_FAQ_A_2%%`
+- `%%L7_FAQ_Q_1%%`
+- `%%L7_FAQ_Q_2%%`
+- `%%L7_FAQ_TITLE%%`
+- `%%L7_H2_1%%`
+- `%%L7_H2_2%%`
+- `%%L7_H2_3%%`
+- `%%L7_H2_4%%`
+- `%%L7_H2_5%%`
+- `%%L7_MODIFIED%%`
+- `%%L7_MODULE_HEAD_1%%`
+- `%%L7_MODULE_HEAD_2%%`
+- `%%L7_MODULE_HEAD_3%%`
+- `%%L7_MODULE_HEAD_4%%`
+- `%%L7_MODULE_TEXT_1%%`
+- `%%L7_MODULE_TEXT_2%%`
+- `%%L7_MODULE_TEXT_3%%`
+- `%%L7_MODULE_TEXT_4%%`
+- `%%L7_PUBLISHED%%`
+- `%%L7_QUOTE%%`
+- `%%L7_QUOTE_SOURCE%%`
+- `%%L7_RSS_DATE%%`
+- `%%L7_SOURCES_TITLE%%`
+- `%%L7_SOURCE_LABEL_1%%`
+- `%%L7_SOURCE_LABEL_2%%`
+- `%%L7_SOURCE_NOTE_1%%`
+- `%%L7_SOURCE_NOTE_2%%`
+- `%%L7_SOURCE_URL_1%%`
+- `%%L7_SOURCE_URL_2%%`
+- `%%L7_STATUS%%`
+- `%%L7_SUMMARY%%`
+- `%%L7_TABLE_CAPTION%%`
+- `%%L7_TABLE_CELL_1_1%%`
+- `%%L7_TABLE_CELL_1_2%%`
+- `%%L7_TABLE_CELL_2_1%%`
+- `%%L7_TABLE_CELL_2_2%%`
+- `%%L7_TABLE_CELL_3_1%%`
+- `%%L7_TABLE_CELL_3_2%%`
+- `%%L7_TABLE_COL_1%%`
+- `%%L7_TABLE_COL_2%%`
+- `%%L7_TABLE_COL_3%%`
+- `%%L7_TABLE_ROW_1%%`
+- `%%L7_TABLE_ROW_2%%`
+- `%%L7_TABLE_ROW_3%%`
+- `%%L7_TEXT_1%%`
+- `%%L7_TEXT_2%%`
+- `%%L7_TEXT_3%%`
+- `%%L7_TEXT_4%%`
+- `%%L7_TEXT_5%%`
+- `%%L7_TITLE%%`
+- `%%L8_CHECKED%%`
+- `%%L8_CLOSING_TEXT%%`
+- `%%L8_CLOSING_TITLE%%`
+- `%%L8_COVER_ALT%%`
+- `%%L8_COVER_CAPTION%%`
+- `%%L8_FAQ_A_1%%`
+- `%%L8_FAQ_A_2%%`
+- `%%L8_FAQ_A_3%%`
+- `%%L8_FAQ_A_4%%`
+- `%%L8_FAQ_Q_1%%`
+- `%%L8_FAQ_Q_2%%`
+- `%%L8_FAQ_Q_3%%`
+- `%%L8_FAQ_Q_4%%`
+- `%%L8_FAQ_TITLE%%`
+- `%%L8_H2_1%%`
+- `%%L8_H2_2%%`
+- `%%L8_H2_3%%`
+- `%%L8_MODIFIED%%`
+- `%%L8_MODULE_HEAD_1%%`
+- `%%L8_MODULE_HEAD_2%%`
+- `%%L8_MODULE_HEAD_3%%`
+- `%%L8_MODULE_HEAD_4%%`
+- `%%L8_MODULE_TEXT_1%%`
+- `%%L8_MODULE_TEXT_2%%`
+- `%%L8_MODULE_TEXT_3%%`
+- `%%L8_MODULE_TEXT_4%%`
+- `%%L8_PUBLISHED%%`
+- `%%L8_QUOTE%%`
+- `%%L8_QUOTE_SOURCE%%`
+- `%%L8_SOURCES_TITLE%%`
+- `%%L8_SOURCE_LABEL_1%%`
+- `%%L8_SOURCE_LABEL_2%%`
+- `%%L8_SOURCE_NOTE_1%%`
+- `%%L8_SOURCE_NOTE_2%%`
+- `%%L8_SOURCE_URL_1%%`
+- `%%L8_SOURCE_URL_2%%`
+- `%%L8_STATUS%%`
+- `%%L8_SUMMARY%%`
+- `%%L8_TABLE_CAPTION%%`
+- `%%L8_TABLE_CELL_1_1%%`
+- `%%L8_TABLE_CELL_1_2%%`
+- `%%L8_TABLE_CELL_2_1%%`
+- `%%L8_TABLE_CELL_2_2%%`
+- `%%L8_TABLE_CELL_3_1%%`
+- `%%L8_TABLE_CELL_3_2%%`
+- `%%L8_TABLE_COL_1%%`
+- `%%L8_TABLE_COL_2%%`
+- `%%L8_TABLE_COL_3%%`
+- `%%L8_TABLE_ROW_1%%`
+- `%%L8_TABLE_ROW_2%%`
+- `%%L8_TABLE_ROW_3%%`
+- `%%L8_TEXT_1%%`
+- `%%L8_TEXT_2%%`
+- `%%L8_TEXT_3%%`
+- `%%L8_TITLE%%`
+- `%%L9_CHECKED%%`
+- `%%L9_CLOSING_TEXT%%`
+- `%%L9_CLOSING_TITLE%%`
+- `%%L9_COVER_ALT%%`
+- `%%L9_COVER_CAPTION%%`
+- `%%L9_FAQ_A_1%%`
+- `%%L9_FAQ_A_2%%`
+- `%%L9_FAQ_A_3%%`
+- `%%L9_FAQ_Q_1%%`
+- `%%L9_FAQ_Q_2%%`
+- `%%L9_FAQ_Q_3%%`
+- `%%L9_FAQ_TITLE%%`
+- `%%L9_H2_1%%`
+- `%%L9_H2_2%%`
+- `%%L9_H2_3%%`
+- `%%L9_H2_4%%`
+- `%%L9_MODIFIED%%`
+- `%%L9_MODULE_HEAD_2%%`
+- `%%L9_MODULE_HEAD_3%%`
+- `%%L9_MODULE_HEAD_4%%`
+- `%%L9_MODULE_TEXT_1%%`
+- `%%L9_MODULE_TEXT_2%%`
+- `%%L9_MODULE_TEXT_3%%`
+- `%%L9_MODULE_TEXT_4%%`
+- `%%L9_PUBLISHED%%`
+- `%%L9_QUOTE%%`
+- `%%L9_QUOTE_SOURCE%%`
+- `%%L9_RSS_DATE%%`
+- `%%L9_SOURCES_TITLE%%`
+- `%%L9_SOURCE_LABEL_1%%`
+- `%%L9_SOURCE_LABEL_2%%`
+- `%%L9_SOURCE_NOTE_1%%`
+- `%%L9_SOURCE_NOTE_2%%`
+- `%%L9_SOURCE_URL_1%%`
+- `%%L9_SOURCE_URL_2%%`
+- `%%L9_STATUS%%`
+- `%%L9_SUMMARY%%`
+- `%%L9_TABLE_CAPTION%%`
+- `%%L9_TABLE_CELL_1_1%%`
+- `%%L9_TABLE_CELL_1_2%%`
+- `%%L9_TABLE_CELL_2_1%%`
+- `%%L9_TABLE_CELL_2_2%%`
+- `%%L9_TABLE_CELL_3_1%%`
+- `%%L9_TABLE_CELL_3_2%%`
+- `%%L9_TABLE_COL_1%%`
+- `%%L9_TABLE_COL_2%%`
+- `%%L9_TABLE_COL_3%%`
+- `%%L9_TABLE_ROW_1%%`
+- `%%L9_TABLE_ROW_2%%`
+- `%%L9_TABLE_ROW_3%%`
+- `%%L9_TEXT_1%%`
+- `%%L9_TEXT_2%%`
+- `%%L9_TEXT_3%%`
+- `%%L9_TEXT_4%%`
+- `%%L9_TITLE%%`
+- `%%LANG%%`
+- `%%ORBIT_CAPTION%%`
+- `%%ORBIT_NOTE_1%%`
+- `%%ORBIT_NOTE_2%%`
+- `%%ORBIT_NOTE_3%%`
+- `%%PRIVACY_CONTACT_NOTE%%`
+- `%%PRIVACY_DESC%%`
+- `%%PRIVACY_HEAD_1%%`
+- `%%PRIVACY_HEAD_2%%`
+- `%%PRIVACY_HEAD_3%%`
+- `%%PRIVACY_HEAD_4%%`
+- `%%PRIVACY_INTRO%%`
+- `%%PRIVACY_MODIFIED%%`
+- `%%PRIVACY_TEXT_1%%`
+- `%%PRIVACY_TEXT_2%%`
+- `%%PRIVACY_TEXT_3%%`
+- `%%PRIVACY_TEXT_4%%`
+- `%%RETURN_FRAME_DESC%%`
+- `%%RETURN_FRAME_INTRO%%`
+- `%%RISK_NOTE%%`
+- `%%SECURITY_EMAIL%%`
+- `%%SECURITY_EXPIRES%%`
+- `%%SEO_TITLE%%`
+- `%%SEQUENCE_TITLE%%`
+- `%%SITE_DESC%%`
+- `%%SITE_DOMAIN%%`
+- `%%SITE_NAME%%`
+- `%%SITE_TAGLINE%%`
+- `%%TELEMETRY_TITLE%%`
+- `%%TOOLS_DESC%%`
+- `%%TOOLS_INTRO%%`
+- `%%TOOL_1_LABEL%%`
+- `%%TOOL_1_MODIFIED%%`
+- `%%TOOL_2_LABEL%%`
+- `%%TOOL_2_MODIFIED%%`
+- `%%TOOL_3_LABEL%%`
+- `%%TOOL_3_MODIFIED%%`
+- `%%TOOL_4_LABEL%%`
+- `%%TOOL_4_MODIFIED%%`
+- `%%TOOL_5_LABEL%%`
+- `%%TOOL_5_MODIFIED%%`
 
-- 整数输入采用 NFKC 归一化后严格十进制解析，不接受小数、科学计数或无意义前导零。
-- 种子通过 FNV-1a 风格哈希初始化 xorshift32；使用部分 Fisher–Yates 在 1..总数中无放回抽样，再按升序展示。
-- 相同总数、样本数与种子必须得到完全相同索引；输出使用安全 DOM 节点，不得改为 `innerHTML`。
+## 验收记录
 
-## 完整审计
+2026-09-04 · workflow-ready v2 完整框架验收通过，仅代表模板 UI 与功能就绪。
 
-运行 `node tools/audit-template.js templates/061-orbit-liftoff`、`node tools/validate.js` 和全库逐对相似度检查；再在 1440×1000 与 390×844 验收五页、主题、移动导航、文章进度/复制、工具空态/整数语法/边界/样本大于总数/同种子重放/异种子差异/500项移动溢出/失效/复制/清空以及 404 安全检索，确保控制台无错误。
+- 84 个文件、34 个 HTML（30 个可索引页面、独立 404、3 个 noindex 兼容入口）；三项静态审计通过，本套 P0/P1/P2 均为 0。
+- 原 style.css 字节保持不变，首页原有 15 个类名全部保留；深空轨道、青橙遥测线、任务序列与三条内容轨道延续。三种阅读开场、十二任务组件、三个交叉分组、七页站务及五个本地工具完整。
+- 34 页 × 1440/768/390/360px × 明暗主题，共 272 次最终渲染；559 项功能、算法与边界检查全部通过，控制台和网络错误为 0。复验脚本：`tools/qa/061-orbit-liftoff-browser.js`；本地证据：`artifacts/qa/061-orbit-liftoff-v2-2026-09-04/`。
+- 抽样以独立 BigInt 无符号哈希及位移运算复验原映射，覆盖 10000 总数、500 样本、全量抽样、Unicode 种子、NFKC、无重复/范围与重放；环形读数以减法加一次模数对照 80 行、多种模数、重复读数和 78999999921 累计极限，不把最小增量当实际活动量。
+- 位字段通过除法/余数字节提取和查表置位计数复验 8/16/32/64 位、三种进制、全零/全一/高位及 64 位最大整数；不接受前缀、错误数字、溢出或十进制前导零。周期合并通过 24 组小规模穷举、六个大周期的同余与 LCM 精确核对，覆盖非互质、无解、单位周期、NFKC 名称和重复/长度/相位边界；无解为有效可复制结果。
+- 滑动中值用独立秩计数检查 200 样本和 3/5/9/21 窗口的每个中值、最小/最大和中心位置，覆盖极值、重复、整段单窗与非法格式；不补边缘，不重排输入。
+- 首屏真复制、默认暗色与主题持久化、移动菜单焦点及 Escape、首页/索引原生单选组合筛选及重置、三种原生目录、唯一推广 UI 槽位和邻近披露、404 三态及深层真实 404、无 JS 阅读/导航/目录及禁用提交、原生粘贴与 Enter/Tab、复制拒绝和异步旧结果失效、reduced-motion、阅读进度、明暗原生控件与对比度通过。
+- 人工复核首页、目录、三种开场、全部十二组件、五工具输入与结果、移动表格、暗色错误和独立图形。静态检查器对嵌套 radio 标签的名称识别不足，已补显式 id/for；首轮 555 项功能通过后，人工发现标题断行过碎，调整标题宽度并新增四宽度断行断言，最终完整重验通过。
+- 793 个文字/变量槽位已登记，34 块 JSON-LD 可解析，82 个页内锚点有效，12 张 PNG 封面内容互异；25 张封面/社交栅格图均为 1200×630，apple 为 180px，ICO 含 16/32/48px。无远程计算、危险 HTML 注入或输入持久化。
+- 相邻 060 的类名重合 1.9%、DOM 标签二元组 36.1%、CSS 属性序列 30.2%；全库类名最高 9.1%，仅历史两组 CSS 参考警告。这些是差异化参考指标，不是不可识别保证。
+- 原动态源包忠实度仍未核验，不作为本轮 UI 就绪证明。后续填入真实内容仍须进行单站事实、合规与发布验收；本套不代写业务文章或注册教程，未调用 CI，未部署生产。

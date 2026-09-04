@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://%%SITE_DOMAIN%%/</loc><changefreq>weekly</changefreq></url>
-    <url><loc>https://%%SITE_DOMAIN%%/article.html</loc></url>
-    <url><loc>https://%%SITE_DOMAIN%%/tool.html</loc></url>
-    <url><loc>https://%%SITE_DOMAIN%%/legal.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/flight-log.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/logs/source-beacon.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/logs/scope-vector.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/logs/stage-sequence.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/logs/sensor-array.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/logs/phase-window.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/logs/relay-path.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/logs/parity-panel.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/logs/packet-stream.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/logs/boundary-ring.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/logs/recovery-trace.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/logs/drift-lanes.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/logs/docking-note.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/orbits/insertion-sheet.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/orbits/cruise-book.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/orbits/return-frame.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/instrument-bay.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/consoles/seeded-sampler.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/consoles/ring-increments.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/consoles/bit-register.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/consoles/phase-rendezvous.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/consoles/median-sweep.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/about.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/contact.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/disclosure.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/disclaimer.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/privacy.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/corrections.html</loc></url>
+<url><loc>https://%%SITE_DOMAIN%%/editorial.html</loc></url>
 </urlset>
