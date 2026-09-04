@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>__site_name__</title><link>https://__site_domain__/</link><description>__site_desc__</description>
+<item><title>__r1_title__</title><link>https://__site_domain__/sheets/basis-sheet.html</link><guid>https://__site_domain__/sheets/basis-sheet.html</guid><pubDate>__r1_rss_date__</pubDate><description>__r1_summary__</description></item>
+<item><title>__r2_title__</title><link>https://__site_domain__/sheets/source-ruler.html</link><guid>https://__site_domain__/sheets/source-ruler.html</guid><pubDate>__r2_rss_date__</pubDate><description>__r2_summary__</description></item>
+<item><title>__r3_title__</title><link>https://__site_domain__/sheets/scope-brackets.html</link><guid>https://__site_domain__/sheets/scope-brackets.html</guid><pubDate>__r3_rss_date__</pubDate><description>__r3_summary__</description></item>
+<item><title>__r5_title__</title><link>https://__site_domain__/sheets/effective-stamp.html</link><guid>https://__site_domain__/sheets/effective-stamp.html</guid><pubDate>__r5_rss_date__</pubDate><description>__r5_summary__</description></item>
+<item><title>__r6_title__</title><link>https://__site_domain__/sheets/delta-grid.html</link><guid>https://__site_domain__/sheets/delta-grid.html</guid><pubDate>__r6_rss_date__</pubDate><description>__r6_summary__</description></item>
+<item><title>__r7_title__</title><link>https://__site_domain__/sheets/exception-cutout.html</link><guid>https://__site_domain__/sheets/exception-cutout.html</guid><pubDate>__r7_rss_date__</pubDate><description>__r7_summary__</description></item>
+<item><title>__r8_title__</title><link>https://__site_domain__/sheets/evidence-path.html</link><guid>https://__site_domain__/sheets/evidence-path.html</guid><pubDate>__r8_rss_date__</pubDate><description>__r8_summary__</description></item>
+<item><title>__r9_title__</title><link>https://__site_domain__/sheets/checkpoints.html</link><guid>https://__site_domain__/sheets/checkpoints.html</guid><pubDate>__r9_rss_date__</pubDate><description>__r9_summary__</description></item>
+<item><title>__r11_title__</title><link>https://__site_domain__/sheets/verification-panel.html</link><guid>https://__site_domain__/sheets/verification-panel.html</guid><pubDate>__r11_rss_date__</pubDate><description>__r11_summary__</description></item>
+<item><title>__r12_title__</title><link>https://__site_domain__/sheets/link-bridge.html</link><guid>https://__site_domain__/sheets/link-bridge.html</guid><pubDate>__r12_rss_date__</pubDate><description>__r12_summary__</description></item>
+</channel></rss>

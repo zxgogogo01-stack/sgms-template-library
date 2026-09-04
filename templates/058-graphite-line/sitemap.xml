@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://__site_domain__/</loc><changefreq>daily</changefreq></url>
-  <url><loc>https://__site_domain__/article.html</loc></url>
-  <url><loc>https://__site_domain__/tool.html</loc></url>
-  <url><loc>https://__site_domain__/legal.html</loc></url>
+<url><loc>https://__site_domain__/</loc></url>
+<url><loc>https://__site_domain__/register.html</loc></url>
+<url><loc>https://__site_domain__/sheets/basis-sheet.html</loc></url>
+<url><loc>https://__site_domain__/sheets/source-ruler.html</loc></url>
+<url><loc>https://__site_domain__/sheets/scope-brackets.html</loc></url>
+<url><loc>https://__site_domain__/sheets/revision-track.html</loc></url>
+<url><loc>https://__site_domain__/sheets/effective-stamp.html</loc></url>
+<url><loc>https://__site_domain__/sheets/delta-grid.html</loc></url>
+<url><loc>https://__site_domain__/sheets/exception-cutout.html</loc></url>
+<url><loc>https://__site_domain__/sheets/evidence-path.html</loc></url>
+<url><loc>https://__site_domain__/sheets/checkpoints.html</loc></url>
+<url><loc>https://__site_domain__/sheets/method-overlay.html</loc></url>
+<url><loc>https://__site_domain__/sheets/verification-panel.html</loc></url>
+<url><loc>https://__site_domain__/sheets/link-bridge.html</loc></url>
+<url><loc>https://__site_domain__/axes/baseline.html</loc></url>
+<url><loc>https://__site_domain__/axes/change-span.html</loc></url>
+<url><loc>https://__site_domain__/axes/recheck.html</loc></url>
+<url><loc>https://__site_domain__/instruments.html</loc></url>
+<url><loc>https://__site_domain__/instruments/fixed-offset.html</loc></url>
+<url><loc>https://__site_domain__/instruments/revision-order.html</loc></url>
+<url><loc>https://__site_domain__/instruments/slot-conflicts.html</loc></url>
+<url><loc>https://__site_domain__/instruments/edit-distance.html</loc></url>
+<url><loc>https://__site_domain__/instruments/shortest-route.html</loc></url>
+<url><loc>https://__site_domain__/about.html</loc></url>
+<url><loc>https://__site_domain__/contact.html</loc></url>
+<url><loc>https://__site_domain__/disclosure.html</loc></url>
+<url><loc>https://__site_domain__/disclaimer.html</loc></url>
+<url><loc>https://__site_domain__/privacy.html</loc></url>
+<url><loc>https://__site_domain__/corrections.html</loc></url>
+<url><loc>https://__site_domain__/editorial.html</loc></url>
 </urlset>
