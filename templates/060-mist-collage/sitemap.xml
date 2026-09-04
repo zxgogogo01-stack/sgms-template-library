@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://{SITE_DOMAIN}/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://{SITE_DOMAIN}/article.html</loc></url>
-  <url><loc>https://{SITE_DOMAIN}/tool.html</loc></url>
-  <url><loc>https://{SITE_DOMAIN}/legal.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/</loc></url>
+<url><loc>https://{SITE_DOMAIN}/wall-index.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/pins/anchor-card.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/pins/source-window.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/pins/margin-strip.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/pins/trace-string.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/pins/swatch-grid.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/pins/foldout-sheet.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/pins/annotation-pairs.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/pins/evidence-tabs.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/pins/quote-mount.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/pins/revision-layers.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/pins/cross-reference.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/pins/invitation-stub.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/collections/source-bench.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/collections/margin-room.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/collections/revisit-drawer.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/cutting-room.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/cutting/source-links.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/cutting/tag-intersections.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/cutting/excerpt-windows.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/cutting/swatch-contrast.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/cutting/image-fit.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/about.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/contact.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/disclosure.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/disclaimer.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/privacy.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/corrections.html</loc></url>
+<url><loc>https://{SITE_DOMAIN}/editorial.html</loc></url>
 </urlset>
