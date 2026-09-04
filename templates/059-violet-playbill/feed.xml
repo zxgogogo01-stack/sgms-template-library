@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>[[SITE_NAME]]</title><link>https://[[SITE_DOMAIN]]/</link><description>[[SITE_DESC]]</description>
+<item><title>[[S1_TITLE]]</title><link>https://[[SITE_DOMAIN]]/scenes/opening-score.html</link><guid>https://[[SITE_DOMAIN]]/scenes/opening-score.html</guid><pubDate>[[S1_RSS_DATE]]</pubDate><description>[[S1_SUMMARY]]</description></item>
+<item><title>[[S2_TITLE]]</title><link>https://[[SITE_DOMAIN]]/scenes/source-footlights.html</link><guid>https://[[SITE_DOMAIN]]/scenes/source-footlights.html</guid><pubDate>[[S2_RSS_DATE]]</pubDate><description>[[S2_SUMMARY]]</description></item>
+<item><title>[[S4_TITLE]]</title><link>https://[[SITE_DOMAIN]]/scenes/script-dialogue.html</link><guid>https://[[SITE_DOMAIN]]/scenes/script-dialogue.html</guid><pubDate>[[S4_RSS_DATE]]</pubDate><description>[[S4_SUMMARY]]</description></item>
+<item><title>[[S5_TITLE]]</title><link>https://[[SITE_DOMAIN]]/scenes/act-clock.html</link><guid>https://[[SITE_DOMAIN]]/scenes/act-clock.html</guid><pubDate>[[S5_RSS_DATE]]</pubDate><description>[[S5_SUMMARY]]</description></item>
+<item><title>[[S7_TITLE]]</title><link>https://[[SITE_DOMAIN]]/scenes/prop-inventory.html</link><guid>https://[[SITE_DOMAIN]]/scenes/prop-inventory.html</guid><pubDate>[[S7_RSS_DATE]]</pubDate><description>[[S7_SUMMARY]]</description></item>
+<item><title>[[S8_TITLE]]</title><link>https://[[SITE_DOMAIN]]/scenes/director-margins.html</link><guid>https://[[SITE_DOMAIN]]/scenes/director-margins.html</guid><pubDate>[[S8_RSS_DATE]]</pubDate><description>[[S8_SUMMARY]]</description></item>
+<item><title>[[S9_TITLE]]</title><link>https://[[SITE_DOMAIN]]/scenes/scene-ladder.html</link><guid>https://[[SITE_DOMAIN]]/scenes/scene-ladder.html</guid><pubDate>[[S9_RSS_DATE]]</pubDate><description>[[S9_SUMMARY]]</description></item>
+<item><title>[[S11_TITLE]]</title><link>https://[[SITE_DOMAIN]]/scenes/revival-notes.html</link><guid>https://[[SITE_DOMAIN]]/scenes/revival-notes.html</guid><pubDate>[[S11_RSS_DATE]]</pubDate><description>[[S11_SUMMARY]]</description></item>
+<item><title>[[S12_TITLE]]</title><link>https://[[SITE_DOMAIN]]/scenes/invitation-ticket.html</link><guid>https://[[SITE_DOMAIN]]/scenes/invitation-ticket.html</guid><pubDate>[[S12_RSS_DATE]]</pubDate><description>[[S12_SUMMARY]]</description></item>
+</channel></rss>

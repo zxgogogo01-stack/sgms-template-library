@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://[[SITE_DOMAIN]]/</loc><changefreq>weekly</changefreq></url>
-    <url><loc>https://[[SITE_DOMAIN]]/article.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/tool.html</loc></url>
-    <url><loc>https://[[SITE_DOMAIN]]/legal.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/programme.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/scenes/opening-score.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/scenes/source-footlights.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/scenes/role-map.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/scenes/script-dialogue.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/scenes/act-clock.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/scenes/stage-blocking.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/scenes/prop-inventory.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/scenes/director-margins.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/scenes/scene-ladder.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/scenes/continuity-pair.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/scenes/revival-notes.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/scenes/invitation-ticket.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/acts/first-reading.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/acts/backstage-notes.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/acts/encore-review.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/workshop.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/workshop/line-comparison.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/workshop/cue-runtime.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/workshop/cast-matching.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/workshop/luhn-ticket.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/workshop/programme-combinations.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/about.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/contact.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/disclosure.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/disclaimer.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/privacy.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/corrections.html</loc></url>
+<url><loc>https://[[SITE_DOMAIN]]/editorial.html</loc></url>
 </urlset>
