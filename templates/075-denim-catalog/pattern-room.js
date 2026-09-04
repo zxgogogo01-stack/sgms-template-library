@@ -1,314 +1,38 @@
-(function () {
+(function(){
   "use strict";
-
-  var root = document.documentElement;
-  var themeButton = document.querySelector("[data-dc75-theme-toggle]");
-  var themeKey = "dc75-theme";
-
-  function storedTheme() {
-    try {
-      var value = window.localStorage.getItem(themeKey);
-      return value === "paper" ? "paper" : "indigo";
-    } catch (error) {
-      return "indigo";
-    }
-  }
-
-  function applyTheme(value, remember) {
-    var next = value === "paper" ? "paper" : "indigo";
-    root.setAttribute("data-dc75-theme", next);
-    if (themeButton) {
-      themeButton.setAttribute("aria-pressed", next === "paper" ? "true" : "false");
-      themeButton.lastChild.nodeValue = next === "paper" ? "深色丹宁" : "浅色纸样";
-    }
-    if (remember) {
-      try { window.localStorage.setItem(themeKey, next); } catch (error) { /* storage is optional */ }
-    }
-  }
-
-  applyTheme(storedTheme(), false);
-  if (themeButton) {
-    themeButton.addEventListener("click", function () {
-      applyTheme(root.getAttribute("data-dc75-theme") === "paper" ? "indigo" : "paper", true);
-    });
-  }
-
-  var menu = document.querySelector(".dc75-menu");
-  if (menu) {
-    var menuSummary = menu.querySelector("summary");
-    if (menuSummary) {
-      menuSummary.addEventListener("click", function () {
-        window.setTimeout(function () {
-          if (menu.open && window.matchMedia("(max-width: 720px)").matches) {
-            var firstLink = menu.querySelector("nav a");
-            if (firstLink) firstLink.focus();
-          }
-        }, 60);
-      });
-    }
-    menu.addEventListener("toggle", function () {
-      if (menu.open && window.matchMedia("(max-width: 720px)").matches) {
-        window.setTimeout(function () {
-          var firstLink = menu.querySelector("nav a");
-          if (firstLink) firstLink.focus();
-        }, 0);
-      }
-    });
-    menu.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && menu.open) {
-        menu.open = false;
-        var summary = menu.querySelector("summary");
-        if (summary) summary.focus();
-      }
-    });
-  }
-
-  var progress = document.querySelector("[data-dc75-progress]");
-  if (progress) {
-    var updateProgress = function () {
-      var distance = document.documentElement.scrollHeight - window.innerHeight;
-      var percentage = distance > 0 ? Math.min(100, Math.max(0, window.scrollY / distance * 100)) : 100;
-      progress.style.width = percentage.toFixed(2) + "%";
-    };
-    updateProgress();
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    window.addEventListener("resize", updateProgress);
-  }
-
-  function copyText(text, status, successMessage) {
-    if (!navigator.clipboard || !navigator.clipboard.writeText) {
-      status.textContent = "当前浏览器不支持自动复制，请手动选择文字。";
-      return;
-    }
-    navigator.clipboard.writeText(text).then(function () {
-      status.textContent = successMessage;
-    }).catch(function () {
-      status.textContent = "复制未完成，请允许剪贴板权限后重试。";
-    });
-  }
-
-  var briefButton = document.querySelector("[data-dc75-copy-brief]");
-  if (briefButton) {
-    briefButton.addEventListener("click", function () {
-      var status = document.querySelector("[data-dc75-copy-status]");
-      copyText("编辑交接清单\n1. 复核直接来源是否仍有效\n2. 确认核对日期和适用范围\n3. 把无法直接支持的句子标为推断\n4. 记录本次修改与下一次复查条件", status, "交接清单已复制。" );
-    });
-  }
-
-  var disclosureButton = document.querySelector("[data-dc75-copy-disclosure]");
-  if (disclosureButton) {
-    disclosureButton.addEventListener("click", function () {
-      var text = document.querySelector("[data-dc75-disclosure-text]");
-      var status = document.querySelector("[data-dc75-disclosure-status]");
-      copyText(text ? text.textContent.trim() : "", status, "简短披露已复制。" );
-    });
-  }
-
-  var ratioForm = document.querySelector("[data-dc75-ratio-form]");
-  if (ratioForm) {
-    var ratioInput = document.getElementById("dc75-ratios");
-    var ratioError = document.querySelector("[data-dc75-ratio-error]");
-    var ratioStatus = document.querySelector("[data-dc75-ratio-status]");
-    var ratioReport = document.querySelector(".dc75-ratio-report");
-    var ratioState = document.querySelector("[data-dc75-ratio-state]");
-    var itemCount = document.querySelector("[data-dc75-item-count]");
-    var weightTotal = document.querySelector("[data-dc75-weight-total]");
-    var gridPreview = document.querySelector("[data-dc75-grid-preview]");
-    var ratioList = document.querySelector("[data-dc75-ratio-list]");
-    var ratioNote = document.querySelector("[data-dc75-ratio-note]");
-    var copyReportButton = document.querySelector("[data-dc75-copy-report]");
-    var reportCopyStatus = document.querySelector("[data-dc75-report-copy-status]");
-    var lastReport = [];
-
-    var presets = {
-      balanced: "深度方法 | 4\n案例拆解 | 4\n快速答疑 | 4\n更新记录 | 4",
-      hero: "重点专题 | 8\n方法指南 | 4\n案例拆解 | 3\n常见问题 | 1",
-      many: "观察 | 6\n数据 | 5\n方法 | 5\n案例 | 4\n人物 | 3\n工具 | 3\n问答 | 2\n更新 | 2"
-    };
-
-    function lengthOf(value) { return Array.from(value).length; }
-
-    function invalidateReport() {
-      if (ratioReport.getAttribute("data-ready") === "true") {
-        ratioReport.setAttribute("data-ready", "stale");
-        ratioState.textContent = "RE-MARK";
-        ratioStatus.textContent = "输入已经变化，请重新裁版。";
-        copyReportButton.disabled = true;
-      }
-      ratioInput.removeAttribute("aria-invalid");
-      ratioError.textContent = "";
-      reportCopyStatus.textContent = "";
-    }
-
-    function fail(message) {
-      ratioInput.setAttribute("aria-invalid", "true");
-      ratioError.textContent = message;
-      ratioStatus.textContent = "尚未生成配比。";
-      ratioInput.focus();
-      return null;
-    }
-
-    function parseRatios() {
-      var raw = ratioInput.value;
-      if (lengthOf(raw) > 1000) return fail("总输入不能超过 1,000 个 Unicode 字符。");
-      var normalized = raw.normalize("NFKC");
-      var lines = normalized.split(/\r?\n/).map(function (line) { return line.trim(); }).filter(Boolean);
-      if (!lines.length) return fail("请先输入至少两个栏目。空白行会自动忽略。");
-      if (lines.length < 2) return fail("至少需要两个栏目才能计算配比。");
-      if (lines.length > 12) return fail("最多处理 12 个非空栏目。");
-      var seen = new Set();
-      var items = [];
-      for (var index = 0; index < lines.length; index += 1) {
-        var parts = lines[index].split("|");
-        if (parts.length !== 2) return fail("第 " + (index + 1) + " 行必须且只能有一个竖线：栏目名 | 权重。");
-        var title = parts[0].trim();
-        var weightText = parts[1].trim();
-        if (!title) return fail("第 " + (index + 1) + " 行缺少栏目名。");
-        if (lengthOf(title) > 80) return fail("第 " + (index + 1) + " 行栏目名不能超过 80 个 Unicode 字符。");
-        var key = title.toLocaleLowerCase();
-        if (seen.has(key)) return fail("栏目名不能重复：" + title + "。");
-        if (!/^(?:[1-9]\d{0,2}|1000)$/.test(weightText)) return fail("第 " + (index + 1) + " 行权重须为 1–1000 的普通十进制整数。");
-        seen.add(key);
-        items.push({ title: title, weight: Number(weightText), index: index });
-      }
-      var total = items.reduce(function (sum, item) { return sum + item.weight; }, 0);
-      if (total > 10000) return fail("权重合计不能超过 10,000。");
-      return { items: items, total: total };
-    }
-
-    function allocate(items, total) {
-      var assigned = 0;
-      items.forEach(function (item) {
-        var exact = item.weight / total * 24;
-        item.cells = Math.floor(exact);
-        item.remainder = exact - item.cells;
-        item.percentage = item.weight / total * 100;
-        assigned += item.cells;
-      });
-      items.slice().sort(function (left, right) {
-        return right.remainder - left.remainder || left.index - right.index;
-      }).slice(0, 24 - assigned).forEach(function (item) { item.cells += 1; });
-      return items;
-    }
-
-    function render(result) {
-      var items = allocate(result.items, result.total);
-      ratioList.replaceChildren();
-      gridPreview.replaceChildren();
-      items.forEach(function (item, itemIndex) {
-        var row = document.createElement("li");
-        var title = document.createElement("b");
-        var weight = document.createElement("span");
-        var share = document.createElement("strong");
-        title.textContent = item.title;
-        weight.textContent = "权重 " + item.weight + " · " + item.percentage.toFixed(1) + "%";
-        share.textContent = item.cells + " 格";
-        row.append(title, weight, share);
-        ratioList.appendChild(row);
-        for (var cellIndex = 0; cellIndex < item.cells; cellIndex += 1) {
-          var cell = document.createElement("i");
-          cell.style.setProperty("--dc75-tone", String(itemIndex % 5));
-          cell.setAttribute("aria-hidden", "true");
-          gridPreview.appendChild(cell);
-        }
-      });
-      itemCount.textContent = String(items.length);
-      weightTotal.textContent = String(result.total);
-      ratioReport.setAttribute("data-ready", "true");
-      ratioState.textContent = "CUT READY";
-      ratioNote.textContent = "24 格已完整分配；相同余数按输入顺序补格。";
-      ratioStatus.textContent = "已为 " + items.length + " 个栏目分配 24 个版面格。";
-      ratioInput.removeAttribute("aria-invalid");
-      ratioError.textContent = "";
-      copyReportButton.disabled = false;
-      lastReport = items.map(function (item) {
-        return item.title + "｜权重 " + item.weight + "｜" + item.percentage.toFixed(1) + "%｜" + item.cells + " 格";
-      });
-    }
-
-    ratioForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      var result = parseRatios();
-      if (result) render(result);
-    });
-
-    ratioInput.addEventListener("input", invalidateReport);
-
-    document.querySelectorAll("[data-dc75-preset]").forEach(function (button) {
-      button.addEventListener("click", function () {
-        ratioInput.value = presets[button.getAttribute("data-dc75-preset")];
-        invalidateReport();
-        ratioInput.focus();
-      });
-    });
-
-    ratioForm.addEventListener("reset", function () {
-      window.setTimeout(function () {
-        ratioReport.setAttribute("data-ready", "false");
-        ratioState.textContent = "UNMARKED";
-        itemCount.textContent = "0";
-        weightTotal.textContent = "0";
-        gridPreview.replaceChildren();
-        ratioList.replaceChildren(document.createElement("li"));
-        ratioList.firstElementChild.textContent = "计算后显示每个栏目的占比、权重和格数。";
-        ratioNote.textContent = "权重代表相对优先级，不代表访问量预测。";
-        ratioStatus.textContent = "工作台已清空。";
-        ratioError.textContent = "";
-        reportCopyStatus.textContent = "";
-        ratioInput.removeAttribute("aria-invalid");
-        copyReportButton.disabled = true;
-        lastReport = [];
-        ratioInput.focus();
-      }, 0);
-    });
-
-    copyReportButton.addEventListener("click", function () {
-      if (!lastReport.length || ratioReport.getAttribute("data-ready") !== "true") return;
-      copyText("栏目权重配比｜24 格\n" + lastReport.join("\n") + "\n说明：权重是相对优先级，不是访问量预测。", reportCopyStatus, "配比结果已复制。" );
-    });
-  }
-
-  var searchForm = document.querySelector("[data-dc75-search]");
-  if (searchForm) {
-    var searchInput = document.getElementById("dc75-query");
-    var searchResult = document.querySelector("[data-dc75-search-result]");
-    var destinations = [
-      { words: ["方法", "来源", "日期", "文章", "工艺"], url: "article.html", label: "工艺单" },
-      { words: ["配比", "权重", "裁片", "工具", "栏目"], url: "tool.html", label: "配比尺" },
-      { words: ["披露", "条款", "隐私", "联系", "说明", "更正"], url: "legal.html", label: "布边说明" },
-      { words: ["首页", "目录", "裁版", "记录"], url: "index.html", label: "裁版台" }
-    ];
-
-    searchForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      var query = searchInput.value.normalize("NFKC").trim();
-      searchResult.replaceChildren();
-      if (!query) {
-        searchResult.textContent = "请输入一个主题，例如“方法”或“配比”。";
-        searchInput.focus();
-        return;
-      }
-      if (Array.from(query).length > 80) {
-        searchResult.textContent = "查询不能超过 80 个 Unicode 字符。";
-        searchInput.focus();
-        return;
-      }
-      var hit = destinations.find(function (destination) {
-        return destination.words.some(function (word) { return query.toLocaleLowerCase().includes(word); });
-      });
-      if (!hit) {
-        searchResult.textContent = "本地目录没有匹配项。请换一个更短的主题，或返回裁版台。";
-        return;
-      }
-      searchResult.append("找到最近的工作区：");
-      var link = document.createElement("a");
-      link.href = hit.url;
-      link.textContent = hit.label;
-      searchResult.appendChild(link);
-    });
-
-    searchInput.addEventListener("input", function () {
-      searchResult.textContent = "查询已变化，提交后重新检索本地目录。";
-    });
-  }
+  var root=document.documentElement;
+  root.classList.add("dc75-enhanced");
+  var theme=document.querySelector("[data-dc75-theme-toggle]"),themeKey="dc75-theme";
+  function savedTheme(){try{var value=localStorage.getItem(themeKey);return value==="paper"?"paper":"indigo";}catch(_){return"indigo";}}
+  function applyTheme(value,remember){var next=value==="paper"?"paper":"indigo";root.dataset.dc75Theme=next;if(theme){theme.disabled=false;theme.setAttribute("aria-pressed",next==="paper"?"true":"false");theme.lastChild.nodeValue=next==="paper"?"深色丹宁":"浅色纸样";}if(remember)try{localStorage.setItem(themeKey,next);}catch(_){}}
+  applyTheme(savedTheme(),false);
+  if(theme)theme.addEventListener("click",function(){applyTheme(root.dataset.dc75Theme==="paper"?"indigo":"paper",true);});
+  var menu=document.querySelector(".dc75-menu");
+  if(menu){if(matchMedia("(max-width:820px)").matches)menu.open=false;menu.addEventListener("toggle",function(){if(menu.open&&matchMedia("(max-width:820px)").matches){var first=menu.querySelector("nav a");if(first)setTimeout(function(){first.focus();},0);}});menu.addEventListener("keydown",function(event){if(event.key==="Escape"&&menu.open){menu.open=false;menu.querySelector("summary").focus();}});}
+  var progress=document.querySelector("[data-dc75-progress]");
+  if(progress){var updateProgress=function(){var distance=document.documentElement.scrollHeight-innerHeight,percent=distance>0?Math.min(100,Math.max(0,scrollY/distance*100)):100;progress.style.width=percent.toFixed(2)+"%";};updateProgress();addEventListener("scroll",updateProgress,{passive:true});addEventListener("resize",updateProgress);}
+  async function copy(value,status,success){try{await navigator.clipboard.writeText(value);status.textContent=success;}catch(_){status.textContent="未能复制，请手动选择文字。";}}
+  function bindCopy(buttonSelector,textSelector,statusSelector){var button=document.querySelector(buttonSelector);if(!button)return;button.disabled=false;button.addEventListener("click",function(){var text=document.querySelector(textSelector),status=document.querySelector(statusSelector);copy(text.textContent.trim(),status,"已复制。");});}
+  bindCopy("[data-dc75-copy-home]","#dc75-home-code","[data-dc75-home-status]");
+  bindCopy("[data-dc75-copy-code]","#dc75-dispatch-code","[data-dc75-code-status]");
+  document.querySelectorAll("[data-dc75-filter]").forEach(function(form){form.hidden=false;var rows=[...document.querySelectorAll(".dc75-pattern-list li")],status=form.querySelector("[data-dc75-filter-status]");function refresh(){var department=form.elements.department.value,word=form.elements.keyword.value.normalize("NFKC").trim().toLocaleLowerCase();var count=0;rows.forEach(function(row){row.hidden=!((department==="all"||row.dataset.dc75Department===department)&&row.textContent.normalize("NFKC").toLocaleLowerCase().includes(word));if(!row.hidden)count++;});status.textContent=count?"当前显示 "+count+" 个版型。":"没有匹配版型，请调整条件。";}form.addEventListener("input",refresh);form.addEventListener("change",refresh);form.addEventListener("reset",function(){setTimeout(refresh,0);});refresh();});
+  var staticCopy=document.querySelector("[data-dc75-copy-source]");if(staticCopy){staticCopy.disabled=false;staticCopy.addEventListener("click",function(){copy(document.querySelector("[data-dc75-source-text]").textContent.trim(),document.querySelector("[data-dc75-source-status]"),"交接文字已复制。");});}
+  function cp(value){return Array.from(value).length;}
+  function malformed(value){for(var i=0;i<value.length;i++){var n=value.charCodeAt(i);if(n>=0xd800&&n<=0xdbff){if(i+1>=value.length||value.charCodeAt(i+1)<0xdc00||value.charCodeAt(i+1)>0xdfff)return true;i++;}else if(n>=0xdc00&&n<=0xdfff)return true;}return false;}
+  function controls(value){return /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f-\u009f]/.test(value);}
+  function Problem(field,message){this.field=field;this.message=message;}
+  function raw(form,name,max){var value=form.elements[name].value;if(cp(value)>max)throw new Problem(name,"原始输入最多 "+max+" 个 Unicode 码点。");if(malformed(value))throw new Problem(name,"输入包含不完整 Unicode，请重新输入。");if(controls(value))throw new Problem(name,"输入不能包含控制字符。");return value;}
+  function integer(value,min,max,field){if(!/^(?:0|[1-9]\d*)$/.test(value))throw new Problem(field,"请填写没有前导零的 ASCII 整数。");var number=Number(value);if(number<min||number>max)throw new Problem(field,"数值范围为 "+min+"–"+max+"。");return number;}
+  function lines(value){return value.normalize("NFKC").replace(/\r\n?/g,"\n").split("\n").map(function(text,index){return{number:index+1,text:text.trim()};}).filter(function(row){return row.text;});}
+  function exactParts(row,count,field){var parts=row.text.split("|");if(parts.length!==count)throw new Problem(field,"第 "+row.number+" 行分隔符数量不正确。");return parts.map(function(x){return x.trim();});}
+  function fixed(num,den,places){var scale=10n**BigInt(places),scaled=(num*scale*2n+den)/(den*2n),text=String(scaled).padStart(places+1,"0");return text.slice(0,-places)+"."+text.slice(-places);}
+  function ratios(form){var rows=lines(raw(form,"ratios",1000));if(rows.length<2||rows.length>12)throw new Problem("ratios","需要 2–12 个非空栏目。");var seen=new Set(),items=[],total=0;rows.forEach(function(row,index){var parts=exactParts(row,2,"ratios"),name=parts[0],weightText=parts[1],key=name.toLocaleLowerCase();if(!name||cp(name)>80)throw new Problem("ratios","第 "+row.number+" 行栏目名需为 1–80 个码点。");if(seen.has(key))throw new Problem("ratios","栏目名不能重复："+name+"。");if(!/^(?:[1-9]\d{0,2}|1000)$/.test(weightText))throw new Problem("ratios","第 "+row.number+" 行权重须为 1–1000 的 ASCII 整数。");var weight=Number(weightText);seen.add(key);total+=weight;items.push({name:name,weight:weight,index:index});});if(total>10000)throw new Problem("ratios","权重合计不能超过 10000。");var used=0;items.forEach(function(item){var numerator=item.weight*24;item.cells=Math.floor(numerator/total);item.remainder=numerator%total;used+=item.cells;});items.slice().sort(function(a,b){return b.remainder-a.remainder||a.index-b.index;}).slice(0,24-used).forEach(function(item){item.cells++;});var report=["二十四格栏目配比尺","栏目："+items.length+" · 权重合计："+total+" · 版面格：24",""];items.forEach(function(item,index){report.push((index+1)+". "+item.name+" · 权重 "+item.weight+" · "+fixed(BigInt(item.weight*100),BigInt(total),2)+"% · "+item.cells+" 格");});report.push("","方法：整数商先分配，余数由大到小补格；余数相同保留输入顺序。","边界：权重是相对优先级，不是流量预测。");return report.join("\n");}
+  function lineCut(form){var rows=lines(raw(form,"blocks",10000)),width=integer(raw(form,"lineWidth",3),10,80,"lineWidth");if(!rows.length||rows.length>80)throw new Problem("blocks","需要 1–80 个非空段落。");var totalHalf=0,totalRows=0,result=[];rows.forEach(function(row){var text=row.text.normalize("NFKC").replace(/\s+/gu," ");if(cp(text)>500)throw new Problem("blocks","原第 "+row.number+" 行正规化后最多 500 个码点。");var half=[...text].reduce(function(sum,ch){return sum+(ch.codePointAt(0)<=0x7f?1:2);},0),needed=Math.ceil(half/(width*2));totalHalf+=half;totalRows+=needed;result.push({row:row.number,text:text,half:half,needed:needed});});var report=["版心行长切分尺","段落："+result.length+" · 行宽："+width+" 单位 · 预计行："+totalRows,"显示单位："+fixed(BigInt(totalHalf),2n,1),""];result.forEach(function(item,index){report.push((index+1)+". 原第 "+item.row+" 行 · "+fixed(BigInt(item.half),2n,1)+" 单位 · "+item.needed+" 行",item.text);});report.push("","模型：ASCII 码点算半单位，其他码点算一单位；逐段向上取整。","边界：这是排版估算，不测量实际字体字宽。");return report.join("\n");}
+  function headings(form){var rows=lines(raw(form,"headings",10000));if(!rows.length||rows.length>100)throw new Problem("headings","需要 1–100 个非空标题。");var items=rows.map(function(row){var parts=exactParts(row,2,"headings");if(!/^[1-6]$/.test(parts[0]))throw new Problem("headings","第 "+row.number+" 行层级须为 1–6。");if(!parts[1]||cp(parts[1])>120)throw new Problem("headings","第 "+row.number+" 行标题需为 1–120 个码点。");return{row:row.number,level:Number(parts[0]),title:parts[1]};});if(items[0].level!==1)throw new Problem("headings","第一条必须是一级标题。");if(items.filter(function(x){return x.level===1;}).length!==1)throw new Problem("headings","必须恰有一个一级标题。");for(var i=1;i<items.length;i++)if(items[i].level>items[i-1].level+1)throw new Problem("headings","原第 "+items[i].row+" 行层级从 "+items[i-1].level+" 跳到 "+items[i].level+"。");var counters=[0,0,0,0,0,0],report=["标题缺口层级检查","标题："+items.length+" · 最深层级："+Math.max.apply(null,items.map(function(x){return x.level;})),""];items.forEach(function(item){counters[item.level-1]++;for(var j=item.level;j<6;j++)counters[j]=0;item.number=counters.slice(0,item.level).join(".");report.push(item.number+" · H"+item.level+" · 原第 "+item.row+" 行 · "+item.title);});report.push("","结论：唯一 H1、首条 H1、层级无向上跳级。","边界：只检查给定标题序列，不读取网页 DOM。");return report.join("\n");}
+  function distance(a,b){var left=Array.from(a),right=Array.from(b),prev=Array.from({length:right.length+1},function(_,i){return i;});for(var i=1;i<=left.length;i++){var next=[i];for(var j=1;j<=right.length;j++)next[j]=Math.min(next[j-1]+1,prev[j]+1,prev[j-1]+(left[i-1]===right[j-1]?0:1));prev=next;}return prev[right.length];}
+  function revisions(form){var rows=lines(raw(form,"revisions",15000));if(!rows.length||rows.length>80)throw new Problem("revisions","需要 1–80 个非空修订条目。");var seen=new Set(),total=0,items=rows.map(function(row){var parts=exactParts(row,3,"revisions"),name=parts[0],before=parts[1],after=parts[2],key=name.toLocaleLowerCase();if(!name||cp(name)>80)throw new Problem("revisions","第 "+row.number+" 行名称需为 1–80 个码点。");if(seen.has(key))throw new Problem("revisions","名称不能重复："+name+"。");if(!before&&!after)throw new Problem("revisions","第 "+row.number+" 行修改前后不能同时为空。");if(cp(before)>200||cp(after)>200)throw new Problem("revisions","第 "+row.number+" 行每个文本槽最多 200 个码点。");seen.add(key);var edit=distance(before,after);total+=edit;return{row:row.number,name:name,before:before,after:after,edit:edit};});var report=["修订针距量尺","条目："+items.length+" · 编辑距离合计："+total,""];items.forEach(function(item,index){report.push((index+1)+". 原第 "+item.row+" 行 · "+item.name+" · 距离 "+item.edit,"修改前："+(item.before||"（空）"),"修改后："+(item.after||"（空）"));});report.push("","方法：按 Unicode 码点计算插入、删除、替换成本均为 1 的 Levenshtein 距离。","边界：距离不评价文字质量或事实准确性。");return report.join("\n");}
+  function assetBundle(form){var inventoryRows=lines(raw(form,"inventory",8000));if(!inventoryRows.length||inventoryRows.length>200)throw new Problem("inventory","资源清单需要 1–200 个非空名称。");var inventory=new Map();inventoryRows.forEach(function(row){var name=row.text.normalize("NFKC");if(!name||cp(name)>100||/[|,]/.test(name))throw new Problem("inventory","原第 "+row.number+" 行资源名需为 1–100 个码点且不能含竖线或逗号。");if(inventory.has(name))throw new Problem("inventory","资源名不能重复："+name+"。");inventory.set(name,row.number);});var useRows=lines(raw(form,"uses",12000));if(!useRows.length||useRows.length>80)throw new Problem("uses","页面引用需要 1–80 个非空页面。");var pages=new Set(),used=new Set(),missing=new Set(),items=[];useRows.forEach(function(row){var parts=exactParts(row,2,"uses"),name=parts[0],key=name.toLocaleLowerCase(),assets=parts[1].split(",").map(function(x){return x.trim();});if(!name||cp(name)>80)throw new Problem("uses","第 "+row.number+" 行页面名需为 1–80 个码点。");if(pages.has(key))throw new Problem("uses","页面名不能重复："+name+"。");if(!assets.length||assets.length>20||assets.some(function(x){return !x||cp(x)>100;}))throw new Problem("uses","第 "+row.number+" 行需列出 1–20 个有效资源名。");if(new Set(assets).size!==assets.length)throw new Problem("uses","第 "+row.number+" 行不能重复引用同一资源。");pages.add(key);assets.forEach(function(asset){used.add(asset);if(!inventory.has(asset))missing.add(asset);});items.push({row:row.number,name:name,assets:assets});});var unused=[...inventory.keys()].filter(function(x){return !used.has(x);}),report=["页面资源出库核对","清单："+inventory.size+" · 页面："+items.length+" · 引用："+[...used].length,"缺件："+missing.size+" · 闲置："+unused.length,""];items.forEach(function(item,index){report.push((index+1)+". 原第 "+item.row+" 行 · "+item.name,"资源："+item.assets.join("、"));});report.push("","缺件",missing.size?[...missing].join("\n"):"无","","闲置件",unused.length?unused.join("\n"):"无","","边界：只核对输入名称集合，不访问磁盘或网络。");return report.join("\n");}
+  var calculators=[ratios,lineCut,headings,revisions,assetBundle];
+  document.querySelectorAll("form[data-dc75-tool]").forEach(function(form){var index=Number(form.dataset.dc75Tool),output=document.querySelector("[data-tool-output]"),copyButton=document.querySelector("[data-copy-tool]"),copyStatus=document.querySelector("[data-copy-status]"),status=form.querySelector("[data-form-status]"),revision=0;form.querySelectorAll("button").forEach(function(button){button.disabled=false;});function invalidate(){revision++;output.textContent="";copyButton.disabled=true;copyStatus.textContent="";form.querySelectorAll("[aria-invalid]").forEach(function(field){field.removeAttribute("aria-invalid");field.removeAttribute("aria-errormessage");});form.querySelectorAll("[data-field-error]").forEach(function(note){note.textContent="";});status.textContent="输入已变化，请重新生成报告。";}form.addEventListener("input",invalidate);form.addEventListener("change",invalidate);form.addEventListener("submit",function(event){event.preventDefault();invalidate();try{output.textContent=calculators[index](form);copyButton.disabled=false;status.textContent="计算完成，完整报告在右侧或下方。";}catch(error){var field=error.field&&form.elements[error.field],note=error.field&&form.querySelector('[data-field-error="'+error.field+'"]');if(field&&note){note.textContent=error.message;field.setAttribute("aria-invalid","true");field.setAttribute("aria-errormessage",note.id);field.focus();status.textContent="输入未通过校验，请检查标记字段。";}else status.textContent="暂时无法生成报告，请刷新后重试。";}});form.addEventListener("reset",function(){invalidate();setTimeout(function(){output.textContent="等待有效输入。";status.textContent="已恢复示例，请重新生成报告。";},0);});copyButton.addEventListener("click",async function(){if(copyButton.disabled||!output.textContent)return;var at=revision,value=output.textContent;try{await navigator.clipboard.writeText(value);if(at===revision)copyStatus.textContent="完整报告已复制。";}catch(_){if(at===revision)copyStatus.textContent="未能复制，请手动选择报告。";}});});
+  var search=document.querySelector("[data-dc75-search]");if(search){var button=search.querySelector("button"),result=search.querySelector("[data-dc75-search-result]"),routes=[...[...document.querySelectorAll(".dc75-rail nav a")].map(function(a){return{label:a.textContent,href:a.getAttribute("href")};}),{label:"来源口袋",href:"departments/reference-pocket.html"},{label:"结构裁床",href:"departments/structure-bench.html"},{label:"维护挂轨",href:"departments/maintenance-rail.html"},{label:"出库抽屉",href:"departments/dispatch-drawer.html"}];button.disabled=false;function refresh(){var query=search.elements.query.value.normalize("NFKC").trim().toLocaleLowerCase();result.replaceChildren();var hits=query?routes.filter(function(route){return route.label.toLocaleLowerCase().includes(query);}):routes.slice(0,4);if(!hits.length){result.textContent="没有匹配入口，请换一个关键词。";return;}result.append("可前往：");hits.forEach(function(route){var a=document.createElement("a");a.href=route.href;a.textContent=route.label;result.appendChild(a);});}search.addEventListener("submit",function(event){event.preventDefault();refresh();});search.addEventListener("input",function(){result.textContent="关键词已变化，提交后重新检索。";});refresh();}
 })();
