@@ -126,7 +126,7 @@
 | 079-navy-nightwatch | 夜航观测站 | 保留夜航雷达、航标栏、四频道与事件簿，补齐四个值守扇区、十二种夜航文章组件、三种开场和五件本地观测工具；原包忠实度未核验 | workflow-ready v2 | 有 |
 | 080-ochre-papercurrent | 赤陶折页编辑室 | 保留赤陶四联折页、纸张纹理、状态条、展开目录与书尾页，补齐四叶目录、十二种编辑文章组件、五张本地校样工具和完整公开说明；原包忠实度未核验 | workflow-ready v2 | 有 |
 | 081-slate-signalarchive | 灰蓝信号微缩库 | 保留灰蓝微缩胶片、穿孔、三轨波形、四步信号条与开放登记册，补齐四卷十二种信号文章组件、五件摘要/字节/链路仪器和完整公开说明；原包忠实度未核验 | workflow-ready v2 | 有 |
-| 082-teal-orbitindex | 深青轨道 | 军哥 home_orbit_index 忠实静态化，保留双环轨道、栏目节点、最新便签和阅读队列 | 复刻返工 | 有 |
+| 082-teal-orbitindex | 深青内容天文台 | 保留深青双环轨道、四节点、坐标带、周期卡与传输札记，补齐四轨十二种观测文章组件、五台坐标/角距/窗口/相位仪器和完整公开台站；原包忠实度未核验 | workflow-ready v2 | 有 |
 | 083-lime-typecascade | 荧柠铅字 | 军哥 home_type_cascade 忠实静态化，保留置顶标题、编号瀑布和栏目索引 | 复刻返工 | 有 |
 | 084-champagne-columnstage | 香槟立柱 | 军哥 home_column_stage 忠实静态化，保留宣言条、五柱舞台和编号溢出行 | 复刻返工 | 有 |
 | 085-cobalt-briefingdesk | 钴蓝简报 | 军哥 home_briefing_desk 忠实静态化，保留简报横带、导读区、清单侧栏和最新三卡 | 复刻返工 | 有 |
