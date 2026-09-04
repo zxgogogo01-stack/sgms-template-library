@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>%%SITE_NAME%%</title><link>https://%%SITE_DOMAIN%%/</link><description>%%SITE_DESC%%</description><language>%%LANG%%</language>
+<item><title>%%C1_TITLE%%</title><link>https://%%SITE_DOMAIN%%/cards/root-note.html</link><guid isPermaLink="true">https://%%SITE_DOMAIN%%/cards/root-note.html</guid><description>%%C1_SUMMARY%%</description><pubDate>%%C1_RSS_DATE%%</pubDate></item>
+<item><title>%%C2_TITLE%%</title><link>https://%%SITE_DOMAIN%%/cards/context-leaf.html</link><guid isPermaLink="true">https://%%SITE_DOMAIN%%/cards/context-leaf.html</guid><description>%%C2_SUMMARY%%</description><pubDate>%%C2_RSS_DATE%%</pubDate></item>
+<item><title>%%C3_TITLE%%</title><link>https://%%SITE_DOMAIN%%/cards/premise-board.html</link><guid isPermaLink="true">https://%%SITE_DOMAIN%%/cards/premise-board.html</guid><description>%%C3_SUMMARY%%</description><pubDate>%%C3_RSS_DATE%%</pubDate></item>
+<item><title>%%C5_TITLE%%</title><link>https://%%SITE_DOMAIN%%/cards/method-rungs.html</link><guid isPermaLink="true">https://%%SITE_DOMAIN%%/cards/method-rungs.html</guid><description>%%C5_SUMMARY%%</description><pubDate>%%C5_RSS_DATE%%</pubDate></item>
+<item><title>%%C6_TITLE%%</title><link>https://%%SITE_DOMAIN%%/cards/comparison-wings.html</link><guid isPermaLink="true">https://%%SITE_DOMAIN%%/cards/comparison-wings.html</guid><description>%%C6_SUMMARY%%</description><pubDate>%%C6_RSS_DATE%%</pubDate></item>
+<item><title>%%C7_TITLE%%</title><link>https://%%SITE_DOMAIN%%/cards/exception-pocket.html</link><guid isPermaLink="true">https://%%SITE_DOMAIN%%/cards/exception-pocket.html</guid><description>%%C7_SUMMARY%%</description><pubDate>%%C7_RSS_DATE%%</pubDate></item>
+<item><title>%%C9_TITLE%%</title><link>https://%%SITE_DOMAIN%%/cards/review-ring.html</link><guid isPermaLink="true">https://%%SITE_DOMAIN%%/cards/review-ring.html</guid><description>%%C9_SUMMARY%%</description><pubDate>%%C9_RSS_DATE%%</pubDate></item>
+<item><title>%%C11_TITLE%%</title><link>https://%%SITE_DOMAIN%%/cards/change-graft.html</link><guid isPermaLink="true">https://%%SITE_DOMAIN%%/cards/change-graft.html</guid><description>%%C11_SUMMARY%%</description><pubDate>%%C11_RSS_DATE%%</pubDate></item>
+<item><title>%%C12_TITLE%%</title><link>https://%%SITE_DOMAIN%%/cards/access-stub.html</link><guid isPermaLink="true">https://%%SITE_DOMAIN%%/cards/access-stub.html</guid><description>%%C12_SUMMARY%%</description><pubDate>%%C12_RSS_DATE%%</pubDate></item>
+</channel></rss>

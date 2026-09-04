@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://%%SITE_DOMAIN%%/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://%%SITE_DOMAIN%%/article.html</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/tool.html</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/legal.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/library.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/cards/root-note.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/cards/context-leaf.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/cards/premise-board.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/cards/example-nest.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/cards/method-rungs.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/cards/comparison-wings.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/cards/exception-pocket.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/cards/evidence-tray.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/cards/review-ring.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/cards/open-branch.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/cards/change-graft.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/cards/access-stub.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/groves/seed-notes.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/groves/practice-branches.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/groves/return-canopy.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/workshop.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/workshop/lane-capacity.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/workshop/wip-ledger.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/workshop/card-reconcile.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/workshop/review-balance.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/workshop/tag-cover.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/about.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/contact.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/disclosure.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/disclaimer.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/privacy.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/corrections.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/editorial.html</loc></url>
 </urlset>
