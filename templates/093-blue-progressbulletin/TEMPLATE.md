@@ -1,42 +1,250 @@
-# 093 · Blue Progress Bulletin
+# 093-blue-progressbulletin
 
-高端钴蓝工业公报模板。大型进度数字、验收条带、信号黄风险标记、错位仪表与公开台账构成完整独立视觉；包含首页、长文、工具、口径说明和 404 五页。
+## 交付定位
 
-## 给后续 AI 的直接使用规则
+钴蓝工业进度公报的 workflow-ready v2 完整 UI 框架。后续 AI 只替换已声明变量与核实后的状态文字，不增加页面、组件、工具、资源或导航。模板不包含可发布业务文章。
 
-UI、响应式布局、主题、菜单、阅读进度、复制、工具状态和安全路由已经完整搭建。**只替换变量与业务文字，不要重做网页 UI，不要改变 `bp93-` 类名、ID、`data-bp93-*` 属性、文件名或工具边界。** 后续 AI 应把 token 用在事实、证据、风险与文案上，而不是重新搭导航、卡片、网格和报告组件。
+## 强制使用规则
 
-## 必换变量
+1. 保留 bp93- 类名、data-bp93-* 钩子、路径和脚本。
+2. 十二个正文外壳分别使用 acceptance、evidence、definition、active、owner、dependency、risk、fallback、gate、delta、correction、access 组件，不互换结构。
+3. 唯一 AFFILIATE_URL 静态链接只保留在 reports/public-signal.html；首页只展示识别码、利益点与条件脚注。
+4. 五个本地核对台的算法、错误态、极限态、重置、复制和人工复核 Guide 已完成，后续不重写。
 
-- `%%LANG%%`：页面语言
-- `%%SITE_NAME%%`：站点名称
-- `%%BRAND_EN%%`：短英文品牌名
-- `%%SITE_DOMAIN%%`：不含协议的域名
-- `%%SITE_TAGLINE%%`：短标语
-- `%%SITE_DESC%%`：站点描述
-- `%%CONTACT_EMAIL%%`：公开联系邮箱
+## 页面与变量
 
-## 页面内容槽位
+- 全局、首页、访问位、日期、正文、分类、工具、公开页与修订页中的大写双百分号字段均为可换字 UI 槽位，不需要增加结构。
+- 唯一推广目标变量为 %%AFFILIATE_URL%%；站点域名、名称、英文标识、识别码、利益点与条件脚注均已登记在角色表。
 
-- `index.html`：整体进度、摘要指标、四条状态台账、下一决策门
-- `article.html`：已验收、进行中、开放风险、决策门四段节点记录
-- `tool.html`：线性计划进度偏差核对台；可改说明，不要改验证边界或安全输出
-- `legal.html`：完成、进行中、风险、日期、更正五项公开口径
-- `404.html`：本地安全关键词路由
-- `bulletin.css`：全部视觉、纸本主题与响应式系统
-- `progressline.js`：菜单、主题、进度、复制、计算器与 404 路由
+## 工具合同
 
-## 工具契约
+五个工具均限制 1–300 个非空行和 40,000 个 Unicode 字符，执行 NFKC，拒绝控制符与不完整 Unicode；使用 textContent 输出，覆盖重复、非法枚举、数字与依赖、错误聚焦、重置、旧结果失效、完整复制和异步复制竞态。
 
-核对台使用 UTC 日历日。日期须为 2000-01-01 至 2099-12-31 的真实 Gregorian 日期，且开始日期早于目标日期、开始日期 ≤ 公报日期 ≤ 目标日期。已完成单位为 0–1,000,000，总工作单位为 1–1,000,000，均为不带前导零的普通整数，且已完成不得超过总量。
+## 发布前模板验收
 
-时间消耗 = 已过日历日 / 总计划日历日；工作完成 = 已完成单位 / 总单位；偏差为两者的百分点差。报告用 `ON LINE`、`WATCH`、`AT RISK` 做编辑信号。线性预测只有在已过天数和已完成单位都大于 0 时计算，并明确它不适合工作单位不等价或天然非线性的项目。
+运行三套静态审计、全库相似度检查和浏览器全页、双主题、四视口、五工具边界审计。
 
-## 上线前检查
+```json workflow-ready-v2
+{
+  "version": 2,
+  "home": "index.html",
+  "articleIndex": "bulletin-register.html",
+  "articles": [
+    "reports/accepted-scope.html",
+    "reports/evidence-ledger.html",
+    "reports/definition-of-done.html",
+    "reports/active-node.html",
+    "reports/owner-handoff.html",
+    "reports/dependency-window.html",
+    "reports/risk-signal.html",
+    "reports/fallback-route.html",
+    "reports/decision-gate.html",
+    "reports/status-change.html",
+    "reports/correction-window.html",
+    "reports/public-signal.html"
+  ],
+  "cornerstones": [
+    "reports/accepted-scope.html",
+    "reports/risk-signal.html"
+  ],
+  "registrationGuide": "reports/public-signal.html",
+  "articleCovers": {
+    "reports/accepted-scope.html": {
+      "display": "assets/reports/accepted-scope.webp",
+      "og": "assets/reports/accepted-scope.png"
+    },
+    "reports/evidence-ledger.html": {
+      "display": "assets/reports/evidence-ledger.webp",
+      "og": "assets/reports/evidence-ledger.png"
+    },
+    "reports/definition-of-done.html": {
+      "display": "assets/reports/definition-of-done.webp",
+      "og": "assets/reports/definition-of-done.png"
+    },
+    "reports/active-node.html": {
+      "display": "assets/reports/active-node.webp",
+      "og": "assets/reports/active-node.png"
+    },
+    "reports/owner-handoff.html": {
+      "display": "assets/reports/owner-handoff.webp",
+      "og": "assets/reports/owner-handoff.png"
+    },
+    "reports/dependency-window.html": {
+      "display": "assets/reports/dependency-window.webp",
+      "og": "assets/reports/dependency-window.png"
+    },
+    "reports/risk-signal.html": {
+      "display": "assets/reports/risk-signal.webp",
+      "og": "assets/reports/risk-signal.png"
+    },
+    "reports/fallback-route.html": {
+      "display": "assets/reports/fallback-route.webp",
+      "og": "assets/reports/fallback-route.png"
+    },
+    "reports/decision-gate.html": {
+      "display": "assets/reports/decision-gate.webp",
+      "og": "assets/reports/decision-gate.png"
+    },
+    "reports/status-change.html": {
+      "display": "assets/reports/status-change.webp",
+      "og": "assets/reports/status-change.png"
+    },
+    "reports/correction-window.html": {
+      "display": "assets/reports/correction-window.webp",
+      "og": "assets/reports/correction-window.png"
+    },
+    "reports/public-signal.html": {
+      "display": "assets/reports/public-signal.webp",
+      "og": "assets/reports/public-signal.png"
+    }
+  },
+  "categories": [
+    {
+      "path": "desks/accepted-board.html",
+      "label": "验收台",
+      "articles": [
+        "reports/accepted-scope.html",
+        "reports/evidence-ledger.html",
+        "reports/definition-of-done.html"
+      ]
+    },
+    {
+      "path": "desks/active-board.html",
+      "label": "进行台",
+      "articles": [
+        "reports/active-node.html",
+        "reports/owner-handoff.html",
+        "reports/dependency-window.html"
+      ]
+    },
+    {
+      "path": "desks/risk-board.html",
+      "label": "风险台",
+      "articles": [
+        "reports/risk-signal.html",
+        "reports/fallback-route.html",
+        "reports/decision-gate.html"
+      ]
+    },
+    {
+      "path": "desks/decision-board.html",
+      "label": "变更台",
+      "articles": [
+        "reports/status-change.html",
+        "reports/correction-window.html",
+        "reports/public-signal.html"
+      ]
+    }
+  ],
+  "toolIndex": "bulletin-tools.html",
+  "tools": [
+    "calculators/schedule-delta.html",
+    "calculators/scope-gate.html",
+    "calculators/dependency-order.html",
+    "calculators/risk-register.html",
+    "calculators/milestone-chain.html"
+  ],
+  "legal": {
+    "about": "about-bureau.html",
+    "contact": "contact-window.html",
+    "disclosure": "relationship-register.html",
+    "disclaimer": "scope-method.html",
+    "privacy": "privacy-record.html",
+    "corrections": "correction-register.html",
+    "editorial": "editorial-method.html"
+  },
+  "error404": "404.html",
+  "robots": "robots.txt",
+  "sitemap": "sitemap.xml",
+  "feed": "feed.xml",
+  "security": ".well-known/security.txt",
+  "favicon": "favicon.ico",
+  "appleTouchIcon": "apple-touch-icon.png",
+  "socialImage": "assets/bulletin-social.png",
+  "variables": {
+    "siteDomain": "%%SITE_DOMAIN%%",
+    "siteName": "%%SITE_NAME%%",
+    "wordmark": "%%BRAND_EN%%",
+    "inviteCode": "%%INVITE_CODE%%",
+    "benefitRate": "%%BENEFIT_RATE%%",
+    "benefitDisclaimer": "%%BENEFIT_DISCLAIMER%%",
+    "affiliateUrl": "%%AFFILIATE_URL%%"
+  }
+}
+```
 
-- 只改文案与变量，保持既有 UI 框架和安全 DOM 输出。
-- 五页各一个 `h1`；全部交互目标至少 44×44px。
-- 1440×1000 与 390×844 无页面级横向溢出，控制台无错误。
-- 404 保留 `noindex,follow`，其余页面 canonical 指向正式域名。
-- 不添加注册、邀请、返佣、收益或时间保证，不用预测冒充承诺。
-- 运行仓库静态审计、验证、全库相似度与真实浏览器交互回归。
+## 完整变量登记
+
+- %%ACCEPTED_COUNT%%
+- %%ACCESS_CTA%%
+- %%ACCESS_TITLE%%
+- %%ACTIVE_COUNT%%
+- %%AFFILIATE_DISCLOSURE%%
+- %%AFFILIATE_URL%%
+- %%ARTICLE_ACCENT%%
+- %%ARTICLE_DESC%%
+- %%ARTICLE_HANDOFF%%
+- %%ARTICLE_LEAD%%
+- %%ARTICLE_TITLE%%
+- %%BENEFIT_DISCLAIMER%%
+- %%BENEFIT_RATE%%
+- %%BRAND_EN%%
+- %%CHANGELOG_ACCENT%%
+- %%CHANGELOG_DESC%%
+- %%CHANGE_REASON%%
+- %%COVER_ALT%%
+- %%COVER_CAPTION%%
+- %%DELTA_LABEL%%
+- %%DELTA_VALUE%%
+- %%DESK_ACCENT%%
+- %%DESK_DESC%%
+- %%FAQ_1_ANSWER%%
+- %%FAQ_1_QUESTION%%
+- %%FAQ_2_ANSWER%%
+- %%FAQ_2_QUESTION%%
+- %%HERO_ACCENT%%
+- %%HERO_DESC%%
+- %%HERO_TITLE%%
+- %%INVITE_CODE%%
+- %%LANG%%
+- %%MODIFIED_LABEL%%
+- %%MODULE_ITEM_1_TEXT%%
+- %%MODULE_ITEM_2_TEXT%%
+- %%MODULE_ITEM_3_TEXT%%
+- %%MODULE_ITEM_4_TEXT%%
+- %%MODULE_TITLE%%
+- %%NEW_STATEMENT%%
+- %%NEXT_GATE_DAY%%
+- %%NEXT_GATE_LABEL%%
+- %%NEXT_GATE_MONTH%%
+- %%NEXT_GATE_TITLE%%
+- %%OLD_STATEMENT%%
+- %%PROGRESS_VALUE%%
+- %%PUBLIC_ACCENT%%
+- %%PUBLIC_SECTION_1_BODY%%
+- %%PUBLIC_SECTION_1_TITLE%%
+- %%PUBLIC_SECTION_2_BODY%%
+- %%PUBLIC_SECTION_2_TITLE%%
+- %%PUBLIC_SECTION_3_BODY%%
+- %%PUBLIC_SECTION_3_TITLE%%
+- %%READ_TIME%%
+- %%REPORTING_WINDOW%%
+- %%RISK_COUNT%%
+- %%SECTION_1_BODY%%
+- %%SECTION_1_TITLE%%
+- %%SECTION_2_BODY%%
+- %%SECTION_2_TITLE%%
+- %%SECTION_3_BODY%%
+- %%SECTION_3_TITLE%%
+- %%SECTION_4_BODY%%
+- %%SECTION_4_TITLE%%
+- %%SITE_DESC%%
+- %%SITE_DOMAIN%%
+- %%SITE_NAME%%
+- %%SITE_TAGLINE%%
+- %%TIME_VALUE%%
+- %%TOOL_GUIDE_1%%
+- %%TOOL_GUIDE_2%%
+- %%TOOL_GUIDE_3%%
+- %%TOOL_GUIDE_4%%
+- %%TOOL_GUIDE_5%%

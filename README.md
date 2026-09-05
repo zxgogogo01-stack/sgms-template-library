@@ -137,7 +137,7 @@
 | 090-plum-portraitjournal | 梅紫肖像印样刊 | workflow-ready v2 完整人物刊物框架，保留印样侧轨、引语导语、抽象肖像与梅紫双主题；含人物登记页、四类分册、12 套独立正文组件、5 个本地校验工具及完整公开说明，后续 AI 只需替换已声明文字与变量 | 完整框架 | 有 |
 | 091-duotone-counterpoint | 双色对位刊 | workflow-ready v2 完整对位论证框架，保留红蓝左右 Hero、交集图、命题轴与双色语言；含 4 个论证透镜、12 套独立正文组件、5 个本地对照工具和完整公开说明，后续 AI 只需替换已声明文字与变量 | 完整框架 | 有 |
 | 092-ivory-marginroom | 象牙页边阅览室 | workflow-ready v2 完整编辑阅览框架，保留象牙纸张、红色页边批注、钴蓝书签与昼夜桌灯语言；含阅读登记、四座书架、12 套独立正文组件、5 个本地阅读校验工具及完整公开说明，后续 AI 只需替换已声明文字与变量 | 完整框架 | 有 |
-| 093-blue-progressbulletin | 蓝灰进度公报 | 军哥 home_progress_bulletin 忠实静态化，保留单双列 Hero、精选公报、六栏目状态板和更新台账 | 新增复刻 | 有 |
+| 093-blue-progressbulletin | 钴蓝进度公报局 | workflow-ready v2 完整状态公报框架，保留钴蓝/信号黄工业仪表、巨大进度数字、状态条与纸本双主题；含状态登记、四张编辑台、12 套独立正文组件、5 个本地核对工具及完整公开口径，后续 AI 只需替换已声明文字与变量 | 完整框架 | 有 |
 | 094-black-nightcorridor | 黑蓝夜廊 | 军哥 home_night_corridor 忠实静态化，保留夜廊媒体、主叙事、五条导览、入口索引和策展区 | 新增复刻 | 有 |
 | 095-white-seamlesscanvas | 米白无缝画布 | 军哥 home_seamless_canvas 忠实静态化，保留媒体 Hero、四项索引、重点内容、六条最新内容和策展区 | 新增复刻 | 有 |
 | 096-sky-openascent | 天青开阔攀升 | 军哥 home_open_ascent 忠实静态化，保留媒体 Hero、三条导读、重点文章、五项分类和策展区 | 新增复刻 | 有 |
