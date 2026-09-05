@@ -1,39 +1,172 @@
-# 086-chalk-decisionwall｜粉笔决策墙
+# 086 Chalk Decisionwall · 工作流 v2 接入契约
 
-## 模板定位
+## 范围与风格
 
-适合方法站、团队知识库、产品研究和需要公开判断过程的内容站。完整 UI 已搭建为夜间黑板/日光板双主题的决策墙，包含五页独立构图、移动目录、阅读进度、复制反馈、加权矩阵、声明和 404 寻路。
+只制作完整网站 UI 模板，不写业务文章、注册教程或开户教程，不部署。原 `decisionwall.css` 与 `wallroom.js` 字节保留；新扩展保留夜间黑板/日光板、问题便签、反证托盘、粉笔状态线、四轮流程和全部十二个原始首页类。动态源包未取得，原包忠实度未核验；UI 验收不代替保真证明。
 
-后续 AI 只需替换真实文字和站点变量，不需要重做墙面、便签、长文、矩阵报告、声明或响应式 UI，也不要套回通用卡片站。
+36 个 HTML：32 个完整展示页、404、3 个 noindex 兼容入口。`registrationGuide` 只是工作流字段，实际指向通用公开访问卡与推广披露组件，不是教程。
 
-## 文件
+```json workflow-ready-v2
+{
+  "version": 2,
+  "home": "index.html",
+  "articleIndex": "wall-register.html",
+  "articles": [
+    "notes/decision-question.html",
+    "notes/scope-boundary.html",
+    "notes/constraint-tape.html",
+    "notes/criteria-deck.html",
+    "notes/weight-rationale.html",
+    "notes/hard-gate.html",
+    "notes/evidence-board.html",
+    "notes/counterproof-switch.html",
+    "notes/uncertainty-window.html",
+    "notes/decision-record.html",
+    "notes/outcome-review.html",
+    "notes/public-entry-card.html"
+  ],
+  "cornerstones": [
+    "notes/decision-question.html",
+    "notes/evidence-board.html"
+  ],
+  "registrationGuide": "notes/public-entry-card.html",
+  "articleCovers": {
+    "notes/decision-question.html": {
+      "display": "assets/notes/decision-question.webp",
+      "og": "assets/notes/decision-question.png"
+    },
+    "notes/scope-boundary.html": {
+      "display": "assets/notes/scope-boundary.webp",
+      "og": "assets/notes/scope-boundary.png"
+    },
+    "notes/constraint-tape.html": {
+      "display": "assets/notes/constraint-tape.webp",
+      "og": "assets/notes/constraint-tape.png"
+    },
+    "notes/criteria-deck.html": {
+      "display": "assets/notes/criteria-deck.webp",
+      "og": "assets/notes/criteria-deck.png"
+    },
+    "notes/weight-rationale.html": {
+      "display": "assets/notes/weight-rationale.webp",
+      "og": "assets/notes/weight-rationale.png"
+    },
+    "notes/hard-gate.html": {
+      "display": "assets/notes/hard-gate.webp",
+      "og": "assets/notes/hard-gate.png"
+    },
+    "notes/evidence-board.html": {
+      "display": "assets/notes/evidence-board.webp",
+      "og": "assets/notes/evidence-board.png"
+    },
+    "notes/counterproof-switch.html": {
+      "display": "assets/notes/counterproof-switch.webp",
+      "og": "assets/notes/counterproof-switch.png"
+    },
+    "notes/uncertainty-window.html": {
+      "display": "assets/notes/uncertainty-window.webp",
+      "og": "assets/notes/uncertainty-window.png"
+    },
+    "notes/decision-record.html": {
+      "display": "assets/notes/decision-record.webp",
+      "og": "assets/notes/decision-record.png"
+    },
+    "notes/outcome-review.html": {
+      "display": "assets/notes/outcome-review.webp",
+      "og": "assets/notes/outcome-review.png"
+    },
+    "notes/public-entry-card.html": {
+      "display": "assets/notes/public-entry-card.webp",
+      "og": "assets/notes/public-entry-card.png"
+    }
+  },
+  "categories": [
+    {
+      "path": "walls/frame-wall.html",
+      "label": "问题墙",
+      "articles": [
+        "notes/decision-question.html",
+        "notes/scope-boundary.html",
+        "notes/constraint-tape.html"
+      ]
+    },
+    {
+      "path": "walls/criteria-wall.html",
+      "label": "标准墙",
+      "articles": [
+        "notes/criteria-deck.html",
+        "notes/weight-rationale.html",
+        "notes/hard-gate.html"
+      ]
+    },
+    {
+      "path": "walls/challenge-wall.html",
+      "label": "反证墙",
+      "articles": [
+        "notes/evidence-board.html",
+        "notes/counterproof-switch.html",
+        "notes/uncertainty-window.html"
+      ]
+    },
+    {
+      "path": "walls/review-wall.html",
+      "label": "复盘墙",
+      "articles": [
+        "notes/decision-record.html",
+        "notes/outcome-review.html",
+        "notes/public-entry-card.html"
+      ]
+    }
+  ],
+  "toolIndex": "chalk-instruments.html",
+  "tools": [
+    "calculators/pairwise-vote.html",
+    "calculators/weight-reduction.html",
+    "calculators/evidence-balance.html",
+    "calculators/gate-coverage.html",
+    "calculators/minimax-regret.html"
+  ],
+  "legal": {
+    "about": "wall-charter.html",
+    "contact": "contact-board.html",
+    "disclosure": "relationship-note.html",
+    "disclaimer": "decision-boundary.html",
+    "privacy": "local-wall-privacy.html",
+    "corrections": "correction-chalkline.html",
+    "editorial": "editorial-method.html"
+  },
+  "error404": "404.html",
+  "robots": "robots.txt",
+  "sitemap": "sitemap.xml",
+  "feed": "feed.xml",
+  "security": ".well-known/security.txt",
+  "favicon": "favicon.ico",
+  "appleTouchIcon": "apple-touch-icon.png",
+  "socialImage": "assets/decisionwall-cover.png",
+  "variables": {
+    "siteDomain": "%%SITE_DOMAIN%%",
+    "siteName": "%%SITE_NAME%%",
+    "wordmark": "%%BRAND_EN%%",
+    "inviteCode": "%%INVITE_CODE%%",
+    "benefitRate": "%%BENEFIT_RATE%%",
+    "benefitDisclaimer": "%%BENEFIT_DISCLAIMER%%",
+    "affiliateUrl": "%%AFFILIATE_URL%%"
+  }
+}
+```
 
-- `index.html`：决策墙、三张问题便签、四轮工作流
-- `article.html`：决策方法长文、目录、进度与交接复制
-- `tool.html`：标准、权重、候选项和评分矩阵
-- `legal.html`：边界、来源、披露、隐私与更正
-- `404.html`：本地墙面寻路
-- `decisionwall.css`：完整视觉、双主题、响应式和无障碍样式
-- `wallroom.js`：目录、主题、进度、复制、矩阵与寻路
-- `robots.txt`、`sitemap.xml`：抓取入口
+## 后续 AI 只替换文字与变量
 
-## 全局占位符
+1. 保留路径、`dw86-*` 类名、`data-dw86-*` 属性、ID、表单合同、结构化数据和内链，只替换已核实文字。
+2. 全局变量：`%%LANG%%`、`%%SITE_DOMAIN%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DESC%%`、`%%SITE_TAGLINE%%`、`%%INDEPENDENCE_NOTE%%`、`%%RISK_NOTE%%`。
+3. 首页逐项变量：`%%HOME_TITLE%%`、`%%HERO_DESCRIPTION%%`、`%%HOME_NOTE_1%%`、`%%HOME_NOTE_2%%`、`%%HOME_NOTE_3%%`、`%%HOME_CHALLENGE_TITLE%%`、`%%HOME_CHALLENGE_QUOTE%%`、`%%HOME_CHALLENGE_CREDIT%%`、`%%HOME_EVIDENCE_STATE%%`、`%%HOME_CHALLENGE_DETAIL%%`、`%%HOME_SECTION_TITLE%%`、`%%HOME_SECTION_DESC%%`、`%%HOME_VERDICT_TITLE%%`、`%%HOME_QUOTE%%`、`%%HOME_QUOTE_CREDIT%%`、`%%INVITE_CODE%%`、`%%BENEFIT_RATE%%`、`%%BENEFIT_DISCLAIMER%%`。
+4. 十二篇使用 `%%A01_*%%` 至 `%%A12_*%%`；四墙使用 `%%WALL_1_*%%` 至 `%%WALL_4_*%%`，首页摘要逐项变量为 `%%WALL_1_DESC%%`、`%%WALL_2_DESC%%`、`%%WALL_3_DESC%%`、`%%WALL_4_DESC%%`；五工具使用 `%%TOOL_1_*%%` 至 `%%TOOL_5_*%%`。
+5. 唯一外部推广槽在 `notes/public-entry-card.html`，使用 `%%AFFILIATE_URL%%`、`%%AFFILIATE_LABEL%%`、`%%AFFILIATE_DISCLOSURE%%`；保留紧邻披露、rel 与 target。
+6. 公开说明使用 `%%ABOUT_*%%`、`%%CONTACT_*%%`、`%%DISCLOSURE_*%%`、`%%DISCLAIMER_*%%`、`%%PRIVACY_*%%`、`%%CORRECTIONS_*%%`、`%%EDITORIAL_*%%`。入口变量：`%%REGISTER_TITLE%%`、`%%REGISTER_DESC%%`、`%%TOOLS_INDEX_TITLE%%`、`%%TOOLS_INDEX_DESC%%`。
+7. 兼容入口变量：`%%COMPAT_ARTICLE_TITLE%%`、`%%COMPAT_ARTICLE_DESC%%`、`%%COMPAT_TOOL_TITLE%%`、`%%COMPAT_TOOL_DESC%%`、`%%COMPAT_LEGAL_TITLE%%`、`%%COMPAT_LEGAL_DESC%%`；错误页变量：`%%NOT_FOUND_TITLE%%`、`%%NOT_FOUND_DESC%%`。
+8. 工具算法是固定 UI 框架；改变输入范围或语义时同步更新脚本、说明和完整测试。不要引入远程字体、图片、CDN、统计或第三方脚本。
 
-`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_TAGLINE%%`、`%%SITE_DESC%%`、`%%CONTACT_EMAIL%%`
+## 发布前完整审计
 
-## AI 文字接入顺序
-
-1. 全局替换七个占位符，统一 canonical、Open Graph、JSON-LD、robots 和 sitemap 域名。
-2. 只改标题、摘要、正文、日期、版本和真实声明；保留 `dw86-` 类名、`data-dw86-*` 属性、ID、文件名与页面骨架。
-3. 首页问题便签与四轮工作流可换主题，但保留“问题—标准—证据—复盘”的认知顺序。
-4. 工具可换样例，不改变标准 2–8、候选项 2–6、权重 1–100、评分 1–5 的合同；改变规则须同步重写脚本、文案和完整测试。
-5. 按真实业务更新商业关系、数据处理与联系渠道，不保留不真实示例承诺。
-6. 发布前运行严格审计，用 1440×1000 与 390×844 复核五页、菜单、主题、进度、复制、工具和 404。
-
-## 禁止与验收
-
-- 不引入远程字体、图片、框架、统计或 CDN；不合并跨站公共样式。
-- 不使用 `innerHTML` 输出输入；不声称矩阵分数验证了事实、替代硬性门槛或自动给出正确决定。
-- 每页一个可见 `h1`，404 保持 `noindex,follow`。
-- 工具覆盖空值、分隔格式、重复名、名称 60/61、标准 2/8/9、候选项 2/6/7、权重 1/100、评分 1/5、错列数、并列、全角、XSS、失效、复制与重置。
-- 移动目录首链聚焦、Escape 回焦；控件至少 44×44px；无横向溢出、坏链和控制台错误。
+- 运行三套静态审计，再渲染全部 36 页于 1440/768/390/360px 和夜间/日光双主题。
+- 复验菜单焦点与 Escape、主题持久化、筛选、阅读进度、复制成功/失败/竞态、404 文本搜索、无 JS 导航和五工具正常/错误/上限/全角/Unicode 边界。
