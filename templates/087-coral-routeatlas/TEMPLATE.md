@@ -1,52 +1,172 @@
-# 087-coral-routeatlas
+# 087 Coral Route Atlas · 工作流 v2 接入契约
 
-一套可直接换文案上线的“珊瑚路线图谱”静态站模板。五页 UI、桌面与移动布局、纸张/夜航主题、无障碍菜单、阅读进度、复制反馈、404 本地搜索与多站时间盒均已搭建完整。
+## 范围与风格
 
-## 给后续 AI 的最重要规则
+只制作完整网站 UI 模板，不编写业务内容，不部署。原 `cartograph.css` 与 `navigator.js` 字节保留；新扩展继续使用珊瑚、深青、纸张/夜航双主题、折叠地图、坐标带与四站航线。动态源包未取得，原包忠实度未核验。
 
-**只替换变量、品牌文字和业务内容，不要重建 UI，不要改类名、页面骨架、视觉主题或交互结构。** 本模板已经完成响应式、触控尺寸、状态反馈、安全 DOM 输出和相似度审计；重新设计会浪费 token，也可能重新引入站群指纹。
+36 个 HTML：32 个完整展示页、404、3 个 noindex 兼容入口。`registrationGuide` 是工作流兼容字段，指向通用公开访问航标与推广披露 UI。
 
-可以直接修改：
+```json workflow-ready-v2
+{
+  "version": 2,
+  "home": "index.html",
+  "articleIndex": "route-register.html",
+  "articles": [
+    "field-notes/destination-coordinate.html",
+    "field-notes/scope-contour.html",
+    "field-notes/constraint-marker.html",
+    "field-notes/observation-transect.html",
+    "field-notes/source-coordinate.html",
+    "field-notes/unknown-water.html",
+    "field-notes/fork-card.html",
+    "field-notes/turnaround-marker.html",
+    "field-notes/timebox-ribbon.html",
+    "field-notes/handoff-trace.html",
+    "field-notes/deviation-overlay.html",
+    "field-notes/public-access-beacon.html"
+  ],
+  "cornerstones": [
+    "field-notes/destination-coordinate.html",
+    "field-notes/source-coordinate.html"
+  ],
+  "registrationGuide": "field-notes/public-access-beacon.html",
+  "articleCovers": {
+    "field-notes/destination-coordinate.html": {
+      "display": "assets/field-notes/destination-coordinate.webp",
+      "og": "assets/field-notes/destination-coordinate.png"
+    },
+    "field-notes/scope-contour.html": {
+      "display": "assets/field-notes/scope-contour.webp",
+      "og": "assets/field-notes/scope-contour.png"
+    },
+    "field-notes/constraint-marker.html": {
+      "display": "assets/field-notes/constraint-marker.webp",
+      "og": "assets/field-notes/constraint-marker.png"
+    },
+    "field-notes/observation-transect.html": {
+      "display": "assets/field-notes/observation-transect.webp",
+      "og": "assets/field-notes/observation-transect.png"
+    },
+    "field-notes/source-coordinate.html": {
+      "display": "assets/field-notes/source-coordinate.webp",
+      "og": "assets/field-notes/source-coordinate.png"
+    },
+    "field-notes/unknown-water.html": {
+      "display": "assets/field-notes/unknown-water.webp",
+      "og": "assets/field-notes/unknown-water.png"
+    },
+    "field-notes/fork-card.html": {
+      "display": "assets/field-notes/fork-card.webp",
+      "og": "assets/field-notes/fork-card.png"
+    },
+    "field-notes/turnaround-marker.html": {
+      "display": "assets/field-notes/turnaround-marker.webp",
+      "og": "assets/field-notes/turnaround-marker.png"
+    },
+    "field-notes/timebox-ribbon.html": {
+      "display": "assets/field-notes/timebox-ribbon.webp",
+      "og": "assets/field-notes/timebox-ribbon.png"
+    },
+    "field-notes/handoff-trace.html": {
+      "display": "assets/field-notes/handoff-trace.webp",
+      "og": "assets/field-notes/handoff-trace.png"
+    },
+    "field-notes/deviation-overlay.html": {
+      "display": "assets/field-notes/deviation-overlay.webp",
+      "og": "assets/field-notes/deviation-overlay.png"
+    },
+    "field-notes/public-access-beacon.html": {
+      "display": "assets/field-notes/public-access-beacon.webp",
+      "og": "assets/field-notes/public-access-beacon.png"
+    }
+  },
+  "categories": [
+    {
+      "path": "map-sheets/frame-sheet.html",
+      "label": "起点图幅",
+      "articles": [
+        "field-notes/destination-coordinate.html",
+        "field-notes/scope-contour.html",
+        "field-notes/constraint-marker.html"
+      ]
+    },
+    {
+      "path": "map-sheets/survey-sheet.html",
+      "label": "勘测图幅",
+      "articles": [
+        "field-notes/observation-transect.html",
+        "field-notes/source-coordinate.html",
+        "field-notes/unknown-water.html"
+      ]
+    },
+    {
+      "path": "map-sheets/navigation-sheet.html",
+      "label": "导航图幅",
+      "articles": [
+        "field-notes/fork-card.html",
+        "field-notes/turnaround-marker.html",
+        "field-notes/timebox-ribbon.html"
+      ]
+    },
+    {
+      "path": "map-sheets/review-sheet.html",
+      "label": "回看图幅",
+      "articles": [
+        "field-notes/handoff-trace.html",
+        "field-notes/deviation-overlay.html",
+        "field-notes/public-access-beacon.html"
+      ]
+    }
+  ],
+  "toolIndex": "map-instruments.html",
+  "tools": [
+    "instruments/waypoint-order.html",
+    "instruments/segment-ledger.html",
+    "instruments/schedule-gap.html",
+    "instruments/grid-trace.html",
+    "instruments/checkpoint-capacity.html"
+  ],
+  "legal": {
+    "about": "atlas-charter.html",
+    "contact": "contact-coordinate.html",
+    "disclosure": "relationship-legend.html",
+    "disclaimer": "navigation-boundary.html",
+    "privacy": "local-map-privacy.html",
+    "corrections": "correction-route.html",
+    "editorial": "cartographic-method.html"
+  },
+  "error404": "404.html",
+  "robots": "robots.txt",
+  "sitemap": "sitemap.xml",
+  "feed": "feed.xml",
+  "security": ".well-known/security.txt",
+  "favicon": "favicon.ico",
+  "appleTouchIcon": "apple-touch-icon.png",
+  "socialImage": "assets/routeatlas-cover.png",
+  "variables": {
+    "siteDomain": "%%SITE_DOMAIN%%",
+    "siteName": "%%SITE_NAME%%",
+    "wordmark": "%%BRAND_EN%%",
+    "inviteCode": "%%INVITE_CODE%%",
+    "benefitRate": "%%BENEFIT_RATE%%",
+    "benefitDisclaimer": "%%BENEFIT_DISCLAIMER%%",
+    "affiliateUrl": "%%AFFILIATE_URL%%"
+  }
+}
+```
 
-- `%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`
-- `%%SITE_TAGLINE%%`、`%%SITE_DESC%%`、`%%CONTACT_EMAIL%%`
-- 首页、文章和说明页中的标题、段落、日期与真实来源
-- 时间盒的三组演示数据，但必须保持现有格式和验证边界
+## 后续 AI 只替换文字与变量
 
-请保持不变：
+1. 保留路径、`ca87-*` 类名、`data-ca87-*` 属性、ID、表单合同、结构化数据和内链，只替换已核实文字。
+2. 全局变量：`%%LANG%%`、`%%SITE_DOMAIN%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DESC%%`、`%%SITE_TAGLINE%%`、`%%INDEPENDENCE_NOTE%%`、`%%AUTHOR_NAME%%`、`%%CONTACT_EMAIL%%`。
+3. 首页变量：`%%HOME_TITLE%%`、`%%HERO_DESCRIPTION%%`、`%%HOME_MAP_CAPTION%%`、`%%HOME_LEGEND_1%%`、`%%HOME_LEGEND_2%%`、`%%HOME_LEGEND_3%%`、`%%HOME_SECTION_TITLE%%`、`%%HOME_SECTION_DESC%%`、`%%HOME_NOTE_TITLE%%`、`%%HOME_QUOTE%%`、`%%HOME_QUOTE_CREDIT%%`、`%%SHEET_1_DESC%%`、`%%SHEET_2_DESC%%`、`%%SHEET_3_DESC%%`、`%%SHEET_4_DESC%%`、`%%INVITE_CODE%%`、`%%BENEFIT_RATE%%`、`%%BENEFIT_DISCLAIMER%%`。
+4. 十二篇使用 `%%A01_*%%` 至 `%%A12_*%%`；四图幅使用 `%%SHEET_1_*%%` 至 `%%SHEET_4_*%%`；五仪表使用 `%%TOOL_1_*%%` 至 `%%TOOL_5_*%%`。
+5. 唯一外部推广槽在 `field-notes/public-access-beacon.html`，使用 `%%AFFILIATE_URL%%`、`%%AFFILIATE_LABEL%%`、`%%AFFILIATE_DISCLOSURE%%`；保留紧邻披露、rel 与 target。
+6. 入口变量：`%%REGISTER_TITLE%%`、`%%REGISTER_DESC%%`、`%%TOOLS_INDEX_TITLE%%`、`%%TOOLS_INDEX_DESC%%`；公开页使用各自前缀；错误页使用 `%%NOT_FOUND_TITLE%%`、`%%NOT_FOUND_DESC%%`。
+7. 兼容入口变量：`%%COMPAT_ARTICLE_TITLE%%`、`%%COMPAT_ARTICLE_DESC%%`、`%%COMPAT_TOOL_TITLE%%`、`%%COMPAT_TOOL_DESC%%`、`%%COMPAT_LEGAL_TITLE%%`、`%%COMPAT_LEGAL_DESC%%`。
+8. 不要引入远程字体、图片、CDN、统计或第三方脚本。工具算法或输入范围变更时，同步更新说明与完整测试。
 
-- 所有 `ca87-` 类名与 `data-ca87-*` 属性
-- 五个页面的区块顺序、内联 SVG 地图、菜单、主题、进度、复制与搜索结构
-- `cartograph.css` 的断点、颜色变量、焦点样式、减弱动画和强制色兼容
-- `navigator.js` 的普通整数、Unicode 长度、NFKC、重复名称、总历时与安全 DOM 校验
+## 发布前完整审计
 
-## 文件清单
-
-- `index.html`：折叠地图首页、四站路线、图例与现场札记
-- `article.html`：四段路线测绘方法、阅读进度和交接格式
-- `tool.html`：多站路线时间盒与可复制时间线
-- `legal.html`：内容边界、来源、披露、隐私和更正
-- `404.html`：未测绘区域与本地主题搜索
-- `cartograph.css`：模板独占视觉与响应式系统
-- `navigator.js`：主题、菜单、进度、复制、时间盒和 404 搜索
-- `robots.txt`、`sitemap.xml`：静态站配套
-
-## 时间盒输入协议
-
-- 起始时间：严格 `HH:MM`，范围 `00:00`–`23:59`
-- 转场缓冲：普通十进制整数 `0`–`240`，拒绝前导零、小数、负数和科学计数
-- 站点：2–12 个非空行，每行 `站点名称 | 停留分钟`
-- 名称：1–60 个 Unicode 字符，NFKC 与不区分大小写后不可重复
-- 停留：普通十进制整数 `1`–`1440`
-- 文本区：最多 5,000 个 Unicode 字符
-- 总历时：停留加站间缓冲不得超过 10,080 分钟（7 天）
-
-所有结果使用 `textContent` 和节点创建输出，不使用 `innerHTML`。工具只做排程算术，不连接日历、不验证路线合理性，也不替代交通、等待、风险或专业判断。
-
-## 上线前替换
-
-1. 替换全部 `%%...%%` 占位符。
-2. 用真实内容、来源和更新时间替换演示文字。
-3. 将 `sitemap.xml` 的域名替换为真实域名。
-4. 根据实际服务补充隐私、Cookie、分析、表单和商业关系披露。
-5. 保留 UI 框架，只做文字和变量替换后重新运行静态审计与浏览器验收。
+- 运行三套静态审计，再渲染全部 36 页于 1440/768/390/360px 和纸张/夜航双主题。
+- 复验菜单焦点与 Escape、主题持久化、筛选、阅读进度、复制竞态、404 文本搜索、无 JS 导航与五仪表正常/错误/上限/全角/Unicode 边界。
