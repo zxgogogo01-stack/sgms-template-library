@@ -1,37 +1,264 @@
-# 094 · Black Night Corridor
+# 094-black-nightcorridor
 
-高端电影感夜间值守模板。黑色透视走廊、橙色信号灯、房门编号、精确时间戳和窄幅值守记录构成独立视觉；首页、长文、工具、记录边界与 404 五页完整搭建。
+## 交付定位
 
-## 给后续 AI 的直接使用规则
+电影感黑色夜间值守走廊的 workflow-ready v2 完整 UI 框架。后续 AI 只替换已声明变量与核实文字，不增加页面、组件、工具、资源或导航；模板不包含可发布业务文章或注册教程。
 
-模板 UI、响应式布局、廊灯主题、菜单、阅读进度、复制、恢复时序工具与安全路由已经完成。**只替换变量与业务文字，不要重做网站 UI，不要改变 `nx94-` 类名、ID、`data-nx94-*` 属性、文件名或工具边界。** 后续 AI 可直接写事件内容，无需再消耗 token 搭导航、页面骨架、表单或报告组件。
+## 强制使用规则
 
-## 必换变量
+1. 保留 nx94- 类名、data-nx94-* 钩子、路径、nightshift.css 与 watchclock.js。
+2. 十二个正文外壳分别使用 wave、seal、lantern、track、key、lock、curve、ticks、echo、aperture、revision、keycard 模块，不互换结构。
+3. 唯一 AFFILIATE_URL 静态链接只保留在 records/public-keycard.html；首页只展示识别码、利益点与条件脚注。
+4. 五个本地核对站的算法、错误态、极限态、重置、复制与人工复核 Guide 已完成，后续不重写。
 
-- `%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`
-- `%%SITE_DOMAIN%%`、`%%SITE_TAGLINE%%`、`%%SITE_DESC%%`
-- `%%CONTACT_EMAIL%%`
+## 工具合同
 
-## 页面内容槽位
+全部工具限制 1–300 个非空行和 40,000 个 Unicode 字符，执行 NFKC，拒绝控制符与不完整 Unicode；使用 textContent 输出，覆盖重复、非法枚举、真实日期、错误聚焦、重置、旧结果失效、完整复制和异步复制竞态。
 
-- `index.html`：夜廊首屏、四节点值守记录与交接原则
-- `article.html`：保存现场、限制影响、恢复观察、白天复盘四段长文
-- `tool.html`：UTC 恢复时序核验台；只改说明，不改验证和安全输出
-- `legal.html`：原始记录、推断、敏感信息、修订、联系边界
-- `404.html`：本地安全关键词路由
-- `nightshift.css`：完整视觉、廊灯主题与响应式系统
-- `watchclock.js`：主题、菜单、进度、复制、工具与 404 路由
+## 发布前模板验收
 
-## 工具契约
+运行三套静态审计、全库相似度检查和浏览器全页、双主题、四视口、五工具边界审计。
 
-四个节点使用 UTC `YYYY-MM-DD HH:MM`，范围 2000-01-01 00:00 至 2099-12-31 23:59，必须是真实 Gregorian 时间且不得逆序。发现至观察结束总窗口不超过 44,640 分钟（31 天）。最小观察门槛为 0–1,440 的不带前导零普通整数。
+```json workflow-ready-v2
+{
+  "version": 2,
+  "home": "index.html",
+  "articleIndex": "watch-register.html",
+  "articles": [
+    "records/signal-capture.html",
+    "records/timestamp-seal.html",
+    "records/evidence-lantern.html",
+    "records/action-log.html",
+    "records/owner-shift.html",
+    "records/dependency-door.html",
+    "records/recovery-window.html",
+    "records/observation-watch.html",
+    "records/recurrence-trace.html",
+    "records/daylight-review.html",
+    "records/correction-log.html",
+    "records/public-keycard.html"
+  ],
+  "cornerstones": [
+    "records/signal-capture.html",
+    "records/recovery-window.html"
+  ],
+  "registrationGuide": "records/public-keycard.html",
+  "articleCovers": {
+    "records/signal-capture.html": {
+      "display": "assets/records/signal-capture.webp",
+      "og": "assets/records/signal-capture.png"
+    },
+    "records/timestamp-seal.html": {
+      "display": "assets/records/timestamp-seal.webp",
+      "og": "assets/records/timestamp-seal.png"
+    },
+    "records/evidence-lantern.html": {
+      "display": "assets/records/evidence-lantern.webp",
+      "og": "assets/records/evidence-lantern.png"
+    },
+    "records/action-log.html": {
+      "display": "assets/records/action-log.webp",
+      "og": "assets/records/action-log.png"
+    },
+    "records/owner-shift.html": {
+      "display": "assets/records/owner-shift.webp",
+      "og": "assets/records/owner-shift.png"
+    },
+    "records/dependency-door.html": {
+      "display": "assets/records/dependency-door.webp",
+      "og": "assets/records/dependency-door.png"
+    },
+    "records/recovery-window.html": {
+      "display": "assets/records/recovery-window.webp",
+      "og": "assets/records/recovery-window.png"
+    },
+    "records/observation-watch.html": {
+      "display": "assets/records/observation-watch.webp",
+      "og": "assets/records/observation-watch.png"
+    },
+    "records/recurrence-trace.html": {
+      "display": "assets/records/recurrence-trace.webp",
+      "og": "assets/records/recurrence-trace.png"
+    },
+    "records/daylight-review.html": {
+      "display": "assets/records/daylight-review.webp",
+      "og": "assets/records/daylight-review.png"
+    },
+    "records/correction-log.html": {
+      "display": "assets/records/correction-log.webp",
+      "og": "assets/records/correction-log.png"
+    },
+    "records/public-keycard.html": {
+      "display": "assets/records/public-keycard.webp",
+      "og": "assets/records/public-keycard.png"
+    }
+  },
+  "categories": [
+    {
+      "path": "corridors/capture-corridor.html",
+      "label": "捕获廊",
+      "articles": [
+        "records/signal-capture.html",
+        "records/timestamp-seal.html",
+        "records/evidence-lantern.html"
+      ]
+    },
+    {
+      "path": "corridors/response-corridor.html",
+      "label": "响应廊",
+      "articles": [
+        "records/action-log.html",
+        "records/owner-shift.html",
+        "records/dependency-door.html"
+      ]
+    },
+    {
+      "path": "corridors/observe-corridor.html",
+      "label": "观察廊",
+      "articles": [
+        "records/recovery-window.html",
+        "records/observation-watch.html",
+        "records/recurrence-trace.html"
+      ]
+    },
+    {
+      "path": "corridors/review-corridor.html",
+      "label": "复核廊",
+      "articles": [
+        "records/daylight-review.html",
+        "records/correction-log.html",
+        "records/public-keycard.html"
+      ]
+    }
+  ],
+  "toolIndex": "night-tools.html",
+  "tools": [
+    "stations/timestamp-order.html",
+    "stations/shift-overlap.html",
+    "stations/observation-window.html",
+    "stations/incident-sequence.html",
+    "stations/handoff-gates.html"
+  ],
+  "legal": {
+    "about": "about-corridor.html",
+    "contact": "contact-watch.html",
+    "disclosure": "relationship-log.html",
+    "disclaimer": "scope-boundary.html",
+    "privacy": "privacy-shield.html",
+    "corrections": "correction-register.html",
+    "editorial": "editorial-protocol.html"
+  },
+  "error404": "404.html",
+  "robots": "robots.txt",
+  "sitemap": "sitemap.xml",
+  "feed": "feed.xml",
+  "security": ".well-known/security.txt",
+  "favicon": "favicon.ico",
+  "appleTouchIcon": "apple-touch-icon.png",
+  "socialImage": "assets/night-corridor-social.png",
+  "variables": {
+    "siteDomain": "%%SITE_DOMAIN%%",
+    "siteName": "%%SITE_NAME%%",
+    "wordmark": "%%BRAND_EN%%",
+    "inviteCode": "%%INVITE_CODE%%",
+    "benefitRate": "%%BENEFIT_RATE%%",
+    "benefitDisclaimer": "%%BENEFIT_DISCLAIMER%%",
+    "affiliateUrl": "%%AFFILIATE_URL%%"
+  }
+}
+```
 
-报告分别计算发现到处置、发现到恢复、恢复后观察和事件总窗。观察时长达到门槛为 `OBSERVED`，不足为 `KEEP WATCH`；时间顺序正确不代表监测可信、影响解除或根因修复，这条限制必须保留。
+## 完整变量登记
 
-## 上线前检查
-
-- 五页各一个 `h1`，全部交互目标至少 44×44px。
-- 桌面 1440×1000、移动 390×844 无页面级横向溢出和控制台错误。
-- 404 保留 `noindex,follow`；其余 canonical、邮箱、robots、sitemap 换成正式值。
-- 不公开秘密、凭据或无关身份信息；不把恢复、观察或预测写成结果保证。
-- 运行静态审计、模板验证、全库相似度与真实浏览器交互回归。
+- %%ACCESS_CTA%%
+- %%ACCESS_TITLE%%
+- %%AFFILIATE_DISCLOSURE%%
+- %%AFFILIATE_URL%%
+- %%ARTICLE_ACCENT%%
+- %%ARTICLE_DESC%%
+- %%ARTICLE_HANDOFF%%
+- %%ARTICLE_LEAD%%
+- %%ARTICLE_TITLE%%
+- %%BENEFIT_DISCLAIMER%%
+- %%BENEFIT_RATE%%
+- %%BRAND_EN%%
+- %%CARD_01_DESC%%
+- %%CARD_01_TITLE%%
+- %%CARD_02_DESC%%
+- %%CARD_02_TITLE%%
+- %%CARD_03_DESC%%
+- %%CARD_03_TITLE%%
+- %%CARD_04_DESC%%
+- %%CARD_04_TITLE%%
+- %%CARD_05_DESC%%
+- %%CARD_05_TITLE%%
+- %%CARD_06_DESC%%
+- %%CARD_06_TITLE%%
+- %%CARD_07_DESC%%
+- %%CARD_07_TITLE%%
+- %%CARD_08_DESC%%
+- %%CARD_08_TITLE%%
+- %%CARD_09_DESC%%
+- %%CARD_09_TITLE%%
+- %%CARD_10_DESC%%
+- %%CARD_10_TITLE%%
+- %%CARD_11_DESC%%
+- %%CARD_11_TITLE%%
+- %%CARD_12_DESC%%
+- %%CARD_12_TITLE%%
+- %%CHANGELOG_ACCENT%%
+- %%CHANGELOG_DESC%%
+- %%CHANGE_REASON%%
+- %%CONTACT_EMAIL%%
+- %%CORRIDOR_ACCENT%%
+- %%CORRIDOR_DESC%%
+- %%CORRIDOR_TITLE%%
+- %%COVER_ALT%%
+- %%COVER_CAPTION%%
+- %%FAQ_1_ANSWER%%
+- %%FAQ_1_QUESTION%%
+- %%FAQ_2_ANSWER%%
+- %%FAQ_2_QUESTION%%
+- %%HERO_ACCENT%%
+- %%HERO_DESC%%
+- %%HERO_TITLE%%
+- %%INVITE_CODE%%
+- %%LANG%%
+- %%MODIFIED_ISO%%
+- %%MODIFIED_LABEL%%
+- %%MODULE_ITEM_1_TEXT%%
+- %%MODULE_ITEM_2_TEXT%%
+- %%MODULE_ITEM_3_TEXT%%
+- %%MODULE_ITEM_4_TEXT%%
+- %%MODULE_TITLE%%
+- %%NEW_STATEMENT%%
+- %%NEXT_SHIFT_LABEL%%
+- %%NEXT_SHIFT_TIME%%
+- %%NEXT_SHIFT_TITLE%%
+- %%OLD_STATEMENT%%
+- %%PUBLIC_ACCENT%%
+- %%PUBLIC_FOOTNOTE%%
+- %%PUBLIC_OWNER%%
+- %%PUBLIC_SECTION_1_BODY%%
+- %%PUBLIC_SECTION_2_BODY%%
+- %%PUBLIC_SECTION_3_BODY%%
+- %%READ_TIME%%
+- %%REVIEW_DATE%%
+- %%SECTION_1_BODY%%
+- %%SECTION_1_TITLE%%
+- %%SECTION_2_BODY%%
+- %%SECTION_2_TITLE%%
+- %%SECTION_3_BODY%%
+- %%SECTION_3_TITLE%%
+- %%SECTION_4_BODY%%
+- %%SECTION_4_TITLE%%
+- %%SITE_DESC%%
+- %%SITE_DOMAIN%%
+- %%SITE_NAME%%
+- %%SITE_TAGLINE%%
+- %%TOOL_GUIDE_1%%
+- %%TOOL_GUIDE_2%%
+- %%TOOL_GUIDE_3%%
+- %%TOOL_GUIDE_4%%
+- %%TOOL_GUIDE_5%%
+- %%WATCH_ZONE%%

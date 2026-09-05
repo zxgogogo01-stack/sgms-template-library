@@ -1,2 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://%%SITE_DOMAIN%%/</loc></url><url><loc>https://%%SITE_DOMAIN%%/article.html</loc></url><url><loc>https://%%SITE_DOMAIN%%/tool.html</loc></url><url><loc>https://%%SITE_DOMAIN%%/legal.html</loc></url></urlset>
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+  <url><loc>https://%%SITE_DOMAIN%%/</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/watch-register.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/records/signal-capture.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/records/timestamp-seal.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/records/evidence-lantern.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/records/action-log.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/records/owner-shift.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/records/dependency-door.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/records/recovery-window.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/records/observation-watch.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/records/recurrence-trace.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/records/daylight-review.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/records/correction-log.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/records/public-keycard.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/corridors/capture-corridor.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/corridors/response-corridor.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/corridors/observe-corridor.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/corridors/review-corridor.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/night-tools.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/stations/timestamp-order.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/stations/shift-overlap.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/stations/observation-window.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/stations/incident-sequence.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/stations/handoff-gates.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/about-corridor.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/contact-watch.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/relationship-log.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/scope-boundary.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/privacy-shield.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/correction-register.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/editorial-protocol.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+</urlset>
