@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://%%SITE_DOMAIN%%/</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/article.html</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/tool.html</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/legal.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-register.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-lines/question-restatement.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-lines/condition-map.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-lines/time-scope.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-lines/primary-reference.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-lines/citation-date.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-lines/inference-label.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-lines/exception-router.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-lines/risk-escalation.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-lines/answer-version.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-lines/correction-signal.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-lines/faq-coverage.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-lines/public-access-line.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/channels/intake-channel.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/channels/evidence-channel.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/channels/boundary-channel.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/channels/update-channel.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/operator-tools.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/operator-instruments/question-deduper.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/operator-instruments/field-coverage.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/operator-instruments/answer-age.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/operator-instruments/source-tier.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/operator-instruments/route-readiness.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answerdesk-charter.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/contact-channel.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/source-disclosure.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/answer-boundary.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/local-signal-privacy.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/correction-channel.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/editorial-switching.html</loc></url>
 </urlset>
