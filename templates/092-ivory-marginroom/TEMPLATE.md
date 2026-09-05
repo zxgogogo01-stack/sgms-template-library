@@ -1,49 +1,179 @@
-# 092 · Ivory Margin Room
+# 092-ivory-marginroom
 
-高端象牙纸页边研究室模板。视觉由编辑级留白、红铅笔批注、钴蓝书签、装订线和错层纸页构成；首页、长文、工具、守则与 404 均为完整独立页面。
+## 交付定位
 
-## 给后续 AI 的直接使用规则
+象牙页边阅览室的 workflow-ready v2 完整 UI 框架。后续 AI 只替换已声明变量、核实后的标题、摘要与正文，不增加页面、组件、工具、资源或导航。模板不包含可发布业务文章。
 
-这套模板的 UI、响应式布局、交互状态、可访问性和工具逻辑已经搭好。**只替换下列变量与页面文字，不要重建导航、首屏、卡片、网格、表单、报告、页脚或 CSS。** 除非用户明确要求改变设计，否则不要新增框架、组件库、远程字体、图片依赖或第三方脚本。
+## 强制使用规则
 
-建议工作流：
+1. 保留 `im92-` 类名、`data-im92-*` 钩子、路径和脚本。
+2. 十二个文章外壳分别使用 address、edition、window、ring、separation、definition、footnote、counter、scope、handoff、correction、access 组件，不互换结构。
+3. 唯一 `%%AFFILIATE_URL%%` 静态链接只保留在 `notes/public-bookmark.html`；首页只展示识别码与利益点。
+4. 五工具逻辑与状态 UI 已完成，后续不重写。
 
-1. 全局替换变量。
-2. 按站点主题改写标题、段落、书架条目与编辑守则文字。
-3. 保持现有 HTML 层级、`im92-` 类名、表单 ID、`data-im92-*` 属性与文件名不变。
-4. 如需更换主色，只修改 `marginroom.css` 顶部变量；不要复制另一套模板的样式。
-5. 用真实页面逐项核对 canonical、站内链接、邮箱、robots 与 sitemap。
+## 页面与变量
 
-## 必换变量
+- 全局：`%%LANG%%`、`%%SITE_NAME%%`、`%%BRAND_EN%%`、`%%SITE_DOMAIN%%`、`%%SITE_TAGLINE%%`、`%%SITE_DESC%%`、`%%CONTACT_EMAIL%%`。
+- 首页：`%%HERO_TITLE%%`、`%%HERO_ACCENT%%`、`%%HERO_DESC%%`、`%%PLATE_QUOTE%%`、`%%PLATE_NOTE%%`、`%%ACCESS_TITLE%%`。
+- 访问位：`%%INVITE_CODE%%`、`%%BENEFIT_RATE%%`、`%%BENEFIT_DISCLAIMER%%`、`%%AFFILIATE_URL%%`、`%%AFFILIATE_DISCLOSURE%%`、`%%ACCESS_CTA%%`。
+- 日期：`%%PUBLISHED_ISO%%`、`%%PUBLISHED_LABEL%%`、`%%MODIFIED_ISO%%`、`%%MODIFIED_LABEL%%`、`%%REVIEW_DATE%%`、`%%SECURITY_EXPIRES_ISO%%`。
+- 正文：`%%ARTICLE_TITLE%%`、`%%ARTICLE_ACCENT%%`、`%%ARTICLE_DESC%%`、`%%ARTICLE_LEAD%%`、`%%SECTION_1_TITLE%%` 至 `%%SECTION_4_BODY%%`、`%%MODULE_TITLE%%`、`%%MODULE_ITEM_1_TEXT%%` 至 `%%MODULE_ITEM_4_TEXT%%`、`%%FAQ_1_QUESTION%%` 至 `%%FAQ_2_ANSWER%%`。
+- 来源模块：`%%SOURCE_TITLE%%`、`%%SOURCE_AUTHOR%%`、`%%SOURCE_VERSION%%`、`%%SOURCE_LOCATOR%%`、`%%EDITION_DELTA%%`。
+- 分类、工具、公开页与修订页中的其余大写双百分号字段均为可换字 UI 槽位，不需要增加结构。
 
-- `%%LANG%%`：页面语言，例如 `zh-CN`
-- `%%SITE_NAME%%`：站点名称
-- `%%BRAND_EN%%`：短英文品牌名
-- `%%SITE_DOMAIN%%`：域名，不含协议和路径
-- `%%SITE_TAGLINE%%`：一句短标语
-- `%%SITE_DESC%%`：站点描述
-- `%%CONTACT_EMAIL%%`：公开联系邮箱
+## 工具合同
 
-## 页面与内容槽位
+五工具均限制 1–300 个非空行和 40,000 个 Unicode 字符，执行 NFKC，拒绝控制符与不完整 Unicode；使用 textContent 输出，覆盖错误聚焦、重置、旧结果失效、完整复制和异步复制竞态。
 
-- `index.html`：首屏宣言、本期主读、四条书架内容、公开标准入口
-- `article.html`：来源、原文窗、解释层、适用边界四段长文
-- `tool.html`：引文语境锚定台；可改说明文字，不要改输入边界与安全 DOM 输出
-- `legal.html`：来源、引文、解释、更正、联系五项公开守则
-- `404.html`：安全的本地关键词路由
-- `marginroom.css`：完整视觉与响应式系统
-- `marginalia.js`：主题、移动目录、阅读进度、复制、锚定台与 404 路由
+## 发布前模板验收
 
-## 工具契约
+运行三套静态审计、全库相似度检查和浏览器全页/双主题/四视口/五工具边界审计。
 
-锚定台在浏览器本地运行，不上传文本。来源标题为 2–160 个 Unicode 字符，定位符 1–80，引文 5–1,000，语境窗 20–6,000。比较前仅执行 NFKC、换行统一与首尾修剪；大小写及内部空白保持敏感。报告区分唯一锚点、重复出现与未能定位，界面最多显示前 20 个位置，复制报告保留前 200 个位置并标明总数。
-
-机械匹配不能证明来源真实、引文完整、上下文充分或解释正确；这条限制必须保留。
-
-## 上线前检查
-
-- 五页各只有一个 `h1`，键盘可到达菜单、表单、按钮和链接。
-- 桌面与 390px 移动端没有页面级横向溢出，交互目标至少 44×44px。
-- 404 保留 `noindex,follow`；其余页面 canonical 指向正式域名。
-- 不添加邀请、注册、返佣、价格承诺或未披露的外链。
-- 运行仓库的静态审计、验证、相似度检查与真实浏览器交互回归。
+```json workflow-ready-v2
+{
+  "version": 2,
+  "home": "index.html",
+  "articleIndex": "reading-register.html",
+  "articles": [
+    "notes/source-address.html",
+    "notes/edition-note.html",
+    "notes/quote-window.html",
+    "notes/context-ring.html",
+    "notes/statement-separation.html",
+    "notes/definition-margin.html",
+    "notes/evidence-footnote.html",
+    "notes/counterexample-note.html",
+    "notes/scope-boundary.html",
+    "notes/review-handoff.html",
+    "notes/correction-layer.html",
+    "notes/public-bookmark.html"
+  ],
+  "cornerstones": [
+    "notes/source-address.html",
+    "notes/scope-boundary.html"
+  ],
+  "registrationGuide": "notes/public-bookmark.html",
+  "articleCovers": {
+    "notes/source-address.html": {
+      "display": "assets/notes/source-address.webp",
+      "og": "assets/notes/source-address.png"
+    },
+    "notes/edition-note.html": {
+      "display": "assets/notes/edition-note.webp",
+      "og": "assets/notes/edition-note.png"
+    },
+    "notes/quote-window.html": {
+      "display": "assets/notes/quote-window.webp",
+      "og": "assets/notes/quote-window.png"
+    },
+    "notes/context-ring.html": {
+      "display": "assets/notes/context-ring.webp",
+      "og": "assets/notes/context-ring.png"
+    },
+    "notes/statement-separation.html": {
+      "display": "assets/notes/statement-separation.webp",
+      "og": "assets/notes/statement-separation.png"
+    },
+    "notes/definition-margin.html": {
+      "display": "assets/notes/definition-margin.webp",
+      "og": "assets/notes/definition-margin.png"
+    },
+    "notes/evidence-footnote.html": {
+      "display": "assets/notes/evidence-footnote.webp",
+      "og": "assets/notes/evidence-footnote.png"
+    },
+    "notes/counterexample-note.html": {
+      "display": "assets/notes/counterexample-note.webp",
+      "og": "assets/notes/counterexample-note.png"
+    },
+    "notes/scope-boundary.html": {
+      "display": "assets/notes/scope-boundary.webp",
+      "og": "assets/notes/scope-boundary.png"
+    },
+    "notes/review-handoff.html": {
+      "display": "assets/notes/review-handoff.webp",
+      "og": "assets/notes/review-handoff.png"
+    },
+    "notes/correction-layer.html": {
+      "display": "assets/notes/correction-layer.webp",
+      "og": "assets/notes/correction-layer.png"
+    },
+    "notes/public-bookmark.html": {
+      "display": "assets/notes/public-bookmark.webp",
+      "og": "assets/notes/public-bookmark.png"
+    }
+  },
+  "categories": [
+    {
+      "path": "shelves/source-shelf.html",
+      "label": "来源书架",
+      "articles": [
+        "notes/source-address.html",
+        "notes/edition-note.html",
+        "notes/quote-window.html"
+      ]
+    },
+    {
+      "path": "shelves/reading-shelf.html",
+      "label": "解释书架",
+      "articles": [
+        "notes/context-ring.html",
+        "notes/statement-separation.html",
+        "notes/definition-margin.html"
+      ]
+    },
+    {
+      "path": "shelves/boundary-shelf.html",
+      "label": "边界书架",
+      "articles": [
+        "notes/evidence-footnote.html",
+        "notes/counterexample-note.html",
+        "notes/scope-boundary.html"
+      ]
+    },
+    {
+      "path": "shelves/revision-shelf.html",
+      "label": "修订书架",
+      "articles": [
+        "notes/review-handoff.html",
+        "notes/correction-layer.html",
+        "notes/public-bookmark.html"
+      ]
+    }
+  ],
+  "toolIndex": "margin-tools.html",
+  "tools": [
+    "instruments/citation-fields.html",
+    "instruments/quote-locator.html",
+    "instruments/annotation-inventory.html",
+    "instruments/edition-pairs.html",
+    "instruments/reading-gates.html"
+  ],
+  "legal": {
+    "about": "about-room.html",
+    "contact": "contact-desk.html",
+    "disclosure": "relationship-note.html",
+    "disclaimer": "scope-notice.html",
+    "privacy": "desk-privacy.html",
+    "corrections": "correction-ledger.html",
+    "editorial": "editorial-rules.html"
+  },
+  "error404": "404.html",
+  "robots": "robots.txt",
+  "sitemap": "sitemap.xml",
+  "feed": "feed.xml",
+  "security": ".well-known/security.txt",
+  "favicon": "favicon.ico",
+  "appleTouchIcon": "apple-touch-icon.png",
+  "socialImage": "assets/margin-social.png",
+  "variables": {
+    "siteDomain": "%%SITE_DOMAIN%%",
+    "siteName": "%%SITE_NAME%%",
+    "wordmark": "%%BRAND_EN%%",
+    "inviteCode": "%%INVITE_CODE%%",
+    "benefitRate": "%%BENEFIT_RATE%%",
+    "benefitDisclaimer": "%%BENEFIT_DISCLAIMER%%",
+    "affiliateUrl": "%%AFFILIATE_URL%%"
+  }
+}
+```
