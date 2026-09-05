@@ -1,1 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://%%SITE_DOMAIN%%/</loc></url><url><loc>https://%%SITE_DOMAIN%%/article.html</loc></url><url><loc>https://%%SITE_DOMAIN%%/tool.html</loc></url><url><loc>https://%%SITE_DOMAIN%%/legal.html</loc></url></urlset>
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+  <url><loc>https://%%SITE_DOMAIN%%/</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/canvas-index.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studies/source-field.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studies/native-scale.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studies/crop-witness.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studies/negative-space.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studies/color-notation.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studies/sequence-ribbon.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studies/credit-line.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studies/caption-baseline.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studies/alt-text-lanes.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studies/permission-frame.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studies/revision-overlay.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studies/public-edition.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/fields/collection-field.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/fields/composition-field.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/fields/attribution-field.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/fields/publication-field.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/canvas-tools.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/ratio-reducer.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/crop-fit.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/sequence-gaps.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/text-balance.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/rights-gates.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/about-canvas.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/contact-studio.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/relationship-note.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/viewing-boundary.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/privacy-canvas.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/revision-register.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/curation-method.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+</urlset>
