@@ -134,7 +134,7 @@
 | 087-coral-routeatlas | 珊瑚路线图谱 | 保留珊瑚/深青纸张与夜航双主题、折叠路线图、坐标带、四站航线和全部首页旧类名，补齐四张图幅、十二种正文组件、五件本地测绘工具与完整公开说明；原包忠实度未核验 | workflow-ready v2 | 有 |
 | 088-umber-casebook | 赭色调查案卷 | 保留赭色纸张/暗房双主题、案卷夹、证物袋、索引签、登记台及原 CSS/JS，补齐四张档案桌、十二种正文组件、五件本地案卷工具和完整公开说明；原包忠实度未核验 | workflow-ready v2 | 有 |
 | 089-sage-answerdesk | 鼠尾草问答交换台 | 保留鼠尾草日间/夜间双主题、彩色跳线、插孔板、频率表及原 CSS/JS，补齐四个回答频道、十二种完整正文外壳、五件问句/字段/时效/来源/就绪工具和完整公开说明；原包忠实度未核验 | workflow-ready v2 | 有 |
-| 090-plum-portraitjournal | 梅紫肖像日志 | 军哥 home_portrait_journal 忠实静态化，保留主题侧轨、引语导语、人物主稿、四张档案和最近记录 | 新增复刻 | 有 |
+| 090-plum-portraitjournal | 梅紫肖像印样刊 | workflow-ready v2 完整人物刊物框架，保留印样侧轨、引语导语、抽象肖像与梅紫双主题；含人物登记页、四类分册、12 套独立正文组件、5 个本地校验工具及完整公开说明，后续 AI 只需替换已声明文字与变量 | 完整框架 | 有 |
 | 091-duotone-counterpoint | 双色对位 | 军哥 home_counterpoint 忠实静态化，保留左右 Hero、命题条、交替阅读路径和底部台账 | 新增复刻 | 有 |
 | 092-ivory-marginroom | 象牙页边阅览室 | 军哥 home_margin_reading_room 忠实静态化，保留三段导语、七镜头、主阅读、伴读和书目台账 | 新增复刻 | 有 |
 | 093-blue-progressbulletin | 蓝灰进度公报 | 军哥 home_progress_bulletin 忠实静态化，保留单双列 Hero、精选公报、六栏目状态板和更新台账 | 新增复刻 | 有 |

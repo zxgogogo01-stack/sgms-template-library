@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://%%SITE_DOMAIN%%/</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/article.html</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/tool.html</loc></url>
-  <url><loc>https://%%SITE_DOMAIN%%/legal.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portrait-register.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portraits/context-opening.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portraits/timeline-portrait.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portraits/turning-point.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portraits/voice-notes.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portraits/method-routine.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portraits/source-portrait.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portraits/consent-boundary.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portraits/identity-minimization.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portraits/context-window.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portraits/quotation-review.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portraits/correction-trail.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portraits/public-access-portrait.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/background-folio.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/practice-folio.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/boundary-folio.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/folios/review-folio.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studio-tools.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studio-instruments/identity-map.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studio-instruments/quote-source.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studio-instruments/consent-scope.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studio-instruments/portrait-timeline.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/studio-instruments/release-gate.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portrait-charter.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/contact-sheet.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/relationship-disclosure.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/portrait-boundary.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/local-proof-privacy.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/correction-proof.html</loc></url>
+  <url><loc>https://%%SITE_DOMAIN%%/editorial-sittings.html</loc></url>
 </urlset>
