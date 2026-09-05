@@ -1,2 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://%%SITE_DOMAIN%%/</loc></url><url><loc>https://%%SITE_DOMAIN%%/article.html</loc></url><url><loc>https://%%SITE_DOMAIN%%/tool.html</loc></url><url><loc>https://%%SITE_DOMAIN%%/legal.html</loc></url></urlset>
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+  <url><loc>https://%%SITE_DOMAIN%%/</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/route-atlas.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/notes/baseline-marker.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/notes/source-altimeter.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/notes/stop-line.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/notes/grade-break.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/notes/descent-debt.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/notes/switchback-note.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/notes/weather-window.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/notes/turnaround-trigger.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/notes/uncertainty-band.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/notes/waypoint-handoff.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/notes/revision-route.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/notes/public-route-pass.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/routes/baseline-deck.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/routes/terrain-deck.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/routes/decision-deck.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/routes/handoff-deck.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/flight-instruments.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/elevation-ledger.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/segment-gradient.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/checkpoint-window.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/route-order.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/instruments/handoff-gates.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/about-observatory.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/contact-route.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/relationship-disclosure.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/route-boundary.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/privacy-altitude.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/correction-log.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+  <url><loc>https://%%SITE_DOMAIN%%/editorial-flightplan.html</loc><lastmod>%%MODIFIED_ISO%%</lastmod></url>
+</urlset>
